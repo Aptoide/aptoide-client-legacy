@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cm.aptoide.pt">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AptoideThemeDefault">
+
+        <meta-data android:name="LOCALYTICS_APP_KEY" android:value="${LOCALYTICS_APP_KEY}"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="cm.aptoide.pt.SearchActivity" />
+        </activity>
+
+        <activity
+            android:name=".StoresActivity"
+            android:launchMode="singleTop"
+            android:label="Store">
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="cm.aptoide.pt.SearchActivity" />
+        </activity>
+
+
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="cm.aptoide.pt.SearchActivity" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+        </activity>
+
+        <activity android:name=".AppViewActivity">
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="cm.aptoide.pt.SearchActivity" />
+        </activity>
+        <activity android:name="com.aptoide.amethyst.ui.PermissionsActivity"/>
+        <activity android:name=".ui.ExcludedUpdatesActivity" />
+        <activity android:name=".ui.RollbackActivity" />
+        <activity android:name=".ui.ScheduledDownloadsActivity" />
+        <activity android:name="com.aptoide.amethyst.ui.ScreenshotsViewer"/>
+        <activity android:name=".TimeLineNoFriendsInviteActivity"/>
+        <activity android:name=".UploadApkActivity"/>
+        <activity android:name=".MakeReviewActivity"/>
+        <activity android:name=".ui.MoreVersionsActivity"/>
+        <activity android:name=".MoreSearchActivity"/>
+
+        <activity
+            android:name=".appwidget.SearchWidgetActivity"
+            android:launchMode="singleInstance" />
+
+        <service android:name=".services.UpdatesService"/>
+
+        <service
+        android:name="cm.aptoide.pt.services.DownloadService"
+        android:exported="false"
+        android:label="DownloadService" />
+
+        <receiver android:name=".receivers.InstalledBroadcastReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".pushnotification.PushNotificationReceiver">
+            <intent-filter>
+                <action android:name="cm.aptoide.pt.PushNotification" />
+                <action android:name="cm.aptoide.pt.PushNotificationTrackUrl" />
+
+                <action android:name="cm.aptoide.pt.PushNotificationFirstTime" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".appwidget.SearchWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/search_widget_info" />
+        </receiver>
+
+        <provider
+            android:name=".SuggestionProvider"
+            android:authorities="cm.aptoide.ptdev.SuggestionProvider"
+            android:exported="false" />
+
+        <provider android:name=".StubProvider"
+            android:authorities="cm.aptoide.pt.StubProvider"
+            android:exported="true"/>
+
+
+        <provider
+            android:name="com.aptoide.amethyst.database.provider.DatabaseProvider"
+            android:authorities="com.aptoide.amethyst.database.provider.DatabaseProvider"
+            android:exported="true" >
+        </provider>
+
+        <activity
+            android:name=".receivers.IntentReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:mimeType="application/vnd.cm.aptoide.pt"
+                    android:scheme="file" />
+                <data
+                    android:mimeType="application/vnd.cm.aptoide.pt"
+                    android:scheme="http" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="aptoiderepo" />
+                <data android:scheme="aptoidexml" />
+                <data android:scheme="aptoideinstall" />
+                <data android:scheme="aptoidesearch" />
+                <data android:scheme="aptword" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="market" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="market.android.com"
+                    android:scheme="https" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="webservices.aptoide.com"
+                    android:pathPrefix="/apkinstall"
+                    android:scheme="http" />
+
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="play.google.com"
+                    android:scheme="https" />
+                <data
+                    android:host="play.google.com"
+                    android:scheme="http" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="imgs.aptoide.com"
+                    android:pathPattern="*//.myapp"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.MoreListViewItemsActivity">
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value="cm.aptoide.pt.SearchActivity" />
+        </activity>
+
+        <activity android:name=".ui.MoreListViewItemsBrickActivity"/>
+        <activity android:name=".ui.MoreStoreWidgetActivity"/>
+        <activity android:name=".ui.MoreHighlightedActivity"/>
+        <activity android:name=".ui.MoreFriendsInstallsActivity"/>
+        <activity android:name=".ui.MoreReviewsActivity"/>
+        <activity android:name=".ui.MoreCommentsActivity"/>
+        <activity android:name=".ui.SettingsActivity"/>
+        <activity android:name=".ui.ReviewActivity"/>
+        <activity android:name=".tutorial.Tutorial"/>
+
+        <receiver
+            android:name=".receivers.NetworkStateReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="org.onepf.oms.StoreService"
+            android:exported="true" android:permission="org.onepf.openiab.permission.BILLING">
+            <intent-filter>
+                <action android:name="org.onepf.oms.openappstore.BIND" />
+            </intent-filter>
+
+        </service>
+
+        <service
+            android:name="org.onepf.oms.BillingService"
+            android:exported="true" android:permission="org.onepf.openiab.permission.BILLING">
+
+            <intent-filter>
+                <action android:name="org.onepf.oms.billing.BIND" />
+            </intent-filter>
+        </service>ac
+
+        <activity
+            android:name="cm.aptoide.pt.openiab.IABPurchaseActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+            android:theme="@style/PurchaseDialog" />
+
+        <activity android:name="cm.aptoide.pt.openiab.PaidAppPurchaseActivity" android:theme="@style/PurchaseDialog"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize" />
+
+        <service
+            android:name="com.paypal.android.sdk.payments.PayPalService"
+            android:exported="false" />
+
+
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+
+        <receiver android:name="cm.aptoide.pt.openiab.PayPalReceiver" >
+            <intent-filter>
+                <action android:name="PAYPAL_PAYMENT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Declare these objects, this is part of Fortumo SDK, and should not be called directly -->
+        <receiver android:name="mp.MpSMSReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <service android:name="mp.MpService" />
+        <service android:name="mp.StatusUpdateService" />
+        <activity android:name="mp.MpActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+    </application>
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <!-- Define your own permission to protect payment broadcast -->
+    <permission android:name="cm.aptoide.pt.PAYMENT_BROADCAST_PERMISSION"
+        android:label="Read payment status"
+        android:protectionLevel="signature" />
+    <!-- "signature" permission granted automatically by system, without notifying user. -->
+    <uses-permission android:name="cm.aptoide.pt.PAYMENT_BROADCAST_PERMISSION" />
+
+    <!-- If your app doesn't need to make phone calls, you can add this, so the app
+    could be installed on tablets. -->
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+
+</manifest>

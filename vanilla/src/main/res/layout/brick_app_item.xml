@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/white_card"
+                android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/featured_graphic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:src="@drawable/img_navdrawer_wallpaper"/>
+
+    <RelativeLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#b0000000"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="1.5dp"
+            android:text="Little Commander worl world II"
+            android:textColor="@color/white"/>
+
+
+        <RatingBar
+            android:id="@+id/ratingbar"
+            style="@style/RatingBarSmallAptoide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:paddingLeft="1.5dp"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/confirmIgnoreUpdateUninstall"
+    android:clickable="true"
+    android:paddingTop="10dp"
+    android:paddingBottom="@dimen/excludeUpdatePadding"
+    style="@style/focusableRowBackground">
+
+    <TextView
+        android:id="@+id/tvUpdateUninstall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/ignoreUpdateText"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

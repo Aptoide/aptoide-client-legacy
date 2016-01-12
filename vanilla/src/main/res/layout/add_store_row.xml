@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/white_card"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/more"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/aptoide_orange"
+        android:gravity="center"
+        android:onClick="showAddStoreDialog"
+        android:padding="16dp"
+        android:text="Add more stores"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>

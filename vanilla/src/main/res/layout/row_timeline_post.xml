@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        style="?attr/backgroundCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+
+            <TextView
+                android:id="@+id/timeline_post_likes_and_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/timeline_post_open"
+                android:layout_below="@+id/timeline_post_open"
+                android:background="?attr/selectableItemBackground"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/timeline_post_user_photo"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:contentDescription="fb_photo"
+                android:scaleType="fitXY"
+                android:src="@drawable/facebook_profile_pic" />
+
+            <TextView
+                android:id="@+id/timeline_post_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/timeline_post_user_photo"
+                android:layout_toLeftOf="@+id/timeline_post_options"
+                android:layout_toRightOf="@id/timeline_post_user_photo"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/timeline_post_timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/timeline_post_user_name"
+                android:layout_toEndOf="@id/timeline_post_user_photo"
+                android:layout_toLeftOf="@+id/timeline_post_options"
+                android:layout_toRightOf="@id/timeline_post_user_photo"
+                android:drawableLeft="@drawable/ic_timestamp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+            <Button
+                android:id="@+id/timeline_post_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableLeft="?attr/icCancelDrawable"
+                android:text="@string/hide_post"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/darker_gray"
+                android:paddingRight="6dp"
+                android:layout_alignTop="@+id/timeline_post_user_name"
+                android:layout_alignRight="@+id/timeline_post_open" />
+
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/timeline_post_open"
+                style="?attr/customRowForegroundHomeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/timeline_post_user_photo"
+                android:layout_margin="10dp">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/timelinePostBackground"
+                    android:padding="5dp">
+
+
+                    <ImageView
+                        android:id="@+id/timeline_post_app_icon"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_non_available" />
+
+                    <TextView
+                        android:id="@+id/timeline_post_app_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toRightOf="@+id/timeline_post_app_icon"
+                        android:ellipsize="end"
+                        android:gravity="bottom"
+                        android:maxLines="1"
+
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/timeline_post_app_version"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/timeline_post_app_name"
+                        android:layout_below="@+id/timeline_post_app_name"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <TextView
+                        android:id="@+id/timeline_post_app_store"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/timeline_post_app_version"
+                        android:layout_below="@+id/timeline_post_app_version"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </RelativeLayout>
+            </FrameLayout>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="?attr/timelineButtonsBackgroundColor"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/timeline_post_like_button"
+                style="?attr/customRowForegroundHomeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:clickable="true">
+
+                <TextView
+                    android:id="@+id/timeline_post_like_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="?attr/icLikeDrawable"
+                    android:gravity="center"
+                    android:text="@string/like" />
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/medium_custom_gray" />
+
+            <FrameLayout
+                android:id="@+id/timeline_post_comment"
+                style="?attr/customRowForegroundHomeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="?attr/icViewMoreComments"
+                    android:gravity="center"
+                    android:text="@string/comment" />
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

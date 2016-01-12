@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- referenced on android tv -->
+<!--
+<style name="backgroundCard">
+        <item name="android:background">@drawable/background_card_dark</item>
+    </style>
+    -->
+
+    <style name="focusableBackground">
+        <item name="android:foreground">@drawable/highlight_overlay</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+
+    <style name="RatingBarSmallAptoide">
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:minHeight">16dp</item>
+        <item name="android:maxHeight">16dp</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="RatingBarAppviewRatingCard">
+        <item name="android:progressDrawable">@drawable/rating_bar_small</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:minHeight">13dp</item>
+        <item name="android:maxHeight">13dp</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="RatingBarAppviewAppbarRating">
+        <item name="android:progressDrawable">@drawable/rating_bar_small</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:minHeight">13dp</item>
+        <item name="android:maxHeight">13dp</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="RatingBarGridItem">
+        <item name="android:progressDrawable">@drawable/rating_bar_grid_item</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:minHeight">13dp</item>
+        <item name="android:maxHeight">13dp</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="RateThisAppBarAppviewAppbarRating" >
+        <item name="android:progressDrawable">@drawable/rating_bar_big</item>
+        <item name="android:minHeight">22dip</item>
+        <item name="android:maxHeight">22dip</item>
+    </style>
+
+    <style name="backgroundCardStyleLight">
+        <item name="android:background">@drawable/background_card_light</item>
+    </style>
+
+    <style name="WidgetButtonCustomAptoide" parent="WidgetButtonCustom">
+        <item name="android:background">@drawable/aptoide_btn_default_holo_light</item>
+    </style>
+
+    <style name="WidgetButtonCustom" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="backgroundCardStyleDark">
+        <item name="android:background">@drawable/background_card_dark</item>
+    </style>
+
+    <style name="backgroundTabsStyleDark">
+        <item name="android:background">@drawable/background_tabs_dark</item>
+    </style>
+
+    <style name="navigationDrawerColorDark">
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="headerSeparatorButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Small</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:layout_gravity">center_vertical|right</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="WidgetButtonCustomGray" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/gray_btn_default_holo_light</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="focusableRowBackground">
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="Theme.AppCompat"/>
+
+    <style name="customRowStyle">
+        <item name="android:foreground">@drawable/highlight_overlay</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <style name="Widget.Aptoide.RatingBar.GridItem" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+    </style>
+
+    <style name="titleLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
+        <item name="android:textColor">@color/dark_custom_gray</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="badgeReasonStyle">
+        <item name="android:paddingRight">44dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Small</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="HeaderText" parent="TextAppearance.AppCompat.Medium"/>
+
+    <style name="WidgetButtonCarrierBillingFortumo" parent="WidgetButtonCustom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:drawableLeft">@drawable/ic_action_fortumo</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:background">@drawable/fortumo_btn_default_holo_light</item>
+    </style>
+
+
+</resources>

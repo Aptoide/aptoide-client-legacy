@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Different layouts to distinguish them in the ViewHolder
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:clickable="true"
+             android:layout_height="wrap_content"
+             android:foreground="?selectableItemBackground">
+
+    <include
+        android:id="@+id/row_app_notongoing"
+        layout="@layout/row_app_downloading"/>
+</FrameLayout>

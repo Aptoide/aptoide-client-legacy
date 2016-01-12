@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu_install"
+          app:showAsAction="always"
+          android:title="@string/schDown_installselected" />
+
+    <item android:id="@+id/menu_remove"
+          app:showAsAction="collapseActionView"
+          android:title="@string/schDown_removeselected" />
+
+    <item android:id="@+id/menu_invert"
+          app:showAsAction="collapseActionView"
+          android:title="@string/schDown_invertselection"/>
+
+    <item android:id="@+id/menu_SendFeedBack"
+        app:showAsAction="never"
+        android:title="@string/feedback_send_button"/>
+</menu>

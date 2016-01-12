@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/more_layout"
+    style="@style/focusableRowBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp"
+    android:orientation="vertical"
+    android:paddingRight="12dp">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/HeaderText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"/>
+
+    <Button
+        android:id="@+id/more"
+        style="@style/Widget.Aptoide.Button.Header"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/button_header_more"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:textAllCaps="true"/>
+
+</RelativeLayout>
