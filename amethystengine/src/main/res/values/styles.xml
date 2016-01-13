@@ -68,6 +68,12 @@
 
     <style name="WidgetButtonCustomAptoide" parent="WidgetButtonCustom">
         <item name="android:background">@drawable/aptoide_btn_default_holo_light</item>
+        <item name="android:textColor" >@color/white</item>
+    </style>
+
+    <style name="WidgetButtonCustomAptoideWhite" parent="WidgetButtonCustom">
+        <item name="android:background">@drawable/aptoide_white_btn_default_holo_light</item>
+        <item name="android:textColor" >@color/orange_700</item>
     </style>
 
     <style name="WidgetButtonCustom" parent="@android:style/Widget.Button">

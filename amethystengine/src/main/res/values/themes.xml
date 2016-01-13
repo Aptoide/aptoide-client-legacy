@@ -82,6 +82,7 @@
         <item name="android:ratingBarStyle">@style/RatingBarSmallAptoide</item>
         <item name="customColor">@color/aptoide_orange</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="customButtonColorWhite">@style/WidgetButtonCustomAptoideWhite</item>
         <item name="gridItemRatingBar">@style/Widget.Aptoide.RatingBar.GridItem</item>
 
         <!--   theme UI controls like checkboxes and text fields -->
@@ -99,6 +100,7 @@
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar.Aptoide</item>
         <item name="android:windowBackground">@color/background_window</item>
         <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
+        <item name="customButtonColorWhite">@style/WidgetButtonCustomAptoideWhite</item>
         <item name="customColor">@color/aptoide_orange</item>
         <item name="headerSeparatorButton">@style/headerSeparatorButtonStyleAptoide</item>
         <item name="homeLabelbackground">@drawable/app_header_bgd_aptoide_light</item>
