@@ -299,7 +299,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 
             Intent i = new Intent(this, appViewClass);
 
-            i.putExtra("fromMyapp", true);
+            i.putExtra(Constants.FROM_MY_APP_KEY, true);
             i.putExtra(Constants.APP_ID_KEY, id);
             i.putExtra("cpi", cpi);
             i.putExtra("download_from", "my_app_with_cpi");

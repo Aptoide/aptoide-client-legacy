@@ -1188,7 +1188,7 @@ public class AppViewActivity extends AptoideBaseActivity implements FlagApkDialo
     }
 
     private void showDialogIfComingFromBrowser() {
-        if (getIntent().getBooleanExtra("fromMyapp", false) && !isPaidApp()) {
+        if (getIntent().getBooleanExtra(Constants.FROM_MY_APP_KEY, false) && !isPaidApp()) {
             AptoideDialog.myAppInstall(appName, getMyAppListener(), getOnDismissListener()).show(getSupportFragmentManager(), "myApp");
         }
     }

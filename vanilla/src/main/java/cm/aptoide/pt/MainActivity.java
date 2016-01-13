@@ -22,6 +22,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +47,7 @@ import com.aptoide.amethyst.model.json.OAuth;
 import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.amethyst.ui.MyAccountActivity;
 import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Base64;
 import com.aptoide.amethyst.utils.Configs;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
@@ -55,15 +58,23 @@ import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.Defaults;
+import com.aptoide.models.ApkSuggestionJson;
 import com.aptoide.models.stores.Store;
 import com.astuetz.PagerSlidingTabStrip;
 import com.bumptech.glide.Glide;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.flurry.android.FlurryAgent;
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 import com.squareup.otto.Subscribe;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -255,7 +266,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
         }
 
-
+        hasBootOptions();
         mNavigationView.setItemIconTintList(null);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -320,6 +331,97 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         Analytics.Dimenstions.setPartnerDimension(getPartnerName());
         Analytics.Dimenstions.setVerticalDimension(getVertical());
         Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
+    }
+
+    private void hasBootOptions() {
+        try {
+            InputStream is = getAssets().open("actionsOnBoot.properties");
+            Properties properties = new Properties();
+            properties.load(is);
+            Intent intent = null;
+            if (properties.containsKey("downloadId")) {
+                intent = new Intent(this, AppViewActivity.class);
+
+                String id = properties.getProperty("downloadId");
+                long savedId = sharedPreferences.getLong("downloadId", 0);
+
+                if (Long.valueOf(id) != savedId) {
+                    sharedPreferences.edit().putLong("downloadId", Long.valueOf(id)).apply();
+
+                    intent.putExtra("fromApkInstaller", true);
+                    intent.putExtra(Constants.FROM_MY_APP_KEY, true);
+                    intent.putExtra(Constants.APP_ID_KEY, Long.valueOf(id));
+
+
+                    if (properties.containsKey("cpi_url")) {
+
+                        String cpi = properties.getProperty("cpi_url");
+
+                        try {
+                            cpi = URLDecoder.decode(cpi, "UTF-8");
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+
+                        intent.putExtra(Constants.CPI_KEY, cpi);
+                    }
+
+                    FlurryAgent.logEvent("Started_From_Apkfy");
+                    startActivityForResult(intent, WIZARD_REQ_CODE);
+
+                }
+
+            } else if (properties.containsKey("aptword")) {
+                String param = properties.getProperty("aptword");
+
+                if (!TextUtils.isEmpty(param)) {
+
+                    param = param.replaceAll("\\*", "_").replaceAll("\\+", "/");
+
+                    String json = new String(Base64.decode(param.getBytes(), 0));
+
+                    Log.d("AptoideAptWord", json);
+
+                    ObjectMapper mapper = new ObjectMapper();
+
+                    ApkSuggestionJson.Ads ad = mapper.readValue(json, ApkSuggestionJson.Ads.class);
+
+                    intent = new Intent(this, AppViewActivity.class);
+                    long id = ad.getData().getId().longValue();
+                    long adId = ad.getInfo().getAd_id();
+                    intent.putExtra(Constants.APP_ID_KEY, id);
+                    intent.putExtra(Constants.AD_ID_KEY, adId);
+                    intent.putExtra(Constants.PACKAGENAME_KEY, ad.getData().getPackageName());
+                    intent.putExtra(Constants.STORENAME_KEY, ad.getData().getRepo());
+                    intent.putExtra(Constants.FROM_SPONSORED_KEY, true);
+                    intent.putExtra(Constants.LOCATION_KEY, Constants.HOMEPAGE_KEY);
+                    intent.putExtra(Constants.KEYWORD_KEY, "__NULL__");
+                    intent.putExtra(Constants.CPC_KEY, ad.getInfo().getCpc_url());
+                    intent.putExtra(Constants.CPI_KEY, ad.getInfo().getCpi_url());
+                    intent.putExtra(Constants.WHERE_FROM_KEY, Constants.FROM_SPONSORED_KEY);
+                    intent.putExtra(Constants.DOWNLOAD_FROM_KEY, Constants.FROM_SPONSORED_KEY);
+
+                    if (ad.getPartner() != null) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString(Constants.PARTNER_TYPE_KEY, ad.getPartner().getPartnerInfo().getName());
+                        bundle.putString(Constants.PARTNER_CLICK_URL_KEY, ad.getPartner().getPartnerData().getClick_url());
+                        intent.putExtra(Constants.PARTNER_EXTRA, bundle);
+                    }
+                    startActivityForResult(intent, WIZARD_REQ_CODE);
+
+                }
+
+            }
+
+
+
+        } catch (IOException e) {
+            Log.e("MYTAG", "");
+            //e.printStackTrace();
+        } catch (NullPointerException e) {
+            //e.printStackTrace();
+        }
+
     }
 
     private void syncInstalledApps() {

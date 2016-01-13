@@ -6,6 +6,10 @@
             android:name=".AptoideSpiceHttpService"
             android:exported="false"
             android:label="AptoideSpiceHttpService" />
+        <service
+            android:name=".AptoideSpiceHttpsService"
+            android:exported="false"
+            android:label="AptoideSpiceHttpService" />
     </application>
 
 </manifest>

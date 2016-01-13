@@ -111,7 +111,7 @@
     <string name="forgot_passwd">Forgot password?</string>
     <string name="error_occured">An error occurred. Please try again</string>
     <string name="simple_error_occured">An error occurred. </string>
-    <string name="or">Or</string>
+    <string name="or">- Or -</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="username">Email</string>
