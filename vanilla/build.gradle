@@ -11,8 +11,8 @@ android {
     defaultConfig {
         applicationId "cm.aptoide.pt.dev"
         targetSdkVersion 23
-        versionCode 472
-        versionName "7.0.5"
+        versionCode 473
+        versionName "7.0.6"
     }
 
     dexOptions {
