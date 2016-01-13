@@ -1108,8 +1108,10 @@ public class AptoideUtils {
                 dpi = 240;
             } else if (dpi <= 320) {
                 dpi = 320;
-            } else {
+            } else if (dpi <= 480) {
                 dpi = 480;
+            } else {
+                dpi = 640;
             }
 
             return dpi;

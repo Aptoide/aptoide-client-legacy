@@ -40,6 +40,8 @@ public class IconSizeUtils {
             densityMultiplier = 2f;
         }else if (densityMultiplier <= 3f) {
             densityMultiplier = 3f;
+        } else {
+            densityMultiplier = 4f;
         }
 
 
@@ -79,6 +81,8 @@ public class IconSizeUtils {
             densityMultiplier = 2f;
         }else if (densityMultiplier <= 3f) {
             densityMultiplier = 3f;
+        } else {
+            densityMultiplier = 4f;
         }
 
 
@@ -114,6 +118,8 @@ public class IconSizeUtils {
             densityMultiplier = 2f;
         }else if (densityMultiplier <= 3f) {
             densityMultiplier = 3f;
+        }else {
+            densityMultiplier = 4f;
         }
 
 //        switch (density){
@@ -147,6 +153,8 @@ public class IconSizeUtils {
             densityMultiplier = 2f;
         }else if (densityMultiplier <= 3f) {
             densityMultiplier = 3f;
+        }else {
+            densityMultiplier = 4f;
         }
 
         int size;
