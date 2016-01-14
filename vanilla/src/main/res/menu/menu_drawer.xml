@@ -34,10 +34,7 @@
         android:id="@+id/navigation_item_backup_apps"
         android:icon="@drawable/ic_action_backup_custom"
         android:title="@string/backup_apps" />
-    <!--
-        <group android:checkableBehavior="single">
 
-    -->
 
     <group>
         <item android:title="@string/drawer_social_media_title">
@@ -54,6 +51,8 @@
         </item>
     </group>
 
+    <item android:id="@+id/send_feedback"
+        android:title="@string/feedback_send_button"/>
     <!--    </group>
 
 
