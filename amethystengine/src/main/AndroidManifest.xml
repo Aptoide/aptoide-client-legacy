@@ -52,6 +52,9 @@
             android:name="com.aptoide.amethyst.social.WebViewTwitter"
             android:theme="@style/AptoideThemeDefault"/>
 
+        <activity
+            android:name="com.aptoide.amethyst.SignUpActivity"
+            android:theme="@style/AptoideThemeDefault"/>
 
         <activity android:name="fortumo.FortumoPaymentActivity"/>
 

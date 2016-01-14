@@ -275,7 +275,8 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
                                         }
                                     }, new Handler(Looper.getMainLooper()));
                                 } else {
-                                    Toast.makeText(LoginActivity.this, session.getDeclinedPermissions().toString(), Toast.LENGTH_SHORT).show();
+                                    //TODO show denied permissions
+//                                    Toast.makeText(LoginActivity.this, session.getDeclinedPermissions().toString(), Toast.LENGTH_SHORT).show();
                                     submit(Mode.FACEBOOK, user.getProperty("email").toString(), session.getAccessToken(), null);
                                 }
 
@@ -503,7 +504,9 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
             registerButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    createAccount();
+//                    createAccount();
+                    Intent signup = new Intent(LoginActivity.this, signupClass);
+                    startActivityForResult(signup, REQ_SIGNUP);
                 }
             });
 
@@ -652,18 +655,18 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
         spiceManager.execute(oAuth2AuthenticationRequest, new RequestListener<OAuth>() {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
-
-                String error = null;
-                if (spiceException.getCause() instanceof RetrofitError) {
-                    final RetrofitError cause = (RetrofitError) spiceException.getCause();
-                    if (cause != null && cause.getResponse() != null && cause.getResponse().getStatus() == 400 || cause.getResponse().getStatus() == 401) {
-                        error = getString(R.string.error_AUTH_1);
+                if (spiceException != null && spiceException.getCause() != null) {
+                    String error = null;
+                    if (spiceException.getCause() instanceof RetrofitError) {
+                        final RetrofitError cause = (RetrofitError) spiceException.getCause();
+                        if (cause != null && cause.getResponse() != null && cause.getResponse().getStatus() == 400 || cause.getResponse().getStatus() == 401) {
+                            error = getString(R.string.error_AUTH_1);
+                        } else {
+                            error = getString(R.string.error_occured);
+                        }
                     } else {
                         error = getString(R.string.error_occured);
                     }
-                } else {
-                    error = getString(R.string.error_occured);
-                }
 
 //                Session session = Session.getActiveSession();
 
@@ -676,7 +679,8 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
 //                    mPlusClient.disconnect();
 //                }
 
-                Toast.makeText(getBaseContext(), error, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), error, Toast.LENGTH_SHORT).show();
+                }
 
                 android.support.v4.app.DialogFragment pd = (android.support.v4.app.DialogFragment) getSupportFragmentManager().findFragmentByTag("pleaseWaitDialog");
                 if (pd != null) {

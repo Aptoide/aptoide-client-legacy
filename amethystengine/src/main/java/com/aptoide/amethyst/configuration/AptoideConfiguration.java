@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LoginActivity;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.SignUpActivity;
 import com.aptoide.dataprovider.webservices.models.Defaults;
 
 import java.io.File;
@@ -119,7 +120,7 @@ public class AptoideConfiguration {
     }
 
     public Class getSignUpActivityClass() {
-        return LoginActivity.class;
+        return SignUpActivity.class;
     }
 
     public String getExtraId(){

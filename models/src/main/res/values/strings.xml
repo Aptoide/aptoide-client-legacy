@@ -138,7 +138,7 @@
     <string name="feedback_not_valid">Please enter some valid Subject!</string>
     <string name="feedback_no_email">No email client installed!</string>
     <string name="register">Sign Up</string>
-    <string name="password_validation_text">Password must be at least 8 characters and should have at least one letter and one number or special characters (!@#$%*)
+    <string name="password_validation_text">Password must be at least 8 characters long and have one letter and one number or special character (!@#$%*)
     </string>
     <string name="about_aptoide_antimalware">Aptoide Anti-Malware platform analyses applications in run-time and disables potential threats across all stores. This system scans all the new application files from the stores and certificates them by comparison against other Android Marketplaces.</string>
     <string name="username_tip">Type your email</string>
@@ -609,5 +609,8 @@
     <string name="privacy_policy">Privacy Policy: %s</string>
     <string name="dialog_version_size">Version: %1$s | Size: %2$s</string>
     <string name="na">N/A</string>
+    <string name="no_email_and_pass_error_message">Please insert an email and password to register.</string>
+    <string name="no_pass_error_message">Please insert a password to register.</string>
+    <string name="no_email_error_message">Please insert an email to register.</string>
 
 </resources>
