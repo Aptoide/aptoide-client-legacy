@@ -114,8 +114,6 @@ dependencies {
     compile project(':amethystengine')
     compile 'com.commonsware.cwac:endless:1.2.3'
     provided 'org.projectlombok:lombok:1.16.4'
-    //testCompile 'org.robolectric:robolectric:3.0'
-    //testCompile "org.assertj:assertj-core:1.7.0"
 }
 
 def File propFile = new File('signing.properties')
