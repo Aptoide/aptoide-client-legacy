@@ -69,7 +69,15 @@ android {
         }
     }
 
+    variantFilter { variant ->
+        def names = variant.flavors*.name
+        if (names.contains("prod") && variant.buildType.name == "debug") {
+            variant.ignore = true
+        }
+    }
+
     lintOptions {
+        abortOnError false
         disable 'InvalidPackage'
     }
 
