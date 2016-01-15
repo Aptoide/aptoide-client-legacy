@@ -6,14 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.FeedBackActivity;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
-import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.AdItem;
 import com.aptoide.models.ApkSuggestionJson;
-import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
@@ -51,8 +48,6 @@ public class MoreHighlightedActivity extends MoreActivity {
         @Override
         protected void executeSpiceRequest(boolean useCache) {
 
-            long cacheExpiryDuration = useCache ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
-
             final GetAdsRequest request = new GetAdsRequest();
             request.setLimit(ADS_LIMIT);
             request.setLocation("homepage");
@@ -60,11 +55,7 @@ public class MoreHighlightedActivity extends MoreActivity {
 
 
             // in order to present the right info on screen after a screen rotation, always pass the bucketsize as cachekey
-            spiceManager.execute(
-                    request,
-                    getBaseContext() + BUCKET_SIZE + AptoideUtils.getSharedPreferences().getBoolean(Constants.MATURE_CHECK_BOX, false),
-                    cacheExpiryDuration,
-                    new RequestListener<ApkSuggestionJson>() {
+            spiceManager.execute(request, new RequestListener<ApkSuggestionJson>() {
 
                 @Override
                 public void onRequestFailure(SpiceException spiceException) {
