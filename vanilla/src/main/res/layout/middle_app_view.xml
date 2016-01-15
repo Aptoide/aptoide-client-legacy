@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/app_view_middle_sugested"
-    android:visibility="gone"
     >
+    android:visibility="gone"
 
     <!--<TextView-->
         <!--style="@style/HeaderText"-->
@@ -17,10 +17,9 @@
         android:id="@+id/apkinfoheader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/white_card"
         android:paddingTop="10dp"
         android:paddingBottom="15dp"
-        style="?attr/backgroundCard"
+        android:background="@color/medium_custom_gray"
         >
 
         <TextView
@@ -67,14 +66,14 @@
             android:maxLines="1"
             android:paddingRight="6dp"
             android:singleLine="true"
-            android:textColor="#565656"
+            android:textColor="@color/black"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="16dp"/>
 
         <RatingBar
             android:id="@+id/rating_label"
 
-            style="@style/RatingBarSmallAptoide"
+            style="@style/RatingBarGridItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/icon_layout"

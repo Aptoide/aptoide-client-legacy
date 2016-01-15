@@ -193,7 +193,7 @@
 
                         <RatingBar
                             android:id="@+id/rating_bar_top"
-                            style="@style/RatingBarAppviewAppbarRating"
+                            style="@style/RatingBarGridItem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="80dp"
@@ -497,6 +497,7 @@
 
 
                 <RelativeLayout
+                    android:id="@+id/store"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center_vertical"
@@ -506,7 +507,6 @@
 
 
                     <LinearLayout
-                        android:id="@+id/store"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="25dp"
@@ -681,6 +681,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="240dp"
                     android:background="#ececec" />
+                <include layout="@layout/separator_vertical" />
 
                 <include layout="@layout/rate_this_app_layout" />
 
@@ -764,7 +765,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/more_versions_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="170dp" />
+                android:layout_height="180dp" />
 
 
             <TextView

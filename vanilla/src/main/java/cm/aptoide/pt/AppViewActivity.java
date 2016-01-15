@@ -1104,25 +1104,15 @@ public class AppViewActivity extends AptoideBaseActivity implements FlagApkDialo
             }
         }
         mButtonSubscribe.setTextColor(getResources().getColor(storeTheme.getStoreHeader()));
-
-        mStoreView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                final Context context = AppViewActivity.this;
-                final Intent intent = StoresActivity.newIntent(context,
-                        storeId, storeName, storeAvatar, storeTheme.ordinal());
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                context.startActivity(intent);
-            }
-        });
+        OpenStoreOnClickListener openStoreOnClickListener = new OpenStoreOnClickListener();
+        mStoreView.setOnClickListener(openStoreOnClickListener);
 
         final boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(storeId);
         if (subscribed) {
             int checkmarkDrawable = storeTheme.getCheckmarkDrawable();
             mButtonSubscribe.setCompoundDrawablesWithIntrinsicBounds(checkmarkDrawable, 0, 0, 0);
             mButtonSubscribe.setText(getString(R.string.appview_subscribed_store_button_text));
-            mButtonSubscribe.setClickable(false);
-            mButtonSubscribe.setFocusable(false);
+            mButtonSubscribe.setOnClickListener(openStoreOnClickListener);
 
         } else {
             mButtonSubscribe.setOnClickListener(new View.OnClickListener() {
@@ -1131,6 +1121,18 @@ public class AppViewActivity extends AptoideBaseActivity implements FlagApkDialo
                     AptoideUtils.RepoUtils.startParse(storeName, AppViewActivity.this, spiceManager);
                 }
             });
+        }
+    }
+
+    class OpenStoreOnClickListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            final Context context = AppViewActivity.this;
+            final Intent intent = StoresActivity.newIntent(context,
+                    storeId, storeName, storeAvatar, storeTheme.ordinal());
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            context.startActivity(intent);
         }
     }
 
@@ -1358,6 +1360,7 @@ public class AppViewActivity extends AptoideBaseActivity implements FlagApkDialo
 
     private void populateMoreVersions(GetAppModel model) {
         GetApp getApp = model.getApp;
+        mMoreVersionsList.setNestedScrollingEnabled(false);
 
         /**
          * If the size of the list is 1, it means it's the own app and should be removed.

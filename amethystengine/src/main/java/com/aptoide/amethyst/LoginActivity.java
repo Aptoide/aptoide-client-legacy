@@ -659,7 +659,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
                     String error = null;
                     if (spiceException.getCause() instanceof RetrofitError) {
                         final RetrofitError cause = (RetrofitError) spiceException.getCause();
-                        if (cause != null && cause.getResponse() != null && cause.getResponse().getStatus() == 400 || cause.getResponse().getStatus() == 401) {
+                        if (cause != null && cause.getResponse() != null && (cause.getResponse().getStatus() == 400 || cause.getResponse().getStatus() == 401)) {
                             error = getString(R.string.error_AUTH_1);
                         } else {
                             error = getString(R.string.error_occured);
