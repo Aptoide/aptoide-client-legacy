@@ -643,12 +643,6 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(MainActivity.this);
-            startActivity(new Intent(this, FeedBackActivity.class));
-        }
 
         return super.onOptionsItemSelected(item);
     }

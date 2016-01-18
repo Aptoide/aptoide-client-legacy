@@ -52,6 +52,7 @@
     </group>
 
     <item android:id="@+id/send_feedback"
+        android:icon="?attr/icSendFeedbackDrawable"
         android:title="@string/feedback_send_button"/>
     <!--    </group>
 

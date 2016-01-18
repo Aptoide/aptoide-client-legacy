@@ -25,6 +25,6 @@
 
     <dimen name="appview_title_text_size">15.0sp</dimen>
 
-    <dimen name="this_app_in_other_store_text_margin_left">8sp</dimen>
+    <dimen name="this_app_in_other_store_text_margin_left">3sp</dimen>
 
 </resources>

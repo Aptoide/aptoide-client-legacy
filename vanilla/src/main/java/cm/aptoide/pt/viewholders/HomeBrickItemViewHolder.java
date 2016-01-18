@@ -39,7 +39,7 @@ public class HomeBrickItemViewHolder extends BaseViewHolder {
 //                ratingBar.setVisibility(View.VISIBLE);
         ratingBar.setRating(appItem.rating);
         itemView.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
-        Glide.with(itemView.getContext()).load(appItem.featuredGraphic).into(graphic);
+        Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(graphic);
 
     }
 

@@ -29,6 +29,7 @@
     <attr name="icScheduledDrawable" format="reference"/>
     <attr name="icExcludedUpdatesDrawable" format="reference"/>
     <attr name="icSettingsDrawable" format="reference"/>
+    <attr name="icSendFeedbackDrawable" format="reference"/>
 
     <attr name="backgroundHomeSeparator" format="color" />
 

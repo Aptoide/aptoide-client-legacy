@@ -362,7 +362,6 @@
     <string name="timeline_is_empty_send_email">Vom trimite un e-mail celor pe care îi alegeți</string>
     <string name="select_friends_to_invite">Selectați prietenii Dvs. pentru a-i invita!</string>
     <string name="facebook_friends_list_using_timeline">folosesc deja Peretele social Aptoide</string>
-    <string name="more_reviews">Mai multe recenzii</string>
     <string name="more_editors_choice">Mai multe Selecții ale editorilor</string>
     <string name="more_versions">Mai multe versiuni</string>
     <string name="facebook_friends_list_using_timeline_empty">Peretele Social vă permite să vă împărtășiți aplicațiile cu prietenii de pe Facebook. Doriți să vă alăturați rețelei?</string>
@@ -426,7 +425,7 @@
     <string name="flag_this_app_need_licence">Aveți nevoie de permis</string>
     <string name="appview_additional_information_title">Informații suplimentare</string>
     <string name="appview_latest_version_text">Aceasta este ultima versiune!</string>
-    <string name="appview_subscribe_store_button_text">"+   Vă abonați?"</string>
+    <string name="appview_subscribe_store_button_text">"Vă abonați?"</string>
     <string name="appview_subscribed_store_button_text">Abonat</string>
     <string name="appview_other_versions_in_others_stores">Alte variante în alte magazine</string>
     <string name="appview_rate_Success">Aplicație evaluată</string>

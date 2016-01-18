@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/app_view_middle_sugested"
-    >
     android:visibility="gone"
+    >
 
     <!--<TextView-->
         <!--style="@style/HeaderText"-->
@@ -19,8 +19,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:paddingBottom="15dp"
-        android:background="@color/medium_custom_gray"
-        >
+        android:background="#ececec">
 
         <TextView
             android:id="@+id/middleAppViewHeader"
@@ -30,7 +29,7 @@
             android:textAppearance="?android:textAppearanceMedium"
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="5dp"
-            android:textColor="@color/aptoide_orange" />
+            android:textColor="#595959" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -66,7 +65,7 @@
             android:maxLines="1"
             android:paddingRight="6dp"
             android:singleLine="true"
-            android:textColor="@color/black"
+            android:textColor="#565656"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="16dp"/>
 

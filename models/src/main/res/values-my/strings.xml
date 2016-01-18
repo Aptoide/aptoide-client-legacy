@@ -448,7 +448,7 @@
     <string name="appview_comment_reply_button_text">စာျပန္သည္</string>
     <string name="appview_header_trusted_text">စိတ္ခ်ရသည္</string>
     <string name="appview_latest_version_text">ေနာက္ဆုံးထြက္ဗားရွင္း ျဖစ္သည္!</string>
-    <string name="appview_subscribe_store_button_text">+ ၾကည့္ရႈမလား?</string>
+    <string name="appview_subscribe_store_button_text">ၾကည့္ရႈမလား?</string>
     <string name="appview_recommended_for_you_title">သင့္အတြက္အႀကံျပဳထားသည္</string>
     <string name="error_occured_retry_later">မွားေနပါသည္. မၾကာမီ Aptoide မွ အလိုအေလ်ာက္ လုပ္ေဆာင္သြားပါမည္.</string>
     <string name="account">အေကာင့္</string>
@@ -510,7 +510,6 @@
     <string name="facebook_friends_list_using_timeline">Aptoide အားသံုးျပဳျပီးသားျဖစ္သည္</string>
     <string name="and">နွင့္</string>
     <string name="more_friends">ေနာက္ထပ္</string>
-    <string name="more_reviews">ေနာက္ထပ္သံုးသပ္ခ်က္မ်ား</string>
     <string name="more_editors_choice">ေနာက္ထပ္ အယ္ဒီတာ ေရြးခ်ယ္မႈ</string>
     <string name="more_versions">ေနာက္ထပ္ ဗားရွင္းမ်ား</string>
     <string name="clearcontent_title">Data ႏွင့္ ဖြဲ႔စည္းမႈပုံစံမ်ားကုိ ဖယ္ရွားမည္</string>

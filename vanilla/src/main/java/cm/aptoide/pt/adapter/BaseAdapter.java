@@ -183,7 +183,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         @Override
         public void onClick(View view) {
-            if(item != null && item.appid != null){
+            if (item != null && item.appid != null) {
                 Intent i = new Intent(view.getContext(), AppViewActivity.class);
                 i.putExtra(Constants.APP_ID_KEY, item.appid.longValue());
                 i.putExtra(Constants.APPNAME_KEY, item.appname);
@@ -241,7 +241,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                             i = new Intent(view.getContext(), MoreListViewItemsBrickActivity.class);
                         } else {
                             i = new Intent(view.getContext(), MoreListViewItemsActivity.class);
-                            if (storeName!=null && !TextUtils.isEmpty(storeName)) {
+                            if (storeName != null && !TextUtils.isEmpty(storeName)) {
                                 i.putExtra(SearchActivity.SEARCH_THEME, theme);
                                 i.putExtra(SearchActivity.SEARCH_SOURCE, storeName);
                             }
@@ -280,7 +280,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     i.putExtra(Constants.LOCALYTICS_TAG, row.getTag());
                     i.putExtra(Constants.THEME_KEY, theme == null ? 0 : theme.ordinal());
                     i.putExtra(Constants.HOMEPAGE_KEY, row.getHomepage());
-                    if (i.getLongExtra(Constants.STOREID_KEY,0) == 0) {
+                    if (i.getLongExtra(Constants.STOREID_KEY, 0) == 0) {
                         i.putExtra(Constants.STOREID_KEY, row.getStoreId());
                     }
                     view.getContext().startActivity(i);

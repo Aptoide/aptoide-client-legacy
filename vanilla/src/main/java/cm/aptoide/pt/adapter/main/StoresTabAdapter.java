@@ -155,7 +155,7 @@ public class StoresTabAdapter extends RecyclerView.Adapter<BaseViewHolder> imple
      * with the ids, retrieves the stores from the database and post {@link OttoEvents.RepoDeletedEvent}
      * @param checkedItems list of store Ids to be removed
      */
-    public void removeStores(final List<Long> checkedItems) {
+    public static void removeStores(final List<Long> checkedItems) {
 
         new Thread(new Runnable() {
             @Override

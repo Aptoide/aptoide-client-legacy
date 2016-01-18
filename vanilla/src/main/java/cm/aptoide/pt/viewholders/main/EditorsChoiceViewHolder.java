@@ -40,7 +40,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
 
         for (int i = 0; i < images.length && i < row.appItemList.size(); i++) {
             final AppItem appItem = row.appItemList.get(i);
-            Glide.with(itemView.getContext()).load(appItem.featuredGraphic).into(images[i]);
+            Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(images[i]);
             images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
         }
 

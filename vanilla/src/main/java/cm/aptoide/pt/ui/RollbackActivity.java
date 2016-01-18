@@ -87,9 +87,6 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
 //            FlurryAgent.logEvent("Rollback_Cleared_Rollback_List");
             new AptoideDatabase(Aptoide.getDb()).deleteRollbackItems();
             getSupportLoaderManager().restartLoader(17, null, this);
-        } else if (i == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this, FeedBackActivity.class));
         }
 
 

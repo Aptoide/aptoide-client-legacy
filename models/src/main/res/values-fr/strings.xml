@@ -373,7 +373,7 @@
     <string name="read_less">Afficher moins</string>
     <string name="appview_additional_information_title">Informations additionnelles</string>
     <string name="appview_latest_version_text">Il s\'agit de la dernière version !</string>
-    <string name="appview_subscribe_store_button_text">+  S\'inscrire ?</string>
+    <string name="appview_subscribe_store_button_text">S\'inscrire ?</string>
     <string name="createReviewButtonText">Ajouter une revue</string>
     <string name="navigation_drawer_signup_login">S\'identifier ou s\'enregistrer</string>
     <string name="_downloads"> téléchargements</string>

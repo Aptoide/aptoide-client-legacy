@@ -391,7 +391,6 @@
 
     <string name="order_popup_title3">Contenuti per adulti</string>
     <string name="timeline_is_empty_send_email">Invieremo un\'email a quelli che hai scelto</string>
-    <string name="more_reviews">Altre Recensioni</string>
     <string name="more_editors_choice">Altre Scelte Editori</string>
     <string name="more_versions">Altre Versioni</string>
     <string name="recommended_for_you">Consigliati per te</string>
@@ -411,7 +410,7 @@
     <string name="flag_this_app_need_licence">Richiede Licenza</string>
     <string name="appview_additional_information_title">Ulteriori Informazioni</string>
     <string name="appview_latest_version_text">Questa è l\'ultima versione!</string>
-    <string name="appview_subscribe_store_button_text">+  Iscriversi?</string>
+    <string name="appview_subscribe_store_button_text">Iscriversi?</string>
     <string name="noIgnoreUpdateText">La nuova versione di un\'app non funziona sul tuo dispositivo o manca qualche funzionalità? Blocca le app dall\'aggiornarsi. Vai nella scheda Aggiornamenti e tieni premuto sull\'app che non vuoi si aggiorni.</string>
     <string name="createReviewButtonText">Crea Recensione</string>
     <string name="navigation_drawer_signup_login">Iscriviti o effettua il Login</string>
