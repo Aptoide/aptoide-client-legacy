@@ -203,14 +203,6 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_feedback, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int i = item.getItemId();
@@ -219,9 +211,6 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
             finish();
         } else if (i == R.id.home) {
             finish();
-        } else if (i == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this, FeedBackActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

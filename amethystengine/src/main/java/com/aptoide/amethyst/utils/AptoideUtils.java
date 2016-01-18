@@ -39,6 +39,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.text.ClipboardManager;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Base64;
@@ -436,6 +437,27 @@ public class AptoideUtils {
      * Algorithms Utils
      */
     public static class Algorithms {
+
+        /**
+         * method to copy a string to clipboard
+         * @param text texto to copy to clipBoard
+         * @return true if it was copied successfully false otherwise
+         */
+        public static boolean copyToClipBoard(Context context, String text) {
+            if (text==null || text.isEmpty()) {
+                return false;
+            } else {
+                if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                    android.text.ClipboardManager clipboard = (android.text.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    clipboard.setText(text);
+                } else {
+                    android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    android.content.ClipData clip = android.content.ClipData.newPlainText(text, text);
+                    clipboard.setPrimaryClip(clip);
+                }
+            }
+            return true;
+        }
 
         public static String computeSHA1sumFromBytes(byte[] bytes)
                 throws NoSuchAlgorithmException, UnsupportedEncodingException {

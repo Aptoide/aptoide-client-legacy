@@ -353,7 +353,6 @@
     <string name="facebook_timeline_friends_invited">已邀請好友！</string>
     <string name="select_friends_to_invite">請選擇好友以邀請他們！</string>
     <string name="facebook_friends_list_using_timeline">已在使用Aptoide社交時間表</string>
-    <string name="more_reviews">更多檢閱</string>
     <string name="more_editors_choice">更多編輯精選</string>
     <string name="more_versions">更多版本</string>
     <string name="facebook_friends_list_using_timeline_empty">社交時間表允許您與Facebook好友分享您的應用。是否加入網路？</string>
@@ -423,7 +422,7 @@
     <string name="flag_this_app_need_licence">需要授權</string>
     <string name="appview_additional_information_title">其他資訊</string>
     <string name="appview_latest_version_text">這是最新版本！</string>
-    <string name="appview_subscribe_store_button_text">+   訂閱？</string>
+    <string name="appview_subscribe_store_button_text">訂閱？</string>
     <string name="appview_subscribed_store_button_text">已訂閱</string>
     <string name="appview_other_versions_in_others_stores">其他商店中的其他版本</string>
     <string name="appview_rate_Success">已評分應用</string>

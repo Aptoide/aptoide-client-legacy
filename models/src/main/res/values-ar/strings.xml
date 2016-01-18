@@ -390,7 +390,6 @@
 
     <string name="order_popup_title3">محتوى للبالغين</string>
     <string name="timeline_is_empty_send_email">سوف نرسل رسالة بالبريد الالكتروني لتلك التي تختارها</string>
-    <string name="more_reviews">المزيد من النماذج</string>
     <string name="more_editors_choice">المزيد من خيارات المحررين</string>
     <string name="more_versions">المزيد من الإصدارات</string>
     <string name="recommended_for_you">الموصي لك به</string>
@@ -426,7 +425,7 @@
     <string name="appview_additional_information_title">معلومات إضافية</string>
     <string name="appview_latest_version_text">هذا هو أحدث إصدار!</string>
     <string name="notification_timeline_activity">لديك %1$s تعليق و %2$s إعجاب. اطلع عليهم في الصفحة الإجتماعية!</string>
-    <string name="appview_subscribe_store_button_text">+ الاشتراك؟</string>
+    <string name="appview_subscribe_store_button_text">الاشتراك؟</string>
     <string name="notification_social_timeline">صفحة أبتويد الإجتماعية. اطلع عليها الآن!</string>
     <string name="noIgnoreUpdateText">لا توجد تحديثات تم تجاهلها</string>
     <string name="notification_timeline_posts">قام صديقك بتحميل تطبيقات جديدة!</string>

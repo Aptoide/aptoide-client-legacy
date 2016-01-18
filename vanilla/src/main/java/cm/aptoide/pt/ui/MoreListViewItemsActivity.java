@@ -198,14 +198,5 @@ public class MoreListViewItemsActivity extends MoreActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this, FeedBackActivity.class));
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 }

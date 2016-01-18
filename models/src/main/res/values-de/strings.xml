@@ -394,7 +394,6 @@
 
     <string name="order_popup_title3">Inhalt für Erwachsene</string>
     <string name="timeline_is_empty_send_email">Es wird eine E-Mail an die von Ihnen Ausgewählten gesendet</string>
-    <string name="more_reviews">Mehr Rezensionen</string>
     <string name="more_editors_choice">Mehr Editor-Vorschläge</string>
     <string name="more_versions">Weitere Versionen</string>
     <string name="recommended_for_you">Empfehlungen für Sie</string>
@@ -414,7 +413,7 @@
     <string name="flag_this_app_need_licence">Lizenz benötigt</string>
     <string name="appview_additional_information_title">Zusätzliche Information</string>
     <string name="appview_latest_version_text">Dies ist die aktuellste Version!</string>
-    <string name="appview_subscribe_store_button_text">+  Abonnieren?</string>
+    <string name="appview_subscribe_store_button_text">Abonnieren?</string>
     <string name="noIgnoreUpdateText">Keine ignorierte Aktualisierungen</string>
     <string name="createReviewButtonText">Rezension erstellen</string>
     <string name="navigation_drawer_signup_login">Registrieren oder Anmelden</string>

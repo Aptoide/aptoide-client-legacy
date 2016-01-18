@@ -70,22 +70,4 @@ public class MoreStoreWidgetActivity extends MoreActivity {
         }
 
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this, FeedBackActivity.class));
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_feedback, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
 }
