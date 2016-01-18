@@ -321,7 +321,8 @@ public class AppViewMiddleSuggested {
                         AptoideUtils.AdNetworks.knock(apkSuggestionJson.getAds().get(0).getInfo().getCpc_url());
                         AptoideUtils.AdNetworks.knock(apkSuggestionJson.getAds().get(0).getInfo().getCpd_url());
 
-                        ReferrerUtils.extractReferrer(context.getWebview(), context, packageName, spiceManager, click_url, md5sumHash, id, adId, referrer);
+                        // TODO referrer
+                        // ReferrerUtils.extractReferrer(context.getWebview(), context, packageName, spiceManager, click_url, md5sumHash, id, adId, referrer);
 
                         context.runOnUiThread(new Runnable() {
                             @Override
@@ -364,7 +365,7 @@ public class AppViewMiddleSuggested {
 
                                 download.setReferrer(referrer[0]);
 
-                                context.getService().startDownloadFromJson(getApkInfoJson, id, download);
+                                 context.getService().startDownloadFromJson(getApkInfoJson, id, download);
 
                             }
                         });

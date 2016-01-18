@@ -98,7 +98,7 @@ public class ReferrerUtils {
                         if (clickUrl.startsWith("market://") || clickUrl.startsWith("https://play.google.com") || clickUrl.startsWith("http://play.google.com")) {
 //                            System.out.println("Debug: Refferer: Inner: " + clickUrl);
                             referrerToSet[0] = getReferrer(clickUrl);
-                            context.getService().setReferrer(downloadId, referrerToSet[0]);
+                             context.getService().setReferrer(downloadId, referrerToSet[0]);
                             return true;
                         }
 
@@ -153,8 +153,7 @@ public class ReferrerUtils {
                                     Logger.d("ExtractReferrer", "Clickurl landed on market");
                                     referrerToSet[0] = getReferrer(clickUrl);
                                     Logger.d("ExtractReferrer", "Referrer successfully extracted");
-                                    // TODO
-                                    //context.getService().setReferrer(downloadId, referrerToSet[0]);
+                                    context.getService().setReferrer(downloadId, referrerToSet[0]);
 
                                     new AptoideDatabase(Aptoide.getDb()).setReferrerToRollbackAction(packageName, referrerToSet[0]);
 

@@ -179,7 +179,7 @@ public class UninstallRetainFragment extends Fragment {
 
         if (!package_name.equals(context.getPackageName())) {
             if (isDowngrade) {
-                context.startActivityForResult(intent, AppViewActivity.DOWGRADE_REQUEST_CODE);
+                context.startActivityForResult(intent, AppViewActivity.DOWNGRADE_REQUEST_CODE);
 //                FlurryAgent.logEvent("Rollback_Downgraded_App");
 
             } else {
