@@ -43,7 +43,6 @@ import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 import butterknife.Bind;
@@ -477,6 +476,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         adItem.packageName = ad.data.packageName;
         adItem.storeName = ad.data.repo;
         adItem.id = ad.data.id.longValue();
+        adItem.adId = ad.info.ad_id;
         adItem.cpcUrl = ad.info.cpc_url;
         adItem.cpiUrl = ad.info.cpi_url;
         adItem.cpdUrl = ad.info.cpd_url;

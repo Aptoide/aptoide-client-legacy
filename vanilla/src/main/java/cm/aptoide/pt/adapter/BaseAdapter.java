@@ -128,6 +128,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             i.putExtra(Constants.FROM_SPONSORED_KEY, true);
 
             i.putExtra(Constants.APP_ID_KEY, adItem.id);
+            i.putExtra(Constants.AD_ID_KEY, adItem.adId);
             i.putExtra(Constants.APPNAME_KEY, adItem.appName);
             i.putExtra(Constants.PACKAGENAME_KEY, adItem.packageName);
             i.putExtra(Constants.STORENAME_KEY, adItem.storeName);
