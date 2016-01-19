@@ -76,6 +76,8 @@ import retrofit.RetrofitError;
  */
 public class LoginActivity extends AccountAuthenticatorActivity implements GoogleApiClient.OnConnectionFailedListener {
 
+    private static final String TAG = LoginActivity.class.getSimpleName();
+
     private static final String TAG_PROGRESS = "progressDialog";
     private static final int REQUEST_CODE_RESOLVE_ERR = 9000;
 
@@ -118,8 +120,6 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
 
     private final int REQ_SIGNUP = 1;
     private final int REQ_SIGN_IN_GOOGLE = 2;
-
-    private final String TAG = "Login";
 
     private AccountManager mAccountManager;
     private String mAuthTokenType;
@@ -223,6 +223,8 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
         if (mAuthTokenType == null) {
             mAuthTokenType = AptoideConfiguration.AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS;
         }
+
+        spiceManager.start(this);
     }
 
     private void setUpLogin() {
@@ -362,7 +364,6 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     @Override
     protected void onStart() {
         super.onStart();
-        spiceManager.start(this);
     }
 
     @Override
@@ -381,7 +382,6 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     protected void onStop() {
         super.onStop();
         uiLifecycleHelper.onStop();
-        spiceManager.shouldStop();
     }
 
     @Override
@@ -408,7 +408,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     }
 
     public void handleSignInResult(GoogleSignInResult result) {
-        Log.d("Aptoide-", "On Connected");
+        Log.d(TAG, "GoogleSignInResult. status: " + result.getStatus());
         final GoogleSignInAccount account;
         if (result.isSuccess() && (account = result.getSignInAccount()) != null) {
             final String userName = account.getEmail();
@@ -430,12 +430,13 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     }
 
 
-    public void submit(final Mode mode, final String username, final String passwordOrToken, final String nameForGoogle) {
+    public void submit(final Mode mode, final String userName, final String passwordOrToken, final String nameForGoogle) {
+        Log.d(TAG, "Submitting. mode: " + mode.name() +", userName: " + userName + ", nameForGoogle: " + nameForGoogle);
         final String accountType = getIntent().getStringExtra(ARG_ACCOUNT_TYPE);
 
         OAuth2AuthenticationRequest oAuth2AuthenticationRequest = new OAuth2AuthenticationRequest();
         oAuth2AuthenticationRequest.setPassword(passwordOrToken);
-        oAuth2AuthenticationRequest.setUsername(username);
+        oAuth2AuthenticationRequest.setUsername(userName);
         oAuth2AuthenticationRequest.setMode(mode);
         oAuth2AuthenticationRequest.setNameForGoogle(nameForGoogle);
 
@@ -443,8 +444,9 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
         spiceManager.execute(oAuth2AuthenticationRequest, new RequestListener<OAuth>() {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
-                final Throwable cause;
-                if (spiceException != null && (cause = spiceException.getCause()) != null) {
+                Log.d(TAG, "OAuth filed: " + spiceException.getMessage());
+                final Throwable cause = spiceException.getCause();
+                if (cause != null) {
                     final String error;
                     if (cause instanceof RetrofitError) {
                         final RetrofitError retrofitError = (RetrofitError) cause;
@@ -465,37 +467,40 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
             @Override
             public void onRequestSuccess(final OAuth oAuth) {
                 if (oAuth.getStatus() != null && oAuth.getStatus().equals("FAIL")) {
+                    Log.d(TAG, "OAuth filed: " + oAuth.getError_description());
                     AptoideUtils.UI.toastError(oAuth.getError());
                     setShowProgress(false);
                 } else {
-                    getUserInfo(oAuth, username, mode, accountType, passwordOrToken);
+                    getUserInfo(oAuth, userName, mode, accountType, passwordOrToken);
                 }
             }
         });
     }
 
-    private void getUserInfo(final OAuth oAuth, final String username, final Mode mode, final String accountType, final String passwordOrToken) {
+    private void getUserInfo(final OAuth oAuth, final String userName, final Mode mode, final String accountType, final String passwordOrToken) {
+        Log.d(TAG, "Loading user info.");
         request = CheckUserCredentialsRequest.buildDefaultRequest(this, oAuth.getAccess_token());
         request.setRegisterDevice(registerDevice != null && registerDevice.isChecked());
         setShowProgress(true);
         spiceManager.execute(request, new RequestListener<CheckUserCredentialsJson>() {
             @Override
             public void onRequestFailure(SpiceException e) {
+                Log.d(TAG, "Loading user info failed. " + e.getMessage());
                 Toast.makeText(getBaseContext(), R.string.error_occured, Toast.LENGTH_SHORT).show();
                 setShowProgress(false);
             }
 
             @Override
             public void onRequestSuccess(CheckUserCredentialsJson checkUserCredentialsJson) {
-                setShowProgress(false);
-
-                if (updatePreferences(checkUserCredentialsJson, username, mode.name(), oAuth.getAccess_token())) {
+                Log.d(TAG, "User info loaded. status: " + checkUserCredentialsJson.getStatus() + ", userName: " + checkUserCredentialsJson.getUsername());
+                if ("OK".equals(checkUserCredentialsJson.getStatus())) {
+                    updatePreferences(checkUserCredentialsJson, userName, mode.name(), oAuth.getAccess_token());
                     if (null != checkUserCredentialsJson.getQueue()) {
                         hasQueue = true;
                     }
 
                     Bundle data = new Bundle();
-                    data.putString(AccountManager.KEY_ACCOUNT_NAME, username);
+                    data.putString(AccountManager.KEY_ACCOUNT_NAME, userName);
                     data.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType);
                     data.putString(AccountManager.KEY_AUTHTOKEN, oAuth.getRefreshToken());
                     data.putString(PARAM_USER_PASS, passwordOrToken);
@@ -518,6 +523,8 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
                         Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();
                     }
                 }
+
+                setShowProgress(false);
             }
         });
     }
@@ -565,11 +572,8 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     }
 
 
-    public static boolean updatePreferences(CheckUserCredentialsJson checkUserCredentialsJson,
+    public static void updatePreferences(CheckUserCredentialsJson checkUserCredentialsJson,
                                             String username, String modeName, String token) {
-        if (!"OK".equals(checkUserCredentialsJson.getStatus())) {
-            return false;
-        }
         SharedPreferences.Editor preferences = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).edit();
         if (null != (checkUserCredentialsJson.getQueue())) {
             //hasQueue = true;
@@ -606,8 +610,6 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
         securePreferences.putString("devtoken", checkUserCredentialsJson.getToken());
         securePreferences.apply();
         BusProvider.getInstance().post(new OttoEvents.RedrawNavigationDrawer());
-
-        return true;
     }
 }
 

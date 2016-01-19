@@ -211,7 +211,8 @@ public class FragmentSignIn extends Fragment {
                 }
 
 
-                if (LoginActivity.updatePreferences(checkUserCredentialsJson, username, mode.name(), oAuth.getAccess_token())) {
+                if ("OK".equals(checkUserCredentialsJson.getStatus())) {
+                    LoginActivity.updatePreferences(checkUserCredentialsJson, username, mode.name(), oAuth.getAccess_token());
                     Bundle data = new Bundle();
                     data.putString(AccountManager.KEY_ACCOUNT_NAME, username);
                     data.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType);
