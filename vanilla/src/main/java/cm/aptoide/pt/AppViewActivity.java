@@ -167,7 +167,7 @@ import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Mal
  *
  * Created by hsousa
  */
-public class AppViewActivity extends AptoideBaseActivity {
+public class AppViewActivity extends AptoideBaseActivity implements AddCommentVoteCallback, FlagApkDialog.ApkFlagCallback {
 
     static String TAG = AppViewActivity.class.getSimpleName();
     public static final short DOWNGRADE_REQUEST_CODE = 456;
@@ -246,6 +246,22 @@ public class AppViewActivity extends AptoideBaseActivity {
     @Override
     protected String getScreenName() {
         return "App View";
+    }
+
+    @Override
+    public void voteComment(final int commentId, final AddApkCommentVoteRequest.CommentVote vote) {
+        final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
+        if (fragment != null) {
+            ((AddCommentVoteCallback) fragment).voteComment(commentId, vote);
+        }
+    }
+
+    @Override
+    public void addApkFlagClick(final String flag) {
+        final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
+        if (fragment != null) {
+            ((FlagApkDialog.ApkFlagCallback) fragment).addApkFlagClick(flag);
+        }
     }
 
     @Nullable
