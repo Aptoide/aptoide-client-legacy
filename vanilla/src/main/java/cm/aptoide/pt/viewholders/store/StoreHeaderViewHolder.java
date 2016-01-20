@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
@@ -84,15 +85,18 @@ public class StoreHeaderViewHolder extends BaseViewHolder {
         subscribersCount.setText(AptoideUtils.StringUtils.withDecimalSuffix(row.subscribers));
         subscribeButtonLayout.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
         if (subscribedBool) {
+
             ivSubscribe.setImageResource(R.drawable.ic_check_white);
             subscribed.setText(context.getString(R.string.appview_subscribed_store_button_text));
             subscribeButtonLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     subscribedBool = false;
+                    Toast.makeText(itemView.getContext(), AptoideUtils.StringUtils.getFormattedString(itemView.getContext(), R.string.subscribing_store_message,row.name), Toast.LENGTH_SHORT).show();
                     ArrayList<Long> sotoreIds = new ArrayList<>();
                     sotoreIds.add(row.id);
                     StoresTabAdapter.removeStores(sotoreIds);
+                    subscribeButtonLayout.setEnabled(false);
                 }
             });
         } else {
@@ -110,6 +114,7 @@ public class StoreHeaderViewHolder extends BaseViewHolder {
                     if (!subscribedBool) {
                         subscribedBool = true;
                         BusProvider.getInstance().post(new OttoEvents.RepoSubscribeEvent(row.name));
+                        subscribeButtonLayout.setEnabled(false);
                     }
                 }
             });
