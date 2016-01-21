@@ -380,6 +380,7 @@
 
     <string name="order_popup_title3">Conteúdo Adulto</string>
     <string name="timeline_is_empty_send_email">Nós vamos enviar um e-mail para aqueles que você escolher</string>
+    <string name="more_reviews">Mais Análises</string>
     <string name="recommended_for_you">Recomendado para você</string>
     <string name="like">Curtir</string>
     <string name="review_by">Análise por:\n%s</string>

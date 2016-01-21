@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Merkitse tämä sovellus lipulla</string>
 <string name="search">Haku</string>
 <string name="my_account">Oma tilini</string>
-<string name="no_sch_downloads">Ei ajastettuja latauksia!</string>
+<string name="no_sch_downloads">Selaisetko sovelluksia mobiilidatalla ja haluaisit ladata ne vasta wifi-yhteydellä? Käytä ajastettuja latauksia ja valitse palkkä WiFi kohdasta Asetukset -&gt; Yleiset lataussäännöt.</string>
 <string name="schDown_installselected">Asenna valitut</string>
 <string name="stores">Kaupat</string>
 <string name="insert_store_name">Syötä kaupan nimi:</string>
@@ -75,7 +75,7 @@
 <string name="see_top_stores">Näytä huippukaupat</string>
 <string name="setcredentials">Kirjaudu</string>
 <string name="rollback">Palautus</string>
-<string name="rollback_empty">Ei palautettavia sovelluksia</string>
+<string name="rollback_empty">Palauta sovellus nopeasti edelliseen versioon ja korjaa yhteensopivuusongelmat. Pidä lokia (Aptoiden kautta) asentamistasi sovelluksista sisältäen version ja asennuspäivän.</string>
 <string name="rollback_installed">Asennettu</string>
 <string name="rollback_uninstalled">Asennus poistettu</string>
 <string name="rollback_updated">Päivitetty</string>
@@ -385,6 +385,7 @@
 
     <string name="order_popup_title3">Aikuissisältö</string>
     <string name="timeline_is_empty_send_email">Lähetämme sähköpostin valitsemillesi vastaanottajille</string>
+    <string name="more_reviews">Lisää arvosteluja</string>
     <string name="recommended_for_you">Suositellaan sinulle</string>
     <string name="like">Tykkää</string>
     <string name="review_by">Arvostelija:\n%s</string>
@@ -403,7 +404,7 @@
     <string name="appview_additional_information_title">Lisätietoa</string>
     <string name="appview_latest_version_text">Tämä on viimeisin versio!</string>
     <string name="appview_subscribe_store_button_text">Tilaa?</string>
-    <string name="noIgnoreUpdateText">Ei ohitettuja päivityksiä</string>
+    <string name="noIgnoreUpdateText">Sovelluksen uusi versio ei toimi laitteellasi tai jokin ominaisuus puuttuu? Estä sovellusten päivittyminen. Mene Päivitykset-välilehdelle ja paina pitkään sovellusta, jota et halua päivittää.</string>
     <string name="createReviewButtonText">Luo arvostelu</string>
     <string name="navigation_drawer_signup_login">Rekisteröidy tai kirjaudu sisään</string>
     <string name="_downloads"> latausta</string>
@@ -572,4 +573,6 @@
     <string name="dialog_version_size">Versio: %1$s | Koko: %2$s</string>
     <string name="na">n/a</string>
 
-</resources>
+<string name="error_410">Pyydettyä sovellusta ei löydy tältä palvelimelta.</string>
+
+    </resources>

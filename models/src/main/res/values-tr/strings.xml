@@ -209,7 +209,7 @@
 <string name="error_SYS_2">Hiçbir veri bulunamadı, daha sonra tekrar deneyiniz</string>
 <string name="error_SYS_3">Sistem şu anda bakımda, daha sonra tekrar deneyiniz</string>
 <string name="error_SYS_4">Bu çağrı güncel API sürümü tarafından desteklenmemektedir</string>
-<string name="X_download_number">%s indirme</string>
+<string name="X_download_number">indirme.</string>
 <string name="not_found">Bulunamadı</string>
 <string name="active">Etkin</string>
 <string name="completed">Tamamlandı</string>
@@ -402,6 +402,7 @@
 
     <string name="order_popup_title3">Yetişkin İçerik</string>
     <string name="timeline_is_empty_send_email">Seçtiklerinize e-posta göndereceğiz</string>
+    <string name="more_reviews">Daha fazla yorum</string>
     <string name="more_editors_choice">Daha Fazla Editörün Seçimi</string>
     <string name="more_versions">Daha Fazla Sürüm</string>
     <string name="recommended_for_you">Size tavsiye edilen</string>
@@ -416,7 +417,7 @@
 
     <string name="setting_mobile">Mobil 3G/4G</string>
     <string name="setting_dont_show_mature_content">Olgun içeriği göster</string>
-    <string name="whats_new">Yeni olanlar</string>
+    <string name="whats_new">Yeni ne var?</string>
     <string name="drawer_social_media_title">Bağlantıda kalalım</string>
     <string name="read_more">Fazlasını Oku</string>
     <string name="read_less">Daha azını gör</string>
@@ -478,7 +479,7 @@
     <string name="write_a_comment">Yorum yazınız</string>
     <string name="no_comment_be_the_first">Henüz hiçbir yorum yok. İlk siz olun!</string>
 
-    <string name="installapp_alrt">Şunu kurmak istiyor musunuz?:\n\n%s</string>
+    <string name="installapp_alrt">Şunu mu kurmak istiyorsunuz:\n\n%s?</string>
 
     <string name="suggested_app">Önerilen Uygulama</string>
 
@@ -513,7 +514,7 @@
     <string name="wizard_title_03">Ailemizin yeni üyeleri</string>
     <string name="wizard_subtitle_03_1">Hafif Aptoide</string>
     <string name="wizard_description_03_1">eski cihazlar ve yavaş İnternet bağlantıları için</string>
-    <string name="wizard_subtitle_03_2">Aptoide TV</string>
+    <string name="wizard_subtitle_03_2">AptoideTV</string>
     <string name="wizard_description_03_2">televizyonlar ve televizyon altı kutular için en uygun hale getirilmiş</string>
     <string name="wizard_reviews_title">Yorumlar</string>
     <string name="wizard_reviews">Aptoide ile artık uygulamanızın yorumlarını oluşturabilirsiniz!</string>

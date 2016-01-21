@@ -229,7 +229,7 @@
 <string name="fields_cannot_empty">Veuillez vérifier votre e-mail et mot de passe.</string>
 <string name="flag_this_app_good">Bon</string>
 <string name="flag_this_app_fake">Faux</string>
-<string name="flag_this_app_freeze">Gelée</string>
+<string name="flag_this_app_freeze">Gèle l\'appareil</string>
 <string name="flag_this_app_virus">Virus</string>
 <string name="appview_comment_reply_button_text">Répondre</string>
 <string name="vote_down">Voter contre</string>
@@ -255,7 +255,7 @@
 <string name="feedback_send_button">Envoyer l\'avis</string>
 <string name="feedback_subject">Sujet</string>
 <string name="feedback_include_logs">Inclure capture d\'écran et logs</string>
-<string name="feedback_not_valid">Merci d\'entré un sujet valide !</string>
+<string name="feedback_not_valid">Merci d\'entrer un sujet valide !</string>
 <string name="feedback_no_email">Aucun client e-mail installé !</string>
 <string name="sponsored">Sponsorisé</string>
 <string name="social_timeline">Flux social</string>
@@ -392,7 +392,7 @@
     <string name="timeout">Temps d\'attente du réseau dépassé</string>
     <string name="WidgetProvider_timestamp_week_ago2">Il y a une semaine</string>
     <string name="WidgetProvider_timestamp_days_ago">%s jours écoulés</string>
-    <string name="WidgetProvider_timestamp_month_ago">Il y a 1 moins</string>
+    <string name="WidgetProvider_timestamp_month_ago">Il y a 1 mois</string>
     <string name="WidgetProvider_timestamp_months_ago">%s mois écoulés</string>
     <string name="WidgetProvider_timestamp_year_ago">Il y a 1 an</string>
     <string name="WidgetProvider_timestamp_years_ago">%s années écoulées</string>
@@ -435,7 +435,7 @@
     <string name="appview_rate_Success">Application évaluée</string>
     <string name="version_placeholder">Version : %s</string>
 
-    <string name="other_stores">Se désabonner des dépôts</string>
+    <string name="other_stores">Dépôts auxquels vous n’êtes pas abonné</string>
     <string name="store">Dépôt</string>
     <string name="menu_search_item_go_to_store">Aller à la boutique</string>
     <string name="app_warning">Attention : %s</string>
@@ -547,7 +547,7 @@
     <string name="notification_timeline_new_comments">Vous avez %s nouveau(x) commentaire(s). Vérifiez votre Flux Social !</string>
     <string name="notification_timeline_activity">Vous avez %1$s nouveau(x) commentaire(s) et %2$s j\'aime. Vérifiez votre Flux Social !</string>
     <string name="notification_social_timeline">Flux Social Aptoide. Vérifiez le maintenant !</string>
-    <string name="flag_freeze">Blocage</string>
+    <string name="flag_freeze">Gèle l\'appareil</string>
     <string name="flag_this_app">Signaler l\'application</string>
     <string name="flag_added">Signalement ajouté</string>
     <string name="wizard_description_01">Créez un compte gratuit et inscrivez-vous pour commencer à construire votre propre Place de Marché personnalisée.\n\nParcourez par thème les magasins et découvrez de nouvelles applications passionnantes.</string>

@@ -386,6 +386,7 @@
 
     <string name="order_popup_title3">成人内容</string>
     <string name="timeline_is_empty_send_email">我们将向您选择的好友发送电子邮件</string>
+    <string name="more_reviews">更多审核</string>
     <string name="more_editors_choice">更多编辑精选</string>
     <string name="more_versions">更多版本</string>
     <string name="recommended_for_you">针对您的推荐</string>

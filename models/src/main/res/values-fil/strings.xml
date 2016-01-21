@@ -380,6 +380,8 @@
     <string name="timeout">Ang koneksyon ng network ay nag gatol</string>
     <string name="order_popup_title3">Pang may hustong gulang na nilalaman</string>
     <string name="timeline_is_empty_send_email">Kami ay magpapadala ng email sa inyong mga napili</string>
+    <string name="more_reviews">Maraming mga Rebyu</string>
+    <string name="more_editors_choice">Maraming pagpipilian ng mga Editor</string>
     <string name="more_versions">Marami pang mga bersyon</string>
     <string name="recommended_for_you">Inererekomenda para sa iyo</string>
     <string name="like">Gustuhin</string>
