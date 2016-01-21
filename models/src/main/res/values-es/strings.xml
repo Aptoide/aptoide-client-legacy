@@ -389,7 +389,6 @@
 
     <string name="order_popup_title3">Contenido para adultos</string>
     <string name="timeline_is_empty_send_email">Enviaremos un correo electrónico a aquellos que elijas</string>
-    <string name="more_reviews">Más reseñas</string>
     <string name="more_versions">Más versiones</string>
     <string name="recommended_for_you">Recomendado para ti</string>
     <string name="like">Me gusta</string>
@@ -405,7 +404,7 @@
     <string name="flag_this_app_need_licence">Necesitas permiso</string>
     <string name="appview_additional_information_title">Información adicional</string>
     <string name="appview_latest_version_text">¡Esta es la última versión!</string>
-    <string name="appview_subscribe_store_button_text">+  ¿Suscribirse?</string>
+    <string name="appview_subscribe_store_button_text">¿Suscribirse?</string>
     <string name="noIgnoreUpdateText">No hay actualizaciones ignoradas</string>
     <string name="createReviewButtonText">Crea una reseña</string>
     <string name="navigation_drawer_signup_login">Regístrate o entra</string>

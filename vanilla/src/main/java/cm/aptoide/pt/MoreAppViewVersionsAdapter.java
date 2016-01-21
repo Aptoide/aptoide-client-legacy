@@ -49,8 +49,9 @@ public class MoreAppViewVersionsAdapter extends RecyclerView.Adapter<MoreAppView
         gd.setCornerRadius(5);
         holder.mContent.setBackgroundDrawable(gd);
 
-        holder.mAppName.setText(item.appName);
-        holder.mAppVersion.setText(AptoideUtils.StringUtils.getFormattedString(holder.itemView.getContext() ,R.string.version_placeholder, item.versionName));
+//        holder.mAppName.setText(item.appName);
+//        holder.mAppVersion.setText(AptoideUtils.StringUtils.getFormattedString(holder.itemView.getContext() ,R.string.version_placeholder, item.versionName));
+        holder.mAppVersion.setText(item.versionName);
         holder.mStoreName.setText(item.storeName);
         holder.mContent.setOnClickListener(new View.OnClickListener() {
             @Override

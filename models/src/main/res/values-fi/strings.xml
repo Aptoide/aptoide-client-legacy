@@ -385,7 +385,6 @@
 
     <string name="order_popup_title3">Aikuissisältö</string>
     <string name="timeline_is_empty_send_email">Lähetämme sähköpostin valitsemillesi vastaanottajille</string>
-    <string name="more_reviews">Lisää arvosteluja</string>
     <string name="recommended_for_you">Suositellaan sinulle</string>
     <string name="like">Tykkää</string>
     <string name="review_by">Arvostelija:\n%s</string>
@@ -403,7 +402,7 @@
     <string name="flag_this_app_need_licence">Tarvitsee lisenssin</string>
     <string name="appview_additional_information_title">Lisätietoa</string>
     <string name="appview_latest_version_text">Tämä on viimeisin versio!</string>
-    <string name="appview_subscribe_store_button_text">+  Tilaa?</string>
+    <string name="appview_subscribe_store_button_text">Tilaa?</string>
     <string name="noIgnoreUpdateText">Ei ohitettuja päivityksiä</string>
     <string name="createReviewButtonText">Luo arvostelu</string>
     <string name="navigation_drawer_signup_login">Rekisteröidy tai kirjaudu sisään</string>

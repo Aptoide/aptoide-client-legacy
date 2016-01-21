@@ -380,7 +380,6 @@
 
     <string name="order_popup_title3">Conteúdo para adultos</string>
     <string name="timeline_is_empty_send_email">Vamos enviar um email para quem escolher</string>
-    <string name="more_reviews">Mais análises</string>
     <string name="recommended_for_you">Recomendado para si</string>
     <string name="like">Gosto</string>
     <string name="review_by">Análise por:\n%s</string>
@@ -398,7 +397,7 @@
     <string name="flag_this_app_need_licence">Requer Licença</string>
     <string name="appview_additional_information_title">Informação adicional</string>
     <string name="appview_latest_version_text">Esta é a última versão!</string>
-    <string name="appview_subscribe_store_button_text">"+  Subscrever?"</string>
+    <string name="appview_subscribe_store_button_text">"Subscrever?"</string>
     <string name="noIgnoreUpdateText">A nova versão da app não funciona no seu dispositivo ou falta alguma funcionalidade? Bloqueie a actualização de apps. Vá até à aba Actualizações e carregue continuamente na app onde deseja parar a atualização.</string>
     <string name="createReviewButtonText">Escrever análise</string>
     <string name="navigation_drawer_signup_login">Registar ou entrar</string>

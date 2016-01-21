@@ -297,11 +297,7 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
                 scheduledDownload.toggleChecked();
             }
             adapter.notifyDataSetChanged();
-        } else if( i == R.id.menu_SendFeedBack){
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this,FeedBackActivity.class));
         }
-
         return super.onOptionsItemSelected(item);
     }
 

@@ -381,7 +381,6 @@
 
     <string name="order_popup_title3">Для взрослых</string>
     <string name="timeline_is_empty_send_email">Мы пришлем email тем, кого вы выберете</string>
-    <string name="more_reviews">Больше отзывов</string>
     <string name="recommended_for_you">Рекомендовано для вас</string>
     <string name="like">Нравится</string>
     <string name="review_by">Просмотрено
@@ -400,7 +399,7 @@
     <string name="flag_this_app_need_licence">Нужна лицензия</string>
     <string name="appview_additional_information_title">Дополнительная информация</string>
     <string name="appview_latest_version_text">Это последняя версия!</string>
-    <string name="appview_subscribe_store_button_text">"+&#160;&#160;Подписаться?"</string>
+    <string name="appview_subscribe_store_button_text">"Подписаться?"</string>
     <string name="noIgnoreUpdateText">Нет доступных обновлений</string>
     <string name="createReviewButtonText">Создать отзыв</string>
     <string name="navigation_drawer_signup_login">Зарегистрироваться или войти</string>

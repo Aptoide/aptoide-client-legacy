@@ -659,7 +659,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
                     String error = null;
                     if (spiceException.getCause() instanceof RetrofitError) {
                         final RetrofitError cause = (RetrofitError) spiceException.getCause();
-                        if (cause != null && cause.getResponse() != null && cause.getResponse().getStatus() == 400 || cause.getResponse().getStatus() == 401) {
+                        if (cause != null && cause.getResponse() != null && (cause.getResponse().getStatus() == 400 || cause.getResponse().getStatus() == 401)) {
                             error = getString(R.string.error_AUTH_1);
                         } else {
                             error = getString(R.string.error_occured);
@@ -881,21 +881,12 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
 //    }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int i = item.getItemId();
 
         if (i == android.R.id.home || i == R.id.home) {
             finish();
-        } else if (i == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this, FeedBackActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

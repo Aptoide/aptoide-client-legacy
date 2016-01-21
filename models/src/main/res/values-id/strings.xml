@@ -394,7 +394,6 @@
 
     <string name="order_popup_title3">Konten Dewasa</string>
     <string name="timeline_is_empty_send_email">Kami akan mengirimkan email pada orang-orang yang Anda pilih</string>
-    <string name="more_reviews">Tinjauan Lebih Banyak</string>
     <string name="more_editors_choice">Editors Choice Lebih Banyak</string>
     <string name="more_versions">Versi Lebih Banyak</string>
     <string name="recommended_for_you">Disarankan untuk Anda</string>
@@ -414,7 +413,7 @@
     <string name="flag_this_app_need_licence">Perlu Lisensi</string>
     <string name="appview_additional_information_title">Informasi Tambahan</string>
     <string name="appview_latest_version_text">Ini adalah versi terbaru!</string>
-    <string name="appview_subscribe_store_button_text">+  Berlangganan?</string>
+    <string name="appview_subscribe_store_button_text">Berlangganan?</string>
     <string name="noIgnoreUpdateText">Versi aplikasi yang baru tidak berfungsi pada perangkat Anda atau ada beberapa fitur yang hilang? Blokir aplikasi agar tidak memperbarui. Masuk ke tab Updates dan tekan lama pada aplikasi yang ingin Anda hentikan pembaruannya.</string>
     <string name="createReviewButtonText">Buat Tinjauan</string>
     <string name="navigation_drawer_signup_login">Daftar atau Masuk</string>

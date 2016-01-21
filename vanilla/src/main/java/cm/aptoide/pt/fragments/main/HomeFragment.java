@@ -66,10 +66,4 @@ public class HomeFragment extends BaseWebserviceFragment {
         executeSpiceRequest(false);
     }
 
-    @Subscribe
-    public void subscribeRepo(OttoEvents.RepoSubscribeEvent event) {
-        AptoideUtils.RepoUtils.startParse(event.getStoreName(), getContext(), spiceManager);
-    }
-
-
 }

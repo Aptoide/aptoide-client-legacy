@@ -47,8 +47,8 @@
                     >
 
                     <ImageView
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
+                        android:layout_width="10dp"
+                        android:layout_height="12dp"
                         android:layout_gravity="bottom"
                         android:layout_marginLeft="7dp"
                         android:layout_marginBottom="3.5dp"
@@ -119,8 +119,7 @@
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:orientation="vertical"
-                android:padding="@dimen/updateButtonLayoutPadding">
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -129,11 +128,13 @@
                     android:src="@drawable/update_darkgrey" />
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="match_parent"
                     android:gravity="center"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/update"
+                    android:maxLines="3"
+                    android:ellipsize="end"
                     android:textSize="@dimen/text_size_small" />
             </LinearLayout>
 

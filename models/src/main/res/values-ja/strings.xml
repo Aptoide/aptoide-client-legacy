@@ -375,7 +375,6 @@
 
     <string name="order_popup_title3">アダルト コンテンツ</string>
     <string name="timeline_is_empty_send_email">選択した人にメールが送信されます</string>
-    <string name="more_reviews">さらにレビュー</string>
     <string name="recommended_for_you">あなたにお勧め</string>
     <string name="like">いいね</string>
     <string name="review_by">レビュー者:\n%s</string>
@@ -393,7 +392,7 @@
     <string name="flag_this_app_need_licence">ライセンスが必要</string>
     <string name="appview_additional_information_title">追加情報</string>
     <string name="appview_latest_version_text">これは最新バージョンです!</string>
-    <string name="appview_subscribe_store_button_text">"+   購読しますか?"</string>
+    <string name="appview_subscribe_store_button_text">"購読しますか?"</string>
     <string name="noIgnoreUpdateText">お使いのデバイスでアプリの新しいバージョンが動作しない、またはいくつかの機能が不足していませんか? アプリの更新をブロックします。更新タブに移動し、更新を停止したいアプリで長押ししてください。</string>
     <string name="createReviewButtonText">レビューを作成</string>
     <string name="navigation_drawer_signup_login">登録またはログイン</string>

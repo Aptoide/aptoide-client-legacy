@@ -4,9 +4,6 @@
     <item android:id="@+id/menu_remove"
           app:showAsAction="ifRoom"
           android:title="@string/restore_updates" />
-    <item android:id="@+id/menu_SendFeedBack"
-        app:showAsAction="never"
-        android:title="@string/feedback_send_button"/>
     <item android:id="@+id/menu_select_all"
         app:showAsAction="never"
         android:title="@string/menu_select_all"/>

@@ -20,40 +20,48 @@
             android:layout_marginTop="@dimen/row_store_vertical_delimiter"
             android:scaleType="fitCenter"/>
 
-        <TextView
-            android:id="@+id/store_subscribed_storehome"
+        <LinearLayout
+            android:id="@+id/subscribe_button_layout"
             android:layout_width="wrap_content"
-            android:minWidth="104dp"
             android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="@dimen/row_store_vertical_delimiter"
-            android:layout_marginLeft="@dimen/row_store_vertical_half_delimiter"
-            android:layout_marginRight="@dimen/row_store_vertical_half_delimiter"
+            android:minWidth="104dp"
+            android:gravity="center"
             android:layout_marginTop="@dimen/row_store_vertical_delimiter"
             android:background="@drawable/rounded_corners_white"
-            android:drawablePadding="@dimen/row_store_vertical_half_delimiter"
-            android:drawableLeft="@drawable/ic_check_white"
-            android:padding="@dimen/row_store_vertical_half_delimiter"
-            android:text="@string/appview_subscribed_store_button_text"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:textSize="12sp" />
+
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/iv_subscribed_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_white"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/store_subscribed_storehome"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:padding="@dimen/row_store_vertical_half_delimiter"
+                android:text="@string/appview_subscribed_store_button_text"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/store_name_home_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/store_avatar_storehome"
+            android:layout_centerVertical="true"
             android:layout_toEndOf="@id/store_avatar_storehome"
-            android:layout_toLeftOf="@+id/store_subscribed_storehome"
+            android:layout_toLeftOf="@+id/subscribe_button_layout"
+            android:layout_toRightOf="@id/store_avatar_storehome"
             android:padding="@dimen/row_store_vertical_delimiter"
             android:textColor="@color/material_blue_grey_800"
-            android:layout_centerVertical="true"
             android:textSize="16sp"
             android:textStyle="bold" />
-
 
 
     </RelativeLayout>
@@ -93,7 +101,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Subscribers"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/store_subscribers_count"
@@ -118,7 +127,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Apps"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/store_apps_count"
@@ -143,7 +153,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Downloads"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/store_downloads_count"

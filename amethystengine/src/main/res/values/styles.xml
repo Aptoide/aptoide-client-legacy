@@ -63,7 +63,7 @@
     </style>
 
     <style name="backgroundCardStyleLight">
-        <item name="android:background">@drawable/background_card_light</item>
+        <item name="android:background">@drawable/white_card</item>
     </style>
 
     <style name="WidgetButtonCustomAptoide" parent="WidgetButtonCustom">

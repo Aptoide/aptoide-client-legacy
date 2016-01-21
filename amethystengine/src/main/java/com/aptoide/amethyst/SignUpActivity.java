@@ -403,21 +403,12 @@ public class SignUpActivity extends AptoideBaseActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
 
         if (i == android.R.id.home || i == R.id.home) {
             setResult(RESULT_CANCELED);
             finish();
-        } else if (i == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this, FeedBackActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
