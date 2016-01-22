@@ -1863,9 +1863,18 @@ public class AptoideUtils {
 
         private static String replaceAdvertisementId(String clickUrl, Context context) throws IOException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
 
-            String aaId;
+            String aaId = "";
             if (GoogleServices.checkGooglePlayServices(context)) {
-                aaId = AdvertisingIdClient.getAdvertisingIdInfo(context).getId();
+                if (AptoideUtils.getSharedPreferences().contains("advertisingIdClient")) {
+                    aaId = AptoideUtils.getSharedPreferences().getString("advertisingIdClient", "");
+                } else {
+                    try {
+                        aaId = AdvertisingIdClient.getAdvertisingIdInfo(context).getId();
+                    } catch (Exception e) {
+                        // In case we try to do this from a Broadcast Receiver, exception will be thrown.
+                        Logger.w("AptoideUtils", e.getMessage());
+                    }
+                }
             } else {
                 byte[] data = new byte[16];
                 String deviceId = android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
