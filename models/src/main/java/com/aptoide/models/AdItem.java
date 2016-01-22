@@ -14,6 +14,7 @@ public class AdItem extends AppItem {
     public String cpdUrl;
     public String partnerName;
     public String partnerClickUrl;
+    public long adId;
 
     public AdItem(@JsonProperty("BUCKETSIZE") int bucketSize) {
         super(bucketSize);

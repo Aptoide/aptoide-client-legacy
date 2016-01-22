@@ -375,6 +375,7 @@
 
     <string name="order_popup_title3">アダルト コンテンツ</string>
     <string name="timeline_is_empty_send_email">選択した人にメールが送信されます</string>
+    <string name="more_reviews">さらにレビュー</string>
     <string name="recommended_for_you">あなたにお勧め</string>
     <string name="like">いいね</string>
     <string name="review_by">レビュー者:\n%s</string>

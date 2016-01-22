@@ -138,7 +138,7 @@
     <string name="feedback_not_valid">Please enter some valid Subject!</string>
     <string name="feedback_no_email">No email client installed!</string>
     <string name="register">Sign Up</string>
-    <string name="password_validation_text">Password must be at least 8 characters long and have one letter and one number or special character (!@#$%*)
+    <string name="password_validation_text">Password must be at least 8 characters and should have at least one letter and one number or special characters (!@#$%*)
     </string>
     <string name="about_aptoide_antimalware">Aptoide Anti-Malware platform analyses applications in run-time and disables potential threats across all stores. This system scans all the new application files from the stores and certificates them by comparison against other Android Marketplaces.</string>
     <string name="username_tip">Type your email</string>
@@ -179,7 +179,7 @@
     <string name="finished_install">%s has been installed.</string>
     <string name="aptoide_downloading">%s is downloading</string>
     <string name="remaining_time">remaining</string>
-    <string name="data_usage_constraint">Download is not allowed in Settings > General Download Rules</string>
+    <string name="data_usage_constraint">Download is not allowed in Settings &gt; General Download Rules</string>
     <string name="download_pending">Waiting</string>
 
     <!-- layouts -->
@@ -222,7 +222,7 @@
     <string name="facebook_logout_and_login">Logout and Login with Facebook</string>
 
     <string name="schDown_nodownloadselect">No Downloads Selected</string>
-    <string name="no_sch_downloads">Browsing apps using mobile data and want to download later when you’re on a wifi connection? Use Schedule downloads and change your preferences on Settings -> General Download Rules - to WiFi.</string>
+    <string name="no_sch_downloads">Browsing apps using mobile data and want to download later when you’re on a wifi connection? Use Schedule downloads and change your preferences on Settings -&gt; General Download Rules - to WiFi.</string>
     <string name="schDown_installselected">Install Selected</string>
     <string name="schDown_removeselected">Remove Selected</string>
     <string name="schDown_invertselection">Invert Selection</string>
@@ -485,7 +485,7 @@
     <!-- Headers -->
     <string name="results_subscribed">Subscribed Stores</string>
     <string name="results_in_store">Search results in %s store</string>
-    <string name="other_stores">Unsubscribed Stores</string>
+    <string name="other_stores">Not subscribed Stores</string>
     <string name="comments">Comments</string>
     <string name="reviews">Reviews</string>
     <string name="store">Store</string>
