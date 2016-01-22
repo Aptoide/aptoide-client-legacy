@@ -555,8 +555,8 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        System.out.println("Debug: requestCode: " + requestCode);
-        System.out.println("Debug: resultCode: " + resultCode);
+//        System.out.println("Debug: requestCode: " + requestCode);
+//        System.out.println("Debug: resultCode: " + resultCode);
 
         uiLifecycleHelper.onActivityResult(requestCode, resultCode, data);
 
@@ -726,7 +726,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     }
 
     private void getUserInfo(final OAuth oAuth, final String username, final Mode mode, final String accountType, final String passwordOrToken) {
-        System.out.println("Debug: getUserInfo: " + oAuth.getAccess_token());
+//        System.out.println("Debug: getUserInfo: " + oAuth.getAccess_token());
         request = CheckUserCredentialsRequest.buildDefaultRequest(this, oAuth.getAccess_token());
         request.setRegisterDevice(registerDevice != null && registerDevice.isChecked());
         spiceManager.execute(request, new RequestListener<CheckUserCredentialsJson>() {
@@ -765,12 +765,12 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
                 }
 
                 boolean booleano = updatePreferences(checkUserCredentialsJson, username, mode.name(), oAuth.getAccess_token());
-                System.out.println("Debug: upadtePreferences: " + checkUserCredentialsJson.getStatus());
-                System.out.println("Debug: upadtePreferences: " + booleano);
-                System.out.println("Debug: upadtePreferences: " + checkUserCredentialsJson);
-                System.out.println("Debug: upadtePreferences: " + username);
-                System.out.println("Debug: upadtePreferences: " + mode.name());
-                System.out.println("Debug: upadtePreferences: " + oAuth.getAccess_token());
+//                System.out.println("Debug: upadtePreferences: " + checkUserCredentialsJson.getStatus());
+//                System.out.println("Debug: upadtePreferences: " + booleano);
+//                System.out.println("Debug: upadtePreferences: " + checkUserCredentialsJson);
+//                System.out.println("Debug: upadtePreferences: " + username);
+//                System.out.println("Debug: upadtePreferences: " + mode.name());
+//                System.out.println("Debug: upadtePreferences: " + oAuth.getAccess_token());
                 if (booleano) {
                     if (null != checkUserCredentialsJson.getQueue()) {
                         hasQueue = true;
