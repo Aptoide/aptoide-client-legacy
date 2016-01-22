@@ -595,7 +595,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     protected void onStart() {
         super.onStart();
         spiceManager.start(getBaseContext());
-//        FlurryAgent.onStartSession(this, "X89WPPSKWQB2FT6B8F3X");
+//        FlurryAgent.onStartSession(this, getResources().getString(R.string.FLURRY_KEY));
     }
 
     @Override

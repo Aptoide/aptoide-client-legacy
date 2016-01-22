@@ -772,7 +772,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     protected void onStart() {
         super.onStart();
         manager.start(this);
-//        FlurryAgent.onStartSession(this, "X89WPPSKWQB2FT6B8F3X");
+//        FlurryAgent.onStartSession(this, getResources().getString(R.string.FLURRY_KEY));
 //        Analytics.Lifecycle.Activity.onStart(this);
     }
 

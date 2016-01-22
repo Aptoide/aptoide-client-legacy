@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LoginActivity;
+import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.preferences.EnumPreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -176,7 +177,7 @@ public class Analytics {
                 if (!ACTIVATE)
                     return;
 
-                FlurryAgent.onStartSession(activity, "X89WPPSKWQB2FT6B8F3X");
+                FlurryAgent.onStartSession(activity, activity.getResources().getString(R.string.FLURRY_KEY));
 
             }
 

@@ -136,7 +136,7 @@ public class SignUpActivity extends AptoideBaseActivity {
     protected void onStart() {
         super.onStart();
         spiceManager.start(this);
-//        FlurryAgent.onStartSession(this, "X89WPPSKWQB2FT6B8F3X");
+//        FlurryAgent.onStartSession(this, getResources().getString(R.string.FLURRY_KEY));
     }
 
     @Override
