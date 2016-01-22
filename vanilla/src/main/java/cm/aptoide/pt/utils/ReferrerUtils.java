@@ -118,14 +118,12 @@ public class ReferrerUtils {
         });
     }
 
-    private static Executor executor = Executors.newCachedThreadPool();
-
     public static void extractReferrer(final WebView[] webview, final AppViewActivity context, final String packageName, final SpiceManager spiceManager, final String click_url, final long downloadId, final long appId, final long adId, final String[] referrerToSet) {
         Logger.d("ExtractReferrer", "Called for: " + click_url);
 
         final String[] internalClickUrl = {click_url};
 
-        executor.execute(new Runnable() {
+        AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -219,7 +217,7 @@ public class ReferrerUtils {
         LinearLayout view = new LinearLayout(context);
         view.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
 
-        executor.execute(new Runnable() {
+        AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
                              @Override
                              public void run() {
                                  try {

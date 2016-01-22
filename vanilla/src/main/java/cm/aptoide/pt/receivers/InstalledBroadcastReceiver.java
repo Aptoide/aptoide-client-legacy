@@ -31,6 +31,7 @@ import com.octo.android.robospice.request.listener.RequestListener;
 import java.util.Locale;
 
 import cm.aptoide.pt.AppViewMiddleSuggested;
+import cm.aptoide.pt.utils.AptoideExecutors;
 import cm.aptoide.pt.utils.ReferrerUtils;
 import cm.aptoide.pt.utils.SimpleFuture;
 
@@ -71,6 +72,7 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
         final GetAdsRequest request = new GetAdsRequest();
         request.setLimit(1);
         request.setLocation(location);
+//        request.setLocation("homepage");
         request.setKeyword("__NULL__");
         request.setPackage_name(packageName);
 
@@ -87,29 +89,25 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
             @Override
             public void onRequestSuccess(ApkSuggestionJson apkSuggestionJson) {
 				if (apkSuggestionJson != null && apkSuggestionJson.ads != null && apkSuggestionJson.ads.size() > 0) {
-					String click_url = apkSuggestionJson.getAds().get(0).getPartner().getPartnerData().getClick_url();
+                    ApkSuggestionJson.Ads ad = apkSuggestionJson.getAds().get(0);
+                    String click_url = ad.getPartner().getPartnerData().getClick_url();
 
                     ReferrerUtils.extractReferrer(context, packageName, spiceManager, click_url, stringSimpleFuture);
 
-                    new Thread(new Runnable() {
+                    AptoideUtils.AdNetworks.knock(ad.getInfo().getCpc_url());
+                    AptoideUtils.AdNetworks.knock(ad.getInfo().getCpi_url());
+                    AptoideUtils.AdNetworks.knock(ad.getInfo().getCpd_url());
+
+                    AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
                         @Override
                         public void run() {
                             final String referrer = stringSimpleFuture.get();
 
                             if (!TextUtils.isEmpty(referrer)) {
-
-                                Intent i = new Intent("com.android.vending.INSTALL_REFERRER");
-                                i.setPackage(packageName);
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
-                                    i.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-                                }
-                                i.putExtra("referrer", referrer);
-                                context.sendBroadcast(i);
-                                Logger.d("InstalledBroadcastReceiver", "Sent broadcast with referrer " + referrer);
-
+                                broadcastReferrer(context, packageName, referrer);
                             }
                         }
-                    }).start();
+                    });
                 }
 			}
 		});
@@ -190,14 +188,7 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
                         if (!TextUtils.isEmpty(referrer)) {
 
-                            Intent i = new Intent("com.android.vending.INSTALL_REFERRER");
-                            i.setPackage(installEvent);
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
-                                i.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-                            }
-                            i.putExtra("referrer", referrer);
-                            context.sendBroadcast(i);
-                            Logger.d("InstalledBroadcastReceiver", "Sent broadcast with referrer " + referrer);
+                            broadcastReferrer(context, installEvent, referrer);
 
                             Analytics.ApplicationInstall.installed(pkg.packageName, true);
                             control = true;
@@ -226,6 +217,17 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
         }
 
         return control;
+    }
+
+    private void broadcastReferrer(Context context, String packageName, String referrer) {
+        Intent i = new Intent("com.android.vending.INSTALL_REFERRER");
+        i.setPackage(packageName);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+            i.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        }
+        i.putExtra("referrer", referrer);
+        context.sendBroadcast(i);
+        Logger.d("InstalledBroadcastReceiver", "Sent broadcast to " + packageName + " with referrer " + referrer);
     }
 
     private void processAbTesting(Context context, PackageManager mPm, String installEvent, AptoideDatabase db) {
