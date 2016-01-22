@@ -416,7 +416,7 @@
     <string name="flag_this_app_need_licence">Precisa de Licença</string>
     <string name="appview_additional_information_title">Informações Adicionais</string>
     <string name="appview_latest_version_text">Esta é a última versão!</string>
-    <string name="appview_subscribe_store_button_text">+   Assinar?</string>
+    <string name="appview_subscribe_store_button_text">Assinar?</string>
     <string name="noIgnoreUpdateText">Sem Atualizações Ignoradas</string>
     <string name="createReviewButtonText">Criar Análise</string>
     <string name="navigation_drawer_signup_login">Registrar ou Entrar</string>

@@ -19,7 +19,7 @@ public class MoreAppViewVersionsHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.other_stores_avatar_store) public ImageView mAvatarStore;
     @Bind(R.id.other_stores_avatar_app)   public ImageView mAvatarApp;
     @Bind(R.id.other_stores_name)         public TextView mStoreName;
-    @Bind(R.id.other_stores_app_name)     public TextView mAppName;
+//    @Bind(R.id.other_stores_app_name)     public TextView mAppName;
     @Bind(R.id.other_stores_app_version)  public TextView mAppVersion;
 
     public MoreAppViewVersionsHolder(View itemView) {

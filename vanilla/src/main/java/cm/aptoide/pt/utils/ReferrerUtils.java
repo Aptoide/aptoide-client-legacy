@@ -1,8 +1,14 @@
 package cm.aptoide.pt.utils;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.PixelFormat;
+import android.view.Gravity;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.database.AptoideDatabase;
@@ -191,6 +197,95 @@ public class ReferrerUtils {
                 });
             }
         });
+    }
+
+    public static void extractReferrer(final Context context, final String packageName, final SpiceManager spiceManager, final String click_url, final
+    SimpleFuture<String> simpleFuture) {
+        Logger.d("ExtractReferrer", "Called for: " + click_url + " with packageName " + packageName);
+
+        final String[] internalClickUrl = {click_url};
+        final SimpleFuture<String> clickUrlFuture = new SimpleFuture<>();
+
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams params;
+        params = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, PixelFormat.TRANSLUCENT);
+
+        params.gravity = Gravity.TOP | Gravity.LEFT;
+        params.x = 0;
+        params.y = 0;
+        params.width = 0;
+        params.height = 0;
+
+        LinearLayout view = new LinearLayout(context);
+        view.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
+
+        executor.execute(new Runnable() {
+                             @Override
+                             public void run() {
+                                 try {
+                                     internalClickUrl[0] = AptoideUtils.AdNetworks.parseString(context, click_url);
+                                     clickUrlFuture.set(internalClickUrl[0]);
+                                     Logger.d("ExtractReferrer", "Parsed click_url: " + internalClickUrl[0]);
+                                 } catch (IOException | GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException e) {
+                                     e.printStackTrace();
+                                 }
+                             }
+                         });
+        clickUrlFuture.get();
+        WebView wv = new WebView(context);
+        wv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+        view.addView(wv);
+        wv.getSettings().setJavaScriptEnabled(true);
+        wv.setWebViewClient(new WebViewClient() {
+
+            Future<Void> future;
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String clickUrl) {
+
+                if (future == null) {
+                    future = postponeReferrerExtraction(10, false);
+                }
+
+                if (clickUrl.startsWith("market://") || clickUrl.startsWith("https://play.google.com") || clickUrl.startsWith("http://play" + ".google.com")) {
+                    Logger.d("ExtractReferrer", "Clickurl landed on market");
+                    simpleFuture.set(getReferrer(clickUrl));
+                    Logger.d("ExtractReferrer", "Referrer successfully extracted");
+
+                    future.cancel(false);
+                    postponeReferrerExtraction(0, true);
+
+                    return true;
+                }
+
+                return false;
+            }
+
+            private ScheduledFuture<Void> postponeReferrerExtraction(int delta, final boolean success) {
+                Logger.d("ExtractReferrer", "Referrer postponed " + delta + " seconds.");
+                Callable<Void> callable = new Callable<Void>() {
+                    @Override
+                    public Void call() throws Exception {
+                        Logger.d("ExtractReferrer", "Sending RegisterAdRefererRequest with value " + success);
+                        if (spiceManager.isStarted()) {
+                            // Por ora fica desactivado pois pode induzir em falsos negativos.
+
+//                            spiceManager.execute(new RegisterAdRefererRequest(adId, appId, internalClickUrl[0], success),
+//                                    RegisterAdRefererRequest.newDefaultResponse());
+                        }
+
+                        return null;
+                    }
+                };
+
+                return executorService.schedule(callable, delta, TimeUnit.SECONDS);
+            }
+        });
+
+        wv.loadUrl(click_url);
+
+        windowManager.addView(view, params);
+
     }
 
     public static String getReferrer(String uri) {

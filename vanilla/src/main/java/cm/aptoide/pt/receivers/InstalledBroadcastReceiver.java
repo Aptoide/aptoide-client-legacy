@@ -15,38 +15,105 @@ import com.amazon.insights.InsightsCredentials;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.events.BusProvider;
+import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
+import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.models.UpdatesApi;
+import com.aptoide.models.ApkSuggestionJson;
 import com.aptoide.models.RollBackItem;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.Locale;
 
-import com.aptoide.amethyst.events.BusProvider;
-import com.aptoide.amethyst.events.OttoEvents;
-
 import cm.aptoide.pt.AppViewMiddleSuggested;
+import cm.aptoide.pt.utils.ReferrerUtils;
+import cm.aptoide.pt.utils.SimpleFuture;
 
 /**
  * Created by rmateus on 13-12-2013.
  */
 public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
+    protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
+
     @Override
     public void onReceive(final Context context, final Intent intent) {
         Logger.d("InstalledBroadcastReceiver", "intent=" + intent.getAction() + ", extra replaced=" + intent.getBooleanExtra(Intent.EXTRA_REPLACING, false));
+        spiceManager.start(context);
+
+        boolean referrerInjected = false;
 
         final AptoideDatabase db = new AptoideDatabase(Aptoide.getDb());
 
         if (intent.getAction().equals(Intent.ACTION_PACKAGE_REPLACED)) {
             replaceAppEvent(context, db, intent.getData().getEncodedSchemeSpecificPart());
+            tryToReferrer(context, intent.getData().getEncodedSchemeSpecificPart(), "updates");
         } else if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED)) {
-            installAppEvent(context, db, intent.getBooleanExtra(Intent.EXTRA_REPLACING, false), intent.getData().getEncodedSchemeSpecificPart());
+            referrerInjected = installAppEvent(context, db, intent.getBooleanExtra(Intent.EXTRA_REPLACING, false), intent.getData()
+                    .getEncodedSchemeSpecificPart());
+
+            if (!referrerInjected) {
+                tryToReferrer(context, intent.getData().getEncodedSchemeSpecificPart(), "secondinstall");
+            }
         } else if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
             uninstallAppEvent(intent.getData().getEncodedSchemeSpecificPart(), db, intent.getBooleanExtra(Intent.EXTRA_REPLACING, false), intent.getData().getEncodedSchemeSpecificPart());
         }
     }
 
+    private void tryToReferrer(final Context context, final String packageName, String location) {
+        Logger.d("InstalledBroadcastReceiver", "try to referrer " + packageName + " from " + location);
+
+        final GetAdsRequest request = new GetAdsRequest();
+        request.setLimit(1);
+        request.setLocation(location);
+        request.setKeyword("__NULL__");
+        request.setPackage_name(packageName);
+
+        final SimpleFuture<String> stringSimpleFuture = new SimpleFuture<>();
+
+        // Talvez não fosse mal pensado parar o servico.. lol
+        spiceManager.execute(request, new RequestListener<ApkSuggestionJson>() {
+
+            @Override
+            public void onRequestFailure(SpiceException spiceException) {
+                Logger.e("InstalledBroadcastReceiver", "getAds onRequestFailure");
+            }
+
+            @Override
+            public void onRequestSuccess(ApkSuggestionJson apkSuggestionJson) {
+				if (apkSuggestionJson != null && apkSuggestionJson.ads != null && apkSuggestionJson.ads.size() > 0) {
+					String click_url = apkSuggestionJson.getAds().get(0).getPartner().getPartnerData().getClick_url();
+
+                    ReferrerUtils.extractReferrer(context, packageName, spiceManager, click_url, stringSimpleFuture);
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            final String referrer = stringSimpleFuture.get();
+
+                            if (!TextUtils.isEmpty(referrer)) {
+
+                                Intent i = new Intent("com.android.vending.INSTALL_REFERRER");
+                                i.setPackage(packageName);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                                    i.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                                }
+                                i.putExtra("referrer", referrer);
+                                context.sendBroadcast(i);
+                                Logger.d("InstalledBroadcastReceiver", "Sent broadcast with referrer " + referrer);
+
+                            }
+                        }
+                    }).start();
+                }
+			}
+		});
+    };
 
     /**
      * this method update DB when an App is replaced
@@ -79,16 +146,17 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
-
     /**
      * this method update DB when an App is installed
-     *
-     * @param context
+     *  @param context
      * @param db           database to update
      * @param replacing    true if was followed by ACTION_PACKAGE_REMOVED broadcast for the same package
      * @param installEvent
      */
-    private void installAppEvent(Context context, AptoideDatabase db, boolean replacing, String installEvent) {
+    private boolean installAppEvent(Context context, AptoideDatabase db, boolean replacing, String installEvent) {
+
+        boolean control = false;
+
         try {
             PackageManager mPm = context.getPackageManager();
             PackageInfo pkg = mPm.getPackageInfo(installEvent, PackageManager.GET_SIGNATURES);
@@ -102,7 +170,6 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
             db.deleteScheduledDownloadByPackageName(installEvent);
             BusProvider.getInstance().post(new OttoEvents.InstalledApkEvent());
-
 
             if (!replacing) {
                 String action = db.getNotConfirmedRollbackAction(pkg.packageName);
@@ -121,7 +188,6 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
                         db.confirmRollBackAction(pkg.packageName, action, RollBackItem.Action.INSTALLED.toString());
 
-
                         if (!TextUtils.isEmpty(referrer)) {
 
                             Intent i = new Intent("com.android.vending.INSTALL_REFERRER");
@@ -134,12 +200,12 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
                             Logger.d("InstalledBroadcastReceiver", "Sent broadcast with referrer " + referrer);
 
                             Analytics.ApplicationInstall.installed(pkg.packageName, true);
+                            control = true;
                         } else {
                             Analytics.ApplicationInstall.installed(pkg.packageName, false);
                         }
 
                         processAbTesting(context, mPm, installEvent, db);
-
                     } else if (action.split("\\|")[0].equals(RollBackItem.Action.DOWNGRADING.toString())) {
                         db.confirmRollBackAction(pkg.packageName, action, RollBackItem.Action.DOWNGRADED.toString());
                         Logger.d("InstalledBroadcastReceiver", "Downgraded rollback action");
@@ -155,10 +221,11 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && context.getPackageManager().getInstallerPackageName(installEvent) == null) {
                 context.getPackageManager().setInstallerPackageName(installEvent, context.getPackageName());
             }
-
         } catch (Exception e) {
             Logger.printException(e);
         }
+
+        return control;
     }
 
     private void processAbTesting(Context context, PackageManager mPm, String installEvent, AptoideDatabase db) {

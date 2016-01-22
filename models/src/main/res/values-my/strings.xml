@@ -61,7 +61,7 @@
     <string name="error_AUTH_3">သင့္အေကာင့္အား ပယ္ဖ်က္ျပီးပါျပီ။ အခက္အခဲမ်ားရွိလွ်င္ Aptoide အဖြဲ႕သားမ်ားကို ဆက္သြယ္ေမးျမန္းႏိုင္ပါသည္.</string>
     <string name="error_AUTH_4">HMAC အတည္ျပဳမႈ မေအာင္ျမင္ပါ</string>
     <string name="ignoreUpdateText">ျမွင့္တင္ျခင္းကုိေရြ႕ဆုိင္းထားသည္</string>
-    <string name="noIgnoreUpdateText">ေရြ႕ဆုိင္းထားေသာ ျမွင့္တင္ျခင္းမ်ားမရွိပါ</string>
+    <string name="noIgnoreUpdateText">ယခု app ၏ဗားရွင္းအသစ္မွာ သင့္ဖုန္းတြင္အလုပ္မလုပ္ပါ သုိ႔မဟုတ္ အခ်ိဳ႕ေသာ feature မွားယြင္းေနပါသလား? Appကုိ ျမွင့္တင္ျခင္းျပဳလုပ္ေနသည္မွ တားျမစ္မည္. ျမွင့္တင္ျခင္းမ်ား tab ကုိသြားပါ ျမွင့္တင္ျခင္းလုပ္ေဆာင္ေနေသာမိမိရပ္တန္႔ခ်င္သည့္ app ကိုၾကာၾကာဖိထားေပးပါ.</string>
     <string name="createReviewButtonText">ျပန္လည္သုံးသပ္ျခင္းျပဳလုပ္မည္</string>
     <string name="navigation_drawer_signup_login">အေကာင့္အသစ္ဖြင့္မည္ (သုိ႔) အေကာင့္ဝင္မည္</string>
     <string name="active">လႈပ္ရွားမႈရွိသည္</string>
@@ -162,7 +162,7 @@
     <string name="password">Password</string>
     <string name="link_device_webinstall">အေကာင့္အား Webinstall ျဖင့္ ခ်ိတ္ဆက္မည္</string>
     <string name="reason_third_party">App ၏လက္မွတ္သည္ Google Play စတုိးႏွင့္ကုိက္ညီမႈရိွေၾကာင္း စစ္ေဆးေတြ႔ရွိရသျဖင့္ ယုံၾကည္စိတ္ခ် ေပ်ာ္ရွင္စြာအသုံးျပဳလုိက္ပါ.</string>
-    <string name="setcredentials">အေကာင့္၀င္မည္</string>
+    <string name="setcredentials">မိမိ အေကာင့္ျဖင့္ ၀င္မည္</string>
     <string name="reason_scanned">AptoideGuard plus 2 different anti-virus (Zoner 1.8 and Sophos 3.0) ျဖင့္စစ္ေဆးၿပီးျပီ.</string>
     <string name="dont_have_an_account">အေကာင့္မရွိပါသလား? စာရင္းေပးသြင္းမည္</string>
     <string name="reason_signature">လွ်ိဳ႕ဝွက္လက္မွတ္ ျဖင့္ေထာက္ခံေပးထားသူမ်ားေၾကာင့္ ယခုဖုိင္သည္ install လုပ္ရန္ ယုံၾကည္စိတ္ခ်ရၿပီး မည့္သုိ႔မ်ွအေႏွာက္အယွက္မေပးႏုိင္ေတာ့ပါ.</string>
@@ -221,7 +221,7 @@
     <string name="feedback_include_logs">Screenshot ႏွင့္ logs မ်ား ပါ၀င္ျခင္း</string>
     <string name="feedback_not_valid">မွန္ကန္ေသာ အေၾကာင္းအရာမ်ား ႐ိုက္ထည့္ပါ!</string>
     <string name="feedback_no_email">Email ျဖင့္ install လုပ္သူမရွိပါ!</string>
-    <string name="register">စာရင္းေပးသြင္းမည္</string>
+    <string name="register">မိမိ အေကာင့္ျဖင့္ ၀င္မည္</string>
     <string name="wizard_description_02">စိတ္ခ်ရေသာ သေကၤတႏွင့္ လုံၿခံဳေသာေဒါင္းလုဒ္ဆြဲရန္ appမ်ား ရွာေဖြမည္.\n\nကုိက္ညီမႈမရွိဘူးလား? Application ၏အရင္ဗားရွင္းကုိရွာေဖြမည္.</string>
     <string name="wizard_title_03">ကၽြႏု္ပ္တုိ႔မိသားစုု၏ အဖြဲ႔ဝင္အသစ္မ်ား</string>
     <string name="wizard_subtitle_03_1">Aptoide Lite</string>
@@ -344,7 +344,7 @@
     <string name="facebook_logout_and_login">Facebook ျဖင့္အေကာင့္၀င္မည္ ၊ ထြက္မည္</string>
 
     <string name="schDown_nodownloadselect">ေဒါင္းလုဒ္ဆြဲမည့္အရာမ်ား မသတ္မွတ္ထားပါ</string>
-    <string name="no_sch_downloads">ေဒါင္းလုဒ္ဆြဲစရာမ်ား မရွိပါ!</string>
+    <string name="no_sch_downloads">ဖုန္းအင္တာနက္ျဖင့္ရွာေဖြၿပီး wifi ရရွိေသာအခါမွ ေဒါင္းလုဒ္ဆြဲခ်င္ပါသလား? စာရင္းလုပ္ထားေသာ ေဒါင္းလုဒ္ဆြဲစရာမ်ားကုိအသုံးျပဳႏုိင္ၿပီးမိမိ၏ ျပဳျပင္မႈမ်ားမွ-&gt; ေဒါင္းလုဒ္ဆြဲရန္စည္းမ်ဥ္းကုိ wifi ျဖင့္လုိ႔ေျပာင္းလဲလုိက္ပါ.</string>
     <string name="schDown_installselected">ေရြးခ်ယ္ထားသည္မ်ားကို install ေနသည္</string>
     <string name="schDown_removeselected">ေရြးခ်ယ္ထားသည္မ်ားကို ဖယ္မည္</string>
     <string name="schDown_invertselection">ေရြးခ်ယ္မႈမ်ားအား လဲလွယ္မည္</string>
@@ -374,7 +374,7 @@
     <string name="upload_app_backup_apps_installed">မိမိကုိယ္ပုိင္စတုိး တြင္ယခု app ကုိပထမဆုံး တင္သြင္းရန္လုိအပ္ပါသည္။ Aptoide Backup App မ်ားအသုံးျပဳႏုိင္ပါၿပီ.</string>
     <string name="reinstall">ျပန္လည္ install လုပ္မည္</string>
 
-    <string name="rollback_empty">Rollback လုပ္ရန္ apps မရွိပါ</string>
+    <string name="rollback_empty">မိမိဖုန္းတြင္သဟဇာတမျဖစ္ေသာအမွားမ်ားကုိေျဖရွင္းရန္အတြက္ မည္သည့္app ကုိမဆုိ ဗားရွင္းအေဟာင္းသုိ႔ အဆင့္ေလ်ာ့ခ်ျခင္းျပဳလုပ္ႏုိင္သည္။ မိမိ install လုပ္ခဲ့ၿပီးေသာ apps (Aptoide ျဖင့္) မွတ္တမ္းအား ဗားရွင္းနံပါတ္ ႏွင့္ install လုပ္ခဲ့ေသာအခ်ိန္ကုိပါပူးတြဲ သိမ္းေပးထားသည္.</string>
 
     <string name="see_more">ေနာက္ထပ္ ၾကည့္မည္</string>
     <string name="see_less">အနည္းငယ္သာ ၾကည့္မည္</string>
@@ -394,10 +394,10 @@
     <string name="setpin">Pin ထည့္ထားရန္</string>
     <string name="my_account">မိမိ အေကာင့္</string>
     <string name="remove_mature_pin_title">အရြယ္ေရာက္ၿပီးသူမ်ားဖတ္ရႈေသာ content အတြက္pin နံပါတ္ကုိဖယ္ရွားမည္</string>
-    <string name="rollback">Rollback</string>
-    <string name="setting_schdwntitle">စာရင္းလုပ္ထားေသာ ေဒါင္းလုဒ္ဆြဲစရာမ်ား</string>
-    <string name="excluded_updates">ျမွင့္တင္မႈမ်ားကို ခ်န္လွပ္ထားသည္</string>
-    <string name="settings">ျပဳျပင္မႈမ်ား</string>
+    <string name="rollback">Downgrade လုပ္လိုေသာ apps မ်ား</string>
+    <string name="setting_schdwntitle">ေဒါင္းလုဒ္ ဆြဲရန္ စာရင္းလုပ္ထားမည္</string>
+    <string name="excluded_updates">Update မလုပ္လိုေသာ apps မ်ား</string>
+    <string name="settings">ျပဳျပင္မႈ မ်ား</string>
     <string name="facebook">Facebook</string>
     <string name="twitter">Twitter</string>
     <string name="backup_apps">Backup apps</string>
@@ -448,7 +448,7 @@
     <string name="appview_comment_reply_button_text">စာျပန္သည္</string>
     <string name="appview_header_trusted_text">စိတ္ခ်ရသည္</string>
     <string name="appview_latest_version_text">ေနာက္ဆုံးထြက္ဗားရွင္း ျဖစ္သည္!</string>
-    <string name="appview_subscribe_store_button_text">+ ၾကည့္ရႈမလား?</string>
+    <string name="appview_subscribe_store_button_text">ၾကည့္ရႈမလား?</string>
     <string name="appview_recommended_for_you_title">သင့္အတြက္အႀကံျပဳထားသည္</string>
     <string name="error_occured_retry_later">မွားေနပါသည္. မၾကာမီ Aptoide မွ အလိုအေလ်ာက္ လုပ္ေဆာင္သြားပါမည္.</string>
     <string name="account">အေကာင့္</string>
@@ -569,4 +569,6 @@
     <string name="unhide_post">ျပန္ေဖာ္မည္</string>
     <string name="hide_post">ဝွက္ထားမည္</string>
     <string name="like">Like</string>
+    <string name="error_410">ဝမ္းနည္းပါတယ္။သင္ေတာင္းဆုိထားေသာ App ကို server တြင္ရွာမေတြ႕ပါ.</string>
+
     </resources>

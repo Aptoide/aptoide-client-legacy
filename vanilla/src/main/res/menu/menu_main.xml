@@ -8,8 +8,4 @@
         app:showAsAction="always|collapseActionView"
         app:actionLayout="@layout/searchview_layout"
         app:actionViewClass="android.support.v7.widget.SearchView" />
-    <item
-        android:id="@+id/menu_SendFeedBack"
-        android:title="@string/feedback_send_button"
-        app:showAsAction="never" />
 </menu>

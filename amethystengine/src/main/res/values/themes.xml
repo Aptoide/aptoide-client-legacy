@@ -58,6 +58,7 @@
         <item name="icScheduledDrawable">@drawable/ic_drawer_schedule</item>
         <item name="icExcludedUpdatesDrawable">@drawable/ic_action_cancel</item>
         <item name="icSettingsDrawable">@drawable/ic_action_settings_light</item>
+        <item name="icSendFeedbackDrawable">@drawable/ic_send_feedback</item>
         <item name="icRevertDrawable">@drawable/ic_action_undo</item>
         <item name="icAddStoreDrawable">@drawable/ic_action_new</item>
         <item name="icAcceptDrawable">@drawable/ic_action_accept</item>

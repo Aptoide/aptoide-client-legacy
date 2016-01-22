@@ -434,7 +434,7 @@
     <string name="flag_this_app_need_licence">Nutná licence</string>
     <string name="appview_additional_information_title">Dodatečné informace</string>
     <string name="appview_latest_version_text">Toto je nejnovější verze!</string>
-    <string name="appview_subscribe_store_button_text">+&#160;&#160;Přihlásit se?</string>
+    <string name="appview_subscribe_store_button_text">Přihlásit se?</string>
     <string name="appview_subscribed_store_button_text">Přihlášeno</string>
     <string name="appview_this_app_in_others_stores">Aplikace v jiných obchodech</string>
     <string name="appview_rate_Success">Hodnocení aplikace</string>

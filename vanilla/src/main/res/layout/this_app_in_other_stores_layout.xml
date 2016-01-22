@@ -81,28 +81,39 @@
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_large" />
 
-        <TextView
-            android:id="@+id/other_stores_app_name"
+        <!--<TextView-->
+        <!--android:id="@+id/other_stores_app_name"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/other_stores_name"-->
+        <!--android:layout_marginLeft="@dimen/this_app_in_other_store_text_margin_left"-->
+        <!--android:ellipsize="end"-->
+        <!--android:singleLine="true"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="@dimen/text_size_medium" />-->
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/other_stores_name"
-            android:layout_marginLeft="@dimen/this_app_in_other_store_text_margin_left"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_medium" />
-
-        <TextView
-            android:id="@+id/other_stores_app_version"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/other_stores_app_name"
             android:layout_marginBottom="4dp"
-            android:layout_marginLeft="@dimen/this_app_in_other_store_text_margin_left"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_small" />
+            android:gravity="bottom">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:src="@drawable/ic_appview_version_white" />
+
+            <TextView
+                android:id="@+id/other_stores_app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/this_app_in_other_store_text_margin_left"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small" />
+        </LinearLayout>
     </RelativeLayout>
 </FrameLayout>

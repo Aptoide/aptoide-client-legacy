@@ -421,7 +421,7 @@
     <string name="flag_this_app_need_licence">Kailangan ng lisensya</string>
     <string name="appview_additional_information_title">Karagdagang impormasyon</string>
     <string name="appview_latest_version_text">Ito ang pinakabagong bersyon!</string>
-    <string name="appview_subscribe_store_button_text">+ Mag subskrayb?</string>
+    <string name="appview_subscribe_store_button_text">Mag subskrayb?</string>
     <string name="appview_subscribed_store_button_text">Nagsubskrayb</string>
     <string name="appview_other_versions_in_others_stores">Mga ibang bersyon sa ibang mga store</string>
     <string name="appview_rate_Success">Namarkahan na App</string>

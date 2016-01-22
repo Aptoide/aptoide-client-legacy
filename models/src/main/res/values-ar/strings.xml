@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">الإشارة الى هذا التطبيق</string>
 <string name="search">البحث</string>
 <string name="my_account">حسابي</string>
-<string name="no_sch_downloads">لا يوجد تحميلات مجدولة!</string>
+<string name="no_sch_downloads">هل تتصفح التطبيقات باستخدام حزم بيانات شبكة الجوال وتريد التحميل في وقت لاحق عندما تكون متصلاً بالواي فاي؟ استخدم جدولة التحميلات وغير تفضيلاتك من خلال الإعدادات -&gt; قوانين التحميل العامة - إلى واي فاي.</string>
 <string name="schDown_installselected">تثبيت المختار</string>
 <string name="stores">المتاجر</string>
 <string name="insert_store_name">أدخل إسم المتجر:</string>
@@ -75,14 +75,14 @@
 <string name="see_top_stores">مشاهدة أفضل المتاجر</string>
 <string name="setcredentials">تسجيل الدخول</string>
 <string name="rollback">استرجاع</string>
-<string name="rollback_empty">لا توجد تطبيقات لاسترجاعها</string>
+<string name="rollback_empty">يمكنك إرجاع أي تطبيق إلى الإصدار السابق بسرعة وحل مشاكل عدم التوافق. كما يمكنك الاحتفاظ بسجل لجميع التطبيقات المثبتة (عن طريق Aptoide) بما في ذلك الإصدار وتاريخ التثبيت.</string>
 <string name="rollback_installed">المثبت</string>
 <string name="rollback_uninstalled">غير مثبتة</string>
 <string name="rollback_updated">مُحدّث</string>
 <string name="rollback_downgraded">المخفضة</string>
 <string name="install">تثبيت</string>
 <string name="appview_rate_this_app_text">قيِّم هذا التطبيق</string>
-<string name="permissions">صلاحيات</string>
+<string name="permissions">اطلع على الصلاحيات</string>
 <string name="home_title">الرئيسيه</string>
 <string name="login_or_register">تسجيل الدخول او التسجيل</string>
 <string name="update_all">تحديث الكل</string>
@@ -252,7 +252,7 @@
 <string name="set_mature_pin_summary">وضع رقم سري لفتح محتوى الكبار</string>
 <string name="remove_mature_pin_title">إزالة مشبك محتويات البالغين</string>
 <string name="remove_mature_pin_summary">إزالة المشبك المطلوب لفتح محتوى الكبار</string>
-<string name="feedback_send_button">ارسال تقرير</string>
+<string name="feedback_send_button">ارسال تعليق</string>
 <string name="feedback_subject">الموضوع</string>
 <string name="feedback_include_logs">يتضمن لقطات شاشة وسجلات</string>
 <string name="feedback_not_valid">من فضلك ادخل موضوع صالح!</string>
@@ -389,7 +389,7 @@
     <string name="billing_result">"نتيجة الصفقة: "</string>
 
     <string name="order_popup_title3">محتوى للبالغين</string>
-    <string name="timeline_is_empty_send_email">سوف نرسل رسالة بالبريد الالكتروني لتلك التي تختارها</string>
+    <string name="timeline_is_empty_send_email">سوف نرسل رسالة بالبريد الالكتروني لمن تختاره</string>
     <string name="more_reviews">المزيد من النماذج</string>
     <string name="more_editors_choice">المزيد من خيارات المحررين</string>
     <string name="more_versions">المزيد من الإصدارات</string>
@@ -428,7 +428,7 @@
     <string name="notification_timeline_activity">لديك %1$s تعليق و %2$s إعجاب. اطلع عليهم في الصفحة الإجتماعية!</string>
     <string name="appview_subscribe_store_button_text">+ الاشتراك؟</string>
     <string name="notification_social_timeline">صفحة أبتويد الإجتماعية. اطلع عليها الآن!</string>
-    <string name="noIgnoreUpdateText">لا توجد تحديثات تم تجاهلها</string>
+    <string name="noIgnoreUpdateText">الإصدار الجديد من التطبيق لا يعمل على جهازك أو بعض ميزاته مفقودة؟ قم بإيقاف تحديث البرنامج. اذهب إلى علامة التبويب التحديثات واضغط لفترة طويلة على التطبيق الذي تريد إيقاف تحديثاته.</string>
     <string name="notification_timeline_posts">قام صديقك بتحميل تطبيقات جديدة!</string>
 
     <string name="createReviewButtonText">إنشاء نموذج</string>
@@ -441,7 +441,7 @@
     <string name="one_new_update">يوجد %s تحديث جديد متاح!</string>
 <string name="version">إصدار</string>
 
-    <string name="other_stores">متاجر أخرى</string>
+    <string name="other_stores">المتاجر غير المشترك بها</string>
     <string name="results">النتائج</string>
     <string name="store">المتجر</string>
     <string name="title_caps">العنوان</string>
@@ -475,10 +475,10 @@
     <string name="warning">تحذير</string>
     <string name="trusted_app">تطبيق موثوق</string>
 
-    <string name="reason_third_party">تم فحص التطبيق والتأكد من مطابقته لمتجر جوجل بلاي, اطمئن واستمتع باستخدام التطبيق :)</string>
-    <string name="reason_scanned">"تم الفحس بواسطة أبتويدجارد بالإضافة لاثنين من مكافحات الفيروسات (زونر 1.8  و سوفوس 3.0). أخيرا!!! كم كان عملا شاقاً…"</string>
-    <string name="reason_signature">التوقيع الصوري يضمن أمان التطبيق للتحميل وعدم التلاعب به. الملف جاهز!</string>
-    <string name="reason_manual">تمت مراجعة هذا التطبيق بواسطة فريق أبتويد المحترف, وتمت الإشارة له كـجيد. رائع, كم هذا مريح.</string>
+    <string name="reason_third_party">تم فحص توقيع التطبيق والتأكد من مطابقته لمتجر جوجل بلاي، لذا اطمئن واستمتع بالتطبيق.</string>
+    <string name="reason_scanned">"تم الفحص بواسطة بواسطة أبتويدغارد بالإضافة لاثنين من مكافحات الفيروسات (زونر 1.8  وسوفوس 3.0)."</string>
+    <string name="reason_signature">التوقيع الصوري يضمن أمان التطبيق للتثبيت وعدم التلاعب به بأي حال من الأحوال.</string>
+    <string name="reason_manual">تمت مراجعة هذا التطبيق يدوياً بواسطة فريق أبتويد المحترف، وتم وصفه بأنه جيد.</string>
 
     <string name="reason_failed">لا يطابق توقيع أبتويد توقيع المطور. ربما تم التلاعب بالتطبيق.</string>
 
@@ -519,5 +519,53 @@
     <string name="subscribe_apps_official_store">الاشتراك في \"التطبيقات\" متجر تطبيقات أبتويد الرسمي</string>
     <string name="wizard_next">التالي</string>
     <string name="wizard_prev">السابق</string>
+
+<string name="error_REPO_7">هذا المستخدم لديه repo صالح بالفعل.</string>
+
+    <string name="error_410">عذراً، لم يمكن العثور على التطبيق المطلوب على هذا الخادم.</string>
+
+    <string name="permissions_na">الصلاحيات: غير متاحة</string>
+    <string name="download_pending">الانتظار</string>
+
+    <string name="setting_mobile">شبكات 3G/4G الجوالة</string>
+    <string name="appview_other_versions_in_others_stores">إصدارات أخرى في متاجر أخرى</string>
+    <string name="results_subscribed">المتاجر المشترك بها</string>
+    <string name="results_in_store">البحث عن النتائج في متجر %s</string>
+    <string name="unknown">غير معلوم</string>
+
+    <string name="reason_unknown">ليست هناك معلومات كافية حول هذا التطبيق في منصة أبتويد لمكافحة البرامج الضارة.</string>
+
+
+
+    <string name="write_a_comment">اكتب تعليقاً</string>
+    <string name="no_comment_be_the_first">لا توجد تعليقات حتى الآن. كن أنت الأول!</string>
+
+    <string name="wizard_title_01">مرحباً بك في أبتويد</string>
+    <string name="wizard_description_01">قم بإنشاء حساب مجاني والتسجيل للبدء في بناء متجر تطبيقاتك الخاص.\n\nتصفح المتاجر حسب الموضوع واكتشف تطبيقات جديدة ومثيرة.</string>
+    <string name="wizard_title_02">زيادة الأمن</string>
+    <string name="wizard_description_02">البحث عن الشارات الموثوق بها وحمل التطبيقات بأمان.\n\nمشاكل عدم التوافق؟ ابحث عن الإصدارات السابقة من التطبيقات.</string>
+    <string name="wizard_title_03">أعضاء جدد في عائلتنا</string>
+    <string name="wizard_subtitle_03_1">أبتويد لايت</string>
+    <string name="wizard_description_03_1">للأجهزة القديمة والانترنت البطئ</string>
+    <string name="wizard_subtitle_03_2">أبتويد TV</string>
+    <string name="wizard_description_03_2">متجر التطبيقات الأمثل لأجهزة الريسيفر والتلفزيونات الذكية</string>
+    <string name="search_activity_title">\'%s\'</string>
+
+    <string name="share">المشاركة</string>
+    <string name="share_on_timeline">المشاركة على صفحة الأحداث</string>
+
+    <string name="search_for_apps">البحث عن التطبيقات…</string>
+    <string name="empty_search">البحث فارغ، اكتب اسم تطبيق</string>
+    <string name="manually_reviewed">جودة التطبيق مضمونة: هذا التطبيق قد اختاز الاختبارات الأمنية للفيروسات، البرامج الخبيثة والهجمات الخبيثة الأخرى، ولا يحتوي على أي تهديدات</string>
+
+    <string name="no_apps_found">لم يتم العثور على أي تطبيقات مع وجود الفلتر الحالي</string>
+    <string name="no_search_results_message">ليست هناك نتائج لبحثك.\n\nيرجى إعادة المحاولة مع إدخال كلمات دلالية أخرى.</string>
+
+    <string name="developer">المطور</string>
+    <string name="website">الموقع الإلكتروني: %s</string>
+    <string name="email">البريد الإلكتروني: %s</string>
+    <string name="privacy_policy">سياسة الخصوصية: %s</string>
+    <string name="dialog_version_size">الإصدار: %1$s | الحجم: %2$s</string>
+    <string name="na">غير متاح</string>
 
 </resources>

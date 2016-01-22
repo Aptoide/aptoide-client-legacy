@@ -138,7 +138,7 @@
     <string name="feedback_not_valid">Please enter some valid Subject!</string>
     <string name="feedback_no_email">No email client installed!</string>
     <string name="register">Sign Up</string>
-    <string name="password_validation_text">Password must be at least 8 characters long and have one letter and one number or special character (!@#$%*)
+    <string name="password_validation_text">Password must be at least 8 characters and should have at least one letter and one number or special characters (!@#$%*)
     </string>
     <string name="about_aptoide_antimalware">Aptoide Anti-Malware platform analyses applications in run-time and disables potential threats across all stores. This system scans all the new application files from the stores and certificates them by comparison against other Android Marketplaces.</string>
     <string name="username_tip">Type your email</string>
@@ -179,7 +179,7 @@
     <string name="finished_install">%s has been installed.</string>
     <string name="aptoide_downloading">%s is downloading</string>
     <string name="remaining_time">remaining</string>
-    <string name="data_usage_constraint">Download is not allowed in Settings > General Download Rules</string>
+    <string name="data_usage_constraint">Download is not allowed in Settings &gt; General Download Rules</string>
     <string name="download_pending">Waiting</string>
 
     <!-- layouts -->
@@ -222,7 +222,7 @@
     <string name="facebook_logout_and_login">Logout and Login with Facebook</string>
 
     <string name="schDown_nodownloadselect">No Downloads Selected</string>
-    <string name="no_sch_downloads">Browsing apps using mobile data and want to download later when you’re on a wifi connection? Use Schedule downloads and change your preferences on Settings -> General Download Rules - to WiFi.</string>
+    <string name="no_sch_downloads">Browsing apps using mobile data and want to download later when you’re on a wifi connection? Use Schedule downloads and change your preferences on Settings -&gt; General Download Rules - to WiFi.</string>
     <string name="schDown_installselected">Install Selected</string>
     <string name="schDown_removeselected">Remove Selected</string>
     <string name="schDown_invertselection">Invert Selection</string>
@@ -324,7 +324,7 @@
     <string name="facebook_friends_list_using_timeline">are already using Aptoide Social Timeline</string>
     <string name="and">and</string>
     <string name="more_friends">more</string>
-    <string name="more_reviews">More Reviews</string>
+    <string name="more_reviews">Reviews</string>
     <string name="more_editors_choice">More Editors Choice</string>
     <string name="more_versions">More Versions</string>
     <string name="facebook_friends_list_using_timeline_empty">Social Timeline allows you to share your applications with your Facebook friends. Do you want to join the network?</string>
@@ -465,14 +465,14 @@
     <string name="appview_comment_reply_button_text">Reply</string>
     <string name="appview_header_trusted_text">Trusted</string>
     <string name="appview_latest_version_text">This is the latest version!</string>
-    <string name="appview_subscribe_store_button_text">+&#160;&#160;&#160;Subscribe?</string>
+    <string name="appview_subscribe_store_button_text">Subscribe?</string>
     <string name="appview_subscribed_store_button_text">Subscribed</string>
     <string name="appview_rate_this_app_text">Rate this app</string>
     <string name="appview_other_versions_in_others_stores">Other versions in other stores</string>
     <string name="appview_rate_Success">App Rated</string>
     <string name="ignoreUpdateText">Ignore Update</string>
     <string name="noIgnoreUpdateText">The new version of an app doesn’t work on your device or some feature is missing? Block apps from updating. Go to Updates tab and long press on the app that you want to stop updating.</string>
-    <string name="createReviewButtonText">Create Review</string>
+    <string name="createReviewButtonText">Create \nReview</string>
     <string name="navigation_drawer_signup_login">Sign Up or Login</string>
     <string name="active">Active</string>
     <string name="completed">Completed</string>
@@ -485,7 +485,7 @@
     <!-- Headers -->
     <string name="results_subscribed">Subscribed Stores</string>
     <string name="results_in_store">Search results in %s store</string>
-    <string name="other_stores">Unsubscribed Stores</string>
+    <string name="other_stores">Not subscribed Stores</string>
     <string name="comments">Comments</string>
     <string name="reviews">Reviews</string>
     <string name="store">Store</string>
@@ -612,5 +612,9 @@
     <string name="no_email_and_pass_error_message">Please insert an email and password to register.</string>
     <string name="no_pass_error_message">Please insert a password to register.</string>
     <string name="no_email_error_message">Please insert an email to register.</string>
+    <string name="website_copied">Website copied to clipboard</string>
+    <string name="email_copied">E-mail copied to clipboard</string>
+    <string name="privacy_copied">Privacy link copied to clipboard</string>
+    <string name="subscribing_store_message">Unsubscribing %s</string>
 
 </resources>

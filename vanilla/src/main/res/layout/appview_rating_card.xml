@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:padding="10dp"
     android:layout_weight="4"
     android:background="@drawable/black_card"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:minWidth="90dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,23 +34,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/appview_rating_card_bottom_margin"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_weight="1"
         android:gravity="center">
 
-        <FrameLayout
+
+        <RatingBar
+            android:id="@+id/appview_rating_bar_avg"
+            style="@style/RatingBarGridItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <RatingBar
-                android:id="@+id/appview_rating_bar_avg"
-                style="@style/RatingBarAppviewRatingCard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5" />
-        </FrameLayout>
+            android:numStars="5" />
     </FrameLayout>
 
     <LinearLayout

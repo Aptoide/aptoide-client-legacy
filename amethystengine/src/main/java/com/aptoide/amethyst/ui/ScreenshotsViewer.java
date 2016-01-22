@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.aptoide.amethyst.AptoideBaseActivity;
@@ -61,6 +62,14 @@ public class ScreenshotsViewer extends AptoideBaseActivity {
             screenshots.setAdapter(new ViewPagerAdapterScreenshots(uri));
             screenshots.setCurrentItem(currentItem);
         }
+
+        View btnCloseViewer = findViewById(R.id.btn_close_screenshots_window);
+        btnCloseViewer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 

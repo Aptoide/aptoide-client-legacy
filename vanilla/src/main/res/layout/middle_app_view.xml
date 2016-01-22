@@ -17,11 +17,9 @@
         android:id="@+id/apkinfoheader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/white_card"
         android:paddingTop="10dp"
         android:paddingBottom="15dp"
-        style="?attr/backgroundCard"
-        >
+        android:background="#ececec">
 
         <TextView
             android:id="@+id/middleAppViewHeader"
@@ -31,7 +29,7 @@
             android:textAppearance="?android:textAppearanceMedium"
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="5dp"
-            android:textColor="@color/aptoide_orange" />
+            android:textColor="#595959" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -74,7 +72,7 @@
         <RatingBar
             android:id="@+id/rating_label"
 
-            style="@style/RatingBarSmallAptoide"
+            style="@style/RatingBarGridItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/icon_layout"

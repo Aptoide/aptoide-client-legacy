@@ -5,8 +5,4 @@
         android:id="@+id/menu_clear_rollback"
         android:title="@string/clear"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/menu_SendFeedBack"
-        android:title="@string/feedback_send_button"
-        app:showAsAction="never" />
-</menu>
+ </menu>

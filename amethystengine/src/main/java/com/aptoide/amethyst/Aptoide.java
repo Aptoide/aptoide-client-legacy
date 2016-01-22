@@ -19,6 +19,9 @@ import com.aptoide.amethyst.preferences.ManagerPreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.crashlytics.android.Crashlytics;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -67,12 +70,28 @@ public class Aptoide extends Application {
 
     // See SharedPreferences#registerOnSharedPreferenceChangeListener
     private SharedPreferences.OnSharedPreferenceChangeListener listener;
-    
+
+    private void setAdvertisingIdClient() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", AdvertisingIdClient.getAdvertisingIdInfo(Aptoide.this).getId())
+                            .apply();
+                } catch (IOException | GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
 
         Analytics.Lifecycle.Application.onCreate(this);
+
+        setAdvertisingIdClient();
 
         context = this;
         db = SQLiteDatabaseHelper.getInstance(this).getReadableDatabase();
