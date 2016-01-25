@@ -1,11 +1,20 @@
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
-//apply plugin: 'com.getkeepsafe.dexcount'
+def gmsIsSetUp = project.file("google-services.json").exists()
+if(gmsIsSetUp) {
+    apply plugin: 'com.google.gms.google-services'
+}
 
 Properties localytics = new Properties()
 localytics.load(new FileInputStream("localytics.properties"))
 
 android {
+    def TRUE = "true"
+    def FALSE = "false"
+    def BOOLEAN = "boolean"
+    def REPORT_CRASHES = "REPORT_CRASHES"
+    def GMS_IS_SET_UP = "GMS_IS_SET_UP"
+
     compileSdkVersion 23
     buildToolsVersion '23.0.1'
     defaultConfig {
@@ -13,6 +22,8 @@ android {
         targetSdkVersion 23
         versionCode 474
         versionName "7.0.7"
+
+        buildConfigField BOOLEAN, GMS_IS_SET_UP, gmsIsSetUp.toString()
     }
 
     dexOptions {
@@ -41,12 +52,6 @@ android {
     }
 
     buildTypes {
-
-        def TRUE = "true"
-        def FALSE = "false"
-        def BOOLEAN = "boolean"
-        def REPORT_CRASHES = "REPORT_CRASHES"
-
         release {
             zipAlignEnabled true
             minifyEnabled true

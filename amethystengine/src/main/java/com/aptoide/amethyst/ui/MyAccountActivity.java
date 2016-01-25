@@ -25,9 +25,12 @@ import com.aptoide.dataprovider.webservices.models.Constants;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.plus.Plus;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 import java.util.Properties;
 
@@ -45,7 +48,6 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
 
         }
     };
-//    private PlusClient mPlusClient;
     private GoogleApiClient mGoogleApiClient;
 
     @Override
@@ -67,12 +69,14 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
             uiLifecycleHelper = new UiLifecycleHelper(this, statusCallback);
             uiLifecycleHelper.onCreate(savedInstanceState);
         }
-//        mPlusClient = new PlusClient.Builder(this, this, this).build();
+        final GoogleSignInOptions gso = new GoogleSignInOptions
+                .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
         mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this , this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(Plus.API)
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
                 .build();
 
         mAccountManager = AccountManager.get(this);
@@ -86,8 +90,6 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
             findViewById(R.id.button_logout).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    FlurryAgent.logEvent("My_Account_Clicked_On_Logout_Button");
-//
                     if (Build.VERSION.SDK_INT >= 8) {
                         Session session = new Session(MyAccountActivity.this);
                         Session.setActiveSession(session);
@@ -96,20 +98,14 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
                         }
                     }
 //
-//                    if (mPlusClient.isConnected()) {
-//                        mPlusClient.clearDefaultAccount();
-//                        mPlusClient.disconnect();
-//                    }
-
-                                        if (mGoogleApiClient.isConnected()) {
-//                        mGoogleApiClient.clearDefaultAccountAndReconnect();
-                                            mGoogleApiClient.disconnect();
-                    }
+                    Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(new ResultCallback<Status>() {
+                        @Override
+                        public void onResult(final Status status) {
+                        }
+                    });
 
                     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-
                     sharedPreferences.edit().remove("queueName").apply();
-//                    stopService(new Intent(MyAccountActivity.this, RabbitMqService.class));
                     ContentResolver.setIsSyncable(account, Constants.WEBINSTALL_SYNC_AUTHORITY, 0);
                     ContentResolver.setSyncAutomatically(account, Constants.WEBINSTALL_SYNC_AUTHORITY, false);
                     if(Build.VERSION.SDK_INT>=8){
@@ -130,7 +126,6 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
             addAccount();
             finish();
         }
-
     }
 
     private void addAccount() {
