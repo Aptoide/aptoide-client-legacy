@@ -2153,6 +2153,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         class RatingBarClickListener implements RatingBar.OnRatingBarChangeListener {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if (!fromUser) {
+                    return;
+                }
                 final Activity activity = getActivity();
                 if (AptoideUtils.AccountUtils.isLoggedIn(activity)) {
                     executeSpiceRequestWithAppRate(appId, rating);
