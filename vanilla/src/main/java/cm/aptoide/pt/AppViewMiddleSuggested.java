@@ -151,9 +151,8 @@ public class AppViewMiddleSuggested {
         this.spiceManager = spiceManager;
 
         // Apagar, amazon
-        String PUBLIC_KEY = context.getResources().getString(R.string.AMAZON_PUBLIC_KEY);
-        String PRIVATE_KEY = context.getResources().getString(R.string.AMAZON_PRIVATE_KEY);
-        InsightsCredentials credentials = AmazonInsights.newCredentials(PUBLIC_KEY, PRIVATE_KEY);
+        InsightsCredentials credentials = AmazonInsights.newCredentials(
+                BuildConfig.AMAZON_PUBLIC_KEY, BuildConfig.AMAZON_PRIVATE_KEY);
 
         // Initialize a new instance of AmazonInsights specifically for your application.
         // The AmazonInsights library requires the Android context in order to access

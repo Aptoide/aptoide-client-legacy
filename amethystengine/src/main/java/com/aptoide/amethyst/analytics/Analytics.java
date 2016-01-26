@@ -6,12 +6,12 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.LoginActivity;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.preferences.EnumPreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
-import com.aptoide.dataprovider.webservices.models.v7.GetApp;
+import com.aptoide.amethyst.utils.Logger;
 import com.flurry.android.FlurryAgent;
 import com.localytics.android.Localytics;
 
@@ -24,8 +24,7 @@ import java.util.HashMap;
  */
 public class Analytics {
 
-    private static final boolean ACTIVATE = true;
-    private static final boolean DEBUG = false;
+    private static final boolean ACTIVATE = BuildConfig.LOCALYTICS_CONFIGURED;
 
     private static final int ALL = Integer.MAX_VALUE;
     private static final int LOCALYTICS = 1 << 0;
@@ -56,9 +55,8 @@ public class Analytics {
 
             track(event, stringObjectHashMap, flags);
 
-            if (DEBUG) {
-                System.out.println("Debug: Analytics: Event: " + event + ", Key: " + key + ", attr: " + attr);
-            }
+            Logger.d("Analytics", "Event: " + event + ", Key: " + key + ", attr: " + attr);
+
         } catch (Exception e) {
             Log.d("Analytics", e.getStackTrace().toString());
         }
@@ -73,9 +71,7 @@ public class Analytics {
             if(checkAcceptability(flags, LOCALYTICS))
                 Localytics.tagEvent(event, map);
 
-            if (DEBUG) {
-                System.out.println("Debug: Analytics: Event: " + event + ", Map: " + map);
-            }
+            Logger.d("Analytics", "Event: " + event + ", Map: " + map);
 
         } catch (Exception e) {
             Log.d("Analytics", e.getStackTrace().toString());
@@ -91,9 +87,8 @@ public class Analytics {
             if(checkAcceptability(flags, LOCALYTICS))
                 Localytics.tagEvent(event);
 
-            if (DEBUG) {
-                System.out.println("Debug: Analytics: Event: " + event);
-            }
+            Logger.d("Analytics", "Event: " + event);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -155,10 +150,9 @@ public class Analytics {
 
                 Localytics.handleTestMode(activity.getIntent());
 
-                if (DEBUG) {
-                    System.out.println("Debug: Analytics: Event: CPU_ID: " + cpuid);
-                    System.out.println("Debug: Analytics: Screen: " + screenName);
-                }
+                Logger.d("Analytics", "Event: CPU_ID: " + cpuid);
+                Logger.d("Analytics", "Screen: " + screenName);
+
             }
 
             public static void onPause(android.app.Activity activity) {
@@ -176,7 +170,7 @@ public class Analytics {
                 if (!ACTIVATE)
                     return;
 
-                FlurryAgent.onStartSession(activity, "X89WPPSKWQB2FT6B8F3X");
+                FlurryAgent.onStartSession(activity, BuildConfig.FLURRY_KEY);
 
             }
 
@@ -199,9 +193,7 @@ public class Analytics {
             if (!ACTIVATE)
                 return;
 
-            if (DEBUG) {
-                System.out.println("Debug: Analytics: Localytics: Screens: " + screenName);
-            }
+            Logger.d("Analytics", "Localytics: Screens: " + screenName);
 
             Localytics.tagScreen(screenName);
             Localytics.upload();
@@ -766,9 +758,7 @@ public class Analytics {
                 return;
             }
 
-            if (DEBUG) {
-                System.out.println("Debug: Analytics: Dimension: " + i + ", Value: " + s);
-            }
+            Logger.d("Analytics", "Dimension: " + i + ", Value: " + s);
 
             Localytics.setCustomDimension(i, s);
         }
@@ -816,9 +806,7 @@ public class Analytics {
 
                 map.put("packageName", packageName);
 
-                if (DEBUG) {
-                    System.out.println("Debug: Analytics: LTV: " + eventName + ": " + packageName + ", " + value);
-                }
+                Logger.d("Analytics", "LTV: " + eventName + ": " + packageName + ", " + value);
 
                 Localytics.tagEvent(eventName, map, value);
             } catch (NumberFormatException e) {

@@ -93,7 +93,7 @@ public class TimeLineNoFriendsInviteActivity extends AptoideBaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-//        FlurryAgent.onStartSession(this, "X89WPPSKWQB2FT6B8F3X");
+//        FlurryAgent.onStartSession(this, getResources().getString(R.string.FLURRY_KEY));
     }
 
     @Override
