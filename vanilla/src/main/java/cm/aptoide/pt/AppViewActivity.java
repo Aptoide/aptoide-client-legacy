@@ -904,8 +904,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 mWebsiteLabel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (AptoideUtils.Algorithms.copyToClipBoard(AppViewActivity.this, website)) {
-                            Toast.makeText(AppViewActivity.this, R.string.website_copied, Toast.LENGTH_SHORT).show();
+                        if (AptoideUtils.Algorithms.copyToClipBoard(getActivity(), website)) {
+                            Toast.makeText(getActivity(), R.string.website_copied, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -917,8 +917,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 mEmailLabel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (AptoideUtils.Algorithms.copyToClipBoard(AppViewActivity.this, email)) {
-                            Toast.makeText(AppViewActivity.this, R.string.email_copied, Toast.LENGTH_SHORT).show();
+                        if (AptoideUtils.Algorithms.copyToClipBoard(getActivity(), email)) {
+                            Toast.makeText(getActivity(), R.string.email_copied, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -930,8 +930,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 mPrivacyLabel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (AptoideUtils.Algorithms.copyToClipBoard(AppViewActivity.this, privacyAux)) {
-                            Toast.makeText(AppViewActivity.this, R.string.privacy_copied, Toast.LENGTH_SHORT).show();
+                        if (AptoideUtils.Algorithms.copyToClipBoard(getActivity(), privacyAux)) {
+                            Toast.makeText(getActivity(), R.string.privacy_copied, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -943,9 +943,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 //            privacy = getString(R.string.na);
 //        }
 
-            mWebsiteLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(this, R.string.website, websiteAux)));
-            mEmailLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(this, R.string.email, emailAux)));
-            mPrivacyLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(this, R.string.privacy_policy, privacyAux)));
+            mWebsiteLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(getActivity(), R.string.website, websiteAux)));
+            mEmailLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(getActivity(), R.string.email, emailAux)));
+            mPrivacyLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(getActivity(), R.string.privacy_policy, privacyAux)));
             if (getApp == null || getApp.nodes == null || getApp.nodes.meta == null || getApp.nodes.meta.data == null
                     || getApp.nodes.meta.data.file == null || getApp.nodes.meta.data.file.usedPermissions == null
                     || getApp.nodes.meta.data.file.usedPermissions.isEmpty()) {
@@ -1258,7 +1258,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             @Override
             public void onClick(View v) {
                 reloadButtons = true;
-                final Context context = AppViewActivity.this;
+                final Context context = getActivity();
                 final Intent intent = StoresActivity.newIntent(context,
                         storeId, storeName, storeAvatar, storeTheme.ordinal());
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

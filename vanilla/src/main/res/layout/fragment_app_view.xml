@@ -178,14 +178,14 @@
 
                         <RatingBar
                             android:id="@+id/rating_bar_top"
-                            style="@style/RatingBarAppviewAppbarRating"
+                            style="@style/RatingBarGridItem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="80dp"
                             android:numStars="5" />
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="186dp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="19dp"
@@ -220,12 +220,13 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:layout_weight="1">
 
                                 <ImageView
-                                    android:layout_width="5dp"
-                                    android:layout_height="5dp"
+                                    android:layout_width="7dp"
                                     android:layout_gravity="center"
+                                    android:layout_height="9dp"
                                     android:layout_marginLeft="5dp"
                                     android:src="@drawable/ic_appview_version" />
 
@@ -233,7 +234,7 @@
                                     android:id="@+id/versionName"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
+                                    android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="2dp"
                                     android:maxLines="1"
                                     android:maxWidth="50dp"
@@ -482,6 +483,7 @@
 
 
                 <RelativeLayout
+                    android:id="@+id/store"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center_vertical"
@@ -491,7 +493,6 @@
 
 
                     <LinearLayout
-                        android:id="@+id/store"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="25dp"
@@ -667,6 +668,8 @@
                     android:layout_height="240dp"
                     android:background="#ececec" />
 
+                <include layout="@layout/separator_vertical" />
+
                 <include layout="@layout/rate_this_app_layout" />
 
                 <include layout="@layout/separator_vertical" />
@@ -698,17 +701,17 @@
                 android:id="@+id/see_more_comments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:drawableRight="@drawable/ic_see_more_comments"
-                android:drawablePadding="15dp"
-                android:textAllCaps="true"
-                android:paddingTop="15dp"
-                android:paddingRight="13dp"
-                android:paddingBottom="10dp"
-                android:text="@string/see_more"
                 android:background="@color/white"
-                android:textStyle="bold"
+                android:drawablePadding="15dp"
+                android:drawableRight="@drawable/ic_see_more_comments"
+                android:gravity="right"
+                android:paddingBottom="10dp"
+                android:paddingRight="13dp"
+                android:paddingTop="15dp"
+                android:text="@string/see_more"
+                android:textAllCaps="true"
                 android:textSize="12sp"
+                android:textStyle="bold"
                 android:visibility="gone" />
 
 
@@ -749,7 +752,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/more_versions_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="170dp" />
+                android:layout_height="180dp" />
 
 
             <TextView
