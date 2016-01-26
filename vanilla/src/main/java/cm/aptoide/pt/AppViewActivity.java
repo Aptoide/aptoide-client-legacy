@@ -714,6 +714,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
             if (reloadButtons) {
                 checkInstallation();
+                updateStoreInfo();
                 handleLatestVersionLogic();
                 reloadButtons = false;
             }
@@ -781,10 +782,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 case android.R.id.home:
                     getActivity().onBackPressed();
                     return true;
-                case R.id.menu_SendFeedBack:
-                    FeedBackActivity.screenshot(getActivity());
-                    startActivity(new Intent(getActivity(), FeedBackActivity.class));
-                    break;
                 case R.id.menu_share:
                     FlurryAgent.logEvent("App_View_Clicked_On_Share_Button");
 
@@ -896,22 +893,59 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         }
 
         private void populatePermissionsTable(final GetApp getApp) {
+            String websiteAux;
+            String emailAux;
+            final String privacyAux;
 
             if (TextUtils.isEmpty(website)) {
-                website = getString(R.string.na);
+                websiteAux = getString(R.string.na);
+            } else {
+                websiteAux = website;
+                mWebsiteLabel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (AptoideUtils.Algorithms.copyToClipBoard(AppViewActivity.this, website)) {
+                            Toast.makeText(AppViewActivity.this, R.string.website_copied, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
             if (TextUtils.isEmpty(email)) {
-                email = getString(R.string.na);
+                emailAux = getString(R.string.na);
+            } else {
+                emailAux = email;
+                mEmailLabel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (AptoideUtils.Algorithms.copyToClipBoard(AppViewActivity.this, email)) {
+                            Toast.makeText(AppViewActivity.this, R.string.email_copied, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
             if (TextUtils.isEmpty(privacy)) {
-                privacy = getString(R.string.na);
+                privacyAux = getString(R.string.na);
+            } else {
+                privacyAux = privacy;
+                mPrivacyLabel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (AptoideUtils.Algorithms.copyToClipBoard(AppViewActivity.this, privacyAux)) {
+                            Toast.makeText(AppViewActivity.this, R.string.privacy_copied, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
+//        if (TextUtils.isEmpty(email)) {
+//            email = getString(R.string.na);
+//        }
+//        if (TextUtils.isEmpty(privacy)) {
+//            privacy = getString(R.string.na);
+//        }
 
-            final Context context = getActivity();
-            mWebsiteLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(context, R.string.website, website)));
-            mEmailLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(context, R.string.email, email)));
-            mPrivacyLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(context, R.string.privacy_policy, privacy)));
-
+            mWebsiteLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(this, R.string.website, websiteAux)));
+            mEmailLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(this, R.string.email, emailAux)));
+            mPrivacyLabel.setText(Html.fromHtml(AptoideUtils.StringUtils.getFormattedString(this, R.string.privacy_policy, privacyAux)));
             if (getApp == null || getApp.nodes == null || getApp.nodes.meta == null || getApp.nodes.meta.data == null
                     || getApp.nodes.meta.data.file == null || getApp.nodes.meta.data.file.usedPermissions == null
                     || getApp.nodes.meta.data.file.usedPermissions.isEmpty()) {
@@ -1196,32 +1230,39 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
             mButtonSubscribe.setTextColor(getResources().getColor(storeTheme.getStoreHeader()));
 
-            mStoreView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View v) {
-                    final Context context = getActivity();
-                    final Intent intent = StoresActivity.newIntent(context,
-                            storeId, storeName, storeAvatar, storeTheme.ordinal());
-                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                    context.startActivity(intent);
-                }
-            });
+            OpenStoreOnClickListener openStoreOnClickListener = new OpenStoreOnClickListener();
+            mStoreView.setOnClickListener(openStoreOnClickListener);
 
             final boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(storeId);
             if (subscribed) {
                 int checkmarkDrawable = storeTheme.getCheckmarkDrawable();
                 mButtonSubscribe.setCompoundDrawablesWithIntrinsicBounds(checkmarkDrawable, 0, 0, 0);
                 mButtonSubscribe.setText(getString(R.string.appview_subscribed_store_button_text));
-                mButtonSubscribe.setClickable(false);
-                mButtonSubscribe.setFocusable(false);
+                mButtonSubscribe.setOnClickListener(openStoreOnClickListener);
 
             } else {
+                int plusMarkDrawable = storeTheme.getPlusmarkDrawable();
+                mButtonSubscribe.setCompoundDrawablesWithIntrinsicBounds(plusMarkDrawable, 0, 0, 0);
+                mButtonSubscribe.setText(getString(R.string.appview_subscribe_store_button_text));
                 mButtonSubscribe.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         AptoideUtils.RepoUtils.startParse(storeName, getActivity(), spiceManager);
                     }
                 });
+            }
+        }
+
+        class OpenStoreOnClickListener implements View.OnClickListener{
+
+            @Override
+            public void onClick(View v) {
+                reloadButtons = true;
+                final Context context = AppViewActivity.this;
+                final Intent intent = StoresActivity.newIntent(context,
+                        storeId, storeName, storeAvatar, storeTheme.ordinal());
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                context.startActivity(intent);
             }
         }
 
@@ -1246,6 +1287,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
         private void populateMoreVersions(GetAppModel model) {
             GetApp getApp = model.getApp;
+            mMoreVersionsList.setNestedScrollingEnabled(false);
 
             /**
              * If the size of the list is 1, it means it's the own app and should be removed.
