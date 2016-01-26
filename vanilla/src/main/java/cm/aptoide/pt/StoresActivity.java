@@ -36,6 +36,7 @@ import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.StoreHomeTab;
 import com.aptoide.models.stores.Login;
+import com.aptoide.models.stores.Store;
 import com.astuetz.PagerSlidingTabStrip;
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.exception.NoNetworkException;
@@ -217,9 +218,6 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.home || item.getItemId() == android.R.id.home) {
             finish();
-        } else if (item.getItemId() == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this, FeedBackActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -300,6 +298,25 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
             new AptoideDatabase(Aptoide.getDb()).updateStoreLogin(storeId, login);
             retry();
         }
+    }
+
+    @Subscribe
+    public void refreshStoresEvent(OttoEvents.RepoDeletedEvent event) {
+        Logger.d("AptoideStoreActivity", "OnEvent " + event.getClass().getSimpleName());
+        args.putBoolean(Constants.STORE_SUBSCRIBED_KEY, subscribed = false);
+        if (event.stores != null && !event.stores.isEmpty()) {
+            for (Store store : event.stores) {
+                AptoideUtils.RepoUtils.removeStoreOnCloud(store, StoresActivity.this, spiceManager);
+                if (store.getName()!=null && storeName != null && store.getName().equals(storeName)) {
+                    executeSpiceRequest(false);
+                }
+            }
+        }
+    }
+
+    @Subscribe
+    public void subscribeRepo(OttoEvents.RepoSubscribeEvent event) {
+        AptoideUtils.RepoUtils.startParse(event.getStoreName(), StoresActivity.this, spiceManager);
     }
 
     private void handleUnauthorized() {

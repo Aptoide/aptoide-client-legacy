@@ -24,6 +24,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -170,6 +171,15 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
     }
 
     @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+            mDrawerLayout.closeDrawers();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     protected String getScreenName() {
         return null;
     }
@@ -271,7 +281,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                mDrawerLayout.closeDrawers();
+//                mDrawerLayout.closeDrawers();
 
                 menuItem.setChecked(true);
                 switch (menuItem.getItemId()) {
@@ -313,6 +323,9 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
                         showBackupApps();
                         Analytics.BackupApps.open();
                         return true;
+                    case R.id.send_feedback:
+                        FeedBackActivity.screenshot(MainActivity.this);
+                        startActivity(new Intent(MainActivity.this, FeedBackActivity.class));
                     default:
                         return true;
                 }
@@ -630,12 +643,6 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(MainActivity.this);
-            startActivity(new Intent(this, FeedBackActivity.class));
-        }
 
         return super.onOptionsItemSelected(item);
     }

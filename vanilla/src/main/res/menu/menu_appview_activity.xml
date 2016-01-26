@@ -16,8 +16,4 @@
     <item android:id="@+id/menu_schedule"
         app:showAsAction="never"
         android:title="@string/schDwnBtn"/>
-    <item
-        android:id="@+id/menu_SendFeedBack"
-        android:title="@string/feedback_send_button"
-        app:showAsAction="never" />
 </menu>

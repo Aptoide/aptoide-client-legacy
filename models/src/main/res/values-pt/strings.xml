@@ -21,7 +21,7 @@
 <string name="setting_icon_download_rules">Regras de Transferência de Icons</string>
 <string name="setting_sum_icon_download_rules">Permite a transferência de ícones em ligações móveis</string>
 <string name="setting_general_download_rules">Regras gerais de download</string>
-<string name="setting_sum_general_download_rules">Transfira Apps, Escolhas do Editor, Top de aplicações e Lojas em ligações de dados móveis permitidas</string>
+<string name="setting_sum_general_download_rules">Transfira Apps, Escolhas do Editor, Top de Apps e Lojas em ligações de dados móveis permitidas</string>
 <string name="setting_wifi">Rede WiFi</string>
 <string name="setting_3g">3G</string>
 <string name="setting_4g">4G</string>
@@ -305,17 +305,17 @@
 <string name="review_usability">Usabilidade</string>
 <string name="review_addictive">Viciante</string>
 <string name="review_stability">Estabilidade</string>
-<string name="reviews">Análises</string>
+<string name="reviews">Críticas</string>
 <string name="review_finish">Terminar</string>
 <string name="review_final_verdict">Veredicto final</string>
 <string name="review_bad">Mau</string>
 <string name="review_final_score">Pontuação</string>
-<string name="review_success">Análise submetida com sucesso!</string>
+<string name="review_success">Crítica submetida com sucesso!</string>
 <string name="write_your_final_verdict">Escreva o seu veredicto final</string>
 <string name="write_one_con">Escreva pelo menos um contra</string>
 <string name="write_one_pro">Escreva pelo menos um pro</string>
 <string name="set_sliders">Ajuste as classificações</string>
-<string name="make_review_title">Criar uma Análise</string>
+<string name="make_review_title">Fazer crítica</string>
 <string name="review_get_app">Obter Aplicação</string>
 <string name="store_privacy">Privacidade da Loja</string>
 <string name="public_key">publico</string>
@@ -354,7 +354,7 @@
     <string name="reply">Resposta</string>
     <string name="casting_vote">A enviar voto…</string>
     <string name="vote_submitted">O seu voto foi submetido com sucesso</string>
-    <string name="reviewed_by">Análise por - %s</string>
+    <string name="reviewed_by">Crítica de - %s</string>
     <string name="installed_this">%s instalaram esta app.</string>
 
     <string name="app_name">Aptoide</string>
@@ -380,16 +380,16 @@
 
     <string name="order_popup_title3">Conteúdo para adultos</string>
     <string name="timeline_is_empty_send_email">Vamos enviar um email para quem escolher</string>
-    <string name="more_reviews">Mais análises</string>
+    <string name="more_reviews">Mais críticas</string>
     <string name="recommended_for_you">Recomendado para si</string>
     <string name="like">Gosto</string>
-    <string name="review_by">Análise por:\n%s</string>
-    <string name="review_title">Análises</string>
+    <string name="review_by">Crítica de:\n%s</string>
+    <string name="review_title">Críticas</string>
     <string name="review_good">Bom</string>
     <string name="upload_app_backup_apps_installed">Primeiro necessita de fazer o upload desta app para a sua loja. Pode usar a aplicação Aptoide Backup Apps.</string>
     <string name="upload_app_backup_apps_not_installed">Primeiro necessita de fazer o upload desta app para a sua loja. Por favor instale e use a aplicação Aptoide Backup Apps.</string>
     <string name="upload_app">Enviar aplicação</string>
-    <string name="create_review">Escrever análise</string>
+    <string name="create_review">Escrever crítica</string>
 
     <string name="setting_dont_show_mature_content">Mostrar conteúdo adulto</string>
     <string name="drawer_social_media_title">Vamos continuar ligados</string>
@@ -398,16 +398,16 @@
     <string name="flag_this_app_need_licence">Requer Licença</string>
     <string name="appview_additional_information_title">Informação adicional</string>
     <string name="appview_latest_version_text">Esta é a última versão!</string>
-    <string name="appview_subscribe_store_button_text">"+  Subscrever?"</string>
-    <string name="noIgnoreUpdateText">A nova versão da app não funciona no seu dispositivo ou falta alguma funcionalidade? Bloqueie a actualização de apps. Vá até à aba Actualizações e carregue continuamente na app onde deseja parar a atualização.</string>
-    <string name="createReviewButtonText">Escrever análise</string>
+    <string name="appview_subscribe_store_button_text">"Subscrever?"</string>
+    <string name="noIgnoreUpdateText">A nova versão da app não funciona no seu dispositivo ou falta alguma funcionalidade? Bloqueie a actualização de apps. Vá até à aba Actualizações e pressione continuamente na app onde deseja parar a atualização.</string>
+    <string name="createReviewButtonText">Escrever crítica</string>
     <string name="navigation_drawer_signup_login">Registar ou entrar</string>
     <string name="_downloads"> downloads</string>
     <string name="no_description">Sem descrição</string>
     <string name="version">Versão</string>
 
     <string name="results">Resultados</string>
-    <string name="other_stores">Lojas com subscrição anulada</string>
+    <string name="other_stores">Lojas não subscritas</string>
     <string name="store">Loja</string>
 
     <string name="unsubscribe_yes_no">Tem a certeza que quer cancelar a subscrição?</string>
@@ -418,7 +418,7 @@
     <string name="srch_hint">Procurar por aplicações…</string>
     <string name="suggested_app">App sugerida</string>
 
-<string name="error_REPO_4_no_store">A sua conta não tem loja criada. Necessita criar uma para poder fazer uma análise.</string>
+<string name="error_REPO_4_no_store">A sua conta não tem loja criada. Necessita criar uma para poder fazer uma crítica.</string>
 
     <string name="create_store">Criar loja</string>
     <string name="section">Secção</string>
@@ -459,7 +459,7 @@
     <string name="whats_new">Novidades?</string>
     <string name="appview_subscribed_store_button_text">Subscrita</string>
     <string name="appview_this_app_in_others_stores">Esta app noutras lojas</string>
-    <string name="appview_rate_Success">Avaliação da app</string>
+    <string name="appview_rate_Success">Aplicação avaliada</string>
     <string name="version_placeholder">Versão: %s</string>
 
     <string name="app_trusted">%s é Confiável</string>
@@ -518,8 +518,8 @@
     <string name="wizard_subtitle_03_1">Aptoide Lite</string>
     <string name="wizard_description_03_1">para dispositivos antigos e ligações à internet lentas</string>
     <string name="wizard_subtitle_03_2">Aptoide TV</string>
-    <string name="wizard_reviews_title">Análises</string>
-    <string name="wizard_reviews">Pode agora criar as suas análises de apps com o Aptoide!</string>
+    <string name="wizard_reviews_title">Críticas</string>
+    <string name="wizard_reviews">Pode agora criar as suas críticas de apps com o Aptoide!</string>
     <string name="wizard_new_and_improved">Performance melhorada!</string>
     <string name="wizard_new_and_improved_bullet_1">Poupe na bateria</string>
     <string name="wizard_new_and_improved_bullet_2">Reduza no uso do CPU e na banda larga</string>
@@ -551,7 +551,7 @@
     <string name="subscribe_apps_official_store">Subscrever \'apps\' a Loja Oficial Aptoide</string>
     <string name="error_410">Desculpe, a App pedida não foi encontrada neste servidor.</string>
 
-    <string name="flag_freeze">Congelada</string>
+    <string name="flag_freeze">Bloqueia</string>
     <string name="wizard_description_03_2">loja da aplicações optimizada para Smart TVs e boxes multimédia</string>
     <string name="wizard_new_top">Nova aba com o top de aplicações</string>
     </resources>

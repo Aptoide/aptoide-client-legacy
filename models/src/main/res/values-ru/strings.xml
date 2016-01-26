@@ -400,7 +400,7 @@
     <string name="flag_this_app_need_licence">Нужна лицензия</string>
     <string name="appview_additional_information_title">Дополнительная информация</string>
     <string name="appview_latest_version_text">Это последняя версия!</string>
-    <string name="appview_subscribe_store_button_text">"+&#160;&#160;Подписаться?"</string>
+    <string name="appview_subscribe_store_button_text">"Подписаться?"</string>
     <string name="noIgnoreUpdateText">Нет доступных обновлений</string>
     <string name="createReviewButtonText">Создать отзыв</string>
     <string name="navigation_drawer_signup_login">Зарегистрироваться или войти</string>

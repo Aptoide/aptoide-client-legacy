@@ -688,9 +688,6 @@ public class FragmentSocialTimeline extends Fragment implements FragmentSignIn.S
             if (i == android.R.id.home) {
 //        } else if (i == R.id.menu_invite_friends) {
 
-            } else if (i == R.id.menu_SendFeedBack) {
-                FeedBackActivity.screenshot(getActivity());
-                startActivity(new Intent(getActivity(), FeedBackActivity.class));
             }
             return super.onOptionsItemSelected(item);
         }

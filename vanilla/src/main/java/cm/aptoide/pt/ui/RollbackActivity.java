@@ -87,9 +87,6 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
 //            FlurryAgent.logEvent("Rollback_Cleared_Rollback_List");
             new AptoideDatabase(Aptoide.getDb()).deleteRollbackItems();
             getSupportLoaderManager().restartLoader(17, null, this);
-        } else if (i == R.id.menu_SendFeedBack) {
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this, FeedBackActivity.class));
         }
 
 
@@ -150,7 +147,7 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
     @Override
     protected void onStart() {
         super.onStart();
-//        FlurryAgent.onStartSession(this, "X89WPPSKWQB2FT6B8F3X");
+//        FlurryAgent.onStartSession(this, getResources().getString(R.string.FLURRY_KEY));
     }
 
     @Override

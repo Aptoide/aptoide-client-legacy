@@ -91,7 +91,7 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
     protected void onStart() {
         super.onStart();
         spiceManager.start(this);
-//        FlurryAgent.onStartSession(this, "X89WPPSKWQB2FT6B8F3X");
+//        FlurryAgent.onStartSession(this, getResources().getString(R.string.FLURRY_KEY));
     }
 
     @Override
@@ -297,11 +297,7 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
                 scheduledDownload.toggleChecked();
             }
             adapter.notifyDataSetChanged();
-        } else if( i == R.id.menu_SendFeedBack){
-            FeedBackActivity.screenshot(this);
-            startActivity(new Intent(this,FeedBackActivity.class));
         }
-
         return super.onOptionsItemSelected(item);
     }
 

@@ -33,8 +33,5 @@ proguard/
 .idea/
 .DS_Store
 captures/
-fabric.properties
-signing.properties
 
-secrets.xml
-localytics.properties
+signing.properties

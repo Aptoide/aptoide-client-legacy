@@ -121,10 +121,6 @@ public class ExcludedUpdatesFragment extends CursorLoaderLinearRecyclerFragment 
                     toast.show();
                 }
                 break;
-            case R.id.menu_SendFeedBack:
-                FeedBackActivity.screenshot(getActivity());
-                startActivity(new Intent(getActivity(), FeedBackActivity.class));
-                break;
             case R.id.menu_select_all:
                 adapter.selectAll();
                 break;
