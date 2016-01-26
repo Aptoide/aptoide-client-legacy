@@ -67,6 +67,7 @@ import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 
 import retrofit.RetrofitError;
@@ -306,9 +307,8 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     private void setUpGoogle() {
         final View googleSignIn = findViewById(R.id.g_sign_in_button);
         final int connectionResult = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
-        final boolean gmsAvailable = !Arrays.asList(
-                ConnectionResult.SERVICE_MISSING, ConnectionResult.SERVICE_DISABLED)
-                .contains(connectionResult);
+        final Collection<Integer> badResults = Arrays.asList(ConnectionResult.SERVICE_MISSING, ConnectionResult.SERVICE_DISABLED);
+        final boolean gmsAvailable = BuildConfig.GMS_CONFIGURED && !badResults.contains(connectionResult);
         if (!gmsAvailable) {
             googleSignIn.setVisibility(View.GONE);
             return;
@@ -316,7 +316,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
         final GoogleSignInOptions gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
-                .requestServerAuthCode(getString(R.string.GOOGLE_PLUS_SERVER_ID))
+                .requestServerAuthCode(BuildConfig.GMS_SERVER_ID)
                 .build();
         final GoogleApiClient client = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)

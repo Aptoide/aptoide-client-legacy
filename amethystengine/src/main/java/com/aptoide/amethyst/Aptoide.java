@@ -19,6 +19,7 @@ import com.aptoide.amethyst.preferences.ManagerPreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.core.CrashlyticsCore;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -110,7 +111,12 @@ public class Aptoide extends Application {
                             }
                         });
 
-        Fabric.with(this, new Crashlytics());
+
+        Crashlytics crashlyticsKit = new Crashlytics.Builder()
+                .core(new CrashlyticsCore.Builder().disabled(!BuildConfig.FABRIC_CONFIGURED).build())
+                .build();
+        Fabric.with(this, crashlyticsKit);
+
         setConfiguration(getAptoideConfiguration());
         initImageLoader();
         setDebugMode();

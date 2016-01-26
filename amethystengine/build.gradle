@@ -1,5 +1,8 @@
 apply plugin: 'com.android.library'
-apply plugin: 'io.fabric'
+
+// Should be moved to application module when possible
+Properties localProperties = new Properties()
+localProperties.load(new FileInputStream("local.properties"))
 
 android {
     useLibrary 'org.apache.http.legacy'
@@ -7,11 +10,44 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
+    def BOOLEAN = "boolean"
+    def STRING = "String"
+    def GMS_CONFIGURED = "GMS_CONFIGURED"
+    def GMS_SERVER_ID = "GMS_SERVER_ID"
+    def LOCALYTICS_CONFIGURED = "LOCALYTICS_CONFIGURED"
+    def FACEBOOK_CONFIGURED = "FACEBOOK_CONFIGURED"
+    def FLURRY_CONFIGURED = "FLURRY_CONFIGURED"
+    def FLURRY_KEY = "FLURRY_KEY"
+    def FABRIC_CONFIGURED = "FABRIC_CONFIGURED"
+    def FABRIC_API_KEY = "FABRIC_KEY"
+
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+
+        def gmsServerId = localProperties.GMS_SERVER_ID
+        buildConfigField BOOLEAN, GMS_CONFIGURED, (gmsServerId != null).toString()
+        buildConfigField STRING, GMS_SERVER_ID, gmsServerId.toString()
+
+        def localyticsDebugKey = localProperties.LOCALYTICS_DEBUG_KEY
+        def localyticsReleaseKey = localProperties.LOCALYTICS_RELEASE_KEY
+        buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, (localyticsDebugKey != null && localyticsReleaseKey!= null).toString()
+
+        def fabricApiKey = localProperties.FABRIC_API_KEY
+        buildConfigField BOOLEAN, FABRIC_CONFIGURED, (fabricApiKey != null).toString()
+        buildConfigField STRING, FABRIC_API_KEY, fabricApiKey.toString()
+
+        def flurryKey = localProperties.FLURRY_KEY
+        buildConfigField BOOLEAN, FLURRY_CONFIGURED, (flurryKey != null).toString()
+        buildConfigField STRING, FLURRY_KEY, flurryKey.toString()
+
+        def facebookAppId = localProperties.FACEBOOK_APP_ID
+        def facebookAppIdExists = facebookAppId != null
+        buildConfigField BOOLEAN, FACEBOOK_CONFIGURED, facebookAppIdExists.toString()
+        manifestPlaceholders = [ FACEBOOK_APP_ID:facebookAppIdExists ? facebookAppId.toString() : ""]
     }
     buildTypes {
         release {

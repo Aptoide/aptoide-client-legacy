@@ -6,14 +6,12 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.LoginActivity;
-import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.preferences.EnumPreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
-import com.aptoide.dataprovider.webservices.models.v7.GetApp;
 import com.flurry.android.FlurryAgent;
 import com.localytics.android.Localytics;
 
@@ -26,7 +24,7 @@ import java.util.HashMap;
  */
 public class Analytics {
 
-    private static final boolean ACTIVATE = true;
+    private static final boolean ACTIVATE = BuildConfig.LOCALYTICS_CONFIGURED;
 
     private static final int ALL = Integer.MAX_VALUE;
     private static final int LOCALYTICS = 1 << 0;
@@ -172,7 +170,7 @@ public class Analytics {
                 if (!ACTIVATE)
                     return;
 
-                FlurryAgent.onStartSession(activity, activity.getResources().getString(R.string.FLURRY_KEY));
+                FlurryAgent.onStartSession(activity, BuildConfig.FLURRY_KEY);
 
             }
 
