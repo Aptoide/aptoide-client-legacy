@@ -56,7 +56,6 @@ public class StoreItemRowViewHolder extends BaseViewHolder {
 
         // in order to re-use the row_store_item layout, we hide the unsubscribe button and increase the padding
         storeUnsubscribe.setVisibility(View.GONE);
-        infoLayout.setPadding(4, 4, 4, 24);
 
         final Context context = itemView.getContext();
         @ColorInt int color = context.getResources().getColor(themeIz.getStoreHeader());

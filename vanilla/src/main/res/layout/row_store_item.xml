@@ -18,8 +18,7 @@
         <FrameLayout
             android:layout_width="68dp"
             android:layout_height="68dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="6dp">
+            android:layout_gravity="center_horizontal">
 
             <ImageView
                 android:layout_width="68dp"
@@ -118,7 +117,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="4dp"
             android:background="@drawable/rounded_corners_dark"
             android:drawablePadding="4dp"
             android:drawableLeft="@drawable/ic_close_white"

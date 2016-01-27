@@ -47,7 +47,8 @@ android {
         def facebookAppId = localProperties.FACEBOOK_APP_ID
         def facebookAppIdExists = facebookAppId != null
         buildConfigField BOOLEAN, FACEBOOK_CONFIGURED, facebookAppIdExists.toString()
-        manifestPlaceholders = [ FACEBOOK_APP_ID:facebookAppIdExists ? facebookAppId.toString() : "0"]
+        facebookAppId = facebookAppIdExists ? facebookAppId.toString() : "0"
+        resValue "string", "facebook_app_id", "\"" + facebookAppId + "\""
     }
     buildTypes {
         release {

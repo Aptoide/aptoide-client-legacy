@@ -347,8 +347,9 @@ public class AptoideUtils {
             int bucket = 1;
             float screenWidth = getScreenWidthInDip();
 
-            if (screenWidth > 120) {
-                bucket = (int) (screenWidth / 120);
+            int magicNumber = Aptoide.getContext().getResources().getInteger(R.integer.bucket_size_magic_number);
+            if (screenWidth > magicNumber) {
+                bucket = (int) (screenWidth / magicNumber);
             }
 
             Logger.d("APTOIDEUTILS", "bucketsize = " + bucket);

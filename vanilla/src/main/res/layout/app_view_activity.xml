@@ -36,7 +36,7 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginBottom="50dp"
             app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="120dp"
+            app:expandedTitleMarginStart="@dimen/appview_title_left_margin"
             app:expandedTitleTextAppearance="@style/HeaderTextAppView"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -54,8 +54,7 @@
                     <ImageView
                         android:id="@+id/featured_graphic"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop" />
+                        android:layout_height="match_parent"/>
 
                 </FrameLayout>
 

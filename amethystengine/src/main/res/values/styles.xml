@@ -49,8 +49,8 @@
     <style name="RatingBarGridItem">
         <item name="android:progressDrawable">@drawable/rating_bar_grid_item</item>
         <item name="android:isIndicator">true</item>
-        <item name="android:minHeight">13dp</item>
-        <item name="android:maxHeight">13dp</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:maxHeight">10dip</item>
         <item name="android:focusableInTouchMode">false</item>
         <item name="android:clickable">false</item>
         <item name="android:focusable">false</item>
