@@ -12,7 +12,7 @@ if(fabricConfigured) {
             def fabricProperties = project.file("fabric.properties")
             fabricProperties.delete()
             fabricProperties.append("# Do not modify this file -- YOUR CHANGES WILL BE ERASED!\n")
-            fabricProperties.append("apiKey=" + fabricApiKey.replaceAll("\"", ""))
+            fabricProperties.append("apiKey=" + fabricApiKey)
         }
     }
     preBuild.dependsOn(fabricGenerateProperties)
@@ -48,8 +48,8 @@ android {
         def amazonPublicKey = localProperties.AMAZON_PUBLIC_KEY
         def amazonPrivateKey = localProperties.AMAZON_PRIVATE_KEY
         buildConfigField BOOLEAN, AMAZON_CONFIGURED, (amazonPublicKey != null && amazonPrivateKey != null).toString()
-        buildConfigField STRING, AMAZON_PUBLIC_KEY, amazonPublicKey.toString()
-        buildConfigField STRING, AMAZON_PRIVATE_KEY, amazonPrivateKey.toString()
+        buildConfigField STRING, AMAZON_PUBLIC_KEY, "\"" + amazonPublicKey.toString() + "\""
+        buildConfigField STRING, AMAZON_PRIVATE_KEY, "\"" + amazonPrivateKey.toString() + "\""
 
         buildConfigField BOOLEAN, GMS_CONFIGURED, gmsConfigured.toString()
     }
