@@ -219,28 +219,16 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     protected void onStop() {
         final FragmentManager manager = getSupportFragmentManager();
         final Fragment fragment = manager.findFragmentById(R.id.content);
-        manager.beginTransaction().remove(fragment).addToBackStack(null).commitAllowingStateLoss();
+        manager.beginTransaction().remove(fragment).commitAllowingStateLoss();
         super.onStop();
     }
-
-    private boolean fromRestart = false;
 
     @Override
     protected void onRestart() {
         super.onRestart();
-//        getSupportFragmentManager().beginTransaction()
-//                .replace(R.id.content, new AppViewFragment())
-//                .commitAllowingStateLoss();
-        fromRestart = true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (fromRestart) {
-            getSupportFragmentManager().popBackStack();
-            fromRestart = false;
-        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content, new AppViewFragment())
+                .commitAllowingStateLoss();
     }
 
     @Override
