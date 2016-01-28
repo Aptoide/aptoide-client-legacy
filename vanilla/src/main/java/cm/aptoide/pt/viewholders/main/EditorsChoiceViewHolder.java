@@ -37,11 +37,18 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
 //        EditorsChoiceViewHolder holder = (EditorsChoiceViewHolder) viewHolder;
         EditorsChoiceRow row = (EditorsChoiceRow) displayable;
         more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, null));
-
-        for (int i = 0; i < images.length && i < row.appItemList.size(); i++) {
+        int i = 0;
+        for (; i < images.length && i < row.appItemList.size(); i++) {
             final AppItem appItem = row.appItemList.get(i);
             Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(images[i]);
             images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
+        }
+
+        //when it's a tablet, we have to fill the extra image
+        ImageView extraImage = (ImageView) itemView.findViewById(R.id.extra_image);
+        if (extraImage != null && row.appItemList.size() > i + 1) {
+            AppItem appItem = row.appItemList.get(i + 1);
+            Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(extraImage);
         }
 
     }

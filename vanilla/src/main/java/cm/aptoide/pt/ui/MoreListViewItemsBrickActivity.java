@@ -7,23 +7,13 @@
  ******************************************************************************/
 package cm.aptoide.pt.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.FeedBackActivity;
-import com.aptoide.amethyst.analytics.Analytics;
-import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.dataprovider.webservices.models.Constants;
-import com.octo.android.robospice.persistence.DurationInMillis;
-
-import cm.aptoide.pt.R;
 
 /**
  * This Activity shows more Editors Choice
@@ -52,7 +42,7 @@ public class MoreListViewItemsBrickActivity extends MoreActivity {
 
         @Override
         public void setLayoutManager(RecyclerView recyclerView) {
-            recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
+            recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(),AptoideUtils.UI.getEditorChoiceBucketSize()));
         }
 
         @Override

@@ -355,6 +355,18 @@ public class AptoideUtils {
 
             return bucket;
         }
+        public static int getEditorChoiceBucketSize() {
+            int bucket = 1;
+            float screenWidth = getScreenWidthInDip();
+
+            if (screenWidth > 300) {
+                bucket = (int) (screenWidth / 300);
+            }
+
+            Logger.d("APTOIDEUTILS", "bucketsize = " + bucket);
+
+            return bucket;
+        }
 
         public static int getStoreBucketSize() {
             int bucket = 1;

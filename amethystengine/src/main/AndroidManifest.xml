@@ -73,7 +73,7 @@
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="${FACEBOOK_APP_ID}"/>
+            android:value="@string/facebook_app_id"/>
         <meta-data
             android:name="com.bumptech.glide.integration.okhttp.OkHttpGlideModule"
             android:value="GlideModule" />
