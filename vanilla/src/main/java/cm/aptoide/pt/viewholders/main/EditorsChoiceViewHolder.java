@@ -49,6 +49,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
         if (extraImage != null && row.appItemList.size() > i + 1) {
             AppItem appItem = row.appItemList.get(i + 1);
             Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(extraImage);
+            extraImage.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
         }
 
     }

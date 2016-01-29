@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:contentDescription="@null"
-        android:src="@drawable/img_navdrawer_wallpaper"/>
+        android:contentDescription="@null"/>
 
     <RelativeLayout
 
@@ -28,22 +27,19 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:paddingRight="1.5dp"
-            android:text="Little Commander worl world II"
             android:textColor="@color/white"/>
 
 
         <RatingBar
             android:id="@+id/ratingbar"
-            style="@style/RatingBarSmallAptoide"
+            style="@style/RatingBarGridItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:clickable="false"
             android:isIndicator="true"
-            android:numStars="5"
-            android:paddingLeft="1.5dp"/>
+            android:numStars="5"/>
 
     </RelativeLayout>
 

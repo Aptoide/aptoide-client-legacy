@@ -50,7 +50,9 @@ public class GetAppRequest extends RetrofitSpiceRequest<GetAppModel, IGetAppV7We
         try {
             return bind(getService().getApp(getApi()));
         } catch (RetrofitError error) {
-            OauthErrorHandler.handle(error);
+            if (attempts == 1) {
+                OauthErrorHandler.handle(error);
+            }
             throw error;
         }
     }
