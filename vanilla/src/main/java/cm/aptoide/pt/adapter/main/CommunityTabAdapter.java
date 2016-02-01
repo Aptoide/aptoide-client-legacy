@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.models.AppItem;
 import com.aptoide.models.CommentItem;
@@ -29,7 +30,7 @@ import cm.aptoide.pt.viewholders.store.CommentViewHolder;
 /**
  * Created by rmateus on 02/06/15.
  */
-public class CommunityTabAdapter extends BaseAdapter {
+public class CommunityTabAdapter extends BaseAdapter implements SpannableRecyclerAdapter {
     private Activity activity;
     @ColorInt private int colorResId;
 
@@ -96,5 +97,10 @@ public class CommunityTabAdapter extends BaseAdapter {
         } else {
             throw new IllegalStateException("This adapter doesn't know how to show " + displayableList.get(position).getClass().getName());
         }
+    }
+
+    @Override
+    public int getSpanSize(int position) {
+        return displayableList.get(position).getSpanSize();
     }
 }

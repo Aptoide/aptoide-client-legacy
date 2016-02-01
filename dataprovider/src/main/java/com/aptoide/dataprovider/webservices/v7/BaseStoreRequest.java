@@ -239,7 +239,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
      * @param actions
      * @return
      */
-    private HeaderRow createHeaderRow(String name, String tag, boolean hasMore, List<Action> actions, long storeId, String layout) {
+    protected HeaderRow createHeaderRow(String name, String tag, boolean hasMore, List<Action> actions, long storeId, String layout) {
 
         if (actions != null && !actions.isEmpty()) {
             for (Action action : actions) {

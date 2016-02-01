@@ -87,6 +87,7 @@ import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.Defaults;
 import com.aptoide.dataprovider.webservices.models.ErrorResponse;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
+import com.aptoide.dataprovider.webservices.v7.CommunityGetstoreRequest;
 import com.aptoide.dataprovider.webservices.v7.GetListViewItemsRequestv7;
 import com.aptoide.dataprovider.webservices.v7.GetMoreVersionsAppRequest;
 import com.aptoide.dataprovider.webservices.v7.GetStoreRequestv7;
@@ -919,7 +920,28 @@ public class AptoideUtils {
         }
 
         public static GetStoreRequestv7 buildStoreRequest(long storeId, String context) {
-            GetStoreRequestv7 request = buildGenericStoreRequest();
+            GetStoreRequestv7 request = buildGenericStoreRequest(AptoideUtils.UI.getBucketSize());
+            request.storeId = storeId;
+            request.context = context;
+            final Login login = new AptoideDatabase(Aptoide.getDb()).getStoreLogin(storeId);
+            if (login != null) {
+                request.user = login.getUsername();
+                request.password = login.getPasswordSha1();
+            }
+            return request;
+        }
+
+        public static final int NUMBER_OF_LINES = 4;
+
+        public static GetStoreRequestv7 buildStoreRequest(long storeId, String context, int bucketSize) {
+
+            CommunityGetstoreRequest request = new CommunityGetstoreRequest(bucketSize, UI.getEditorChoiceBucketSize());
+            request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
+            request.nview = "response";
+            request.filters = Aptoide.filters;
+            request.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
+            request.aptoideVercode = AptoideUtils.UI.getVerCode(Aptoide.getContext());
+            request.lang = AptoideUtils.StringUtils.getMyCountryCode(Aptoide.getContext());
             request.storeId = storeId;
             request.context = context;
             final Login login = new AptoideDatabase(Aptoide.getDb()).getStoreLogin(storeId);
@@ -931,7 +953,7 @@ public class AptoideUtils {
         }
 
         public static GetStoreRequestv7 buildStoreRequest(String storeName, String context) {
-            GetStoreRequestv7 request = buildGenericStoreRequest();
+            GetStoreRequestv7 request = buildGenericStoreRequest(AptoideUtils.UI.getBucketSize());
             request.storeName = storeName;
             request.context = context;
             final Login login = new AptoideDatabase(Aptoide.getDb()).getStoreLogin(storeName);
@@ -950,8 +972,8 @@ public class AptoideUtils {
             return request;
         }
 
-        private static GetStoreRequestv7 buildGenericStoreRequest() {
-            GetStoreRequestv7 request = new GetStoreRequestv7(AptoideUtils.UI.getBucketSize());
+        private static GetStoreRequestv7 buildGenericStoreRequest(int bucketSize) {
+            GetStoreRequestv7 request = new GetStoreRequestv7(bucketSize);
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
             request.filters = Aptoide.filters;

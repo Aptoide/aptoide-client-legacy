@@ -1,10 +1,13 @@
 package cm.aptoide.pt.fragments.main;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.dialogs.AdultHiddenDialog;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
@@ -98,8 +101,30 @@ public class CommunityFragment extends BaseWebserviceFragment {
     }
 
     @Override
-    public void setLayoutManager(RecyclerView recyclerView) {
-        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
+    public void setLayoutManager(final RecyclerView recyclerView) {
+
+        final GridLayoutManager gridLayoutManager = new GridLayoutManager(recyclerView.getContext(), AptoideUtils.UI.getEditorChoiceBucketSize());
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+
+                if(!(recyclerView.getAdapter() instanceof SpannableRecyclerAdapter)){
+                    throw new IllegalStateException("RecyclerView adapter must extend SpannableRecyclerAdapter");
+                }
+
+                int spanSize = ((SpannableRecyclerAdapter) recyclerView.getAdapter()).getSpanSize(position);
+                if (spanSize >= ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount()) {
+                    return ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount();
+                } else {
+                    return spanSize;
+                }
+            }
+        });
+
+        // we need to force the spanCount, or it will crash.
+        // https://code.google.com/p/android/issues/detail?id=182400
+        gridLayoutManager.setSpanCount(AptoideUtils.UI.getEditorChoiceBucketSize());
+        recyclerView.setLayoutManager(gridLayoutManager);
     }
 
     @Override
@@ -110,7 +135,7 @@ public class CommunityFragment extends BaseWebserviceFragment {
         // in order to present the right info on screen after a screen rotation, always pass the bucketsize as cachekey
         spiceManager.execute(
                 //AptoideUtils.RepoUtils.buildStoreRequest(getStoreId(), getFakeString(), getFakeString(), getBaseContext()),
-                AptoideUtils.RepoUtils.buildStoreRequest(getStoreId(), getBaseContext()),
+                AptoideUtils.RepoUtils.buildStoreRequest(getStoreId(), getBaseContext(), AptoideUtils.UI.getEditorChoiceBucketSize()),
                 getBaseContext() + "-" + getStoreId() + "-" + BUCKET_SIZE + "-" + AptoideUtils.getSharedPreferences().getBoolean(Constants.MATURE_CHECK_BOX, false),
                 cacheExpiryDuration,
                 listener);
@@ -122,9 +147,9 @@ public class CommunityFragment extends BaseWebserviceFragment {
 
         reviewRequest.setOrderBy("id");
         reviewRequest.homePage = isHomePage();
-        reviewRequest.limit = 7;
+        reviewRequest.limit = AptoideUtils.UI.getEditorChoiceBucketSize() * 4;
 
-        spiceManager.execute(reviewRequest, "review-community-store-", useCache ? DurationInMillis.ONE_HOUR : DurationInMillis.ALWAYS_EXPIRED, new RequestListener<ReviewListJson>() {
+        spiceManager.execute(reviewRequest, "review-community-store-"+BUCKET_SIZE, useCache ? DurationInMillis.ONE_HOUR : DurationInMillis.ALWAYS_EXPIRED, new RequestListener<ReviewListJson>() {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
                 handleErrorCondition(spiceException);
@@ -153,12 +178,13 @@ public class CommunityFragment extends BaseWebserviceFragment {
                         return;
 
                     HeaderRow header = new HeaderRow(getString(R.string.reviews), true, REVIEWS_TYPE, BUCKET_SIZE, isHomePage(), Constants.GLOBAL_STORE);
+                    header.FULL_ROW = AptoideUtils.UI.getEditorChoiceBucketSize();
                     displayableList.set(index++, header);
 
-                    int i = 0;
                     for (Review review : reviewListJson.reviews) {
 
                         ReviewRowItem reviewRowItem = getReviewRow(review);
+                        reviewRowItem.FULL_ROW = 1;
                         displayableList.add(index++, reviewRowItem);
                     }
 
@@ -168,6 +194,12 @@ public class CommunityFragment extends BaseWebserviceFragment {
         });
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        BUCKET_SIZE = AptoideUtils.UI.getEditorChoiceBucketSize();
+    }
+
     private void executeCommentsRequest() {
         long cacheExpiryDuration = useCache ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
 
@@ -175,9 +207,9 @@ public class CommunityFragment extends BaseWebserviceFragment {
         request.storeName = getStoreName();
         request.filters = Aptoide.filters;
         request.lang = AptoideUtils.StringUtils.getMyCountryCode(getContext());
-        request.limit = 7;
+        request.limit = AptoideUtils.UI.getEditorChoiceBucketSize() * 4;
 
-        spiceManager.execute(request, getBaseContext() + getStoreId(), cacheExpiryDuration, new RequestListener<GetComments>() {
+        spiceManager.execute(request, getBaseContext() + getStoreId()+BUCKET_SIZE, cacheExpiryDuration, new RequestListener<GetComments>() {
                     @Override
                     public void onRequestFailure(SpiceException spiceException) {
                         Logger.printException(spiceException);
@@ -208,6 +240,7 @@ public class CommunityFragment extends BaseWebserviceFragment {
                             }
 
                             HeaderRow header = new HeaderRow(getString(R.string.comments), true, COMMENTS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
+                            header.FULL_ROW = AptoideUtils.UI.getEditorChoiceBucketSize();
                             displayableList.set(index++, header);
 
                             for (int i = 0; i < get.list.size(); i++) {
@@ -227,6 +260,7 @@ public class CommunityFragment extends BaseWebserviceFragment {
 
     private CommentItem getCommentRow(Comment comment) {
         CommentItem item = new CommentItem(BUCKET_SIZE);
+        item.setSpanSize(1);
         item.appname = comment.getAppname();
         item.id = comment.getId();
         item.lang = comment.getLang();
