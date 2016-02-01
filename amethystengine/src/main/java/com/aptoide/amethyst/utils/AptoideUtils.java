@@ -1424,6 +1424,20 @@ public class AptoideUtils {
             }
             return result;
         }
+
+        /**
+         * get rounded value from the given double and remove the .0 if exact number
+         *
+         * @param number number to be rounded
+         * @return rounded number in string format
+         */
+        public static String getRoundedValueFromDouble(double number) {
+            if (number == (long) number) {
+                return String.valueOf((long) number);
+            } else {
+                return String.format("%.1f", number);
+            }
+        }
     }
 
 
