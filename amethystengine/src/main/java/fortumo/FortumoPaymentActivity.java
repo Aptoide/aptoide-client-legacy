@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.models.PaymentServices;
@@ -53,7 +54,7 @@ public class FortumoPaymentActivity extends PaymentActivity {
 
         setContentView(R.layout.activity_fortumopayment);
         PaymentServices ps = getIntent().getParcelableExtra(EXTRA_PAYMENTSERVICE);
-        MpUtils.enablePaymentBroadcast(this, "cm.aptoide.ptdev.PAYMENT_BROADCAST_PERMISSION");
+        MpUtils.enablePaymentBroadcast(this, BuildConfig.APPLICATION_ID + ".cm.aptoide.ptdev.PAYMENT_BROADCAST_PERMISSION");
 
         PaymentRequest.PaymentRequestBuilder builder = new PaymentRequest.PaymentRequestBuilder();
         final int UserID = SecurePreferences.getInstance().getInt("User_ID",0);

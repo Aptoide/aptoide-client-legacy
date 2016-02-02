@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.database.SQLiteDatabaseHelper;
 import com.aptoide.amethyst.database.schema.Schema;
 
@@ -281,7 +282,7 @@ public class DatabaseProvider extends ContentProvider {
          */
         public static final String REPO_TABLE_NAME = "repo";
 
-        public static final String AUTHORITY = "com.aptoide.amethyst.database.provider.DatabaseProvider";
+        public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".com.aptoide.amethyst.database.provider.DatabaseProvider";
 
         /*
          * URI definitions

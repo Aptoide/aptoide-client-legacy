@@ -28,7 +28,7 @@ public class SuggestionProvider extends SearchRecentSuggestionsProvider {
 
 
     public String getSearchProvider() {
-        return "cm.aptoide.ptdev.SuggestionProvider";
+        return BuildConfig.APPLICATION_ID + "" +".cm.aptoide.ptdev.SuggestionProvider";
     }
 
     @Override
