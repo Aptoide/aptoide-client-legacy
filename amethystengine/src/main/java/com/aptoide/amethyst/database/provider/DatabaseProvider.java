@@ -282,7 +282,7 @@ public class DatabaseProvider extends ContentProvider {
          */
         public static final String REPO_TABLE_NAME = "repo";
 
-        public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".com.aptoide.amethyst.database.provider.DatabaseProvider";
+        public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".DatabaseProvider";
 
         /*
          * URI definitions

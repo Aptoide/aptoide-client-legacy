@@ -52,6 +52,10 @@ android {
         buildConfigField STRING, AMAZON_PRIVATE_KEY, "\"" + amazonPrivateKey.toString() + "\""
 
         buildConfigField BOOLEAN, GMS_CONFIGURED, gmsConfigured.toString()
+
+        //suggestion provider authority key, this method is used to allow both, dev and prod version, be installed at the same time
+        resValue "string", "search_suggest_authority", "\"" + applicationId + ".SuggestionProvider" + "\""
+
     }
 
     dexOptions {

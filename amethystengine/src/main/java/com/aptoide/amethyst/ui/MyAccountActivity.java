@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.FeedBackActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
@@ -38,6 +39,7 @@ import java.util.Properties;
  * Created by rmateus on 31-12-2013.
  */
 public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiClient.ConnectionCallbacks , GoogleApiClient.OnConnectionFailedListener{
+    public static final String WEBINSTALL_SYNC_AUTHORITY = BuildConfig.APPLICATION_ID + ".StubProvider";
 
     private Toolbar mToolbar;
     private AccountManager mAccountManager;
@@ -106,10 +108,10 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
 
                     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                     sharedPreferences.edit().remove("queueName").apply();
-                    ContentResolver.setIsSyncable(account, Constants.WEBINSTALL_SYNC_AUTHORITY, 0);
-                    ContentResolver.setSyncAutomatically(account, Constants.WEBINSTALL_SYNC_AUTHORITY, false);
+                    ContentResolver.setIsSyncable(account, WEBINSTALL_SYNC_AUTHORITY, 0);
+                    ContentResolver.setSyncAutomatically(account, MyAccountActivity.WEBINSTALL_SYNC_AUTHORITY, false);
                     if(Build.VERSION.SDK_INT>=8){
-                        ContentResolver.removePeriodicSync(account, Constants.WEBINSTALL_SYNC_AUTHORITY, new Bundle());
+                        ContentResolver.removePeriodicSync(account, MyAccountActivity.WEBINSTALL_SYNC_AUTHORITY, new Bundle());
                     }
                     mAccountManager.removeAccount(account, new AccountManagerCallback<Boolean>() {
                         @Override

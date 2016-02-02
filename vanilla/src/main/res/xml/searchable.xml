@@ -5,7 +5,7 @@
     android:includeInGlobalSearch="true"
     android:searchSuggestIntentAction="android.intent.action.SEARCH"
 
-    android:searchSuggestAuthority="cm.aptoide.ptdev.SuggestionProvider"
+    android:searchSuggestAuthority="@string/search_suggest_authority"
     android:queryAfterZeroResults="false"
     android:searchSuggestThreshold="3"
     android:searchSuggestSelection=" ?" >

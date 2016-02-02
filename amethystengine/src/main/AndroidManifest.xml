@@ -15,11 +15,11 @@
     <permission android:label="Make internal payments" android:name="${applicationId}.org.onepf.openiab.permission.BILLING" android:protectionLevel="normal"/>
 
     <!-- Define your own permission to protect payment broadcast -->
-    <permission android:name="${applicationId}.cm.aptoide.ptdev.PAYMENT_BROADCAST_PERMISSION"
+    <permission android:name="${applicationId}.PAYMENT_BROADCAST_PERMISSION"
         android:label="Read payment status"
         android:protectionLevel="signature" />
     <!-- "signature" permission granted automatically by system, without notifying user. -->
-    <uses-permission android:name="${applicationId}.cm.aptoide.ptdev.PAYMENT_BROADCAST_PERMISSION" />
+    <uses-permission android:name="${applicationId}.PAYMENT_BROADCAST_PERMISSION" />
 
     <uses-sdk
     tools:overrideLibrary="com.astuetz.pagerslidingtabstrip, com.bumptech.glide.integration.okhttp"/>
@@ -66,7 +66,9 @@
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator"/>
         </service>
-
+        <provider android:name="com.aptoide.amethyst.webservices.StubProvider"
+            android:authorities="${applicationId}.StubProvider"
+            android:exported="true"/>
         <service
             android:name="com.aptoide.amethyst.services.RabbitMqService"
             android:exported="false"/>

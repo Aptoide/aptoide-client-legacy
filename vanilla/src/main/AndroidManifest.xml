@@ -114,17 +114,13 @@
 
         <provider
             android:name=".SuggestionProvider"
-            android:authorities="${applicationId}.cm.aptoide.ptdev.SuggestionProvider"
+            android:authorities="${applicationId}.SuggestionProvider"
             android:exported="false" />
-
-        <provider android:name=".StubProvider"
-            android:authorities="${applicationId}.cm.aptoide.pt.StubProvider"
-            android:exported="true"/>
 
 
         <provider
             android:name="com.aptoide.amethyst.database.provider.DatabaseProvider"
-            android:authorities="${applicationId}.com.aptoide.amethyst.database.provider.DatabaseProvider"
+            android:authorities="${applicationId}.DatabaseProvider"
             android:exported="true" >
         </provider>
 
@@ -315,11 +311,11 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
 
     <!-- Define your own permission to protect payment broadcast -->
-    <permission android:name="${applicationId}.cm.aptoide.pt.PAYMENT_BROADCAST_PERMISSION"
+    <permission android:name="${applicationId}.PAYMENT_BROADCAST_PERMISSION"
         android:label="Read payment status"
         android:protectionLevel="signature" />
     <!-- "signature" permission granted automatically by system, without notifying user. -->
-    <uses-permission android:name="${applicationId}.cm.aptoide.pt.PAYMENT_BROADCAST_PERMISSION" />
+    <uses-permission android:name="${applicationId}.PAYMENT_BROADCAST_PERMISSION" />
 
     <!-- If your app doesn't need to make phone calls, you can add this, so the app
     could be installed on tablets. -->
