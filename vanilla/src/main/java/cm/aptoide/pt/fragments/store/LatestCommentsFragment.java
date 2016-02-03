@@ -2,6 +2,7 @@ package cm.aptoide.pt.fragments.store;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.ui.callbacks.AddCommentCallback;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
@@ -58,6 +60,8 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bucketSize = AptoideUtils.UI.getEditorChoiceBucketSize();
+        BUCKET_SIZE = bucketSize;
         getRecyclerView().addOnScrollListener(new EndlessRecyclerOnScrollListener((LinearLayoutManager) getRecyclerView().getLayoutManager()) {
             @Override
             public int getOffset() {
@@ -284,9 +288,11 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
         }
         return itemList;
     }
+    public static int bucketSize = AptoideUtils.UI.getEditorChoiceBucketSize();
 
     public static CommentItem createComment(Comment comment) {
-        CommentItem item = new CommentItem(AptoideUtils.UI.getBucketSize());
+        CommentItem item = new CommentItem(bucketSize);
+        item.setSpanSize(1);
         item.appname = comment.getAppname();
         item.id = comment.getId();
         item.lang = comment.getLang();
@@ -344,7 +350,30 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
     }
 
     @Override
-    public void setLayoutManager(RecyclerView recyclerView) {
-        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
+    public void setLayoutManager(final RecyclerView recyclerView) {
+        bucketSize = AptoideUtils.UI.getEditorChoiceBucketSize();
+        final GridLayoutManager gridLayoutManager = new GridLayoutManager(recyclerView.getContext(), bucketSize);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+
+                if (!(recyclerView.getAdapter() instanceof SpannableRecyclerAdapter)) {
+                    throw new IllegalStateException("RecyclerView adapter must extend SpannableRecyclerAdapter");
+                }
+
+                int spanSize = ((SpannableRecyclerAdapter) recyclerView.getAdapter()).getSpanSize(position);
+                if (spanSize >= ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount()) {
+                    return ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount();
+                } else {
+                    return spanSize;
+                }
+            }
+        });
+
+        // we need to force the spanCount, or it will crash.
+        // https://code.google.com/p/android/issues/detail?id=182400
+        gridLayoutManager.setSpanCount(bucketSize);
+        recyclerView.setLayoutManager(gridLayoutManager);
     }
+
 }
