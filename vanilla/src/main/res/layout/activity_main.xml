@@ -26,14 +26,14 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/ToolbarTheme"
                 app:layout_scrollFlags="scroll|enterAlways" />
 
             <com.astuetz.PagerSlidingTabStrip
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/tabsHeight"
-                android:theme="@style/Theme.AppCompat" />
+                app:pstsIndicatorColor="?attr/customColor"
+                style="?backgroundTabs"/>
 
         </android.support.design.widget.AppBarLayout>
     </android.support.design.widget.CoordinatorLayout>
@@ -46,8 +46,6 @@
         android:layout_gravity="start"
         android:saveEnabled="true"
         app:headerLayout="@layout/drawer_header"
-        android:theme="@style/AppBaseTheme"
-        app:itemTextColor="@color/black"
         app:menu="@menu/menu_drawer" />
 
 

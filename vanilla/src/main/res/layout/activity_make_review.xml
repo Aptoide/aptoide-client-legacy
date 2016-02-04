@@ -12,16 +12,12 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ToolbarTheme" />
+        android:layout_height="wrap_content" />
     </android.support.design.widget.AppBarLayout>
     <include
-
-
         android:layout_width="match_parent"
         android:layout_height="120dp"
         layout="@layout/row_app_title_rating_2texts" />
-
 
 
     <View

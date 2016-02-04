@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!--   your app branding color for the app bar -->
-        <item name="colorPrimary">@color/default_color</item>
-        <!--   darker variant for the status bar and contextual app bars -->
-        <item name="colorPrimaryDark">#bc6118</item>
-        <!-- Next 3 properties don't work in pré API21
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@color/appbar_orange</item>
-        <item name="backgroundCard">@style/backgroundCardStyleLight</item> -->
-
-    </style>
-
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="actionBarWidgetTheme">@style/AutoCompleteTextView</item>
+
+        <item name="toolbarStyle">@style/Toolbar</item>
+
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="customRowForegroundHomeLayout">@style/customRowStyleHomeLayout</item>
         <item name="customRowForeground">@style/customRowStyle</item>
@@ -98,7 +88,6 @@
         <item name="colorAccent">@color/aptoide_color_focused</item>
         <item name="backgroundCard">@style/backgroundCardStyleLight</item>
         <item name="backgroundTabs">@style/backgroundTabsStyleLight</item>
-        <item name="actionBarStyle">@style/Widget.Styled.ActionBar.Aptoide</item>
         <item name="android:windowBackground">@color/background_window</item>
         <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
         <item name="customButtonColorWhite">@style/WidgetButtonCustomAptoideWhite</item>
@@ -108,43 +97,9 @@
         <item name="android:ratingBarStyleSmall">@style/RatingBarSmallAptoide</item>
     </style>
 
-    <style name="AptoideThemeDefaultDark" parent="AppBaseThemeDark">
-
-        <item name="colorPrimary">@color/aptoide_orange</item>
-        <item name="colorPrimaryDark">@color/aptoide_color_focused</item>
-        <item name="colorAccent">@color/aptoide_color_focused</item>
-        <item name="backgroundCard">@style/backgroundCardStyleDark</item>
-        <item name="backgroundTabs">@style/backgroundTabsStyleDark</item>
-        <item name="actionBarStyle">@style/Widget.Styled.ActionBar.Aptoide</item>
-        <item name="android:actionBarStyle" tools:ignore="NewApi">@style/Widget.Styled.ActionBar.Aptoide</item>
-        <item name="android:windowBackground">@color/transparent_black</item>
-        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
-        <item name="customColor">@color/aptoide_orange</item>
-        <item name="headerSeparatorButton">@style/headerSeparatorButtonStyleAptoide</item>
-        <item name="homeLabelbackground">@drawable/app_header_bgd_aptoide_dark</item>
-        <item name="android:ratingBarStyleSmall">@style/RatingBarSmallAptoide</item>
-    </style>
-
-    <style name="Widget.Styled.ActionBar.Aptoide" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="background">@drawable/ab_background_aptoide</item>
-        <item name="logo">@drawable/ic_widget_launcher</item>
-        <item name="displayOptions">showHome|useLogo</item>
-        <item name="titleTextStyle">@style/titleStyle</item>
-
-        <item name="android:background">@drawable/ab_background_aptoide</item>
-        <item name="android:displayOptions" tools:ignore="NewApi">showHome|useLogo</item>
-        <item name="android:titleTextStyle" tools:ignore="NewApi">@style/titleStyle</item>
-    </style>
-
-    <style name="titleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@android:color/white</item>
-    </style>
-
-    <style name="AutoCompleteTextView" parent="@style/Theme.AppCompat">
-        <item name="android:textColorHint">@android:color/white</item>
-    </style>
-
     <style name="AppBaseThemeDark" parent="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <item name="toolbarStyle">@style/Toolbar</item>
 
         <item name="customRowForegroundHomeLayout">@style/customRowStyleHomeLayout</item>
         <item name="customRowForeground">@style/customRowStyle</item>
@@ -212,25 +167,20 @@
 
         <item name="backgroundHomeSeparator">@color/transparent_black</item>
         <item name="backgroundAddStoreButton">@android:color/black</item>
-
     </style>
 
-    <style name="customRowStyleHomeLayout">
-        <item name="android:clickable">true</item>
-        <item name="android:focusable">true</item>
+    <style name="AptoideThemeDefaultDark" parent="AppBaseThemeDark">
+        <item name="colorPrimary">@color/aptoide_orange</item>
+        <item name="colorPrimaryDark">@color/aptoide_color_focused</item>
+        <item name="colorAccent">@color/aptoide_color_focused</item>
+        <item name="backgroundCard">@style/backgroundCardStyleDark</item>
+        <item name="backgroundTabs">@style/backgroundTabsStyleDark</item>
+        <item name="android:windowBackground">@color/transparent_black</item>
+        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
+        <item name="customColor">@color/aptoide_orange</item>
+        <item name="headerSeparatorButton">@style/headerSeparatorButtonStyleAptoide</item>
+        <item name="homeLabelbackground">@drawable/app_header_bgd_aptoide_dark</item>
+        <item name="android:ratingBarStyleSmall">@style/RatingBarSmallAptoide</item>
     </style>
 
-    <style name="navigationDrawerColorLight">
-        <item name="android:background">@android:color/white</item>
-    </style>
-
-    <style name="backgroundTabsStyleLight">
-        <item name="android:background">@drawable/background_tabs_light</item>
-    </style>
-
-    <style name="headerSeparatorButtonStyleAptoide" parent="headerSeparatorButtonStyle">
-        <item name="android:background">@drawable/flat_selector</item>
-        <item name="android:padding">5dp</item>
-        <item name="android:layout_margin">5dp</item>
-    </style>
 </resources>
