@@ -21,6 +21,12 @@
 
         <item name="android:cacheColorHint">@android:color/transparent</item>
 
+        <item name="backgroundMain">@android:color/white</item>
+        <item name="backgroundSecondary">@android:color/transparent</item>
+        <item name="backgroundWidget">@android:color/transparent</item>
+        <item name="backgroundWidgetSecondary">@android:color/transparent</item>
+        <item name="tertiaryTextColor">@android:color/transparent</item>
+        
         <item name="sectionListView.sectionTextViewPadding">2dip</item>
         <item name="sectionListView.sectionTextViewTextColor">@android:color/black</item>
         <item name="sectionListView.sectionTextViewTextSize">18dip</item>
