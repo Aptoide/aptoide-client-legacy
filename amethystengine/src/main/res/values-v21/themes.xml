@@ -9,8 +9,6 @@
 
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@color/default_color_700</item>
-        <item name="backgroundCard">@style/backgroundCardStyleLight</item>
-        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
 
     </style>
 
@@ -23,8 +21,6 @@
 
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@color/default_color_700</item>
-        <item name="backgroundCard">@style/backgroundCardStyleDark</item>
-        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
 
     </style>
 

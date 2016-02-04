@@ -18,8 +18,7 @@
         <item name="android:background">@android:color/white</item>
     </style>
 
-    <style name="backgroundTabsStyleLight">
-        <item name="android:background">@drawable/background_tabs_light</item>
+    <style name="customTabsStyleLight" parent="@style/Theme.AppCompat">
     </style>
 
     <style name="headerSeparatorButtonStyleAptoide" parent="headerSeparatorButtonStyle">
@@ -115,8 +114,7 @@
         <item name="android:background">@drawable/background_card_dark</item>
     </style>
 
-    <style name="backgroundTabsStyleDark">
-        <item name="android:background">@drawable/background_tabs_dark</item>
+    <style name="customTabsStyleDark" parent="@style/Theme.AppCompat">
     </style>
 
     <style name="navigationDrawerColorDark">

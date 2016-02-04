@@ -80,17 +80,16 @@
         <item name="colorAccent">@color/default_color</item>
         <item name="colorButtonNormal">@color/default_color</item>
 
+        <item name="customTabs">@style/customTabsStyleLight</item>
+        <item name="backgroundCard">@style/backgroundCardStyleLight</item>
+        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
     </style>
 
     <style name="AptoideThemeDefault" parent="AppBaseTheme">
         <item name="colorPrimary">@color/aptoide_orange</item>
         <item name="colorPrimaryDark">@color/aptoide_color_focused</item>
         <item name="colorAccent">@color/aptoide_color_focused</item>
-        <item name="backgroundCard">@style/backgroundCardStyleLight</item>
-        <item name="backgroundTabs">@style/backgroundTabsStyleLight</item>
         <item name="android:windowBackground">@color/background_window</item>
-        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
-        <item name="customButtonColorWhite">@style/WidgetButtonCustomAptoideWhite</item>
         <item name="customColor">@color/aptoide_orange</item>
         <item name="headerSeparatorButton">@style/headerSeparatorButtonStyleAptoide</item>
         <item name="homeLabelbackground">@drawable/app_header_bgd_aptoide_light</item>
@@ -167,16 +166,17 @@
 
         <item name="backgroundHomeSeparator">@color/transparent_black</item>
         <item name="backgroundAddStoreButton">@android:color/black</item>
+
+        <item name="backgroundCard">@style/backgroundCardStyleDark</item>
+        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
+        <item name="customTabs">@style/customTabsStyleDark</item>
     </style>
 
     <style name="AptoideThemeDefaultDark" parent="AppBaseThemeDark">
         <item name="colorPrimary">@color/aptoide_orange</item>
         <item name="colorPrimaryDark">@color/aptoide_color_focused</item>
         <item name="colorAccent">@color/aptoide_color_focused</item>
-        <item name="backgroundCard">@style/backgroundCardStyleDark</item>
-        <item name="backgroundTabs">@style/backgroundTabsStyleDark</item>
         <item name="android:windowBackground">@color/transparent_black</item>
-        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
         <item name="customColor">@color/aptoide_orange</item>
         <item name="headerSeparatorButton">@style/headerSeparatorButtonStyleAptoide</item>
         <item name="homeLabelbackground">@drawable/app_header_bgd_aptoide_dark</item>

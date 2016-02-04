@@ -73,7 +73,7 @@
     <attr name="homeLabelbackground" format="reference"/>
     <attr name="headerSeparatorButton" format="reference"/>
     <attr name="customColor" format="color" />
-    <attr name="backgroundTabs" format="reference"/>
+    <attr name="customTabs" format="reference"/>
 
     <attr name="gridItemRatingBar" format="reference"/>
 
