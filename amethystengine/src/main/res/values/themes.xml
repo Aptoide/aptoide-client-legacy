@@ -14,6 +14,7 @@
     </style>
 
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="toolbarTheme">@style/Toolbar</item>
         <item name="actionBarWidgetTheme">@style/AutoCompleteTextView</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="customRowForegroundHomeLayout">@style/customRowStyleHomeLayout</item>

@@ -8,7 +8,9 @@
 
     <attr name="customButtonColor" format="reference"/>
     <attr name="customButtonColorWhite" format="reference"/>
-    
+
+    <attr name="toolbarTheme" format="reference"/>
+
     <attr name="backgroundMain" format="color|reference"/>
     <attr name="backgroundSecondary" format="color|reference"/>
     <attr name="backgroundWidget" format="color|reference"/>

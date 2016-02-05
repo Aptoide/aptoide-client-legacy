@@ -170,7 +170,8 @@
         <item name="android:focusable">true</item>
     </style>
 
-    <style name="ToolbarTheme" parent="Theme.AppCompat"/>
+    <style name="Toolbar" parent="@style/Theme.AppCompat">
+    </style>
 
     <style name="customRowStyle">
         <item name="android:foreground">@drawable/highlight_overlay</item>
