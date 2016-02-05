@@ -12,8 +12,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ToolbarTheme" />
+            android:layout_height="wrap_content" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -48,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:textColor="?android:attr/textColorSecondary"
             android:text="@string/feedback_include_logs" />
 
         <Button
@@ -55,6 +55,7 @@
             style="?attr/customButtonColor"
             android:layout_width="match_parent"
             android:onClick="FeedBackSendMail"
+            android:layout_height="wrap_content"
             android:text="@string/feedback_send_button" />
 
     </LinearLayout>
