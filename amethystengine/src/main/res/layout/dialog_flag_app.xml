@@ -2,12 +2,12 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/backgroundMain">
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?attr/backgroundMain">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/flag_this_app_dialog_title"
@@ -89,6 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:layout_marginLeft="10dp"
                     android:text="@string/flag_good" />
             </LinearLayout>
@@ -106,6 +107,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:text="@string/flag_this_app_need_licence" />
@@ -125,6 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:layout_marginLeft="10dp"
                     android:text="@string/flag_fake" />
             </LinearLayout>
@@ -144,6 +147,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:text="@string/flag_freeze" />
             </LinearLayout>
 
@@ -162,6 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:text="@string/flag_virus" />
             </LinearLayout>
         </LinearLayout>
