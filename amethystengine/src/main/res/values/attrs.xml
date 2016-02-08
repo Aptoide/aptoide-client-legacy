@@ -84,5 +84,5 @@
     <attr name="backgroundTabs" format="reference"/>
 
     <attr name="gridItemRatingBar" format="reference"/>
-
+    <attr name="titleLabelStyle" format="reference" />
 </resources>

@@ -6,9 +6,19 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?attr/backgroundMain">
+
+        <TextView
+            android:id="@+id/flag_this_app_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flag_this_app"
+            android:layout_marginLeft="12dp"
+            style="?attr/titleLabelStyle" />
 
         <LinearLayout
+            android:layout_below="@+id/flag_this_app_dialog_title"
             android:id="@+id/buttons_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="15dp"
+            android:layout_below="@+id/flag_this_app_dialog_title"
             android:orientation="vertical">
 
             <LinearLayout

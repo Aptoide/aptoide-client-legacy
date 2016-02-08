@@ -50,24 +50,9 @@ public class FlagApkDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_flag_app, null);
-        //config title
-        TextView textView = new TextView(getContext());
-        if(Build.VERSION.SDK_INT < 11) {
-            textView.setBackgroundColor(Color.WHITE);
-        }
-        textView.setText(getString(R.string.flag_this_app));
-        textView.setTypeface(Typeface.DEFAULT_BOLD);
-        textView.setTextColor(Color.BLACK);
-        if (Build.VERSION.SDK_INT < 11) {
-            textView.setPadding(AptoideUtils.UI.parseDpsToPixels(getContext(), 15), AptoideUtils.UI.parseDpsToPixels(getContext(), 8), 0, 8);
-        } else {
-            textView.setPadding(AptoideUtils.UI.parseDpsToPixels(getContext(), 15), AptoideUtils.UI.parseDpsToPixels(getContext(), 8), 0, 0);
-        }
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 21);
-
         AlertDialog builder = new AlertDialog.Builder(getActivity())
                 .setView(view)
-                .setCustomTitle(textView)
+                .setTitle(null)
                 .create();
 
         if(getArguments() != null && getArguments().containsKey(FlagApkDialog.USERVOTE_ARGUMENT_KEY)) {

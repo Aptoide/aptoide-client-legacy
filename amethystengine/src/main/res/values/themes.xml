@@ -97,6 +97,7 @@
         <item name="colorAccent">@color/default_color</item>
         <item name="colorButtonNormal">@color/default_color</item>
 
+        <item name="titleLabelStyle">@style/titleLabel</item>
     </style>
 
     <style name="AptoideThemeDefault" parent="AppBaseTheme">
@@ -104,6 +105,7 @@
         <item name="colorPrimaryDark">@color/aptoide_color_focused</item>
         <item name="colorAccent">@color/aptoide_color_focused</item>
         <item name="backgroundCard">@style/backgroundCardStyleLight</item>
+        <item name="titleLabelStyle">@style/titleLabel</item>
         <item name="backgroundTabs">@style/backgroundTabsStyleLight</item>
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar.Aptoide</item>
         <item name="android:windowBackground">@color/background_window</item>
