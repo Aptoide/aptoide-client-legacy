@@ -8,7 +8,7 @@
 
     <ImageButton
         android:id="@+id/overflow_vote_menu"
-        style="@style/Widget.AppCompat.Button.Borderless"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -37,7 +37,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Mike Trevision Mike Trevision Mike Trevision Mike Trevision Mike Trevision"
-        android:textColor="@android:color/black"
+        android:textColor="?attr/tertiaryTextColor"
         android:textSize="14dp"
         android:textStyle="bold" />
 
@@ -106,9 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@id/info_container"
-
         android:padding="3dp"
-        android:textColor="@android:color/darker_gray"
         android:textSize="11sp"
         android:text="@string/reply"
         android:layout_marginRight="10dp"
@@ -122,7 +120,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_below="@id/reply_comment"
-        android:background="@color/separators_grey"
+        android:background="?attr/backgroundSecondary"
         android:visibility="visible" />
 
 </RelativeLayout>

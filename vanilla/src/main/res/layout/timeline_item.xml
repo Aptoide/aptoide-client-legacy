@@ -45,7 +45,6 @@
             android:maxWidth="120dp"
             android:paddingLeft="2dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@android:color/darker_gray"
             android:textSize="10sp"/>
 
         <ImageView

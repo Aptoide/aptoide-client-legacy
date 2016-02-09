@@ -7,7 +7,7 @@
 
     <Button
         android:id="@+id/more"
-        style="@style/Widget.AppCompat.Button.Borderless"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

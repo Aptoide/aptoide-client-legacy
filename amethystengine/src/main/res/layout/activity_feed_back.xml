@@ -12,7 +12,8 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:theme="?attr/toolbarTheme" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -52,7 +53,7 @@
 
         <Button
             android:id="@+id/FeedBackSendButton"
-            style="?attr/customButtonColor"
+            style="?attr/customButton"
             android:layout_width="match_parent"
             android:onClick="FeedBackSendMail"
             android:layout_height="wrap_content"

@@ -16,9 +16,6 @@
         android:layout_above="@id/progressBar"
         android:layout_centerHorizontal="true"
         android:text="@string/signing_in"
-
         android:padding="15dp" />
-
-
 
 </RelativeLayout>

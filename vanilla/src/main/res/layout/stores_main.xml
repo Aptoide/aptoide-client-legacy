@@ -41,7 +41,7 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tabsHeight"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="?attr/toolbarTheme" />
 
     </android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>

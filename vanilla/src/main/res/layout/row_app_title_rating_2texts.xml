@@ -9,8 +9,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:background="@android:color/white">
+    android:padding="16dp">
 
     <RelativeLayout
         android:orientation="horizontal"
@@ -73,7 +72,6 @@
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_alignParentRight="true"
-
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
             android:background="@drawable/rating_shape">
@@ -83,11 +81,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-
-                android:textColor="@android:color/white"
+                android:textColor="?attr/inverseTextColor"
                 android:textSize="20sp" />
-
-
         </FrameLayout>
 
     </RelativeLayout>

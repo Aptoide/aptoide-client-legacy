@@ -18,7 +18,6 @@
 
             <TextView
                 android:id="@+id/friends_using_timeline"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -66,10 +65,9 @@
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/facebook_btn_default_holo_light"
+            style="@style/com_facebook_loginview_default_style"
             android:drawableLeft="@drawable/ic_drawable_left_facebook"
             android:text="@string/facebook_start_timeline"
-            android:textColor="@android:color/white"
             android:textStyle="bold" />
 
         <TextView
@@ -89,9 +87,5 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:src="@drawable/wizard_preview_post" />
-
-
     </LinearLayout>
-
-
 </ScrollView>

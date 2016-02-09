@@ -49,8 +49,7 @@
             android:gravity="center"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@android:color/darker_gray" />
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
 
     </RelativeLayout>
 

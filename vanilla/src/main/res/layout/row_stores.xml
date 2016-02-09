@@ -7,10 +7,11 @@
   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
   TODO: delete when in production
 -->
-<com.manuelpeinado.multichoiceadapter.CheckableFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                           android:layout_width="0dp"
-                                                           android:layout_height="match_parent"
-                                                           android:foreground="@drawable/highlight_overlay">
+<com.manuelpeinado.multichoiceadapter.CheckableFrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:foreground="@drawable/highlight_overlay">
 
     <RelativeLayout android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -48,7 +49,7 @@
                     android:paddingRight="@dimen/label_padding"
                     android:singleLine="true"
                     android:ellipsize="end"
-                    android:textColor="@android:color/white"
+                    android:textColor="?attr/inverseTextColor"
                     android:textSize="@dimen/text_size_large"/>
 
             <TextView
@@ -60,7 +61,7 @@
                     android:paddingLeft="@dimen/label_padding"
                     android:paddingRight="@dimen/label_padding"
                     android:ellipsize="end"
-                    android:textColor="@android:color/white"
+                    android:textColor="?attr/inverseTextColor"
                     android:layout_alignParentBottom="true"
                     android:textSize="@dimen/text_size_small"/>
 

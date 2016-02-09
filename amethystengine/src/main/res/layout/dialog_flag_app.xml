@@ -173,7 +173,7 @@
 
         <Button
             android:id="@+id/button_mark_flag"
-            style="?attr/customButtonColor"
+            style="?attr/customButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/buttons_layout"

@@ -8,16 +8,6 @@
     android:orientation="vertical"
     >
 
-    <!--<TextView-->
-        <!--android:id="@+id/title"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:gravity="center_vertical"-->
-        <!--android:textColor="@color/aptoide_orange"-->
-        <!--android:textSize="16sp"-->
-        <!--android:textStyle="bold" />-->
-
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -27,7 +17,7 @@
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
         android:layout_marginLeft="4dp"
-        android:textColor="@color/aptoide_orange" />
+        android:textColor="?colorPrimary" />
 
 
     <LinearLayout

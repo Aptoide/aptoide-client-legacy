@@ -47,13 +47,12 @@
                 android:maxLines="1"
                 android:paddingLeft="3dp"
                 android:paddingRight="3dp"
-                android:textColor="@android:color/darker_gray"
                 android:textSize="12sp" />
 
             <!--style="?android:attr/ratingBarStyleIndicator"-->
             <RatingBar
                 android:id="@+id/ratingbar"
-                style="@style/RatingBarGridItem"
+                style="?attr/gridItemRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

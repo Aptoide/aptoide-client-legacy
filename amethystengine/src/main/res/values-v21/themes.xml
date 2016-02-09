@@ -18,7 +18,7 @@ df
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@color/default_color_700</item>
         <item name="backgroundCard">@style/backgroundCardStyleDark</item>
-        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
+        <item name="customButton">@style/WidgetButtonCustomAptoide</item>
 
     </style>
 

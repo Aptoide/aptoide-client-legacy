@@ -39,7 +39,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
-                        android:textColor="@android:color/black"/>
+                        android:textColor="?attr/tertiaryTextColor"/>
 
                     <TextView
                         android:lines="1"
@@ -47,8 +47,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="@string/timeline_ad"
-                        android:textColor="@android:color/secondary_text_dark"/>
+                        android:text="@string/timeline_ad"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -60,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:paddingLeft="5dp"
-                android:textColor="@android:color/black"/>
+                android:textColor="?attr/tertiaryTextColor"/>
 
             <ImageView
                 android:id="@+id/nativeAdImage"
@@ -88,7 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
-                        android:textColor="@android:color/black"/>
+                        android:textColor="?attr/tertiaryTextColor"/>
                     <RatingBar
                         android:id="@+id/nativeAdStarRating"
                         android:layout_width="wrap_content"
@@ -105,7 +104,7 @@
                         android:lines="2"
                         android:ellipsize="end"
                         android:textSize="15sp"
-                        android:textColor="@android:color/black"/>
+                        android:textColor="?attr/tertiaryTextColor"/>
                 </LinearLayout>
 
                 <cm.aptoide.ptdev.ads.FaceBookAdButton

@@ -20,8 +20,7 @@
         android:drawableLeft="?attr/icLikeDrawable"
         android:gravity="center"
         android:padding="3dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/darker_gray"/>
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <ListView
         android:id="@+id/TimeLineListView"

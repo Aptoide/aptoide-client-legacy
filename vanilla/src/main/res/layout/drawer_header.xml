@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/navdrawer_chosen_account_height"
-    android:background="@color/aptoide_orange"
+    android:background="?attr/colorPrimary"
     android:orientation="vertical">
 
     <ImageView
@@ -42,7 +42,7 @@
             android:paddingBottom="16dp"
             android:singleLine="true"
             android:text="Aptoider@aptoide.com"
-            android:textColor="@color/navdrawer_body_text_2_inverse"
+            android:textColor="?attr/inverseTextColor"
             android:textSize="@dimen/text_size_medium" />
 
         <TextView
@@ -55,45 +55,9 @@
             android:maxLines="1"
             android:singleLine="true"
             android:text="Aptoider"
-            android:textColor="@color/navdrawer_body_text_1_inverse"
+            android:textColor="?attr/inverseTextColor"
             android:textSize="@dimen/text_size_large" />
 
     </RelativeLayout>
 
 </FrameLayout>
-
-
-    <!--
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@color/aptoide_orange"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/img_navdrawer_wallpaper"
-            android:scaleType="centerInside" />
-
-        <com.google.samples.apps.iosched.ui.widget.BezelImageView
-            android:id="@+id/profile_image"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="16dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_people_mockup"
-            app:maskDrawable="@drawable/circle_mask" />
-
-        <TextView
-            style="@style/TextAppearance.AppCompat.Subhead"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_margin="16dp"
-            android:text="Aptoider@hotmail.com"
-            android:textColor="@android:color/white" />
-
-    </FrameLayout>-->

@@ -51,8 +51,7 @@
     </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/btn_flag_this_app"
@@ -60,7 +59,7 @@
             android:layout_height="wrap_content"
             android:text="@string/flag_this_app_button_text"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="?attr/inverseTextColor" />
     </FrameLayout>
 
 </LinearLayout>

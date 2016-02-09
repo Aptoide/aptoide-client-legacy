@@ -25,10 +25,8 @@
         android:focusable="true"
         android:clickable="true"
         style="?attr/headerSeparatorButton"
-
-
         android:text="@string/button_more"
-        android:textColor="@android:color/white" />
+        android:textColor="?attr/inverseTextColor" />
 
 
 </RelativeLayout>

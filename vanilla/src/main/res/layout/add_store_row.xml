@@ -7,7 +7,7 @@
 
     <Button
         android:id="@+id/more"
-        style="@style/Widget.AppCompat.Button.Borderless"
+        style="?attr/borderlessButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/aptoide_orange"
@@ -15,6 +15,6 @@
         android:onClick="showAddStoreDialog"
         android:padding="16dp"
         android:text="Add more stores"
-        android:textColor="@android:color/white"/>
+        android:textColor="?attr/inverseTextColor"/>
 
 </LinearLayout>

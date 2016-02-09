@@ -17,17 +17,15 @@
 
         <Button
             android:id="@+id/timeline_invite"
+            style="@style/com_facebook_loginview_default_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/facebook_btn_default_holo_light"
             android:drawableLeft="@drawable/ic_drawable_left_facebook"
-            android:text="@string/invite_friends"
-            android:textColor="@android:color/white"
-            android:textStyle="bold" />
+            android:text="@string/invite_friends"/>
 
         <TextView
             android:id="@+id/timeline_send_email"

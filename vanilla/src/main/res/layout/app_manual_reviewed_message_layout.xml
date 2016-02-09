@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/shape_gray_border"
+        android:background="?attr/backgroundSecondary"
         android:padding="5dp">
 
         <ImageView

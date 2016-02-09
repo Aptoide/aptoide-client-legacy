@@ -2,6 +2,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/background_window</item>
+        <item name="android:ratingBarStyle">@style/RatingBarSmallAptoide</item>
+
         <item name="colorPrimary">@color/aptoide_orange</item>
         <item name="colorPrimaryDark">@color/aptoide_color_focused</item>
         <item name="colorAccent">@color/aptoide_color_focused</item>
@@ -15,12 +18,12 @@
 
 
         <!--background-->
-        <item name="backgroundMain">@android:color/white</item>
-        <item name="backgroundSecondary">@android:color/transparent</item>
+        <item name="backgroundMain">@color/background_holo_light</item>
+        <item name="backgroundSecondary">@color/lighter_custom_gray</item>
+        <item name="backgroundInverse">@android:color/black</item>
         <item name="backgroundWidget">@android:color/transparent</item>
         <item name="backgroundWidgetSecondary">@android:color/transparent</item>
         <item name="backgroundCard">@style/backgroundCardStyleLight</item>
-        <item name="backgroundTabs">@style/backgroundTabsStyleLight</item>
         <!--<item name="backgroundHomeLabel">@drawable/app_header_bgd_aptoide_light</item>-->
         <item name="backgroundHomeSeparator">@color/background_window</item>
         <item name="backgroundAddStoreButton">@android:color/white</item>
@@ -29,13 +32,14 @@
         <!--text-->
         <item name="android:textColorPrimary">@android:color/primary_text_light</item>
         <item name="android:textColorSecondary">@android:color/tertiary_text_light</item>
-        <item name="tertiaryTextColor">@android:color/transparent</item>
+        <item name="tertiaryTextColor">@android:color/black</item>
+        <item name="inverseTextColor">@android:color/white</item>
 
 
         <!--widgets-->
         <item name="colorButtonNormal">@color/default_color</item>
-        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
-        <item name="customButtonColorWhite">@style/WidgetButtonCustomAptoideWhite</item>
+        <item name="customButton">@style/WidgetButtonCustomAptoide</item>
+        <item name="customButtonWhite">@style/WidgetButtonCustomAptoideWhite</item>
         <item name="headerSeparatorButton">@style/headerSeparatorButtonStyleAptoide</item>
         <item name="navigationDrawerColor">@style/navigationDrawerColorLight</item>
         <item name="customRowForegroundHomeLayout">@style/customRowStyleHomeLayout</item>
@@ -43,15 +47,15 @@
         <item name="timelineButtonsBackgroundColor">@color/light_custom_gray</item>
         <item name="timelineSendDrawable">@drawable/ic_action_send_now_light</item>
         <item name="timelinePostBackground">@drawable/timeline_post_background_light</item>
-        <item name="android:ratingBarStyle">@style/RatingBarSmallAptoide</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        <item name="gridItemRatingBar">@style/Widget.Aptoide.RatingBar.GridItem</item>
+        <item name="gridItemRatingBar">@style/RatingBarGridItem</item>
+        <item name="android:ratingBarStyleSmall">@style/RatingBarSmallAptoide</item>
         <item name="titleLabelStyle">@style/titleLabel</item>
 
 
         <!--recycler-->
+        <!--<item name="android:foreground">?attr/selectableItemBackground</item>-->
         <item name="android:cacheColorHint">@android:color/transparent</item>
-        <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="sectionListView.sectionTextViewPadding">2dip</item>
         <item name="sectionListView.sectionTextViewTextColor">@android:color/black</item>
         <item name="sectionListView.sectionTextViewTextSize">18dip</item>
@@ -105,8 +109,6 @@
     </style>
 
     <style name="AptoideThemeDefault" parent="AppBaseTheme">
-        <item name="android:windowBackground">@color/background_window</item>
-        <item name="android:ratingBarStyleSmall">@style/RatingBarSmallAptoide</item>
     </style>
 
 
@@ -122,7 +124,7 @@
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar.Aptoide</item>
         <item name="android:actionBarStyle" tools:ignore="NewApi">@style/Widget.Styled.ActionBar.Aptoide</item>
         <item name="android:windowBackground">@color/transparent_black</item>
-        <item name="customButtonColor">@style/WidgetButtonCustomAptoide</item>
+        <item name="customButton">@style/WidgetButtonCustomAptoide</item>
         <item name="customColor">@color/aptoide_orange</item>
         <item name="headerSeparatorButton">@style/headerSeparatorButtonStyleAptoide</item>
         <item name="homeLabelbackground">@drawable/app_header_bgd_aptoide_dark</item>

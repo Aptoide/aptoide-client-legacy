@@ -8,6 +8,6 @@
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/separators_grey" />
+        android:background="?attr/backgroundSecondary" />
 
 </merge>

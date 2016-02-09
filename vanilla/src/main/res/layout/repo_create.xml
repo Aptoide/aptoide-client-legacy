@@ -127,7 +127,7 @@
 
         <TextView
             android:id="@+id/create_store"
-            style="?attr/customButtonColor"
+            style="?attr/customButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/create_store" />

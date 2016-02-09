@@ -7,10 +7,15 @@
     <LinearLayout
         android:id="@+id/row1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:orientation="horizontal" >
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
-        <include android:id="@+id/speed_chart" android:layout_margin="2dp" layout="@layout/screenshot_chart_layout" android:layout_weight="1"
-            android:layout_height="150dp" android:layout_width="match_parent"  />
+        <include android:id="@+id/speed_chart"
+                 android:layout_margin="2dp"
+                 layout="@layout/screenshot_chart_layout"
+                 android:layout_weight="1"
+                 android:layout_height="150dp"
+                 android:layout_width="match_parent"  />
 
         <include android:id="@+id/usability_chart" android:layout_margin="2dp" layout="@layout/screenshot_chart_layout" android:layout_weight="1"
             android:layout_height="150dp" android:layout_width="match_parent" />

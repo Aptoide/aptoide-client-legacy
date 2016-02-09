@@ -22,8 +22,7 @@
         android:id="@+id/rollback_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/appbar"
-        android:cacheColorHint="@android:color/transparent" />
+        android:layout_below="@+id/appbar" />
 
     <TextView
         android:id="@+id/empty"

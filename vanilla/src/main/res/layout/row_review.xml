@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@android:color/white"
+            android:textColor="?attr/inverseTextColor"
             android:textSize="12sp" />
 
     </FrameLayout>
@@ -46,7 +46,7 @@
 
         <TextView
             android:id="@+id/app_name"
-            style="@style/TextAppearance.AppCompat.Medium"
+            style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
