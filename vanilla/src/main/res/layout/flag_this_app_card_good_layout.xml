@@ -9,6 +9,7 @@
         android:src="@drawable/good_flag"/>
     <TextView
         android:textSize="@dimen/text_size_small"
+        android:textColor="?android:attr/textColorSecondary"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -17,6 +18,7 @@
     <TextView
         android:textSize="@dimen/text_size_small"
         android:id="@+id/number_good_flags"
+        android:textColor="?android:attr/textColorSecondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

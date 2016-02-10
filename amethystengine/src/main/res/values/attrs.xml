@@ -44,6 +44,7 @@
     <attr name="backgroundHomeSeparator" format="color" />
 
     <attr name="backgroundCard" format="reference"/>
+    <attr name="appviewRatingCardBarckground" format="reference"/>
 
     <attr name="backgroundAddStoreButton" format="color" />
     <attr name="backgroundHeaderLoggedIn" format="reference"/>
@@ -76,6 +77,7 @@
     <attr name="icWebSiteDrawable" format="reference"/>
     <attr name="icWizardLeftArrowDrawable" format="reference"/>
     <attr name="icWizardRightArrowDrawable" format="reference"/>
+    <attr name="icAppviewsPencil" format="reference"/>
     <attr name="navigationDrawerColor" format="color" />
     <attr name="timelineButtonsBackgroundColor" format="reference"/>
     <attr name="timelinePostBackground" format="reference"/>
@@ -87,4 +89,5 @@
 
     <attr name="gridItemRatingBar" format="reference"/>
     <attr name="titleLabelStyle" format="reference" />
+    <attr name="storesTextColor" format="color" />
 </resources>

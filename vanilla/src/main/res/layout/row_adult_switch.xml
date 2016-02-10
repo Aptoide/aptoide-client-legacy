@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-    android:background="@drawable/white_card">
+    style="?attr/backgroundCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/adult_content"
@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:button="@null"
+        android:textColor="?android:attr/textColorPrimary"
         android:text="@string/order_popup_title3"
         android:textOff=""
-        android:textOn=""/>
+        android:textOn="" />
 </RelativeLayout>

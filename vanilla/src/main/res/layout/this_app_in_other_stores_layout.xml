@@ -78,7 +78,7 @@
             android:layout_marginLeft="@dimen/this_app_in_other_store_text_margin_left"
             android:ellipsize="end"
             android:singleLine="true"
-            android:textColor="?attr/inverseTextColor"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_size_large" />
 
         <LinearLayout

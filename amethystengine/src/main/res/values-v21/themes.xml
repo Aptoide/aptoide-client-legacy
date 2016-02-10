@@ -7,18 +7,16 @@
         <item name="android:statusBarColor">@color/default_color_700</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
-df
+
     <!-- we need colors to feed the Dark version -->
     <style name="AptoideThemeDefaultDark" parent="AppBaseThemeDark">
         <!--   your app branding color for the app bar -->
         <item name="colorPrimary">@color/default_color</item>
         <!--   darker variant for the status bar and contextual app bars -->
         <item name="colorPrimaryDark">@color/default_color_700</item>
-
+        <item name="android:textColorSecondary">@android:color/secondary_text_dark</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@color/default_color_700</item>
-        <item name="backgroundCard">@style/backgroundCardStyleDark</item>
-        <item name="customButton">@style/WidgetButtonCustomAptoide</item>
 
     </style>
 

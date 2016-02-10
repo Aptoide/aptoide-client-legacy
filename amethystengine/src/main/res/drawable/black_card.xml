@@ -4,6 +4,6 @@
 
 
     <corners android:radius="5dp" />
-    <solid android:color="?attr/backgroundInverse" />
+    <solid android:color="@color/black" />
 
 </shape>

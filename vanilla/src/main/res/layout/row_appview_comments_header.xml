@@ -36,12 +36,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:paddingRight="4dp"
-            android:src="@drawable/ic_pencil" />
+            android:src="?attr/icAppviewsPencil" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="11sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:layout_gravity="center_vertical"
             android:text="@string/write_a_comment" />
 

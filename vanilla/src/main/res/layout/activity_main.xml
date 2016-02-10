@@ -45,6 +45,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:saveEnabled="true"
+        android:background="?attr/backgroundMain"
         app:headerLayout="@layout/drawer_header"
         app:itemTextColor="?attr/tertiaryTextColor"
         app:menu="@menu/menu_drawer" />

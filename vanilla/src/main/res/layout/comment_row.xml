@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/comments_card_layout"
     android:layout_marginTop="@dimen/comments_top_margin"
-    android:background="@drawable/white_card">
+    style="?attr/backgroundCard">
 
     <ImageButton
         android:id="@+id/overflow_vote_menu"
@@ -37,7 +37,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Mike Trevision Mike Trevision Mike Trevision Mike Trevision Mike Trevision"
-        android:textColor="?attr/tertiaryTextColor"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="14dp"
         android:textStyle="bold" />
 
@@ -57,11 +57,13 @@
             android:layout_height="wrap_content"
             android:text="11/09/1999"
             android:textSize="12sp"
+            android:textColor="?android:attr/textColorSecondary"
             android:textStyle="italic" />
 
         <TextView
             android:id="@+id/comment_text"
             android:layout_width="match_parent"
+            android:textColor="?android:attr/textColorSecondary"
             android:layout_height="wrap_content"
             android:text="In this store you can download free Android apps using the Aptoide client for download and etc ipsus lorem ipsus lorem ipsus lorem ipsus" />
 
@@ -110,7 +112,8 @@
         android:textSize="11sp"
         android:text="@string/reply"
         android:layout_marginRight="10dp"
-        android:visibility="gone" />
+        android:textColor="?android:attr/textColorSecondary"
+        android:visibility="gone"/>
 
     <View
         android:id="@+id/vertical_separator"
