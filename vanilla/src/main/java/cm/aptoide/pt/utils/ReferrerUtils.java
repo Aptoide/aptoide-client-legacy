@@ -14,6 +14,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.octo.android.robospice.SpiceManager;
@@ -199,92 +200,97 @@ public class ReferrerUtils {
 
     public static void extractReferrer(final Context context, final String packageName, final SpiceManager spiceManager, final String click_url, final
     SimpleFuture<String> simpleFuture) {
-        Logger.d("ExtractReferrer", "Called for: " + click_url + " with packageName " + packageName);
 
-        final String[] internalClickUrl = {click_url};
-        final SimpleFuture<String> clickUrlFuture = new SimpleFuture<>();
+		try {
+			Logger.d("ExtractReferrer", "Called for: " + click_url + " with packageName " + packageName);
 
-        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        WindowManager.LayoutParams params;
-        params = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, PixelFormat.TRANSLUCENT);
+			final String[] internalClickUrl = {click_url};
+			final SimpleFuture<String> clickUrlFuture = new SimpleFuture<>();
 
-        params.gravity = Gravity.TOP | Gravity.LEFT;
-        params.x = 0;
-        params.y = 0;
-        params.width = 0;
-        params.height = 0;
+			WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+			WindowManager.LayoutParams params;
+			params = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams
+					.TYPE_SYSTEM_OVERLAY, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, PixelFormat.TRANSLUCENT);
 
-        LinearLayout view = new LinearLayout(context);
-        view.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
+			params.gravity = Gravity.TOP | Gravity.LEFT;
+			params.x = 0;
+			params.y = 0;
+			params.width = 0;
+			params.height = 0;
 
-        AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
-                             @Override
-                             public void run() {
-                                 try {
-                                     internalClickUrl[0] = AptoideUtils.AdNetworks.parseString(context, click_url);
-                                     clickUrlFuture.set(internalClickUrl[0]);
-                                     Logger.d("ExtractReferrer", "Parsed click_url: " + internalClickUrl[0]);
-                                 } catch (IOException | GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException e) {
-                                     e.printStackTrace();
-                                 }
-                             }
-                         });
-        clickUrlFuture.get();
-        WebView wv = new WebView(context);
-        wv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-        view.addView(wv);
-        wv.getSettings().setJavaScriptEnabled(true);
-        wv.setWebViewClient(new WebViewClient() {
+			LinearLayout view = new LinearLayout(context);
+			view.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
 
-            Future<Void> future;
+			AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
+				@Override
+				public void run() {
+					try {
+						internalClickUrl[0] = AptoideUtils.AdNetworks.parseString(context, click_url);
+						clickUrlFuture.set(internalClickUrl[0]);
+						Logger.d("ExtractReferrer", "Parsed click_url: " + internalClickUrl[0]);
+					} catch (IOException | GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+			clickUrlFuture.get();
+			WebView wv = new WebView(context);
+			wv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+			view.addView(wv);
+			wv.getSettings().setJavaScriptEnabled(true);
+			wv.setWebViewClient(new WebViewClient() {
 
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String clickUrl) {
+				Future<Void> future;
 
-                if (future == null) {
-                    future = postponeReferrerExtraction(10, false);
-                }
+				@Override
+				public boolean shouldOverrideUrlLoading(WebView view, String clickUrl) {
 
-                if (clickUrl.startsWith("market://") || clickUrl.startsWith("https://play.google.com") || clickUrl.startsWith("http://play" + ".google.com")) {
-                    Logger.d("ExtractReferrer", "Clickurl landed on market");
-                    simpleFuture.set(getReferrer(clickUrl));
-                    Logger.d("ExtractReferrer", "Referrer successfully extracted");
+					if (future == null) {
+						future = postponeReferrerExtraction(10, false);
+					}
 
-                    future.cancel(false);
-                    postponeReferrerExtraction(0, true);
+					if (clickUrl.startsWith("market://") || clickUrl.startsWith("https://play.google.com") || clickUrl.startsWith("http://play" + ".google.com")) {
+						Logger.d("ExtractReferrer", "Clickurl landed on market");
+						simpleFuture.set(getReferrer(clickUrl));
+						Logger.d("ExtractReferrer", "Referrer successfully extracted");
 
-                    return true;
-                }
+						future.cancel(false);
+						postponeReferrerExtraction(0, true);
 
-                return false;
-            }
+						return true;
+					}
 
-            private ScheduledFuture<Void> postponeReferrerExtraction(int delta, final boolean success) {
-                Logger.d("ExtractReferrer", "Referrer postponed " + delta + " seconds.");
-                Callable<Void> callable = new Callable<Void>() {
-                    @Override
-                    public Void call() throws Exception {
-                        Logger.d("ExtractReferrer", "Sending RegisterAdRefererRequest with value " + success);
-                        if (spiceManager.isStarted()) {
-                            // Por ora fica desactivado pois pode induzir em falsos negativos.
+					return false;
+				}
 
-//                            spiceManager.execute(new RegisterAdRefererRequest(adId, appId, internalClickUrl[0], success),
-//                                    RegisterAdRefererRequest.newDefaultResponse());
-                        }
+				private ScheduledFuture<Void> postponeReferrerExtraction(int delta, final boolean success) {
+					Logger.d("ExtractReferrer", "Referrer postponed " + delta + " seconds.");
+					Callable<Void> callable = new Callable<Void>() {
+						@Override
+						public Void call() throws Exception {
+							Logger.d("ExtractReferrer", "Sending RegisterAdRefererRequest with value " + success);
+							if (spiceManager.isStarted()) {
+								// Por ora fica desactivado pois pode induzir em falsos negativos.
 
-                        return null;
-                    }
-                };
+	//                            spiceManager.execute(new RegisterAdRefererRequest(adId, appId, internalClickUrl[0], success),
+	//                                    RegisterAdRefererRequest.newDefaultResponse());
+							}
 
-                return executorService.schedule(callable, delta, TimeUnit.SECONDS);
-            }
-        });
+							return null;
+						}
+					};
 
-        wv.loadUrl(click_url);
+					return executorService.schedule(callable, delta, TimeUnit.SECONDS);
+				}
+			});
 
-        windowManager.addView(view, params);
+			wv.loadUrl(click_url);
 
-    }
+			windowManager.addView(view, params);
+		} catch (Exception e) {
+			Crashlytics.logException(e);
+		}
+	}
 
     public static String getReferrer(String uri) {
         List<NameValuePair> params = URLEncodedUtils.parse(URI.create(uri), "UTF-8");
