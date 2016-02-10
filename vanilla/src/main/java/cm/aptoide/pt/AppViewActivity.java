@@ -1875,7 +1875,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                         args.putString("version", versionName);
                         args.putString("icon", iconUrl);
                         uninstallFragment.setArguments(args);
-                        getChildFragmentManager().beginTransaction().add(uninstallFragment, "uninstallFrag").commit();
+                        getFragmentManager().beginTransaction().add(uninstallFragment, "uninstallFrag").commit();
                     }
                 });
             } else {
