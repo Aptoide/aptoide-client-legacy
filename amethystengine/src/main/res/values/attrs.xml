@@ -45,6 +45,7 @@
 
     <attr name="backgroundCard" format="reference"/>
     <attr name="appviewRatingCardBarckground" format="reference"/>
+    <attr name="backgroundCardColor" format="color"/>
 
     <attr name="backgroundAddStoreButton" format="color" />
     <attr name="backgroundHeaderLoggedIn" format="reference"/>

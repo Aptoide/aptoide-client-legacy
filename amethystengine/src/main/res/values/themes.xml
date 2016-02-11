@@ -24,6 +24,7 @@
         <item name="backgroundWidget">@android:color/transparent</item>
         <item name="backgroundWidgetSecondary">@android:color/transparent</item>
         <item name="backgroundCard">@style/backgroundCardStyleLight</item>
+        <item name="backgroundCardColor">@color/white</item>
         <item name="appviewRatingCardBarckground">@drawable/black_card</item>
         <!--<item name="backgroundHomeLabel">@drawable/app_header_bgd_aptoide_light</item>-->
         <item name="backgroundHomeSeparator">@color/background_window</item>
@@ -140,7 +141,8 @@
 
 
         <item name="android:windowBackground">@color/transparent_black</item>
-        <item name="backgroundCard">@style/backgroundCardStyleDark</item>
+        <item name="backgroundCard">@style/backgroundCardStyleLight</item>
+        <item name="backgroundCardColor">@color/dark_gray</item>
         <item name="appviewRatingCardBarckground">@drawable/dark_card</item>
 
         <item name="tertiaryTextColor">@android:color/white</item>
