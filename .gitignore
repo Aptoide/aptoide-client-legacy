@@ -35,3 +35,4 @@ proguard/
 captures/
 
 signing.properties
+google-services.json
