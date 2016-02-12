@@ -172,6 +172,14 @@
     <style name="Toolbar" parent="@style/Theme.AppCompat">
     </style>
 
+    <style name="ToolbarDark" parent="@style/Theme.AppCompat">
+        <item name="pstsIndicatorColor">@color/dark_gray</item>
+        <!--<item name="pstsIndicatorColor">@color/aptoide_orange</item>-->
+        <!--<item name="pstsDividerColor">@color/aptoide_orange</item>-->
+        <!--<item name="pstsUnderlineHeight">0dp</item>-->
+        <item name="pstsTabBackground">@color/dark_gray</item>
+    </style>
+
     <style name="customRowStyle">
         <item name="android:foreground">@drawable/highlight_overlay</item>
     </style>

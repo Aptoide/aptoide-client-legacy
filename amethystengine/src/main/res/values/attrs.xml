@@ -11,7 +11,7 @@
 
     <attr name="toolbarTheme" format="reference"/>
 
-    <attr name="backgroundMain" format="color|reference"/>
+    <attr name="backgroundMain" format="reference|color"/>
     <attr name="backgroundSecondary" format="color|reference"/>
     <attr name="backgroundInverse" format="color|reference"/>
     <attr name="backgroundWidget" format="color|reference"/>
@@ -45,7 +45,7 @@
 
     <attr name="backgroundCard" format="reference"/>
     <attr name="appviewRatingCardBarckground" format="reference"/>
-    <attr name="backgroundCardColor" format="color"/>
+    <attr name="backgroundCardColor" format="color|reference"/>
 
     <attr name="backgroundAddStoreButton" format="color" />
     <attr name="backgroundHeaderLoggedIn" format="reference"/>
@@ -90,5 +90,5 @@
 
     <attr name="gridItemRatingBar" format="reference"/>
     <attr name="titleLabelStyle" format="reference" />
-    <attr name="storesTextColor" format="color" />
+    <attr name="storesTextColor" format="reference|color" />
 </resources>

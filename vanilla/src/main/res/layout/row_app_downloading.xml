@@ -8,11 +8,9 @@
 -->
 
 <RelativeLayout
-    style="?attr/customRowForeground"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/white_card">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/row_app_download_indicator"
