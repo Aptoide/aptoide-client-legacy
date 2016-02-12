@@ -63,7 +63,6 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
-import com.aptoide.amethyst.FeedBackActivity;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
@@ -1463,7 +1462,7 @@ public class AppViewActivity extends AptoideBaseActivity implements FlagApkDialo
                     throw new IllegalStateException("RecyclerView adapter must extend SpannableRecyclerAdapter");
                 }
 
-                return ((SpannableRecyclerAdapter) mMoreVersionsList.getAdapter()).getSpanSize(position);
+                return AptoideUtils.UI.getSpanSize(mMoreVersionsList, position);
             }
         });
 

@@ -9,8 +9,7 @@ import com.aptoide.amethyst.utils.AptoideUtils;
 /**
  * Created by rmateus on 05/06/15.
  */
-public abstract  class GridRecyclerFragment extends AptoideRecyclerFragment {
-
+public abstract class GridRecyclerFragment extends AptoideRecyclerFragment {
 
 
     @Override
@@ -24,13 +23,13 @@ public abstract  class GridRecyclerFragment extends AptoideRecyclerFragment {
                     throw new IllegalStateException("RecyclerView adapter must extend SpannableRecyclerAdapter");
                 }
 
-                return ((SpannableRecyclerAdapter) recyclerView.getAdapter()).getSpanSize(position);
+                return AptoideUtils.UI.getSpanSize(recyclerView, position);
             }
         });
 
         // we need to force the spanCount, or it will crash.
         // https://code.google.com/p/android/issues/detail?id=182400
-        gridLayoutManager.setSpanCount(getColumnSize() * 2);
+        gridLayoutManager.setSpanCount(getColumnSize()* 2);
         recyclerView.setLayoutManager(gridLayoutManager);
     }
 
