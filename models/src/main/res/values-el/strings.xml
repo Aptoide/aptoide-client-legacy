@@ -505,8 +505,8 @@
     <!-- Badges -->
     <string name="app_trusted">%s είναι Έμπιστο</string>
     <string name="app_warning">Προσοχή: %s</string>
-    <string name="scanned_with_av">Scanned with Anti-Virus:</string>
-    <string name="compared_with_another_marketplace">Compared with another Android Marketplace:</string>
+    <string name="scanned_with_av">Σαρώθηκε με Anti-Virus:</string>
+    <string name="compared_with_another_marketplace">Σε σύγκριση με ένα άλλο Android Marketplace:</string>
     <string name="application_signature_analysis">Application signature compared with developer signature:</string>
     <string name="application_signature_matched">Application signature match with signature related to the application developer.</string>
     <string name="application_signature_not_matched">Application signature do not match with signature related to the application developer. Application may have been adulterated.</string>
@@ -515,7 +515,7 @@
     <string name="scanned_verified_by_tester">The application was reviewed manually by a tester from Aptoide Team which ensures the safety of the application.</string>
     <string name="warning">Προσοχή</string>
     <string name="trusted_app">Trusted App</string>
-    <string name="unknown">Unknown</string>
+    <string name="unknown">Άγνωστο</string>
 
     <!-- New Badges V7 -->
     <string name="reason_third_party">We\'ve checked the app\'s signature and it matches with Google Play Store, so rest assured and enjoy the app.</string>
@@ -530,10 +530,10 @@
 	
     <!-- Comments -->
     <string name="reply_to">Απαντήστε σε %s</string>
-    <string name="comment_submitted">Your comment was successfully submitted</string>
+    <string name="comment_submitted">Το σχόλιό σας υποβλήθηκε με επιτυχία</string>
     <string name="write_your_comment">Γράψτε το σχόλιό σας</string>
     <string name="write_a_comment">Γράψτε ένα σχόλιο</string>
-    <string name="no_comment_be_the_first">"No comments yet. Be the first!</string>
+    <string name="no_comment_be_the_first">Δεν υπάρχουν ακόμη σχόλια. Γίνετε ο πρώτος!</string>
     
     <!-- Dialogs -->
     <string name="installapp_alrt">Θέλετε να εγκαταστήσετε: \n\n %s;</string>
@@ -547,18 +547,18 @@
 
     
     <!-- push notifications-->
-    <string name="notification_timeline_new_likes">You have %s new likes. Check in Social Timeline!</string>
-    <string name="notification_timeline_new_comments">You have %s new comments. Check in Social Timeline!</string>
-    <string name="notification_timeline_activity">You have %1$s new comments and %2$s likes. Check in Social Timeline!</string>
-    <string name="notification_social_timeline">Aptoide Social Timeline. Check it now!</string>
-    <string name="notification_timeline_posts">Your friends installed new apps!</string>
+    <string name="notification_timeline_new_likes">Έχετε %s νέα likes. Δείτε τα στο Κοινωνικό Χρονολόγιο!</string>
+    <string name="notification_timeline_new_comments">Έχετε %s νέα σχόλια. Δείτε τα στο Κοινωνικό Χρονολόγιο!</string>
+    <string name="notification_timeline_activity">Έχετε %1$s νέα σχόλια και %2$s likes. Δείτε τα στο Κοινωνικό Χρονολόγιο!</string>
+    <string name="notification_social_timeline">Κοινωνικό Χρονολόγιο Aptoide. Δείτε το τώρα !</string>
+    <string name="notification_timeline_posts">Οι φίλοι σας εγκατέστησαν νέες εφαρμογές!</string>
     
     <!-- Updates -->
-    <string name="has_updates">%s has new updates available!</string>
-    <string name="new_updates">There are %s new updates available!</string>
-    <string name="one_new_update">There is %s new update available!</string>
+    <string name="has_updates">%s έχει νέες ενημερώσεις!</string>
+    <string name="new_updates">Υπάρχουν %s νέες ενημερώσεις!</string>
+    <string name="one_new_update">Υπάρχει %s νέα ενημέρωση!</string>
     <string name="updates_tab_adapter_uninstalled">Uninstalled</string>
-    <string name="updatesTabAdapterUninstall">Uninstall</string>
+    <string name="updatesTabAdapterUninstall">Απεγκατάσταση</string>
     <string name="flag_good">Καλή</string>
     <string name="flag_license">Χρειάζεται Άδεια</string>
     <string name="flag_fake">Απάτη</string>
@@ -568,26 +568,26 @@
     <string name="flag_added">Flag added</string>
     <string name="skip">Παράβλεψη</string>
     <string name="wizard_title_01">Καλώς ήρθατε στο Aptoide</string>
-    <string name="wizard_description_01">Create a free account and register to start building your own personalized App Store.\n\n Browse by theme stores and discover new and exciting applications.</string>
-    <string name="wizard_title_02">Increased Security</string>
+    <string name="wizard_description_01">Δημιουργήστε ένα δωρεάν λογαριασμό και εγγραφείτε για να αρχίσετε η δημιουργίτε το δικό σας προσωπικό App Store.\n\n Αναζητήστε με βάση το θέμα καταστήματα και ανακαλύψτε νέες και συναρπαστικές εφαρμογές.</string>
+    <string name="wizard_title_02">Αυξημένη Ασφάλεια</string>
     <string name="wizard_description_02">Search for trusted badges and securely download apps.\n\n Incompatible issues? Search for previous versions of applications.</string>
-    <string name="wizard_title_03">New members of our family</string>
+    <string name="wizard_title_03">Νέα μέλη της οικογένειας</string>
     <string name="wizard_subtitle_03_1">Aptoide Lite</string>
-    <string name="wizard_description_03_1">for old devices and slow internet connection</string>
+    <string name="wizard_description_03_1">για παλιές συσκευές και αργή σύνδεση στο internet</string>
     <string name="wizard_subtitle_03_2">Aptoide TV</string>
     <string name="wizard_description_03_2">optimised App Store for Set top boxes and smart TV\'s</string>
-    <string name="wizard_reviews_title">Reviews</string>
+    <string name="wizard_reviews_title">Κριτικές</string>
     <string name="wizard_reviews">You can now create your app\'s reviews with Aptoide!</string>
-    <string name="wizard_new_and_improved">Improved performance!</string>
-    <string name="wizard_new_and_improved_bullet_1">Save battery life</string>
+    <string name="wizard_new_and_improved">Βελτιωμένη απόδοση!</string>
+    <string name="wizard_new_and_improved_bullet_1">Εξοικονόμηση ενέργειας</string>
     <string name="wizard_new_and_improved_bullet_2">Reduce CPU and bandwidth usage</string>
-    <string name="wizard_new_and_improved_bullet_3">Load fewer resources</string>
+    <string name="wizard_new_and_improved_bullet_3">Φόρτωση λιγότερων πόρων</string>
     <string name="wizard_new_and_improved_bullet_4">Clean User Interface</string>
-    <string name="wizard_new_homepage">New homepage layout</string>
+    <string name="wizard_new_homepage">Νέα διάταξη αρχικής σελίδας</string>
     <string name="wizard_new_top">New Top tab</string>
     <string name="subscribe_apps_official_store">Subscribe \'apps\' Aptoide Official App Store</string>
-    <string name="wizard_next">Next</string>
-    <string name="wizard_prev">Previous</string>
+    <string name="wizard_next">Επόμενο</string>
+    <string name="wizard_prev">Προηγούμενο</string>
     <string name="search_activity_title">"'%s'"</string>
 
     <string name="share">Κοινοποίηση</string>
@@ -595,25 +595,25 @@
 
     <!-- Search Widget-->
     <string name="search_for_apps">Αναζήτηση για εφαρμογές…</string>
-    <string name="empty_search">Empty search, write an application name</string>
-    <string name="manually_reviewed">Good App Guaranteed: this application passed the security tests for virus, malware and other malicious attacks and doesn’t contain any threats</string>
+    <string name="empty_search">Άδεια αναζήτηση, γράψετε ένα όνομα της εφαρμογής</string>
+    <string name="manually_reviewed">Good App Guaranteed: η εφαρμογή αυτή πέρασε τις δοκιμές ασφάλειας για ιούς, malware και άλλες κακόβουλες επιθέσεις και δεν περιέχει απειλές</string>
 
-    <string name="no_apps_found">No apps found with current filter</string>
-    <string name="no_search_results_message">There are no results for your search. \nPlease, try other keywords.</string>
+    <string name="no_apps_found">Δεν βρέθηκαν εφαρμογές με το τρέχων φίλτρο </string>
+    <string name="no_search_results_message">Δεν υπάρχουν αποτελέσματα για την αναζήτησή σας. \nΠαρακαλώ, δοκιμάστε άλλες λέξεις-κλειδιά.</string>
 
     <!-- AppView developer area-->
-    <string name="developer">Developer</string>
+    <string name="developer">Προγραμματιστής</string>
     <string name="website">Ιστοσελίδα: %s</string>
     <string name="email">Email: %s</string>
-    <string name="privacy_policy">Privacy Policy: %s</string>
+    <string name="privacy_policy">Πολιτική απορρήτου: %s</string>
     <string name="dialog_version_size">Έκδοση: %1$s | Μέγεθος: %2$s</string>
     <string name="na">N/A</string>
-    <string name="no_email_and_pass_error_message">Please insert an email and password to register.</string>
-    <string name="no_pass_error_message">Please insert a password to register.</string>
-    <string name="no_email_error_message">Please insert an email to register.</string>
+    <string name="no_email_and_pass_error_message">Παρακαλώ εισάγεται email και κωδικό για εγγραφή.</string>
+    <string name="no_pass_error_message">Παρακαλώ εισάγεται κωδικό για εγγραφή.</string>
+    <string name="no_email_error_message">Παρακαλώ εισάγεται email για εγγραφή.</string>
     <string name="website_copied">Η ιστοσελίδα αντιγράφηκε στο πρόχειρο</string>
     <string name="email_copied">Το E-mail αντιγράφηκε στο πρόχειρο</string>
-    <string name="privacy_copied">Privacy link copied to clipboard</string>
+    <string name="privacy_copied">Ο Ιδιωτικός σύνδεσμος αντιγράφηκε στο πρόχειρο</string>
     <string name="subscribing_store_message">Unsubscribing %s</string>
 
 </resources>
