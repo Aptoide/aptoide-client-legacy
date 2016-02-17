@@ -123,7 +123,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_below="@id/reply_comment"
-        android:background="?attr/backgroundSecondary"
+        android:background="?attr/separatorColor"
         android:visibility="visible" />
 
 </RelativeLayout>

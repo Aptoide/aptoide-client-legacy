@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:paddingBottom="15dp"
-        style="?attr/backgroundCard">
+        android:background="?attr/backgroundSecondary">
 
         <TextView
             android:id="@+id/middleAppViewHeader"

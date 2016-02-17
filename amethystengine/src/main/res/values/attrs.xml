@@ -18,6 +18,8 @@
     <attr name="backgroundWidgetSecondary" format="color|reference"/>
     <attr name="tertiaryTextColor" format="color|reference"/>
     <attr name="inverseTextColor" format="color|reference"/>
+    <attr name="separatorColor" format="color|reference"/>
+    <attr name="appManualReviewedMessageBackground" format="reference"/>
 
     <attr name="sectionListView.sectionTextViewPadding" format="dimension" />
     <attr name="sectionListView.sectionTextViewTextColor" format="color" />

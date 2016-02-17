@@ -86,7 +86,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginBottom="@dimen/separatorMargin"
                 android:layout_marginTop="@dimen/separatorMargin"
-                android:background="?attr/backgroundSecondary" />
+                android:background="?attr/separatorColor" />
 
 
             <LinearLayout

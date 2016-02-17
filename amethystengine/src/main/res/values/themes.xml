@@ -15,7 +15,7 @@
 
         <!--background-->
         <item name="backgroundMain">@color/white</item>
-        <item name="backgroundSecondary">@color/lighter_custom_gray</item>
+        <item name="backgroundSecondary">@color/light_custom_gray</item>
         <item name="backgroundInverse">@android:color/black</item>
         <item name="backgroundWidget">@android:color/transparent</item>
         <item name="backgroundWidgetSecondary">@android:color/transparent</item>
@@ -24,6 +24,7 @@
         <item name="appviewRatingCardBarckground">@drawable/black_card</item>
         <item name="backgroundHomeSeparator">@color/background_window</item>
         <item name="backgroundAddStoreButton">@android:color/white</item>
+        <item name="appManualReviewedMessageBackground">@drawable/shape_gray_border</item>
 
 
         <!--text-->
@@ -49,6 +50,7 @@
         <item name="gridItemRatingBar">@style/RatingBarGridItem</item>
         <item name="android:ratingBarStyleSmall">@style/RatingBarSmallAptoide</item>
         <item name="titleLabelStyle">@style/titleLabel</item>
+        <item name="separatorColor">@color/lighter_custom_gray</item>
 
 
         <!--recycler-->
@@ -124,7 +126,7 @@
 
         <!--background-->
         <item name="backgroundMain">@color/black</item>
-        <item name="backgroundSecondary">@color/lighter_custom_gray</item>
+        <item name="backgroundSecondary">@color/light_custom_gray</item>
         <item name="backgroundInverse">@android:color/white</item>
         <item name="backgroundWidget">@android:color/transparent</item>
         <item name="backgroundWidgetSecondary">@android:color/transparent</item>
@@ -133,7 +135,7 @@
         <item name="appviewRatingCardBarckground">@drawable/black_card</item>
         <item name="backgroundHomeSeparator">@color/background_window</item>
         <item name="backgroundAddStoreButton">@android:color/white</item>
-
+        <item name="appManualReviewedMessageBackground">@drawable/shape_gray_border</item>
 
         <!--text-->
         <item name="android:textColorPrimary">@android:color/primary_text_dark</item>
@@ -158,6 +160,7 @@
         <item name="gridItemRatingBar">@style/RatingBarGridItem</item>
         <item name="android:ratingBarStyleSmall">@style/RatingBarSmallAptoide</item>
         <item name="titleLabelStyle">@style/titleLabel</item>
+        <item name="separatorColor">@color/light_custom_gray</item>
 
 
         <!--recycler-->

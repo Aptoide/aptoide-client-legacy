@@ -62,7 +62,7 @@ http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
         <View android:layout_width="match_parent"
               android:layout_height="1dp"
-              android:background="?attr/backgroundSecondary"
+              android:background="?attr/separatorColor"
               android:layout_margin="10dp"/>
 
         <TextView

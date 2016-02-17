@@ -113,7 +113,7 @@
 
     <color name="transparent_white">#CCFFFFFF</color>
     <color name="semi_transparent_black">#55000000</color>
-    <color name="light_custom_gray">#efefef</color>
+    <color name="light_custom_gray">#ececec</color>
     <color name="lighter_custom_gray">#cccccc</color>
     <color name="dark_custom_gray">#4c4c4c</color>
     <color name="medium_custom_gray">#c6c7c6</color>

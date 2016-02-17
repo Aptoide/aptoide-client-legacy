@@ -327,7 +327,7 @@
         android:id="@+id/scrollview_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/backgroundMain"
+        android:background="?attr/backgroundSecondary"
         android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -339,7 +339,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="?attr/backgroundMain">
 
 
                 <RelativeLayout

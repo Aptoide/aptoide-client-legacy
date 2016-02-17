@@ -18,7 +18,7 @@
             <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="?attr/backgroundSecondary"/>
+                    android:background="?attr/separatorColor"/>
             <ProgressBar
                     android:id="@+id/progress"
                     android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
                 <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="?attr/backgroundSecondary"
+                        android:background="?attr/separatorColor"
                         android:layout_below="@+id/linearLayout2"/>
 
                 <TextView
