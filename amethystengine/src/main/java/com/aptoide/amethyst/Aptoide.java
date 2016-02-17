@@ -76,12 +76,15 @@ public class Aptoide extends Application {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                String aaid = "";
                 try {
-                    AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", AdvertisingIdClient.getAdvertisingIdInfo(Aptoide.this).getId())
-                            .apply();
-                } catch (IOException | GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException e) {
+                    AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", AdvertisingIdClient.getAdvertisingIdInfo(Aptoide.this).getId
+                            ()).apply();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+                AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", aaid).apply();
             }
         }).start();
     }
