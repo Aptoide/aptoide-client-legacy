@@ -149,7 +149,7 @@ dependencies {
     compile files('lib/PayPalAndroidSDK-2.8.4.jar')
     compile project(':amethystengine')
     compile 'com.commonsware.cwac:endless:1.2.3'
-    provided 'org.projectlombok:lombok:1.16.4'
+    provided 'org.projectlombok:lombok:1.16.6'
 }
 
 def File propFile = new File('signing.properties')
