@@ -20,7 +20,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ToolbarTheme" />
+            android:theme="?attr/toolbarTheme" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -50,7 +50,7 @@
 
             <Button
                 android:id="@+id/submitCreateUser"
-                style="?attr/customButtonColor"
+                style="?attr/customButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/register" />

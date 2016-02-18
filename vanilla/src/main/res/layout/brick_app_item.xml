@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/white_card"
+                style="?attr/backgroundCard"
                 android:orientation="vertical">
 
     <ImageView
@@ -30,12 +30,12 @@
             android:layout_centerVertical="true"
             android:paddingRight="1.5dp"
             android:text="Little Commander worl world II"
-            android:textColor="@color/white"/>
+            android:textColor="?attr/inverseTextColor"/>
 
 
         <RatingBar
             android:id="@+id/ratingbar"
-            style="@style/RatingBarSmallAptoide"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

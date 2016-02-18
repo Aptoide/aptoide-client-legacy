@@ -6,8 +6,20 @@
         <attr name="desaturateOnPress" format="boolean" />
     </declare-styleable>
 
-    <attr name="customButtonColor" format="reference"/>
-    <attr name="customButtonColorWhite" format="reference"/>
+    <attr name="customButton" format="reference"/>
+    <attr name="customButtonWhite" format="reference"/>
+
+    <attr name="toolbarTheme" format="reference"/>
+
+    <attr name="backgroundMain" format="reference|color"/>
+    <attr name="backgroundSecondary" format="color|reference"/>
+    <attr name="backgroundInverse" format="color|reference"/>
+    <attr name="backgroundTabs" format="color|reference"/>
+    <attr name="backgroundWidgetSecondary" format="color|reference"/>
+    <attr name="tertiaryTextColor" format="color|reference"/>
+    <attr name="inverseTextColor" format="color|reference"/>
+    <attr name="separatorColor" format="color|reference"/>
+    <attr name="appManualReviewedMessageBackground" format="reference"/>
 
     <attr name="sectionListView.sectionTextViewPadding" format="dimension" />
     <attr name="sectionListView.sectionTextViewTextColor" format="color" />
@@ -34,6 +46,8 @@
     <attr name="backgroundHomeSeparator" format="color" />
 
     <attr name="backgroundCard" format="reference"/>
+    <attr name="appviewRatingCardBarckground" format="reference"/>
+    <attr name="backgroundCardColor" format="color|reference"/>
 
     <attr name="backgroundAddStoreButton" format="color" />
     <attr name="backgroundHeaderLoggedIn" format="reference"/>
@@ -66,6 +80,7 @@
     <attr name="icWebSiteDrawable" format="reference"/>
     <attr name="icWizardLeftArrowDrawable" format="reference"/>
     <attr name="icWizardRightArrowDrawable" format="reference"/>
+    <attr name="icAppviewsPencil" format="reference"/>
     <attr name="navigationDrawerColor" format="color" />
     <attr name="timelineButtonsBackgroundColor" format="reference"/>
     <attr name="timelinePostBackground" format="reference"/>
@@ -73,8 +88,8 @@
     <attr name="homeLabelbackground" format="reference"/>
     <attr name="headerSeparatorButton" format="reference"/>
     <attr name="customColor" format="color" />
-    <attr name="backgroundTabs" format="reference"/>
 
     <attr name="gridItemRatingBar" format="reference"/>
-
+    <attr name="titleLabelStyle" format="reference" />
+    <attr name="storesTextColor" format="reference|color" />
 </resources>

@@ -37,12 +37,10 @@
 
     <Button
         android:id="@+id/more"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:background="@color/aptoide_orange"
+        style="?attr/customButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@android:color/white"
         android:layout_marginTop="3dp"
         android:text="@string/more_editors_choice"/>
 

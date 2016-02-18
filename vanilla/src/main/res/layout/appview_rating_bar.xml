@@ -32,7 +32,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
                 android:layout_toRightOf="@id/appview_rating_bar_star5"
-                android:text="5" />
+                android:text="5"
+                android:textColor="?android:attr/textColorSecondary" />
 
             <ProgressBar
                 android:id="@+id/appview_rating_bar5"
@@ -68,7 +69,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
                 android:layout_toRightOf="@id/appview_rating_bar_star4"
-                android:text="4" />
+                android:text="4"
+                android:textColor="?android:attr/textColorSecondary" />
 
             <ProgressBar
                 android:id="@+id/appview_rating_bar4"
@@ -103,7 +105,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
                 android:layout_toRightOf="@id/appview_rating_bar_star3"
-                android:text="3" />
+                android:text="3"
+                android:textColor="?android:attr/textColorSecondary" />
 
             <ProgressBar
                 android:id="@+id/appview_rating_bar3"
@@ -138,7 +141,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
                 android:layout_toRightOf="@id/appview_rating_bar_star2"
-                android:text="2" />
+                android:text="2"
+                android:textColor="?android:attr/textColorSecondary" />
 
             <ProgressBar
                 android:id="@+id/appview_rating_bar2"
@@ -172,7 +176,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
                 android:layout_toRightOf="@id/appview_rating_bar_star1"
-                android:text="1" />
+                android:text="1"
+                android:textColor="?android:attr/textColorSecondary" />
 
             <ProgressBar
                 android:id="@+id/appview_rating_bar1"
@@ -190,10 +195,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/numberslayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:id="@+id/numberslayout"
         android:orientation="vertical">
 
         <TextView
@@ -202,9 +207,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp"
-            android:text="0" />
+            android:layout_marginTop="2dp"
+            android:text="0"
+            android:textColor="?android:attr/textColorSecondary" />
 
         <TextView
             android:id="@+id/appview_rating_bar_rating_number4"
@@ -212,9 +218,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp"
-            android:text="0" />
+            android:layout_marginTop="2dp"
+            android:text="0"
+            android:textColor="?android:attr/textColorSecondary" />
 
         <TextView
             android:id="@+id/appview_rating_bar_rating_number3"
@@ -222,21 +229,23 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp"
-            android:text="0" />
+            android:layout_marginTop="2dp"
+            android:text="0"
+            android:textColor="?android:attr/textColorSecondary" />
 
 
         <TextView
             android:id="@+id/appview_rating_bar_rating_number2"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp"
-            android:text="0" />
+            android:layout_marginTop="2dp"
+            android:text="0"
+            android:textColor="?android:attr/textColorSecondary" />
 
         <TextView
             android:id="@+id/appview_rating_bar_rating_number1"
@@ -244,9 +253,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp"
-            android:text="0" />
+            android:layout_marginTop="2dp"
+            android:text="0"
+            android:textColor="?android:attr/textColorSecondary" />
     </LinearLayout>
 
 </RelativeLayout>

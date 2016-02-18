@@ -19,7 +19,7 @@
             android:id="@+id/toolbar_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ToolbarTheme" />
+            android:theme="?attr/toolbarTheme" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -57,9 +57,11 @@
 
         <Button
             android:id="@+id/button_logout"
-            style="@style/WidgetButtonCustomGray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/sign_out" />
+            android:text="@string/sign_out"
+            style="?attr/customButton"/>
     </LinearLayout>
 </LinearLayout>
 

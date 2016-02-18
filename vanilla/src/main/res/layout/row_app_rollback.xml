@@ -36,8 +36,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@android:color/darker_gray" />
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <ImageView
             android:id="@+id/app_icon"

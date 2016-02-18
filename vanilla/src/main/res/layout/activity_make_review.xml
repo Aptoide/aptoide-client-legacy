@@ -13,22 +13,17 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ToolbarTheme" />
+        android:theme="?attr/toolbarTheme" />
     </android.support.design.widget.AppBarLayout>
     <include
-
-
         android:layout_width="match_parent"
         android:layout_height="120dp"
         layout="@layout/row_app_title_rating_2texts" />
 
-
-
     <View
-
         android:layout_height="1dp"
         android:layout_width="fill_parent"
-        android:background="@color/lighter_custom_gray" />
+        android:background="?attr/backgroundSecondary" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -83,7 +78,6 @@
                     android:layout_height="wrap_content" />
 
                 <include android:id="@+id/Con1" layout="@layout/review_form" />
-
                 <include android:id="@+id/Con2" layout="@layout/review_form" />
                 <include android:id="@+id/Con3" layout="@layout/review_form" />
 
@@ -103,7 +97,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_height="1dp"
                     android:layout_width="fill_parent"
-                    android:background="@color/lighter_custom_gray" />
+                    android:background="?attr/backgroundSecondary" />
                 <include
                     android:id="@+id/Seek_Bar_Usability"
                     layout="@layout/row_seekbar_number" />
@@ -112,7 +106,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_height="1dp"
                     android:layout_width="fill_parent"
-                    android:background="@color/lighter_custom_gray" />
+                    android:background="?attr/backgroundSecondary" />
                 <include
                     android:id="@+id/Seek_Bar_Stability"
                     layout="@layout/row_seekbar_number" />
@@ -121,7 +115,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_height="1dp"
                     android:layout_width="fill_parent"
-                    android:background="@color/lighter_custom_gray" />
+                    android:background="?attr/backgroundSecondary" />
                 <include
                     android:id="@+id/Seek_Bar_Funny"
                     layout="@layout/row_seekbar_number" />
@@ -132,7 +126,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_height="1dp"
                     android:layout_width="fill_parent"
-                    android:background="@color/lighter_custom_gray" />
+                    android:background="?attr/backgroundSecondary" />
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -165,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="finishButtonClick"
                 android:text="@string/review_finish"
-                style="@style/WidgetButtonCustomAptoide" />
+                style="?attr/customButton" />
 
         </LinearLayout>
 

@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/flag_this_app_virus"
+        android:textColor="?android:attr/textColorSecondary"
         android:textSize="@dimen/text_size_small" />
 
     <TextView
@@ -22,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:textColor="?android:attr/textColorSecondary"
         android:text="0"
         android:textSize="@dimen/text_size_small" />
 

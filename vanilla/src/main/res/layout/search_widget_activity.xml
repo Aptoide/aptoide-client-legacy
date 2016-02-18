@@ -19,7 +19,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ToolbarTheme" />
+            android:theme="?attr/toolbarTheme" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -28,7 +28,6 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/appbar"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
         android:gravity="top|center_horizontal"
         android:orientation="horizontal"
         android:padding="5dp">

@@ -10,9 +10,9 @@
         <!--<item name="android:textColorPrimaryInverse">@color/white</item>-->
     <!--</style>-->
 
-    <style name="Widget.Aptoide.Button.Header" parent="Widget.AppCompat.Button.Small">
-        <item name="android:textColor">@color/white</item>
-    </style>
+    <!--<style name="Widget.Aptoide.Button.Header" parent="Widget.AppCompat.Button.Small">-->
+        <!--<item name="android:textColor">?attr/inverseTextColor</item>-->
+    <!--</style>-->
 
     <style name="HeaderTextAppView" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textColor">@color/white</item>
@@ -49,37 +49,37 @@
     </style>
 
 
-    <style name="WidgetButtonCustom" parent="@android:style/Widget.Button">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textAppearance">@android:style/TextAppearance.Medium</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:paddingLeft">15dp</item>
-        <item name="android:paddingRight">15dp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:gravity">center</item>
-    </style>
+    <!--<style name="WidgetButtonCustom" parent="@android:style/Widget.Button">-->
+        <!--<item name="android:layout_width">wrap_content</item>-->
+        <!--<item name="android:layout_height">wrap_content</item>-->
+        <!--<item name="android:textAppearance">@android:style/TextAppearance.Medium</item>-->
+        <!--<item name="android:textColor">?attr/inverseTextColor</item>-->
+        <!--<item name="android:maxLines">1</item>-->
+        <!--<item name="android:ellipsize">end</item>-->
+        <!--<item name="android:singleLine">true</item>-->
+        <!--<item name="android:paddingLeft">15dp</item>-->
+        <!--<item name="android:paddingRight">15dp</item>-->
+        <!--<item name="android:textStyle">normal</item>-->
+        <!--<item name="android:gravity">center</item>-->
+    <!--</style>-->
 
 
-    <style name="WidgetButtonCustomAptoide" parent="WidgetButtonCustom">
-        <item name="android:background">@drawable/aptoide_btn_default_holo_light</item>
-    </style>
+    <!--<style name="WidgetButtonCustomAptoide" parent="WidgetButtonCustom">-->
+        <!--<item name="android:background">@drawable/aptoide_btn_default_holo_light</item>-->
+    <!--</style>-->
 
-    <style name="WidgetButtonCustomGray" parent="@android:style/Widget.Button">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/gray_btn_default_holo_light</item>
-        <item name="android:textAppearance">@android:style/TextAppearance.Medium</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:layout_margin">2dp</item>
-        <item name="android:textStyle">normal</item>
-    </style>
+    <!--<style name="WidgetButtonCustomGray" parent="@android:style/Widget.Button">-->
+        <!--<item name="android:layout_width">fill_parent</item>-->
+        <!--<item name="android:layout_height">wrap_content</item>-->
+        <!--<item name="android:background">@drawable/gray_btn_default_holo_light</item>-->
+        <!--<item name="android:textAppearance">@android:style/TextAppearance.Medium</item>-->
+        <!--<item name="android:textColor">?android:attr/textColorPrimary</item>-->
+        <!--<item name="android:maxLines">1</item>-->
+        <!--<item name="android:ellipsize">end</item>-->
+        <!--<item name="android:singleLine">true</item>-->
+        <!--<item name="android:layout_margin">2dp</item>-->
+        <!--<item name="android:textStyle">normal</item>-->
+    <!--</style>-->
 
 
 
@@ -137,11 +137,6 @@
         <item name="android:layout_marginBottom">4dp</item>
         <item name="android:paddingLeft">6dp</item>
         <item name="android:textSize">15sp</item>
-    </style>
-
-    <style name="ButtonBarButton">
-        <item name="android:minHeight">45dp</item>
-        <item name="android:textColor">?attr/android:textColorPrimary</item>
     </style>
 
     <style name="PurchaseDialog" parent="@style/FinskyLightDialogTheme">

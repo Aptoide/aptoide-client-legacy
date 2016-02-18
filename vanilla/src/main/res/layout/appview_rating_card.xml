@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:layout_weight="4"
-    android:background="@drawable/black_card"
+    android:background="?attr/appviewRatingCardBarckground"
     android:orientation="vertical"
     android:minWidth="90dp">
 
@@ -16,7 +16,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="@string/appview_rating_card_text"
-        android:textColor="@color/white" />
+        android:textColor="?android:attr/textColorPrimaryInverse"/>
 
     <TextView
         android:id="@+id/appview_avg_rating"
@@ -40,7 +40,7 @@
 
         <RatingBar
             android:id="@+id/appview_rating_bar_avg"
-            style="@style/RatingBarGridItem"
+            style="?attr/gridItemRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5" />
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="0"
-            android:textColor="@color/white"
+            android:textColor="?android:attr/textColorPrimaryInverse"
             android:textSize="@dimen/text_size_small" />
     </LinearLayout>
 

@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/app_view_middle_sugested"
-    android:visibility="gone"
-    >
-
-    <!--<TextView-->
-        <!--style="@style/HeaderText"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/suggested_app_search"/>-->
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:orientation="vertical"
+                    android:id="@+id/app_view_middle_sugested"
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
     <RelativeLayout
         android:id="@+id/apkinfoheader"
@@ -19,7 +14,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:paddingBottom="15dp"
-        android:background="#ececec">
+        android:background="?attr/backgroundSecondary">
 
         <TextView
             android:id="@+id/middleAppViewHeader"
@@ -27,9 +22,9 @@
             android:layout_height="wrap_content"
             android:text="@string/suggested_app"
             android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="?android:attr/textColorSecondary"
             android:layout_marginLeft="8dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="#595959" />
+            android:layout_marginBottom="5dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -65,14 +60,14 @@
             android:maxLines="1"
             android:paddingRight="6dp"
             android:singleLine="true"
-            android:textColor="#565656"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16dp"/>
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="16dp"
+            tools:text="lorem ipsum"/>
 
         <RatingBar
             android:id="@+id/rating_label"
-
-            style="@style/RatingBarGridItem"
+            style="?attr/gridItemRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/icon_layout"
@@ -97,6 +92,7 @@
             android:singleLine="true"
             android:text="Size: "
             android:textSize="10dp"
+            android:textColor="?android:attr/textColorSecondary"
             android:visibility="visible" />
 
         <TextView
@@ -108,10 +104,10 @@
             android:ellipsize="end"
             android:gravity="top"
             android:maxLines="1"
+            android:textColor="?android:attr/textColorSecondary"
             android:singleLine="true"
 
             android:textSize="10dp"
-            android:textColor="@android:color/darker_gray"
             android:visibility="visible" />
 
         <TextView
@@ -124,10 +120,10 @@
             android:ellipsize="end"
             android:layout_gravity="center_horizontal"
             android:maxLines="1"
+            android:textColor="?android:attr/textColorSecondary"
             android:singleLine="true"
 
             android:text="@string/sponsored"
-            android:textColor="@android:color/darker_gray"
             android:textSize="@dimen/text_size_small"
             />
 
@@ -140,25 +136,23 @@
             android:ellipsize="end"
             android:gravity="top"
             android:maxLines="2"
+            android:textColor="?android:attr/textColorSecondary"
             android:layout_marginTop="4dp"
 
             android:textSize="13dp"
-            android:textColor="#565656"
             android:visibility="visible" />
 
 
         <Button
             android:id="@+id/btinstall"
-            style="?attr/customButtonColor"
+            style="?attr/customButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/app_name"
-
             android:text="@string/install"
-            android:textAppearance="@android:style/TextAppearance.Medium"
-            android:textColor="@android:color/white"
             android:visibility="gone"
+            tools:visibility="visible"
             />
 
 

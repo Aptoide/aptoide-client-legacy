@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
+        android:textColor="?android:attr/textColorSecondary"
         android:paddingBottom="1dp"
         android:paddingLeft="2dp"
         android:paddingTop="4dp"

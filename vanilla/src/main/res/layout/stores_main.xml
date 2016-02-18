@@ -34,14 +34,15 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ToolbarTheme"
+            android:theme="?attr/toolbarTheme"
             app:layout_scrollFlags="scroll|enterAlways" />
 
         <com.astuetz.PagerSlidingTabStrip
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tabsHeight"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="?attr/toolbarTheme"
+            android:background="?attr/backgroundTabs"/>
 
     </android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>

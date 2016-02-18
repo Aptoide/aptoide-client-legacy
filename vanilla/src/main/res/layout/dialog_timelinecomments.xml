@@ -13,20 +13,6 @@
     android:animateLayoutChanges="true"
     android:padding="10dp">
 
-    <!--    <Button
-            android:id="@+id/likes"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:drawableLeft="?attr/icLikeDrawable"
-            android:drawableRight="@drawable/ic_more_arrow_right"
-            android:gravity="center"
-            android:paddingLeft="5.0sp"
-            android:paddingRight="5.0sp"
-            android:text="@string/comment_see_all"
-            android:textColor="@android:color/darker_gray"
-             />-->
-
     <TextView
         android:id="@+id/likes"
         android:layout_width="match_parent"
@@ -37,7 +23,6 @@
         android:padding="3dp"
         android:background="?attr/selectableItemBackground"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/darker_gray"
         android:visibility="gone" />
 
     <ListView
