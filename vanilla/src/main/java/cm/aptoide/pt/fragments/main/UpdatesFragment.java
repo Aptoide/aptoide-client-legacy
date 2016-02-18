@@ -158,6 +158,7 @@ public class UpdatesFragment extends LinearRecyclerFragment {
                             }
 
                             row.md5sum = cursor.getString(md5sum);
+                            row.storeName = cursor.getString(repoName);
                             row.path = cursor.getString(path);
                             row.path_alt = cursor.getString(alt_path);
                             row.fileSize = cursor.getLong(fileSize);
