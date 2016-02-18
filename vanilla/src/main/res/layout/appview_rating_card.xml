@@ -16,7 +16,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="@string/appview_rating_card_text"
-        android:textColor="?android:attr/textColorPrimaryInverse"/>
+        android:textColor="?attr/appviewRatingCardTextColor"/>
 
     <TextView
         android:id="@+id/appview_avg_rating"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="0"
-            android:textColor="?android:attr/textColorPrimaryInverse"
+            android:textColor="?attr/appviewRatingCardTextColor"
             android:textSize="@dimen/text_size_small" />
     </LinearLayout>
 

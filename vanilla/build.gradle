@@ -75,7 +75,7 @@ android {
             // Enabling multidex support.
             multiDexEnabled true
             versionName "7.1.0"
-            versionCode 475
+            versionCode 476
         }
         prod {
             // The actual minSdkVersion for the application.
