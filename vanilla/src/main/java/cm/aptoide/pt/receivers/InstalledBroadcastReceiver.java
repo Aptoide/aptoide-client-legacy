@@ -94,26 +94,27 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 //                        .get(0).getPartner(), apkSuggestionJson.getAds().get(0).getPartner().getPartnerData(), apkSuggestionJson.getAds().get(0).getPartner()
 //                        .getPartnerData().getClick_url())) {
                 try {
+                    if (apkSuggestionJson.getAds().size() > 0) {
+                        ApkSuggestionJson.Ads ad = apkSuggestionJson.getAds().get(0);
+                        String click_url = ad.getPartner().getPartnerData().getClick_url();
 
-                    ApkSuggestionJson.Ads ad = apkSuggestionJson.getAds().get(0);
-                    String click_url = ad.getPartner().getPartnerData().getClick_url();
+                        ReferrerUtils.extractReferrer(context, packageName, spiceManager, click_url, stringSimpleFuture);
 
-                    ReferrerUtils.extractReferrer(context, packageName, spiceManager, click_url, stringSimpleFuture);
+                        AptoideUtils.AdNetworks.knock(ad.getInfo().getCpc_url());
+                        AptoideUtils.AdNetworks.knock(ad.getInfo().getCpi_url());
+                        AptoideUtils.AdNetworks.knock(ad.getInfo().getCpd_url());
 
-                    AptoideUtils.AdNetworks.knock(ad.getInfo().getCpc_url());
-                    AptoideUtils.AdNetworks.knock(ad.getInfo().getCpi_url());
-                    AptoideUtils.AdNetworks.knock(ad.getInfo().getCpd_url());
+                        AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                final String referrer = stringSimpleFuture.get();
 
-                    AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            final String referrer = stringSimpleFuture.get();
-
-                            if (!TextUtils.isEmpty(referrer)) {
-                                broadcastReferrer(context, packageName, referrer);
+                                if (!TextUtils.isEmpty(referrer)) {
+                                    broadcastReferrer(context, packageName, referrer);
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 } catch (NullPointerException e) {
                     // Propositadamente ignorado.
                 }
