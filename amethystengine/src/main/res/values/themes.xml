@@ -17,7 +17,7 @@
         <item name="backgroundMain">@color/white</item>
         <item name="backgroundSecondary">@color/light_custom_gray</item>
         <item name="backgroundInverse">@android:color/black</item>
-        <item name="backgroundWidget">@android:color/transparent</item>
+        <item name="backgroundTabs">@android:color/transparent</item>
         <item name="backgroundWidgetSecondary">@android:color/transparent</item>
         <item name="backgroundCard">@style/backgroundCardStyleLight</item>
         <item name="backgroundCardColor">@color/white</item>
@@ -66,7 +66,6 @@
         <item name="sectionListView.listItemPadding" >2dip</item>
         <item name="sectionListView.listItemBackground" >@drawable/list_selector_background</item>
 
-
         <!--icons-->
         <item name="icRatingGoodDrawable">@drawable/ic_action_good</item>
         <item name="icRatingBadDrawable">@drawable/ic_action_bad</item>
@@ -105,9 +104,6 @@
         <item name="icAppviewsPencil">@drawable/ic_pencil</item>
     </style>
 
-    <style name="AppTheme" parent="AppBaseTheme">
-    </style>
-
     <style name="AptoideThemeDefault" parent="AppBaseTheme">
     </style>
 
@@ -128,7 +124,7 @@
         <item name="backgroundMain">@color/black</item>
         <item name="backgroundSecondary">@color/light_custom_gray</item>
         <item name="backgroundInverse">@android:color/white</item>
-        <item name="backgroundWidget">@android:color/transparent</item>
+        <item name="backgroundTabs">@color/dark_gray</item>
         <item name="backgroundWidgetSecondary">@android:color/transparent</item>
         <item name="backgroundCard">@style/backgroundCardStyleDark</item>
         <item name="backgroundCardColor">@color/black</item>
@@ -164,7 +160,6 @@
 
 
         <!--recycler-->
-        <!--<item name="android:foreground">?attr/selectableItemBackground</item>-->
         <item name="android:cacheColorHint">@android:color/transparent</item>
         <item name="sectionListView.sectionTextViewPadding">2dip</item>
         <item name="sectionListView.sectionTextViewTextColor">@android:color/black</item>
@@ -183,7 +178,7 @@
         <item name="icRatingBadDrawable">@drawable/ic_action_bad</item>
         <item name="icWebSiteDrawable">@drawable/ic_web_site</item>
         <item name="icEmailDrawable">@drawable/ic_email</item>
-        <item name="icCancelDrawable">@drawable/ic_action_cancel</item>
+        <item name="icCancelDrawable">@drawable/ic_action_cancel_dark</item>
         <item name="icPlayDrawable">@drawable/ic_action_play</item>
         <item name="icUninstallDrawable">@drawable/ic_action_discard</item>
         <item name="icUpdateDrawable">@drawable/ic_action_update</item>
@@ -215,85 +210,6 @@
         <item name="icTimelineAccessSecure">@drawable/ic_action_secure_light</item>
         <item name="icAppviewsPencil">@drawable/ic_pencil</item>
 
-
-        <!--<item name="backgroundMain">@color/black</item>-->
-        <!--<item name="customRowForegroundHomeLayout">@style/customRowStyleHomeLayout</item>-->
-        <!--<item name="customRowForeground">@style/customRowStyle</item>-->
-
-
-        <!--<item name="android:windowBackground">@color/transparent_black</item>-->
-        <!--<item name="backgroundCard">@style/backgroundCardStyleDark</item>-->
-        <!--<item name="backgroundCardColor">@color/dark_gray</item>-->
-        <!--<item name="appviewRatingCardBarckground">@drawable/dark_card</item>-->
-
-        <!--<item name="tertiaryTextColor">@android:color/white</item>-->
-        <!--<item name="inverseTextColor">@android:color/black</item>-->
-        <!--<item name="storesTextColor">@color/white</item>-->
-
-        <!--<item name="customButton">@style/WidgetButtonCustomAptoide</item>-->
-
-        <!--<item name="android:cacheColorHint">@android:color/transparent</item>-->
-        <!--<item name="sectionListView.sectionTextViewPadding">2dip</item>-->
-        <!--<item name="sectionListView.sectionTextViewTextColor">@android:color/white</item>-->
-        <!--<item name="sectionListView.sectionTextViewTextSize">18dip</item>-->
-        <!--<item name="sectionListView.sectionItemPadding" >2dip</item>-->
-        <!--<item name="sectionListView.sectionItemBackground" >@null</item>-->
-        <!--<item name="sectionListView.listTextViewPadding" >2dip</item>-->
-        <!--<item name="sectionListView.listTextViewTextColor" >@android:color/white</item>-->
-        <!--<item name="sectionListView.listTextViewTextSize" >22dip</item>-->
-        <!--<item name="sectionListView.listItemPadding" >2dip</item>-->
-        <!--<item name="sectionListView.listItemBackground" >@drawable/list_selector_background</item>-->
-
-        <!--<item name="android:textColorPrimary">@android:color/primary_text_dark</item>-->
-        <!--<item name="android:textColorSecondary">@android:color/secondary_text_dark</item>-->
-        <!--<item name="navigationDrawerColor">@style/navigationDrawerColorDark</item>-->
-
-        <!--<item name="icRatingGoodDrawable">@drawable/ic_action_good_dark</item>-->
-        <!--<item name="icRatingBadDrawable">@drawable/ic_action_bad_dark</item>-->
-
-
-        <!--<item name="android:ratingBarStyle">@style/RatingBarSmallAptoide</item>-->
-
-        <!--<item name="icWebSiteDrawable">@drawable/ic_action_web_site_dark</item>-->
-        <!--<item name="icEmailDrawable">@drawable/ic_action_email_dark</item>-->
-        <!--<item name="icCancelDrawable">@drawable/ic_action_cancel_dark</item>-->
-        <!--<item name="icPlayDrawable">@drawable/ic_action_play_dark</item>-->
-        <!--<item name="icUninstallDrawable">@drawable/ic_action_discard_dark</item>-->
-        <!--<item name="icUpdateDrawable">@drawable/ic_action_update_dark</item>-->
-
-        <!--<item name="icAboutDrawable">@drawable/ic_action_about_dark</item>-->
-        <!--<item name="icDownloadsDrawable">@drawable/ic_action_download_dark</item>-->
-        <!--<item name="icLikeDrawable">@drawable/ic_action_good_dark</item>-->
-        <!--<item name="icDontLikeDrawable">@drawable/ic_action_bad_dark</item>-->
-        <!--<item name="icStoreInfoDrawable">@drawable/ic_action_accept_dark</item>-->
-        <!--<item name="icRatingFloatDrawable">@drawable/ic_action_important_dark</item>-->
-        <!--<item name="icErrorDrawable">@drawable/ic_action_cancel_dark</item>-->
-        <!--<item name="icMyAccountDrawable">@drawable/ic_action_accounts_dark</item>-->
-        <!--<item name="icRollbackDrawable">@drawable/ic_action_time_dark</item>-->
-        <!--<item name="icScheduledDrawable">@drawable/ic_action_go_to_today_dark</item>-->
-        <!--<item name="icExcludedUpdatesDrawable">@drawable/ic_action_cancel_dark</item>-->
-        <!--<item name="icSettingsDrawable">@drawable/ic_action_settings_dark</item>-->
-        <!--<item name="icRevertDrawable">@drawable/ic_action_undo_dark</item>-->
-        <!--<item name="icAddStoreDrawable">@drawable/ic_action_new_dark</item>-->
-        <!--<item name="icAcceptDrawable">@drawable/ic_action_accept_dark</item>-->
-        <!--<item name="icWizardRightArrowDrawable">@drawable/right_wizard_arrow_dark</item>-->
-        <!--<item name="icWizardLeftArrowDrawable">@drawable/left_wizard_arrow_dark</item>-->
-        <!--<item name="icCollapseDrawable">@drawable/ic_action_home_collapse_dark</item>-->
-        <!--<item name="icExpandDrawable">@drawable/ic_action_home_expand_dark</item>-->
-        <!--<item name="backgroundHeaderLoggedIn">@drawable/ab_stacked_transparent_light_holo</item>-->
-        <!--<item name="icAppviewsPencil">@drawable/ic_pencil</item>-->
-
-        <!--<item name="icViewMoreComments">@drawable/ic_action_comments_dark</item>-->
-        <!--<item name="icDialogDrawable">@drawable/dialog_background_dark</item>-->
-        <!--<item name="icNextItemDrawable">@drawable/ic_action_next_item_dark</item>-->
-        <!--<item name="icTimelineDrawable">@drawable/ic_action_timeline_dark</item>-->
-        <!--<item name="timelineButtonsBackgroundColor">@color/dark_gray</item>-->
-        <!--<item name="timelineSendDrawable">@drawable/ic_action_send_now_dark</item>-->
-        <!--<item name="timelinePostBackground">@drawable/timeline_post_background_dark</item>-->
-        <!--<item name="icTimelineAccessSecure">@drawable/ic_action_secure_dark</item>-->
-
-        <!--<item name="backgroundHomeSeparator">@color/transparent_black</item>-->
-        <!--<item name="backgroundAddStoreButton">@android:color/black</item>-->
 
     </style>
 

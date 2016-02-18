@@ -327,7 +327,7 @@
         android:id="@+id/scrollview_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/backgroundSecondary"
+        style="?attr/backgroundCard"
         android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -734,13 +734,11 @@
 
             <RelativeLayout
                 android:id="@+id/more_versions_layout_header"
-                style="@style/focusableRowBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="5dp"
                 android:minHeight="50dp"
-                android:orientation="vertical"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp">
 

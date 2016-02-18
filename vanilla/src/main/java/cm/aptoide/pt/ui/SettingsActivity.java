@@ -320,9 +320,9 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Aptoide.getThemePicker().setAptoideTheme(this);
         getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);
-        Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
 
 //        getSupportActionBar().setTitle("");

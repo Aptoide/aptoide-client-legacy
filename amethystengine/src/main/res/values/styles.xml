@@ -173,11 +173,7 @@
     </style>
 
     <style name="ToolbarDark" parent="@style/Theme.AppCompat">
-        <item name="pstsIndicatorColor">@color/dark_gray</item>
-        <!--<item name="pstsIndicatorColor">@color/aptoide_orange</item>-->
-        <!--<item name="pstsDividerColor">@color/aptoide_orange</item>-->
-        <!--<item name="pstsUnderlineHeight">0dp</item>-->
-        <item name="pstsTabBackground">@color/dark_gray</item>
+        <item name="pstsIndicatorColor">@color/aptoide_orange</item>
     </style>
 
     <style name="customRowStyle">

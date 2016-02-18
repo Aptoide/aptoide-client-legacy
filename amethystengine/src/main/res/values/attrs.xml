@@ -14,7 +14,7 @@
     <attr name="backgroundMain" format="reference|color"/>
     <attr name="backgroundSecondary" format="color|reference"/>
     <attr name="backgroundInverse" format="color|reference"/>
-    <attr name="backgroundWidget" format="color|reference"/>
+    <attr name="backgroundTabs" format="color|reference"/>
     <attr name="backgroundWidgetSecondary" format="color|reference"/>
     <attr name="tertiaryTextColor" format="color|reference"/>
     <attr name="inverseTextColor" format="color|reference"/>
@@ -88,7 +88,6 @@
     <attr name="homeLabelbackground" format="reference"/>
     <attr name="headerSeparatorButton" format="reference"/>
     <attr name="customColor" format="color" />
-    <attr name="backgroundTabs" format="reference"/>
 
     <attr name="gridItemRatingBar" format="reference"/>
     <attr name="titleLabelStyle" format="reference" />

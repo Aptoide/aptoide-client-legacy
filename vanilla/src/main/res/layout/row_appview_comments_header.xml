@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="11sp"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textColor="?android:attr/textColorSecondary"
             android:layout_gravity="center_vertical"
             android:text="@string/write_a_comment" />
 
