@@ -182,7 +182,7 @@ public class ReviewActivity extends AptoideBaseActivity {
                 setValue(stabilityData, stability, stabilityLabel, stabilityChart);
                 setValue(usabilityData, usability, usabilityLabel, usabilityChart);
 
-                rating.setText(String.valueOf(reviewListJson.getReview().getRating()));
+                rating.setText(AptoideUtils.StringUtils.getRoundedValueFromDouble(reviewListJson.getReview().getRating()));
                 title.setText(reviewListJson.getReview().getApk().getTitle());
 
                 finalVeredict.setText(reviewListJson.getReview().getFinalVerdict());

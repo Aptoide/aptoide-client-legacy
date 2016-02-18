@@ -201,7 +201,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 
                             //HttpContent content = new UrlEncodedContent(parameters);
                             //HttpRequest httpRequest = AndroidHttp.newCompatibleTransport().createRequestFactory().buildPostRequest(url, content);
-                            PushNotificationJson response = new RestAdapter.Builder().setConverter(OauthErrorHandler.createConverter()).setEndpoint("https://webservices.aptoide.com/webservices").build().create(Notifications.class).getPushNotifications(parameters);
+                            PushNotificationJson response = new RestAdapter.Builder().setConverter(OauthErrorHandler.createConverter()).setEndpoint("http://webservices.aptoide.com/webservices").build().create(Notifications.class).getPushNotifications(parameters);
                             //httpRequest.setParser(new JacksonFactory().createJsonObjectParser());
                             //PushNotificationJson response = httpRequest.execute().parseAs(PushNotificationJson.class);
 //                            Log.i("PushNotificationReceiver", "getResults() is " + response.getResults().size());

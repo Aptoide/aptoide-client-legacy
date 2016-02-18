@@ -51,7 +51,7 @@ public class ReviewViewHolder extends BaseViewHolder {
         appName.setText(appItem.appName);
         description.setText(appItem.description);
         reviewer.setText(AptoideUtils.StringUtils.getFormattedString(context, R.string.reviewed_by, appItem.reviewer));
-        rating.setText(String.valueOf(appItem.rating));
+        rating.setText(AptoideUtils.StringUtils.getRoundedValueFromDouble(appItem.rating));
         Glide.with(context).load(appItem.appIcon).into(appIcon);
         Glide.with(context).load(appItem.avatar).transform(new CircleTransform(context)).into(avatar);
 
