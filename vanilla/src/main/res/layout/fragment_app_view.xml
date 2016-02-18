@@ -281,7 +281,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/CustomToolbarTheme"
+                android:theme="?attr/toolbarTheme"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
@@ -313,6 +313,7 @@
         android:id="@+id/scrollview_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        style="?attr/backgroundCard"
         android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -324,8 +325,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="?attr/backgroundMain">
 
 
                 <RelativeLayout
@@ -430,6 +431,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:gravity="center"
+                            android:textColor="?android:attr/textColorSecondary"
                             android:maxLines="2"
                             android:maxWidth="70dp"
                             android:text="@string/appview_latest_version_text"
@@ -471,12 +473,11 @@
 
                     <Button
                         android:id="@+id/btn_install"
-                        style="@style/Widget.Aptoide.Button.Header"
+                        style="?attr/customButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/install"
-                        android:textColor="@color/white" />
+                        android:text="@string/install" />
                 </LinearLayout>
 
                 <include layout="@layout/separator_vertical" />
@@ -489,7 +490,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:weightSum="3"
+                    android:foreground="?attr/selectableItemBackground">
 
 
                     <LinearLayout
@@ -532,7 +534,7 @@
                                 android:drawablePadding="2dp"
                                 android:gravity="center_vertical"
                                 android:maxLines="1"
-                                android:textColor="@color/black"
+                                android:textColor="?android:attr/textColorPrimary"
                                 android:textSize="@dimen/text_size_small" />
 
                         </LinearLayout>
@@ -578,6 +580,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
+                        android:textColor="?android:attr/textColorSecondary"
                         android:maxLines="@integer/minimum_description_lines"
                         android:paddingTop="8dp" />
 
@@ -646,6 +649,7 @@
                                 android:layout_marginRight="5dp"
                                 android:text="@string/see_more"
                                 android:textAllCaps="true"
+                                android:textColor="?android:attr/textColorSecondary"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -665,8 +669,7 @@
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/screenshots_list"
                     android:layout_width="match_parent"
-                    android:layout_height="240dp"
-                    android:background="#ececec" />
+                    android:layout_height="240dp"/>
 
                 <include layout="@layout/separator_vertical" />
 
@@ -694,14 +697,14 @@
                 android:id="@+id/appview_comments_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="?attr/backgroundMain"
                 android:clipToPadding="false" />
 
             <TextView
                 android:id="@+id/see_more_comments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="?attr/backgroundMain"
                 android:drawablePadding="15dp"
                 android:drawableRight="@drawable/ic_see_more_comments"
                 android:gravity="right"
@@ -717,19 +720,17 @@
 
             <RelativeLayout
                 android:id="@+id/more_versions_layout_header"
-                style="@style/focusableRowBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="5dp"
                 android:minHeight="50dp"
-                android:orientation="vertical"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp">
 
                 <TextView
                     android:id="@+id/more_versions_title"
-                    style="@style/HeaderText"
+                    style="?android:attr/textAppearanceMedium"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
@@ -738,7 +739,7 @@
 
                 <Button
                     android:id="@+id/more_versions_button"
-                    style="@style/Widget.Aptoide.Button.Header"
+                    style="?attr/customButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -757,7 +758,7 @@
 
             <TextView
                 android:id="@+id/developer_title"
-                style="@style/HeaderText"
+                style="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -770,6 +771,7 @@
                 android:id="@+id/website_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?android:attr/textColorSecondary"
                 android:drawableLeft="@drawable/ic_map_appview"
                 android:drawablePadding="8dp"
                 android:padding="@dimen/appview_developer_padding" />
@@ -779,6 +781,7 @@
                 android:id="@+id/email_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?android:attr/textColorSecondary"
                 android:drawableLeft="@drawable/ic_mail_appview"
                 android:drawablePadding="8dp"
                 android:padding="@dimen/appview_developer_padding" />
@@ -787,6 +790,7 @@
                 android:id="@+id/privacy_policy_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?android:attr/textColorSecondary"
                 android:drawableLeft="@drawable/ic_locked_appview"
                 android:drawablePadding="8dp"
                 android:ellipsize="end"
@@ -800,6 +804,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:textColor="?android:attr/textColorSecondary"
                 android:drawableLeft="@drawable/ic_permissions_appview"
                 android:drawablePadding="8dp"
                 android:padding="@dimen/appview_developer_padding"
@@ -807,9 +812,5 @@
 
 
         </LinearLayout>
-
-
     </android.support.v4.widget.NestedScrollView>
-
-
 </android.support.design.widget.CoordinatorLayout>
