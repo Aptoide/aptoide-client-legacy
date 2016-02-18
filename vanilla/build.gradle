@@ -42,8 +42,8 @@ android {
     defaultConfig {
         applicationId "cm.aptoide.pt.dev"
         targetSdkVersion 23
-        versionCode 475
-        versionName "7.0.8"
+        versionCode 476
+        versionName "7.0.9"
 
         def amazonPublicKey = localProperties.AMAZON_PUBLIC_KEY
         def amazonPrivateKey = localProperties.AMAZON_PRIVATE_KEY
