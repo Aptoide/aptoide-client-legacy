@@ -119,7 +119,7 @@ public class UpdatesFragment extends LinearRecyclerFragment {
 
                 AptoideDatabase database = new AptoideDatabase(Aptoide.getDb());
                 Cursor cursor = database.getUpdatesTabList();
-                final PackageManager pm = getActivity().getPackageManager();
+                final PackageManager pm = Aptoide.getContext().getPackageManager();
                 final ArrayList<UpdateRow> updatesToAdd = new ArrayList<>();
                 final ArrayList<InstallRow> installsToAdd = new ArrayList<>();
 
