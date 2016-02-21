@@ -119,14 +119,14 @@
     <string name="link_device_webinstall">Σύνδεση λογαριασμού με Webinstall</string>
     <string name="setcredentials">Σύνδεση</string>
     <string name="dont_have_an_account">Δεν έχετε λογαριασμό; Εγγραφείτε</string>
-    <string name="facebook_timeline_feature">Ωωωχχ.. Το χαρακτηριστικό αυτό λειτουργεί με Facebook σύνδεση και είστε συνδεδεμένοι με άλλη πιστοποίηση</string>
+    <string name="facebook_timeline_feature">Ωωωχχ.. Το χαρακτηριστικό αυτό λειτουργεί με σύνδεση στο Facebook και είστε συνδεδεμένοι με άλλη πιστοποίηση</string>
     <string name="facebook_tos">
         • Μοιραστείτε εφαρμογές που εγκαθιστάτε με τους φίλους σας στο Facebook σε ένα Χρονολόγιο μέσα στο Aptoide
         \n\n• Δείτε, κάντε like και σχολιάστε στο Χρονολόγιο
         \n\n• Ποτέ, μα ποτέ, μα ποτέ δεν κάνουμε post στον τοίχο σας στο Facebook. Σεβόμαστε την ιδιωτικότητά σας
     </string>
     <string name="facebook_private_actions">Αυτή η εφαρμογή δεν θα δημοσιεύσει στο Facebook</string>
-    <string name="facebook_timeline_login"> Θέλετε να συνδεθείτε με το Facebook και να δοκιμάσετε το Κοινωνικό Χρονολόγιο;</string>
+    <string name="facebook_timeline_login">Θέλετε να συνδεθείτε με το Facebook και να δοκιμάσετε το Κοινωνικό Χρονολόγιο;</string>
     <string name="facebook_timeline_preview">Προεπισκόπηση Χρονολογίου:</string>
     <string name="whats_timeline">Τι είναι το Aptoide Κοινωνικό Χρονολόγιο;</string>
     <string name="feedback_subject">Θέμα</string>
