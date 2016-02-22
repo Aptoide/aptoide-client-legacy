@@ -1,8 +1,6 @@
 package cm.aptoide.pt.adapter.main;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,12 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.Displayable;
 import com.aptoide.models.HeaderRow;
@@ -47,7 +45,7 @@ import cm.aptoide.pt.viewholders.main.UpdateViewHolder;
 /**
  * Created by rmateus on 02/06/15.
  */
-public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
+public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> implements SpannableRecyclerAdapter {
 
     private final FragmentActivity activity;
     private List<Displayable> displayableList;
@@ -317,5 +315,10 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
             throw new IllegalStateException("InvalidType");
         }
 
+    }
+
+    @Override
+    public int getSpanSize(int position) {
+        return displayableList.get(position).getSpanSize();
     }
 }

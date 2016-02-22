@@ -20,7 +20,7 @@ public abstract class GridRecyclerFragment extends AptoideRecyclerFragment {
             public int getSpanSize(int position) {
 
                 if(!(recyclerView.getAdapter() instanceof SpannableRecyclerAdapter)){
-                    throw new IllegalStateException("RecyclerView adapter must extend SpannableRecyclerAdapter");
+                    throw new IllegalStateException("RecyclerView adapter must implement SpannableRecyclerAdapter");
                 }
 
                 return AptoideUtils.UI.getSpanSize(recyclerView, position);

@@ -11,11 +11,13 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.WorkerThread;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.LinearRecyclerFragment;
+import com.aptoide.amethyst.GridRecyclerFragment;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.database.schema.Schema;
 import com.aptoide.amethyst.events.BusProvider;
@@ -42,11 +44,12 @@ import cm.aptoide.pt.services.UpdatesService;
 /**
  * Created by rmateus on 17/06/15.
  */
-public class UpdatesFragment extends LinearRecyclerFragment {
+public class UpdatesFragment extends GridRecyclerFragment {
     @Bind(R.id.swipe_container)   SwipeRefreshLayout swipeContainer;
     @Bind(R.id.progress_bar)      ProgressBar progressBar;
 
     private ArrayList<Displayable> displayableList = new ArrayList<>();
+    private static final int MIN_SPAN_SIZE = 1;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -67,6 +70,15 @@ public class UpdatesFragment extends LinearRecyclerFragment {
                     });
                 }
             });
+        }
+        BUCKET_SIZE = AptoideUtils.UI.getEditorChoiceBucketSize();
+    }
+
+    @Override
+    public void setLayoutManager(RecyclerView recyclerView) {
+        super.setLayoutManager(recyclerView);
+        if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
+            ((GridLayoutManager)recyclerView.getLayoutManager()).setSpanCount(AptoideUtils.UI.getEditorChoiceBucketSize());
         }
     }
 
@@ -127,7 +139,7 @@ public class UpdatesFragment extends LinearRecyclerFragment {
 
                 for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
-                    UpdateRow row = new UpdateRow(BUCKET_SIZE);
+                    UpdateRow row = new UpdateRow(MIN_SPAN_SIZE);
 
                     int packageName = cursor.getColumnIndex(Schema.Updates.COLUMN_PACKAGE);
                     int fileSize = cursor.getColumnIndex(Schema.Updates.COLUMN_FILESIZE);
@@ -179,7 +191,7 @@ public class UpdatesFragment extends LinearRecyclerFragment {
                             ApplicationInfo appInfo = packageInfo.applicationInfo;
 
                             if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
-                                InstallRow app = new InstallRow(BUCKET_SIZE);
+                                InstallRow app = new InstallRow(MIN_SPAN_SIZE);
 
                                 app.appName = appInfo.loadLabel(pm).toString();
                                 app.packageName = appInfo.packageName;
