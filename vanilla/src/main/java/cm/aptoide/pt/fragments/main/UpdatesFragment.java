@@ -119,7 +119,7 @@ public class UpdatesFragment extends LinearRecyclerFragment {
 
                 AptoideDatabase database = new AptoideDatabase(Aptoide.getDb());
                 Cursor cursor = database.getUpdatesTabList();
-                final PackageManager pm = getActivity().getPackageManager();
+                final PackageManager pm = Aptoide.getContext().getPackageManager();
                 final ArrayList<UpdateRow> updatesToAdd = new ArrayList<>();
                 final ArrayList<InstallRow> installsToAdd = new ArrayList<>();
 
@@ -158,6 +158,7 @@ public class UpdatesFragment extends LinearRecyclerFragment {
                             }
 
                             row.md5sum = cursor.getString(md5sum);
+                            row.storeName = cursor.getString(repoName);
                             row.path = cursor.getString(path);
                             row.path_alt = cursor.getString(alt_path);
                             row.fileSize = cursor.getLong(fileSize);

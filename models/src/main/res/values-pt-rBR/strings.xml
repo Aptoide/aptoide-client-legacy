@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Hoje</string>
 <string name="WidgetProvider_timestamp_yesterday">Ontem</string>
 <string name="WidgetProvider_timestamp_hour_ago">há %s hora</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Sinalizar este app</string>
 <string name="search">Pesquisar</string>
 <string name="my_account">Minha Conta</string>
-<string name="no_sch_downloads">Não há downloads agendados!</string>
+<string name="no_sch_downloads">Os aplicativos de navegação estão utilizando dados móveis. Deseja realizar o download mais tarde, quando estiver em uma conexão WiFi? Use o agendamento de downloads e altere suas preferências em Configuração -&gt; Regras gerais de Download - para WiFi.</string>
 <string name="schDown_installselected">Instalar Selecionado</string>
 <string name="stores">Lojas</string>
 <string name="insert_store_name">Inserir nome da loja:</string>
@@ -75,7 +75,7 @@
 <string name="see_top_stores">Ver Top Lojas</string>
 <string name="setcredentials">Login</string>
 <string name="rollback">Restaurar</string>
-<string name="rollback_empty">Não há apps para restaurar</string>
+<string name="rollback_empty">Voltar rapidamente qualquer aplicativo para uma versão anterior e resolver problemas de incompatibilidade. Mantenha um registro de todos os seus aplicativos instalados (via Aptoide), incluindo a versão e data de instalação.</string>
 <string name="rollback_installed">Instalado</string>
 <string name="rollback_uninstalled">Desinstalado</string>
 <string name="rollback_updated">Atualizado</string>
@@ -124,7 +124,7 @@
 <string name="restart_aptoide">Por favor, reinicie o aplicativo para alterar o tema</string>
 <string name="ignoreUpdateText">Ignorar Atualização</string>
 <string name="appview_header_trusted_text">Confiável</string>
-<string name="downgrade">Downgrade</string>
+<string name="downgrade">Desatualizar</string>
 <string name="open">Abrir</string>
 <string name="about_aptoide_antimalware">A plataforma Anti-Malware do Aptoide analisa aplicativos em tempo de execução e desativa potenciais ameaças em todas as lojas. Este sistema escaneia todos os novos arquivos de aplicativos das lojas e certifica-os por comparação com outros Mercados Android.</string>
 <string name="schDown_nodownloadselect">Sem Downloads Selecionados</string>
@@ -417,7 +417,7 @@
     <string name="appview_additional_information_title">Informações Adicionais</string>
     <string name="appview_latest_version_text">Esta é a última versão!</string>
     <string name="appview_subscribe_store_button_text">Assinar?</string>
-    <string name="noIgnoreUpdateText">Sem Atualizações Ignoradas</string>
+    <string name="noIgnoreUpdateText">A nova versão de um aplicativo não funciona no seu dispositivo ou alguma coisa está faltando? Bloqueie a atualização dos aplicativos. Vá para a aba Atualizações e pressione sobre o aplicativo que você deseja parar de atualizar.</string>
     <string name="createReviewButtonText">Criar Análise</string>
     <string name="navigation_drawer_signup_login">Registrar ou Entrar</string>
     <string name="_downloads"> downloads</string>
@@ -426,7 +426,7 @@
     <string name="version">Versão</string>
 
     <string name="results">Resultados</string>
-    <string name="other_stores">Lojas Não Assinadas</string>
+    <string name="other_stores">Lojas não inscritas</string>
     <string name="store">Loja</string>
     <string name="title_caps">TÍTULO</string>
 
@@ -574,4 +574,6 @@
     <string name="dialog_version_size">Versão: %1$s | Tamanho: %2$s</string>
     <string name="na">N/A</string>
 
-</resources>
+<string name="error_410">Desculpe, o App solicitado não foi encontrado neste servidor.</string>
+
+    </resources>

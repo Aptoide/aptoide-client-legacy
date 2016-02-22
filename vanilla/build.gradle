@@ -42,8 +42,8 @@ android {
     defaultConfig {
         applicationId "cm.aptoide.pt.dev"
         targetSdkVersion 23
-        versionCode 474
-        versionName "7.0.7"
+        versionCode 476
+        versionName "7.0.9"
 
         def amazonPublicKey = localProperties.AMAZON_PUBLIC_KEY
         def amazonPrivateKey = localProperties.AMAZON_PRIVATE_KEY
@@ -149,7 +149,7 @@ dependencies {
     compile files('lib/PayPalAndroidSDK-2.8.4.jar')
     compile project(':amethystengine')
     compile 'com.commonsware.cwac:endless:1.2.3'
-    provided 'org.projectlombok:lombok:1.16.4'
+    provided 'org.projectlombok:lombok:1.16.6'
 }
 
 def File propFile = new File('signing.properties')

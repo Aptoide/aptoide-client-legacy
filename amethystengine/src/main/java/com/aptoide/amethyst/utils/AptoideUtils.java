@@ -39,7 +39,8 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.text.ClipboardManager;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Base64;
@@ -59,6 +60,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
@@ -174,6 +176,8 @@ public class AptoideUtils {
 
     public static class UI {
 
+
+        private static final String TAG = UI.class.getSimpleName();
 
         public static int getVerCode(Context context) {
             PackageManager manager = context.getPackageManager();
@@ -444,6 +448,30 @@ public class AptoideUtils {
             }
         }
 
+
+        /**
+         * this method ensure that the returned span size is a valid one
+         * The recyclerView must have a GridLayoutManager and the adapter must be an instance of SpannableRecyclerAdapter.
+         * @param recyclerView where the item will be placed
+         * @param position item position
+         * @return a valid span size for the given item
+         */
+        public static int getSpanSize(RecyclerView recyclerView, int position) {
+            if (!(recyclerView.getAdapter() instanceof SpannableRecyclerAdapter) || !(recyclerView.getLayoutManager() instanceof GridLayoutManager)) {
+                String errorMsg = "The recyclerView must have a GridLayoutManager and the adapter must be an instance of SpannableRecyclerAdapter.";
+                Crashlytics.logException(new ClassCastException(errorMsg));
+                Logger.e(TAG, errorMsg);
+                return 1;
+            }
+            int spanSize = ((SpannableRecyclerAdapter) recyclerView.getAdapter()).getSpanSize(position);
+            if (spanSize >= ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount()) {
+                return ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount();
+            } else if (spanSize < 1) {
+                return 1; //min span size
+            } else {
+                return spanSize;
+            }
+        }
     }
 
 
@@ -1446,6 +1474,20 @@ public class AptoideUtils {
                 result = resources.getString(resId);
             }
             return result;
+        }
+
+        /**
+         * get rounded value from the given double and remove the .0 if exact number
+         *
+         * @param number number to be rounded
+         * @return rounded number in string format
+         */
+        public static String getRoundedValueFromDouble(double number) {
+            if (number == (long) number) {
+                return String.valueOf((long) number);
+            } else {
+                return String.format("%.1f", number);
+            }
         }
     }
 

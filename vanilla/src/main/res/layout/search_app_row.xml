@@ -68,11 +68,7 @@
             android:id="@+id/downloads"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size_small" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:textSize="@dimen/text_size_small"/>
 
             <TextView
                 android:id="@+id/search_time"
@@ -80,19 +76,12 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_small"/>
 
-
-        </LinearLayout>
-
-
         <RatingBar
             android:id="@+id/ratingbar"
-            style="?android:attr/ratingBarStyleIndicator"
+            style="@style/RatingBarGridItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numStars="5"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="-15dp"
-            android:progressDrawable="@drawable/rating_bar" />
+            android:layout_marginTop="3dp"/>
 
     </LinearLayout>
 

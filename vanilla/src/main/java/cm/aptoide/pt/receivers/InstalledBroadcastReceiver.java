@@ -53,7 +53,6 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
         if (intent.getAction().equals(Intent.ACTION_PACKAGE_REPLACED)) {
             replaceAppEvent(context, db, intent.getData().getEncodedSchemeSpecificPart());
-            tryToReferrer(context, intent.getData().getEncodedSchemeSpecificPart(), "updates");
         } else if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED)) {
             referrerInjected = installAppEvent(context, db, intent.getBooleanExtra(Intent.EXTRA_REPLACING, false), intent.getData()
                     .getEncodedSchemeSpecificPart());
@@ -88,30 +87,50 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
             @Override
             public void onRequestSuccess(ApkSuggestionJson apkSuggestionJson) {
-				if (apkSuggestionJson != null && apkSuggestionJson.ads != null && apkSuggestionJson.ads.size() > 0) {
-                    ApkSuggestionJson.Ads ad = apkSuggestionJson.getAds().get(0);
-                    String click_url = ad.getPartner().getPartnerData().getClick_url();
 
-                    ReferrerUtils.extractReferrer(context, packageName, spiceManager, click_url, stringSimpleFuture);
+//                if (assertNotNull(apkSuggestionJson, apkSuggestionJson.ads) && apkSuggestionJson.ads.size() > 0) {
 
-                    AptoideUtils.AdNetworks.knock(ad.getInfo().getCpc_url());
-                    AptoideUtils.AdNetworks.knock(ad.getInfo().getCpi_url());
-                    AptoideUtils.AdNetworks.knock(ad.getInfo().getCpd_url());
+//                if (assertNotNull(apkSuggestionJson, apkSuggestionJson.ads) && apkSuggestionJson.ads.size() > 0 && assertNotNull(apkSuggestionJson.getAds()
+//                        .get(0).getPartner(), apkSuggestionJson.getAds().get(0).getPartner().getPartnerData(), apkSuggestionJson.getAds().get(0).getPartner()
+//                        .getPartnerData().getClick_url())) {
+                try {
+                    if (apkSuggestionJson.getAds().size() > 0) {
+                        ApkSuggestionJson.Ads ad = apkSuggestionJson.getAds().get(0);
+                        String click_url = ad.getPartner().getPartnerData().getClick_url();
 
-                    AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            final String referrer = stringSimpleFuture.get();
+                        ReferrerUtils.extractReferrer(context, packageName, spiceManager, click_url, stringSimpleFuture);
 
-                            if (!TextUtils.isEmpty(referrer)) {
-                                broadcastReferrer(context, packageName, referrer);
+                        AptoideUtils.AdNetworks.knock(ad.getInfo().getCpc_url());
+                        AptoideUtils.AdNetworks.knock(ad.getInfo().getCpi_url());
+                        AptoideUtils.AdNetworks.knock(ad.getInfo().getCpd_url());
+
+                        AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                final String referrer = stringSimpleFuture.get();
+
+                                if (!TextUtils.isEmpty(referrer)) {
+                                    broadcastReferrer(context, packageName, referrer);
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
+                } catch (NullPointerException e) {
+                    // Propositadamente ignorado.
                 }
-			}
-		});
+            }
+        });
     };
+
+    private boolean assertNotNull(Object... objects) {
+        for (Object o : objects) {
+            if (o == null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     /**
      * this method update DB when an App is replaced

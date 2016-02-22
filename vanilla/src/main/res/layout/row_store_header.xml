@@ -26,6 +26,7 @@
             android:layout_height="30dp"
             android:minWidth="104dp"
             android:gravity="center"
+            android:layout_marginRight="@dimen/row_store_vertical_delimiter"
             android:layout_marginTop="@dimen/row_store_vertical_delimiter"
             android:background="@drawable/rounded_corners_white"
 
