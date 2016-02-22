@@ -114,19 +114,26 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // hack: differentiate between coming from the storeActivity or from the AppviewActivity
+        if (getArguments() != null) {
+            appView = !(TextUtils.isEmpty(getArguments().getString(Constants.VERSIONNAME_KEY, "")) || TextUtils.isEmpty(getArguments().getString(Constants.PACKAGENAME_KEY, "")));
+        }
+    }
+
+    @Override
     protected void executeSpiceRequest(boolean useCache) {
         mLoading = true;
         long cacheExpiryDuration = useCache ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
 
 
         // hack: differentiate between coming from the storeActivity or from the AppviewActivity
-        if (TextUtils.isEmpty(getVersionName()) || TextUtils.isEmpty(getPackageName())) {
+        if (appView) {
+            spiceManager.execute(buildAppRequest(), getBaseContext() + getPackageName() + BUCKET_SIZE, cacheExpiryDuration, listener);
+        } else {
             // storeactivity
             spiceManager.execute(buildStoreRequest(), getBaseContext() + getStoreId() + BUCKET_SIZE, cacheExpiryDuration, listener);
-        } else {
-            // appviewActivity
-            appView = true;
-            spiceManager.execute(buildAppRequest(), getBaseContext() + getPackageName() + BUCKET_SIZE, cacheExpiryDuration, listener);
         }
     }
 
@@ -162,7 +169,6 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
         }// No endless for when a user comes from appView
         else {
             // appviewActivity
-            appView = true;
             spiceManager.execute(buildAppRequest(), getBaseContext() + getPackageName() + BUCKET_SIZE + offset, cacheExpiryDuration, new RequestListener<GetComments>() {
                 @Override
                 public void onRequestFailure(SpiceException spiceException) {
@@ -309,7 +315,7 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
     public static List<Displayable> sortComments(List<Displayable> list) {
         List<Displayable> auxList = new ArrayList<>();
 
-        for (Displayable displayable:list) {
+        for (Displayable displayable : list) {
             if (displayable instanceof CommentItem) {
                 CommentItem comment = (CommentItem) displayable;
                 if (comment.answerto != null && comment.answerto.longValue() > 0) {
@@ -338,7 +344,7 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
     }
 
     public static int getCommentParentLocation(Number answerTo, List<Displayable> list) {
-        for (int i = 0; i<list.size();i++) {
+        for (int i = 0; i < list.size(); i++) {
             if (list.get(i) instanceof CommentItem) {
                 CommentItem comment = (CommentItem) list.get(i);
                 if (comment.id.longValue() == answerTo.longValue()) {
@@ -351,29 +357,33 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
 
     @Override
     public void setLayoutManager(final RecyclerView recyclerView) {
-        bucketSize = AptoideUtils.UI.getEditorChoiceBucketSize();
-        final GridLayoutManager gridLayoutManager = new GridLayoutManager(recyclerView.getContext(), bucketSize);
-        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
+        if (appView) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
+        } else {
+            bucketSize = AptoideUtils.UI.getEditorChoiceBucketSize();
+            final GridLayoutManager gridLayoutManager = new GridLayoutManager(recyclerView.getContext(), bucketSize);
+            gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
 
-                if (!(recyclerView.getAdapter() instanceof SpannableRecyclerAdapter)) {
-                    throw new IllegalStateException("RecyclerView adapter must extend SpannableRecyclerAdapter");
+                    if (!(recyclerView.getAdapter() instanceof SpannableRecyclerAdapter)) {
+                        throw new IllegalStateException("RecyclerView adapter must extend SpannableRecyclerAdapter");
+                    }
+
+                    int spanSize = ((SpannableRecyclerAdapter) recyclerView.getAdapter()).getSpanSize(position);
+                    if (spanSize >= ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount()) {
+                        return ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount();
+                    } else {
+                        return spanSize;
+                    }
                 }
+            });
 
-                int spanSize = ((SpannableRecyclerAdapter) recyclerView.getAdapter()).getSpanSize(position);
-                if (spanSize >= ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount()) {
-                    return ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount();
-                } else {
-                    return spanSize;
-                }
-            }
-        });
-
-        // we need to force the spanCount, or it will crash.
-        // https://code.google.com/p/android/issues/detail?id=182400
-        gridLayoutManager.setSpanCount(bucketSize);
-        recyclerView.setLayoutManager(gridLayoutManager);
+            // we need to force the spanCount, or it will crash.
+            // https://code.google.com/p/android/issues/detail?id=182400
+            gridLayoutManager.setSpanCount(bucketSize);
+            recyclerView.setLayoutManager(gridLayoutManager);
+        }
     }
 
 }
