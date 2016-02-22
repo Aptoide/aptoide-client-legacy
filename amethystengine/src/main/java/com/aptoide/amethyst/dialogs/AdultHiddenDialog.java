@@ -41,8 +41,8 @@ public class AdultHiddenDialog extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setView(LayoutInflater.from(getActivity()).inflate(R.layout.hidden_adult, null))
-                .setPositiveButton(android.R.string.yes, onClickListener)
-                .setNegativeButton(android.R.string.no, onClickListener);
+                .setPositiveButton(R.string.yes, onClickListener)
+                .setNegativeButton(R.string.no, onClickListener);
         return builder.create();
     }
 }
