@@ -1,7 +1,9 @@
 package cm.aptoide.pt.adapter.main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
@@ -20,6 +22,7 @@ import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.models.AppItem;
 import com.aptoide.models.Displayable;
 import com.aptoide.models.HeaderRow;
 import com.aptoide.models.UpdateHeaderRow;
@@ -204,16 +207,11 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
                 updateViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(v.getContext(), AppViewActivity.class);
-                        i.putExtra(Constants.UPDATE_FROM_KEY, true);
-                        i.putExtra(Constants.MD5SUM_KEY, appItem.md5sum);
-                        i.putExtra(Constants.PACKAGENAME_KEY, appItem.packageName);
-                        i.putExtra(Constants.VERSIONNAME_KEY, appItem.versionName);
-                        i.putExtra(Constants.APPNAME_KEY, appItem.appName);
-                        i.putExtra(Constants.STORENAME_KEY, appItem.storeName);
-                        i.putExtra(Constants.ICON_KEY, appItem.icon);
-                        i.putExtra(Constants.DOWNLOAD_FROM_KEY, "updates"); // renamed from: recommended_apps
-                        v.getContext().startActivity(i);
+                        Bundle extras = new Bundle();
+
+                        extras.putString(Constants.DOWNLOAD_FROM_KEY, "updates"); // renamed from: recommended_apps
+                        extras.putBoolean(Constants.UPDATE_FROM_KEY, true);
+                        startAppviewActivity(v.getContext(), appItem, extras);
                     }
                 });
                 Glide.with(updateViewHolder.itemView.getContext()).load(appItem.icon).asBitmap().into(updateViewHolder.icon);
@@ -274,10 +272,13 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
                 installedViewHolder.installedItemFrame.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = activity.getPackageManager().getLaunchIntentForPackage(installRow.packageName);
-                        if (installedViewHolder.itemView!=null && installedViewHolder.itemView.getContext()!=null && intent != null) {
-                            installedViewHolder.itemView.getContext().startActivity(intent);
-                        }
+                        Bundle extras = new Bundle();
+                        extras.putBoolean(Constants.MARKET_INTENT, true);
+                        startAppviewActivity(v.getContext(), installRow, extras);
+//                        Intent intent = activity.getPackageManager().getLaunchIntentForPackage(installRow.packageName);
+//                        if (installedViewHolder.itemView!=null && installedViewHolder.itemView.getContext()!=null && intent != null) {
+//                            installedViewHolder.itemView.getContext().startActivity(intent);
+//                        }
                     }
                 });
 //                installedViewHolder.downloads.setText(String.valueOf(installRow.versionName));
@@ -292,7 +293,11 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
 
     }
 
-
+    private void startAppviewActivity(Context context, AppItem appItem, @Nullable Bundle extras) {
+        Intent intent = AppViewActivity.startAppviewActivityFromAppItem(context, appItem);
+        intent.putExtras(extras);
+        context.startActivity(intent);
+    }
 
 
     @Override

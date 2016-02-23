@@ -103,6 +103,7 @@ import com.aptoide.dataprovider.webservices.models.v3.RateApp;
 import com.aptoide.dataprovider.webservices.models.v7.GetApp;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
 import com.aptoide.models.ApkSuggestionJson;
+import com.aptoide.models.AppItem;
 import com.aptoide.models.Displayable;
 import com.aptoide.models.HeaderRow;
 import com.aptoide.models.MoreVersionsAppViewItem;
@@ -633,13 +634,16 @@ public class AppViewActivity extends AptoideBaseActivity implements FlagApkDialo
             executeSpiceRequestWithMd5(md5sum, storeName);
 
         } else if (getIntent().getBooleanExtra(Constants.MARKET_INTENT, false)) {
+            //this is also used when come from UpdatesFragment's installed apps
+            appName = getIntent().getStringExtra(Constants.APPNAME_KEY);
             packageName = getIntent().getStringExtra(Constants.PACKAGENAME_KEY);
             executeSpiceRequestWithPackageName(packageName, null);
         }
 
         bindService(new Intent(AppViewActivity.this, DownloadService.class), downloadConnection, BIND_AUTO_CREATE);
-
-        mCollapsingToolbarLayout.setTitle(appName);
+        if (appName != null) {
+            mCollapsingToolbarLayout.setTitle(appName);
+        }
     }
 
 
@@ -2316,5 +2320,65 @@ public class AppViewActivity extends AptoideBaseActivity implements FlagApkDialo
     @Override
     protected String getScreenName() {
         return "App View";
+    }
+
+    /**
+     * This method creates an Intent to open the AppviewActivity using an AppItem
+     * @param context Context used to create the Intent
+     * @param appItem Object used to fill the intent extras
+     * @return An intent filled with the extras to open the appview
+     */
+    public static Intent startAppviewActivityFromAppItem(Context context, AppItem appItem) {
+        Intent intent = new Intent(context, AppViewActivity.class);
+
+        if (appItem.id > 0) {
+            intent.putExtra(Constants.APP_ID_KEY, appItem.id);
+        }
+
+        if (appItem.appName != null) {
+            intent.putExtra(Constants.APPNAME_KEY, appItem.appName);
+        }
+
+        if (appItem.packageName!= null) {
+            intent.putExtra(Constants.PACKAGENAME_KEY, appItem.packageName);
+        }
+
+        if (appItem.fileSize > 0) {
+            intent.putExtra(Constants.FILESIZE_KEY, appItem.fileSize);
+        }
+
+        if (appItem.icon != null) {
+            intent.putExtra(Constants.ICON_KEY, appItem.icon);
+        }
+
+        if (appItem.featuredGraphic != null) {
+            intent.putExtra(Constants.GRAPHIC_KEY, appItem.featuredGraphic);
+        }
+
+        if (appItem.storeId > 0) {
+            intent.putExtra(Constants.STOREID_KEY, appItem.storeId);
+        }
+
+        if (appItem.storeName != null) {
+            intent.putExtra(Constants.STORENAME_KEY, appItem.storeName);
+        }
+
+        if (appItem.versionName != null) {
+            intent.putExtra(Constants.VERSIONNAME_KEY, appItem.versionName);
+        }
+
+        if (appItem.md5sum != null) {
+            intent.putExtra(Constants.MD5SUM_KEY, appItem.md5sum);
+        }
+
+        if (appItem.downloads > 0) {
+            intent.putExtra(Constants.DOWNLOADS_KEY, appItem.downloads);
+        }
+
+        if (appItem.rating> 0) {
+            intent.putExtra(Constants.RATING_KEY, appItem.rating);
+        }
+
+        return intent;
     }
 }
