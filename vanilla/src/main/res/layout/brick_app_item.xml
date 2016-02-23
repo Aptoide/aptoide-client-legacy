@@ -13,13 +13,13 @@
         android:contentDescription="@null"/>
 
     <RelativeLayout
-
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="#b0000000"
+        android:background="@drawable/gradient_black"
         android:orientation="horizontal"
-        android:padding="4dp">
+        android:padding="4dp"
+        android:gravity="bottom">
 
         <TextView
             android:id="@+id/app_name"
