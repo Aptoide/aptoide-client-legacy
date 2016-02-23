@@ -295,7 +295,9 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
 
     private void startAppviewActivity(Context context, AppItem appItem, @Nullable Bundle extras) {
         Intent intent = AppViewActivity.startAppviewActivityFromAppItem(context, appItem);
-        intent.putExtras(extras);
+        if (extras != null) {
+            intent.putExtras(extras);
+        }
         context.startActivity(intent);
     }
 
