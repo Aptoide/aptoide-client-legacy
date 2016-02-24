@@ -24,13 +24,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 
-import cm.aptoide.pt.openiab.IABPurchaseActivity;
-import cm.aptoide.pt.openiab.webservices.IabConsumeRequest;
-import cm.aptoide.pt.openiab.webservices.IabPurchasesRequest;
-import cm.aptoide.pt.openiab.webservices.IabSkuDetailsRequest;
-import cm.aptoide.pt.openiab.webservices.json.IabConsumeJson;
-import cm.aptoide.pt.openiab.webservices.json.IabPurchasesJson;
-import cm.aptoide.pt.openiab.webservices.json.IabSkuDetailsJson;
+import com.aptoide.amethyst.openiab.IABPurchaseActivity;
+import com.aptoide.amethyst.openiab.webservices.IabConsumeRequest;
+import com.aptoide.amethyst.openiab.webservices.IabPurchasesRequest;
+import com.aptoide.amethyst.openiab.webservices.IabSkuDetailsRequest;
+import com.aptoide.amethyst.openiab.webservices.json.IabConsumeJson;
+import com.aptoide.amethyst.openiab.webservices.json.IabPurchasesJson;
+import com.aptoide.amethyst.openiab.webservices.json.IabSkuDetailsJson;
 
 /**
  * Created by j-pac on 12-02-2014.

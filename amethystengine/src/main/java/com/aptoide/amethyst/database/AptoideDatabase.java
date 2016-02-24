@@ -583,9 +583,9 @@ public class AptoideDatabase {
      at android.database.sqlite.SQLiteDatabase.rawQuery(SQLiteDatabase.java:1255)
      at com.aptoide.amethyst.database.AptoideDatabase.getApkFromPackage(AptoideDatabase.java:458)
      at com.aptoide.amethyst.database.AptoideDatabase.getApkFromPackage(AptoideDatabase.java:444)
-     at cm.aptoide.pt.receivers.IntentReceiver.startMarketIntent(IntentReceiver.java:424)
-     at cm.aptoide.pt.receivers.IntentReceiver.continueLoading(IntentReceiver.java:159)
-     at cm.aptoide.pt.receivers.IntentReceiver.onCreate(IntentReceiver.java:96)
+     at com.aptoide.amethyst.receivers.IntentReceiver.startMarketIntent(IntentReceiver.java:424)
+     at com.aptoide.amethyst.receivers.IntentReceiver.continueLoading(IntentReceiver.java:159)
+     at com.aptoide.amethyst.receivers.IntentReceiver.onCreate(IntentReceiver.java:96)
 
      *
      * @param sql

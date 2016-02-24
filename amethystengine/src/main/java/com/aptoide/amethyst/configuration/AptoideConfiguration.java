@@ -89,13 +89,13 @@ public class AptoideConfiguration {
      * TODO: refactor via injection dependency, MainActivity cannot be safely moved to amethyst
      */
 //    public Class getStartActivityClass() {
-//        return cm.aptoide.pt.MainActivity.class;
+//        return com.aptoide.amethyst.MainActivity.class;
 //    }
 //    public Class getIABPurchaseActivityClass(){
 //        return IABPurchaseActivity.class;
 //    }
 //    public Class getAppViewActivityClass() {
-//        return cm.aptoide.pt.AppViewActivity.class;
+//        return com.aptoide.amethyst.AppViewActivity.class;
 //    }
 
     /**
@@ -137,7 +137,7 @@ public class AptoideConfiguration {
 
     public String getSearchAuthority(){
 //        return Aptoide.getContext().getPackageName() + ".SuggestionProvider";
-        return "cm.aptoide.pt.SuggestionProvider";
+        return "com.aptoide.amethyst.SuggestionProvider";
     }
 
     public String getAutoUpdatesSyncAdapterAuthority(){

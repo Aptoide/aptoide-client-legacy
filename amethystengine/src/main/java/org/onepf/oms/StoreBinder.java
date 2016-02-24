@@ -13,8 +13,8 @@ import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.concurrent.CountDownLatch;
 
-import cm.aptoide.pt.openiab.webservices.IabAvailableRequest;
-import cm.aptoide.pt.openiab.webservices.json.IabAvailableJson;
+import com.aptoide.amethyst.openiab.webservices.IabAvailableRequest;
+import com.aptoide.amethyst.openiab.webservices.json.IabAvailableJson;
 
 /**
  * Created by j-pac on 12-02-2014.

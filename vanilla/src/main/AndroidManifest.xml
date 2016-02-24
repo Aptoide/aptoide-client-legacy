@@ -14,7 +14,7 @@
         <meta-data android:name="LOCALYTICS_APP_KEY" android:value="${LOCALYTICS_APP_KEY}"/>
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.aptoide.amethyst.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -23,22 +23,22 @@
             </intent-filter>
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value="cm.aptoide.pt.SearchActivity" />
+                android:value="com.aptoide.amethyst.SearchActivity" />
         </activity>
 
         <activity
-            android:name=".StoresActivity"
+            android:name="com.aptoide.amethyst.StoresActivity"
             android:launchMode="singleTop"
             android:label="Store">
 
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value="cm.aptoide.pt.SearchActivity" />
+                android:value="com.aptoide.amethyst.SearchActivity" />
         </activity>
 
 
         <activity
-            android:name=".SearchActivity"
+            android:name="com.aptoide.amethyst.SearchActivity"
             android:exported="false">
 
             <intent-filter>
@@ -48,41 +48,41 @@
 
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value="cm.aptoide.pt.SearchActivity" />
+                android:value="com.aptoide.amethyst.SearchActivity" />
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
 
         </activity>
 
-        <activity android:name=".AppViewActivity">
+        <activity android:name="com.aptoide.amethyst.AppViewActivity">
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value="cm.aptoide.pt.SearchActivity" />
+                android:value="com.aptoide.amethyst.SearchActivity" />
         </activity>
         <activity android:name="com.aptoide.amethyst.ui.PermissionsActivity"/>
-        <activity android:name=".ui.ExcludedUpdatesActivity" />
-        <activity android:name=".ui.RollbackActivity" />
-        <activity android:name=".ui.ScheduledDownloadsActivity" />
+        <activity android:name="com.aptoide.amethyst.ui.ExcludedUpdatesActivity" />
+        <activity android:name="com.aptoide.amethyst.ui.RollbackActivity" />
+        <activity android:name="com.aptoide.amethyst.ui.ScheduledDownloadsActivity" />
         <activity android:name="com.aptoide.amethyst.ui.ScreenshotsViewer"/>
-        <activity android:name=".TimeLineNoFriendsInviteActivity"/>
-        <activity android:name=".UploadApkActivity"/>
-        <activity android:name=".MakeReviewActivity"/>
-        <activity android:name=".ui.MoreVersionsActivity"/>
-        <activity android:name=".MoreSearchActivity"/>
+        <activity android:name="com.aptoide.amethyst.TimeLineNoFriendsInviteActivity"/>
+        <activity android:name="com.aptoide.amethyst.UploadApkActivity"/>
+        <activity android:name="com.aptoide.amethyst.MakeReviewActivity"/>
+        <activity android:name="com.aptoide.amethyst.ui.MoreVersionsActivity"/>
+        <activity android:name="com.aptoide.amethyst.MoreSearchActivity"/>
 
         <activity
-            android:name=".appwidget.SearchWidgetActivity"
+            android:name="com.aptoide.amethyst.appwidget.SearchWidgetActivity"
             android:launchMode="singleInstance" />
 
-        <service android:name=".services.UpdatesService"/>
+        <service android:name="com.aptoide.amethyst.services.UpdatesService"/>
 
         <service
-        android:name="cm.aptoide.pt.services.DownloadService"
+        android:name="com.aptoide.amethyst.services.DownloadService"
         android:exported="false"
         android:label="DownloadService" />
 
-        <receiver android:name=".receivers.InstalledBroadcastReceiver">
+        <receiver android:name="com.aptoide.amethyst.receivers.InstalledBroadcastReceiver">
             <intent-filter android:priority="999">
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
@@ -92,7 +92,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".pushnotification.PushNotificationReceiver">
+        <receiver android:name="com.aptoide.amethyst.pushnotification.PushNotificationReceiver">
             <intent-filter>
                 <action android:name="cm.aptoide.pt.PushNotification" />
                 <action android:name="cm.aptoide.pt.PushNotificationTrackUrl" />
@@ -102,7 +102,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".appwidget.SearchWidgetProvider">
+        <receiver android:name="com.aptoide.amethyst.appwidget.SearchWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -113,7 +113,7 @@
         </receiver>
 
         <provider
-            android:name=".SuggestionProvider"
+            android:name="com.aptoide.amethyst.SuggestionProvider"
             android:authorities="${applicationId}.SuggestionProvider"
             android:exported="false" />
 
@@ -125,7 +125,7 @@
         </provider>
 
         <activity
-            android:name=".receivers.IntentReceiver"
+            android:name="com.aptoide.amethyst.receivers.IntentReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -213,24 +213,24 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MoreListViewItemsActivity">
+        <activity android:name="com.aptoide.amethyst.ui.MoreListViewItemsActivity">
         <meta-data
             android:name="android.app.default_searchable"
-            android:value="cm.aptoide.pt.SearchActivity" />
+            android:value="com.aptoide.amethyst.SearchActivity" />
         </activity>
 
-        <activity android:name=".ui.MoreListViewItemsBrickActivity"/>
-        <activity android:name=".ui.MoreStoreWidgetActivity"/>
-        <activity android:name=".ui.MoreHighlightedActivity"/>
-        <activity android:name=".ui.MoreFriendsInstallsActivity"/>
-        <activity android:name=".ui.MoreReviewsActivity"/>
-        <activity android:name=".ui.MoreCommentsActivity"/>
-        <activity android:name=".ui.SettingsActivity"/>
-        <activity android:name=".ui.ReviewActivity"/>
-        <activity android:name=".tutorial.Tutorial"/>
+        <activity android:name="com.aptoide.amethyst.ui.MoreListViewItemsBrickActivity"/>
+        <activity android:name="com.aptoide.amethyst.ui.MoreStoreWidgetActivity"/>
+        <activity android:name="com.aptoide.amethyst.ui.MoreHighlightedActivity"/>
+        <activity android:name="com.aptoide.amethyst.ui.MoreFriendsInstallsActivity"/>
+        <activity android:name="com.aptoide.amethyst.ui.MoreReviewsActivity"/>
+        <activity android:name="com.aptoide.amethyst.ui.MoreCommentsActivity"/>
+        <activity android:name="com.aptoide.amethyst.ui.SettingsActivity"/>
+        <activity android:name="com.aptoide.amethyst.ui.ReviewActivity"/>
+        <activity android:name="com.aptoide.amethyst.tutorial.Tutorial"/>
 
         <receiver
-            android:name=".receivers.NetworkStateReceiver"
+            android:name="com.aptoide.amethyst.receivers.NetworkStateReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -257,11 +257,11 @@
         </service>
 
         <activity
-            android:name="cm.aptoide.pt.openiab.IABPurchaseActivity"
+            android:name="com.aptoide.amethyst.openiab.IABPurchaseActivity"
             android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
             android:theme="@style/PurchaseDialog" />
 
-        <activity android:name="cm.aptoide.pt.openiab.PaidAppPurchaseActivity" android:theme="@style/PurchaseDialog"
+        <activity android:name="com.aptoide.amethyst.openiab.PaidAppPurchaseActivity" android:theme="@style/PurchaseDialog"
             android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize" />
 
         <service
@@ -281,7 +281,7 @@
             android:configChanges="keyboardHidden|orientation" />
         <activity android:name="io.card.payment.DataEntryActivity" />
 
-        <receiver android:name="cm.aptoide.pt.openiab.PayPalReceiver" >
+        <receiver android:name="com.aptoide.amethyst.openiab.PayPalReceiver" >
             <intent-filter>
                 <action android:name="PAYPAL_PAYMENT" />
             </intent-filter>
