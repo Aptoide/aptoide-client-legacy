@@ -5,13 +5,11 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -19,10 +17,8 @@ import android.widget.TextView;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.BuildConfig;
-import com.aptoide.amethyst.FeedBackActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
-import com.aptoide.dataprovider.webservices.models.Constants;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
@@ -51,6 +47,7 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
         }
     };
     private GoogleApiClient mGoogleApiClient;
+    private View mLogout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,7 +86,9 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
 
             ((TextView) findViewById(R.id.username)).setText(account.name);
 
-            findViewById(R.id.button_logout).setOnClickListener(new View.OnClickListener() {
+            mLogout = findViewById(R.id.button_logout);
+            mLogout.setEnabled(false);
+            mLogout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (Build.VERSION.SDK_INT >= 8) {
@@ -215,12 +214,12 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
 
     @Override
     public void onConnected(Bundle bundle) {
-
+        mLogout.setEnabled(true);
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-
+        mLogout.setEnabled(false);
     }
 
     @Override
