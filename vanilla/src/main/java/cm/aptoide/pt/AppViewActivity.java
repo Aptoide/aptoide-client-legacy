@@ -1134,35 +1134,37 @@ public class AppViewActivity extends AptoideBaseActivity implements FlagApkDialo
         }
 
         mStoreName.setText(storeName);
-        mStoreName.setTextColor(getResources().getColor(storeTheme.getStoreHeader()));
-        mStoreUsers.setText(String.valueOf(storeSubscribers));
-        if(Build.VERSION.SDK_INT > 10 ) {
-            mButtonSubscribe.setBackgroundDrawable(getResources().getDrawable(storeTheme.getButtonLayout()));
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mButtonSubscribe.setElevation(0);
-            }
-        }
-        mButtonSubscribe.setTextColor(getResources().getColor(storeTheme.getStoreHeader()));
-        OpenStoreOnClickListener openStoreOnClickListener = new OpenStoreOnClickListener();
-        mStoreView.setOnClickListener(openStoreOnClickListener);
-
-        final boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(storeId);
-        if (subscribed) {
-            int checkmarkDrawable = storeTheme.getCheckmarkDrawable();
-            mButtonSubscribe.setCompoundDrawablesWithIntrinsicBounds(checkmarkDrawable, 0, 0, 0);
-            mButtonSubscribe.setText(getString(R.string.appview_subscribed_store_button_text));
-            mButtonSubscribe.setOnClickListener(openStoreOnClickListener);
-
-        } else {
-            int plusMarkDrawable = storeTheme.getPlusmarkDrawable();
-            mButtonSubscribe.setCompoundDrawablesWithIntrinsicBounds(plusMarkDrawable, 0, 0, 0);
-            mButtonSubscribe.setText(getString(R.string.appview_subscribe_store_button_text));
-            mButtonSubscribe.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AptoideUtils.RepoUtils.startParse(storeName, AppViewActivity.this, spiceManager);
+        if (storeTheme != null) {
+            mStoreName.setTextColor(getResources().getColor(storeTheme.getStoreHeader()));
+            mStoreUsers.setText(String.valueOf(storeSubscribers));
+            if (Build.VERSION.SDK_INT > 10) {
+                mButtonSubscribe.setBackgroundDrawable(getResources().getDrawable(storeTheme.getButtonLayout()));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    mButtonSubscribe.setElevation(0);
                 }
-            });
+            }
+            mButtonSubscribe.setTextColor(getResources().getColor(storeTheme.getStoreHeader()));
+            OpenStoreOnClickListener openStoreOnClickListener = new OpenStoreOnClickListener();
+            mStoreView.setOnClickListener(openStoreOnClickListener);
+
+            final boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(storeId);
+            if (subscribed) {
+                int checkmarkDrawable = storeTheme.getCheckmarkDrawable();
+                mButtonSubscribe.setCompoundDrawablesWithIntrinsicBounds(checkmarkDrawable, 0, 0, 0);
+                mButtonSubscribe.setText(getString(R.string.appview_subscribed_store_button_text));
+                mButtonSubscribe.setOnClickListener(openStoreOnClickListener);
+
+            } else {
+                int plusMarkDrawable = storeTheme.getPlusmarkDrawable();
+                mButtonSubscribe.setCompoundDrawablesWithIntrinsicBounds(plusMarkDrawable, 0, 0, 0);
+                mButtonSubscribe.setText(getString(R.string.appview_subscribe_store_button_text));
+                mButtonSubscribe.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AptoideUtils.RepoUtils.startParse(storeName, AppViewActivity.this, spiceManager);
+                    }
+                });
+            }
         }
     }
 
