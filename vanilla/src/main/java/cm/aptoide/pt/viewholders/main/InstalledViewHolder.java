@@ -7,8 +7,6 @@ import android.widget.TextView;
 
 import com.aptoide.models.Displayable;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
 
@@ -17,20 +15,28 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class InstalledViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.name)                public TextView name;
-    @Bind(R.id.icon)                public ImageView icon;
-    @Bind(R.id.app_update_version)  public TextView tvAppVersion;
-    @Bind(R.id.installedItemFrame)  public View installedItemFrame;
-    @Bind(R.id.reviewButtonLayout)  public LinearLayout createReviewLayout;
+    public TextView name;
+    public ImageView icon;
+    public TextView tvAppVersion;
+    public View installedItemFrame;
+    public LinearLayout createReviewLayout;
 
     public InstalledViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
 
     }
 
     @Override
     public void populateView(Displayable displayable) {
 
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        name = (TextView )itemView.findViewById(R.id.name);
+        icon = (ImageView )itemView.findViewById(R.id.icon);
+        tvAppVersion = (TextView )itemView.findViewById(R.id.app_update_version);
+        installedItemFrame = (View )itemView.findViewById(R.id.installedItemFrame);
+        createReviewLayout = (LinearLayout )itemView.findViewById(R.id.reviewButtonLayout);
     }
 }

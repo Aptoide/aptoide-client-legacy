@@ -9,8 +9,6 @@ import com.aptoide.models.Displayable;
 import com.aptoide.models.hometab.TimelineRow;
 import com.bumptech.glide.Glide;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 import cm.aptoide.pt.ui.widget.CircleTransform;
@@ -21,14 +19,13 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class TimelineViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.app_icon)      public ImageView appIcon;
-    @Bind(R.id.app_name)      public TextView appName;
-    @Bind(R.id.app_friend)    public TextView appFriend;
-    @Bind(R.id.user_avatar)   public ImageView avatar;
+    public ImageView appIcon;
+    public TextView appName;
+    public TextView appFriend;
+    public ImageView avatar;
 
     public TimelineViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -52,5 +49,13 @@ public class TimelineViewHolder extends BaseViewHolder {
                     into(avatar);
         }
 
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        appIcon = (ImageView )itemView.findViewById(R.id.app_icon);
+        appName = (TextView )itemView.findViewById(R.id.app_name);
+        appFriend = (TextView )itemView.findViewById(R.id.app_friend);
+        avatar = (ImageView )itemView.findViewById(R.id.user_avatar);
     }
 }

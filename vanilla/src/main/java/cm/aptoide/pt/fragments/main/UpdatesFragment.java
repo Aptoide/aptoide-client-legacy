@@ -34,7 +34,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.concurrent.Executors;
 
-import butterknife.Bind;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.main.UpdatesTabAdapter;
 import cm.aptoide.pt.services.UpdatesService;
@@ -43,14 +42,15 @@ import cm.aptoide.pt.services.UpdatesService;
  * Created by rmateus on 17/06/15.
  */
 public class UpdatesFragment extends LinearRecyclerFragment {
-    @Bind(R.id.swipe_container)   SwipeRefreshLayout swipeContainer;
-    @Bind(R.id.progress_bar)      ProgressBar progressBar;
+    SwipeRefreshLayout swipeContainer;
+    ProgressBar progressBar;
 
     private ArrayList<Displayable> displayableList = new ArrayList<>();
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bindViews(getView());
         UpdatesTabAdapter adapter = new UpdatesTabAdapter(displayableList,getActivity());
         getRecyclerView().setAdapter(adapter);
         refreshUi(displayableList);
@@ -297,6 +297,11 @@ public class UpdatesFragment extends LinearRecyclerFragment {
     public void onDetach() {
         super.onDetach();
         BusProvider.getInstance().unregister(this);
+    }
+
+    protected void bindViews(View view) {
+        swipeContainer = (SwipeRefreshLayout )view.findViewById(R.id.swipe_container);
+        progressBar = (ProgressBar )view.findViewById(R.id.progress_bar);
     }
 
     public static UpdatesFragment newInstance(){

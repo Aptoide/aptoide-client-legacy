@@ -22,8 +22,6 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.main.StoresTabAdapter;
 import cm.aptoide.pt.ui.widget.CircleTransform;
@@ -34,23 +32,14 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class StoreHeaderViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.store_avatar_storehome)
     public ImageView avatar;
-    @Bind(R.id.iv_subscribed_icon)
     public ImageView ivSubscribe;
-    @Bind(R.id.store_name_home_row)
     public TextView name;
-    @Bind(R.id.store_description_storehome)
     public TextView description;
-    @Bind(R.id.store_subscribed_storehome)
     public TextView subscribed;
-    @Bind(R.id.subscribe_button_layout)
     public LinearLayout subscribeButtonLayout;
-    @Bind(R.id.store_subscribers_count)
     public TextView subscribersCount;
-    @Bind(R.id.store_apps_count)
     public TextView appsCount;
-    @Bind(R.id.store_downloads_count)
     public TextView downloadsCount;
 
     private final EnumStoreTheme theme;
@@ -60,7 +49,6 @@ public class StoreHeaderViewHolder extends BaseViewHolder {
         super(itemView, viewType);
         this.subscribedBool = subscribed;
         this.theme = theme;
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -120,5 +108,18 @@ public class StoreHeaderViewHolder extends BaseViewHolder {
             });
         }
 
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        avatar = (ImageView )itemView.findViewById(R.id.store_avatar_storehome);
+        ivSubscribe = (ImageView )itemView.findViewById(R.id.iv_subscribed_icon);
+        name = (TextView )itemView.findViewById(R.id.store_name_home_row);
+        description = (TextView )itemView.findViewById(R.id.store_description_storehome);
+        subscribed = (TextView )itemView.findViewById(R.id.store_subscribed_storehome);
+        subscribeButtonLayout = (LinearLayout )itemView.findViewById(R.id.subscribe_button_layout);
+        subscribersCount = (TextView )itemView.findViewById(R.id.store_subscribers_count);
+        appsCount = (TextView )itemView.findViewById(R.id.store_apps_count);
+        downloadsCount = (TextView )itemView.findViewById(R.id.store_downloads_count);
     }
 }

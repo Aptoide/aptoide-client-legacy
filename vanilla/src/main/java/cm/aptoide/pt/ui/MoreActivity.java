@@ -15,8 +15,6 @@ import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.octo.android.robospice.SpiceManager;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.SearchActivity;
 
@@ -25,7 +23,7 @@ import cm.aptoide.pt.SearchActivity;
  */
 public abstract class MoreActivity extends AptoideBaseActivity {
 
-    @Bind(R.id.toolbar)    protected Toolbar mToolbar;
+    protected Toolbar mToolbar;
 
     SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
     String eventActionUrl;
@@ -63,8 +61,9 @@ public abstract class MoreActivity extends AptoideBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
 //        Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_layout);
-        ButterKnife.bind(this);
+
+        setContentView(getContentView());
+        bindViews();
 
         Bundle args;
         if (savedInstanceState != null) {
@@ -141,5 +140,13 @@ public abstract class MoreActivity extends AptoideBaseActivity {
         // Temporary workaround from memory issues
         AptoideUtils.UI.unbindDrawables(findViewById(R.id.fragment_layout));
         super.onDestroy();
+    }
+
+    protected int getContentView() {
+        return R.layout.activity_fragment_layout;
+    }
+
+    protected void bindViews() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 }

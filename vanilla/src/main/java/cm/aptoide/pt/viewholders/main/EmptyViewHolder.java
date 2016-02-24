@@ -19,4 +19,9 @@ public class EmptyViewHolder extends BaseViewHolder {
     public void populateView(Displayable displayable) {
 
     }
+
+    @Override
+    protected void bindViews(View itemView) {
+
+    }
 }

@@ -6,8 +6,6 @@ import android.widget.TextView;
 
 import com.aptoide.models.Displayable;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
 
@@ -16,12 +14,11 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class CommentHeaderViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.title)         public TextView title;
-    @Bind(R.id.write_comment) public LinearLayout writeComment;
+    public TextView title;
+    public LinearLayout writeComment;
 
     public CommentHeaderViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -29,4 +26,9 @@ public class CommentHeaderViewHolder extends BaseViewHolder {
 
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        title = (TextView) itemView.findViewById(R.id.title);
+        writeComment = (LinearLayout) itemView.findViewById(R.id.write_comment);
+    }
 }

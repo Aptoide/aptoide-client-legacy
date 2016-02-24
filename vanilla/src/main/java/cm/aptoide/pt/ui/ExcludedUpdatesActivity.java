@@ -6,23 +6,21 @@ import android.widget.FrameLayout;
 
 import com.aptoide.amethyst.AptoideBaseActivity;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.fragments.ExcludedUpdatesFragment;
 
 public class ExcludedUpdatesActivity extends AptoideBaseActivity {
 
-    @Bind(R.id.toolbar)    Toolbar mToolbar;
-    @Bind(R.id.content)    FrameLayout content;
+    Toolbar mToolbar;
+    FrameLayout content;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_layout);
 
-        ButterKnife.bind(this);
+        setContentView(getContentView());
+        bindViews();
 
         mToolbar.setCollapsible(false);
 
@@ -43,6 +41,15 @@ public class ExcludedUpdatesActivity extends AptoideBaseActivity {
 
 
 
+    }
+
+    protected void bindViews() {
+        mToolbar = (Toolbar )findViewById(R.id.toolbar);
+        content = (FrameLayout )findViewById(R.id.content);
+    }
+
+    protected int getContentView() {
+        return R.layout.activity_fragment_layout;
     }
 
     @Override

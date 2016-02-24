@@ -5,8 +5,6 @@ import android.widget.Button;
 
 import com.aptoide.models.Displayable;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
 
@@ -15,13 +13,10 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class AddStoreViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.more)
     public Button more;
 
     public AddStoreViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
-
     }
 
     @Override
@@ -29,5 +24,9 @@ public class AddStoreViewHolder extends BaseViewHolder {
 
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        more = (Button) itemView.findViewById(R.id.more);
+    }
 }
 

@@ -46,8 +46,6 @@ import com.octo.android.robospice.SpiceManager;
 
 import java.util.HashMap;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.dialogs.ScheduledDownloadsDialog;
 import cm.aptoide.pt.services.DownloadService;
@@ -64,7 +62,6 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
     }
 
 
-    @Bind(R.id.toolbar)
     Toolbar mToolbar;
 
     private ListView lv;
@@ -106,9 +103,9 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
     public void onCreate(Bundle savedInstanceState) {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_sch_downloads);
 
-        ButterKnife.bind(this);
+        setContentView(getContentView());
+        bindViews();
 
         mToolbar.setCollapsible(false);
         setSupportActionBar(mToolbar);
@@ -202,6 +199,14 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
 
 
         lv.setAdapter(adapter);
+    }
+
+    protected int getContentView() {
+        return R.layout.page_sch_downloads;
+    }
+
+    protected void bindViews() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
     @Override

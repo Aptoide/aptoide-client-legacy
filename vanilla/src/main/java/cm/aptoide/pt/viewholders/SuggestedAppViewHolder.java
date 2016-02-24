@@ -12,8 +12,6 @@ import com.bumptech.glide.Glide;
 
 import java.text.DecimalFormat;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.AppViewActivity;
 import cm.aptoide.pt.R;
 
@@ -38,16 +36,15 @@ import static com.aptoide.dataprovider.webservices.models.Constants.WHERE_FROM_K
  */
 public class SuggestedAppViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.app_name)        TextView labelTextView;
-    @Bind(R.id.size_value)      TextView sizeTextView;
-    @Bind(R.id.description)     TextView descriptionTextView;
-    @Bind(R.id.app_icon)        ImageView iconImageView;
-    @Bind(R.id.search_store)    TextView store;
-    @Bind(R.id.bottom_view)     View bottomView;
+    TextView labelTextView;
+    TextView sizeTextView;
+    TextView descriptionTextView;
+    ImageView iconImageView;
+    TextView store;
+    View bottomView;
 
     public SuggestedAppViewHolder(View view, int viewType) {
         super(view, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     public void populateView(Displayable displayable) {
@@ -67,6 +64,16 @@ public class SuggestedAppViewHolder extends BaseViewHolder {
             itemView.setOnClickListener(generateOnClickListener(suggestedAppDisplayable));
 
         }
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        labelTextView = (TextView )itemView.findViewById(R.id.app_name);
+        sizeTextView = (TextView )itemView.findViewById(R.id.size_value);
+        descriptionTextView = (TextView )itemView.findViewById(R.id.description);
+        iconImageView = (ImageView )itemView.findViewById(R.id.app_icon);
+        store = (TextView )itemView.findViewById(R.id.search_store);
+        bottomView = (View )itemView.findViewById(R.id.bottom_view);
     }
 
     private View.OnClickListener generateOnClickListener(final SuggestedAppDisplayable suggestedAppDisplayable) {

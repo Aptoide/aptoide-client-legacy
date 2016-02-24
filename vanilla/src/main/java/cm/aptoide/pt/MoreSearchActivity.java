@@ -30,7 +30,6 @@ import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.List;
 
-import butterknife.Bind;
 import cm.aptoide.pt.adapter.BaseAdapter;
 import cm.aptoide.pt.adapter.MoreSearchAdapter;
 import cm.aptoide.pt.fragments.store.BaseWebserviceFragment;
@@ -40,7 +39,7 @@ import cm.aptoide.pt.ui.MoreActivity;
  * Created by fabio on 20-11-2015.
  */
 public class MoreSearchActivity extends MoreActivity {
-    @Bind(R.id.appbar) AppBarLayout mAppBar;
+    AppBarLayout mAppBar;
 
     public static final String QUERY_BUNDLE_KEY = "search_query";
     private EnumStoreTheme storeTheme = null;
@@ -50,6 +49,12 @@ public class MoreSearchActivity extends MoreActivity {
         MoreSearchFragment fragment = new MoreSearchFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    protected void bindViews() {
+        super.bindViews();
+         mAppBar = (AppBarLayout)findViewById(R.id.appbar);
     }
 
     @Override
@@ -78,9 +83,9 @@ public class MoreSearchActivity extends MoreActivity {
     }
 
     static public class MoreSearchFragment extends BaseWebserviceFragment {
-        @Bind(R.id.ic_search_button) ImageView searchButton;
-        @Bind(R.id.search_text) EditText searchQuery;
-        @Bind(R.id.no_search_results_layout) ScrollView noSearchResultLayout;
+        ImageView searchButton;
+        EditText searchQuery;
+        ScrollView noSearchResultLayout;
 
         @Override
         public void setLayoutManager(RecyclerView recyclerView) {
@@ -224,6 +229,15 @@ public class MoreSearchActivity extends MoreActivity {
                 }
             });
 
+        }
+
+        @Override
+        protected void bindViews(View view) {
+            super.bindViews(view);
+
+            searchButton = (ImageView )view.findViewById(R.id.ic_search_button);
+            searchQuery = (EditText )view.findViewById(R.id.search_text);
+            noSearchResultLayout = (ScrollView )view.findViewById(R.id.no_search_results_layout);
         }
     }
 }

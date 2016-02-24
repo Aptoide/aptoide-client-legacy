@@ -18,8 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
@@ -29,16 +27,15 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class TopAppViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.name)                public TextView name;
-    @Bind(R.id.icon)                public ImageView icon;
-    @Bind(R.id.timeSinceModified)   public TextView tvTimeSinceModified;
-    @Bind(R.id.storeName)           public TextView tvStoreName;
+    public TextView name;
+    public ImageView icon;
+    public TextView tvTimeSinceModified;
+    public TextView tvStoreName;
 
     private SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
 
     public TopAppViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -75,4 +72,11 @@ public class TopAppViewHolder extends BaseViewHolder {
         Glide.with(itemView.getContext()).load(appItem.icon).into(icon);
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        name = (TextView )itemView.findViewById(R.id.name);
+        icon = (ImageView )itemView.findViewById(R.id.icon);
+        tvTimeSinceModified = (TextView )itemView.findViewById(R.id.timeSinceModified);
+        tvStoreName = (TextView )itemView.findViewById(R.id.storeName);
+    }
 }

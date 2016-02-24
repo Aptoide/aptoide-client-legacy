@@ -34,7 +34,6 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.main.StoresTabAdapter;
 
@@ -47,8 +46,8 @@ import cm.aptoide.pt.adapter.main.StoresTabAdapter;
  * To change this template use File | Settings | File Templates.
  */
 public class StoresFragment extends CursorLoaderGridRecyclerFragment {
-    @Bind(R.id.swipe_container)       SwipeRefreshLayout swipeContainer;
-    @Bind(R.id.progress_bar)          ProgressBar progressBar;
+    SwipeRefreshLayout swipeContainer;
+    ProgressBar progressBar;
 
     private List<Displayable> displayableList = new ArrayList<>();
     private StoresTabAdapter adapter;
@@ -66,9 +65,15 @@ public class StoresFragment extends CursorLoaderGridRecyclerFragment {
         AptoideUtils.RepoUtils.addDefaultAppsStore(getContext());
     }
 
+    protected void bindViews(View view) {
+        swipeContainer = (SwipeRefreshLayout )view.findViewById(R.id.swipe_container);
+        progressBar = (ProgressBar )view.findViewById(R.id.progress_bar);
+    }
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bindViews(getView());
         adapter = new StoresTabAdapter(displayableList);
         getRecyclerView().setAdapter(adapter);
     }

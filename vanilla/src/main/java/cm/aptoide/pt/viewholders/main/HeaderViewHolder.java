@@ -15,8 +15,6 @@ import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.models.Displayable;
 import com.aptoide.models.HeaderRow;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
@@ -30,14 +28,13 @@ public class HeaderViewHolder extends BaseViewHolder {
     private final String storeName;
     private final long storeId;
 
-    @Bind(R.id.title)         public TextView title;
-    @Bind(R.id.more)          public Button more;
-    @Bind(R.id.more_layout)   public RelativeLayout moreLayout;
+    public TextView title;
+    public Button more;
+    public RelativeLayout moreLayout;
 
     public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme) {
         super(itemView, viewType);
         this.theme = theme;
-        ButterKnife.bind(this, itemView);
         storeName = null;
         storeId = 0;
     }
@@ -45,7 +42,6 @@ public class HeaderViewHolder extends BaseViewHolder {
     public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme, String storeName, long storeId) {
         super(itemView, viewType);
         this.theme = theme;
-        ButterKnife.bind(this, itemView);
         this.storeName = storeName;
         this.storeId = storeId;
     }
@@ -93,4 +89,10 @@ public class HeaderViewHolder extends BaseViewHolder {
         }
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        title = (TextView )itemView.findViewById(R.id.title);
+        more = (Button )itemView.findViewById(R.id.more);
+        moreLayout = (RelativeLayout )itemView.findViewById(R.id.more_layout);
+    }
 }

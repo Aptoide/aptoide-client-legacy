@@ -20,6 +20,7 @@ import java.util.List;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
+import cm.aptoide.pt.viewholders.DummyBaseViewHolder;
 import cm.aptoide.pt.viewholders.main.HeaderViewHolder;
 import cm.aptoide.pt.viewholders.main.NotOnGoingDownloadViewHolder;
 import cm.aptoide.pt.viewholders.main.OnGoingDownloadViewHolder;
@@ -49,12 +50,7 @@ public class DownloadTabAdapter extends BaseAdapter {
                 return new HeaderViewHolder(view, viewType, EnumStoreTheme.APTOIDE_STORE_THEME_DEFAULT);
 
             default:
-                return new BaseViewHolder(view, viewType){
-                    @Override
-                    public void populateView(Displayable displayable) {
-
-                    }
-                };
+                return new DummyBaseViewHolder(view, viewType);
         }
     }
 

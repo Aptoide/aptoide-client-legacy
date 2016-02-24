@@ -13,21 +13,19 @@ import android.widget.Toast;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * Created by fabio on 14-10-2015.
  */
 public class TimeLineNoFriendsInviteActivity extends AptoideBaseActivity {
-    @Bind(R.id.toolbar)    Toolbar mToolbar;
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_timeline_no_activity);
-        ButterKnife.bind(this);
+
+        setContentView(getContentView());
+        bindViews();
 
         mToolbar.setCollapsible(false);
         setSupportActionBar(mToolbar);
@@ -37,6 +35,14 @@ public class TimeLineNoFriendsInviteActivity extends AptoideBaseActivity {
         getSupportActionBar().setTitle(getString(R.string.invite_friends));
 
 
+    }
+
+    protected int getContentView() {
+        return R.layout.page_timeline_no_activity;
+    }
+
+    protected void bindViews() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
     public static void sendMail(Context c){

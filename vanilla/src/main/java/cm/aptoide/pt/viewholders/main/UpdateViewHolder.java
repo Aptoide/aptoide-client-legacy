@@ -7,8 +7,6 @@ import android.widget.TextView;
 
 import com.aptoide.models.Displayable;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
 
@@ -17,19 +15,27 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class UpdateViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.name)                  public TextView name;
-    @Bind(R.id.icon)                  public ImageView icon;
-    @Bind(R.id.app_installed_version)  public TextView appInstalledVersion;
-    @Bind(R.id.app_update_version)    public TextView appUpdateVersion;
-    @Bind(R.id.updateButtonLayout)    public LinearLayout updateButtonLayout;
+    public TextView name;
+    public ImageView icon;
+    public TextView appInstalledVersion;
+    public TextView appUpdateVersion;
+    public LinearLayout updateButtonLayout;
 
     public UpdateViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
     public void populateView(Displayable displayable) {
 
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        name = (TextView)itemView.findViewById(R.id.name);
+        icon = (ImageView)itemView.findViewById(R.id.icon);
+        appInstalledVersion = (TextView)itemView.findViewById(R.id.app_installed_version);
+        appUpdateVersion = (TextView)itemView.findViewById(R.id.app_update_version);
+        updateButtonLayout = (LinearLayout)itemView.findViewById(R.id.updateButtonLayout);
     }
 }

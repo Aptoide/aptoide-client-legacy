@@ -17,7 +17,6 @@ import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
 import cm.aptoide.pt.MainActivity;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.main.DownloadTabAdapter;
@@ -27,15 +26,21 @@ import cm.aptoide.pt.services.DownloadService;
  * Created by hsousa on 09-07-2015.
  */
 public class DownloadFragment extends LinearRecyclerFragment {
-    @Bind(R.id.swipe_container)       SwipeRefreshLayout swipeContainer;
-    @Bind(R.id.progress_bar)          ProgressBar progressBar;
+    SwipeRefreshLayout swipeContainer;
+    ProgressBar progressBar;
 
     private DownloadService service;
     private ArrayList<Displayable> displayableList = new ArrayList<>();
 
+    protected void bindViews(View view) {
+        swipeContainer = (SwipeRefreshLayout )view.findViewById(R.id.swipe_container);
+        progressBar = (ProgressBar )view.findViewById(R.id.progress_bar);
+    }
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bindViews(getView());
         Logger.d("AptoideDownloadFragment", "onViewCreated");
         DownloadTabAdapter adapter = new DownloadTabAdapter(displayableList);
         getRecyclerView().setAdapter(adapter);

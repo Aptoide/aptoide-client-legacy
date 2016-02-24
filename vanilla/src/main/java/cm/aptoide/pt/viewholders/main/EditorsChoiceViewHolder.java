@@ -9,8 +9,6 @@ import com.aptoide.models.Displayable;
 import com.aptoide.models.EditorsChoiceRow;
 import com.bumptech.glide.Glide;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
@@ -20,16 +18,12 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class EditorsChoiceViewHolder extends BaseViewHolder {
 
-    @Bind({R.id.main_image, R.id.left_image, R.id.right_image})
     public ImageView[] images;
-
-    @Bind(R.id.more)
     public TextView more;
 
 
     public EditorsChoiceViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -54,4 +48,13 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
 
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        images = new ImageView[3];
+        images[0]=(ImageView)itemView.findViewById(R.id.main_image);
+        images[1]=(ImageView)itemView.findViewById(R.id.left_image);
+        images[2] = (ImageView) itemView.findViewById(R.id.right_image);
+
+        more = (TextView) itemView.findViewById(R.id.more);
+    }
 }

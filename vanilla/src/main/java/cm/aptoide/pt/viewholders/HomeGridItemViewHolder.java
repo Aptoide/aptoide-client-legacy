@@ -20,8 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 
@@ -32,18 +30,17 @@ import static com.aptoide.amethyst.utils.AptoideUtils.StringUtils.withSuffix;
  */
 public class HomeGridItemViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.name)            public TextView name;
-    @Bind(R.id.icon)            public ImageView icon;
-    @Bind(R.id.downloads)       public TextView downloads;
-    @Bind(R.id.ratingbar)       public RatingBar ratingBar;
-    @Bind(R.id.store_name)      public TextView tvStoreName;
-    @Bind(R.id.added_time)      public TextView tvAddedTime;
+    public TextView name;
+    public ImageView icon;
+    public TextView downloads;
+    public RatingBar ratingBar;
+    public TextView tvStoreName;
+    public TextView tvAddedTime;
 
     SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 
     public HomeGridItemViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -96,4 +93,13 @@ public class HomeGridItemViewHolder extends BaseViewHolder {
 
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        name = (TextView )itemView.findViewById(R.id.name);
+        icon = (ImageView )itemView.findViewById(R.id.icon);
+        downloads = (TextView )itemView.findViewById(R.id.downloads);
+        ratingBar = (RatingBar )itemView.findViewById(R.id.ratingbar);
+        tvStoreName = (TextView )itemView.findViewById(R.id.store_name);
+        tvAddedTime = (TextView )itemView.findViewById(R.id.added_time);
+    }
 }

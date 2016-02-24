@@ -40,6 +40,7 @@ import cm.aptoide.pt.R;
 import cm.aptoide.pt.UninstallRetainFragment;
 import cm.aptoide.pt.UploadApkActivity;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
+import cm.aptoide.pt.viewholders.DummyBaseViewHolder;
 import cm.aptoide.pt.viewholders.main.HeaderViewHolder;
 import cm.aptoide.pt.viewholders.main.InstalledViewHolder;
 import cm.aptoide.pt.viewholders.main.UpdateViewHolder;
@@ -74,12 +75,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
                 return new HeaderViewHolder(view, viewType, EnumStoreTheme.APTOIDE_STORE_THEME_DEFAULT);
 
             default:
-                return new BaseViewHolder(view, viewType){
-                    @Override
-                    public void populateView(Displayable displayable) {
-
-                    }
-                };
+                return new DummyBaseViewHolder(view, viewType);
         }
     }
 

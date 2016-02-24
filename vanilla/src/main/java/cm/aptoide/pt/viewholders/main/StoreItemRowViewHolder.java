@@ -18,8 +18,6 @@ import com.aptoide.models.Displayable;
 import com.aptoide.models.HomeStoreItem;
 import com.bumptech.glide.Glide;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.StoresActivity;
 import cm.aptoide.pt.ui.widget.CircleTransform;
@@ -30,17 +28,16 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class StoreItemRowViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.store_avatar_row)        public ImageView storeAvatar;
-    @Bind(R.id.store_name_row)          public TextView storeName;
-    @Bind(R.id.store_unsubscribe_row)   public TextView storeUnsubscribe;
-    @Bind(R.id.store_main_layout_row)   public LinearLayout storeLayout;
-    @Bind(R.id.store_subscribers)       public TextView storeSubscribers;
-    @Bind(R.id.store_downloads)         public TextView storeDownloads;
-    @Bind(R.id.store_layout_subscribers)public LinearLayout infoLayout;
+    public ImageView storeAvatar;
+    public TextView storeName;
+    public TextView storeUnsubscribe;
+    public LinearLayout storeLayout;
+    public TextView storeSubscribers;
+    public TextView storeDownloads;
+    public LinearLayout infoLayout;
 
     public StoreItemRowViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -86,5 +83,16 @@ public class StoreItemRowViewHolder extends BaseViewHolder {
                     .into(storeAvatar);
         }
 
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        storeAvatar = (ImageView )itemView.findViewById(R.id.store_avatar_row);
+        storeName = (TextView )itemView.findViewById(R.id.store_name_row);
+        storeUnsubscribe = (TextView )itemView.findViewById(R.id.store_unsubscribe_row);
+        storeLayout = (LinearLayout )itemView.findViewById(R.id.store_main_layout_row);
+        storeSubscribers = (TextView )itemView.findViewById(R.id.store_subscribers);
+        storeDownloads = (TextView )itemView.findViewById(R.id.store_downloads);
+        infoLayout = (LinearLayout )itemView.findViewById(R.id.store_layout_subscribers);
     }
 }

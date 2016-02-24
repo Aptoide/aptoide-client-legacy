@@ -27,7 +27,6 @@ import com.aptoide.models.updates.ExcludedUpdate;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.ExcludedUpdateAdapter;
 import com.aptoide.amethyst.events.BusProvider;
@@ -35,8 +34,8 @@ import com.aptoide.amethyst.events.OttoEvents;
 
 public class ExcludedUpdatesFragment extends CursorLoaderLinearRecyclerFragment {
 
-    @Nullable @Bind(R.id.swipe_container)       SwipeRefreshLayout swipeContainer;
-    @Bind(R.id.progress_bar)                    ProgressBar progressBar;
+    SwipeRefreshLayout swipeContainer;
+    ProgressBar progressBar;
 
     private static final int MSG_NO_EXCLUDED_UPDATES = 1;
     public ArrayList<ExcludedUpdate> excludedUpdates = new ArrayList<>();
@@ -44,10 +43,16 @@ public class ExcludedUpdatesFragment extends CursorLoaderLinearRecyclerFragment 
     private ExcludedUpdateAdapter adapter;
     private AptoideDatabase db = new AptoideDatabase(Aptoide.getDb());
 
+    protected void bindViews(View view) {
+        swipeContainer = (SwipeRefreshLayout )view.findViewById(R.id.swipe_container);
+        progressBar = (ProgressBar )view.findViewById(R.id.progress_bar);
+    }
+
     @CallSuper
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bindViews(getView());
         adapter = new ExcludedUpdateAdapter(excludedUpdates);
         getRecyclerView().setAdapter(adapter);
         setHasOptionsMenu(true);

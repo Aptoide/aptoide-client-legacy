@@ -32,8 +32,6 @@ import com.octo.android.robospice.request.listener.RequestListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.adapter.DividerItemDecoration;
 import cm.aptoide.pt.webservices.MakeReviewRequest;
 
@@ -69,7 +67,6 @@ public class MakeReviewActivity extends AptoideBaseActivity {
 
 
     private SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
-    @Bind(R.id.toolbar)
     Toolbar mToolbar;
 
     @Override
@@ -137,9 +134,9 @@ public class MakeReviewActivity extends AptoideBaseActivity {
         Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
 
+        setContentView(getContentView());
+        bindViews();
 
-        setContentView(R.layout.activity_make_review);
-        ButterKnife.bind(this);
         mToolbar.setCollapsible(false);
 
         setSupportActionBar(mToolbar);
@@ -185,6 +182,13 @@ public class MakeReviewActivity extends AptoideBaseActivity {
         setupSeekBar(RATINGS_STABILITY,R.string.review_stability,R.id.Seek_Bar_Stability);
     }
 
+    protected int getContentView() {
+        return R.layout.activity_make_review;
+    }
+
+    protected void bindViews() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

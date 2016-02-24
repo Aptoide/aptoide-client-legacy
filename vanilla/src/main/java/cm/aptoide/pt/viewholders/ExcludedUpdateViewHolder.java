@@ -7,8 +7,6 @@ import android.widget.TextView;
 
 import com.aptoide.models.Displayable;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 
 /**
@@ -16,15 +14,14 @@ import cm.aptoide.pt.R;
  */
 public class ExcludedUpdateViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.app_icon)        public ImageView app_icon;
-    @Bind(R.id.tv_name)         public TextView tv_name;
-    @Bind(R.id.tv_vercode)      public TextView tv_vercode;
-    @Bind(R.id.tv_apkid)        public TextView tv_apkid;
-    @Bind(R.id.cb_exclude)      public CheckBox cb_exclude;
+    public ImageView app_icon;
+    public TextView tv_name;
+    public TextView tv_vercode;
+    public TextView tv_apkid;
+    public CheckBox cb_exclude;
 
     public ExcludedUpdateViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
 
     }
 
@@ -33,4 +30,12 @@ public class ExcludedUpdateViewHolder extends BaseViewHolder {
 
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        app_icon = (ImageView)itemView.findViewById(R.id.app_icon);
+        tv_name = (TextView)itemView.findViewById(R.id.tv_name);
+        tv_vercode = (TextView)itemView.findViewById(R.id.tv_vercode);
+        tv_apkid = (TextView)itemView.findViewById(R.id.tv_apkid);
+        cb_exclude = (CheckBox)itemView.findViewById(R.id.cb_exclude);
+    }
 }

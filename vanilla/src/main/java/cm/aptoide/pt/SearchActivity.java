@@ -12,20 +12,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.utils.AptoideUtils;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.fragments.SearchFragment;
 
 /**
  * Created by rmateus on 12/06/15.
  */
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AptoideBaseActivity {
 
-    @Bind(R.id.toolbar)    Toolbar mToolbar;
+    Toolbar mToolbar;
     public static final String CONTEXT = "Search";
     public static final String SEARCH_SOURCE = "search_source";
     public static final String SEARCH_THEME = "search_theme";
@@ -43,6 +42,8 @@ public class SearchActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
+        setContentView(getContentView());
+        bindViews();
         EnumStoreTheme storeTheme = null;
         try {
             storeTheme = (EnumStoreTheme) getIntent().getExtras().get(SEARCH_THEME);
@@ -63,8 +64,6 @@ public class SearchActivity extends AppCompatActivity {
 			finish();
 			return;
 		}
-		setContentView(R.layout.activity_fragment_layout);
-        ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
         ActionBar supportActBar = getSupportActionBar();
         if (supportActBar != null) {
@@ -81,6 +80,19 @@ public class SearchActivity extends AppCompatActivity {
 
 		secondary = getIntent().getBooleanExtra(ARG_SECONDARY, false);
 	}
+
+    protected int getContentView() {
+        return R.layout.activity_fragment_layout;
+    }
+
+    protected void bindViews() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+    }
+
+    @Override
+    protected String getScreenName() {
+        return null;
+    }
 
     @Override
     public void startActivity(final Intent intent) {

@@ -28,8 +28,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.AppViewActivity;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.StoresActivity;
@@ -41,20 +39,19 @@ import cm.aptoide.pt.ui.MoreVersionsActivity;
 public class SearchAppViewHolder extends BaseViewHolder {
     private final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
 
-    @Bind(R.id.name)                public TextView name;
-    @Bind(R.id.icon)                public ImageView icon;
-    @Bind(R.id.downloads)           public TextView downloads;
-    @Bind(R.id.ratingbar)           public RatingBar ratingBar;
-    @Bind(R.id.overflow)            public ImageView overflow;
-    @Bind(R.id.search_time)         public TextView time;
-    @Bind(R.id.search_store)        public TextView store;
-    @Bind(R.id.ic_trusted_search)   public ImageView icTrusted;
-    @Bind(R.id.bottom_view)         public View bottomView;
+    public TextView name;
+    public ImageView icon;
+    public TextView downloads;
+    public RatingBar ratingBar;
+    public ImageView overflow;
+    public TextView time;
+    public TextView store;
+    public ImageView icTrusted;
+    public View bottomView;
 
 
     public SearchAppViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -169,4 +166,16 @@ public class SearchAppViewHolder extends BaseViewHolder {
 
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        name = (TextView )itemView.findViewById(R.id.name);
+        icon = (ImageView )itemView.findViewById(R.id.icon);
+        downloads = (TextView )itemView.findViewById(R.id.downloads);
+        ratingBar = (RatingBar )itemView.findViewById(R.id.ratingbar);
+        overflow = (ImageView )itemView.findViewById(R.id.overflow);
+        time = (TextView )itemView.findViewById(R.id.search_time);
+        store = (TextView )itemView.findViewById(R.id.search_store);
+        icTrusted = (ImageView )itemView.findViewById(R.id.ic_trusted_search);
+        bottomView = (View )itemView.findViewById(R.id.bottom_view);
+    }
 }

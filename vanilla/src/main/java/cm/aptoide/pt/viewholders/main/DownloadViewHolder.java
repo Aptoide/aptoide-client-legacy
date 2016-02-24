@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import com.aptoide.models.Displayable;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
 
@@ -18,25 +16,39 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
  */
 public class DownloadViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.app_icon)                  public ImageView appIcon;
-    @Bind(R.id.app_name)                  public TextView appName;
-    @Bind(R.id.downloading_progress)      public ProgressBar downloadingProgress;
-    @Bind(R.id.download_details_layout)   public RelativeLayout downloadDetails;
-    @Bind(R.id.speed)                     public TextView speed;
-    @Bind(R.id.eta)                       public TextView eta;
-    @Bind(R.id.progress)                  public TextView progress;
-    @Bind(R.id.app_error)                 public TextView appError;
-    @Bind(R.id.view)                      public View view;
-    @Bind(R.id.manage_icon)               public ImageView manageIcon;
-    @Bind(R.id.row_app_download_indicator)public RelativeLayout layout;
+    public ImageView appIcon;
+    public TextView appName;
+    public ProgressBar downloadingProgress;
+    public RelativeLayout downloadDetails;
+    public TextView speed;
+    public TextView eta;
+    public TextView progress;
+    public TextView appError;
+    public View view;
+    public ImageView manageIcon;
+    public RelativeLayout layout;
 
     public DownloadViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
     public void populateView(Displayable displayable) {
 
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        appIcon = (ImageView )itemView.findViewById(R.id.app_icon);
+        appName = (TextView )itemView.findViewById(R.id.app_name);
+        downloadingProgress = (ProgressBar )itemView.findViewById(R.id.downloading_progress);
+        downloadDetails = (RelativeLayout )itemView.findViewById(R.id.download_details_layout);
+        speed = (TextView )itemView.findViewById(R.id.speed);
+        eta = (TextView )itemView.findViewById(R.id.eta);
+        progress = (TextView )itemView.findViewById(R.id.progress);
+        appError = (TextView )itemView.findViewById(R.id.app_error);
+        view = (View )itemView.findViewById(R.id.view);
+        manageIcon = (ImageView )itemView.findViewById(R.id.manage_icon);
+        layout = (RelativeLayout )itemView.findViewById(R.id.row_app_download_indicator);
     }
 }

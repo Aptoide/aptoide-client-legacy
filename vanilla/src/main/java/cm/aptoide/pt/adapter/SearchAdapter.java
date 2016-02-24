@@ -38,6 +38,7 @@ import cm.aptoide.pt.R;
 import cm.aptoide.pt.StoresActivity;
 import cm.aptoide.pt.ui.MoreVersionsActivity;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
+import cm.aptoide.pt.viewholders.DummyBaseViewHolder;
 import cm.aptoide.pt.viewholders.ProgressBarRowViewHolder;
 import cm.aptoide.pt.viewholders.SearchAppViewHolder;
 import cm.aptoide.pt.viewholders.SuggestedAppViewHolder;
@@ -68,12 +69,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             case R.layout.layout_header:
                 return new HeaderViewHolder(view, viewType, EnumStoreTheme.APTOIDE_STORE_THEME_DEFAULT);
             case R.layout.search_more_results:
-                return new BaseViewHolder(view, viewType) {
-                    @Override
-                    public void populateView(Displayable displayable) {
-
-                    }
-                };
+                return new DummyBaseViewHolder(view, viewType);
             case R.layout.suggested_app_search: {
                 return new SuggestedAppViewHolder(view, viewType);
             }

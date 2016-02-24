@@ -79,8 +79,6 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.adapter.MainPagerAdapter;
 import cm.aptoide.pt.callbacks.AddCommentVoteCallback;
 import cm.aptoide.pt.pushnotification.PushNotificationReceiver;
@@ -103,11 +101,11 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    @Bind(R.id.pager)           ViewPager mViewPager;
-    @Bind(R.id.drawer_layout)   DrawerLayout mDrawerLayout;
-    @Bind(R.id.toolbar)         Toolbar mToolbar;
-    @Bind(R.id.nav_view)        NavigationView mNavigationView;
-    @Bind(R.id.tabs)            PagerSlidingTabStrip tabs;
+    ViewPager mViewPager;
+    DrawerLayout mDrawerLayout;
+    Toolbar mToolbar;
+    NavigationView mNavigationView;
+    PagerSlidingTabStrip tabs;
 
     private BadgeView badgeUpdates;
 
@@ -214,12 +212,12 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
 
+        setContentView(getContentView());
+        bindViews();
+
         if(!checkIfInstalled()) {
             createShortCut();
         }
-
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
         AptoideUtils.AppUtils.checkPermissions(this);
         setUpToolbar();
@@ -344,6 +342,18 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         Analytics.Dimenstions.setPartnerDimension(getPartnerName());
         Analytics.Dimenstions.setVerticalDimension(getVertical());
         Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
+    }
+
+    protected int getContentView() {
+        return R.layout.activity_main;
+    }
+
+    protected void bindViews() {
+        mViewPager = (ViewPager )findViewById(R.id.pager);
+        mDrawerLayout = (DrawerLayout )findViewById(R.id.drawer_layout);
+        mToolbar = (Toolbar )findViewById(R.id.toolbar);
+        mNavigationView = (NavigationView )findViewById(R.id.nav_view);
+        tabs = (PagerSlidingTabStrip )findViewById(R.id.tabs);
     }
 
     private void hasBootOptions() {

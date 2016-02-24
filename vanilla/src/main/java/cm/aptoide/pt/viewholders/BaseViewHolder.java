@@ -16,8 +16,11 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
     public BaseViewHolder(View itemView, int viewType) {
         super(itemView);
         this.viewType = viewType;
+        bindViews(itemView);
     }
 
     public abstract void populateView(Displayable displayable);
+
+    protected abstract void bindViews(View itemView);
 
 }

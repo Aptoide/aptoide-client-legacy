@@ -36,7 +36,6 @@ import com.octo.android.robospice.request.listener.RequestListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.SearchActivity;
 import cm.aptoide.pt.adapter.SearchAdapter;
@@ -47,16 +46,16 @@ import cm.aptoide.pt.adapter.SearchMoreHeader;
  */
 public class SearchFragment extends LinearRecyclerFragment {
 
-    @Bind(R.id.swipe_container)             SwipeRefreshLayout swipeContainer;
-    @Bind(R.id.no_search_results_layout)    ScrollView noSearchResultLayout;
-    @Bind(R.id.ic_search_button)            ImageView searchButton;
-    @Bind(R.id.search_text)                 EditText searchQuery;
+    SwipeRefreshLayout swipeContainer;
+    ScrollView noSearchResultLayout;
+    ImageView searchButton;
+    EditText searchQuery;
 
-    @Bind(R.id.progress_bar)          ProgressBar progressBar;
-    @Bind(R.id.no_network_connection) ScrollView layoutNoNetwork;
-    @Bind(R.id.error)                 ScrollView layoutError;
-    @Bind(R.id.retry_error)           TextView retryError;
-    @Bind(R.id.retry_no_network)      TextView retryNoNetwork;
+    ProgressBar progressBar;
+    ScrollView layoutNoNetwork;
+    ScrollView layoutError;
+    TextView retryError;
+    TextView retryNoNetwork;
 
     private ArrayList<Displayable> displayables = new ArrayList<>();
     private String query;
@@ -78,6 +77,18 @@ public class SearchFragment extends LinearRecyclerFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    protected void bindViews(View view) {
+        swipeContainer = (SwipeRefreshLayout )view.findViewById(R.id.swipe_container);
+        noSearchResultLayout = (ScrollView )view.findViewById(R.id.no_search_results_layout);
+        searchButton = (ImageView )view.findViewById(R.id.ic_search_button);
+        searchQuery = (EditText )view.findViewById(R.id.search_text);
+        progressBar = (ProgressBar )view.findViewById(R.id.progress_bar);
+        layoutNoNetwork = (ScrollView )view.findViewById(R.id.no_network_connection);
+        layoutError = (ScrollView )view.findViewById(R.id.error);
+        retryError = (TextView )view.findViewById(R.id.retry_error);
+        retryNoNetwork = (TextView )view.findViewById(R.id.retry_no_network);
     }
 
     RequestListener<SearchResults> listener = new RequestListener<SearchResults>() {
@@ -224,6 +235,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bindViews(getView());
         getRecyclerView().setAdapter(adapter);
 
         executeSpiceManager();
@@ -253,7 +265,6 @@ public class SearchFragment extends LinearRecyclerFragment {
                 return mLoading;
             }
         });
-
     }
 
     public static SearchFragment newInstance(String query) {

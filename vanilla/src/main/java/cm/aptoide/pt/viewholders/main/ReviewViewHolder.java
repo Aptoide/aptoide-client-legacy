@@ -15,8 +15,6 @@ import com.aptoide.models.Displayable;
 import com.aptoide.models.ReviewRowItem;
 import com.bumptech.glide.Glide;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.ui.ReviewActivity;
 import cm.aptoide.pt.ui.widget.CircleTransform;
@@ -28,18 +26,17 @@ import cm.aptoide.pt.viewholders.BaseViewHolder;
 public class ReviewViewHolder extends BaseViewHolder {
 
     private final EnumStoreTheme theme;
-    @Bind(R.id.app_icon)          public ImageView appIcon;
-    @Bind(R.id.rating)            public TextView rating;
-    @Bind(R.id.app_name)          public TextView appName;
-    @Bind(R.id.avatar)            public ImageView avatar;
-    @Bind(R.id.reviewer)          public TextView reviewer;
-    @Bind(R.id.description)       public TextView description;
-    @Bind(R.id.score)             public FrameLayout score;
+    public ImageView appIcon;
+    public TextView rating;
+    public TextView appName;
+    public ImageView avatar;
+    public TextView reviewer;
+    public TextView description;
+    public FrameLayout score;
 
     public ReviewViewHolder(View itemView, int viewType, EnumStoreTheme theme) {
         super(itemView, viewType);
         this.theme = theme;
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -69,5 +66,16 @@ public class ReviewViewHolder extends BaseViewHolder {
             }
         });
 
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        appIcon = (ImageView )itemView.findViewById(R.id.app_icon);
+        rating = (TextView )itemView.findViewById(R.id.rating);
+        appName = (TextView )itemView.findViewById(R.id.app_name);
+        avatar = (ImageView )itemView.findViewById(R.id.avatar);
+        reviewer = (TextView )itemView.findViewById(R.id.reviewer);
+        description = (TextView )itemView.findViewById(R.id.description);
+        score = (FrameLayout )itemView.findViewById(R.id.score);
     }
 }

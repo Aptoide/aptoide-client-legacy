@@ -30,7 +30,6 @@ import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.SearchActivity;
 import cm.aptoide.pt.adapter.BaseAdapter;
@@ -193,7 +192,6 @@ public class MoreListViewItemsActivity extends MoreActivity {
 
         @Override
         public void onDestroyView() {
-            ButterKnife.unbind(this);
             super.onDestroyView();
         }
     }

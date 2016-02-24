@@ -24,8 +24,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 import cm.aptoide.pt.callbacks.AddCommentVoteCallback;
@@ -39,16 +37,16 @@ public class CommentViewHolder extends BaseViewHolder {
 
     private final Activity activity;
     private final int colorResId;
-    @Bind(R.id.useravatar)                      public ImageView useravatar;
-    @Bind(R.id.username)                        public TextView username;
-    @Bind(R.id.timestamp)                       public TextView timestamp;
-    @Bind(R.id.reply_comment)                   public TextView replyComment;
-    @Bind(R.id.comment_text)                    public TextView text;
-    @Bind(R.id.app_name)                        public TextView appname;
-    @Bind(R.id.overflow_vote_menu)              public ImageButton overflow;
-    @Bind(R.id.votes)                           public TextView votes;
-    @Bind(R.id.vertical_separator)              public View verticalSeparator;
-    @Bind(R.id.comments_card_layout)            public RelativeLayout cardLayout;
+    public ImageView useravatar;
+    public TextView username;
+    public TextView timestamp;
+    public TextView replyComment;
+    public TextView text;
+    public TextView appname;
+    public ImageButton overflow;
+    public TextView votes;
+    public View verticalSeparator;
+    public RelativeLayout cardLayout;
 
     private final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
 
@@ -56,7 +54,6 @@ public class CommentViewHolder extends BaseViewHolder {
         super(itemView, viewType);
         this.activity = activity;
         this.colorResId = colorResId;
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -97,6 +94,20 @@ public class CommentViewHolder extends BaseViewHolder {
         cardLayout.requestLayout();
 
         Glide.with(context).load(commentItem.useravatar).transform(new CircleTransform(context)).into(useravatar);
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        useravatar = (ImageView )itemView.findViewById(R.id.useravatar);
+        username = (TextView )itemView.findViewById(R.id.username);
+        timestamp = (TextView )itemView.findViewById(R.id.timestamp);
+        replyComment = (TextView )itemView.findViewById(R.id.reply_comment);
+        text = (TextView )itemView.findViewById(R.id.comment_text);
+        appname = (TextView )itemView.findViewById(R.id.app_name);
+        overflow = (ImageButton )itemView.findViewById(R.id.overflow_vote_menu);
+        votes = (TextView )itemView.findViewById(R.id.votes);
+        verticalSeparator = (View )itemView.findViewById(R.id.vertical_separator);
+        cardLayout = (RelativeLayout )itemView.findViewById(R.id.comments_card_layout);
     }
 
     public void showPopup(final Activity activity, View view, final int commentId, String author, boolean showReply) {

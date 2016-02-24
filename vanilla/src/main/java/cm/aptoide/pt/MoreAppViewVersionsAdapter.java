@@ -37,7 +37,7 @@ public class MoreAppViewVersionsAdapter extends RecyclerView.Adapter<MoreAppView
     public MoreAppViewVersionsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.this_app_in_other_stores_layout, parent, false);
 
-        return new MoreAppViewVersionsHolder(v);
+        return new MoreAppViewVersionsHolder(v, viewType);
     }
 
     @Override

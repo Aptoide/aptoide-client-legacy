@@ -39,7 +39,7 @@ public class ScreenshotsAdapter extends RecyclerView.Adapter<ScreenshotsViewHold
 
         View inflate = LayoutInflater.from(context).inflate(R.layout.row_item_screenshots_gallery, parent, false);
 
-        return new ScreenshotsViewHolder(inflate);
+        return new ScreenshotsViewHolder(inflate, viewType);
     }
 
     @Override

@@ -19,8 +19,6 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.database.SimpleCursorLoader;
 import com.squareup.otto.Subscribe;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.RollBackAdapter;
 import cm.aptoide.pt.adapter.RollbackSectionListAdapter;
@@ -31,7 +29,7 @@ import com.aptoide.amethyst.events.OttoEvents;
 //TODO: strings refactor, flurry e feedbackactivity
 public class RollbackActivity extends AptoideBaseActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    @Bind(R.id.toolbar)    Toolbar mToolbar;
+    Toolbar mToolbar;
 
     private RollBackAdapter rollBackAdapter;
 
@@ -49,11 +47,10 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
     public void onCreate(Bundle savedInstanceState) {
 //        Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_rollback);
-        ButterKnife.bind(this);
+        setContentView(getContentView());
+        bindViews();
 
         rollBackAdapter = new RollBackAdapter(this);
-
 
         ListView lView = (ListView) findViewById(R.id.rollback_list);
         lView.setDivider(null);
@@ -72,6 +69,13 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
         getSupportActionBar().setTitle(getString(R.string.rollback));
     }
 
+    protected int getContentView() {
+        return R.layout.page_rollback;
+    }
+
+    protected void bindViews() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

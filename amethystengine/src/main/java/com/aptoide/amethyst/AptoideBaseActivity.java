@@ -7,8 +7,6 @@ import android.view.View;
 
 import com.aptoide.amethyst.analytics.Analytics;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by rmateus on 01/06/15.
  */

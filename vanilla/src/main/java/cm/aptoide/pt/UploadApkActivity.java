@@ -37,8 +37,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.fragments.Md5CalculatorFragmentTask;
 import cm.aptoide.pt.webservices.CreateRepoRequest;
 import cm.aptoide.pt.webservices.GetApkInfoRequestFromMd5;
@@ -49,7 +47,6 @@ import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
  * Created by fabio on 22-10-2015.
  */
 public class UploadApkActivity extends AptoideBaseActivity implements Md5CalculatorFragmentTask.Callback {
-    @Bind(R.id.toolbar)
     Toolbar mToolbar;
     SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
     private String packageName;
@@ -63,10 +60,12 @@ public class UploadApkActivity extends AptoideBaseActivity implements Md5Calcula
     public void onCreate(Bundle savedInstanceState) {
         Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
+
+        setContentView(getContentView());
+        bindViews();
+
         packageName = getIntent().getStringExtra("package_name");
 
-        setContentView(R.layout.repo_create);
-        ButterKnife.bind(this);
         mToolbar.setCollapsible(false);
 
         setSupportActionBar(mToolbar);
@@ -133,6 +132,14 @@ public class UploadApkActivity extends AptoideBaseActivity implements Md5Calcula
         }
 
 
+    }
+
+    protected int getContentView() {
+        return R.layout.repo_create;
+    }
+
+    protected void bindViews() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
     private void setupCreateRepo() {

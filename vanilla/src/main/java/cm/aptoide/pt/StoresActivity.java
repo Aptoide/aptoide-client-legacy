@@ -47,8 +47,6 @@ import com.squareup.otto.Subscribe;
 
 import java.net.HttpURLConnection;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.adapter.StorePagerAdapter;
 import cm.aptoide.pt.callbacks.AddCommentVoteCallback;
 import cm.aptoide.pt.ui.SearchManager;
@@ -80,16 +78,16 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
     }
 
 
-    @Bind(R.id.tabs)      PagerSlidingTabStrip mPagerSlidingTabStrip;
-    @Bind(R.id.pager)     ViewPager mViewPager;
-    @Bind(R.id.toolbar)   Toolbar mToolbar;
-    @Bind(R.id.appbar)    AppBarLayout mAppBar;
+    PagerSlidingTabStrip mPagerSlidingTabStrip;
+    ViewPager mViewPager;
+    Toolbar mToolbar;
+    AppBarLayout mAppBar;
 
-    @Bind(R.id.progress_bar)          ProgressBar progressBar;
-    @Bind(R.id.no_network_connection) ScrollView layoutNoNetwork;
-    @Bind(R.id.error)                 ScrollView layoutError;
-    @Bind(R.id.retry_error)           TextView retryError;
-    @Bind(R.id.retry_no_network)      TextView retryNoNetwork;
+    ProgressBar progressBar;
+    ScrollView layoutNoNetwork;
+    ScrollView layoutError;
+    TextView retryError;
+    TextView retryNoNetwork;
 
 
     private Bundle args;
@@ -150,8 +148,9 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
     public void onCreate(Bundle savedInstanceState) {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.stores_main);
-        ButterKnife.bind(this);
+
+        setContentView(getContentView());
+        bindViews();
 
         if (savedInstanceState != null) {
             args = savedInstanceState;
@@ -177,6 +176,22 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
         executeSpiceRequest(true);
 
         Analytics.Stores.enter(storeName);
+    }
+
+    protected int getContentView() {
+        return R.layout.stores_main;
+    }
+
+    protected void bindViews() {
+        mPagerSlidingTabStrip = (PagerSlidingTabStrip )findViewById(R.id.tabs);
+        mViewPager = (ViewPager )findViewById(R.id.pager);
+        mToolbar = (Toolbar )findViewById(R.id.toolbar);
+        mAppBar = (AppBarLayout )findViewById(R.id.appbar);
+        progressBar = (ProgressBar )findViewById(R.id.progress_bar);
+        layoutNoNetwork = (ScrollView )findViewById(R.id.no_network_connection);
+        layoutError = (ScrollView )findViewById(R.id.error);
+        retryError = (TextView )findViewById(R.id.retry_error);
+        retryNoNetwork = (TextView )findViewById(R.id.retry_no_network);
     }
 
     @Override

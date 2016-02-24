@@ -45,7 +45,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import butterknife.Bind;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 
@@ -64,12 +63,12 @@ import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Dat
  */
 public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
 
-    @Bind(R.id.swipe_container)       protected SwipeRefreshLayout swipeContainer;
-    @Bind(R.id.progress_bar)          protected ProgressBar progressBar;
-    @Bind(R.id.no_network_connection) protected ScrollView layoutNoNetwork;
-    @Bind(R.id.error)                 protected ScrollView layoutError;
-    @Bind(R.id.retry_error)           protected TextView retryError;
-    @Bind(R.id.retry_no_network)      protected TextView retryNoNetwork;
+    protected SwipeRefreshLayout swipeContainer;
+    protected ProgressBar progressBar;
+    protected ScrollView layoutNoNetwork;
+    protected ScrollView layoutError;
+    protected TextView retryError;
+    protected TextView retryNoNetwork;
 
     @Nullable
     protected BaseAdapter adapter;
@@ -388,6 +387,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        bindViews(getView());
         if (savedInstanceState != null) {
             args = savedInstanceState;
         } else {
@@ -414,8 +414,8 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                 executeSpiceRequest(false);
             }
         });
-        swipeContainer.setColorSchemeResources(R.color.default_progress_bar_color,
-                R.color.default_color, R.color.default_progress_bar_color, R.color.default_color);
+        swipeContainer.setColorSchemeResources(R.color.default_progress_bar_color, R.color.default_color, R.color.default_progress_bar_color, R.color
+                .default_color);
         executeSpiceRequest(true);
     }
 
@@ -554,4 +554,13 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
     protected abstract BaseAdapter getAdapter();
 
     protected abstract String getBaseContext();
+
+    protected void bindViews(View view) {
+        swipeContainer = (SwipeRefreshLayout )view.findViewById(R.id.swipe_container);
+        progressBar = (ProgressBar )view.findViewById(R.id.progress_bar);
+        layoutNoNetwork = (ScrollView )view.findViewById(R.id.no_network_connection);
+        layoutError = (ScrollView )view.findViewById(R.id.error);
+        retryError = (TextView )view.findViewById(R.id.retry_error);
+        retryNoNetwork = (TextView )view.findViewById(R.id.retry_no_network);
+    }
 }

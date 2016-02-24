@@ -5,8 +5,6 @@ import android.widget.ProgressBar;
 
 import com.aptoide.models.Displayable;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 
 /**
@@ -14,11 +12,10 @@ import cm.aptoide.pt.R;
  */
 public class ProgressBarRowViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.progress_bar_endless)   public ProgressBar progressBar;
+    public ProgressBar progressBar;
 
     public ProgressBarRowViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -26,4 +23,8 @@ public class ProgressBarRowViewHolder extends BaseViewHolder {
 
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        progressBar = (ProgressBar) itemView.findViewById(R.id.progress_bar_endless);
+    }
 }

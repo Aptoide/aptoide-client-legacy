@@ -9,8 +9,6 @@ import com.aptoide.models.Displayable;
 import com.aptoide.models.hometab.CategoryRow;
 import com.bumptech.glide.Glide;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 import cm.aptoide.pt.viewholders.BaseViewHolder;
@@ -22,12 +20,11 @@ public class HomeCategoryViewHolder extends BaseViewHolder {
 
     private final EnumStoreTheme theme;
 
-    @Bind(R.id.image_category)          public ImageView imageView;
+    public ImageView imageView;
 
     public HomeCategoryViewHolder(View itemView, int viewType, EnumStoreTheme theme) {
         super(itemView, viewType);
         this.theme = theme;
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -54,5 +51,10 @@ public class HomeCategoryViewHolder extends BaseViewHolder {
         GlideUtils.download(itemView.getContext(), appItem.getGraphic(), imageView);
 
         imageView.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(appItem, theme));
+    }
+
+    @Override
+    protected void bindViews(View itemView) {
+        imageView = (ImageView )itemView.findViewById(R.id.image_category);
     }
 }

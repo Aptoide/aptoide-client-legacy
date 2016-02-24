@@ -9,8 +9,6 @@ import com.aptoide.models.BrickAppItem;
 import com.aptoide.models.Displayable;
 import com.bumptech.glide.Glide;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.adapter.BaseAdapter;
 
@@ -19,14 +17,13 @@ import cm.aptoide.pt.adapter.BaseAdapter;
  */
 public class HomeBrickItemViewHolder extends BaseViewHolder {
 
-    @Bind(R.id.app_name)          public TextView name;
-    @Bind(R.id.featured_graphic)  public ImageView graphic;
-    @Bind(R.id.ratingbar)         public RatingBar ratingBar;
+    public TextView name;
+    public ImageView graphic;
+    public RatingBar ratingBar;
 
 
     public HomeBrickItemViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-        ButterKnife.bind(this, itemView);
     }
 
     @Override
@@ -43,4 +40,10 @@ public class HomeBrickItemViewHolder extends BaseViewHolder {
 
     }
 
+    @Override
+    protected void bindViews(View itemView) {
+        name = (TextView )itemView.findViewById(R.id.app_name);
+        graphic = (ImageView )itemView.findViewById(R.id.featured_graphic);
+        ratingBar = (RatingBar )itemView.findViewById(R.id.ratingbar);
+    }
 }

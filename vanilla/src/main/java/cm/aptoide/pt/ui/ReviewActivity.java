@@ -39,8 +39,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.AppViewActivity;
 import cm.aptoide.pt.R;
 import cm.aptoide.pt.ui.widget.CircleTransform;
@@ -55,7 +53,6 @@ public class ReviewActivity extends AptoideBaseActivity {
     SpiceManager manager = new SpiceManager(AptoideSpiceHttpService.class);
     private final SimpleDateFormat dateFormatter = new SimpleDateFormat("MMMM y", Locale.getDefault());
 
-    @Bind(R.id.toolbar)
     Toolbar mToolbar;
 
     private PieChartData speedData;
@@ -105,9 +102,9 @@ public class ReviewActivity extends AptoideBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_review);
 
-        ButterKnife.bind(this);
+        setContentView(getContentView());
+        bindViews();
 
         mToolbar.setCollapsible(false);
 
@@ -119,19 +116,16 @@ public class ReviewActivity extends AptoideBaseActivity {
         getSupportActionBar().setTitle(getString(R.string.review_title));
         init();
 
-
         int aptoideTheme = Aptoide.getThemePicker().getAptoideTheme(this);
 
-        if(aptoideTheme == R.style.AptoideThemeDefault){
+        if (aptoideTheme == R.style.AptoideThemeDefault) {
             getWindow().getDecorView().setBackgroundColor(Color.WHITE);
-        }else{
+        } else {
             getWindow().getDecorView().setBackgroundColor(getResources().getColor(R.color.transparent_black));
             consLabel.setBackgroundColor(getResources().getColor(R.color.dark_gray));
             prosLabel.setBackgroundColor(getResources().getColor(R.color.dark_gray));
             vername_date.setBackgroundColor(getResources().getColor(R.color.dark_gray));
-
         }
-
 
         GetReviews.GetReview reviewsRequest = new GetReviews.GetReview();
         int id = getIntent().getIntExtra("review_id", 0);
@@ -202,12 +196,8 @@ public class ReviewActivity extends AptoideBaseActivity {
                     }
                 }
 
-                Glide.with(context).load(reviewListJson.getReview().getApk().getIcon())
-                        .transform(new CircleTransform(context))
-                        .crossFade().into(appIcon);
-                Glide.with(context).load(reviewListJson.getReview().getUser().getAvatar())
-                        .transform(new CircleTransform(context))
-                        .into(avatar);
+                Glide.with(context).load(reviewListJson.getReview().getApk().getIcon()).transform(new CircleTransform(context)).crossFade().into(appIcon);
+                Glide.with(context).load(reviewListJson.getReview().getUser().getAvatar()).transform(new CircleTransform(context)).into(avatar);
 
                 reviewer.setText(AptoideUtils.StringUtils.getFormattedString(context, R.string.review_by, reviewListJson.getReview().getUser().getName()));
 
@@ -228,14 +218,19 @@ public class ReviewActivity extends AptoideBaseActivity {
                 usabilityChart.startDataAnimation();
                 addictiveChart.startDataAnimation();
                 stabilityChart.startDataAnimation();
-
             }
         });
 
         Analytics.Home.clickOnReviewsMore();
-
     }
 
+    protected int getContentView() {
+        return R.layout.app_review;
+    }
+
+    protected void bindViews() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

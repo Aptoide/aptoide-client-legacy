@@ -140,9 +140,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import butterknife.Bind;
-import butterknife.BindInt;
-import butterknife.ButterKnife;
 import cm.aptoide.pt.adapter.DividerItemDecoration;
 import cm.aptoide.pt.adapter.ScreenshotsAdapter;
 import cm.aptoide.pt.adapter.store.CommentsStoreAdapter;
@@ -208,9 +205,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_view_activity);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.content, new AppViewFragment())
-                    .commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content, new AppViewFragment()).commit();
         }
     }
 
@@ -266,84 +261,84 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
         public AppViewFragment() { }
 
-        @Bind(R.id.toolbar)                           Toolbar mToolbar;
-        @Bind(R.id.featured_graphic)                  ImageView mFeaturedGraphic;
-        @Bind(R.id.app_icon)                          ImageView mAppIcon;
-        @Bind(R.id.store)                             View mStoreView;
-        @Bind(R.id.store_avatar)                      ImageView mStoreAvatar;
-        @Bind(R.id.store_name)                        TextView mStoreName;
-        @Bind(R.id.store_number_users)                TextView mStoreUsers;
-        @Bind(R.id.collapsing_toolbar)                CollapsingToolbarLayout mCollapsingToolbarLayout;
-        @Bind(R.id.versionName)                       TextView mVersionName;
-        @Bind(R.id.downloads_number)                  TextView mDownloadsNumber;
-        @Bind(R.id.file_size)                         TextView mFileSize;
-        @Bind(R.id.rating_bar_top)                    RatingBar mRatingBarTop;
-        @Bind(R.id.ratingbar_appview)                 RatingBar mRatingBar;
-        @Bind(R.id.description)                       TextView mDescription;
-        @Bind(R.id.see_more_button)                   TextView mSeeMore;
-        @Bind(R.id.see_more_layout)                   LinearLayout mSeeMoreLayout;
+        Toolbar mToolbar;
+        ImageView mFeaturedGraphic;
+        ImageView mAppIcon;
+        View mStoreView;
+        ImageView mStoreAvatar;
+        TextView mStoreName;
+        TextView mStoreUsers;
+        CollapsingToolbarLayout mCollapsingToolbarLayout;
+        TextView mVersionName;
+        TextView mDownloadsNumber;
+        TextView mFileSize;
+        RatingBar mRatingBarTop;
+        RatingBar mRatingBar;
+        TextView mDescription;
+        TextView mSeeMore;
+        LinearLayout mSeeMoreLayout;
 
-        @Bind(R.id.btn_install)                       Button mButtonInstall;
-        @Bind(R.id.scrollview_content)                NestedScrollView mContentView;
-        @Bind(R.id.progress)                          ProgressBar mProgressBar;
-        @Bind(R.id.appbar)                            AppBarLayout mAppBarLayout;
-        @Bind(R.id.no_network_connection)             ScrollView layoutNoNetwork;
-        @Bind(R.id.error)                             ScrollView layoutError;
-        @Bind(R.id.error410)                          ScrollView layoutError410;
-        @Bind(R.id.retry_error)                       TextView retryError;
-        @Bind(R.id.retry_no_network)                  TextView retryNoNetwork;
-        @Bind(R.id.appview_comments_list)             RecyclerView recyclerComments;
-        @Bind(R.id.see_more_comments)                 TextView mSeeMoreComments;
-        @Bind(R.id.latestversion_layout)              LinearLayout mLatestVersionLayout;
-        @Bind(R.id.btn_get_latest)                    Button mButtonGetLatest;
-        @Bind(R.id.btn_uninstall)                     Button mButtonUninstall;
-        @Bind(R.id.btn_subscribe)                     Button mButtonSubscribe;
-        @Bind(R.id.trusted_layout)                    RelativeLayout mTrustedLayout;
-        @Bind(R.id.warning_layout)                    RelativeLayout mWarningLayout;
-        @Bind(R.id.unknown_layout)                    RelativeLayout mUnknownLayoutt;
-        @Bind(R.id.badge_layout)                      RelativeLayout badgeLayout;
-        @Bind(R.id.iv_market_badge)                   ImageView mBadgeMarket;
-        @Bind(R.id.iv_signature_badge)                ImageView mBadgeSignature;
-        @Bind(R.id.iv_flag_badge)                     ImageView mBadgeFlag;
-        @Bind(R.id.iv_antivirus_badge)                ImageView mBadgeAntiVirus;
-        @Bind(R.id.flags_layout)                      LinearLayout mFlagsLayout;
-        @Bind(R.id.btn_flag_this_app)                 Button mButtonFlagThisApp;
-        @Bind(R.id.iv_arrow)                          ImageView mArrow;
-        @Bind(R.id.appview_avg_rating)                TextView tvAgvRating;
-        @Bind(R.id.tv_number_of_rates)                TextView tvNumberRates;
-        @Bind(R.id.appview_rating_bar5)               ProgressBar progressBarRating5;
-        @Bind(R.id.appview_rating_bar4)               ProgressBar progressBarRating4;
-        @Bind(R.id.appview_rating_bar3)               ProgressBar progressBarRating3;
-        @Bind(R.id.appview_rating_bar2)               ProgressBar progressBarRating2;
-        @Bind(R.id.appview_rating_bar1)               ProgressBar progressBarRating1;
-        @Bind(R.id.appview_rating_bar_avg)            RatingBar avgRatingBar;
-        @Bind(R.id.appview_rating_bar_rating_number5) TextView tvNumberOfStarts5;
-        @Bind(R.id.appview_rating_bar_rating_number4) TextView tvNumberOfStarts4;
-        @Bind(R.id.appview_rating_bar_rating_number3) TextView tvNumberOfStarts3;
-        @Bind(R.id.appview_rating_bar_rating_number2) TextView tvNumberOfStarts2;
-        @Bind(R.id.appview_rating_bar_rating_number1) TextView tvNumberOfStarts1;
-        @Bind(R.id.number_good_flags)                 TextView tvNumberGoodFlags;
-        @Bind(R.id.number_fake_flags)                 TextView tvNumberFakeFlags;
-        @Bind(R.id.number_freeze_flags)               TextView tvNumberFreezeFlags;
-        @Bind(R.id.number_licence_flags)              TextView tvNumberLicenceFlags;
-        @Bind(R.id.number_virus_flags)                TextView tvNumberVirusFlags;
-        @Bind(R.id.manual_reviewed_message_layout)    View manualReviewLayout;
-        @Bind(R.id.install_and_latest_version_layout) LinearLayout mInstallAndLatestVersionLayout;
-        @Bind(R.id.download_progress_layout)          RelativeLayout mDownloadProgressLayout;
-        @Bind(R.id.ic_action_resume)                  ImageView mActionResume;
-        @Bind(R.id.text_progress)                     TextView mProgressText;
-        @Bind(R.id.downloading_progress)              ProgressBar mDownloadingProgress;
-        @Bind(R.id.more_versions_layout_header)       RelativeLayout mMoreVersionsLayoutHeader;
-        @Bind(R.id.more_versions_button)              Button mMoreVersionsLayoutButton;
-        @Bind(R.id.website_label)                     TextView mWebsiteLabel;
-        @Bind(R.id.email_label)                       TextView mEmailLabel;
-        @Bind(R.id.privacy_policy_label)              TextView mPrivacyLabel;
-        @Bind(R.id.permissions_label)                 TextView mPermissionsLabel;
-        @Bind(R.id.screenshots_list)                  RecyclerView mScreenshotsList;
+        Button mButtonInstall;
+        NestedScrollView mContentView;
+        ProgressBar mProgressBar;
+        AppBarLayout mAppBarLayout;
+        ScrollView layoutNoNetwork;
+        ScrollView layoutError;
+        ScrollView layoutError410;
+        TextView retryError;
+        TextView retryNoNetwork;
+        RecyclerView recyclerComments;
+        TextView mSeeMoreComments;
+        LinearLayout mLatestVersionLayout;
+        Button mButtonGetLatest;
+        Button mButtonUninstall;
+        Button mButtonSubscribe;
+        RelativeLayout mTrustedLayout;
+        RelativeLayout mWarningLayout;
+        RelativeLayout mUnknownLayoutt;
+        RelativeLayout badgeLayout;
+        ImageView mBadgeMarket;
+        ImageView mBadgeSignature;
+        ImageView mBadgeFlag;
+        ImageView mBadgeAntiVirus;
+        LinearLayout mFlagsLayout;
+        Button mButtonFlagThisApp;
+        ImageView mArrow;
+        TextView tvAgvRating;
+        TextView tvNumberRates;
+        ProgressBar progressBarRating5;
+        ProgressBar progressBarRating4;
+        ProgressBar progressBarRating3;
+        ProgressBar progressBarRating2;
+        ProgressBar progressBarRating1;
+        RatingBar avgRatingBar;
+        TextView tvNumberOfStarts5;
+        TextView tvNumberOfStarts4;
+        TextView tvNumberOfStarts3;
+        TextView tvNumberOfStarts2;
+        TextView tvNumberOfStarts1;
+        TextView tvNumberGoodFlags;
+        TextView tvNumberFakeFlags;
+        TextView tvNumberFreezeFlags;
+        TextView tvNumberLicenceFlags;
+        TextView tvNumberVirusFlags;
+        View manualReviewLayout;
+        LinearLayout mInstallAndLatestVersionLayout;
+        RelativeLayout mDownloadProgressLayout;
+        ImageView mActionResume;
+        TextView mProgressText;
+        ProgressBar mDownloadingProgress;
+        RelativeLayout mMoreVersionsLayoutHeader;
+        Button mMoreVersionsLayoutButton;
+        TextView mWebsiteLabel;
+        TextView mEmailLabel;
+        TextView mPrivacyLabel;
+        TextView mPermissionsLabel;
+        RecyclerView mScreenshotsList;
 
-        @Bind(R.id.more_versions_recycler)            RecyclerView mMoreVersionsList;
+        RecyclerView mMoreVersionsList;
 
-        @BindInt(R.integer.minimum_description_lines) int descriptionLines;
+        int descriptionLines;
 
 
         private String cpd;
@@ -666,11 +661,90 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             BusProvider.getInstance().register(this);
             spiceManager.start(getActivity());
             final View view = inflater.inflate(R.layout.fragment_app_view, container, false);
-            ButterKnife.bind(this, view);
+            bindViews(view);
             recyclerOffset = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
             bucketSize = AptoideUtils.UI.getBucketSize();
             mRatingBar.setOnRatingBarChangeListener(new RatingBarClickListener());
             return view;
+        }
+
+        private void bindViews(View view) {
+            mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
+            mFeaturedGraphic = (ImageView) view.findViewById(R.id.featured_graphic);
+            mAppIcon = (ImageView) view.findViewById(R.id.app_icon);
+            mStoreView = (View) view.findViewById(R.id.store);
+            mStoreAvatar = (ImageView) view.findViewById(R.id.store_avatar);
+            mStoreName = (TextView) view.findViewById(R.id.store_name);
+            mStoreUsers = (TextView) view.findViewById(R.id.store_number_users);
+            mCollapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.collapsing_toolbar);
+            mVersionName = (TextView) view.findViewById(R.id.versionName);
+            mDownloadsNumber = (TextView) view.findViewById(R.id.downloads_number);
+            mFileSize = (TextView) view.findViewById(R.id.file_size);
+            mRatingBarTop = (RatingBar) view.findViewById(R.id.rating_bar_top);
+            mRatingBar = (RatingBar) view.findViewById(R.id.ratingbar_appview);
+            mDescription = (TextView) view.findViewById(R.id.description);
+            mSeeMore = (TextView) view.findViewById(R.id.see_more_button);
+            mSeeMoreLayout = (LinearLayout) view.findViewById(R.id.see_more_layout);
+            mButtonInstall = (Button) view.findViewById(R.id.btn_install);
+            mContentView = (NestedScrollView) view.findViewById(R.id.scrollview_content);
+            mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
+            mAppBarLayout = (AppBarLayout) view.findViewById(R.id.appbar);
+            layoutNoNetwork = (ScrollView) view.findViewById(R.id.no_network_connection);
+            layoutError = (ScrollView) view.findViewById(R.id.error);
+            layoutError410 = (ScrollView) view.findViewById(R.id.error410);
+            retryError = (TextView) view.findViewById(R.id.retry_error);
+            retryNoNetwork = (TextView) view.findViewById(R.id.retry_no_network);
+            recyclerComments = (RecyclerView) view.findViewById(R.id.appview_comments_list);
+            mSeeMoreComments = (TextView) view.findViewById(R.id.see_more_comments);
+            mLatestVersionLayout = (LinearLayout) view.findViewById(R.id.latestversion_layout);
+            mButtonGetLatest = (Button) view.findViewById(R.id.btn_get_latest);
+            mButtonUninstall = (Button) view.findViewById(R.id.btn_uninstall);
+            mButtonSubscribe = (Button) view.findViewById(R.id.btn_subscribe);
+            mTrustedLayout = (RelativeLayout) view.findViewById(R.id.trusted_layout);
+            mWarningLayout = (RelativeLayout) view.findViewById(R.id.warning_layout);
+            mUnknownLayoutt = (RelativeLayout) view.findViewById(R.id.unknown_layout);
+            badgeLayout = (RelativeLayout) view.findViewById(R.id.badge_layout);
+            mBadgeMarket = (ImageView) view.findViewById(R.id.iv_market_badge);
+            mBadgeSignature = (ImageView) view.findViewById(R.id.iv_signature_badge);
+            mBadgeFlag = (ImageView) view.findViewById(R.id.iv_flag_badge);
+            mBadgeAntiVirus = (ImageView) view.findViewById(R.id.iv_antivirus_badge);
+            mFlagsLayout = (LinearLayout) view.findViewById(R.id.flags_layout);
+            mButtonFlagThisApp = (Button) view.findViewById(R.id.btn_flag_this_app);
+            mArrow = (ImageView) view.findViewById(R.id.iv_arrow);
+            tvAgvRating = (TextView) view.findViewById(R.id.appview_avg_rating);
+            tvNumberRates = (TextView) view.findViewById(R.id.tv_number_of_rates);
+            progressBarRating5 = (ProgressBar) view.findViewById(R.id.appview_rating_bar5);
+            progressBarRating4 = (ProgressBar) view.findViewById(R.id.appview_rating_bar4);
+            progressBarRating3 = (ProgressBar) view.findViewById(R.id.appview_rating_bar3);
+            progressBarRating2 = (ProgressBar) view.findViewById(R.id.appview_rating_bar2);
+            progressBarRating1 = (ProgressBar) view.findViewById(R.id.appview_rating_bar1);
+            avgRatingBar = (RatingBar) view.findViewById(R.id.appview_rating_bar_avg);
+            tvNumberOfStarts5 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number5);
+            tvNumberOfStarts4 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number4);
+            tvNumberOfStarts3 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number3);
+            tvNumberOfStarts2 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number2);
+            tvNumberOfStarts1 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number1);
+            tvNumberGoodFlags = (TextView) view.findViewById(R.id.number_good_flags);
+            tvNumberFakeFlags = (TextView) view.findViewById(R.id.number_fake_flags);
+            tvNumberFreezeFlags = (TextView) view.findViewById(R.id.number_freeze_flags);
+            tvNumberLicenceFlags = (TextView) view.findViewById(R.id.number_licence_flags);
+            tvNumberVirusFlags = (TextView) view.findViewById(R.id.number_virus_flags);
+            manualReviewLayout = (View) view.findViewById(R.id.manual_reviewed_message_layout);
+            mInstallAndLatestVersionLayout = (LinearLayout) view.findViewById(R.id.install_and_latest_version_layout);
+            mDownloadProgressLayout = (RelativeLayout) view.findViewById(R.id.download_progress_layout);
+            mActionResume = (ImageView) view.findViewById(R.id.ic_action_resume);
+            mProgressText = (TextView) view.findViewById(R.id.text_progress);
+            mDownloadingProgress = (ProgressBar) view.findViewById(R.id.downloading_progress);
+            mMoreVersionsLayoutHeader = (RelativeLayout) view.findViewById(R.id.more_versions_layout_header);
+            mMoreVersionsLayoutButton = (Button) view.findViewById(R.id.more_versions_button);
+            mWebsiteLabel = (TextView) view.findViewById(R.id.website_label);
+            mEmailLabel = (TextView) view.findViewById(R.id.email_label);
+            mPrivacyLabel = (TextView) view.findViewById(R.id.privacy_policy_label);
+            mPermissionsLabel = (TextView) view.findViewById(R.id.permissions_label);
+            mScreenshotsList = (RecyclerView) view.findViewById(R.id.screenshots_list);
+            mMoreVersionsList = (RecyclerView) view.findViewById(R.id.more_versions_recycler);
+
+            descriptionLines = view.getContext().getResources().getInteger(R.integer.minimum_description_lines);
         }
 
         @Override
@@ -727,7 +801,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 webview[0].destroy();
             }
             AptoideUtils.UI.unbindDrawables(getView());
-            ButterKnife.unbind(this);
             super.onDestroyView();
         }
 
