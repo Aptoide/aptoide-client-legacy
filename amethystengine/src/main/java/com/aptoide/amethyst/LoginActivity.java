@@ -265,7 +265,6 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
                     Toast.makeText(getApplicationContext(), R.string.fields_cannot_empty, Toast.LENGTH_LONG).show();
                     return;
                 }
-                AptoideDialog.pleaseWaitDialog().show(getSupportFragmentManager(), "pleaseWaitDialog");
 
                 submit(Mode.APTOIDE, username, password, null);
             }
