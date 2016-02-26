@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 
 import com.aptoide.amethyst.utils.AptoideUtils;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by rmateus on 01/06/15.
  */
@@ -44,10 +42,8 @@ public abstract class AptoideRecyclerFragment extends AptoideSpicedBaseFragment 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.recycler_fragment, container, false);
-        ButterKnife.bind(this, rootView);
         return rootView;
     }
-
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -70,7 +66,6 @@ public abstract class AptoideRecyclerFragment extends AptoideSpicedBaseFragment 
 
     @Override
     public void onDestroyView() {
-        ButterKnife.unbind(this);
         recyclerView = null;
         super.onDestroyView();
     }
