@@ -355,7 +355,7 @@
     <string name="casting_vote">A enviar voto…</string>
     <string name="vote_submitted">O seu voto foi submetido com sucesso</string>
     <string name="reviewed_by">Crítica de - %s</string>
-    <string name="installed_this">%s instalaram esta app.</string>
+    <string name="installed_this">%s instalou esta app.</string>
 
     <string name="app_name">Aptoide</string>
 

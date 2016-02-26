@@ -1,6 +1,5 @@
 package com.aptoide.amethyst;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -13,6 +12,8 @@ import android.os.Build;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.utils.AptoideUtils;
 
 import org.apache.http.HttpResponse;
@@ -40,9 +41,9 @@ public class AutoUpdate extends AsyncTask<Void, Void, AutoUpdate.AutoUpdateInfo>
     private final String TMP_UPDATE_FILE = Aptoide.getConfiguration().getPathCache() + "aptoideUpdate.apk";
     private final String url = Aptoide.getConfiguration().getAutoUpdateUrl();
 
-    private Activity activity;
+    private AptoideBaseActivity activity;
 
-    public AutoUpdate(Activity activity){
+    public AutoUpdate(AptoideBaseActivity activity){
         this.activity=activity;
     }
 
@@ -121,7 +122,9 @@ public class AutoUpdate extends AsyncTask<Void, Void, AutoUpdate.AutoUpdateInfo>
                 dialog.dismiss();
             }
         });
-        updateSelfDialog.show();
+        if(activity.is_resumed()) {
+            updateSelfDialog.show();
+        }
     }
 
     private class AutoUpdateHandler extends DefaultHandler2 {
@@ -238,7 +241,7 @@ public class AutoUpdate extends AsyncTask<Void, Void, AutoUpdate.AutoUpdateInfo>
         }
         @Override
         protected void onPostExecute(Void result) {
-            if (this.dialog.isShowing()) {
+            if (activity.is_resumed() && this.dialog.isShowing()) {
                 this.dialog.dismiss();
             }
             super.onPostExecute(result);

@@ -1,17 +1,18 @@
 package com.aptoide.amethyst;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.aptoide.amethyst.analytics.Analytics;
+
+import lombok.Getter;
 
 /**
  * Created by rmateus on 01/06/15.
  */
 public abstract class AptoideBaseActivity extends AppCompatActivity {
 
+    @Getter private boolean _resumed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        _resumed = true;
         Analytics.Lifecycle.Activity.onResume(this, getScreenName());
     }
 
@@ -48,6 +50,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     protected void onPause() {
         Analytics.Lifecycle.Activity.onPause(this);
         super.onPause();
+        _resumed = false;
     }
 
     /*
