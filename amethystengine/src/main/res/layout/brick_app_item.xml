@@ -10,17 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:contentDescription="@null"
-        android:src="@drawable/img_navdrawer_wallpaper"/>
+        android:contentDescription="@null"/>
 
     <RelativeLayout
-
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="#b0000000"
+        android:background="@drawable/gradient_black"
         android:orientation="horizontal"
-        android:padding="4dp">
+        android:padding="4dp"
+        android:gravity="bottom">
 
         <TextView
             android:id="@+id/app_name"
@@ -39,11 +38,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_alignBottom="@id/app_name"
             android:clickable="false"
             android:isIndicator="true"
-            android:numStars="5"
-            android:paddingLeft="1.5dp"/>
+            android:layout_marginBottom="3dp"
+            android:numStars="5"/>
 
     </RelativeLayout>
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="bucket_size_magic_number">125</integer>
+    <dimen name="appview_header_app_image_size">150dp</dimen>
+    <dimen name="appview_title_left_margin">174dp</dimen>
+    <dimen name="appview_header_height">370dp</dimen>
+    <dimen name="appview_top_rating_top_margin">135dp</dimen>
+</resources>

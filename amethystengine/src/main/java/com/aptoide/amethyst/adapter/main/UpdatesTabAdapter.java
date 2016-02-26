@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
@@ -46,7 +47,7 @@ import com.aptoide.amethyst.viewholders.main.UpdateViewHolder;
 /**
  * Created by rmateus on 02/06/15.
  */
-public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
+public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> implements SpannableRecyclerAdapter {
 
     private final FragmentActivity activity;
     private List<Displayable> displayableList;
@@ -295,5 +296,10 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
             throw new IllegalStateException("InvalidType");
         }
 
+    }
+
+    @Override
+    public int getSpanSize(int position) {
+        return displayableList.get(position).getSpanSize();
     }
 }

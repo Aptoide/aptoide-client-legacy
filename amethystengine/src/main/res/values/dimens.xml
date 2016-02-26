@@ -62,5 +62,7 @@
     <dimen name="comments_top_margin">10dp</dimen>
 
     <dimen name="appview_developer_padding">10dp</dimen>
-
+    <dimen name="appview_title_left_margin">120dp</dimen>
+    <dimen name="appview_header_height">256dp</dimen>
+    <dimen name="appview_top_rating_top_margin">80dp</dimen>
 </resources>
