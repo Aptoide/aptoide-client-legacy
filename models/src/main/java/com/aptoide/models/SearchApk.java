@@ -1,4 +1,4 @@
-package com.aptoide.amethyst.models.search;
+package com.aptoide.models;
 
 import com.aptoide.models.Displayable;
 import com.fasterxml.jackson.annotation.JsonProperty;

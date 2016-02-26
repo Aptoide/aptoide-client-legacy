@@ -1,6 +1,7 @@
 package com.aptoide.amethyst.models;
 
 import com.aptoide.models.Displayable;
+import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.models.stores.Login;
 
 public class StoreItem extends Displayable {

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.search.SearchApk;
+import com.aptoide.models.SearchApk;
 import com.aptoide.models.Displayable;
 import com.aptoide.models.HeaderRow;
 import com.aptoide.models.ProgressBarRow;

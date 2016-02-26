@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.LinearRecyclerFragment;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.models.search.SearchApk;
+import com.aptoide.models.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -40,7 +40,7 @@ import java.util.List;
 
 import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.adapter.SearchAdapter;
-import com.aptoide.amethyst.adapter.SearchMoreHeader;
+import com.aptoide.models.SearchMoreHeader;
 
 /**
  * Created by rmateus on 12/06/15.

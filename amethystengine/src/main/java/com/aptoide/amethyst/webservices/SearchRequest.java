@@ -3,7 +3,7 @@ package com.aptoide.amethyst.webservices;
 import android.text.TextUtils;
 
 import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.models.search.SearchApk;
+import com.aptoide.models.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.dataprovider.webservices.models.Constants;

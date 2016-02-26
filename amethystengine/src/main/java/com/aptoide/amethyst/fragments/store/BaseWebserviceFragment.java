@@ -14,7 +14,7 @@ import com.aptoide.amethyst.GridRecyclerFragment;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.dialogs.AdultHiddenDialog;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.StoreHeaderRow;
+import com.aptoide.models.StoreHeaderRow;
 import com.aptoide.amethyst.preferences.Preferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;

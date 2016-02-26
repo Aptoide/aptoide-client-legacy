@@ -1,4 +1,4 @@
-package com.aptoide.amethyst.models;
+package com.aptoide.models;
 
 import com.aptoide.models.Displayable;
 

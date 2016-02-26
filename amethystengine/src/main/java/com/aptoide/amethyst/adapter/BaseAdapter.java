@@ -17,7 +17,7 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.downloadmanager.adapter.NotOngoingDownloadRow;
 import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.StoreHeaderRow;
+import com.aptoide.models.StoreHeaderRow;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.AdItem;
 import com.aptoide.models.AdultItem;
