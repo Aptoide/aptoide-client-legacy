@@ -107,8 +107,8 @@
     <string name="one_account_allowed">Μόνο ένας λογαριασμός επιτρέπεται</string>
     <string name="signing_in">Σύνδεση…</string>
     <string name="fields_cannot_empty">Παρακαλώ ελέγξτε το ηλεκτρονικό ταχυδρομείο και τον κωδικό σας.</string>
-    <string name="new_to_aptoide">Νέος στο %s? Δημιουργήστε ένα δωρεάν λογαριασμό</string>
-    <string name="forgot_passwd">Ξεχάσατε τον κωδικό?</string>
+    <string name="new_to_aptoide">Νέος στο %s; Δημιουργήστε ένα δωρεάν λογαριασμό</string>
+    <string name="forgot_passwd">Ξεχάσατε τον κωδικό;</string>
     <string name="error_occured">Παρουσιάστηκε σφάλμα. Παρακαλώ δοκιμάστε ξανά</string>
     <string name="simple_error_occured">Παρουσιάστηκε σφάλμα. </string>
     <string name="or">- Ή -</string>
@@ -184,8 +184,8 @@
 
     <!-- layouts -->
     <string name="download_retry">Προσπαθήστε ξανά</string>
-    <string name="error503">Ουυυφ... Είμαι μόνο εγώ ή όλοι εγκαθιστούν εφαρμογές την ίδια στιγμή?</string>
-    <string name="having_some_trouble">Έχουμε κάποια προβλήματα. Μπορείτε να προσπαθήσετε αργότερα?</string>
+    <string name="error503">Ουυυφ... Είμαι μόνο εγώ ή όλοι εγκαθιστούν εφαρμογές την ίδια στιγμή;</string>
+    <string name="having_some_trouble">Έχουμε κάποια προβλήματα. Μπορείτε να προσπαθήσετε αργότερα;</string>
 	
     <!-- DateUtils -->	
     <string name="WidgetProvider_timestamp_today">Σήμερα</string>
@@ -570,7 +570,7 @@
     <string name="wizard_title_01">Καλώς ήρθατε στο Aptoide</string>
     <string name="wizard_description_01">Δημιουργήστε ένα δωρεάν λογαριασμό και εγγραφείτε για να αρχίσετε η δημιουργίτε το δικό σας προσωπικό App Store.\n\n Αναζητήστε με βάση το θέμα καταστήματα και ανακαλύψτε νέες και συναρπαστικές εφαρμογές.</string>
     <string name="wizard_title_02">Αυξημένη Ασφάλεια</string>
-    <string name="wizard_description_02">Search for trusted badges and securely download apps.\n\n Incompatible issues? Search for previous versions of applications.</string>
+    <string name="wizard_description_02">Αναζήτηση για έμπιστες και κατεβάστε με ασφάλεια εφαρμογές.\n\n Προβλήματα ασυνβατότητας; Αναζήτηση για προηγούμενες εκδόσεις των εφαρμογών.</string>
     <string name="wizard_title_03">Νέα μέλη της οικογένειας</string>
     <string name="wizard_subtitle_03_1">Aptoide Lite</string>
     <string name="wizard_description_03_1">για παλιές συσκευές και αργή σύνδεση στο internet</string>
