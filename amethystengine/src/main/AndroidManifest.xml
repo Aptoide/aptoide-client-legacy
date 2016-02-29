@@ -29,6 +29,8 @@
         android:allowBackup="true"
         android:theme="@style/AptoideThemeDefault">
 
+        <meta-data android:name="LOCALYTICS_APP_KEY" android:value="${LOCALYTICS_APP_KEY}"/>
+
         <activity
             android:name=".ui.MyAccountActivity"/>
 
