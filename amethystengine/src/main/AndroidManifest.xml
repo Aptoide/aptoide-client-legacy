@@ -25,7 +25,6 @@
     tools:overrideLibrary="com.astuetz.pagerslidingtabstrip, com.bumptech.glide.integration.okhttp"/>
 
     <application
-        android:name=".Aptoide"
         android:allowBackup="true"
         android:theme="@style/AptoideThemeDefault">
 

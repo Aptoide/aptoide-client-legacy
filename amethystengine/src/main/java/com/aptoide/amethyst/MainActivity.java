@@ -336,8 +336,8 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             new AutoUpdate(this).execute();
         }
 
-        Analytics.Dimenstions.setPartnerDimension(getPartnerName());
-        Analytics.Dimenstions.setVerticalDimension(getVertical());
+        Analytics.Dimenstions.setPartnerDimension(Aptoide.getConfiguration().getPartnerName());
+        Analytics.Dimenstions.setVerticalDimension(Aptoide.getConfiguration().getVertical());
         Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
     }
 
@@ -829,7 +829,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             }
         };
     }
-
+/*
     public String getPartnerName() {
         return "vanilla";
     }
@@ -837,7 +837,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
     public String getVertical() {
         return Analytics.Dimenstions.Vertical.SMARTPHONE;
     }
-
+*/
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);

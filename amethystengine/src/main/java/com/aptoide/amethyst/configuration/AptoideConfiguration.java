@@ -8,6 +8,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LoginActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SignUpActivity;
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.dataprovider.webservices.models.Defaults;
 
 import java.io.File;
@@ -145,7 +146,7 @@ public class AptoideConfiguration {
 //        public static final String AUTHTOKEN_TYPE_FULL_ACCESS_LABEL = "Full access to an Aptoide account";
     }
     public String getDefaultStore() {
-        return sPref.getString(PREF_DEFAULT_STORE, Defaults.DEFAULT_STORE_NAME);
+        return Defaults.DEFAULT_STORE_NAME;
     }
     public String getPathCache() {
         String cache = sPref.getString(PREF_PATH_CACHE, Defaults.PATH_CACHE);
@@ -175,6 +176,18 @@ public class AptoideConfiguration {
 
     public String getActionFirstTime() {
         return "cm.aptoide.pt.PushNotificationFirstTime";
+    }
+
+    public boolean isMultipleStores() {
+        return true;
+    }
+
+    public String getVertical() {
+        return Analytics.Dimenstions.Vertical.SMARTPHONE;
+    }
+
+    public String getPartnerName() {
+        return "vanilla";
     }
 
 }

@@ -6,11 +6,11 @@
 
 
     <application
+        android:name="com.aptoide.amethyst.Aptoide"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AptoideThemeDefault">
-
 
         <activity
             android:name="com.aptoide.amethyst.MainActivity"
