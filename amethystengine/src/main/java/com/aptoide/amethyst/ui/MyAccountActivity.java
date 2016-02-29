@@ -25,10 +25,11 @@ import com.facebook.UiLifecycleHelper;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Properties;
 
 /**
@@ -46,8 +47,8 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
 
         }
     };
-    private GoogleApiClient mGoogleApiClient;
     private View mLogout;
+    private GoogleApiClient googleApiClient;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,115 +56,106 @@ public class MyAccountActivity extends AptoideBaseActivity implements GoogleApiC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.form_logout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar_login);
+        mLogout = findViewById(R.id.button_logout);
 
         setSupportActionBar(mToolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-//        getSupportActionBar().setTitle(getString(R.string.sign_out));
-//        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
             uiLifecycleHelper = new UiLifecycleHelper(this, statusCallback);
             uiLifecycleHelper.onCreate(savedInstanceState);
         }
-        final GoogleSignInOptions gso = new GoogleSignInOptions
-                .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this , this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .addConnectionCallbacks(this)
-                .build();
 
+        final String accountType = Aptoide.getConfiguration().getAccountType();
         mAccountManager = AccountManager.get(this);
-
-        if (mAccountManager.getAccountsByType(Aptoide.getConfiguration().getAccountType()).length > 0) {
-
-            final Account account = mAccountManager.getAccountsByType(Aptoide.getConfiguration().getAccountType())[0];
-
-            ((TextView) findViewById(R.id.username)).setText(account.name);
-
-            mLogout = findViewById(R.id.button_logout);
-            mLogout.setEnabled(false);
-            mLogout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (Build.VERSION.SDK_INT >= 8) {
-                        Session session = new Session(MyAccountActivity.this);
-                        Session.setActiveSession(session);
-                        if (Session.getActiveSession() != null) {
-                            Session.getActiveSession().closeAndClearTokenInformation();
-                        }
-                    }
-//
-                    Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(new ResultCallback<Status>() {
-                        @Override
-                        public void onResult(final Status status) {
-                        }
-                    });
-
-                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                    sharedPreferences.edit().remove("queueName").apply();
-                    ContentResolver.setIsSyncable(account, WEBINSTALL_SYNC_AUTHORITY, 0);
-                    ContentResolver.setSyncAutomatically(account, MyAccountActivity.WEBINSTALL_SYNC_AUTHORITY, false);
-                    if(Build.VERSION.SDK_INT>=8){
-                        ContentResolver.removePeriodicSync(account, MyAccountActivity.WEBINSTALL_SYNC_AUTHORITY, new Bundle());
-                    }
-                    mAccountManager.removeAccount(account, new AccountManagerCallback<Boolean>() {
-                        @Override
-                        public void run(AccountManagerFuture<Boolean> future) {
-                            addAccount();
-                            finish();
-                        }
-                    }, null);
-
-                }
-            });
-
-        } else {
+        if (mAccountManager.getAccountsByType(accountType).length <= 0) {
             addAccount();
             finish();
+            return;
+        }
+
+        final Account account = mAccountManager.getAccountsByType(accountType)[0];
+        ((TextView) findViewById(R.id.username)).setText(account.name);
+
+        final int connectionResult = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
+        final Collection<Integer> badResults = Arrays.asList(ConnectionResult.SERVICE_MISSING, ConnectionResult.SERVICE_DISABLED);
+        final boolean gmsAvailable = BuildConfig.GMS_CONFIGURED && !badResults.contains(connectionResult);
+        if (gmsAvailable) {
+            mLogout.setEnabled(false);
+            final GoogleSignInOptions gso = new GoogleSignInOptions
+                    .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestServerAuthCode(BuildConfig.GMS_SERVER_ID)
+                    .build();
+            googleApiClient = new GoogleApiClient.Builder(this)
+                    .addConnectionCallbacks(this)
+                    .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                    .enableAutoManage(this, this)
+                    .build();
+            googleApiClient.connect();
+        }
+
+        mLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                singOutGoogle();
+                singOutFacebook();
+                removeAccount(account);
+            }
+        });
+    }
+
+    private void singOutGoogle() {
+        if (googleApiClient != null && googleApiClient.isConnected()) {
+            Auth.GoogleSignInApi.signOut(googleApiClient);
         }
     }
 
+    private void singOutFacebook() {
+        if (Build.VERSION.SDK_INT >= 8) {
+            Session session = new Session(MyAccountActivity.this);
+            Session.setActiveSession(session);
+            if (Session.getActiveSession() != null) {
+                Session.getActiveSession().closeAndClearTokenInformation();
+            }
+        }
+    }
+
+    private void removeAccount(final Account account) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        sharedPreferences.edit().remove("queueName").apply();
+        ContentResolver.setIsSyncable(account, WEBINSTALL_SYNC_AUTHORITY, 0);
+        ContentResolver.setSyncAutomatically(account, MyAccountActivity.WEBINSTALL_SYNC_AUTHORITY, false);
+        if(Build.VERSION.SDK_INT>=8){
+            ContentResolver.removePeriodicSync(account, MyAccountActivity.WEBINSTALL_SYNC_AUTHORITY, new Bundle());
+        }
+        mAccountManager.removeAccount(account, new AccountManagerCallback<Boolean>() {
+            @Override
+            public void run(AccountManagerFuture<Boolean> future) {
+                addAccount();
+                finish();
+            }
+        }, null);
+    }
+
     private void addAccount() {
-        final AccountManagerFuture<Bundle> future = mAccountManager.addAccount(Aptoide.getConfiguration().getAccountType(), AptoideConfiguration.AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS, null, null, this, new AccountManagerCallback<Bundle>() {
+        mAccountManager.addAccount(Aptoide.getConfiguration().getAccountType(), AptoideConfiguration.AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS, null, null, this, new AccountManagerCallback<Bundle>() {
             @Override
             public void run(AccountManagerFuture<Bundle> future) {
                 try {
                     Bundle bnd = future.getResult();
-                    //showMessage("Account was created");
                     if (bnd.containsKey(AccountManager.KEY_AUTHTOKEN)) {
                         setContentView(R.layout.form_logout);
-//                        Log.d("udinic", "AddNewAccount Bundle is " + bnd);
                     } else {
                         finish();
                     }
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    //showMessage(e.getMessage());
                 }
             }
         }, null);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-//        if (Build.VERSION.SDK_INT >= 8) mPlusClient.connect();
-        if (Build.VERSION.SDK_INT >= 8) mGoogleApiClient.connect();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-//        if (Build.VERSION.SDK_INT >= 8) mPlusClient.disconnect();
-        if (Build.VERSION.SDK_INT >= 8) mGoogleApiClient.disconnect();
-//        FlurryAgent.onEndSession(this);
     }
 
     @Override

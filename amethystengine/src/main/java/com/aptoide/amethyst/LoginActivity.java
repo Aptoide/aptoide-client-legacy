@@ -413,7 +413,10 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     public void setShowProgress(final boolean showProgress) {
         final DialogFragment progress = (DialogFragment) getSupportFragmentManager().findFragmentByTag(TAG_PROGRESS);
         if (progress == null && showProgress) {
-            AptoideDialog.pleaseWaitDialog().show(getSupportFragmentManager(), TAG_PROGRESS);
+            try {
+                AptoideDialog.pleaseWaitDialog().show(getSupportFragmentManager(), TAG_PROGRESS);
+            // https://code.google.com/p/android/issues/detail?id=23761
+            } catch (IllegalStateException ignore) { }
         } else if (progress != null && !showProgress) {
             progress.dismissAllowingStateLoss();
         }
