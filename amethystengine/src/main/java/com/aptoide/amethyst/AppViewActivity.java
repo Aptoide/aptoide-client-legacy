@@ -255,6 +255,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
     public static class AppViewFragment extends Fragment implements FlagApkDialog.ApkFlagCallback, AddCommentVoteCallback, ServiceConnection {
 
+        private static final String BADGE_DIALOG_TAG = "badgeDialog";
         protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
 
         public AppViewFragment() { }
@@ -1129,7 +1130,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         View.OnClickListener badgeClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AptoideDialog.badgeDialogV7(malware, appName, malware.rank).show(getChildFragmentManager(), "badgeDialog");
+                AptoideDialog.badgeDialogV7(malware, appName, malware.rank).show(getFragmentManager(), BADGE_DIALOG_TAG);
             }
         };
 

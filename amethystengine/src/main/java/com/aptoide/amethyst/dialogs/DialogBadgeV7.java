@@ -49,6 +49,7 @@ public class DialogBadgeV7 extends DialogFragment {
         } else {
             setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Dialog);
         }
+        setRetainInstance(true);
     }
 
     @Override
