@@ -78,8 +78,7 @@ public class Aptoide extends Application {
             public void run() {
                 String aaid = "";
                 try {
-                    AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", AdvertisingIdClient.getAdvertisingIdInfo(Aptoide.this).getId
-                            ()).apply();
+                    aaid = AdvertisingIdClient.getAdvertisingIdInfo(Aptoide.this).getId();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
