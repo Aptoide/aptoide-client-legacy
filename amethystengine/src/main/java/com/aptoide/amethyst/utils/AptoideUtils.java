@@ -610,9 +610,29 @@ public class AptoideUtils {
 
         private static int TIME_OUT = 15000; // 15s
 
+        private static String getUserId() {
+            String user_id;
+
+            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext());
+
+            user_id = sPref.getString("advertisingIdClient", null);
+
+            // Fallback para user
+            if (isNullOrEmpty(user_id)) {
+                user_id = android.provider.Settings.Secure.getString(Aptoide.getContext().getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+            }
+
+            // Fallback para UUID
+            if (isNullOrEmpty(user_id)) {
+                user_id = sPref.getString(EnumPreferences.APTOIDE_CLIENT_UUID.name(), "NoInfo");
+            }
+
+            return user_id;
+        }
+
         public static String getUserAgentString(Context mctx, boolean update) {
             SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(mctx);
-            String myid = sPref.getString(EnumPreferences.APTOIDE_CLIENT_UUID.name(), "NoInfo");
+            String myid = getUserId();
             String myscr = sPref.getInt(EnumPreferences.SCREEN_WIDTH.name(), 0) + "x" + sPref.getInt(EnumPreferences.SCREEN_HEIGHT.name(), 0);
             String verString = null;
             try {
@@ -2035,5 +2055,9 @@ public class AptoideUtils {
                 }
             }, delayInMillis, TimeUnit.MILLISECONDS);
         }
+    }
+
+    private static boolean isNullOrEmpty(Object o) {
+        return o == null || "".equals(o);
     }
 }
