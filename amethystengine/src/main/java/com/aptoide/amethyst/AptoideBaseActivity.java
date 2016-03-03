@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.utils.AptoideUtils;
 
 import lombok.Getter;
 
@@ -44,6 +45,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         super.onResume();
         _resumed = true;
         Analytics.Lifecycle.Activity.onResume(this, getScreenName());
+        AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
     }
 
     @Override

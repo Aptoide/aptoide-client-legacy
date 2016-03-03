@@ -59,6 +59,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
@@ -2059,5 +2060,33 @@ public class AptoideUtils {
 
     private static boolean isNullOrEmpty(Object o) {
         return o == null || "".equals(o);
+    }
+
+
+    /**
+     * this class should have all the utils methods related to crashlytics
+     */
+    public static class CrashlyticsUtils{
+        /**
+         * arrayList with all screen names history
+         */
+        private static ArrayList<String> history = new ArrayList<>();
+
+        /**
+         * this method adds a screen name to the history to be reported to crashlytics
+         * @param screeName screen name that should be reported to crashlytics
+         */
+        public static void addScreenToHistory (String screeName) {
+            if (BuildConfig.FABRIC_CONFIGURED) {
+                history.add(screeName);
+                Crashlytics.setString("ScreenHistory", history.toString());
+            }
+        }
+
+        public static void resetScreenHistory() {
+            if (history != null) {
+                history.clear();
+            }
+        }
     }
 }
