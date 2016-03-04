@@ -2250,7 +2250,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 args.putString("icon", icon);
                 downgrade.setArguments(args);
 
-                getChildFragmentManager().beginTransaction().add(downgrade, "downgrade").commit();
+                getFragmentManager().beginTransaction().add(downgrade, "downgrade").commit();
             }
         }
 
