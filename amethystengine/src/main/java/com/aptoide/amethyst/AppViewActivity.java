@@ -172,6 +172,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
     private static final String APP_NOT_AVAILABLE = "410 Gone";
 
+    private ResultBundle resultBundle;
+
     private static int getPercentage(Number total, Number quantity) {
         if (quantity.intValue() == 0 || total.intValue() == 0) {
             return 0;
@@ -190,6 +192,18 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     }
 
 
+    static class ResultBundle {
+        final int requestCode;
+        final int resultCode;
+        final Intent data;
+
+        public ResultBundle(int requestCode, int resultCode, Intent data) {
+            this.requestCode = requestCode;
+            this.resultCode = resultCode;
+            this.data = data;
+        }
+    }
+    
     enum BtnInstallState {
         INSTALL(0), DOWNGRADE(1), UPDATE(2), OPEN(3), BUY(4);
         int state;
@@ -208,6 +222,16 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
+        if (fragment != null && resultBundle != null) {
+            fragment.onActivityResult(resultBundle.requestCode, resultBundle.resultCode, resultBundle.data);
+            resultBundle = null;
+        }
+    }
+
+    @Override
     protected void onStop() {
         final FragmentManager manager = getSupportFragmentManager();
         final Fragment fragment = manager.findFragmentById(R.id.content);
@@ -218,8 +242,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     @Override
     protected void onRestart() {
         super.onRestart();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content, new AppViewFragment())
+        final AppViewFragment fragment = new AppViewFragment();
+        final FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction()
+                .replace(R.id.content, fragment)
                 .commitAllowingStateLoss();
     }
 
@@ -251,6 +277,12 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             return ((AppViewFragment) fragment).downloadService;
         }
         return null;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        resultBundle = new ResultBundle(requestCode, resultCode, data);
     }
 
     public static class AppViewFragment extends Fragment implements FlagApkDialog.ApkFlagCallback, AddCommentVoteCallback, ServiceConnection {
@@ -452,6 +484,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
          */
         private boolean reloadButtons;
 
+        private ResultBundle resultBundle;
+
         private RequestListener<GetAppModel> listener = new RequestListener<GetAppModel>() {
 
             @Override
@@ -536,8 +570,13 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                         getOrganicAds();
                     }
 
-                    if (forceAutoDownload) {
+                    if (isFromActivityResult || forceAutoDownload) {
                         download();
+                    }
+
+                    if (resultBundle != null) {
+                        onActivityResult(resultBundle.requestCode, resultBundle.resultCode, resultBundle.data);
+                        resultBundle = null;
                     }
                 }
             }
@@ -863,6 +902,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             super.onActivityResult(requestCode, resultCode, data);
             if (requestCode == DOWNGRADE_REQUEST_CODE) {
                 try {
+                    // md5sum is not loaded yet
+                    if (md5sum == null) {
+                        resultBundle = new ResultBundle(requestCode, resultCode, data);
+                        return;
+                    }
                     getActivity().getPackageManager().getPackageInfo(packageName, 0);
                     Toast.makeText(getActivity(), getString(R.string.downgrade_requires_uninstall), Toast.LENGTH_SHORT).show();
                 } catch (PackageManager.NameNotFoundException e) {
@@ -1882,6 +1926,16 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
         }
 
+        private void handleSuccessCondition() {
+            mContentView.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.GONE);
+
+            layoutError.setVisibility(View.GONE);
+            layoutNoNetwork.setVisibility(View.GONE);
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mContentView.setVisibility(View.VISIBLE);
+        }
+
         private void showGenericError() {
             layoutNoNetwork.setVisibility(View.GONE);
             layoutError.setVisibility(View.VISIBLE);
@@ -1895,16 +1949,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                     refresh();
                 }
             });
-        }
-
-        private void handleSuccessCondition() {
-            mContentView.setVisibility(View.VISIBLE);
-            mProgressBar.setVisibility(View.GONE);
-
-            layoutError.setVisibility(View.GONE);
-            layoutNoNetwork.setVisibility(View.GONE);
-            mAppBarLayout.setVisibility(View.VISIBLE);
-            mContentView.setVisibility(View.VISIBLE);
         }
 
         private void handleLatestVersionLogic() {
