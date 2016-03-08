@@ -31,7 +31,7 @@ android {
         applicationId "cm.aptoide.pt.dev"
         targetSdkVersion 23
         versionCode 477
-        versionName "7.1.0"
+        versionName "7.1.0.5"
     }
 
     dexOptions {
