@@ -60,6 +60,7 @@ public class MoreSearchActivity extends MoreActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AptoideUtils.AppNavigationUtils.addParentRemovingBrother(getIntent(), SearchActivity.class.getName());
         if (mToolbar != null) {
             mToolbar.setLogo(null);
             mToolbar.setTitle(AptoideUtils.StringUtils.getFormattedString(this, R.string.search_activity_title, getIntent().getExtras().getString(QUERY_BUNDLE_KEY)));

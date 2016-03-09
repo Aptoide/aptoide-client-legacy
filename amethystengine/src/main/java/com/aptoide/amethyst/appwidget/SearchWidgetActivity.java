@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.websockets.WebSocketSingleton;
 
@@ -158,10 +159,8 @@ public class SearchWidgetActivity extends AppCompatActivity {
 
         int i = item.getItemId();
 
-        if (i == android.R.id.home) {
-            finish();
-        } else if (i == R.id.home) {
-            finish();
+        if (i == android.R.id.home || i == R.id.home) {
+            AptoideUtils.AppNavigationUtils.startParentActivity(this);
         }
 
         return super.onOptionsItemSelected(item);

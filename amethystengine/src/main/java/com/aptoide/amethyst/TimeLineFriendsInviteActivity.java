@@ -207,16 +207,6 @@ public class TimeLineFriendsInviteActivity extends AptoideBaseActivity {
         }
     }
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int i = item.getItemId();
-        if (i == android.R.id.home) {
-            finish();
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     protected String getScreenName() {
         return "Timeline Friends Invite";
     }

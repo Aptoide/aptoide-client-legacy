@@ -60,6 +60,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.BuildConfig;
+import com.aptoide.amethyst.MainActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
@@ -137,11 +138,13 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Stack;
 import java.util.UUID;
 import java.util.UnknownFormatConversionException;
 import java.util.concurrent.Executors;
@@ -2088,5 +2091,125 @@ public class AptoideUtils {
                 history.clear();
             }
         }
+    }
+
+    /**
+     * this class handles the up button stack
+     */
+    public static class AppNavigationUtils {
+        public static Stack<Intent> parents = new Stack<>();
+
+        /**
+         * Add the given parent's intent to the stack. this method makes sure that there are no repeated activities on stack
+         * @param parent parent to be added on stack
+         */
+        public static void addParent(Intent parent) {
+            if (parents != null && !checkHasParent(parent.getComponent().getClass().getName())) {
+                parents.push(parent);
+            }
+        }
+
+        /**
+         * Add the given parent intent to the stack. this method makes sure that there are no repeated activities on stack
+         * <br>If the activity with the given name (brotherFullName) exists on stack, it will be removed
+         * @param parent parent to be added on stack
+         * @param brotherFullName Activity's full name that should be removed from stack
+         */
+        public static void addParentRemovingBrother(Intent parent, String brotherFullName) {
+            onBackPressed(brotherFullName);
+            addParent(parent);
+        }
+
+        /**
+         * Method that checks if the parent activity is in stack already
+         * @param parentName parent's Name to check if exists on stack
+         * @return true if parent is already on stack, false otherwise
+         */
+        public static boolean checkHasParent(String parentName) {
+            for (Intent clazz : parents) {
+                if (parentName.equals(clazz.getComponent())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * get parent activity intent
+         * @return an intent to parent activity
+         */
+        public static Intent getParent() {
+            return getParent(null);
+        }
+
+        /**
+         * gives the parent activity and makes sure that it's not the same as current
+         * @param currentActivityName current full class name of the current activity
+         * @return an intent to the parent activity
+         */
+        public static Intent getParent(String currentActivityName) {
+            if (currentActivityName == null) {
+                try {
+                    return parents.pop();
+                } catch (EmptyStackException e) {
+                    return getDefaultParentIntent();
+                }
+            } else {
+                try {
+                    Intent parentIntent = parents.pop();
+                    if (parentIntent == null) {
+                        return getDefaultParentIntent();
+                    }
+                    if (parentIntent.getComponent().getClassName().equals(currentActivityName)) {
+                        return getParent(currentActivityName);
+                    } else {
+                        return parentIntent;
+                    }
+                } catch (EmptyStackException e) {
+                    return getDefaultParentIntent();
+                }
+            }
+        }
+
+        /**
+         * Method used to get the default intent to up action
+         * @return an intent with the default activity to up action
+         */
+        private static Intent getDefaultParentIntent() {
+            return new Intent(Aptoide.getContext(), MainActivity.class);
+        }
+
+        /**
+         * This method should be called when back button is pressed
+         * @param fullActivityClassName the activity's full class name
+         */
+        public static void onBackPressed(String fullActivityClassName) {
+            Intent parent = getParentFromClassName(fullActivityClassName);
+            if (parent != null) {
+                parents.remove(parent);
+            }
+        }
+
+        /**
+         * this method starts the parent activity and finish the activity given in the arg
+         * @param activity current activity
+         */
+        public static void startParentActivity(Activity activity) {
+            onBackPressed(activity.getClass().getName());
+            Intent parentActivityIntent = AptoideUtils.AppNavigationUtils.getParent(activity.getClass().getName());
+            parentActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            activity.startActivity(parentActivityIntent);
+            activity.finish();
+        }
+
+        private static Intent getParentFromClassName(String fullActivityClassName) {
+            for (Intent parent : parents) {
+                if (parent.getComponent().getClassName().equals(fullActivityClassName)) {
+                    return parent;
+                }
+            }
+            return null;
+        }
+
     }
 }

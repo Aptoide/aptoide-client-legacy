@@ -145,7 +145,7 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
     public void onCreate(Bundle savedInstanceState) {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-
+        AptoideUtils.AppNavigationUtils.addParent(getIntent());
         setContentView(getContentView());
         bindViews();
 
@@ -224,14 +224,6 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
                     cacheExpiryDuration,
                     listener);
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.home || item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

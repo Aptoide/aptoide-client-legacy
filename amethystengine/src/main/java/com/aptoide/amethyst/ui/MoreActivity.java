@@ -37,14 +37,6 @@ public abstract class MoreActivity extends AptoideBaseActivity {
     private boolean restored;
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home || item.getItemId() == R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     protected void onStart() {
         super.onStart();
         spiceManager.start(this);
@@ -63,6 +55,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
 //        Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
 
+        AptoideUtils.AppNavigationUtils.addParent(getIntent());
         setContentView(getContentView());
         bindViews();
 

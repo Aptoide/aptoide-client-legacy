@@ -755,10 +755,8 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
 
         int i = item.getItemId();
 
-        if (i == android.R.id.home) {
-            finish();
-        } else if (i == R.id.home) {
-            finish();
+        if (i == android.R.id.home || i == R.id.home) {
+            AptoideUtils.AppNavigationUtils.startParentActivity(this);
         }
         return super.onOptionsItemSelected(item);
     }

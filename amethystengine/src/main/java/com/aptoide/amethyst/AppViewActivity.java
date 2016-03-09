@@ -890,7 +890,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         public boolean onOptionsItemSelected(MenuItem item) {
             int i = item.getItemId();
             if (i == android.R.id.home) {
-                getActivity().onBackPressed();
+                AptoideUtils.AppNavigationUtils.startParentActivity(getActivity());
                 return true;
             } else if (i == R.id.menu_share) {
                 FlurryAgent.logEvent("App_View_Clicked_On_Share_Button");

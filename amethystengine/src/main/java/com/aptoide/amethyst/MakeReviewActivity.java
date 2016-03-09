@@ -194,18 +194,6 @@ public class MakeReviewActivity extends AptoideBaseActivity {
         outState.putDouble(RATINGS_AVG,avg);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-
-        if(item.getItemId() == android.R.id.home || item.getItemId() == R.id.home){
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     private void setupSeekBar(final int valuesPos,int title, int id){
         View v = findViewById(id);
         SeekBar seekbar = (SeekBar) v.findViewById(R.id.seek_bar_on_row);

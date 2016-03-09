@@ -2,6 +2,7 @@ package com.aptoide.amethyst;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -14,6 +15,12 @@ import lombok.Getter;
 public abstract class AptoideBaseActivity extends AppCompatActivity {
 
     @Getter private boolean _resumed = false;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        AptoideUtils.AppNavigationUtils.onBackPressed(getClass().getName());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,17 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         Analytics.Lifecycle.Activity.onPause(this);
         super.onPause();
         _resumed = false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int i = item.getItemId();
+
+        if (i == android.R.id.home || i == R.id.home) {
+            AptoideUtils.AppNavigationUtils.startParentActivity(this);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /*

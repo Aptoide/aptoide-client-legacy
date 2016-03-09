@@ -61,6 +61,7 @@ public class SearchActivity extends AptoideBaseActivity {
 			finish();
 			return;
 		}
+        AptoideUtils.AppNavigationUtils.addParent(getIntent());
         setSupportActionBar(mToolbar);
         ActionBar supportActBar = getSupportActionBar();
         if (supportActBar != null) {
@@ -112,15 +113,4 @@ public class SearchActivity extends AptoideBaseActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-
-        if(item.getItemId() == R.id.home || item.getItemId() == android.R.id.home){
-            finish();
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
 }

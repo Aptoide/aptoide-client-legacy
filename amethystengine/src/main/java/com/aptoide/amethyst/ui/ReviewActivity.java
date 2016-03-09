@@ -231,16 +231,6 @@ public class ReviewActivity extends AptoideBaseActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if(item.getItemId() == android.R.id.home || item.getItemId() == R.id.home){
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     private void setValue(PieChartData data, int score, TextView label,PieChartView chartView){
         int color = getColorBasedOnScore(score);
         setGraph(chartView, data,color);

@@ -263,10 +263,7 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
 
         int i = item.getItemId();
 
-
-        if (i == android.R.id.home || i == R.id.home) {
-            finish();
-        } else if (i == R.id.menu_install) {
+        if (i == R.id.menu_install) {
 
             Analytics.ScheduledDownloads.clickOnInstallSelected();
 
