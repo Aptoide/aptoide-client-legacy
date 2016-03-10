@@ -16,6 +16,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
@@ -2097,15 +2098,78 @@ public class AptoideUtils {
      * this class handles the up button stack
      */
     public static class AppNavigationUtils {
-        public static Stack<Intent> parents = new Stack<>();
+
+        public static final String PARENT_KEY = "cm.aptoide.pt.APTOIDE_PARENT";
+        public static final String BROTHER_KEY = "cm.aptoide.pt.APTOIDE_BROTHER";
+        public static final String ALL_PARENTS_KEY = "cm.aptoide.pt.ALL_APTOIDE_PARENTS";
+
+        /**
+         * stack of intents to parent's activity
+         */
+        private static Stack<Intent> parentsStack = new Stack<>();
+
+        /**
+         * array of possible parents
+         */
+        private static String[] allParents = null;
 
         /**
          * Add the given parent's intent to the stack. this method makes sure that there are no repeated activities on stack
          * @param parent parent to be added on stack
          */
         public static void addParent(Intent parent) {
-            if (parents != null && !checkHasParent(parent.getComponent().getClass().getName())) {
-                parents.push(parent);
+            boolean isOnStackAlready = checkHasParent(parent.getComponent().getClassName());
+            if (parentsStack != null && !isOnStackAlready && shouldAddParent(parent.getComponent().getClassName())) {
+                parentsStack.push(parent);
+            }else if (isOnStackAlready) {
+                addParentRemovingBrother(parent, parent.getComponent().getClassName());
+            }
+        }
+
+        private static boolean shouldAddParent(String fullActivityClassName) {
+            String[] possibleParents = getPossibleParents();
+            if (possibleParents != null) {
+                //check if parent is on the list of all parents
+                for (String parentName : allParents) {
+                    if (fullActivityClassName.equals(parentName)) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private static String[] getPossibleParents() {
+            if (allParents == null) {
+                try {
+                    //get meta data from manifest
+                    ApplicationInfo aiApplication = Aptoide.getContext().getPackageManager().getApplicationInfo(Aptoide.getContext().getPackageName(), PackageManager.GET_META_DATA);
+                    String parentList = aiApplication.metaData.getString(AppNavigationUtils.ALL_PARENTS_KEY);
+                    if (parentList != null) {
+                        allParents = parentList.split("\\|");
+                    }
+                } catch (PackageManager.NameNotFoundException e) {
+                    return null;
+                }
+            }
+            return allParents;
+        }
+
+        /**
+         * this method should be called on activity's onCreate method
+         * @param parent
+         * @param navigationInterface
+         */
+        public static void onCreate(Intent parent, AptoideNavigationInterface navigationInterface) {
+            String brothers = navigationInterface.getMetaData(BROTHER_KEY);
+            if (brothers != null) {
+                String[] brothersList = brothers.split("\\|");
+                for (String brother : brothersList) {
+                    addParentRemovingBrother(parent, brother);
+                }
+            } else {
+                addParent(parent);
             }
         }
 
@@ -2116,7 +2180,7 @@ public class AptoideUtils {
          * @param brotherFullName Activity's full name that should be removed from stack
          */
         public static void addParentRemovingBrother(Intent parent, String brotherFullName) {
-            onBackPressed(brotherFullName);
+            removeParentFromStack(brotherFullName);
             addParent(parent);
         }
 
@@ -2126,8 +2190,8 @@ public class AptoideUtils {
          * @return true if parent is already on stack, false otherwise
          */
         public static boolean checkHasParent(String parentName) {
-            for (Intent clazz : parents) {
-                if (parentName.equals(clazz.getComponent())) {
+            for (Intent clazz : parentsStack) {
+                if (parentName.equals(clazz.getComponent().getClassName())) {
                     return true;
                 }
             }
@@ -2143,20 +2207,45 @@ public class AptoideUtils {
         }
 
         /**
+         * Get a parent from the activity's parent list and check if it's on stack, if it's, it get's the 1st if not, returns the default parent
+         * @param fullActivityClassName fullActivityClassName full class name of the current activity
+         * @param parentsList parent's list of the current activity
+         * @return
+         */
+        private static Intent getParent(String fullActivityClassName, String[] parentsList) {
+            if (parentsList != null && parentsList.length > 0 && parentsStack != null && parentsStack.size() > 0) {
+                Intent parent = getParent(fullActivityClassName);
+                for (String parentName : parentsList) {
+                    if (parentName.equals(parent.getComponent().getClassName())) {
+                        return parent;
+                    }
+                }
+                return getParent(fullActivityClassName, parentsList);
+//                for (String parentName : parentsList) {
+//                    if (getParentFromClassName(parentName) != null) {
+//                        return getParent(fullActivityClassName);
+//                    }
+//                }
+            }
+
+            return getDefaultParentIntent();
+        }
+
+        /**
          * gives the parent activity and makes sure that it's not the same as current
-         * @param currentActivityName current full class name of the current activity
+         * @param currentActivityName full class name of the current activity
          * @return an intent to the parent activity
          */
         public static Intent getParent(String currentActivityName) {
             if (currentActivityName == null) {
                 try {
-                    return parents.pop();
+                    return parentsStack.pop();
                 } catch (EmptyStackException e) {
                     return getDefaultParentIntent();
                 }
             } else {
                 try {
-                    Intent parentIntent = parents.pop();
+                    Intent parentIntent = parentsStack.pop();
                     if (parentIntent == null) {
                         return getDefaultParentIntent();
                     }
@@ -2184,9 +2273,13 @@ public class AptoideUtils {
          * @param fullActivityClassName the activity's full class name
          */
         public static void onBackPressed(String fullActivityClassName) {
+            removeParentFromStack(fullActivityClassName);
+        }
+
+        public static void removeParentFromStack(String fullActivityClassName) {
             Intent parent = getParentFromClassName(fullActivityClassName);
             if (parent != null) {
-                parents.remove(parent);
+                parentsStack.remove(parent);
             }
         }
 
@@ -2194,16 +2287,21 @@ public class AptoideUtils {
          * this method starts the parent activity and finish the activity given in the arg
          * @param activity current activity
          */
-        public static void startParentActivity(Activity activity) {
-            onBackPressed(activity.getClass().getName());
-            Intent parentActivityIntent = AptoideUtils.AppNavigationUtils.getParent(activity.getClass().getName());
+        public static void startParentActivity(Activity activity, AptoideNavigationInterface aptoideNavigationInterface) {
+            removeParentFromStack(activity.getClass().getName());
+            String parentList = aptoideNavigationInterface.getMetaData(PARENT_KEY);
+            String[] parentsSplitted = null;
+            if (parentList != null) {
+                parentsSplitted = parentList.split("\\|");
+            }
+            Intent parentActivityIntent = AptoideUtils.AppNavigationUtils.getParent(activity.getClass().getName(), parentsSplitted);
             parentActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             activity.startActivity(parentActivityIntent);
             activity.finish();
         }
 
         private static Intent getParentFromClassName(String fullActivityClassName) {
-            for (Intent parent : parents) {
+            for (Intent parent : parentsStack) {
                 if (parent.getComponent().getClassName().equals(fullActivityClassName)) {
                     return parent;
                 }
@@ -2211,5 +2309,12 @@ public class AptoideUtils {
             return null;
         }
 
+        public static void defaultParentOnResume() {
+            parentsStack.clear();
+        }
+
+        public interface AptoideNavigationInterface{
+            public String getMetaData(String key);
+        }
     }
 }

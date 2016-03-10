@@ -1,6 +1,8 @@
 package com.aptoide.amethyst.appwidget;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,7 +34,7 @@ import com.aptoide.amethyst.SearchActivity;
 /**
  * Created by brutus on 02-01-2014.
  */
-public class SearchWidgetActivity extends AppCompatActivity {
+public class SearchWidgetActivity extends AppCompatActivity implements AptoideUtils.AppNavigationUtils.AptoideNavigationInterface{
 
     private AutoCompleteTextView searchAutoComplete;
     private WidgetSuggestionsAdapter suggestionAdapter;
@@ -160,11 +162,23 @@ public class SearchWidgetActivity extends AppCompatActivity {
         int i = item.getItemId();
 
         if (i == android.R.id.home || i == R.id.home) {
-            AptoideUtils.AppNavigationUtils.startParentActivity(this);
+            AptoideUtils.AppNavigationUtils.startParentActivity(this, this);
         }
 
         return super.onOptionsItemSelected(item);
     }
 
 
+    @Override
+    public String getMetaData(String key) {
+        try {
+            ActivityInfo aiActivity = getPackageManager().getActivityInfo(this.getComponentName(), PackageManager.GET_META_DATA);
+            if (aiActivity.metaData != null) {
+                return aiActivity.metaData.getString(key);
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+        return null;
+    }
 }

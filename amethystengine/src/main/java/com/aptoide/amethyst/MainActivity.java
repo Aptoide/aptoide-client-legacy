@@ -161,6 +161,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
                 }
             }, OPEN_DELAY);
         }
+        AptoideUtils.AppNavigationUtils.defaultParentOnResume();
     }
 
     @Override

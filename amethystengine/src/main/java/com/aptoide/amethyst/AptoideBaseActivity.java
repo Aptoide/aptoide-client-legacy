@@ -1,18 +1,21 @@
 package com.aptoide.amethyst;
 
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Logger;
 
 import lombok.Getter;
 
 /**
  * Created by rmateus on 01/06/15.
  */
-public abstract class AptoideBaseActivity extends AppCompatActivity {
+public abstract class AptoideBaseActivity extends AppCompatActivity implements AptoideUtils.AppNavigationUtils.AptoideNavigationInterface {
 
     @Getter private boolean _resumed = false;
 
@@ -26,6 +29,8 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
+        Logger.d("debug", "onCreate: " + getClass().getSimpleName());
+        AptoideUtils.AppNavigationUtils.onCreate(getIntent(), this);
         Analytics.Lifecycle.Activity.onCreate(this);
     }
 
@@ -67,7 +72,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         int i = item.getItemId();
 
         if (i == android.R.id.home || i == R.id.home) {
-            AptoideUtils.AppNavigationUtils.startParentActivity(this);
+            AptoideUtils.AppNavigationUtils.startParentActivity(this ,this);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -77,4 +82,17 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
      * @return o nome so monitor associado a esta activity, para efeitos de Analytics.
      */
     protected abstract String getScreenName();
+
+    @Override
+    public String getMetaData(String key) {
+        try {
+            ActivityInfo aiActivity = getPackageManager().getActivityInfo(this.getComponentName(), PackageManager.GET_META_DATA);
+            if (aiActivity.metaData != null) {
+                return aiActivity.metaData.getString(key);
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+        return null;
+    }
 }

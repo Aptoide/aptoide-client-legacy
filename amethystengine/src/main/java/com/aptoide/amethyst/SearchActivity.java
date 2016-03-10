@@ -61,7 +61,6 @@ public class SearchActivity extends AptoideBaseActivity {
 			finish();
 			return;
 		}
-        AptoideUtils.AppNavigationUtils.addParent(getIntent());
         setSupportActionBar(mToolbar);
         ActionBar supportActBar = getSupportActionBar();
         if (supportActBar != null) {

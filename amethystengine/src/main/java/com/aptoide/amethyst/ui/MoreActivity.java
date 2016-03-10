@@ -55,7 +55,6 @@ public abstract class MoreActivity extends AptoideBaseActivity {
 //        Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
 
-        AptoideUtils.AppNavigationUtils.addParent(getIntent());
         setContentView(getContentView());
         bindViews();
 
