@@ -2081,9 +2081,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             if (getActivity().getIntent().getBooleanExtra(Constants.FROM_MY_APP_KEY, false) && !isPaidApp()) {
                 final InstallListener installListener = new InstallListener(iconUrl, appName, versionName, packageName, md5sum, isPaidApp());
                 DialogFragment dialog = AptoideDialog.myAppInstall(appName, installListener, onDismissListener);
-                FragmentTransaction ft = getChildFragmentManager().beginTransaction();
-                ft.add(dialog, "myApp");
-                ft.commitAllowingStateLoss();
+                AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(),"myApp");
             }
         }
 
