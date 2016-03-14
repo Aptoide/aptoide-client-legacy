@@ -2102,6 +2102,7 @@ public class AptoideUtils {
         public static final String PARENT_KEY = "cm.aptoide.pt.APTOIDE_PARENT";
         public static final String BROTHER_KEY = "cm.aptoide.pt.APTOIDE_BROTHER";
         public static final String ALL_PARENTS_KEY = "cm.aptoide.pt.ALL_APTOIDE_PARENTS";
+        public static final String FROM_UP = "APTOIDE_UTILS_NAVIGATION_FROM_UP";
 
         /**
          * stack of intents to parent's activity
@@ -2119,7 +2120,7 @@ public class AptoideUtils {
          */
         public static void addParent(Intent parent) {
             boolean isOnStackAlready = checkHasParent(parent.getComponent().getClassName());
-            if (parentsStack != null && !isOnStackAlready && shouldAddParent(parent.getComponent().getClassName())) {
+            if (parentsStack != null && /*!isOnStackAlready && */shouldAddParent(parent.getComponent().getClassName())) {
                 parentsStack.push(parent);
             }else if (isOnStackAlready) {
                 addParentRemovingBrother(parent, parent.getComponent().getClassName());
@@ -2162,14 +2163,17 @@ public class AptoideUtils {
          * @param navigationInterface
          */
         public static void onCreate(Intent parent, AptoideNavigationInterface navigationInterface) {
-            String brothers = navigationInterface.getMetaData(BROTHER_KEY);
-            if (brothers != null) {
-                String[] brothersList = brothers.split("\\|");
-                for (String brother : brothersList) {
-                    addParentRemovingBrother(parent, brother);
+            //check if the activity came from up action
+            if (!parent.getBooleanExtra(FROM_UP, false)) {
+                String brothers = navigationInterface.getMetaData(BROTHER_KEY);
+                if (brothers != null) {
+                    String[] brothersList = brothers.split("\\|");
+                    for (String brother : brothersList) {
+                        addParentRemovingBrother(parent, brother);
+                    }
+                } else {
+                    addParent(parent);
                 }
-            } else {
-                addParent(parent);
             }
         }
 
@@ -2296,6 +2300,8 @@ public class AptoideUtils {
             }
             Intent parentActivityIntent = AptoideUtils.AppNavigationUtils.getParent(activity.getClass().getName(), parentsSplitted);
             parentActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            //this flag is added to know if the activity is starting from going up action
+            parentActivityIntent.putExtra(FROM_UP, true);
             activity.startActivity(parentActivityIntent);
             activity.finish();
         }
