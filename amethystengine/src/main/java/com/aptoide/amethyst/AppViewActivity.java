@@ -36,6 +36,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
@@ -71,6 +72,7 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.dialogs.DialogPermissions;
 import com.aptoide.amethyst.dialogs.FlagApkDialog;
+import com.aptoide.amethyst.dialogs.MyAppInstallDialog;
 import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
@@ -2091,7 +2093,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         private void showDialogIfComingFromBrowser() {
             if (getActivity().getIntent().getBooleanExtra(Constants.FROM_MY_APP_KEY, false) && !isPaidApp()) {
                 final InstallListener installListener = new InstallListener(iconUrl, appName, versionName, packageName, md5sum, isPaidApp());
-                AptoideDialog.myAppInstall(appName, installListener, onDismissListener).show(getChildFragmentManager(), "myApp");
+                DialogFragment dialog = AptoideDialog.myAppInstall(appName, installListener, onDismissListener);
+                AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(),"myApp");
             }
         }
 

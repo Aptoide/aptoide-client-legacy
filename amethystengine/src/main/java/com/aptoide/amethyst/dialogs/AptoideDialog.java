@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 
 import com.aptoide.amethyst.R;
@@ -135,5 +137,11 @@ public class AptoideDialog {
             flagApkDialog.setArguments(bundle);
         }
         return flagApkDialog;
+    }
+
+    public static void showDialogAllowingStateLoss(DialogFragment dialog, FragmentManager fragmentManager, String tag) {
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.add(dialog, tag);
+        ft.commitAllowingStateLoss();
     }
 }

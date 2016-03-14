@@ -2077,14 +2077,25 @@ public class AptoideUtils {
         private static ArrayList<String> history = new ArrayList<>();
 
         /**
+         * this var sets the max screens should be added to history
+         */
+        private static int MAX_HISTORY = 10;
+        /**
          * this method adds a screen name to the history to be reported to crashlytics
          * @param screeName screen name that should be reported to crashlytics
          */
         public static void addScreenToHistory (String screeName) {
             if (BuildConfig.FABRIC_CONFIGURED) {
-                history.add(screeName);
+                addScreen(screeName);
                 Crashlytics.setString("ScreenHistory", history.toString());
             }
+        }
+
+        private static void addScreen(String screeName) {
+            if (history.size() >= MAX_HISTORY) {
+                history.remove(0);
+            }
+            history.add(screeName);
         }
 
         public static void resetScreenHistory() {

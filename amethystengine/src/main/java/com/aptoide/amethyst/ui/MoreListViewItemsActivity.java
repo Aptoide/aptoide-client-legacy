@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.dialogs.AdultHiddenDialog;
+import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -167,7 +168,8 @@ public class MoreListViewItemsActivity extends MoreActivity {
 
                             // check for hidden items
                             if (tab.hidden > 0 && AptoideUtils.getSharedPreferences().getBoolean(Constants.SHOW_ADULT_HIDDEN, true) && getFragmentManager().findFragmentByTag(Constants.HIDDEN_ADULT_DIALOG) == null) {
-                                new AdultHiddenDialog().show(getFragmentManager(), Constants.HIDDEN_ADULT_DIALOG);
+                                AdultHiddenDialog dialog = new AdultHiddenDialog();
+                                AptoideDialog.showDialogAllowingStateLoss(dialog, getFragmentManager(), Constants.HIDDEN_ADULT_DIALOG);
                             }
                         }
                     }
