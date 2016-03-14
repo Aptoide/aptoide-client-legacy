@@ -45,7 +45,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         super.onResume();
         _resumed = true;
         Analytics.Lifecycle.Activity.onResume(this, getScreenName());
-//        AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
+        AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
     }
 
     @Override

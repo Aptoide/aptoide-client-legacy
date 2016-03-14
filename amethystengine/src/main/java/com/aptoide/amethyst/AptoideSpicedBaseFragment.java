@@ -18,7 +18,7 @@ public class AptoideSpicedBaseFragment extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
-//            AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
+            AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
         }
     }
 

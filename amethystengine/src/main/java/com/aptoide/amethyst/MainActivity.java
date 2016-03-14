@@ -206,7 +206,6 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
     public void onCreate(Bundle savedInstanceState) {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-//        AptoideUtils.CrashlyticsUtils.resetScreenHistory();
         setContentView(getContentView());
         bindViews();
 
