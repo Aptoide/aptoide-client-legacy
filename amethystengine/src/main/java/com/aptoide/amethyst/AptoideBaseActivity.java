@@ -22,7 +22,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity implements A
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        AptoideUtils.AppNavigationUtils.onBackPressed(getClass().getName());
+        AptoideUtils.AppNavigationUtils.onBackPressed(getIntent());
     }
 
     @Override

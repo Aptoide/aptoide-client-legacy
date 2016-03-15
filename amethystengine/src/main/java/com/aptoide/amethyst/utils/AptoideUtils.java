@@ -2130,8 +2130,8 @@ public class AptoideUtils {
          * @param parent parent to be added on stack
          */
         public static void addParent(Intent parent) {
-            boolean isOnStackAlready = checkHasParent(parent.getComponent().getClassName());
-            if (parentsStack != null && /*!isOnStackAlready && */shouldAddParent(parent.getComponent().getClassName())) {
+            boolean isOnStackAlready = checkHasParent(parent);
+            if (parentsStack != null && !isOnStackAlready && shouldAddParent(parent.getComponent().getClassName())) {
                 parentsStack.push(parent);
             }else if (isOnStackAlready) {
                 addParentRemovingBrother(parent, parent.getComponent().getClassName());
@@ -2201,12 +2201,12 @@ public class AptoideUtils {
 
         /**
          * Method that checks if the parent activity is in stack already
-         * @param parentName parent's Name to check if exists on stack
+         * @param parent parent's intent to check if exists on stack
          * @return true if parent is already on stack, false otherwise
          */
-        public static boolean checkHasParent(String parentName) {
+        public static boolean checkHasParent(Intent parent) {
             for (Intent clazz : parentsStack) {
-                if (parentName.equals(clazz.getComponent().getClassName())) {
+                if (parent == clazz) {
                     return true;
                 }
             }
@@ -2285,10 +2285,16 @@ public class AptoideUtils {
 
         /**
          * This method should be called when back button is pressed
-         * @param fullActivityClassName the activity's full class name
+         * @param activityIntent the activity's full class name
          */
-        public static void onBackPressed(String fullActivityClassName) {
-            removeParentFromStack(fullActivityClassName);
+        public static void onBackPressed(Intent activityIntent) {
+            removeParentFromStack(activityIntent);
+        }
+
+        private static void removeParentFromStack(Intent activityIntent) {
+            if (activityIntent != null) {
+                parentsStack.remove(activityIntent);
+            }
         }
 
         public static void removeParentFromStack(String fullActivityClassName) {
@@ -2303,7 +2309,7 @@ public class AptoideUtils {
          * @param activity current activity
          */
         public static void startParentActivity(Activity activity, AptoideNavigationInterface aptoideNavigationInterface) {
-            removeParentFromStack(activity.getClass().getName());
+            removeParentFromStack(activity.getIntent());
             String parentList = aptoideNavigationInterface.getMetaData(PARENT_KEY);
             String[] parentsSplitted = null;
             if (parentList != null) {
