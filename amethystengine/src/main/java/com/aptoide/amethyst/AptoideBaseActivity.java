@@ -28,6 +28,14 @@ public abstract class AptoideBaseActivity extends AppCompatActivity implements A
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Aptoide.getThemePicker().setAptoideTheme(this);
+
+        if (getIntent().hasExtra(AptoideUtils.AppNavigationUtils.STATE_KEY)) {
+            Bundle bundle = (Bundle) getIntent().getExtras().get(AptoideUtils.AppNavigationUtils.STATE_KEY);
+            if (bundle != null) {
+                savedInstanceState = bundle;
+            }
+        }
+
         super.onCreate(savedInstanceState);
         Logger.d("debug", "onCreate: " + getClass().getSimpleName());
         AptoideUtils.AppNavigationUtils.onCreate(getIntent(), this);
@@ -41,9 +49,17 @@ public abstract class AptoideBaseActivity extends AppCompatActivity implements A
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        AptoideUtils.AppNavigationUtils.onSaveInstanceState(getIntent(), outState);
+    }
+
+    @Override
     protected void onStart() {
+        AptoideUtils.AppNavigationUtils.onStart(getIntent(), this);
         super.onStart();
         Analytics.Lifecycle.Activity.onStart(this);
+
     }
 
     @Override
@@ -95,4 +111,10 @@ public abstract class AptoideBaseActivity extends AppCompatActivity implements A
         }
         return null;
     }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
 }

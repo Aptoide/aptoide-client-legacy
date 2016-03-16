@@ -181,4 +181,9 @@ public class SearchWidgetActivity extends AppCompatActivity implements AptoideUt
         }
         return null;
     }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
 }

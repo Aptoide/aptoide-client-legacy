@@ -628,7 +628,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION, 0);
         Menu menu = mNavigationView.getMenu();

@@ -794,4 +794,8 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         getDelegate().onStop();
     }
 
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
 }

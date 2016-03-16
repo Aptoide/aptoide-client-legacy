@@ -2113,7 +2113,6 @@ public class AptoideUtils {
         public static final String PARENT_KEY = "cm.aptoide.pt.APTOIDE_PARENT";
         public static final String BROTHER_KEY = "cm.aptoide.pt.APTOIDE_BROTHER";
         public static final String ALL_PARENTS_KEY = "cm.aptoide.pt.ALL_APTOIDE_PARENTS";
-        public static final String FROM_UP = "APTOIDE_UTILS_NAVIGATION_FROM_UP";
         public static final String STATE_KEY = "cm.aptoide.pt.NAVIGATION_UTILS_STATE_KEY";
 
         /**
@@ -2188,6 +2187,15 @@ public class AptoideUtils {
             }
         }
 
+        public static void onStart(Intent parent, AptoideNavigationInterface navigationInterface) {
+            if (parent.hasExtra(STATE_KEY)) {
+                Bundle bundle = (Bundle) parent.getExtras().get(STATE_KEY);
+                if (bundle != null) {
+                    navigationInterface.onRestoreInstanceState(bundle);
+                }
+            }
+        }
+
         /**
          * this method should be called on activity's onSaveInstanceState
          *
@@ -2242,7 +2250,7 @@ public class AptoideUtils {
          * @param parentsList           parent's list of the current activity
          * @return Returns the parent's intent
          */
-        private static Intent getParent(String fullActivityClassName, String[] parentsList) {
+        private static Intent getParent(@NonNull String fullActivityClassName,@NonNull String[] parentsList) {
             if (parentsList != null && parentsList.length > 0 && parentsStack != null && parentsStack.size() > 0) {
                 Intent parent = getParent(fullActivityClassName);
                 for (String parentName : parentsList) {
@@ -2296,7 +2304,10 @@ public class AptoideUtils {
          * @return an intent with the default activity to up action
          */
         private static Intent getDefaultParentIntent() {
-            return new Intent(Aptoide.getContext(), MainActivity.class);
+            while (parentsStack.size() > 1) {
+                parentsStack.pop();
+            }
+            return parentsStack.size()>0 ? parentsStack.get(0) :new Intent(Aptoide.getContext(), MainActivity.class);
         }
 
         /**
@@ -2332,10 +2343,8 @@ public class AptoideUtils {
             if (parentList != null) {
                 parentsSplitted = parentList.trim().replace(" ","").split("\\|");
             }
-            Intent parentActivityIntent = AptoideUtils.AppNavigationUtils.getParent(activity.getClass().getName(), parentsSplitted);
+            Intent parentActivityIntent = getParent(activity.getClass().getName(), parentsSplitted);
             parentActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            //this flag is added to know if the activity is starting from going up action
-            parentActivityIntent.putExtra(FROM_UP, true);
             activity.startActivity(parentActivityIntent);
             activity.finish();
         }
@@ -2351,7 +2360,9 @@ public class AptoideUtils {
 
 
         public interface AptoideNavigationInterface {
-            public String getMetaData(String key);
+            String getMetaData(String key);
+
+            void onRestoreInstanceState(Bundle savedInstanceState);
         }
     }
 }
