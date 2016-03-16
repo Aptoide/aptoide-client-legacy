@@ -2114,6 +2114,7 @@ public class AptoideUtils {
         public static final String BROTHER_KEY = "cm.aptoide.pt.APTOIDE_BROTHER";
         public static final String ALL_PARENTS_KEY = "cm.aptoide.pt.ALL_APTOIDE_PARENTS";
         public static final String FROM_UP = "APTOIDE_UTILS_NAVIGATION_FROM_UP";
+        public static final String STATE_KEY = "cm.aptoide.pt.NAVIGATION_UTILS_STATE_KEY";
 
         /**
          * stack of intents to parent's activity
@@ -2127,6 +2128,7 @@ public class AptoideUtils {
 
         /**
          * Add the given parent's intent to the stack. this method makes sure that there are no repeated activities on stack
+         *
          * @param parent parent to be added on stack
          */
         public static void addParent(Intent parent) {
@@ -2159,7 +2161,7 @@ public class AptoideUtils {
                     ApplicationInfo aiApplication = Aptoide.getContext().getPackageManager().getApplicationInfo(Aptoide.getContext().getPackageName(), PackageManager.GET_META_DATA);
                     String parentList = aiApplication.metaData.getString(AppNavigationUtils.ALL_PARENTS_KEY);
                     if (parentList != null) {
-                        allParents = parentList.split("\\|");
+                        allParents = parentList.trim().replace(" ","").split("\\|");
                     }
                 } catch (PackageManager.NameNotFoundException e) {
                     return null;
@@ -2169,23 +2171,35 @@ public class AptoideUtils {
         }
 
         /**
-         * this method should be called on activity's onCreate method
-         * @param parent
-         * @param navigationInterface
+         * this method should be called on activity's onCreate method before super
+         *
+         * @param parent              intent that was used to create the activity
+         * @param navigationInterface interface that allows to get the activity's meta data
          */
         public static void onCreate(Intent parent, AptoideNavigationInterface navigationInterface) {
-            //check if the activity came from up action
-            if (!parent.getBooleanExtra(FROM_UP, false)) {
-                String brothers = navigationInterface.getMetaData(BROTHER_KEY);
-                if (brothers != null) {
-                    String[] brothersList = brothers.split("\\|");
-                    for (String brother : brothersList) {
-                        addParentRemovingBrother(parent, brother);
-                    }
-                } else {
-                    addParent(parent);
+            String brothers = navigationInterface.getMetaData(BROTHER_KEY);
+            if (brothers != null) {
+                String[] brothersList = brothers.split("\\|");
+                for (String brother : brothersList) {
+                    addParentRemovingBrother(parent, brother);
                 }
+            } else {
+                addParent(parent);
             }
+        }
+
+        /**
+         * this method should be called on activity's onSaveInstanceState
+         *
+         * @param parent Intent that was used to create the activity
+         * @param bundle
+         */
+        public static void onSaveInstanceState(Intent parent, Bundle bundle) {
+            updateParent(parent, bundle);
+        }
+
+        private static void updateParent(Intent parent, Bundle bundle) {
+            parent.putExtra(STATE_KEY, bundle);
         }
 
         /**
@@ -2201,6 +2215,7 @@ public class AptoideUtils {
 
         /**
          * Method that checks if the parent activity is in stack already
+         *
          * @param parent parent's intent to check if exists on stack
          * @return true if parent is already on stack, false otherwise
          */
@@ -2224,8 +2239,8 @@ public class AptoideUtils {
         /**
          * Get a parent from the activity's parent list and check if it's on stack, if it's, it get's the 1st if not, returns the default parent
          * @param fullActivityClassName fullActivityClassName full class name of the current activity
-         * @param parentsList parent's list of the current activity
-         * @return
+         * @param parentsList           parent's list of the current activity
+         * @return Returns the parent's intent
          */
         private static Intent getParent(String fullActivityClassName, String[] parentsList) {
             if (parentsList != null && parentsList.length > 0 && parentsStack != null && parentsStack.size() > 0) {
@@ -2277,6 +2292,7 @@ public class AptoideUtils {
 
         /**
          * Method used to get the default intent to up action
+         *
          * @return an intent with the default activity to up action
          */
         private static Intent getDefaultParentIntent() {
@@ -2285,6 +2301,7 @@ public class AptoideUtils {
 
         /**
          * This method should be called when back button is pressed
+         *
          * @param activityIntent the activity's full class name
          */
         public static void onBackPressed(Intent activityIntent) {
@@ -2313,7 +2330,7 @@ public class AptoideUtils {
             String parentList = aptoideNavigationInterface.getMetaData(PARENT_KEY);
             String[] parentsSplitted = null;
             if (parentList != null) {
-                parentsSplitted = parentList.split("\\|");
+                parentsSplitted = parentList.trim().replace(" ","").split("\\|");
             }
             Intent parentActivityIntent = AptoideUtils.AppNavigationUtils.getParent(activity.getClass().getName(), parentsSplitted);
             parentActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -2332,11 +2349,8 @@ public class AptoideUtils {
             return null;
         }
 
-        public static void defaultParentOnResume() {
-            parentsStack.clear();
-        }
 
-        public interface AptoideNavigationInterface{
+        public interface AptoideNavigationInterface {
             public String getMetaData(String key);
         }
     }
