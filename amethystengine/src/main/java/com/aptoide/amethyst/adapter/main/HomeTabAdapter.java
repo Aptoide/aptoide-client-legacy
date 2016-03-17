@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 
 import java.util.List;
 

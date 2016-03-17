@@ -21,7 +21,7 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.database.schema.Schema;
-import com.aptoide.models.updates.ExcludedUpdate;
+import com.aptoide.models.displayables.ExcludedUpdate;
 
 import java.util.ArrayList;
 import java.util.List;

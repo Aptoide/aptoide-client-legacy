@@ -14,8 +14,8 @@ import com.aptoide.dataprovider.webservices.models.StoreHomeTab;
 import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
 import com.aptoide.dataprovider.webservices.models.v7.ListViewItems;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
-import com.aptoide.models.AppItem;
-import com.aptoide.models.BrickAppItem;
+import com.aptoide.models.displayables.AppItem;
+import com.aptoide.models.displayables.BrickAppItem;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_APPS;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_STORES;

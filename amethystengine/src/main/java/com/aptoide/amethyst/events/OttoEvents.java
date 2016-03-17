@@ -1,13 +1,12 @@
 package com.aptoide.amethyst.events;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
-
-import com.aptoide.models.stores.Login;
-import com.aptoide.models.stores.Store;
-import com.aptoide.models.updates.UpdateRow;
 
 import com.aptoide.amethyst.downloadmanager.model.Download;
+import com.aptoide.models.stores.Login;
+import com.aptoide.models.stores.Store;
+import com.aptoide.models.displayables.UpdateRow;
+
 import com.aptoide.amethyst.downloadmanager.state.StatusState;
 
 import java.util.List;

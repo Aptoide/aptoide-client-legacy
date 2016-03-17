@@ -17,8 +17,8 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
-import com.aptoide.models.CommentItem;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.CommentItem;
+import com.aptoide.models.displayables.Displayable;
 import com.bumptech.glide.Glide;
 
 import java.text.ParseException;

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.aptoide.amethyst.R;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 
 
 import com.aptoide.amethyst.viewholders.BaseViewHolder;
