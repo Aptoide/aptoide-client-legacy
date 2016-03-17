@@ -12,6 +12,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ReferrersMap extends ConcurrentHashMap<String, List<Long>> {
 
 	public void add(String packageName, long networkId) {
+		// Martelada para quando o ID é inexistênte. Na v8 deverá sumir!
+		if (networkId == -1) {
+			return;
+		}
+
 		if (!containsKey(packageName)) {
 			put(packageName, new LinkedList<Long>());
 		}

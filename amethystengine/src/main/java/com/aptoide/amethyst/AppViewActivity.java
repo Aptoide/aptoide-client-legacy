@@ -1665,7 +1665,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                         long id = appSuggested.getData().getId().longValue();
                         adId = appSuggested.getInfo().getAd_id();
 
-                        ReferrerUtils.extractReferrer(webview, (AppViewActivity) getActivity(), adPackageName, spiceManager, clickUrl, downloadId, id, adId, referrer);
+                        ReferrerUtils.extractReferrer(packageName, appId, adId, -1, clickUrl, spiceManager, null, ReferrerUtils.RETRIES);
 
                         OkHttpClient client = new OkHttpClient();
 
@@ -2136,22 +2136,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
                 executeSpiceRequestWithAppId(appId, storeName, packageName);
                 AptoideUtils.AdNetworks.knock(cpc);
-                final ExecutorService executorService = Executors.newSingleThreadExecutor();
-                executorService.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (intent.hasExtra("partnerExtra")) {
-                            try {
-                                String clickUrl = intent.getBundleExtra("partnerExtra").getString("partnerClickUrl");
-                                Logger.d("Aptoide", "InSponsoredExtras");
-                                String partnerType = intent.getBundleExtra("partnerExtra").getString("partnerType");
-                                ReferrerUtils.extractReferrer(webview, (AppViewActivity) getActivity(), packageName, spiceManager, clickUrl, downloadId, appId, adId, referrer);
-                            } catch (Exception e) {
-                                Logger.printException(e);
-                            }
-                        }
-                    }
-                });
+
+                final String clickUrl = intent.getBundleExtra("partnerExtra").getString("partnerClickUrl");
+                ReferrerUtils.extractReferrer(packageName, appId, adId, -1, clickUrl, spiceManager, null, ReferrerUtils.RETRIES);
             } else if (intent.getBooleanExtra(Constants.ROLLBACK_FROM_KEY, false)) {
                 md5sum = intent.getStringExtra(Constants.MD5SUM_KEY);
 

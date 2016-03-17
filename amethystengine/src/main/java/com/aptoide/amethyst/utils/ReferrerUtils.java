@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
 import android.os.Build;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.WindowManager;
 import android.webkit.WebView;
@@ -12,9 +13,12 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.data_provider.getAds.GetAdsRequestListener;
 import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.webservices.RegisterAdRefererRequest;
+import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.models.ApkSuggestionJson;
 import com.crashlytics.android.Crashlytics;
@@ -35,115 +39,56 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-import com.aptoide.amethyst.AppViewActivity;
-import com.aptoide.amethyst.webservices.RegisterAdRefererRequest;
-
 /**
  * Created by neuro on 08-10-2015.
  */
 public class ReferrerUtils {
 
+    public static final int RETRIES = 2;
+    public static final int TIME_OUT = 5;
+
     public static final ReferrersMap excludedCampaings = new ReferrersMap();
     private static final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 
-    public static void extractReferrer(final WebView[] webview, final AppViewActivity context, final String packageName, final SpiceManager spiceManager, final String click_url, final long downloadId, final long appId, final long adId, final String[] referrerToSet) {
-        Logger.d("ExtractReferrer", "Called for: " + click_url);
-
-        final String[] internalClickUrl = {click_url};
-
-        AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    internalClickUrl[0] = AptoideUtils.AdNetworks.parseString(context, click_url);
-                    Logger.d("ExtractReferrer", "Parsed click_url: " + internalClickUrl[0]);
-                } catch (IOException | GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException e) {
-                    e.printStackTrace();
-                }
-
-                context.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        webview[0] = new WebView(context);
-                        webview[0].getSettings().setJavaScriptEnabled(true);
-                        webview[0].setWebViewClient(new WebViewClient() {
-
-                            Future<Void> future;
-
-                            @Override
-                            public boolean shouldOverrideUrlLoading(WebView view, String clickUrl) {
-
-                                if (future == null) {
-                                    future = postponeReferrerExtraction(10, false);
-                                }
-
-//                        System.out.println("Debug: Refferer: " + clickUrl);
-
-                                if (clickUrl.startsWith("market://") || clickUrl.startsWith("https://play.google.com") || clickUrl.startsWith("http://play" +
-                                        ".google.com")) {
-//                            System.out.println("Debug: Refferer: Inner: " + clickUrl);
-                                    Logger.d("ExtractReferrer", "Clickurl landed on market");
-                                    referrerToSet[0] = getReferrer(clickUrl);
-                                    Logger.d("ExtractReferrer", "Referrer successfully extracted");
-                                    context.getService().setReferrer(downloadId, referrerToSet[0]);
-
-                                    new AptoideDatabase(Aptoide.getDb()).setReferrerToRollbackAction(packageName, referrerToSet[0]);
-
-                                    future.cancel(false);
-                                    postponeReferrerExtraction(0, true);
-
-                                    return true;
-                                }
-
-                                return false;
-                            }
-
-                            private ScheduledFuture<Void> postponeReferrerExtraction(int delta, final boolean success) {
-//                        System.out.println("Debug: Referrer: Postponing adSuccess: " + delta + ", " + success);
-                                Logger.d("ExtractReferrer", "Referrer postponed " + delta + " seconds.");
-                                Callable<Void> callable = new Callable<Void>() {
-                                    @Override
-                                    public Void call() throws Exception {
-                                        Logger.d("ExtractReferrer", "Sending RegisterAdRefererRequest with value " + success);
-                                        if (spiceManager.isStarted()) {
-                                            spiceManager.execute(new RegisterAdRefererRequest(adId, appId, internalClickUrl[0], success),
-                                                    RegisterAdRefererRequest.newDefaultResponse());
-                                        }
-
-                                        return null;
-                                    }
-                                };
-
-                                return executorService.schedule(callable, delta, TimeUnit.SECONDS);
-                            }
-                        });
-                        webview[0].loadUrl(internalClickUrl[0]);
-                    }
-                });
-            }
-        });
+    public static void extractReferrer(final ApkSuggestionJson.Ads ads, final SpiceManager spiceManager) {
+        extractReferrer(ads, spiceManager, null);
     }
 
-    public static void extractReferrer(final Context context, final ApkSuggestionJson.Ads ads, final SpiceManager spiceManager, final String click_url, final
-    SimpleFuture<String> simpleFuture, final int retries) {
+    public static void extractReferrer(final ApkSuggestionJson.Ads ads, final SpiceManager spiceManager, final SimpleFuture<String> simpleFuture) {
+        extractReferrer(ads, spiceManager, simpleFuture, RETRIES);
+    }
 
+    public static void extractReferrer(ApkSuggestionJson.Ads ads, final SpiceManager spiceManager, final SimpleFuture<String> simpleFuture, final int retries) {
+        // Just in case
         try {
             final String packageName = ads.getData().getPackageName();
             final long appId = ads.getData().getId().longValue();
             final long adId = ads.getInfo().getAd_id();
             final long networkId = ads.getPartner().getPartnerInfo().getId().longValue();
+            final String click_url = ads.getPartner().getPartnerData().getClick_url();
+            extractReferrer(packageName, appId, adId, networkId, click_url, spiceManager, simpleFuture, retries);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static void extractReferrer(final String packageName, final long appId, final long adId, final long networkId, final String click_url, final
+    SpiceManager spiceManager, final SimpleFuture<String> simpleFuture, final int retries) {
+        if (!AptoideUtils.UI.isUiThread()) {
+            throw new RuntimeException("ExtractReferrer must be run on UI thread!");
+        }
+
+        final Context context = Aptoide.getContext();
+
+        try {
             Logger.d("ExtractReferrer", "Called for: " + click_url + " with packageName " + packageName);
-
-//			final TTTT tttt = new TTTT(context, packageName, spiceManager, simpleFuture, retries);
 
             final String[] internalClickUrl = {click_url};
             final SimpleFuture<String> clickUrlFuture = new SimpleFuture<>();
 
             WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
             WindowManager.LayoutParams params;
-            params = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager
-                    .LayoutParams
+            params = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams
                     .TYPE_SYSTEM_OVERLAY, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, PixelFormat.TRANSLUCENT);
 
             params.gravity = Gravity.TOP | Gravity.LEFT;
@@ -181,23 +126,21 @@ public class ReferrerUtils {
                     super.onPageStarted(view, url, favicon);
 
                     if (future == null) {
-                        future = postponeReferrerExtraction(3, retries);
+                        future = postponeReferrerExtraction(TIME_OUT, retries);
                     }
                 }
 
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String clickUrl) {
 
-//					if (future == null) {
-//						future = postponeReferrerExtraction(3, retries);
-//					}
-
-                    if (clickUrl.startsWith("market://") || clickUrl.startsWith("https://play.google.com") || clickUrl.startsWith("http://play" + ".google" +
-                            ".com")) {
-//						tttt.cancel();
+                    if (clickUrl.startsWith("market://") || clickUrl.startsWith("https://play.google.com") || clickUrl.startsWith("http://play.google.com")) {
                         Logger.d("ExtractReferrer", "Clickurl landed on market");
-                        simpleFuture.set(getReferrer(clickUrl));
+                        final String referrer = getReferrer(clickUrl);
+                        if (simpleFuture != null) {
+                            simpleFuture.set(referrer);
+                        }
                         Logger.d("ExtractReferrer", "Referrer successfully extracted");
+                        new AptoideDatabase(Aptoide.getDb()).setReferrerToRollbackAction(packageName, referrer);
 
                         future.cancel(false);
                         postponeReferrerExtraction(0, true);
@@ -208,11 +151,11 @@ public class ReferrerUtils {
                     return false;
                 }
 
-                private ScheduledFuture<Void> postponeReferrerExtraction(int delta, int retries){
+                private ScheduledFuture<Void> postponeReferrerExtraction(int delta, int retries) {
                     return postponeReferrerExtraction(delta, false, retries);
                 }
 
-                private ScheduledFuture<Void> postponeReferrerExtraction(int delta, boolean success){
+                private ScheduledFuture<Void> postponeReferrerExtraction(int delta, boolean success) {
                     return postponeReferrerExtraction(delta, success, 0);
                 }
 
@@ -229,16 +172,27 @@ public class ReferrerUtils {
 
                             // Por ora fica desactivado pois pode induzir em falsos negativos.
 
-                            spiceManager.execute(new RegisterAdRefererRequest(adId, appId, internalClickUrl[0], success), RegisterAdRefererRequest
-                                    .newDefaultResponse());
+                            spiceManager.execute(new RegisterAdRefererRequest(adId, appId, internalClickUrl[0], success), RegisterAdRefererRequest.newDefaultResponse());
+                            Log.d("ExtractReferrer", "Retries left: " + retries);
 
                             if (!success) {
                                 excludedCampaings.add(packageName, networkId);
 
-                                if (retries > 0) {
-//								ReferrerUtils.extractReferrer(context, packageName, appId, adId, spiceManager, click_url, simpleFuture, retries - 1);
-                                    spiceManager.execute(GetAdsRequest.newDefaultRequest("secondtry", packageName), GetAdsRequestListener.withBroadcast(context, packageName, spiceManager, new SimpleFuture<String>(), retries - 1));
+                                try {
+
+                                    if (retries > 0) {
+                                        spiceManager.execute(GetAdsRequest.newDefaultRequest("secondtry", packageName), GetAdsRequestListener.withBroadcast(context, packageName,
+                                                spiceManager, new SimpleFuture<String>(), retries - 1));
+                                    } else {
+                                        // A lista de excluded networks deve ser limpa a cada "ronda"
+                                        excludedCampaings.remove(packageName);
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
+                            } else {
+                                // A lista de excluded networks deve ser limpa a cada "ronda"
+                                excludedCampaings.remove(packageName);
                             }
 
                             return null;
@@ -250,8 +204,6 @@ public class ReferrerUtils {
             });
 
             wv.loadUrl(click_url);
-//			tttt.post(5000);
-
 
             windowManager.addView(view, params);
         } catch (Exception e) {

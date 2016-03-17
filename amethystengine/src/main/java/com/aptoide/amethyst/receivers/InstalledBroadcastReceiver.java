@@ -23,6 +23,7 @@ import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
+import com.aptoide.dataprovider.AptoideSpiceHttpServicePermanent;
 import com.aptoide.dataprovider.webservices.models.UpdatesApi;
 import com.aptoide.models.RollBackItem;
 import com.octo.android.robospice.SpiceManager;
@@ -38,14 +39,14 @@ import com.aptoide.amethyst.utils.SimpleFuture;
  */
 public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
-    protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
+    protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpServicePermanent.class);
 
     @Override
     public void onReceive(final Context context, final Intent intent) {
         Logger.d("InstalledBroadcastReceiver", "intent=" + intent.getAction() + ", extra replaced=" + intent.getBooleanExtra(Intent.EXTRA_REPLACING, false));
         spiceManager.start(context);
 
-        boolean referrerInjected = false;
+        boolean referrerInjected;
 
         final AptoideDatabase db = new AptoideDatabase(Aptoide.getDb());
 
@@ -66,11 +67,9 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
     private void tryToReferrer(final Context context, final String packageName, String location) {
         Logger.d("InstalledBroadcastReceiver", "try to referrer " + packageName + " from " + location);
 
-        final SimpleFuture<String> stringSimpleFuture = new SimpleFuture<>();
-
-        // Talvez não fosse mal pensado parar o servico.. lol
+        // TODO: Este simplefuture não faz falta aqui, para futura refactorização.
         spiceManager.execute(GetAdsRequest.newDefaultRequest(location, packageName), GetAdsRequestListener.withBroadcast(context, packageName, spiceManager,
-                stringSimpleFuture, 2));
+                new SimpleFuture<String>(), 2));
     };
     ;
 

@@ -238,9 +238,11 @@ public class GetAdsRequest extends RetrofitSpiceRequest<ApkSuggestionJson, GetAd
         request.setKeyword("__NULL__");
         request.setPackage_name(packageName);
 
-        // Is it really necessary?? :/
+        // Só queremos adicionar excluídos no secondtry.
         if ("secondtry".equals(placement)) {
-            request.excludedNetworks = AptoideUtils.StringUtils.commaSeparatedValues(ReferrerUtils.excludedCampaings.get(packageName));
+            if (ReferrerUtils.excludedCampaings.containsKey(packageName)) {
+                request.excludedNetworks = AptoideUtils.StringUtils.commaSeparatedValues(ReferrerUtils.excludedCampaings.get(packageName));
+            }
         }
 
         return request;

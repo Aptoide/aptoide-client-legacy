@@ -18,6 +18,9 @@ import com.octo.android.robospice.request.listener.RequestListener;
  */
 public class GetAdsRequestListener {
 
+	/**
+	 * TODO: Permitir broadcast ou não do referrer, embora não faça mal enviar sempre, não faz sentido.
+	 */
 	public static RequestListener<ApkSuggestionJson> withBroadcast(final Context context, final String packageName, final SpiceManager spiceManager, final
 	SimpleFuture<String> simpleFuture, final int tries) {
 		return new RequestListener<ApkSuggestionJson>() {
@@ -33,11 +36,8 @@ public class GetAdsRequestListener {
 				try {
 					if (apkSuggestionJson.getAds().size() > 0) {
 						ApkSuggestionJson.Ads ad = apkSuggestionJson.getAds().get(0);
-						String click_url = ad.getPartner().getPartnerData().getClick_url();
 
-//						ReferrerUtils.extractReferrer(context, apkSuggestionJson.getAds().get(0), spiceManager, click_url.replace("com", ""), simpleFuture,
-//								tries);
-						ReferrerUtils.extractReferrer(context, apkSuggestionJson.getAds().get(0), spiceManager, click_url, simpleFuture, tries);
+						ReferrerUtils.extractReferrer(ad, spiceManager, simpleFuture, tries);
 
 						AptoideUtils.AdNetworks.knock(ad.getInfo().getCpc_url());
 						AptoideUtils.AdNetworks.knock(ad.getInfo().getCpi_url());
