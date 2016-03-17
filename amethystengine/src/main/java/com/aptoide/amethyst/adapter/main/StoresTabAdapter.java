@@ -21,11 +21,11 @@ import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.StoreItem;
+import com.aptoide.models.displayables.StoreItem;
 import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.AddStoreRow;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HeaderRow;
+import com.aptoide.models.displayables.AddStoreRow;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.stores.Store;
 import com.bumptech.glide.Glide;
 

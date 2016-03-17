@@ -27,7 +27,7 @@ import com.aptoide.models.RollBackItem;
 import com.aptoide.models.ScheduledDownloadItem;
 import com.aptoide.models.stores.Login;
 import com.aptoide.models.stores.Store;
-import com.aptoide.models.updates.UpdateRow;
+import com.aptoide.models.displayables.UpdateRow;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -17,13 +17,13 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.SearchApk;
+import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.webservices.SearchRequest;
-import com.aptoide.models.HeaderRow;
-import com.aptoide.models.ProgressBarRow;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.ProgressBarRow;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;

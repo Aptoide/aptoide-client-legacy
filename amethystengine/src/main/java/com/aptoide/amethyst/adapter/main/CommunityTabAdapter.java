@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.AppItem;
-import com.aptoide.models.CommentItem;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HeaderRow;
-import com.aptoide.models.ReviewRowItem;
-import com.aptoide.models.placeholders.CommentPlaceHolderRow;
-import com.aptoide.models.placeholders.ReviewPlaceHolderRow;
+import com.aptoide.models.displayables.AppItem;
+import com.aptoide.models.displayables.CommentItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.ReviewRowItem;
+import com.aptoide.models.displayables.CommentPlaceHolderRow;
+import com.aptoide.models.displayables.ReviewPlaceHolderRow;
 
 import java.util.List;
 

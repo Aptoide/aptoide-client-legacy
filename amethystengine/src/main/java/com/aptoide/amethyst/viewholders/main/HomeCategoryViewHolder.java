@@ -6,8 +6,8 @@ import android.widget.ImageView;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.utils.GlideUtils;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.hometab.CategoryRow;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.CategoryRow;
 
 import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.viewholders.BaseViewHolder;

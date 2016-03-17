@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.LinearRecyclerFragment;
 import com.aptoide.amethyst.R;
-import com.aptoide.models.SearchApk;
+import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -25,10 +25,10 @@ import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.SearchRequest;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.models.ApkSuggestionJson;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HeaderRow;
-import com.aptoide.models.ProgressBarRow;
-import com.aptoide.models.SuggestedAppDisplayable;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.ProgressBarRow;
+import com.aptoide.models.displayables.SuggestedAppDisplayable;
 import com.octo.android.robospice.exception.NoNetworkException;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
@@ -40,7 +40,7 @@ import java.util.List;
 
 import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.adapter.SearchAdapter;
-import com.aptoide.models.SearchMoreHeader;
+import com.aptoide.models.displayables.SearchMoreHeader;
 
 /**
  * Created by rmateus on 12/06/15.

@@ -23,11 +23,11 @@ import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HeaderRow;
-import com.aptoide.models.UpdateHeaderRow;
-import com.aptoide.models.updates.InstallRow;
-import com.aptoide.models.updates.UpdateRow;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.UpdateHeaderRow;
+import com.aptoide.models.displayables.InstallRow;
+import com.aptoide.models.displayables.UpdateRow;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;

@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.ReviewRowItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.ReviewRowItem;
 import com.bumptech.glide.Glide;
 
 

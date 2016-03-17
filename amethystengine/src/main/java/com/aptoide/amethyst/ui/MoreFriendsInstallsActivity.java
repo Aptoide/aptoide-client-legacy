@@ -7,7 +7,7 @@ import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.webservices.ListApksInstallsRequest;
 import com.aptoide.amethyst.webservices.json.TimelineListAPKsJson;
 import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.hometab.TimelineRow;
+import com.aptoide.models.displayables.TimelineRow;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
