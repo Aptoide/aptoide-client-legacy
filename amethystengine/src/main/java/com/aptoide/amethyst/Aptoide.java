@@ -136,8 +136,9 @@ public class Aptoide extends Application {
         checkIsSystem();
         setThemePicker(getNewThemePicker());
         Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());
+        AptoideUtils.CrashlyticsUtils.subsctibeActivityLiveCycleEvent();
     }
-    
+
     /**
      * Set the default debugging mode. There are several ways to set this outside the Application:
      * 1) set by the Android, also by multiple ways (check documentations of Log.isLoggable): <br />

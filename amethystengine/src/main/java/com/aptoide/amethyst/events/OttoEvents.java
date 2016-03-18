@@ -12,6 +12,8 @@ import com.aptoide.amethyst.downloadmanager.state.StatusState;
 
 import java.util.List;
 
+import lombok.Getter;
+
 /**
  * Created by hsousa on 29-06-2015.
  */
@@ -234,4 +236,20 @@ public class OttoEvents {
         }
     }
 
+    public static class ActivityLifeCycleEvent {
+        @Getter LifeCycle state;
+
+        public ActivityLifeCycleEvent(LifeCycle state) {
+            this.state = state;
+        }
+
+        public enum LifeCycle {
+            CREATE,
+            START,
+            RESUME,
+            PAUSE,
+            STOP,
+            DESTROY
+        }
+    }
 }
