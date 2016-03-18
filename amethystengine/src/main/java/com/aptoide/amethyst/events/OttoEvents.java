@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.events;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -238,9 +239,11 @@ public class OttoEvents {
 
     public static class ActivityLifeCycleEvent {
         @Getter LifeCycle state;
+        @Getter Activity activity;
 
-        public ActivityLifeCycleEvent(LifeCycle state) {
+        public ActivityLifeCycleEvent(Activity activity, LifeCycle state) {
             this.state = state;
+            this.activity = activity;
         }
 
         public enum LifeCycle {

@@ -2067,9 +2067,9 @@ public class AptoideUtils {
      * this class should have all the utils methods related to crashlytics
      */
     public static class CrashlyticsUtils{
-        public static final String SCREEN_HISTORY = "ScreenHistory";
-        public static final String NUMBER_OF_SCREENS = "TotalNumberOfScreens";
-        public static final String NUMBER_OF_SCREENS_ON_BACK_STACK = "TotalNumberOfScreensOnBackStack";
+        public static final String SCREEN_HISTORY = "SCREEN_HISTORY";
+        public static final String NUMBER_OF_SCREENS = "NUMBER_OF_SCREENS";
+        public static final String NUMBER_OF_SCREENS_ON_BACK_STACK = "NUMBER_OF_SCREENS_ON_BACK_STACK";
         /**
          * arrayList with all screen names history
          */

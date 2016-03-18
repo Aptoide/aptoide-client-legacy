@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.aptoide.amethyst.analytics.Analytics;
-import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.LifeCycleMonitor;
 
 import lombok.Getter;
 
@@ -21,7 +21,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-        sendLiveCycleEvent(OttoEvents.ActivityLifeCycleEvent.LifeCycle.CREATE);
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.CREATE);
         Analytics.Lifecycle.Activity.onCreate(this);
     }
 
@@ -29,13 +29,13 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         Analytics.Lifecycle.Activity.onDestroy(this);
         super.onDestroy();
-        sendLiveCycleEvent(OttoEvents.ActivityLifeCycleEvent.LifeCycle.DESTROY);
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.DESTROY);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        sendLiveCycleEvent(OttoEvents.ActivityLifeCycleEvent.LifeCycle.START);
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.START);
         Analytics.Lifecycle.Activity.onStart(this);
     }
 
@@ -43,13 +43,13 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     protected void onStop() {
         Analytics.Lifecycle.Activity.onStop(this);
         super.onStop();
-        sendLiveCycleEvent(OttoEvents.ActivityLifeCycleEvent.LifeCycle.STOP);
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.STOP);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        sendLiveCycleEvent(OttoEvents.ActivityLifeCycleEvent.LifeCycle.RESUME);
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.RESUME);
         _resumed = true;
         Analytics.Lifecycle.Activity.onResume(this, getScreenName());
         AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
@@ -59,15 +59,10 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     protected void onPause() {
         Analytics.Lifecycle.Activity.onPause(this);
         super.onPause();
-        sendLiveCycleEvent(OttoEvents.ActivityLifeCycleEvent.LifeCycle.PAUSE);
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.PAUSE);
         _resumed = false;
     }
 
-    private static void sendLiveCycleEvent(OttoEvents.ActivityLifeCycleEvent.LifeCycle state) {
-        final OttoEvents.ActivityLifeCycleEvent event = new OttoEvents
-                .ActivityLifeCycleEvent(state);
-        BusProvider.getInstance().post(event);
-    }
 
     /*
      * @return o nome so monitor associado a esta activity, para efeitos de Analytics.
