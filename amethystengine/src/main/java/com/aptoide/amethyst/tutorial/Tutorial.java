@@ -15,6 +15,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.flurry.android.FlurryAgent;
 
 import java.util.ArrayList;
@@ -129,6 +130,7 @@ public class Tutorial extends AptoideBaseActivity {
         }else{
             FlurryAgent.logEvent("Wizard_Did_Not_Add_Apps_As_Default_Store");
         }
+        AptoideUtils.AppUtils.checkPermissions(this);
 
         super.finish();
     }
