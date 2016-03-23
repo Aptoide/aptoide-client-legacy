@@ -155,6 +155,8 @@ import com.aptoide.amethyst.ui.widget.CircleTransform;
 import com.aptoide.amethyst.utils.ReferrerUtils;
 import com.aptoide.amethyst.webservices.GetApkInfoRequestFromId;
 
+import lombok.Getter;
+
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.TRUSTED;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.UNKNOWN;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.WARNING;
@@ -165,6 +167,10 @@ import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Mal
  */
 public class AppViewActivity extends AptoideBaseActivity implements AddCommentVoteCallback, FlagApkDialog.ApkFlagCallback {
 
+    /**
+     * True when activity is created.
+     */
+    private boolean lifecycleController = false;
     static String TAG = AppViewActivity.class.getSimpleName();
     public static final short DOWNGRADE_REQUEST_CODE = 456;
     private static final short Purchase_REQUEST_CODE = 30333;
@@ -219,7 +225,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_view_activity);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content, new AppViewFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content, AppViewFragment.newInstance(lifecycleController)).commit();
         }
     }
 
@@ -231,6 +237,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             fragment.onActivityResult(resultBundle.requestCode, resultBundle.resultCode, resultBundle.data);
             resultBundle = null;
         }
+
+        lifecycleController = true;
     }
 
     @Override
@@ -244,7 +252,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     @Override
     protected void onRestart() {
         super.onRestart();
-        final AppViewFragment fragment = new AppViewFragment();
+        final AppViewFragment fragment = AppViewFragment.newInstance(lifecycleController);
         final FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.content, fragment)
@@ -291,6 +299,16 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
         private static final String BADGE_DIALOG_TAG = "badgeDialog";
         protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
+        private boolean lifecycleController;
+
+        public static AppViewFragment newInstance(boolean lifecycleController) {
+            AppViewFragment f = new AppViewFragment();
+            Bundle args = new Bundle();
+            args.putBoolean("lifecycleController", lifecycleController);
+            f.setArguments(args);
+            return f;
+        }
+
 
         public AppViewFragment() { }
 
@@ -402,7 +420,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         /**
          * v7 json attributes
          */
-        private long appId;
+        @Getter private long appId;
         private long adId;
         private String signature;
         private String path;
@@ -568,7 +586,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                     populateRatings(model.getApp);
 
                     if (!fromSponsored) {
-                        new AppViewMiddleSuggested((AppViewActivity) getActivity(), getView().findViewById(R.id.middleAppViewContainer), spiceManager, packageName, model.getApp.nodes.meta.data.media.keywords);
+                        new AppViewMiddleSuggested((AppViewActivity) getActivity(), getView().findViewById(R.id.middleAppViewContainer), spiceManager, appId, packageName, model
+                                .getApp.nodes.meta.data.media.keywords);
                         getOrganicAds();
                     }
 
@@ -678,6 +697,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             super.onCreate(savedInstanceState);
             setHasOptionsMenu(true);
             glide = Glide.with(this);
+
+            lifecycleController = getArguments().getBoolean("lifecycleController");
 
             if (savedInstanceState != null) {
                 appId = savedInstanceState.getLong(Constants.APP_ID_KEY);
@@ -1613,6 +1634,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         }
 
         private void getOrganicAds() {
+            if (lifecycleController) {
+                return;
+            }
+
             final GetAdsRequest getAdsRequest = new GetAdsRequest("", false);
 
             getAdsRequest.setLocation("appview");
@@ -1684,7 +1709,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                         Intent intent = getActivity().getIntent();
                         intent.putExtra("cpi", appSuggested.getInfo().getCpi_url());
                         getActivity().setIntent(intent);
-
                     } catch (Exception e) {
                         Logger.printException(e);
                     }
@@ -2140,7 +2164,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 executorService.submit(new Runnable() {
                     @Override
                     public void run() {
-                        if (intent.hasExtra("partnerExtra")) {
+                        if (!lifecycleController && intent.hasExtra("partnerExtra")) {
                             try {
                                 String clickUrl = intent.getBundleExtra("partnerExtra").getString("partnerClickUrl");
                                 Logger.d("Aptoide", "InSponsoredExtras");

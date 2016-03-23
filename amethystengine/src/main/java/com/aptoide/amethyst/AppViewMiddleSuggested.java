@@ -142,7 +142,7 @@ public class AppViewMiddleSuggested {
 
     View view;
 
-    public AppViewMiddleSuggested(final AppViewActivity context, final View view, final SpiceManager spiceManager, final String packageName, List<String> keywords) {
+    public AppViewMiddleSuggested(final AppViewActivity context, final View view, final SpiceManager spiceManager, long appId, final String packageName, List<String> keywords) {
 
         this.context = context;
         this.view = view;
@@ -164,7 +164,7 @@ public class AppViewMiddleSuggested {
         getAdsRequest.setKeyword(AptoideUtils.StringUtils.join(keywords, ",") + "," + "__null__");
         getAdsRequest.setLimit(1);
 
-        spiceManager.execute(getAdsRequest, new RequestListener<ApkSuggestionJson>() {
+        spiceManager.execute(getAdsRequest, Long.toString(appId), 10 * 60 * 1000, new RequestListener<ApkSuggestionJson>() {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
             }
