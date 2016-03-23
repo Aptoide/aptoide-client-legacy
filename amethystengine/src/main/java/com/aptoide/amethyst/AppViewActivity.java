@@ -36,7 +36,6 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
@@ -73,7 +72,6 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.dialogs.DialogPermissions;
 import com.aptoide.amethyst.dialogs.FlagApkDialog;
-import com.aptoide.amethyst.dialogs.MyAppInstallDialog;
 import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
@@ -588,6 +586,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                     populateMoreVersions(model);
                     requestComments(false);
                     showDialogIfComingFromBrowser();
+                    showDialogIfComingFromAPKFY();
                     populateRatings(model.getApp);
 
                     if (!fromSponsored) {
@@ -607,6 +606,27 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 }
             }
         };
+
+        private boolean isApkFy;
+        private static boolean isApkFyDialogShowed = false;
+
+        private void showDialogIfComingFromAPKFY() {
+            if (obb != null ) {
+                AptoideUtils.AppUtils.checkPermissions(getActivity());
+            }
+
+            isApkFy = getActivity().getIntent().getBooleanExtra(Constants.FROM_APKFY_KEY, false);
+            if (isApkFy && !isPaidApp() && !isApkFyDialogShowed) {
+                isApkFyDialogShowed = true;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).edit();
+                    edit.putString(AptoideConfiguration.PREF_PATH_CACHE_APK, Aptoide.getContext().getFilesDir().getPath()).apply();
+                }
+                final InstallListener installListener = new InstallListener(iconUrl, appName, versionName, packageName, md5sum, isPaidApp());
+                DialogFragment dialog = AptoideDialog.myAppInstall(appName, installListener, null);
+                AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(), Constants.FROM_APKFY_KEY);
+            }
+        }
 
         private RequestListener<GetApkInfoJson> getApkInfoJsonRequestListener = new RequestListener<GetApkInfoJson>() {
 

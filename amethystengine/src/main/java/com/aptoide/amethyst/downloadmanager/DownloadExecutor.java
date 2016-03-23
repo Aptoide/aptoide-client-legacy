@@ -185,11 +185,16 @@ public class DownloadExecutor implements Serializable {
 
         } else {
 
+            File file = new File(path);
+            if (path.contains(Aptoide.getContext().getFilesDir().getPath())) {
+                file.setReadable(true, false);
+                Aptoide.getConfiguration().resetPathCacheApks();
+            }
             Intent install = new Intent(Intent.ACTION_VIEW);
             install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             if (Build.VERSION.SDK_INT >= 14)
                 install.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, context.getPackageName());
-            install.setDataAndType(Uri.fromFile(new File(path)), "application/vnd.android.package-archive");
+            install.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
             Logger.d("Aptoide", "Installing app: " + path);
             context.startActivity(install);
         }
