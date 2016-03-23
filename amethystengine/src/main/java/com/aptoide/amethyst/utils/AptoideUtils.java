@@ -1510,6 +1510,20 @@ public class AptoideUtils {
                 return String.format("%.1f", number);
             }
         }
+
+        public static String commaSeparatedValues(List<?> list) {
+            String s = new String();
+
+            if (list.size() > 0) {
+                s = list.get(0).toString();
+
+                for (int i = 1; i < list.size(); i++) {
+                    s += "," + list.get(i).toString();
+                }
+            }
+
+            return s;
+        }
     }
 
 

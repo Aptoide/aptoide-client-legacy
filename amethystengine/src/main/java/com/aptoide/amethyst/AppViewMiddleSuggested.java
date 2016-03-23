@@ -22,6 +22,8 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.utils.ReferrerUtils;
+import com.aptoide.amethyst.utils.SimpleFuture;
 import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.models.ApkSuggestionJson;
@@ -318,8 +320,7 @@ public class AppViewMiddleSuggested {
                         AptoideUtils.AdNetworks.knock(apkSuggestionJson.getAds().get(0).getInfo().getCpc_url());
                         AptoideUtils.AdNetworks.knock(apkSuggestionJson.getAds().get(0).getInfo().getCpd_url());
 
-                        // TODO referrer
-                        // ReferrerUtils.extractReferrer(context.getWebview(), context, packageName, spiceManager, click_url, md5sumHash, id, adId, referrer);
+                        ReferrerUtils.extractReferrer(apkSuggestionJson.getAds().get(0), spiceManager);
 
                         context.runOnUiThread(new Runnable() {
                             @Override
