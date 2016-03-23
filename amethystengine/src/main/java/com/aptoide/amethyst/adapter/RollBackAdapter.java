@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aptoide.amethyst.AppViewActivity;
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.EnumRollbackState;
 
 import com.aptoide.amethyst.R;
@@ -124,7 +125,7 @@ public class RollBackAdapter extends CursorAdapter {
                         break;
 
                     default:
-                        Intent intent = new Intent(context, AppViewActivity.class);
+                        Intent intent = new Intent(context, Aptoide.getConfiguration().getAppViewActivity());
                         intent.putExtra(Constants.ROLLBACK_FROM_KEY, true);
                         intent.putExtra(Constants.MD5SUM_KEY, md5sum);
                         intent.putExtra("download_from", "rollback");

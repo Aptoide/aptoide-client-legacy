@@ -42,7 +42,7 @@ public class MoreSearchActivity extends MoreActivity {
     AppBarLayout mAppBar;
 
     public static final String QUERY_BUNDLE_KEY = "search_query";
-    private EnumStoreTheme storeTheme = null;
+    protected static EnumStoreTheme storeTheme = null;
 
     @Override
     protected Fragment getFragment(Bundle args) {
@@ -93,7 +93,7 @@ public class MoreSearchActivity extends MoreActivity {
         }
 
         private String query;
-        private String storeName;
+        protected String storeName;
         private boolean mLoading = false;
 
         @Override
@@ -193,7 +193,7 @@ public class MoreSearchActivity extends MoreActivity {
             }
         };
 
-        private void startSearch() {
+        protected void startSearch() {
             Intent intent = new Intent(getContext(), SearchActivity.class);
             intent.putExtra(android.app.SearchManager.QUERY, searchQuery.getText().toString());
             getContext().startActivity(intent);
@@ -201,7 +201,7 @@ public class MoreSearchActivity extends MoreActivity {
 
         private void executeEndlessSpiceRequest() {
             long cacheExpiryDuration = useCache ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
-            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchRequest(query, SearchRequest.SEARCH_LIMIT, SearchRequest.OTHER_REPOS_SEARCH_LIMIT, offset, storeName), MoreSearchActivity.class.getSimpleName() + query + offset, cacheExpiryDuration, new RequestListener<SearchResults>() {
+            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchRequest(query, SearchRequest.SEARCH_LIMIT, SearchRequest.OTHER_REPOS_SEARCH_LIMIT, offset, storeName), Aptoide.getConfiguration().getMoreSearchActivity().getSimpleName() + query + offset, cacheExpiryDuration, new RequestListener<SearchResults>() {
                 @Override
                 public void onRequestFailure(SpiceException spiceException) {
                     if (mLoading && !displayableList.isEmpty()) {

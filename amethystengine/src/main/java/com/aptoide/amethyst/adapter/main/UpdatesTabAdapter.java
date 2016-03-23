@@ -190,7 +190,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
             updateViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(v.getContext(), AppViewActivity.class);
+                    Intent i = new Intent(v.getContext(), Aptoide.getConfiguration().getAppViewActivity());
                     i.putExtra(Constants.UPDATE_FROM_KEY, true);
                     i.putExtra(Constants.MD5SUM_KEY, appItem.md5sum);
                     i.putExtra(Constants.PACKAGENAME_KEY, appItem.packageName);

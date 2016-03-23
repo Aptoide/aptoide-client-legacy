@@ -83,6 +83,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     protected void bindViews(View view) {
         swipeContainer = (SwipeRefreshLayout )view.findViewById(R.id.swipe_container);
         noSearchResultLayout = (ScrollView )view.findViewById(R.id.no_search_results_layout);
+        noSearchResultLayout = (ScrollView )view.findViewById(R.id.no_search_results_layout);
         searchButton = (ImageView )view.findViewById(R.id.ic_search_button);
         searchQuery = (EditText )view.findViewById(R.id.search_text);
         progressBar = (ProgressBar )view.findViewById(R.id.progress_bar);

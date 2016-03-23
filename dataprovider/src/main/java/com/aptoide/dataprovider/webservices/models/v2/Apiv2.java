@@ -22,6 +22,7 @@ public class Apiv2 {
     public String packageName;
     @JsonProperty("apkversion")
     public String versionName;
+    public boolean get_linked;
 
     public Apiv2() {}
 

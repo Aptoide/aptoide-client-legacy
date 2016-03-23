@@ -17,7 +17,6 @@ public class HomeStoreFragment extends BaseWebserviceFragment {
     public static Fragment newInstance(Bundle args) {
         HomeStoreFragment fragment = new HomeStoreFragment();
         fragment.setArguments(args);
-
         return fragment;
     }
 

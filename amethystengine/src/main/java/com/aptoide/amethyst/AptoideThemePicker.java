@@ -13,8 +13,10 @@ public class AptoideThemePicker {
 
 
         if(sPref.getString("theme", "light").equals("dark")){
+            sPref.edit().putString("theme", "default_dark").commit();
             activity.setTheme(R.style.AptoideThemeDefaultDark);
         }else{
+            sPref.edit().putString("theme", "default").commit();
             activity.setTheme(R.style.AptoideThemeDefault);
         }
 

@@ -30,8 +30,8 @@ public class DownloadFragment extends LinearRecyclerFragment {
     SwipeRefreshLayout swipeContainer;
     ProgressBar progressBar;
 
-    private DownloadService service;
-    private ArrayList<Displayable> displayableList = new ArrayList<>();
+    protected DownloadService service;
+    protected ArrayList<Displayable> displayableList = new ArrayList<>();
 
     protected void bindViews(View view) {
         swipeContainer = (SwipeRefreshLayout )view.findViewById(R.id.swipe_container);

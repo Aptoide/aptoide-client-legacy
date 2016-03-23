@@ -30,6 +30,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -203,8 +204,13 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_view_activity);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content, new AppViewFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content, createFragment()).commit();
         }
+    }
+
+    @NonNull
+    protected AppViewFragment createFragment() {
+        return new AppViewFragment();
     }
 
     @Override
@@ -219,7 +225,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     protected void onRestart() {
         super.onRestart();
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content, new AppViewFragment())
+                .replace(R.id.content, createFragment())
                 .commitAllowingStateLoss();
     }
 
@@ -1348,7 +1354,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
              * If the size of the list is 1, it means it's the own app and should be removed.
              */
             if (getApp == null || getApp.nodes == null || getApp.nodes.versions == null || getApp.nodes.versions.list == null
-                    || getApp.nodes.versions.list.size() < 2) {
+                    || getApp.nodes.versions.list.size() < 2 || !Aptoide.getConfiguration().isMultipleStores()) {
 
                 mMoreVersionsLayoutHeader.setVisibility(View.GONE);
                 mMoreVersionsList.setVisibility(View.GONE);
@@ -1690,7 +1696,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
          * Creates a {@link Download} object and send it to the {@link DownloadService}
          *
          */
-        private void download() {
+        protected void download() {
             this.showRootDialog();
 
             Download download = new Download();
@@ -1918,7 +1924,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 mButtonGetLatest.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(getActivity(), AppViewActivity.class);
+                        Intent i = new Intent(getActivity(), Aptoide.getConfiguration().getAppViewActivity());
                         i.putExtra(Constants.FROM_RELATED_KEY, true);
                         i.putExtra(Constants.APP_ID_KEY, latestAppId);
                         i.putExtra(Constants.APPNAME_KEY, appName);

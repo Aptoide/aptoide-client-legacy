@@ -66,7 +66,7 @@ public class StoreItemRowViewHolder extends BaseViewHolder {
                 intent.putExtra(Constants.STOREID_KEY, storeItem.id);
                 intent.putExtra(Constants.STORENAME_KEY, storeItem.repoName);
                 intent.putExtra(Constants.STOREAVATAR_KEY, storeItem.avatar);
-                intent.putExtra(Constants.THEME_KEY, themeIz.ordinal());
+                intent.putExtra(Constants.THEME_KEY, themeIz);
                 intent.putExtra(Constants.DOWNLOAD_FROM_KEY, "store");
                 boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(storeItem.id);
                 intent.putExtra(Constants.STORE_SUBSCRIBED_KEY, subscribed);

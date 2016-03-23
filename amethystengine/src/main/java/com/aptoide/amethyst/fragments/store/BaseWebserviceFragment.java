@@ -1,7 +1,9 @@
 package com.aptoide.amethyst.fragments.store;
 
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -10,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.GridRecyclerFragment;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.dialogs.AdultHiddenDialog;
@@ -77,8 +80,8 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
     // flag to feed the storeHeader button
     protected boolean subscribed;
     protected boolean useCache = true;
-    private long storeId;
-    protected String storeName;
+    private long storeId = Aptoide.getConfiguration().getDefaultId();
+    protected String storeName = Aptoide.getConfiguration().getDefaultStore();
     protected String versionName;
     protected String packageName;
     private EnumStoreTheme storeTheme;
@@ -86,6 +89,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
     protected List<Displayable> displayableList = new ArrayList<>();
     protected String sponsoredCache;  //used only on HomeFragment
     protected int offset, total;
+
 
     protected RequestListener<StoreHomeTab> listener = new RequestListener<StoreHomeTab>() {
         @Override
@@ -111,7 +115,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
 
             displayableList.addAll(tab.list);
 
-            if (isHomePage()) {
+            if (isHomePage() && Aptoide.getConfiguration().isMature()) {
                 displayableList.add(new AdultItem(BUCKET_SIZE));
             }
 
@@ -205,7 +209,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
 
         // in order to present the right info on screen after a screen rotation, always pass the bucketsize as cachekey
         spiceManager.execute(
-                AptoideUtils.RepoUtils.buildStoreRequest(getStoreId(), getBaseContext()),
+                AptoideUtils.RepoUtils.buildStoreRequest(storeName, getBaseContext()),
                 getBaseContext() + "-" + getStoreId() + "-" + BUCKET_SIZE + "--" + AptoideUtils.getSharedPreferences().getBoolean(Constants.MATURE_CHECK_BOX, false),
                 cacheExpiryDuration,
                 listener);
@@ -389,6 +393,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindViews(getView());
+        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
         if (savedInstanceState != null) {
             args = savedInstanceState;
         } else {
@@ -401,7 +406,10 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
             storeName = args.getString(Constants.STORENAME_KEY);
             versionName = args.getString(Constants.VERSIONNAME_KEY);
             packageName = args.getString(Constants.PACKAGENAME_KEY);
-            storeTheme = EnumStoreTheme.values()[args.getInt(Constants.THEME_KEY, 0)];
+            storeTheme = (EnumStoreTheme) args.get(Constants.THEME_KEY);
+            if(storeTheme == null) {
+                storeTheme = EnumStoreTheme.get(sPref.getString("theme", "light"));
+            }
             subscribed = args.getBoolean(Constants.STORE_SUBSCRIBED_KEY, false);
             progressBar.getIndeterminateDrawable().setColorFilter(getResources().getColor(storeTheme.getStoreHeader()), PorterDuff.Mode.SRC_IN);
             retryNoNetwork.getBackground().setColorFilter(getResources().getColor(storeTheme.getStoreHeader()), PorterDuff.Mode.SRC_IN);
@@ -432,7 +440,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         if (args != null) {
             outState.putLong(Constants.STOREID_KEY, storeId);
             outState.putString(Constants.STORENAME_KEY, storeName);
-            outState.putInt(Constants.THEME_KEY, storeTheme.ordinal());
+            outState.putSerializable(Constants.THEME_KEY, storeTheme);
             outState.putBoolean(Constants.STORE_SUBSCRIBED_KEY, subscribed);
             outState.putString("sponsoredCache", sponsoredCache);
             outState.putString(Constants.VERSIONNAME_KEY, versionName);

@@ -162,7 +162,7 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
 
         storeId = args.getLong(Constants.STOREID_KEY, 0);
         storeName = args.getString(Constants.STORENAME_KEY);
-        storeTheme = EnumStoreTheme.values()[args.getInt(Constants.THEME_KEY, 0)];
+        storeTheme = (EnumStoreTheme) args.get(Constants.THEME_KEY);
         subscribed = args.getBoolean(Constants.STORE_SUBSCRIBED_KEY, false);
 
         mToolbar.setLogo(R.drawable.ic_store);
@@ -239,7 +239,7 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
         super.onSaveInstanceState(outState);
         outState.putLong(Constants.STOREID_KEY, storeId);
         outState.putString(Constants.STORENAME_KEY, storeName);
-        outState.putInt(Constants.THEME_KEY, storeTheme.ordinal());
+        outState.putSerializable(Constants.THEME_KEY, storeTheme);
         outState.putBoolean(Constants.STORE_SUBSCRIBED_KEY, subscribed);
     }
 

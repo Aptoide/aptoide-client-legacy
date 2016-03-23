@@ -54,7 +54,7 @@ public class MoreAppViewVersionsAdapter extends RecyclerView.Adapter<MoreAppView
         holder.mContent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(holder.itemView.getContext(), AppViewActivity.class);
+                Intent i = new Intent(holder.itemView.getContext(), Aptoide.getConfiguration().getAppViewActivity());
                 i.putExtra(Constants.FROM_RELATED_KEY, true);
                 i.putExtra(Constants.APP_ID_KEY, item.id);
                 i.putExtra(Constants.APPNAME_KEY, item.appName);

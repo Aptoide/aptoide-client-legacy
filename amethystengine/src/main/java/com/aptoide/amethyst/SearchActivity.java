@@ -53,7 +53,7 @@ public class SearchActivity extends AptoideBaseActivity {
 		Analytics.Search.searchTerm(query, storeName);
 
 		if (storeName != null && !TextUtils.isEmpty(storeName)) {
-			Intent intent = new Intent(SearchActivity.this, MoreSearchActivity.class);
+			Intent intent = new Intent(SearchActivity.this, Aptoide.getConfiguration().getMoreSearchActivity());
 			intent.putExtra(MoreSearchActivity.QUERY_BUNDLE_KEY, query);
 			intent.putExtra(SEARCH_SOURCE, storeName);
 			intent.putExtra(SEARCH_THEME, storeTheme);

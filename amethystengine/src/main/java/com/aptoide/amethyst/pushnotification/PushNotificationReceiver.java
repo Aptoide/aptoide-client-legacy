@@ -117,7 +117,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 
 
     public static void createPendingIntent(AlarmManager am, Context context, String action, long time, int broadcastid){
-        Intent i = new Intent(context, PushNotificationReceiver.class);
+        Intent i = new Intent(context, Aptoide.getConfiguration().getPushNotificationsReceiver());
         i.setAction(action);
         PendingIntent pi = PendingIntent.getBroadcast(context, broadcastid, i, PendingIntent.FLAG_UPDATE_CURRENT);
         am.setInexactRepeating(AlarmManager.ELAPSED_REALTIME, 0, time , pi);

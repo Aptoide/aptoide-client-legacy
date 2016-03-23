@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.downloadmanager.adapter.NotOngoingDownloadRow;
 import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
@@ -95,7 +96,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         @Override
         public void onClick(View view) {
-            Intent i = new Intent(view.getContext(), AppViewActivity.class);
+            Intent i = new Intent(view.getContext(), Aptoide.getConfiguration().getAppViewActivity());
             i.putExtra(Constants.FROM_RELATED_KEY, true);
 
             i.putExtra(Constants.APP_ID_KEY, appItem.id);
@@ -125,7 +126,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         @Override
         public void onClick(View view) {
-            Intent i = new Intent(view.getContext(), AppViewActivity.class);
+            Intent i = new Intent(view.getContext(), Aptoide.getConfiguration().getAppViewActivity());
             i.putExtra(Constants.FROM_SPONSORED_KEY, true);
 
             i.putExtra(Constants.APP_ID_KEY, adItem.id);
@@ -163,7 +164,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         @Override
         public void onClick(View view) {
-            Intent i = new Intent(view.getContext(), AppViewActivity.class);
+            Intent i = new Intent(view.getContext(), Aptoide.getConfiguration().getAppViewActivity());
 
             i.putExtra(Constants.FROM_TIMELINE_KEY, true);
             i.putExtra(Constants.STORENAME_KEY, item.repoName);
@@ -186,7 +187,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @Override
         public void onClick(View view) {
             if (item != null && item.appid != null) {
-                Intent i = new Intent(view.getContext(), AppViewActivity.class);
+                Intent i = new Intent(view.getContext(), Aptoide.getConfiguration().getAppViewActivity());
                 i.putExtra(Constants.APP_ID_KEY, item.appid.longValue());
                 i.putExtra(Constants.APPNAME_KEY, item.appname);
                 i.putExtra(Constants.FROM_COMMENT_KEY, true);
@@ -280,7 +281,9 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     i.putExtra(Constants.EVENT_TYPE, row.getEventType());
                     i.putExtra(Constants.EVENT_LABEL, row.getLabel());
                     i.putExtra(Constants.LOCALYTICS_TAG, row.getTag());
-                    i.putExtra(Constants.THEME_KEY, theme == null ? 0 : theme.ordinal());
+                    if (theme != null) {
+                        i.putExtra(Constants.THEME_KEY, theme);
+                    }
                     i.putExtra(Constants.HOMEPAGE_KEY, row.getHomepage());
                     if (i.getLongExtra(Constants.STOREID_KEY, 0) == 0) {
                         i.putExtra(Constants.STOREID_KEY, row.getStoreId());

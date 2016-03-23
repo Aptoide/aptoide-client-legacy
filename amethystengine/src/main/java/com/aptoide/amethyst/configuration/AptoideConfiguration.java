@@ -3,12 +3,15 @@ package com.aptoide.amethyst.configuration;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 
+import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.LoginActivity;
+import com.aptoide.amethyst.MoreSearchActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SignUpActivity;
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
 import com.aptoide.dataprovider.webservices.models.Defaults;
 
 import java.io.File;
@@ -145,9 +148,15 @@ public class AptoideConfiguration {
         return Aptoide.getContext().getPackageName() + ".AutoUpdateProvider";
 //        public static final String AUTHTOKEN_TYPE_FULL_ACCESS_LABEL = "Full access to an Aptoide account";
     }
+
     public String getDefaultStore() {
         return Defaults.DEFAULT_STORE_NAME;
     }
+
+    public long getDefaultId() {
+        return Defaults.DEFAULT_STORE_ID;
+    }
+
     public String getPathCache() {
         String cache = sPref.getString(PREF_PATH_CACHE, Defaults.PATH_CACHE);
         new File(cache).mkdirs();
@@ -186,8 +195,36 @@ public class AptoideConfiguration {
         return Analytics.Dimenstions.Vertical.SMARTPHONE;
     }
 
-    public String getPartnerName() {
+    public String getStoreType() {
         return "vanilla";
+    }
+
+    public boolean showSplash() {
+        return false;
+    }
+
+    public boolean isMature() {
+        return true;
+    }
+
+    public boolean getMatureValue() {
+        return true;
+    }
+
+    public boolean getCreateShortcut() {
+        return true;
+    }
+
+    public Class getAppViewActivity () {
+        return AppViewActivity.class;
+    }
+
+    public Class getMoreSearchActivity () { return MoreSearchActivity.class; }
+
+    public Class getPushNotificationsReceiver() { return PushNotificationReceiver.class; }
+
+    public Fragment getMoreSearchFragment () {
+        return new MoreSearchActivity.MoreSearchFragment();
     }
 
 }

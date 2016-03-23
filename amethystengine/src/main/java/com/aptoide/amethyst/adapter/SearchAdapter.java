@@ -190,7 +190,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             item.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), AppViewActivity.class);
+                    Intent intent = new Intent(v.getContext(), Aptoide.getConfiguration().getAppViewActivity());
                     intent.putExtra(Constants.SEARCH_FROM_KEY, true);
                     intent.putExtra(Constants.MD5SUM_KEY, appItem.md5sum);
                     intent.putExtra(Constants.APPNAME_KEY, appItem.name);
@@ -206,7 +206,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             viewHolder.itemView.findViewById(R.id.more).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(viewHolder.itemView.getContext(), MoreSearchActivity.class);
+                    Intent i = new Intent(viewHolder.itemView.getContext(), Aptoide.getConfiguration().getMoreSearchActivity());
                     i.putExtra(MoreSearchActivity.QUERY_BUNDLE_KEY, query);
                     viewHolder.itemView.getContext().startActivity(i);
                 }

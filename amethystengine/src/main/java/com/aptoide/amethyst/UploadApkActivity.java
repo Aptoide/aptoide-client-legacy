@@ -258,7 +258,7 @@ public class UploadApkActivity extends AptoideBaseActivity implements Md5Calcula
                         startActivity(intent);
                     } else {
 
-                        Intent i = new Intent(getActivity(), AppViewActivity.class);
+                        Intent i = new Intent(getActivity(), Aptoide.getConfiguration().getAppViewActivity());
                         i.putExtra("getBackupApps", true);
                         startActivity(i);
                     }

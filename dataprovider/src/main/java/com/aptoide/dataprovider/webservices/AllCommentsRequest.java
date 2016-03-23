@@ -27,6 +27,7 @@ public class AllCommentsRequest extends RetrofitSpiceRequest<GetComments, AllCom
     public String lang;
     public int limit;
     public int offset;
+    public boolean isLinked;
 
     public AllCommentsRequest() {
         super(GetComments.class, WebService.class);
@@ -44,6 +45,7 @@ public class AllCommentsRequest extends RetrofitSpiceRequest<GetComments, AllCom
         api.versionName = versionName;
         api.limit = limit;
         api.offset = offset;
+        api.get_linked = isLinked;
         return getService().getAllComments(api);
     }
 

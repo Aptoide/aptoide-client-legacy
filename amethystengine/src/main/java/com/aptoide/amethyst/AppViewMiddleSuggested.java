@@ -232,7 +232,7 @@ public class AppViewMiddleSuggested {
                     @Override
                     public void onClick(View v) {
 
-                        Intent i = new Intent(context, AppViewActivity.class);
+                        Intent i = new Intent(context, Aptoide.getConfiguration().getAppViewActivity());
 
                         fillAppViewActivityIntent(i, apkSuggestionJson);
 
@@ -281,7 +281,7 @@ public class AppViewMiddleSuggested {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, AppViewActivity.class);
+                Intent i = new Intent(context, Aptoide.getConfiguration().getAppViewActivity());
 
                 AppViewMiddleSuggested.this.fillAppViewActivityIntent(i, apkSuggestionJson);
                 new AptoideDatabase(Aptoide.getDb()).addToAmazonABTesting(apkSuggestionJson.getAds().get(0).getData().packageName);
@@ -294,7 +294,7 @@ public class AppViewMiddleSuggested {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, AppViewActivity.class);
+                Intent i = new Intent(context, Aptoide.getConfiguration().getAppViewActivity());
 
                 AppViewMiddleSuggested.this.fillAppViewActivityIntent(i, apkSuggestionJson);
 

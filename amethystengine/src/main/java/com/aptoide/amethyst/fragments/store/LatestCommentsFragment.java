@@ -269,6 +269,7 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
         request.filters = Aptoide.filters;
         request.lang = AptoideUtils.StringUtils.getMyCountryCode(getContext());
         request.offset = offset;
+        request.isLinked = Aptoide.getConfiguration().isMultipleStores();
         return request;
     }
 

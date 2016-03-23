@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.models.Displayable;
 import com.aptoide.models.SuggestedAppDisplayable;
@@ -82,7 +83,7 @@ public class SuggestedAppViewHolder extends BaseViewHolder {
 
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(itemView.getContext(), AppViewActivity.class);
+                Intent i = new Intent(itemView.getContext(), Aptoide.getConfiguration().getAppViewActivity());
                 long id = suggestedAppDisplayable.getApkSuggestionJson().getAds().get(0).getData().id.longValue();
                 long adId = suggestedAppDisplayable.getApkSuggestionJson().getAds().get(0).getInfo().getAd_id();
                 i.putExtra(APP_ID_KEY, id);

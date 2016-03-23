@@ -54,6 +54,8 @@ public class Constants {
     public final static String USER_LOGIN_TYPE = "loginType";
     public final static String STORE_PASSWORD = "password";
 
+    public final static int MINTIME_FOR_SPLASHSCREEN = 3000;
+
     /********* Action Events Constants ****************/
     public static final String EVENT_ACTION_URL = "eventActionUrl";
     public static final String EVENT_NAME = "eventName";
@@ -181,5 +183,14 @@ public class Constants {
      */
     public static final String MATURE_CHECK_BOX = "matureChkBox";
 
+
+    /**
+     * This class (will)contain all SharedPreferences keys
+     */
+    public class SharedPreferencesConstants {
+
+        public static final String theme = "theme";
+
+    }
 
 }

@@ -1,7 +1,9 @@
 package com.aptoide.amethyst.ui;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
@@ -65,7 +67,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
 
         setContentView(getContentView());
         bindViews();
-
+        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Bundle args;
         if (savedInstanceState != null) {
             // Fragment is being recreated by itself on Rotation, so we shouldn't add the fragment again.
@@ -97,7 +99,10 @@ public abstract class MoreActivity extends AptoideBaseActivity {
             eventType = args.getString(Constants.EVENT_TYPE);
             label = args.getString(Constants.EVENT_LABEL);
             localyticstag = args.getString(Constants.LOCALYTICS_TAG);
-            storeTheme = EnumStoreTheme.values()[args.getInt(Constants.THEME_KEY, 0)];
+            storeTheme = (EnumStoreTheme) args.get(Constants.THEME_KEY);
+            if(storeTheme == null) {
+                storeTheme = EnumStoreTheme.get(sPref.getString("theme", "light"));
+            }
             packageName = args.getString(Constants.PACKAGENAME_KEY);
             getSupportActionBar().setTitle(label);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -118,7 +123,9 @@ public abstract class MoreActivity extends AptoideBaseActivity {
         outState.putString(Constants.EVENT_NAME, eventName);
         outState.putString(Constants.EVENT_TYPE, eventType);
         outState.putString(Constants.EVENT_LABEL, label);
-        outState.putInt(Constants.THEME_KEY, storeTheme == null ? 0 : storeTheme.ordinal());
+        if (storeTheme != null) {
+            outState.putSerializable(Constants.THEME_KEY, storeTheme);
+        }
         outState.putString(Constants.PACKAGENAME_KEY, packageName);
     }
 

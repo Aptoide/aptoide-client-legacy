@@ -160,7 +160,7 @@ public class ReviewActivity extends AptoideBaseActivity {
                 findViewById(R.id.getapp).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(v.getContext(), AppViewActivity.class);
+                        Intent intent = new Intent(v.getContext(), Aptoide.getConfiguration().getAppViewActivity());
                         intent.putExtra("fromApkInstaller", true);
                         intent.putExtra(Constants.APP_ID_KEY, reviewListJson.getReview().getApk().getId().longValue());
                         intent.putExtra(Constants.APPNAME_KEY, reviewListJson.getReview().getApk().getTitle());

@@ -152,7 +152,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AppViewActivity.class);
+                Intent intent = new Intent(v.getContext(), Aptoide.getConfiguration().getAppViewActivity());
                 intent.putExtra(Constants.APPNAME_KEY, appItem.name);
                 intent.putExtra(Constants.SEARCH_FROM_KEY, true);
                 intent.putExtra(Constants.MD5SUM_KEY, appItem.md5sum);

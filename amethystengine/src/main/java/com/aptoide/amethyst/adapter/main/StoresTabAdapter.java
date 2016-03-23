@@ -91,7 +91,7 @@ public class StoresTabAdapter extends RecyclerView.Adapter<BaseViewHolder> imple
                     intent.putExtra(Constants.STORENAME_KEY, storeItem.storeName);
 
                     intent.putExtra(Constants.STOREAVATAR_KEY, storeItem.storeAvatar);
-                    intent.putExtra(Constants.THEME_KEY, storeItem.theme.ordinal());
+                    intent.putExtra(Constants.THEME_KEY, storeItem.theme);
                     intent.putExtra(Constants.DOWNLOAD_FROM_KEY, "store");
                     intent.putExtra(Constants.STORE_SUBSCRIBED_KEY, true);
                     intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
