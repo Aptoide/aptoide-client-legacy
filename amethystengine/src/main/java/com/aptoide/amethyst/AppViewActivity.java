@@ -67,6 +67,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
@@ -296,6 +297,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     }
 
     public static class AppViewFragment extends Fragment implements FlagApkDialog.ApkFlagCallback, AddCommentVoteCallback, ServiceConnection {
+
+        private String download_from;
 
         private static final String BADGE_DIALOG_TAG = "badgeDialog";
         protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
@@ -551,6 +554,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                     obb = model.getApp.nodes.meta.data.obb;
                     permissions = model.getApp.nodes.meta.data.file.usedPermissions;
                     malware = model.getApp.nodes.meta.data.file.malware;
+
+                    Analytics.ViewedApplication.view(packageName, developer, download_from);
 
                     if (model.getApp.nodes.versions != null && !model.getApp.nodes.versions.list.isEmpty() &&
                             model.getApp.nodes.meta.data.file.vercode.longValue() < model.getApp.nodes.versions.list.get(0).file.vercode.longValue()) {
@@ -2156,7 +2161,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 String cpi = intent.getStringExtra(Constants.CPI_KEY);
                 cpd = intent.getStringExtra(Constants.CPD_KEY);
                 String whereFrom = intent.getStringExtra(Constants.WHERE_FROM_KEY);
-                String download_from = intent.getStringExtra(Constants.DOWNLOAD_FROM_KEY);
+                download_from = intent.getStringExtra(Constants.DOWNLOAD_FROM_KEY);
 
                 executeSpiceRequestWithAppId(appId, storeName, packageName);
                 AptoideUtils.AdNetworks.knock(cpc);
@@ -2372,6 +2377,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 }
 
                 download();
+
+                Analytics.ClickedOnInstallButton.clicked(package_name, developer);
             }
 
             @Override
