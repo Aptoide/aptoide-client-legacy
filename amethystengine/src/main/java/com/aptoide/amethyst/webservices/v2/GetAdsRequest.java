@@ -130,7 +130,7 @@ public class GetAdsRequest extends RetrofitSpiceRequest<ApkSuggestionJson, GetAd
         }
 
         if (excludedNetworks != null) {
-            parameters.put("excluded_partner", excludedNetworks);
+            parameters.put("excluded_partners", excludedNetworks);
         }
 
         ApkSuggestionJson result = getService().getAds(parameters);
