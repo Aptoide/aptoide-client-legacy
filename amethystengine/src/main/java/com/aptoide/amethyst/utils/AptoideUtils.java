@@ -2081,6 +2081,9 @@ public class AptoideUtils {
      * this class should have all the utils methods related to crashlytics
      */
     public static class CrashlyticsUtils{
+        public static final String SCREEN_HISTORY = "SCREEN_HISTORY";
+        public static final String NUMBER_OF_SCREENS = "NUMBER_OF_SCREENS";
+        public static final String NUMBER_OF_SCREENS_ON_BACK_STACK = "NUMBER_OF_SCREENS_ON_BACK_STACK";
         /**
          * arrayList with all screen names history
          */
@@ -2090,6 +2093,17 @@ public class AptoideUtils {
          * this var sets the max screens should be added to history
          */
         private static int MAX_HISTORY = 10;
+
+        /**
+         * This saves the number of screens showed
+         */
+        private static int totalNumberScreens = 0;
+
+        /**
+         * This saves the number of screens on back stack
+         */
+        private static int numberScreensOnBackStack = 0;
+
         /**
          * this method adds a screen name to the history to be reported to crashlytics
          * @param screeName screen name that should be reported to crashlytics
@@ -2097,15 +2111,40 @@ public class AptoideUtils {
         public static void addScreenToHistory (String screeName) {
             if (BuildConfig.FABRIC_CONFIGURED) {
                 addScreen(screeName);
-                Crashlytics.setString("ScreenHistory", history.toString());
+                Crashlytics.setString(SCREEN_HISTORY, history.toString());
             }
         }
 
+        /**
+         * Adds the screen to history.
+         * @param screeName Name of the screen to add to history.f
+         */
         private static void addScreen(String screeName) {
             if (history.size() >= MAX_HISTORY) {
                 history.remove(0);
             }
             history.add(screeName);
+        }
+
+        public static void subsctibeActivityLiveCycleEvent() {
+            BusProvider.getInstance().register(new LifeCycleMonitor());
+        }
+
+        /**
+         * Updates the total screens showed and the screens on back stack
+         *
+         * @param isAdding Indicates if it's to update the number due to a new screen (true) or not (false)
+         */
+        public static void updateNumberOfScreens(boolean isAdding) {
+            if (isAdding) {
+                totalNumberScreens++;
+                numberScreensOnBackStack++;
+                Crashlytics.setInt(NUMBER_OF_SCREENS, totalNumberScreens);
+                Crashlytics.setInt(NUMBER_OF_SCREENS_ON_BACK_STACK, numberScreensOnBackStack);
+            } else {
+                numberScreensOnBackStack--;
+                Crashlytics.setInt(NUMBER_OF_SCREENS_ON_BACK_STACK, numberScreensOnBackStack);
+            }
         }
 
         public static void resetScreenHistory() {
