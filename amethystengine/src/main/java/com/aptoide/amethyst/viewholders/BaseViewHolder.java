@@ -3,7 +3,7 @@ package com.aptoide.amethyst.viewholders;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 
 /**
  * Created by rmateus on 02/06/15.

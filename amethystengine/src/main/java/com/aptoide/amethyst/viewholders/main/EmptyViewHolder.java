@@ -2,7 +2,7 @@ package com.aptoide.amethyst.viewholders.main;
 
 import android.view.View;
 
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 
 import com.aptoide.amethyst.viewholders.BaseViewHolder;
 

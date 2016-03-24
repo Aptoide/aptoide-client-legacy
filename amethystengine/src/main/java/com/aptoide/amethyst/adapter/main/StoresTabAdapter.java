@@ -21,11 +21,11 @@ import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.StoreItem;
+import com.aptoide.models.displayables.StoreItem;
 import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.AddStoreRow;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HeaderRow;
+import com.aptoide.models.displayables.AddStoreRow;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.stores.Store;
 import com.bumptech.glide.Glide;
 
@@ -80,7 +80,7 @@ public class StoresTabAdapter extends RecyclerView.Adapter<BaseViewHolder> imple
             StoreItemRowViewHolder holder = (StoreItemRowViewHolder) viewHolder;
             holder.storeName.setText(storeItem.storeName);
 
-            @ColorInt int color = holder.itemView.getContext().getResources().getColor(storeItem.theme.getStoreHeader());
+            @ColorInt int color = holder.itemView.getContext().getResources().getColor(storeItem.getStoreHeaderColor());
             holder.storeLayout.setBackgroundColor(color);
             holder.storeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -91,7 +91,7 @@ public class StoresTabAdapter extends RecyclerView.Adapter<BaseViewHolder> imple
                     intent.putExtra(Constants.STORENAME_KEY, storeItem.storeName);
 
                     intent.putExtra(Constants.STOREAVATAR_KEY, storeItem.storeAvatar);
-                    intent.putExtra(Constants.THEME_KEY, storeItem.theme.ordinal());
+                    intent.putExtra(Constants.THEME_KEY, storeItem.getThemeId());
                     intent.putExtra(Constants.DOWNLOAD_FROM_KEY, "store");
                     intent.putExtra(Constants.STORE_SUBSCRIBED_KEY, true);
                     intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

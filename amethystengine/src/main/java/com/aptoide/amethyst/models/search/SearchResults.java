@@ -1,5 +1,7 @@
 package com.aptoide.amethyst.models.search;
 
+import com.aptoide.models.displayables.SearchApk;
+
 import java.util.ArrayList;
 import java.util.List;
 

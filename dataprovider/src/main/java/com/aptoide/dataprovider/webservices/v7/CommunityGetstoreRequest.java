@@ -2,7 +2,7 @@ package com.aptoide.dataprovider.webservices.v7;
 
 import com.aptoide.dataprovider.webservices.models.Defaults;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets;
-import com.aptoide.models.HeaderRow;
+import com.aptoide.models.displayables.HeaderRow;
 
 import java.util.List;
 

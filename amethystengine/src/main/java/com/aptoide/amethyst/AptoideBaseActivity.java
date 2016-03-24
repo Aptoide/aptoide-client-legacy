@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.utils.LifeCycleMonitor;
 
 import lombok.Getter;
 
@@ -39,6 +41,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity implements A
         super.onCreate(savedInstanceState);
         Logger.d("debug", "onCreate: " + getClass().getSimpleName());
         AptoideUtils.AppNavigationUtils.onCreate(getIntent(), this);
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.CREATE);
         Analytics.Lifecycle.Activity.onCreate(this);
     }
 
@@ -46,6 +49,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity implements A
     protected void onDestroy() {
         Analytics.Lifecycle.Activity.onDestroy(this);
         super.onDestroy();
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.DESTROY);
     }
 
     @Override
@@ -58,19 +62,21 @@ public abstract class AptoideBaseActivity extends AppCompatActivity implements A
     protected void onStart() {
         AptoideUtils.AppNavigationUtils.onStart(getIntent(), this);
         super.onStart();
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.START);
         Analytics.Lifecycle.Activity.onStart(this);
-
     }
 
     @Override
     protected void onStop() {
         Analytics.Lifecycle.Activity.onStop(this);
         super.onStop();
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.STOP);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.RESUME);
         _resumed = true;
         Analytics.Lifecycle.Activity.onResume(this, getScreenName());
         AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
@@ -80,6 +86,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity implements A
     protected void onPause() {
         Analytics.Lifecycle.Activity.onPause(this);
         super.onPause();
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.PAUSE);
         _resumed = false;
     }
 

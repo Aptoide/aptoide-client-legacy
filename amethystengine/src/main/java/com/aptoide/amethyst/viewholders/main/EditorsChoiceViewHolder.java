@@ -5,9 +5,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aptoide.amethyst.R;
-import com.aptoide.models.AppItem;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.EditorsChoiceRow;
+import com.aptoide.models.displayables.AppItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.EditorsChoiceRow;
 import com.bumptech.glide.Glide;
 
 

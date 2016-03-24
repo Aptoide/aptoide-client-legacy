@@ -7,13 +7,13 @@ import android.widget.ProgressBar;
 
 import com.aptoide.amethyst.LinearRecyclerFragment;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.downloadmanager.adapter.DownloadRow;
+import com.aptoide.models.displayables.DownloadRow;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.events.OttoEvents.DownloadServiceConnected;
 import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HeaderRow;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;

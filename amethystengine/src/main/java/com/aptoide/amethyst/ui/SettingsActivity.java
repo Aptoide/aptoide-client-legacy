@@ -49,6 +49,7 @@ import com.aptoide.amethyst.preferences.ManagerPreferences;
 import com.aptoide.amethyst.preferences.Preferences;
 import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.LifeCycleMonitor;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
@@ -82,6 +83,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     protected void onDestroy() {
 //        Analytics.Lifecycle.Activity.onDestroy(this);
         super.onDestroy();
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.DESTROY);
         getDelegate().onDestroy();
     }
 
@@ -99,6 +101,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     @Override
     protected void onResume() {
         super.onResume();
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.RESUME);
 //        Analytics.Lifecycle.Activity.onResume(this, null);
 
 //        initializeAnalyticsListeners();
@@ -189,6 +192,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     protected void onPause() {
 //        Analytics.Lifecycle.Activity.onPause(this);
         super.onPause();
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.PAUSE);
     }
 
     private Dialog DialogSetAdultpin(final Preference mp) {
@@ -324,6 +328,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         getDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
         AptoideUtils.AppNavigationUtils.onCreate(getIntent(), this);
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.CREATE);
 //        getSupportActionBar().setTitle("");
 //        getSupportActionBar().setHomeButtonEnabled(true);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -781,6 +786,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     protected void onStart() {
         super.onStart();
         manager.start(this);
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.START);
 //        FlurryAgent.onStartSession(this, getResources().getString(R.string.FLURRY_KEY));
 //        Analytics.Lifecycle.Activity.onStart(this);
     }
@@ -788,6 +794,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     @Override
     protected void onStop() {
         manager.shouldStop();
+        LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.STOP);
 //        FlurryAgent.onEndSession(this);
 //        Analytics.Lifecycle.Activity.onStop(this);
         super.onStop();

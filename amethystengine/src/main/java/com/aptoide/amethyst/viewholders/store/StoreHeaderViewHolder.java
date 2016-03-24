@@ -14,9 +14,9 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.StoreHeaderRow;
+import com.aptoide.models.displayables.StoreHeaderRow;
 import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 import com.bumptech.glide.Glide;
 
 import java.text.NumberFormat;

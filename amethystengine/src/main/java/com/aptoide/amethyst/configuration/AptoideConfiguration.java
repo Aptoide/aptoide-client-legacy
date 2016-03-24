@@ -31,7 +31,7 @@ public class AptoideConfiguration {
     private static final String PREF_AUTO_UPDATE_URL = "dev_mode_auto_update_url";
     private static final String PREF_ALWAYS_UPDATE = "dev_mode_always_update";
 
-    private static final String PREF_PATH_CACHE_APK = "dev_mode_path_cache_apks";
+    public static final String PREF_PATH_CACHE_APK = "dev_mode_path_cache_apks";
     private static Context context = Aptoide.getContext();
     private static SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(context);
     private Class<?> appViewActivityClass  ;
@@ -46,6 +46,10 @@ public class AptoideConfiguration {
         new File(pathIcons).mkdirs();
 
         return pathIcons;
+    }
+
+    public void resetPathCacheApks() {
+        sPref.edit().remove(PREF_PATH_CACHE_APK).commit();
     }
 
     public String getPathCacheApks() {

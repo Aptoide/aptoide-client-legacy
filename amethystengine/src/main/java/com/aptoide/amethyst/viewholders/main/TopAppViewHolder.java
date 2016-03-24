@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.models.AppItem;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.AppItem;
+import com.aptoide.models.displayables.Displayable;
 import com.bumptech.glide.Glide;
 import com.crashlytics.android.Crashlytics;
 

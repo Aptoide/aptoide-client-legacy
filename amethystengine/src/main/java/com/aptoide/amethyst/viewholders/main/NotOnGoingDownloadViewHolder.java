@@ -8,7 +8,7 @@ import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.downloadmanager.state.EnumState;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 import com.bumptech.glide.Glide;
 
 /**
