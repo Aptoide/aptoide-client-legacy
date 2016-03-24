@@ -18,6 +18,10 @@
                 com.aptoide.amethyst.ui.MoreListViewItemsBrickActivity|com.aptoide.amethyst.ui.MoreHighlightedActivity|
                 com.aptoide.amethyst.ui.MoreReviewsActivity|com.aptoide.amethyst.ui.MoreListViewItemsActivity|com.aptoide.amethyst.MainActivity"/>
 
+        <meta-data
+            android:name="cm.aptoide.pt.APTOIDE_DEFAULT_PARENT"
+            android:value="com.aptoide.amethyst.MainActivity"/>
+
         <activity
             android:name="com.aptoide.amethyst.MainActivity"
             android:exported="true"
