@@ -106,6 +106,6 @@ public class CategoryRow extends AbstractRow implements IHasMore {
 
     @Override
     public int getSpanSize() {
-        return FULL_ROW / 2;
+        return spanSize;
     }
 }

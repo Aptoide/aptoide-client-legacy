@@ -286,7 +286,11 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         for (ListViewItems.DisplayList display : list) {
 
             CategoryRow categ = new CategoryRow(numColumns);
-            categ.setSpanSize(singleSpanSize);
+            if (display.event.type.equals(Action.Event.API_BROWSER_TYPE) && display.event.name.equals(Action.Event.EVENT_CLICK_TYPE)) {
+                categ.setSpanSize(totalSpanSize);
+            } else {
+                categ.setSpanSize(totalSpanSize/2);
+            }
             categ.setLabel(display.label);
             categ.setGraphic(display.graphic);
             categ.setEventType(display.event.type);
