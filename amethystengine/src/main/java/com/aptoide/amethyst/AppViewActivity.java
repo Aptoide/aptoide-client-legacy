@@ -382,6 +382,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         ProgressBar mDownloadingProgress;
         RelativeLayout mMoreVersionsLayoutHeader;
         Button mMoreVersionsLayoutButton;
+        TextView mMoreVersionsTitle;
         TextView mWebsiteLabel;
         TextView mEmailLabel;
         TextView mPrivacyLabel;
@@ -821,8 +822,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             mActionResume = (ImageView) view.findViewById(R.id.ic_action_resume);
             mProgressText = (TextView) view.findViewById(R.id.text_progress);
             mDownloadingProgress = (ProgressBar) view.findViewById(R.id.downloading_progress);
-            mMoreVersionsLayoutHeader = (RelativeLayout) view.findViewById(R.id.more_versions_layout_header);
-            mMoreVersionsLayoutButton = (Button) view.findViewById(R.id.more_versions_button);
+            mMoreVersionsLayoutHeader = (RelativeLayout) view.findViewById(R.id.more_layout);
+            mMoreVersionsLayoutButton = (Button) view.findViewById(R.id.more);
+            mMoreVersionsTitle = (TextView) view.findViewById(R.id.title);
             mWebsiteLabel = (TextView) view.findViewById(R.id.website_label);
             mEmailLabel = (TextView) view.findViewById(R.id.email_label);
             mPrivacyLabel = (TextView) view.findViewById(R.id.privacy_policy_label);
@@ -1459,6 +1461,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                     startActivity(intent);
                 }
             });
+
+            mMoreVersionsTitle.setText(R.string.appview_other_versions_in_others_stores);
 
             // AN-227: remove the first app if it's the same as this
             if (!model.list.isEmpty()
