@@ -510,7 +510,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         }
         if (icon.contains("_icon")) {
             String[] splittedUrl = icon.split("\\.(?=[^\\.]+$)");
-            icon = splittedUrl[0] + "_" + IconSizeUtils.generateSizeString(getContext()) + "." + splittedUrl[1];
+            icon = splittedUrl[0] + "_" + IconSizeUtils.generateSizeString() + "." + splittedUrl[1];
         }
         return icon;
     }

@@ -541,7 +541,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                     minSdk = model.getApp.nodes.meta.data.file.hardware.sdk.intValue();
                     pay = model.getApp.nodes.meta.data.pay;
                     md5sum = model.getApp.nodes.meta.data.file.md5sum;
-                    iconUrl = AptoideUtils.UI.parseIcon(getActivity(), model.getApp.nodes.meta.data.icon);
+                    iconUrl = AptoideUtils.UI.parseIcon(model.getApp.nodes.meta.data.icon);
                     rating = model.getApp.nodes.meta.data.stats.rating.avg.floatValue();
                     screenshots = model.getApp.nodes.meta.data.media.screenshots;
                     videos = model.getApp.nodes.meta.data.media.videos;
