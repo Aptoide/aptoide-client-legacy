@@ -3,6 +3,10 @@
 
     <application>
         <service
+            android:name=".AptoideSpiceHttpServicePermanent"
+            android:exported="false"
+            android:label="AptoideSpiceHttpServicePermanent" />
+        <service
             android:name=".AptoideSpiceHttpService"
             android:exported="false"
             android:label="AptoideSpiceHttpService" />

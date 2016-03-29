@@ -168,11 +168,13 @@ public class DownloadInfoRunnable implements Runnable, Serializable {
             size = dir.length();
         } else {
             File[] subFiles = dir.listFiles();
-            for (File file : subFiles) {
-                if (file.isFile()) {
-                    size += file.length();
-                } else {
-                    size += this.getDirSize(file);
+            if (subFiles != null) {
+                for (File file : subFiles) {
+                    if (file.isFile()) {
+                        size += file.length();
+                    } else {
+                        size += this.getDirSize(file);
+                    }
                 }
             }
         }

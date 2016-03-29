@@ -67,6 +67,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
@@ -154,6 +155,8 @@ import com.aptoide.amethyst.ui.widget.CircleTransform;
 import com.aptoide.amethyst.utils.ReferrerUtils;
 import com.aptoide.amethyst.webservices.GetApkInfoRequestFromId;
 
+import lombok.Getter;
+
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.TRUSTED;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.UNKNOWN;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.WARNING;
@@ -164,6 +167,10 @@ import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Mal
  */
 public class AppViewActivity extends AptoideBaseActivity implements AddCommentVoteCallback, FlagApkDialog.ApkFlagCallback {
 
+    /**
+     * True when activity is created.
+     */
+    private boolean lifecycleController = false;
     static String TAG = AppViewActivity.class.getSimpleName();
     public static final short DOWNGRADE_REQUEST_CODE = 456;
     private static final short Purchase_REQUEST_CODE = 30333;
@@ -218,7 +225,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_view_activity);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content, new AppViewFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content, AppViewFragment.newInstance(lifecycleController)).commit();
         }
     }
 
@@ -230,6 +237,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             fragment.onActivityResult(resultBundle.requestCode, resultBundle.resultCode, resultBundle.data);
             resultBundle = null;
         }
+
+        lifecycleController = true;
     }
 
     @Override
@@ -243,7 +252,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     @Override
     protected void onRestart() {
         super.onRestart();
-        final AppViewFragment fragment = new AppViewFragment();
+        final AppViewFragment fragment = AppViewFragment.newInstance(lifecycleController);
         final FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.content, fragment)
@@ -288,8 +297,20 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
     public static class AppViewFragment extends Fragment implements FlagApkDialog.ApkFlagCallback, AddCommentVoteCallback, ServiceConnection {
 
+        private String download_from;
+
         private static final String BADGE_DIALOG_TAG = "badgeDialog";
         protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
+        private boolean lifecycleController;
+
+        public static AppViewFragment newInstance(boolean lifecycleController) {
+            AppViewFragment f = new AppViewFragment();
+            Bundle args = new Bundle();
+            args.putBoolean("lifecycleController", lifecycleController);
+            f.setArguments(args);
+            return f;
+        }
+
 
         public AppViewFragment() { }
 
@@ -362,6 +383,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         ProgressBar mDownloadingProgress;
         RelativeLayout mMoreVersionsLayoutHeader;
         Button mMoreVersionsLayoutButton;
+        TextView mMoreVersionsTitle;
         TextView mWebsiteLabel;
         TextView mEmailLabel;
         TextView mPrivacyLabel;
@@ -401,7 +423,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         /**
          * v7 json attributes
          */
-        private long appId;
+        @Getter private long appId;
         private long adId;
         private String signature;
         private String path;
@@ -533,6 +555,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                     permissions = model.getApp.nodes.meta.data.file.usedPermissions;
                     malware = model.getApp.nodes.meta.data.file.malware;
 
+                    Analytics.ViewedApplication.view(packageName, developer, download_from);
+
                     if (model.getApp.nodes.versions != null && !model.getApp.nodes.versions.list.isEmpty() &&
                             model.getApp.nodes.meta.data.file.vercode.longValue() < model.getApp.nodes.versions.list.get(0).file.vercode.longValue()) {
 
@@ -564,10 +588,12 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                     populateMoreVersions(model);
                     requestComments(false);
                     showDialogIfComingFromBrowser();
+                    showDialogIfComingFromAPKFY();
                     populateRatings(model.getApp);
 
                     if (!fromSponsored) {
-                        new AppViewMiddleSuggested((AppViewActivity) getActivity(), getView().findViewById(R.id.middleAppViewContainer), spiceManager, packageName, model.getApp.nodes.meta.data.media.keywords);
+                        new AppViewMiddleSuggested((AppViewActivity) getActivity(), getView().findViewById(R.id.middleAppViewContainer), spiceManager, appId, packageName, model
+                                .getApp.nodes.meta.data.media.keywords);
                         getOrganicAds();
                     }
 
@@ -582,6 +608,27 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 }
             }
         };
+
+        private boolean isApkFy;
+        private static boolean isApkFyDialogShowed = false;
+
+        private void showDialogIfComingFromAPKFY() {
+            if (obb != null ) {
+                AptoideUtils.AppUtils.checkPermissions(getActivity());
+            }
+
+            isApkFy = getActivity().getIntent().getBooleanExtra(Constants.FROM_APKFY_KEY, false);
+            if (isApkFy && !isPaidApp() && !isApkFyDialogShowed) {
+                isApkFyDialogShowed = true;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).edit();
+                    edit.putString(AptoideConfiguration.PREF_PATH_CACHE_APK, Aptoide.getContext().getFilesDir().getPath()).apply();
+                }
+                final InstallListener installListener = new InstallListener(iconUrl, appName, versionName, packageName, md5sum, isPaidApp());
+                DialogFragment dialog = AptoideDialog.myAppInstall(appName, installListener, null);
+                AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(), Constants.FROM_APKFY_KEY);
+            }
+        }
 
         private RequestListener<GetApkInfoJson> getApkInfoJsonRequestListener = new RequestListener<GetApkInfoJson>() {
 
@@ -677,6 +724,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             super.onCreate(savedInstanceState);
             setHasOptionsMenu(true);
             glide = Glide.with(this);
+
+            lifecycleController = getArguments().getBoolean("lifecycleController");
 
             if (savedInstanceState != null) {
                 appId = savedInstanceState.getLong(Constants.APP_ID_KEY);
@@ -774,8 +823,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             mActionResume = (ImageView) view.findViewById(R.id.ic_action_resume);
             mProgressText = (TextView) view.findViewById(R.id.text_progress);
             mDownloadingProgress = (ProgressBar) view.findViewById(R.id.downloading_progress);
-            mMoreVersionsLayoutHeader = (RelativeLayout) view.findViewById(R.id.more_versions_layout_header);
-            mMoreVersionsLayoutButton = (Button) view.findViewById(R.id.more_versions_button);
+            mMoreVersionsLayoutHeader = (RelativeLayout) view.findViewById(R.id.more_layout);
+            mMoreVersionsLayoutButton = (Button) view.findViewById(R.id.more);
+            mMoreVersionsTitle = (TextView) view.findViewById(R.id.title);
             mWebsiteLabel = (TextView) view.findViewById(R.id.website_label);
             mEmailLabel = (TextView) view.findViewById(R.id.email_label);
             mPrivacyLabel = (TextView) view.findViewById(R.id.privacy_policy_label);
@@ -1413,6 +1463,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 }
             });
 
+            mMoreVersionsTitle.setText(R.string.appview_other_versions_in_others_stores);
+
             // AN-227: remove the first app if it's the same as this
             if (!model.list.isEmpty()
                     &&  model.list.get(0).versionCode == versionCode) {
@@ -1612,6 +1664,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         }
 
         private void getOrganicAds() {
+            if (lifecycleController) {
+                return;
+            }
+
             final GetAdsRequest getAdsRequest = new GetAdsRequest("", false);
 
             getAdsRequest.setLocation("appview");
@@ -1664,7 +1720,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                         long id = appSuggested.getData().getId().longValue();
                         adId = appSuggested.getInfo().getAd_id();
 
-                        ReferrerUtils.extractReferrer(webview, (AppViewActivity) getActivity(), adPackageName, spiceManager, clickUrl, downloadId, id, adId, referrer);
+                        ReferrerUtils.extractReferrer(packageName, appId, adId, -1, clickUrl, spiceManager, null, ReferrerUtils.RETRIES);
 
                         OkHttpClient client = new OkHttpClient();
 
@@ -1683,7 +1739,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                         Intent intent = getActivity().getIntent();
                         intent.putExtra("cpi", appSuggested.getInfo().getCpi_url());
                         getActivity().setIntent(intent);
-
                     } catch (Exception e) {
                         Logger.printException(e);
                     }
@@ -2131,26 +2186,13 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 String cpi = intent.getStringExtra(Constants.CPI_KEY);
                 cpd = intent.getStringExtra(Constants.CPD_KEY);
                 String whereFrom = intent.getStringExtra(Constants.WHERE_FROM_KEY);
-                String download_from = intent.getStringExtra(Constants.DOWNLOAD_FROM_KEY);
+                download_from = intent.getStringExtra(Constants.DOWNLOAD_FROM_KEY);
 
                 executeSpiceRequestWithAppId(appId, storeName, packageName);
                 AptoideUtils.AdNetworks.knock(cpc);
-                final ExecutorService executorService = Executors.newSingleThreadExecutor();
-                executorService.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (intent.hasExtra("partnerExtra")) {
-                            try {
-                                String clickUrl = intent.getBundleExtra("partnerExtra").getString("partnerClickUrl");
-                                Logger.d("Aptoide", "InSponsoredExtras");
-                                String partnerType = intent.getBundleExtra("partnerExtra").getString("partnerType");
-                                ReferrerUtils.extractReferrer(webview, (AppViewActivity) getActivity(), packageName, spiceManager, clickUrl, downloadId, appId, adId, referrer);
-                            } catch (Exception e) {
-                                Logger.printException(e);
-                            }
-                        }
-                    }
-                });
+
+                final String clickUrl = intent.getBundleExtra("partnerExtra").getString("partnerClickUrl");
+                ReferrerUtils.extractReferrer(packageName, appId, adId, -1, clickUrl, spiceManager, null, ReferrerUtils.RETRIES);
             } else if (intent.getBooleanExtra(Constants.ROLLBACK_FROM_KEY, false)) {
                 md5sum = intent.getStringExtra(Constants.MD5SUM_KEY);
 
@@ -2347,6 +2389,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 }
 
                 download();
+
+                Analytics.ClickedOnInstallButton.clicked(package_name, developer);
             }
 
             @Override
