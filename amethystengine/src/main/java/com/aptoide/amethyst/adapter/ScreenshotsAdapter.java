@@ -35,6 +35,7 @@ public class ScreenshotsAdapter extends RecyclerView.Adapter<ScreenshotsViewHold
         this.items = items;
         this.imagesUrl = new ArrayList<>();
         this.numberOfVideos = 0;
+
         for (IMediaObject item : items) {
             if (item instanceof Screenshot) {
                 imagesUrl.add(AptoideUtils.UI.screenshotToThumb(context, item.getImageUrl(), ((Screenshot) item).getOrient()));

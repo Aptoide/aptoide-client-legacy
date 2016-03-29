@@ -36,7 +36,6 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
@@ -46,6 +45,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -72,7 +72,6 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.dialogs.DialogPermissions;
 import com.aptoide.amethyst.dialogs.FlagApkDialog;
-import com.aptoide.amethyst.dialogs.MyAppInstallDialog;
 import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
@@ -81,6 +80,9 @@ import com.aptoide.amethyst.model.json.CheckUserCredentialsJson;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.preferences.Preferences;
 import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.subscription.Subscription;
+import com.aptoide.amethyst.subscription.SubscriptionActivity;
+import com.aptoide.amethyst.subscription.SubscriptionStatus;
 import com.aptoide.amethyst.ui.IMediaObject;
 import com.aptoide.amethyst.ui.MyAccountActivity;
 import com.aptoide.amethyst.ui.Screenshot;
@@ -712,7 +714,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
             mFeaturedGraphic = (ImageView) view.findViewById(R.id.featured_graphic);
             mAppIcon = (ImageView) view.findViewById(R.id.app_icon);
-            mStoreView = (View) view.findViewById(R.id.store);
+            mStoreView = view.findViewById(R.id.store);
             mStoreAvatar = (ImageView) view.findViewById(R.id.store_avatar);
             mStoreName = (TextView) view.findViewById(R.id.store_name);
             mStoreUsers = (TextView) view.findViewById(R.id.store_number_users);
@@ -769,7 +771,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             tvNumberFreezeFlags = (TextView) view.findViewById(R.id.number_freeze_flags);
             tvNumberLicenceFlags = (TextView) view.findViewById(R.id.number_licence_flags);
             tvNumberVirusFlags = (TextView) view.findViewById(R.id.number_virus_flags);
-            manualReviewLayout = (View) view.findViewById(R.id.manual_reviewed_message_layout);
+            manualReviewLayout = view.findViewById(R.id.manual_reviewed_message_layout);
             mInstallAndLatestVersionLayout = (LinearLayout) view.findViewById(R.id.install_and_latest_version_layout);
             mDownloadProgressLayout = (RelativeLayout) view.findViewById(R.id.download_progress_layout);
             mActionResume = (ImageView) view.findViewById(R.id.ic_action_resume);
@@ -1877,7 +1879,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 }
             }
 
-            ScreenshotsAdapter adapter = new ScreenshotsAdapter(glide, mediaObjects);
+            ScreenshotsAdapter adapter = new ScreenshotsAdapter(getActivity(), glide, mediaObjects);
             mScreenshotsList.addItemDecoration(new DividerItemDecoration(AptoideUtils.getPixels(getActivity(), 5)));
             mScreenshotsList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
             mScreenshotsList.setNestedScrollingEnabled(false); // because otherwise the AppBar won't be collapsed
