@@ -9,6 +9,7 @@ import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.MoreSearchActivity;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.SignUpActivity;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
@@ -223,8 +224,6 @@ public class AptoideConfiguration {
 
     public Class getPushNotificationsReceiver() { return PushNotificationReceiver.class; }
 
-    public Fragment getMoreSearchFragment () {
-        return new MoreSearchActivity.MoreSearchFragment();
-    }
+    public Class getSearchActivity() { return SearchActivity.class; }
 
 }
