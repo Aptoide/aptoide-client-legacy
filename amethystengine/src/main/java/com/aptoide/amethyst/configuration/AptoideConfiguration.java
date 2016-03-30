@@ -223,7 +223,4 @@ public class AptoideConfiguration {
     public Class getMoreSearchActivity () { return MoreSearchActivity.class; }
 
     public Class getPushNotificationsReceiver() { return PushNotificationReceiver.class; }
-
-    public Class getSearchActivity() { return SearchActivity.class; }
-
 }
