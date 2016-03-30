@@ -1063,6 +1063,7 @@ public class AptoideUtils {
             GetAppRequest request = buildGetAppRequest(storeName);
             request.appId = appId;
             request.packageName = packageName;
+            request.storeName = storeName;
             return request;
         }
 

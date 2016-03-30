@@ -2043,7 +2043,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
         }
 
-        private void requestComments(boolean useCache) {
+        protected void requestComments(boolean useCache) {
             long cacheExpiryDuration = (useCache || !forceReload) ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
 
             // call list apkcomments, which need: storeName, packageName, versionName
