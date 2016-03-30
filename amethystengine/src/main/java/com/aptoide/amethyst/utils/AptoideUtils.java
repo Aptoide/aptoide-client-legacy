@@ -59,6 +59,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
@@ -610,9 +611,29 @@ public class AptoideUtils {
 
         private static int TIME_OUT = 15000; // 15s
 
+        private static String getUserId() {
+            String user_id;
+
+            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext());
+
+            user_id = sPref.getString("advertisingIdClient", null);
+
+            // Fallback para user
+            if (isNullOrEmpty(user_id)) {
+                user_id = android.provider.Settings.Secure.getString(Aptoide.getContext().getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+            }
+
+            // Fallback para UUID
+            if (isNullOrEmpty(user_id)) {
+                user_id = sPref.getString(EnumPreferences.APTOIDE_CLIENT_UUID.name(), "NoInfo");
+            }
+
+            return user_id;
+        }
+
         public static String getUserAgentString(Context mctx, boolean update) {
             SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(mctx);
-            String myid = sPref.getString(EnumPreferences.APTOIDE_CLIENT_UUID.name(), "NoInfo");
+            String myid = getUserId();
             String myscr = sPref.getInt(EnumPreferences.SCREEN_WIDTH.name(), 0) + "x" + sPref.getInt(EnumPreferences.SCREEN_HEIGHT.name(), 0);
             String verString = null;
             try {
@@ -2035,6 +2056,49 @@ public class AptoideUtils {
                     activity.runOnUiThread(runnable);
                 }
             }, delayInMillis, TimeUnit.MILLISECONDS);
+        }
+    }
+
+    private static boolean isNullOrEmpty(Object o) {
+        return o == null || "".equals(o);
+    }
+
+
+    /**
+     * this class should have all the utils methods related to crashlytics
+     */
+    public static class CrashlyticsUtils{
+        /**
+         * arrayList with all screen names history
+         */
+        private static ArrayList<String> history = new ArrayList<>();
+
+        /**
+         * this var sets the max screens should be added to history
+         */
+        private static int MAX_HISTORY = 10;
+        /**
+         * this method adds a screen name to the history to be reported to crashlytics
+         * @param screeName screen name that should be reported to crashlytics
+         */
+        public static void addScreenToHistory (String screeName) {
+            if (BuildConfig.FABRIC_CONFIGURED) {
+                addScreen(screeName);
+                Crashlytics.setString("ScreenHistory", history.toString());
+            }
+        }
+
+        private static void addScreen(String screeName) {
+            if (history.size() >= MAX_HISTORY) {
+                history.remove(0);
+            }
+            history.add(screeName);
+        }
+
+        public static void resetScreenHistory() {
+            if (history != null) {
+                history.clear();
+            }
         }
     }
 }

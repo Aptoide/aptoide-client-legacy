@@ -33,6 +33,8 @@ import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.SecureRandom;
+import java.util.UUID;
 
 import io.fabric.sdk.android.Fabric;
 import roboguice.util.temp.Ln;
@@ -77,11 +79,19 @@ public class Aptoide extends Application {
             @Override
             public void run() {
                 String aaid = "";
-                try {
-                    AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", AdvertisingIdClient.getAdvertisingIdInfo(Aptoide.this).getId
-                            ()).apply();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if (AptoideUtils.GoogleServices.checkGooglePlayServices(context)) {
+                    try {
+                        aaid = AdvertisingIdClient.getAdvertisingIdInfo(Aptoide.this).getId();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    byte[] data = new byte[16];
+                    String deviceId = android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+                    SecureRandom secureRandom = new SecureRandom();
+                    secureRandom.setSeed(deviceId.hashCode());
+                    secureRandom.nextBytes(data);
+                    aaid = UUID.nameUUIDFromBytes(data).toString();
                 }
 
                 AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", aaid).apply();
@@ -125,6 +135,7 @@ public class Aptoide extends Application {
         setDebugMode();
         checkIsSystem();
         setThemePicker(getNewThemePicker());
+        Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());
     }
     
     /**

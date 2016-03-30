@@ -17,11 +17,11 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.search.SearchApk;
+import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 import com.bumptech.glide.Glide;
 
 import java.text.ParseException;

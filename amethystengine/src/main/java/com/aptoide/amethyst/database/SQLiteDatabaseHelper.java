@@ -18,7 +18,7 @@ import com.aptoide.amethyst.database.schema.annotations.TableDefinition;
 import com.aptoide.models.ScheduledDownloadItem;
 import com.aptoide.models.StoreItemDB;
 import com.aptoide.models.stores.Login;
-import com.aptoide.models.updates.ExcludedUpdate;
+import com.aptoide.models.displayables.ExcludedUpdate;
 
 import java.lang.reflect.Field;
 

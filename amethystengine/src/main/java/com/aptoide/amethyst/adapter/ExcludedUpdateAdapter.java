@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.utils.IconSizeUtils;
-import com.aptoide.models.updates.ExcludedUpdate;
+import com.aptoide.models.displayables.ExcludedUpdate;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;

@@ -10,8 +10,8 @@ import com.aptoide.dataprovider.webservices.json.review.Review;
 import com.aptoide.dataprovider.webservices.json.review.ReviewListJson;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.Defaults;
-import com.aptoide.models.ProgressBarRow;
-import com.aptoide.models.ReviewRowItem;
+import com.aptoide.models.displayables.ProgressBarRow;
+import com.aptoide.models.displayables.ReviewRowItem;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 

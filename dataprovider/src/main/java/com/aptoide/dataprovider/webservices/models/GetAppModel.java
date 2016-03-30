@@ -1,7 +1,7 @@
 package com.aptoide.dataprovider.webservices.models;
 
 import com.aptoide.dataprovider.webservices.models.v7.GetApp;
-import com.aptoide.models.MoreVersionsAppViewItem;
+import com.aptoide.models.displayables.MoreVersionsAppViewItem;
 
 import java.util.ArrayList;
 import java.util.List;

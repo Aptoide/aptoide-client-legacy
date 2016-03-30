@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.SuggestedAppDisplayable;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.SuggestedAppDisplayable;
 import com.bumptech.glide.Glide;
 
 import java.text.DecimalFormat;

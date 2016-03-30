@@ -1,7 +1,7 @@
 package com.aptoide.dataprovider.webservices.models;
 
 import com.aptoide.dataprovider.webservices.models.v7.GetStore;
-import com.aptoide.models.DisplayableList;
+import com.aptoide.models.displayables.DisplayableList;
 
 /**
  * This call is to be used on both in the StoresActivity and HomeStoreFragment,

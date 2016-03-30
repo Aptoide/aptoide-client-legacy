@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
@@ -20,12 +21,15 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Configs;
+import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.GetReviews;
 import com.aptoide.dataprovider.webservices.json.review.Review;
 import com.aptoide.dataprovider.webservices.json.review.ReviewJson;
 import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.dataprovider.webservices.models.ErrorResponse;
 import com.bumptech.glide.Glide;
+import com.crashlytics.android.Crashlytics;
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
@@ -49,6 +53,7 @@ import lecho.lib.hellocharts.view.PieChartView;
  * Created by fabio on 21-10-2015.
  */
 public class ReviewActivity extends AptoideBaseActivity {
+    private static final String TAG = ReviewActivity.class.getSimpleName();
     SpiceManager manager = new SpiceManager(AptoideSpiceHttpService.class);
     private final SimpleDateFormat dateFormatter = new SimpleDateFormat("MMMM y", Locale.getDefault());
 
@@ -127,7 +132,7 @@ public class ReviewActivity extends AptoideBaseActivity {
         }
 
         GetReviews.GetReview reviewsRequest = new GetReviews.GetReview();
-        int id = getIntent().getIntExtra("review_id", 0);
+        final int id = getIntent().getIntExtra("review_id", 0);
         reviewsRequest.setId(id);
         reviewsRequest.setDensity(AptoideUtils.HWSpecifications.getScreenDensity());
         showLoading();
@@ -139,6 +144,19 @@ public class ReviewActivity extends AptoideBaseActivity {
 
             @Override
             public void onRequestSuccess(final ReviewJson reviewListJson) {
+                if (reviewListJson.errors != null && reviewListJson.errors.size() > 0) {
+                    Toast.makeText(ReviewActivity.this, getResources().getString(R.string.simple_error_occured), Toast.LENGTH_SHORT).show();
+                    Crashlytics.setLong("ReviewID", id);
+                    String response = "";
+                    for (ErrorResponse error : reviewListJson.errors) {
+                        response += "code: " + error.code + "\tmsg: " + error.msg+"\n";
+                    }
+                    Crashlytics.setString("Errors", response);
+                    Logger.e(TAG, new NullPointerException(response).toString());
+                    Crashlytics.logException(new NullPointerException());
+                    finish();
+                    return;
+                }
                 Log.d("AptoideReview", reviewListJson.toString());
                 int addiction = reviewListJson.getReview().getAddiction();
                 int speed = reviewListJson.getReview().getPerformance();

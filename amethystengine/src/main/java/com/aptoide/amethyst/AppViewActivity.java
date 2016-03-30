@@ -37,6 +37,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
@@ -72,6 +73,7 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.dialogs.DialogPermissions;
 import com.aptoide.amethyst.dialogs.FlagApkDialog;
+import com.aptoide.amethyst.dialogs.MyAppInstallDialog;
 import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
@@ -105,10 +107,10 @@ import com.aptoide.dataprovider.webservices.models.v3.RateApp;
 import com.aptoide.dataprovider.webservices.models.v7.GetApp;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
 import com.aptoide.models.ApkSuggestionJson;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HeaderRow;
-import com.aptoide.models.MoreVersionsAppViewItem;
-import com.aptoide.models.placeholders.NoCommentPlaceHolderRow;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.MoreVersionsAppViewItem;
+import com.aptoide.models.displayables.NoCommentPlaceHolderRow;
 import com.aptoide.models.stores.Store;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
@@ -173,6 +175,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
     private static final String APP_NOT_AVAILABLE = "410 Gone";
 
+    private ResultBundle resultBundle;
+
     private static int getPercentage(Number total, Number quantity) {
         if (quantity.intValue() == 0 || total.intValue() == 0) {
             return 0;
@@ -191,6 +195,18 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     }
 
 
+    static class ResultBundle {
+        final int requestCode;
+        final int resultCode;
+        final Intent data;
+
+        public ResultBundle(int requestCode, int resultCode, Intent data) {
+            this.requestCode = requestCode;
+            this.resultCode = resultCode;
+            this.data = data;
+        }
+    }
+    
     enum BtnInstallState {
         INSTALL(0), DOWNGRADE(1), UPDATE(2), OPEN(3), BUY(4);
         int state;
@@ -211,6 +227,16 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     @NonNull
     protected AppViewFragment createFragment() {
         return new AppViewFragment();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
+        if (fragment != null && resultBundle != null) {
+            fragment.onActivityResult(resultBundle.requestCode, resultBundle.resultCode, resultBundle.data);
+            resultBundle = null;
+        }
     }
 
     @Override
@@ -259,8 +285,15 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         return null;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        resultBundle = new ResultBundle(requestCode, resultCode, data);
+    }
+
     public static class AppViewFragment extends Fragment implements FlagApkDialog.ApkFlagCallback, AddCommentVoteCallback, ServiceConnection {
 
+        private static final String BADGE_DIALOG_TAG = "badgeDialog";
         protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
 
         public AppViewFragment() { }
@@ -457,6 +490,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
          */
         private boolean reloadButtons;
 
+        private ResultBundle resultBundle;
+
         private RequestListener<GetAppModel> listener = new RequestListener<GetAppModel>() {
 
             @Override
@@ -541,8 +576,13 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                         getOrganicAds();
                     }
 
-                    if (forceAutoDownload) {
+                    if (isFromActivityResult || forceAutoDownload) {
                         download();
+                    }
+
+                    if (resultBundle != null) {
+                        onActivityResult(resultBundle.requestCode, resultBundle.resultCode, resultBundle.data);
+                        resultBundle = null;
                     }
                 }
             }
@@ -868,6 +908,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             super.onActivityResult(requestCode, resultCode, data);
             if (requestCode == DOWNGRADE_REQUEST_CODE) {
                 try {
+                    // md5sum is not loaded yet
+                    if (md5sum == null) {
+                        resultBundle = new ResultBundle(requestCode, resultCode, data);
+                        return;
+                    }
                     getActivity().getPackageManager().getPackageInfo(packageName, 0);
                     Toast.makeText(getActivity(), getString(R.string.downgrade_requires_uninstall), Toast.LENGTH_SHORT).show();
                 } catch (PackageManager.NameNotFoundException e) {
@@ -1135,7 +1180,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         View.OnClickListener badgeClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AptoideDialog.badgeDialogV7(malware, appName, malware.rank).show(getChildFragmentManager(), "badgeDialog");
+                AptoideDialog.badgeDialogV7(malware, appName, malware.rank).show(getFragmentManager(), BADGE_DIALOG_TAG);
             }
         };
 
@@ -1887,6 +1932,16 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
         }
 
+        private void handleSuccessCondition() {
+            mContentView.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.GONE);
+
+            layoutError.setVisibility(View.GONE);
+            layoutNoNetwork.setVisibility(View.GONE);
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mContentView.setVisibility(View.VISIBLE);
+        }
+
         private void showGenericError() {
             layoutNoNetwork.setVisibility(View.GONE);
             layoutError.setVisibility(View.VISIBLE);
@@ -1900,16 +1955,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                     refresh();
                 }
             });
-        }
-
-        private void handleSuccessCondition() {
-            mContentView.setVisibility(View.VISIBLE);
-            mProgressBar.setVisibility(View.GONE);
-
-            layoutError.setVisibility(View.GONE);
-            layoutNoNetwork.setVisibility(View.GONE);
-            mAppBarLayout.setVisibility(View.VISIBLE);
-            mContentView.setVisibility(View.VISIBLE);
         }
 
         private void handleLatestVersionLogic() {
@@ -2039,7 +2084,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         private void showDialogIfComingFromBrowser() {
             if (getActivity().getIntent().getBooleanExtra(Constants.FROM_MY_APP_KEY, false) && !isPaidApp()) {
                 final InstallListener installListener = new InstallListener(iconUrl, appName, versionName, packageName, md5sum, isPaidApp());
-                AptoideDialog.myAppInstall(appName, installListener, onDismissListener).show(getChildFragmentManager(), "myApp");
+                DialogFragment dialog = AptoideDialog.myAppInstall(appName, installListener, onDismissListener);
+                AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(),"myApp");
             }
         }
 
@@ -2255,7 +2301,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 args.putString("icon", icon);
                 downgrade.setArguments(args);
 
-                getChildFragmentManager().beginTransaction().add(downgrade, "downgrade").commit();
+                getFragmentManager().beginTransaction().add(downgrade, "downgrade").commit();
             }
         }
 

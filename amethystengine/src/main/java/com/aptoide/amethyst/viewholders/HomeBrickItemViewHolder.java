@@ -6,8 +6,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.aptoide.amethyst.R;
-import com.aptoide.models.BrickAppItem;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.BrickAppItem;
+import com.aptoide.models.displayables.Displayable;
 import com.bumptech.glide.Glide;
 
 

@@ -25,9 +25,9 @@ import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.v2.Comment;
 import com.aptoide.dataprovider.webservices.models.v2.GetComments;
-import com.aptoide.models.CommentItem;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.ProgressBarRow;
+import com.aptoide.models.displayables.CommentItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.ProgressBarRow;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
@@ -94,7 +94,9 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
         public void onRequestSuccess(GetComments getComments) {
             handleSuccessCondition();
             displayableList.addAll(createCommentItemList(getComments.list));
-            sortComments(displayableList);
+            if (appView) {
+                sortComments(displayableList);
+            }
             getRecyclerView().setAdapter(getAdapter());
 
             /*if(!getComments.list.isEmpty()) {
@@ -119,7 +121,15 @@ public class LatestCommentsFragment extends BaseWebserviceFragment {
         super.onCreate(savedInstanceState);
         // hack: differentiate between coming from the storeActivity or from the AppviewActivity
         if (getArguments() != null) {
-            appView = !(TextUtils.isEmpty(getArguments().getString(Constants.VERSIONNAME_KEY, "")) || TextUtils.isEmpty(getArguments().getString(Constants.PACKAGENAME_KEY, "")));
+            String versionName = (String) getArguments().get(Constants.VERSIONNAME_KEY);
+            String packageName = (String) getArguments().get(Constants.PACKAGENAME_KEY);
+            if (versionName == null) {
+                versionName = "";
+            }
+            if (packageName == null) {
+                packageName = "";
+            }
+            appView = !(TextUtils.isEmpty(versionName) || TextUtils.isEmpty(packageName));
         }
     }
 

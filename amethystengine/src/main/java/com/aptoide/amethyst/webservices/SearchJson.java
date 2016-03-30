@@ -1,6 +1,6 @@
 package com.aptoide.amethyst.webservices;
 
-import com.aptoide.amethyst.models.search.SearchApk;
+import com.aptoide.models.displayables.SearchApk;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;

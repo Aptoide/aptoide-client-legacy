@@ -128,7 +128,6 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
     public void onCreate(Bundle savedInstanceState) {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-
         setContentView(getContentView());
         bindViews();
 

@@ -15,8 +15,8 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HomeStoreItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HomeStoreItem;
 import com.bumptech.glide.Glide;
 
 

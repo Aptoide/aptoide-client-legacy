@@ -1,6 +1,6 @@
 package com.aptoide.dataprovider.webservices.models.v7;
 
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 
 import java.util.ArrayList;
 import java.util.List;

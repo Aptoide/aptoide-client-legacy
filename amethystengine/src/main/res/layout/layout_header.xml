@@ -13,17 +13,22 @@
     <TextView
         android:id="@+id/title"
         style="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
-        tools:text="lorem ipsum"/>
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/more"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        tools:text="Local Top Apps"/>
 
     <Button
         android:id="@+id/more"
         style="?attr/customButton"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="37dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:text="@string/button_header_more"

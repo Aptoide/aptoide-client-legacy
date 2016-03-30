@@ -6,8 +6,8 @@ import com.aptoide.dataprovider.webservices.interfaces.v7.IGetAppV7WebService;
 import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
 import com.aptoide.dataprovider.webservices.models.v7.GetApp;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
-import com.aptoide.models.DisplayableList;
-import com.aptoide.models.MoreVersionsItem;
+import com.aptoide.models.displayables.DisplayableList;
+import com.aptoide.models.displayables.MoreVersionsItem;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
 
 /**

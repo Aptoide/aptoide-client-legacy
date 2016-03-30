@@ -21,13 +21,13 @@ import com.aptoide.amethyst.database.schema.Schema;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.StoreItem;
+import com.aptoide.models.displayables.StoreItem;
 import com.aptoide.amethyst.preferences.AptoidePreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.models.AddStoreRow;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.DisplayableList;
+import com.aptoide.models.displayables.AddStoreRow;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.DisplayableList;
 import com.aptoide.models.stores.Login;
 import com.aptoide.models.stores.Store;
 import com.squareup.otto.Subscribe;
@@ -152,11 +152,9 @@ public class StoresFragment extends CursorLoaderGridRecyclerFragment {
                         data.getString(data.getColumnIndex(Schema.Repo.COLUMN_NAME)),
                         data.getString(data.getColumnIndex(Schema.Repo.COLUMN_DOWNLOADS)),
                         data.getString(data.getColumnIndex(Schema.Repo.COLUMN_AVATAR)),
-                        EnumStoreTheme.get(theme),
-                        "grid".equals(data.getString(data.getColumnIndex(Schema.Repo.COLUMN_VIEW))),
-                        data.getLong(data.getColumnIndex(Schema.Repo.COLUMN_ID)),
-                        login,
-                        storeBucketSize);
+                        EnumStoreTheme.get(theme).getStoreHeader(), EnumStoreTheme.get(theme).ordinal(), "grid".equals(data.getString(data.getColumnIndex(Schema.Repo
+                        .COLUMN_VIEW))), data.getLong(data
+                        .getColumnIndex(Schema.Repo.COLUMN_ID)), login, storeBucketSize);
 
                 stores.add(storeItem);
             }

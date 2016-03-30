@@ -10,10 +10,10 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.models.AdItem;
-import com.aptoide.models.AppItem;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.MoreVersionsItem;
+import com.aptoide.models.displayables.AdItem;
+import com.aptoide.models.displayables.AppItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.MoreVersionsItem;
 import com.bumptech.glide.Glide;
 
 import java.text.ParseException;

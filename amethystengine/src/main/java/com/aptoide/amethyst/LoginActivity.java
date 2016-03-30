@@ -30,6 +30,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.events.BusProvider;
@@ -413,7 +414,10 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     public void setShowProgress(final boolean showProgress) {
         final DialogFragment progress = (DialogFragment) getSupportFragmentManager().findFragmentByTag(TAG_PROGRESS);
         if (progress == null && showProgress) {
-            AptoideDialog.pleaseWaitDialog().show(getSupportFragmentManager(), TAG_PROGRESS);
+            try {
+                AptoideDialog.pleaseWaitDialog().show(getSupportFragmentManager(), TAG_PROGRESS);
+            // https://code.google.com/p/android/issues/detail?id=23761
+            } catch (IllegalStateException ignore) { }
         } else if (progress != null && !showProgress) {
             progress.dismissAllowingStateLoss();
         }
@@ -462,6 +466,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
                     setShowProgress(false);
                 } else {
                     getUserInfo(oAuth, userName, mode, accountType, passwordOrToken);
+                    Analytics.Login.login(userName, mode);
                 }
             }
         });
