@@ -1,8 +1,11 @@
 package com.aptoide.amethyst.utils;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 
 import com.aptoide.amethyst.Aptoide;
+
+import java.util.HashMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,8 +20,26 @@ public class IconSizeUtils {
     static final private int baseLineAvatar = 150;
     static final private int baseLineXNotification = 320;
     static final private int baseLineYNotification = 180;
+    public static final String XXXHDPI = "xxxhdpi";
+    public static final String XXHDPI = "xxhdpi";
+    public static final String XHDPI = "xhdpi";
+    public static final String HDPI = "hdpi";
+    public static final String MDPI = "mdpi";
+    public static final String LDPI = "ldpi";
+    public static final String DEFAULT_SCREEN_DENSITY = "default";
     private static int baseLineScreenshotLand = 256;
     private static int baseLineScreenshotPort = 96;
+    public static final HashMap<String,String> mIconSizes;
+    static {
+        mIconSizes= new HashMap<>();
+        mIconSizes.put(XXXHDPI, "384x384");
+        mIconSizes.put(XXHDPI, "288x288");
+        mIconSizes.put(XHDPI, "192x192");
+        mIconSizes.put(HDPI , "144x144");
+        mIconSizes.put(MDPI , "127x127");
+        mIconSizes.put(LDPI , "96x96");
+        mIconSizes.put(DEFAULT_SCREEN_DENSITY, "72x72");
+    }
 
 
     public static String generateSizeStringNotification(){
@@ -38,23 +59,24 @@ public class IconSizeUtils {
     }
 
     public static String generateSizeString() {
-        Context context = Aptoide.getContext();
-        if (context == null) {
-            return "";
-        }
-        float densityMultiplier = densityMultiplier();
-
-        int size = (int) (baseLine * densityMultiplier);
-
-        //Log.d("Aptoide-IconSize", "Size is " + size);
-
-        return size + "x" + size;
+//        Context context = Aptoide.getContext();
+//        if (context == null) {
+//            return "";
+//        }
+//        float densityMultiplier = densityMultiplier();
+//
+//        int size = (int) (baseLine * densityMultiplier);
+//
+//        //Log.d("Aptoide-IconSize", "Size is " + size);
+//
+//        return size + "x" + size;
+        return mIconSizes.get(getScreenDensity());
     }
 
 
     public static String generateSizeStringAvatar() {
         Context context = Aptoide.getContext();
-        if(context == null){
+        if (context == null) {
             return "";
         }
         float densityMultiplier = densityMultiplier();
@@ -63,12 +85,12 @@ public class IconSizeUtils {
 
         //Log.d("Aptoide-IconSize", "Size is " + size);
 
-        return size+"x"+size;
+        return size + "x" + size;
     }
 
     public static String generateSizeStringScreenshots(String orient) {
         Context context = Aptoide.getContext();
-        if(context == null){
+        if (context == null) {
             return "";
         }
         boolean isPortrait = orient != null && orient.equals("portrait");
@@ -136,5 +158,30 @@ public class IconSizeUtils {
             densityMultiplier = 4f;
         }
         return densityMultiplier;
+    }
+
+    public static String getScreenDensity() {
+
+        Context context = Aptoide.getContext();
+        int density = context.getResources().getDisplayMetrics().densityDpi;
+
+        switch (density) {
+            case DisplayMetrics.DENSITY_LOW:
+                return LDPI;
+            case DisplayMetrics.DENSITY_MEDIUM:
+                return MDPI;
+            case DisplayMetrics.DENSITY_HIGH:
+                return HDPI;
+            case DisplayMetrics.DENSITY_XHIGH:
+                return XHDPI;
+            case DisplayMetrics.DENSITY_XXHIGH:
+                return XXHDPI;
+            case DisplayMetrics.DENSITY_XXXHIGH:
+                return XXXHDPI;
+
+            default:
+                return "default";
+        }
+
     }
 }
