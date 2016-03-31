@@ -74,6 +74,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.zip.ZipFile;
 
 import com.aptoide.amethyst.adapter.MainPagerAdapter;
 import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
@@ -362,7 +363,10 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
     private boolean hasBootOptions() {
         String appId = null;
         try {
-            InputStream is = getAssets().open("actionsOnBoot.properties");
+            final String sourceDir = getPackageManager().getPackageInfo("cm.aptoide.pt", 0).applicationInfo.sourceDir;
+            final ZipFile myZipFile = new ZipFile(sourceDir);
+            final InputStream is = myZipFile.getInputStream(myZipFile.getEntry("META-INF/aob"));
+
             Properties properties = new Properties();
             properties.load(is);
             Intent intent = null;
