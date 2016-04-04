@@ -33,7 +33,7 @@ proguard/
 .idea/
 .DS_Store
 captures/
-partners/
+Partners-v7/
 
 signing.properties
 google-services.json
