@@ -7,9 +7,9 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/nav_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/img_navdrawer_wallpaper"
         android:scaleType="centerInside" />
 
     <RelativeLayout

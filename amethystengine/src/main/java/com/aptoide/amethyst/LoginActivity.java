@@ -78,7 +78,7 @@ import retrofit.RetrofitError;
  */
 public class LoginActivity extends AccountAuthenticatorActivity implements GoogleApiClient.OnConnectionFailedListener {
 
-    private static final String TAG = LoginActivity.class.getSimpleName();
+    private static final String TAG = Aptoide.getConfiguration().getLoginActivity().getSimpleName();
 
     private static final String TAG_PROGRESS = "progressDialog";
     private static final int REQUEST_CODE_RESOLVE_ERR = 9000;
@@ -103,6 +103,8 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
 
     public enum Mode {APTOIDE, GOOGLE, FACEBOOK}
 
+    protected LoginButton fbButton;
+    protected View googleSignIn;
 
     public final static String ARG_OPTIONS_BUNDLE = "BE";
     public final static String OPTIONS_LOGOUT_BOOL = "OLOUT";
@@ -296,16 +298,16 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
         });
     }
 
-    private void setUpFacebook(final Bundle savedInstanceState) {
+    protected void setUpFacebook(final Bundle savedInstanceState) {
         uiLifecycleHelper = new UiLifecycleHelper(this, statusCallback);
         uiLifecycleHelper.onCreate(savedInstanceState);
 
-        LoginButton fbButton = (LoginButton) findViewById(R.id.fb_login_button);
+        fbButton = (LoginButton) findViewById(R.id.fb_login_button);
         fbButton.setReadPermissions(Arrays.asList("email", "user_friends"));
     }
 
-    private void setUpGoogle() {
-        final View googleSignIn = findViewById(R.id.g_sign_in_button);
+    protected void setUpGoogle() {
+        googleSignIn = findViewById(R.id.g_sign_in_button);
         final int connectionResult = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
         final Collection<Integer> badResults = Arrays.asList(ConnectionResult.SERVICE_MISSING, ConnectionResult.SERVICE_DISABLED);
         final boolean gmsAvailable = BuildConfig.GMS_CONFIGURED && !badResults.contains(connectionResult);

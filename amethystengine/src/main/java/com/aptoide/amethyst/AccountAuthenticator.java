@@ -13,6 +13,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.preferences.Preferences;
 import com.aptoide.amethyst.preferences.SecurePreferences;
@@ -50,7 +51,7 @@ public class AccountAuthenticator extends AbstractAccountAuthenticator {
     public Bundle addAccount(AccountAuthenticatorResponse response, String accountType, String authTokenType, String[] requiredFeatures, Bundle options) throws NetworkErrorException {
         Log.d("udinic", TAG + "> addAccount");
 
-        final Intent intent = new Intent(mContext, LoginActivity.class);
+        final Intent intent = new Intent(mContext, Aptoide.getConfiguration().getLoginActivity());
         intent.putExtra(LoginActivity.ARG_ACCOUNT_TYPE, accountType);
         intent.putExtra(LoginActivity.ARG_AUTH_TYPE, authTokenType);
         intent.putExtra(LoginActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
