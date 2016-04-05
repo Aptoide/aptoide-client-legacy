@@ -122,6 +122,13 @@
             android:exported="true" >
         </provider>
 
+
+        <provider android:name="com.aptoide.amethyst.webservices.StubProvider"
+            android:authorities="${applicationId}.StubProvider"
+            android:exported="true" >
+        </provider>
+
+
         <activity
             android:name="com.aptoide.amethyst.receivers.IntentReceiver"
             android:exported="true">
