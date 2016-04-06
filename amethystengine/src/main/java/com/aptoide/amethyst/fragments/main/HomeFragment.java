@@ -65,4 +65,8 @@ public class HomeFragment extends BaseWebserviceFragment {
         executeSpiceRequest(false);
     }
 
+    @Override
+    protected String getStoreContext() {
+        return null;
+    }
 }

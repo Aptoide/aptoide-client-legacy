@@ -171,7 +171,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     private static final short Purchase_REQUEST_CODE = 30333;
     private static final short MAX_VISIBLE_COMMENTS = 3;
 
-    private static final short MAX_COMMENTS_REQUEST = 4;
+    protected static final short MAX_COMMENTS_REQUEST = 4;
 
     private static final String APP_NOT_AVAILABLE = "410 Gone";
 
@@ -406,19 +406,19 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         /**
          * v7 json attributes
          */
-        private long appId;
+        protected long appId;
         private long adId;
         private String signature;
         private String path;
         private long fileSize; //this is just the fileSize of the apk
         private String altPath;
-        private String appName;
-        private String versionName;
+        protected String appName;
+        protected String versionName;
         private int versionCode;
         private long downloads;
-        private String packageName;
+        protected String packageName;
         private String developer;
-        private String storeName;
+        protected String storeName;
         private String storeAvatar;
         private EnumStoreTheme storeTheme;
         private long storeSubscribers;
@@ -454,7 +454,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         /**
          * flag to control when the secondary requests should use cache or not
          */
-        boolean forceReload;
+        protected boolean forceReload;
         /**
          * Flag to inform if there is a more recent version
          */
@@ -1069,7 +1069,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
         }
 
-        RequestListener<GetComments> requestCommentListener = new RequestListener<GetComments>() {
+        protected RequestListener<GetComments> requestCommentListener = new RequestListener<GetComments>() {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
                 Logger.printException(spiceException);

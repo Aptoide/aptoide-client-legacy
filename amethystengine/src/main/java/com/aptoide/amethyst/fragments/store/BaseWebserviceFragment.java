@@ -206,7 +206,9 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         this.swipeContainer.setEnabled(false);
         this.useCache = useCache;
         long cacheExpiryDuration = useCache ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
-
+        if(getStoreContext().equals("main")) {
+            storeName = Aptoide.getConfiguration().getDefaultStore();
+        }
         // in order to present the right info on screen after a screen rotation, always pass the bucketsize as cachekey
         spiceManager.execute(
                 AptoideUtils.RepoUtils.buildStoreRequest(storeName, getBaseContext()),
@@ -571,5 +573,9 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         layoutError = (ScrollView )view.findViewById(R.id.error);
         retryError = (TextView )view.findViewById(R.id.retry_error);
         retryNoNetwork = (TextView )view.findViewById(R.id.retry_no_network);
+    }
+
+    protected String getStoreContext() {
+        return "";
     }
 }
