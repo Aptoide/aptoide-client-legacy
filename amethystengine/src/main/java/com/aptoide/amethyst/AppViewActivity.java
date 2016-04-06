@@ -712,7 +712,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             return view;
         }
 
-        private void bindViews(View view) {
+        protected void bindViews(View view) {
             mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
             mFeaturedGraphic = (ImageView) view.findViewById(R.id.featured_graphic);
             mAppIcon = (ImageView) view.findViewById(R.id.app_icon);

@@ -8,6 +8,7 @@
 
 
 
+    <dimen name="text_size_super_large">20.0sp</dimen>
     <dimen name="text_size_large">18.0sp</dimen>
     <dimen name="text_size_medium">14.0sp</dimen>
     <dimen name="text_size_small">10.0sp</dimen>
