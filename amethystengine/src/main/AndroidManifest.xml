@@ -60,6 +60,8 @@
 
         <activity android:name="fortumo.FortumoPaymentActivity"/>
 
+        <activity android:name=".tutorial.TutorialActivity" />
+
         <service android:name="com.aptoide.amethyst.services.AccountAuthenticatorService">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator"/>

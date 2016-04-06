@@ -39,12 +39,8 @@ public class Wizard {
         return wizard;
     }
 
-    public interface WizardCallback {
 
-        public void getActions(ArrayList<Action> actions);
-    }
-
-    public static class NewToAptoide1 extends Fragment implements WizardCallback {
+    public static class NewToAptoide1 extends Fragment {
 
         public static NewToAptoide1 newInstace() {
             NewToAptoide1 fragment = new NewToAptoide1();
@@ -71,13 +67,9 @@ public class Wizard {
             image.setImageResource(R.drawable.wizard_01);
         }
 
-        @Override
-        public void getActions(ArrayList<Action> actions) {
-
-        }
     }
 
-    public static class NewFeature4 extends Fragment implements WizardCallback {
+    public static class NewFeature4 extends Fragment {
 
         public static NewFeature4 newInstace() {
             NewFeature4 fragment = new NewFeature4();
@@ -98,13 +90,9 @@ public class Wizard {
 
         }
 
-        @Override
-        public void getActions(ArrayList<Action> actions) {
-
-        }
     }
 
-    public static class NewToAptoide2 extends Fragment implements WizardCallback {
+    public static class NewToAptoide2 extends Fragment {
 
         TextView title;
         TextView description;
@@ -140,13 +128,9 @@ public class Wizard {
             image.setImageResource(R.drawable.wizard_02);
         }
 
-        @Override
-        public void getActions(ArrayList<Action> actions) {
-
-        }
     }
 
-    public static class NewToAptoide3 extends Fragment implements WizardCallback {
+    public static class NewToAptoide3 extends Fragment {
 
         public static NewToAptoide3 newInstace() {
             NewToAptoide3 fragment = new NewToAptoide3();
@@ -182,14 +166,9 @@ public class Wizard {
             ImageView image2 = (ImageView) view.findViewById(R.id.image2);
             image2.setImageResource(R.drawable.wizard_03_2);
         }
-
-        @Override
-        public void getActions(ArrayList<Action> actions) {
-
-        }
     }
 
-    public static class NewFeature1 extends Fragment implements WizardCallback {
+    public static class NewFeature1 extends Fragment {
 
         public static NewFeature1 newInstace() {
             NewFeature1 fragment = new NewFeature1();
@@ -210,14 +189,9 @@ public class Wizard {
             super.onViewCreated(view, savedInstanceState);
 
         }
-
-        @Override
-        public void getActions(ArrayList<Action> actions) {
-
-        }
     }
 
-    public static class NewFeature2 extends Fragment implements WizardCallback {
+    public static class NewFeature2 extends Fragment {
 
         public static NewFeature2 newInstace() {
             NewFeature2 fragment = new NewFeature2();
@@ -237,14 +211,9 @@ public class Wizard {
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
         }
-
-        @Override
-        public void getActions(ArrayList<Action> actions) {
-
-        }
     }
 
-    public static class NewFeature3 extends Fragment implements WizardCallback {
+    public static class NewFeature3 extends Fragment {
 
         public static NewFeature3 newInstace() {
             NewFeature3 fragment = new NewFeature3();
@@ -263,11 +232,6 @@ public class Wizard {
         @Override
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
-        }
-
-        @Override
-        public void getActions(ArrayList<Action> actions) {
-
         }
     }
 
