@@ -30,7 +30,7 @@ android {
     defaultConfig {
         applicationId "cm.aptoide.pt.dev"
         targetSdkVersion 23
-        versionCode 478
+        versionCode 479
         versionName "7.1.0.8"
     }
 
@@ -51,7 +51,6 @@ android {
             // Enabling multidex support.
             multiDexEnabled true
             versionName "7.1.0"
-            versionCode 477
         }
         prod {
             // The actual minSdkVersion for the application.

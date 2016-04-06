@@ -31,6 +31,8 @@ import java.util.List;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.APPS_GROUP_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.isKnownName;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.isKnownType;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.CATEGORIES_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.COMMENTS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
@@ -284,24 +286,24 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         List<Displayable> displayables = new ArrayList<>();
 
         for (ListViewItems.DisplayList display : list) {
-
-            CategoryRow categ = new CategoryRow(numColumns);
-            if (display.event.type.equals(Action.Event.API_BROWSER_TYPE) && display.event.name.equals(Action.Event.EVENT_CLICK_TYPE)) {
-                categ.setSpanSize(totalSpanSize);
-            } else {
-                categ.setSpanSize(totalSpanSize/2);
+            if (isKnownType(display.event.type) && isKnownName(display.event.name)) {
+                CategoryRow categ = new CategoryRow(numColumns);
+                if (display.event.type.equals(Action.Event.API_EXTERNAL_TYPE) && (display.event.name.equals(Action.Event.EVENT_YOUTUBE_TYPE)||display.event.name.equals(Action.Event.EVENT_YOUTUBE_TYPE))) {
+                    categ.setSpanSize(totalSpanSize);
+                } else {
+                    categ.setSpanSize(totalSpanSize / 2);
+                }
+                categ.setLabel(display.label);
+                categ.setGraphic(display.graphic);
+                categ.setEventType(display.event.type);
+                categ.setEventName(display.event.name);
+                categ.setEventActionUrl(display.event.action);
+                displayables.add(categ);
             }
-            categ.setLabel(display.label);
-            categ.setGraphic(display.graphic);
-            categ.setEventType(display.event.type);
-            categ.setEventName(display.event.name);
-            categ.setEventActionUrl(display.event.action);
-            displayables.add(categ);
         }
 
         return displayables;
     }
-
 
 
     @NonNull
