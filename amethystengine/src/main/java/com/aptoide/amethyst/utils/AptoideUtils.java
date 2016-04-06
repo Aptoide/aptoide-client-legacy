@@ -2421,9 +2421,10 @@ public class AptoideUtils {
         public static void startParentActivity(Activity activity, AptoideNavigationInterface aptoideNavigationInterface) {
             removeParentFromStack(activity.getIntent());
             Intent parentActivityIntent = getParent(activity.getClass().getName(), getActivityParentsList(aptoideNavigationInterface));
-            parentActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            parentActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);  //use Intent.FLAG_ACTIVITY_NO_ANIMATION to use the default out animation (tested on android 5)
             activity.startActivity(parentActivityIntent);
             activity.finish();
+            activity.overridePendingTransition(R.anim.in_from_top, R.anim.out_to_bottom);
         }
 
         @NonNull
