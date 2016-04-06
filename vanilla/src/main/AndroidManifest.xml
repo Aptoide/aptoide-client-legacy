@@ -69,6 +69,13 @@
         <activity android:name="com.aptoide.amethyst.ui.MoreVersionsActivity"/>
         <activity android:name="com.aptoide.amethyst.MoreSearchActivity"/>
 
+
+        <activity
+            android:name="com.aptoide.amethyst.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor"
+            android:windowSoftInputMode="stateHidden"/>
+
         <activity
             android:name="com.aptoide.amethyst.appwidget.SearchWidgetActivity"
             android:launchMode="singleInstance" />
@@ -79,6 +86,15 @@
         android:name="com.aptoide.amethyst.services.DownloadService"
         android:exported="false"
         android:label="DownloadService" />
+
+        <service android:name="com.aptoide.amethyst.services.AccountAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator"/>
+        </service>
 
         <receiver android:name="com.aptoide.amethyst.receivers.InstalledBroadcastReceiver">
             <intent-filter android:priority="999">
