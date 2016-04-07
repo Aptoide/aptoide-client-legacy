@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Azi</string>
 <string name="WidgetProvider_timestamp_yesterday">Ieri</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s oră în urmă</string>
@@ -202,7 +202,7 @@
 <string name="error_SYS_2">Nu s-au găsit date, vă rugăm încercați din nou mai târziu</string>
 <string name="error_SYS_3">Sistemul este acum în întreținere, vă rugăm să încercați din nou mai târziu</string>
 <string name="error_SYS_4">Apelul nu este suportat de versiunea API curentă</string>
-<string name="X_download_number">%s jos.</string>
+<string name="X_download_number">%s descărcări.</string>
 <string name="not_found">Nu este găsit/ă</string>
 <string name="active">Activ</string>
 <string name="completed">Finalizat</string>
@@ -426,7 +426,7 @@
     <string name="flag_this_app_need_licence">Aveți nevoie de permis</string>
     <string name="appview_additional_information_title">Informații suplimentare</string>
     <string name="appview_latest_version_text">Aceasta este ultima versiune!</string>
-    <string name="appview_subscribe_store_button_text">"Vă abonați?"</string>
+    <string name="appview_subscribe_store_button_text">"+   Vă abonați?"</string>
     <string name="appview_subscribed_store_button_text">Abonat</string>
     <string name="appview_other_versions_in_others_stores">Alte variante în alte magazine</string>
     <string name="appview_rate_Success">Aplicație evaluată</string>
@@ -441,7 +441,7 @@
 
     <string name="results_subscribed">Abonări la magazine</string>
     <string name="results_in_store">Rezultate căutare în magazinul %s</string>
-    <string name="other_stores">Dezabonat</string>
+    <string name="other_stores">Magazine la care nu sunteți abonat</string>
     <string name="reviews">Recenzii</string>
     <string name="store">Magazin</string>
     <string name="title_caps">TITLU</string>

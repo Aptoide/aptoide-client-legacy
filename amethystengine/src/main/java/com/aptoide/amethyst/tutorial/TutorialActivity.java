@@ -111,7 +111,7 @@ public class TutorialActivity extends AptoideBaseActivity {
         Log.d("Tutorial-addDefaultRepo", "true");
 
         AptoideUtils.AppUtils.checkPermissions(this);
-
+        Analytics.Tutorial.finishedTutorial(mViewPager.getCurrentItem()+1);
         super.finish();
     }
 
@@ -132,7 +132,6 @@ public class TutorialActivity extends AptoideBaseActivity {
 //                getFragmentsActions();
 //                runFragmentsActions();
 //            }
-            Analytics.Tutorial.finishedTutorial(mViewPager.getCurrentItem());
             finish();
         }
         return super.onOptionsItemSelected(item);

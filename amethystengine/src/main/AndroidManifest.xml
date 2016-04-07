@@ -71,7 +71,7 @@
                 android:resource="@xml/authenticator"/>
         </service>
         <provider android:name="com.aptoide.amethyst.webservices.StubProvider"
-            android:authorities="${applicationId}.StubProvider"
+            android:authorities="cm.aptoide.pt.StubProvider"
             android:exported="true"/>
         <service
             android:name="com.aptoide.amethyst.services.RabbitMqService"
