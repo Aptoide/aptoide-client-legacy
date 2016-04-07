@@ -2187,7 +2187,7 @@ public class AptoideUtils {
          *
          * @param parent parent to be added on stack
          */
-        public static void addParent(Intent parent) {
+        private static void addParent(Intent parent) {
             boolean isOnStackAlready = checkHasParent(parent);
             if (parentsStack != null && !isOnStackAlready && shouldAddParent(parent.getComponent().getClassName())) {
                 parentsStack.push(parent);
@@ -2253,14 +2253,16 @@ public class AptoideUtils {
          * @param navigationInterface interface that allows to get the activity's meta data
          */
         public static void onCreate(Intent parent, AptoideNavigationInterface navigationInterface) {
-            String brothers = navigationInterface.getMetaData(BROTHER_KEY);
-            if (brothers != null) {
-                String[] brothersList = brothers.split("\\|");
-                for (String brother : brothersList) {
-                    addParentRemovingBrother(parent, brother);
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
+                String brothers = navigationInterface.getMetaData(BROTHER_KEY);
+                if (brothers != null) {
+                    String[] brothersList = brothers.split("\\|");
+                    for (String brother : brothersList) {
+                        addParentRemovingBrother(parent, brother);
+                    }
+                } else {
+                    addParent(parent);
                 }
-            } else {
-                addParent(parent);
             }
         }
 
@@ -2270,7 +2272,7 @@ public class AptoideUtils {
          * @param navigationInterface
          */
         public static void onStart(Intent parent, AptoideNavigationInterface navigationInterface) {
-            if (parent.hasExtra(STATE_KEY)) {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1 && parent.hasExtra(STATE_KEY)) {
                 Bundle bundle = (Bundle) parent.getExtras().get(STATE_KEY);
                 if (bundle != null) {
                     navigationInterface.onRestoreInstanceState(bundle);
@@ -2299,8 +2301,10 @@ public class AptoideUtils {
          * @param brotherFullName Activity's full name that should be removed from stack
          */
         public static void addParentRemovingBrother(Intent parent, String brotherFullName) {
-            removeParentFromStack(brotherFullName);
-            addParent(parent);
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
+                removeParentFromStack(brotherFullName);
+                addParent(parent);
+            }
         }
 
         /**
@@ -2398,7 +2402,9 @@ public class AptoideUtils {
          * @param activityIntent the activity's full class name
          */
         public static void onBackPressed(Intent activityIntent) {
-            removeParentFromStack(activityIntent);
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
+                removeParentFromStack(activityIntent);
+            }
         }
 
         private static void removeParentFromStack(Intent activityIntent) {
@@ -2419,12 +2425,16 @@ public class AptoideUtils {
          * @param activity current activity
          */
         public static void startParentActivity(Activity activity, AptoideNavigationInterface aptoideNavigationInterface) {
-            removeParentFromStack(activity.getIntent());
-            Intent parentActivityIntent = getParent(activity.getClass().getName(), getActivityParentsList(aptoideNavigationInterface));
-            parentActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);  //use Intent.FLAG_ACTIVITY_NO_ANIMATION to use the default out animation (tested on android 5)
-            activity.startActivity(parentActivityIntent);
-            activity.finish();
-            activity.overridePendingTransition(R.anim.in_from_top, R.anim.out_to_bottom);
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
+                removeParentFromStack(activity.getIntent());
+                Intent parentActivityIntent = getParent(activity.getClass().getName(), getActivityParentsList(aptoideNavigationInterface));
+                parentActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);  //use Intent.FLAG_ACTIVITY_NO_ANIMATION to use the default out animation (tested on android 5)
+                activity.startActivity(parentActivityIntent);
+                activity.finish();
+                activity.overridePendingTransition(R.anim.in_from_top, R.anim.out_to_bottom);
+            } else {
+                activity.finish();
+            }
         }
 
         @NonNull
