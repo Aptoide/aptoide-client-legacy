@@ -165,20 +165,6 @@ public class WebViewFacebook extends AptoideBaseActivity {
 		return sb.toString();
 	}
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int i = item.getItemId();
-
-        if (i == android.R.id.home) {
-            finish();
-        } else if (i == R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 	@Override
 	protected String getScreenName() {
 		return "Web View Facebook";
