@@ -385,7 +385,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
         private boolean fromSponsored;
 
-        private DownloadService downloadService;
+        protected DownloadService downloadService;
         private volatile CountDownLatch downloadServiceLatch;
         ////// evil fields from the v6's AppView
         private boolean isPaidToschedule = true;
@@ -444,7 +444,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         /**
          * In v6 is the hashCode of the md5sum. Used as an Id for the downloadService
          */
-        private long downloadId;
+        protected long downloadId;
         private List<GetAppMeta.Media.Screenshot> screenshots;
         private List<GetAppMeta.Media.Video> videos;
         /**
@@ -1316,7 +1316,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
         }
 
-        private void updateStoreInfo() {
+        protected void updateStoreInfo() {
 
             final Context context = getActivity();
             if (TextUtils.isEmpty(storeAvatar)) {
@@ -1701,6 +1701,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             Toast.makeText(getActivity(), AptoideUtils.StringUtils.getFormattedString(getActivity(), com.aptoide.amethyst.R.string.store_subscribed, storeName), Toast.LENGTH_SHORT).show();
             updateStoreInfo();
         }
+
         @Subscribe
         public void onDownloadEventUpdate(OttoEvents.DownloadEvent download) {
             if (downloadService != null && download.getId() == downloadId) {
@@ -1714,7 +1715,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         }
 
         @Subscribe
-        public void onUnInstalledEvent(OttoEvents.UnInstalledApkEvent event) {
+        protected void onUnInstalledEvent(OttoEvents.UnInstalledApkEvent event) {
             refresh();
         }
 
@@ -1731,7 +1732,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
         }
 
-        private void refresh() {
+        protected void refresh() {
             forceReload = true;
             executeSpiceRequestWithAppId(appId, storeName, packageName);
         }
@@ -1773,7 +1774,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             populateDownloadUI();
         }
 
-        private void onDownloadUpdate(Download download) {
+        protected void onDownloadUpdate(Download download) {
             if (download != null && download.getId() == downloadId) {
                 mInstallAndLatestVersionLayout.setVisibility(View.GONE);
                 mDownloadProgressLayout.setVisibility(View.VISIBLE);
