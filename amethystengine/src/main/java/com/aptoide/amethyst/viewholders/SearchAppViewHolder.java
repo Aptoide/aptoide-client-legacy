@@ -141,7 +141,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
 
 
         store.setText(appItem.repo);
-        Glide.with(itemView.getContext()).load(appItem.iconHd != null ? appItem.iconHd : appItem.icon).into(icon);
+        Glide.with(itemView.getContext()).load(appItem.iconHd != null ? AptoideUtils.UI.parseIcon(appItem.iconHd) : AptoideUtils.UI.parseIcon(appItem.icon)).into(icon);
 
         if (appItem.malrank == 2) {
             icTrusted.setVisibility(View.VISIBLE);

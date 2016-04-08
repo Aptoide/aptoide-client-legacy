@@ -26,18 +26,18 @@ public class IconSizeUtils {
     public static final String HDPI = "hdpi";
     public static final String MDPI = "mdpi";
     public static final String LDPI = "ldpi";
-    public static final String DEFAULT_SCREEN_DENSITY = "default";
+    public static final int DEFAULT_SCREEN_DENSITY = -1;
     private static int baseLineScreenshotLand = 256;
     private static int baseLineScreenshotPort = 96;
-    public static final HashMap<String,String> mIconSizes;
+    public static final HashMap<Integer,String> mIconSizes;
     static {
         mIconSizes= new HashMap<>();
-        mIconSizes.put(XXXHDPI, "384x384");
-        mIconSizes.put(XXHDPI, "288x288");
-        mIconSizes.put(XHDPI, "192x192");
-        mIconSizes.put(HDPI , "144x144");
-        mIconSizes.put(MDPI , "127x127");
-        mIconSizes.put(LDPI , "96x96");
+        mIconSizes.put(DisplayMetrics.DENSITY_XXXHIGH, "384x384");
+        mIconSizes.put(DisplayMetrics.DENSITY_XXHIGH, "288x288");
+        mIconSizes.put(DisplayMetrics.DENSITY_XHIGH, "192x192");
+        mIconSizes.put(DisplayMetrics.DENSITY_HIGH , "144x144");
+        mIconSizes.put(DisplayMetrics.DENSITY_MEDIUM , "127x127");
+        mIconSizes.put(DisplayMetrics.DENSITY_LOW , "96x96");
         mIconSizes.put(DEFAULT_SCREEN_DENSITY, "72x72");
     }
 
@@ -70,9 +70,9 @@ public class IconSizeUtils {
 //        //Log.d("Aptoide-IconSize", "Size is " + size);
 //
 //        return size + "x" + size;
-        return mIconSizes.get(getScreenDensity());
+        String iconRes = mIconSizes.get(Aptoide.getContext().getResources().getDisplayMetrics().densityDpi);
+        return iconRes != null ? iconRes : mIconSizes.get(DEFAULT_SCREEN_DENSITY);
     }
-
 
     public static String generateSizeStringAvatar() {
         Context context = Aptoide.getContext();
@@ -158,30 +158,5 @@ public class IconSizeUtils {
             densityMultiplier = 4f;
         }
         return densityMultiplier;
-    }
-
-    public static String getScreenDensity() {
-
-        Context context = Aptoide.getContext();
-        int density = context.getResources().getDisplayMetrics().densityDpi;
-
-        switch (density) {
-            case DisplayMetrics.DENSITY_LOW:
-                return LDPI;
-            case DisplayMetrics.DENSITY_MEDIUM:
-                return MDPI;
-            case DisplayMetrics.DENSITY_HIGH:
-                return HDPI;
-            case DisplayMetrics.DENSITY_XHIGH:
-                return XHDPI;
-            case DisplayMetrics.DENSITY_XXHIGH:
-                return XXHDPI;
-            case DisplayMetrics.DENSITY_XXXHIGH:
-                return XXXHDPI;
-
-            default:
-                return "default";
-        }
-
     }
 }
