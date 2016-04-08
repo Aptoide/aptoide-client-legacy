@@ -14,25 +14,22 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.StoresActivity;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.displayables.SearchApk;
+import com.aptoide.amethyst.ui.MoreVersionsActivity;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.SearchApk;
 import com.bumptech.glide.Glide;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
-import com.aptoide.amethyst.AppViewActivity;
-
-import com.aptoide.amethyst.StoresActivity;
-import com.aptoide.amethyst.ui.MoreVersionsActivity;
 
 /**
  * Created by rmateus on 02/06/15.
@@ -84,7 +81,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
                         Intent intent = new Intent(itemView.getContext(), StoresActivity.class);
                         intent.putExtra(Constants.STORENAME_KEY, appItem.repo);
                         intent.putExtra(Constants.STOREAVATAR_KEY, appItem.icon);
-                        intent.putExtra(Constants.THEME_KEY, appItem.repo_theme);
+                        intent.putExtra(Constants.THEME_KEY, EnumStoreTheme.get(appItem.repo_theme));
                         intent.putExtra(Constants.DOWNLOAD_FROM_KEY, "store");
                         boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(appItem.repo);
                         intent.putExtra(Constants.STORE_SUBSCRIBED_KEY, subscribed);
