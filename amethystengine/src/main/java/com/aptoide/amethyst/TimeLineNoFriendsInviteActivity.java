@@ -89,6 +89,15 @@ public class TimeLineNoFriendsInviteActivity extends AptoideBaseActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int i = item.getItemId();
+        if (i == android.R.id.home || i == R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
 //        FlurryAgent.onStartSession(this, getResources().getString(R.string.FLURRY_KEY));

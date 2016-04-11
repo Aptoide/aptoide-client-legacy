@@ -344,6 +344,15 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int i = item.getItemId();
+        if (i == android.R.id.home || i == R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
     }

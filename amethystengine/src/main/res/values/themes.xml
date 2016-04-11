@@ -2,9 +2,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:windowAnimationStyle">@style/ActivityTransaction</item>
-
         <item name="android:windowBackground">@color/background_window</item>
         <item name="android:ratingBarStyle">@style/RatingBarSmallAptoide</item>
 

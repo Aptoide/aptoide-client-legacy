@@ -11,16 +11,6 @@
         android:label="@string/app_name"
         android:theme="@style/AptoideThemeDefault">
 
-        <meta-data
-            android:name="cm.aptoide.pt.ALL_APTOIDE_PARENTS"
-            android:value="com.aptoide.amethyst.StoresActivity|com.aptoide.amethyst.SearchActivity|
-                com.aptoide.amethyst.MoreSearchActivity|com.aptoide.amethyst.ui.MoreStoreWidgetActivity|
-                com.aptoide.amethyst.ui.MoreListViewItemsBrickActivity|com.aptoide.amethyst.ui.MoreHighlightedActivity|
-                com.aptoide.amethyst.ui.MoreReviewsActivity|com.aptoide.amethyst.ui.MoreListViewItemsActivity|com.aptoide.amethyst.MainActivity"/>
-
-        <meta-data
-            android:name="cm.aptoide.pt.APTOIDE_DEFAULT_PARENT"
-            android:value="com.aptoide.amethyst.MainActivity"/>
 
         <activity
             android:name="com.aptoide.amethyst.MainActivity"
@@ -68,11 +58,6 @@
             <meta-data
                 android:name="android.app.default_searchable"
                 android:value="com.aptoide.amethyst.SearchActivity" />
-            <meta-data
-                android:name="cm.aptoide.pt.APTOIDE_PARENT"
-                android:value="com.aptoide.amethyst.SearchActivity|com.aptoide.amethyst.StoresActivity|
-                com.aptoide.amethyst.ui.MoreStoreWidgetActivity|com.aptoide.amethyst.ui.MoreListViewItemsActivity|
-                com.aptoide.amethyst.MoreSearchActivity" />
         </activity>
         <activity android:name="com.aptoide.amethyst.ui.PermissionsActivity"/>
         <activity android:name="com.aptoide.amethyst.ui.ExcludedUpdatesActivity" />
@@ -82,15 +67,8 @@
         <activity android:name="com.aptoide.amethyst.TimeLineNoFriendsInviteActivity"/>
         <activity android:name="com.aptoide.amethyst.UploadApkActivity"/>
         <activity android:name="com.aptoide.amethyst.MakeReviewActivity"/>
-        <activity android:name="com.aptoide.amethyst.ui.MoreVersionsActivity">
-            <meta-data android:name="cm.aptoide.pt.APTOIDE_PARENT"
-                android:value="com.aptoide.amethyst.SearchActivity|com.aptoide.amethyst.AppViewActivity|com.aptoide.amethyst.StoresActivity"/>
-            </activity>
-        <activity android:name="com.aptoide.amethyst.MoreSearchActivity">
-            <meta-data
-                android:name="cm.aptoide.pt.APTOIDE_BROTHER"
-                android:value="com.aptoide.amethyst.SearchActivity"/>
-            </activity>
+        <activity android:name="com.aptoide.amethyst.ui.MoreVersionsActivity"/>
+        <activity android:name="com.aptoide.amethyst.MoreSearchActivity"/>
 
         <activity
             android:name="com.aptoide.amethyst.appwidget.SearchWidgetActivity"

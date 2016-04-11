@@ -403,6 +403,18 @@ public class SignUpActivity extends AptoideBaseActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int i = item.getItemId();
+
+        if (i == android.R.id.home || i == R.id.home) {
+            setResult(RESULT_CANCELED);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected String getScreenName() {
         return "Sign Up";
     }

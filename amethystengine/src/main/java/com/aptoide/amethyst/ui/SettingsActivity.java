@@ -9,7 +9,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
@@ -68,7 +67,7 @@ import com.aptoide.amethyst.webservices.json.GetUserSettingsJson;
 /**
  * Created by fabio on 26-10-2015.
  */
-public class SettingsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, AptoideUtils.AppNavigationUtils.AptoideNavigationInterface {
+public class SettingsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private AppCompatDelegate mDelegate;
 
@@ -327,7 +326,6 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
-        AptoideUtils.AppNavigationUtils.onCreate(getIntent(), this);
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.CREATE);
 //        getSupportActionBar().setTitle("");
 //        getSupportActionBar().setHomeButtonEnabled(true);
@@ -655,18 +653,6 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
     }
 
-    @Override
-    public String getMetaData(String key) {
-        try {
-            ActivityInfo aiActivity = getPackageManager().getActivityInfo(this.getComponentName(), PackageManager.GET_META_DATA);
-            if (aiActivity.metaData != null) {
-                return aiActivity.metaData.getString(key);
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            return null;
-        }
-        return null;
-    }
 
     public class DeleteDir extends AsyncTask<File, Void, Void> {
         ProgressDialog pd;
@@ -773,8 +759,10 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
 
         int i = item.getItemId();
 
-        if (i == android.R.id.home || i == R.id.home) {
-            AptoideUtils.AppNavigationUtils.startParentActivity(this, this);
+        if (i == android.R.id.home) {
+            finish();
+        } else if (i == R.id.home) {
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -801,8 +789,4 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         getDelegate().onStop();
     }
 
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-    }
 }

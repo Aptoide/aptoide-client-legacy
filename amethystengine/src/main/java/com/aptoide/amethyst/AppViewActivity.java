@@ -508,11 +508,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
         private ResultBundle resultBundle;
 
-        /**
-         * this variable shows if the savedInstanceState variable was null<br>
-         * true if null, false otherwise
-         */
-        private boolean isSavedInstanceNull = false;
         private RequestListener<GetAppModel> listener = new RequestListener<GetAppModel>() {
 
             @Override
@@ -523,9 +518,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             @Override
             public void onRequestSuccess(GetAppModel model) {
                 boolean unrecoverableErrorsFound = false;
-                if (isSavedInstanceNull) {
-                    mAppBarLayout.setExpanded(true);
-                }
                 try {
                     appId = model.getApp.nodes.meta.data.id.longValue();
                     signature = model.getApp.nodes.meta.data.file.signature.sha1;
@@ -734,7 +726,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
             lifecycleController = getArguments().getBoolean("lifecycleController");
 
-            isSavedInstanceNull = savedInstanceState == null;
             if (savedInstanceState != null) {
                 appId = savedInstanceState.getLong(Constants.APP_ID_KEY);
                 appName = savedInstanceState.getString(Constants.APPNAME_KEY);
@@ -758,11 +749,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             spiceManager.start(getActivity());
             final View view = inflater.inflate(R.layout.fragment_app_view, container, false);
             bindViews(view);
-            if (isSavedInstanceNull) {
-                if (mAppBarLayout != null) {
-                    mAppBarLayout.setExpanded(false, false);
-                }
-            }
             recyclerOffset = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
             bucketSize = AptoideUtils.UI.getBucketSize();
             mRatingBar.setOnRatingBarChangeListener(new RatingBarClickListener());
@@ -940,7 +926,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             int i = item.getItemId();
-            if (i == R.id.menu_share) {
+            if (i == android.R.id.home) {
+                getActivity().onBackPressed();
+                return true;
+            } else if (i == R.id.menu_share) {
                 FlurryAgent.logEvent("App_View_Clicked_On_Share_Button");
 
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
