@@ -221,9 +221,6 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
 
         BusProvider.getInstance().register(this);
         spiceManager.start(this);
-        if (savedInstanceState == null && getIntent().hasExtra(AptoideUtils.AppNavigationUtils.STATE_KEY)) {
-            savedInstanceState = getIntent().getBundleExtra(AptoideUtils.AppNavigationUtils.STATE_KEY);
-        }
 
         if (savedInstanceState == null) {
 
@@ -271,9 +268,6 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             }
             executeWizard();
             startPushNotifications();
-            if (AptoideUtils.getSharedPreferences().getBoolean("checkautoupdate", true)) {
-                new AutoUpdate(this).execute();
-            }
         } else {
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
         }
@@ -344,6 +338,9 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         startService(new Intent(this, UpdatesService.class));
         bindService(new Intent(this, DownloadService.class), downloadServiceConnection, BIND_AUTO_CREATE);
 
+        if (AptoideUtils.getSharedPreferences().getBoolean("checkautoupdate", true)) {
+            new AutoUpdate(this).execute();
+        }
 
         Analytics.Dimenstions.setPartnerDimension(getPartnerName());
         Analytics.Dimenstions.setVerticalDimension(getVertical());
