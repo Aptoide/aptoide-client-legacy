@@ -407,8 +407,31 @@ public class AptoideUtils {
             try {
                 if (iconUrl.contains("_icon")) {
                     String sizeString = IconSizeUtils.generateSizeString();
-                    String[] splittedUrl = iconUrl.split("\\.(?=[^\\.]+$)");
-                    iconUrl = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
+                    if (sizeString != null && !sizeString.isEmpty()) {
+                        String[] splittedUrl = iconUrl.split("\\.(?=[^\\.]+$)");
+                        iconUrl = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
+                    }
+                }
+            } catch (Exception e) {
+                Logger.printException(e);
+            }
+            return iconUrl;
+        }
+        /**
+         * On v7 webservices there is no attribute of HD icon. <br />Instead,
+         * the logic is that if the filename ends with <b>_icon</b> it is an HD icon.
+         *
+         * @param iconUrl The String with the URL of the icon
+         * @return A String with
+         */
+        public static String parseStoreIcon(String iconUrl) {
+            try {
+                if (iconUrl.contains("_ravatar")) {
+                    String sizeString = IconSizeUtils.generateSizeStoreString();
+                    if (sizeString != null && !sizeString.isEmpty()) {
+                        String[] splittedUrl = iconUrl.split("\\.(?=[^\\.]+$)");
+                        iconUrl = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
+                    }
                 }
             } catch (Exception e) {
                 Logger.printException(e);

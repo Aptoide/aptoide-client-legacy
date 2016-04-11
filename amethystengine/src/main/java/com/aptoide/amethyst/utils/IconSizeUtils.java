@@ -20,25 +20,33 @@ public class IconSizeUtils {
     static final private int baseLineAvatar = 150;
     static final private int baseLineXNotification = 320;
     static final private int baseLineYNotification = 180;
-    public static final String XXXHDPI = "xxxhdpi";
-    public static final String XXHDPI = "xxhdpi";
-    public static final String XHDPI = "xhdpi";
-    public static final String HDPI = "hdpi";
-    public static final String MDPI = "mdpi";
-    public static final String LDPI = "ldpi";
     public static final int DEFAULT_SCREEN_DENSITY = -1;
     private static int baseLineScreenshotLand = 256;
     private static int baseLineScreenshotPort = 96;
+    public static final HashMap<Integer,String> mStoreIconSizes;
+
+    public static final int ICONS_SIZE_TYPE = 0;
+
+    static {
+        mStoreIconSizes = new HashMap<>();
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_XXXHIGH, "");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_XXHIGH, "450x450");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_XHIGH, "300x300");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_HIGH , "225x225");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_MEDIUM , "150x150");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_LOW , "113x113");
+    }
     public static final HashMap<Integer,String> mIconSizes;
+    public static final int STORE_ICONS_SIZE_TYPE = 1;
+
     static {
         mIconSizes= new HashMap<>();
-        mIconSizes.put(DisplayMetrics.DENSITY_XXXHIGH, "384x384");
+        mIconSizes.put(DisplayMetrics.DENSITY_XXXHIGH, "");
         mIconSizes.put(DisplayMetrics.DENSITY_XXHIGH, "288x288");
         mIconSizes.put(DisplayMetrics.DENSITY_XHIGH, "192x192");
         mIconSizes.put(DisplayMetrics.DENSITY_HIGH , "144x144");
         mIconSizes.put(DisplayMetrics.DENSITY_MEDIUM , "127x127");
         mIconSizes.put(DisplayMetrics.DENSITY_LOW , "96x96");
-        mIconSizes.put(DEFAULT_SCREEN_DENSITY, "72x72");
     }
 
 
@@ -58,20 +66,14 @@ public class IconSizeUtils {
         return sizeX+"x"+sizeY;
     }
 
+    public static String generateSizeStoreString() {
+        String iconRes = mStoreIconSizes.get(Aptoide.getContext().getResources().getDisplayMetrics().densityDpi);
+        return iconRes != null ? iconRes : getDefaultSize(STORE_ICONS_SIZE_TYPE);
+    }
+
     public static String generateSizeString() {
-//        Context context = Aptoide.getContext();
-//        if (context == null) {
-//            return "";
-//        }
-//        float densityMultiplier = densityMultiplier();
-//
-//        int size = (int) (baseLine * densityMultiplier);
-//
-//        //Log.d("Aptoide-IconSize", "Size is " + size);
-//
-//        return size + "x" + size;
         String iconRes = mIconSizes.get(Aptoide.getContext().getResources().getDisplayMetrics().densityDpi);
-        return iconRes != null ? iconRes : mIconSizes.get(DEFAULT_SCREEN_DENSITY);
+        return iconRes != null ? iconRes : getDefaultSize(ICONS_SIZE_TYPE);
     }
 
     public static String generateSizeStringAvatar() {
@@ -158,5 +160,24 @@ public class IconSizeUtils {
             densityMultiplier = 4f;
         }
         return densityMultiplier;
+    }
+
+    public static String getDefaultSize(int varType) {
+
+            switch (varType) {
+                case STORE_ICONS_SIZE_TYPE:
+                    if (AptoideUtils.HWSpecifications.getDensityDpi() < DisplayMetrics.DENSITY_HIGH) {
+                        return mStoreIconSizes.get(DisplayMetrics.DENSITY_LOW);
+                    } else {
+                        return mStoreIconSizes.get(DisplayMetrics.DENSITY_XXXHIGH);
+                    }
+                case ICONS_SIZE_TYPE:
+                    if (AptoideUtils.HWSpecifications.getDensityDpi() < DisplayMetrics.DENSITY_HIGH) {
+                        return mIconSizes.get(DisplayMetrics.DENSITY_LOW);
+                    } else {
+                        return mIconSizes.get(DisplayMetrics.DENSITY_XXXHIGH);
+                    }
+            }
+        return null;
     }
 }
