@@ -57,8 +57,8 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        Analytics.Lifecycle.Activity.onPause(this);
         super.onPause();
+        Analytics.Lifecycle.Activity.onPause(this);
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.PAUSE);
         _resumed = false;
     }

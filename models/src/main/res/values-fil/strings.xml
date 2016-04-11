@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Ngayong Araw</string>
 <string name="WidgetProvider_timestamp_yesterday">Kahapon</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s oras ang nakalipas</string>
@@ -8,8 +8,8 @@
 <string name="WidgetProvider_timestamp_weeks_ago">%s linggo ang nakalipas</string>
 <string name="WidgetProvider_timestamp_week_ago">%s linggo ang nakalipas</string>
 <string name="WidgetProvider_timestamp_this_week">Ngayong linggo</string>
-<string name="update">I-update</string>
-<string name="uninstall">I-uninstall</string>
+<string name="update">Update</string>
+<string name="uninstall">Alisin sa pagka-install</string>
 <string name="comments">Mga komento</string>
 <string name="write_your_comment">Isulat ang iyong komento</string>
 <string name="appview_rating_card_text">Marka</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">Huwag ipakita ang mga aplikasyon na hindi tugma sa aparatong ito</string>
 <string name="setting_appfiltertitle">Salain ang mga Aplikasyon</string>
 <string name="setting_schdwntitle">Mga Naka-iskedyul na Download</string>
-<string name="setting_schdwninstallsum">Awtomatikong i-install ang mga naka-iskedyul na download kapag mayroong koneksyon sa WiFi</string>
+<string name="setting_schdwninstallsum">Otomatikong i-install ang mga naka-iskedyul na download sa oras na mayroong koneksyon ng WiFi</string>
 <string name="setting_sdk_version">Bersyon ng SDK</string>
 <string name="setting_screen_size">Sukat ng Tabing</string>
 <string name="setting_esgl_version">Bersyon ng ESGL</string>
@@ -52,7 +52,7 @@
 <string name="settings_maxFileCache_sum">Itakda ang pinakamalaking sukat para sa pagpapanatili ng iyong apk na mga file</string>
 <string name="settings_maxFileCache_title">Idownload ang File Cache (MB)</string>
 <string name="cache_using_X_mb">Gumagamit ng %s MB</string>
-<string name="store_already_added">Naidagdag na ang tindahan!</string>
+<string name="store_already_added">Naidagdag na ang store!</string>
 <string name="setting_auto_update_sum">Paganahin ang kusang pag-update ng mga aplikasyon</string>
 <string name="setting_auto_update_title">Paganahin ang kusang pag-update</string>
 <string name="setting_updates">Mga Update</string>
@@ -64,15 +64,15 @@
 <string name="flag_this_app_button_text">I-flag ang app na ito</string>
 <string name="search">Maghanap</string>
 <string name="my_account">Aking Account</string>
-<string name="no_sch_downloads">Walang naka-iskedyul na mga download!</string>
+<string name="no_sch_downloads">"Gusto mo bang mag-browse ng apps gamit ang datos ng mobile at i-download ito kapag ikaw ay naka-konekta sa wifi?  Gumamit ng mga naka-skedyul na download at baguhin ang iyong mga kagustuhan sa mga Seting -&gt; General Download Rules - sa Wi-Fi."</string>
 <string name="schDown_installselected">I-install ang Pinili</string>
-<string name="stores">Mga Tindahan</string>
+<string name="stores">Mga Store</string>
 <string name="insert_store_name">Ilagay ang pangalan ng tindahan:</string>
 <string name="store_name">Pangalan ng Tindahan</string>
 <string name="see_top_stores">Tingnan ang mga Nangungunang Tindahan</string>
 <string name="setcredentials">Mag-log-in</string>
 <string name="rollback">I-rollback</string>
-<string name="rollback_empty">Walang app na irorollback</string>
+<string name="rollback_empty">"Madaliang i-downgrade ang alin mang app sa nakaraang bersyon at lutasin ang mga isyu ng hindi-pagkabagay.  Magtabi ng talaan ng lahat ng mga na-install na app ( sa pamamagitan ng Aptoide) kasama ang bersyon at petsa ng pagka-install."</string>
 <string name="rollback_installed">Nakainstala</string>
 <string name="rollback_uninstalled">Na-uninstall</string>
 <string name="rollback_updated">Na-update</string>
@@ -80,13 +80,13 @@
 <string name="appview_rate_this_app_text">Markahan ang app na ito</string>
 <string name="permissions">Tignan ang mga Permiso</string>
 <string name="home_title">Tahanan</string>
-<string name="login_or_register">Maglogin og magparehistro</string>
-<string name="update_all">I-update lahat</string>
+<string name="login_or_register">Maglogin o magparehistro</string>
+<string name="update_all">Update lahat</string>
 <string name="username">Email</string>
 <string name="username_tip">Ilagay ang iyong email</string>
 <string name="accept_terms">Sa pamamagitan ng pag sign-up ay sumasang-ayon ka sa mga Tuntunin ng Serbisyo at Patakaran sa Nilalaman para sa mga Tagalikha</string>
 <string name="register">Mag-sign-up</string>
-<string name="or">O</string>
+<string name="or">-O-</string>
 <string name="dont_have_an_account">Walang account? Mag-sign up</string>
 <string name="logged_as">Ikaw ay naka-log bilang:</string>
 <string name="sign_out">Mag-sign-out</string>
@@ -97,28 +97,28 @@
 <string name="restore_updates">Ibalik ang mga Update</string>
 <string name="start_loading">Nagkakarga…</string>
 <string name="one_account_allowed">Isang account lamang ang pinapayagan</string>
-<string name="ip_blacklisted">Naka-blacklist na IP</string>
-<string name="apk_not_found">Hindi nakita ang apk</string>
+<string name="ip_blacklisted">Naka-harang na IP</string>
+<string name="apk_not_found">Ang APK ay hindi matagpuan</string>
 <string name="invalid_apk">Imbalidong apk</string>
 <string name="remote_in_nospace">walang sapat na espasyo sa iyong aparato.</string>
 <string name="server_error">Pagkakamali sa server</string>
 <string name="paidapp_not_found">Pagkakamali sa pagdownload ng app. Pakiusap subukan muli o makipag-ugnayan.</string>
-<string name="finished_install">Ang %s ay na-install na.</string>
+<string name="finished_install">%s ay naka-install na.</string>
 <string name="no_permissions_required">Walang mga permiso na kinakailangan sa app na ito.</string>
 <string name="connection_error">Walang koneksyon sa network</string>
-<string name="install">I-install</string>
+<string name="install">Install</string>
 <string name="aptoide_downloading">%s ay dinadownload</string>
 <string name="error_occured">Nagkaroon ng pagkakamali. Pakiusap subukang muli</string>
 <string name="starting_download">Sinisimulan ang pagdownload</string>
-<string name="downloads">Mga Download</string>
-<string name="size">Laki</string>
-<string name="likes">Mga gusto</string>
+<string name="downloads">Mga nai-download</string>
+<string name="size">Sukat</string>
+<string name="likes">Mga kagustuhan</string>
 <string name="change_theme">Palitan ang tema</string>
 <string name="theme">Mga Tema</string>
 <string name="restart_aptoide">Pakiusap i-restart ang aplikasyon upang palitan ang tema</string>
 <string name="ignoreUpdateText">Balewalain ang Update</string>
 <string name="appview_header_trusted_text">Mapagkakatiwalaan</string>
-<string name="downgrade">Pababain</string>
+<string name="downgrade">I-downgrade</string>
 <string name="open">Buksan</string>
 <string name="about_aptoide_antimalware">Ang Aptoide Anti-Malware na plataporma ay nag-aanalisa ng mga aplikasyon sa run-time at inaalis ang mga potensyal na banta sa buong tindahan. Sinusuri ng sistemang ito ang lahat ng mga bagong aplikasyon mula sa mga tindahan at sinisertipikahan ito kumpara sa mga Android na mga merkado.</string>
 <string name="schDown_nodownloadselect">Walang Napiling Download</string>
@@ -203,7 +203,7 @@
 <string name="error_SYS_2">Walang nakitang datos</string>
 <string name="error_SYS_3">Ang sistema ay kasalukuyang minimintena, pakisubukan ulit mamaya</string>
 <string name="error_SYS_4">Ang tawag na ito ay hindi suportado ng kasalukuyang bersyon ng API</string>
-<string name="X_download_number">%s ay nakabagsak.</string>
+<string name="X_download_number">%s pababa.</string>
 <string name="not_found">Hindi makita</string>
 <string name="active">Aktibo</string>
 <string name="completed">Nakumpleto</string>
@@ -235,7 +235,7 @@
 <string name="asksetadultpinmessage">Nais mo bang magtakda ng pin para sa pagbukas ng Pang-matandang nilalaman?</string>
 <string name="request_adult_pin">Ilagay ang pin upang buksan</string>
 <string name="adult_pin_wrong">Mali ang pin, subuking muli.</string>
-<string name="cancel">Ikansela</string>
+<string name="cancel">Kanselahin</string>
 <string name="error_occured_paying">May error na nangyari. Hindi natuloy ang pagbayad.</string>
 <string name="failed_auth_code">Nabigong i-authorize ang account. Subuking muli.</string>
 <string name="error_occured_retry_later">May error na nangyari. Awtomatikong susubuking muli ng Aptoide maya-maya.</string>
@@ -305,13 +305,13 @@
 
     <string name="aptoide_description">Ang Aptoide Official App Store</string>
 
-    <string name="updates">Mga updeyt</string>
+    <string name="updates">Mga update</string>
     <string name="error_REPO_7">Ang gumagamit na ito ay may balidong repo.</string>
 
     <string name="simple_error_occured">May pagkakamaling naganap. </string>
-    <string name="yes">OO</string>
-    <string name="no">Hindi</string>
-    <string name="password">Password</string>
+    <string name="yes">Oo</string>
+    <string name="no">Hindi maaari</string>
+    <string name="password">Pasword</string>
     <string name="facebook_tos">" Ibahagi ang mga apps na iyong ininstala kasama ang iyong mga kaibigan sa Facebook sa Timeline na nasa loob ng Aptoide\n\nTignan, gustuhin at mag- kumento sa Timeline\n\nHindi kami kailanman nag poposte sa yong pader ng Facebook. Nirerespeto namin ang iyong pagka pribado "</string>
     <string name="facebook_timeline_login">" Gusto mo bang mag Login sa pamamagitan ng Facebook at subukan ang Social Timeline?"</string>
     <string name="feedback_to_write2">Magsulat dito upang makapagpadala ng katugunan...\nPaki-bigay sa amin ang lahat ng mga detalye na iyong makukuha\nMga hakbangin na iyong ginawa\nMga Pagkakamali na iyong nakikita</string>
@@ -319,7 +319,7 @@
     <string name="subscribe_newrepo_alrt">Gusto mo bang mag- subskrayb sa store na ito?\n\n</string>
     <string name="subscribe_store">Mag- subskrayb sa Store</string>
     <string name="store_subscribed">Mga na-subskrayb na (mga)% ng Store</string>
-    <string name="create_store">Gumawa ng Store</string>
+    <string name="create_store">Lumikha ng Store</string>
     <string name="section">Seksyon</string>
 
     <string name="permissions_na">"Mga Permiso:  N/A"</string>
@@ -345,12 +345,12 @@
     <string name="installed_this">%s ininstala nito.</string>
 
     <string name="added_to_scheduled">Nadagdag sa Menu &gt; Mga Nakaskedyul na Downloads</string>
-    <string name="hidden_adult">"Mayroong mga apps na hindi naipakita dahil aktibo ang panala para sa may hustong gulang na nilalaman.  Gusto mo bang ilista ang mga apps na pang hustong gulang na nilalaman?"</string>
+    <string name="hidden_adult">"Mayroong mga apps na hindi naipakita dahil aktibo ang panala para sa may hustong gulang na nilalaman.  Gusto mo bang ilista ang mga apps?"</string>
     <string name="dont_show_again">Huwag na muling ipakita ang diyalogong ito</string>
 
     <string name="app_name">Aptoide</string>
 
-    <string name="action_settings">Setings</string>
+    <string name="action_settings">Mga Seting</string>
     <string name="close">Isarado</string>
     <string name="button_header_more">Mas marami</string>
     <string name="see_more">Makita ang mas marami</string>
@@ -360,7 +360,7 @@
     <string name="installed_tab">Nainstala</string>
     <string name="updates_tab">Mga update</string>
 
-    <string name="settings">Mga Seting</string>
+    <string name="settings">Mga Setting</string>
     <string name="facebook">Facebook</string>
     <string name="twitter">Twitter</string>
     <string name="backup_apps">Reserbang Apps</string>
@@ -380,7 +380,7 @@
     <string name="timeout">Ang koneksyon ng network ay nag gatol</string>
     <string name="order_popup_title3">Pang may hustong gulang na nilalaman</string>
     <string name="timeline_is_empty_send_email">Kami ay magpapadala ng email sa inyong mga napili</string>
-    <string name="more_reviews">Maraming mga Rebyu</string>
+    <string name="more_reviews">Mga Rebyu</string>
     <string name="more_editors_choice">Maraming pagpipilian ng mga Editor</string>
     <string name="more_versions">Marami pang mga bersyon</string>
     <string name="recommended_for_you">Inererekomenda para sa iyo</string>
@@ -390,7 +390,7 @@
     <string name="review_final_verdict">Pinal na Pasya</string>
     <string name="review_speed">Kabilisan</string>
     <string name="review_usability">Panggamit</string>
-    <string name="review_addictive">Nakakahumaling</string>
+    <string name="review_addictive">Nakaka-gumon</string>
     <string name="review_stability">Katatagan</string>
     <string name="review_by">Nirebyu ng:\n%s</string>
     <string name="review_title">Mga rebyu</string>
@@ -410,7 +410,7 @@
     <string name="upload_app_backup_apps_installed">Kailangan mo munang mag upload ng app na ito sa iyong store. Maaari mong gamitin ang Aptoide Backup Apps.</string>
     <string name="upload_app_backup_apps_not_installed">Kailangan mo munang mag upload ng app na ito sa iyong store. Paki instala at gamitin ang Aptoide Backup Apps.</string>
     <string name="upload_app">I-upload ang app</string>
-    <string name="create_review">Gumawa ng rebyu</string>
+    <string name="create_review">Lumikha ng rebyu</string>
 
     <string name="setting_mobile">Ang Mobile 3G/4G</string>
     <string name="setting_dont_show_mature_content">Magpakita ng ganap na nilalaman</string>
@@ -425,18 +425,18 @@
     <string name="appview_subscribed_store_button_text">Nagsubskrayb</string>
     <string name="appview_other_versions_in_others_stores">Mga ibang bersyon sa ibang mga store</string>
     <string name="appview_rate_Success">Namarkahan na App</string>
-    <string name="noIgnoreUpdateText">"Walang  nabalewalang mga update"</string>
-    <string name="createReviewButtonText">Gumawa ng Rebyu</string>
-    <string name="navigation_drawer_signup_login">Mag sign up o kaya ay mag login</string>
+    <string name="noIgnoreUpdateText">"Ang bagong bersyon ng app ay hindi gumagana sa iyong aparato o ang ibang tampok ay nawawala? I-block ang mga app sa pag-update.  Pumunta sa tab ng mga Update at pindutin ng mahaba ang app na gusto mong ihinto ang pag-update."</string>
+    <string name="createReviewButtonText">Lumikha\nRebyu</string>
+    <string name="navigation_drawer_signup_login">Mag sign up o mag login</string>
     <string name="_downloads"> mga download</string>
     <string name="no_description">Walang deskripsyon</string>
     <string name="description">Deskripsyon</string>
-    <string name="version">Bersyon</string>
+    <string name="version">Ang Bersyon</string>
     <string name="version_placeholder">Bersyon: %s</string>
 
     <string name="results_subscribed">Mga Nasubskrayb na Stores</string>
     <string name="results_in_store">Maghanap ng mga resulta sa %s store</string>
-    <string name="other_stores">Mga hindi nasubskrayb na mga Stores</string>
+    <string name="other_stores">Hindi na-subskrayb na mga Stores</string>
     <string name="reviews">Mga rebyu</string>
     <string name="store">Ang store</string>
     <string name="title_caps">TITULO</string>
@@ -445,7 +445,7 @@
     <string name="unsubscribed_">"Mag-alis ng subskripsyon "</string>
     <string name="error_occured_uploading">Kailangan mo muna mag-upload ng app na ito.</string>
 
-    <string name="update_self_title">Ang update ay magagamit</string>
+    <string name="update_self_title">Ang update ay pwedeng magamit</string>
     <string name="update_self_msg">Mayroong bagong bersyon ng %s na magagamit\nGusto mo bang mag update?</string>
     <string name="retrieving_update">Kinukuha ang update…</string>
 
@@ -548,5 +548,15 @@
     <string name="dialog_version_size">Bersyon: %1$s | Laki: %2$s</string>
     <string name="na">N/A</string>
 
-<string name="flag_freeze">Hinto</string>
+<string name="flag_freeze">Pagkahinto</string>
+    <string name="error_410">Paumanhin, and hiniling na App ay hindi natagpuan sa server na ito.</string>
+
+    <string name="subscribing_store_message">Hindi na magsususkrayb %s</string>
+
+<string name="no_email_and_pass_error_message">Paki singit ang email at pasword para mag-rehistro.</string>
+    <string name="privacy_copied">Ang link ng pagka-pribado kinopya sa clipboard</string>
+    <string name="no_pass_error_message">Paki-singit ang pasword para mag-rehistro.</string>
+    <string name="website_copied">Ang website ay kinopya sa clipbord</string>
+    <string name="email_copied">Ang E-mail kinopya sa clipbord</string>
+    <string name="no_email_error_message">Paki-pasok ang email para mag-rehistro.</string>
     </resources>

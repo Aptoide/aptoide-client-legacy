@@ -8,6 +8,7 @@
 package com.aptoide.amethyst.adapter;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -53,9 +54,11 @@ import com.aptoide.amethyst.ui.MoreStoreWidgetActivity;
 import com.aptoide.amethyst.viewholders.BaseViewHolder;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_FACEBOOK_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_GETSTOREWIDGETS;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_APPS;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_STORES;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_YOUTUBE_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.COMMENTS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.TIMELINE_TYPE;
@@ -255,6 +258,12 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     case EVENT_GETSTOREWIDGETS:
                         i = new Intent(view.getContext(), MoreStoreWidgetActivity.class);
                         break;
+                    case EVENT_FACEBOOK_TYPE:
+                    case EVENT_YOUTUBE_TYPE:
+                        i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(row.getEventActionUrl()));
+                        view.getContext().startActivity(i);
+                        return;
                     case ADS_TYPE:
                         i = new Intent(view.getContext(), MoreHighlightedActivity.class);
                         break;

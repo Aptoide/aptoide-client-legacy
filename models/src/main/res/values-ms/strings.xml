@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="error_MARG_1">Tiada kedai</string>
     <string name="error_MARG_2">Tiada maklumat aplikasi</string>
     <string name="error_MARG_3">Tiada versi aplikasi</string>
@@ -107,7 +107,7 @@
     <string name="forgot_passwd">Lupa kata laluan?</string>
     <string name="error_occured">Ralat berlaku. Sila cuba lagi</string>
     <string name="simple_error_occured">Ralat berlaku. </string>
-    <string name="or">Atau</string>
+    <string name="or">-Atau-</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="username">E-mel</string>
@@ -138,7 +138,7 @@
     <string name="subscribe_store">Langgan Kedai</string>
     <string name="store_subscribed">Kedai %s dilanggan</string>
     <string name="subscribing">Melanggan %s kedai…</string>
-    <string name="create_store">Reka kedai</string>
+    <string name="create_store">Cipta kedai</string>
     <string name="section">Seksyen</string>
 
     <string name="not_found">Tidak dijumpai</string>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">今日</string>
 <string name="WidgetProvider_timestamp_yesterday">昨日</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s　時間前</string>
@@ -8,14 +8,14 @@
 <string name="WidgetProvider_timestamp_weeks_ago">%s 週間前</string>
 <string name="WidgetProvider_timestamp_week_ago">%s 週間前</string>
 <string name="WidgetProvider_timestamp_this_week">今週</string>
-<string name="update">更新する</string>
-<string name="uninstall">アンインストールする</string>
+<string name="update">更新</string>
+<string name="uninstall">アンインストール</string>
 <string name="comments">コメント</string>
 <string name="write_your_comment">コメントを書く</string>
 <string name="appview_rating_card_text">評価</string>
 <string name="setting_mature_filtering">アダルト向けコンテンツ</string>
-<string name="new_to_aptoide">%s?を新規ご利用ですか？無料アカウントを作成する。</string>
-<string name="forgot_passwd">パスワードをお忘れですか？</string>
+<string name="new_to_aptoide">%s を新規ご利用ですか？無料アカウントを作成する</string>
+<string name="forgot_passwd">パスワードをお忘れですか?</string>
 <string name="settings_title_bar">設定</string>
 <string name="settings_dwn_network_rules">モバイルネットワークオプション</string>
 <string name="setting_icon_download_rules">アイコンダウンロードの規定</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">このデバイスと互換性のないアプリケーションは表示しない。</string>
 <string name="setting_appfiltertitle">アプリケーションをフィルタリング</string>
 <string name="setting_schdwntitle">スケジュールされたダウンロード</string>
-<string name="setting_schdwninstallsum">WiFi接続時に、予定されているダウンロードを自動的にインストールする</string>
+<string name="setting_schdwninstallsum">WiFi 接続時に、スケジュールしたダウンロードを自動的にインストールします</string>
 <string name="setting_sdk_version">ＳＤＫバージョン</string>
 <string name="setting_screen_size">画面サイズ</string>
 <string name="setting_esgl_version">ＥＳＧＬバージョン</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">このアプリにフラグを付ける。</string>
 <string name="search">検索する。</string>
 <string name="my_account">マイアカウント</string>
-<string name="no_sch_downloads">モバイル データ通信を使用して閲覧したアプリを、後で Wifi 接続しているときにダウンロードしたいですか? スケジュール ダウンロードを使用し、設定 -&gt; 全般ダウンロードのルール - WiFi、の設定で変更してください。</string>
+<string name="no_sch_downloads">モバイル データ通信を使用して閲覧したアプリを、後で Wifi 接続しているときにダウンロードしますか? スケジュール ダウンロードを使用して、設定 -&gt; 全般のダウンロード ルール - WiFi、の設定で変更してください。</string>
 <string name="schDown_installselected">インストールが選択されました。</string>
 <string name="stores">ストア</string>
 <string name="insert_store_name">ストア名を入れる。</string>
@@ -83,14 +83,14 @@
 <string name="appview_rate_this_app_text">このアプリを評価</string>
 <string name="permissions">アクセス許可を参照</string>
 <string name="home_title">ホーム</string>
-<string name="login_or_register">ログインまたは、登録する。</string>
-<string name="update_all">全てを更新</string>
+<string name="login_or_register">ログインまたは、登録する</string>
+<string name="update_all">すべて更新</string>
 <string name="username">メール</string>
 <string name="username_tip">メールアドレスをご記入ください。</string>
 <string name="subscribe_pvt_store">プライベート ストアを購読する</string>
 <string name="accept_terms">サインアップすると、Aptoide(アプトイド)のサービス利用規約、開発者の方針内容に同意する事になります。</string>
 <string name="register">サインアップ</string>
-<string name="or">または</string>
+<string name="or">- または -</string>
 <string name="dont_have_an_account">アカウントがありませんか？サインアップする。</string>
 <string name="logged_as">～としてログイン:</string>
 <string name="sign_out">サインアウト</string>
@@ -100,31 +100,31 @@
 <string name="no_excluded_updates_selected">除外された更新リストが選択されていません。</string>
 <string name="restore_updates">更新を復元する。</string>
 <string name="start_loading">読み込み中…</string>
-<string name="one_account_allowed">アカウントは一つだけ持つ事ができます。</string>
-<string name="ip_blacklisted">ブラックリストのＩＰ</string>
-<string name="apk_not_found">Ａｐｋファイルが見つかりません。</string>
-<string name="invalid_apk">無効なapk</string>
+<string name="one_account_allowed">アカウントは一つだけ持つ事ができます</string>
+<string name="ip_blacklisted">ブラック リストの IP</string>
+<string name="apk_not_found">Apk が見つかりません</string>
+<string name="invalid_apk">apk が正しくありません</string>
 <string name="remote_in_nospace">デバイスに十分な空きがありません。</string>
 <string name="server_error">サーバーのエラー</string>
 <string name="paidapp_not_found">アプリのダウンロードエラー。もう一度やり直すか、サポートにお問い合わせください。</string>
-<string name="finished_install">%s がインストールされました。</string>
+<string name="finished_install">%s をインストールしました。</string>
 <string name="installing">%s のインストール中…</string>
 <string name="no_permissions_required">このアプリは許可がいりません。</string>
 <string name="connection_error">ネットワーク接続がありません</string>
 <string name="install">インストール</string>
 <string name="aptoide_downloading">%sをダウンロード中</string>
-<string name="error_occured">エラーが発生しました。もう一度やり直してください。。</string>
+<string name="error_occured">エラーが発生しました。もう一度やり直してください</string>
 <string name="starting_download">ダウンロードが開始されました。</string>
 <string name="subscribe_newrepo_alrt">このストアを追加しますか？\n\n</string>
-<string name="downloads">ダウンロード</string>
+<string name="downloads">ダウンロード数</string>
 <string name="size">サイズ</string>
-<string name="likes">いいね。</string>
+<string name="likes">いいね</string>
 <string name="change_theme">テーマを変える。</string>
 <string name="theme">テーマ</string>
 <string name="restart_aptoide">テーマを変更するため、アプリケーションを再スタートさせて下さい。</string>
 <string name="ignoreUpdateText">更新しない。</string>
 <string name="appview_header_trusted_text">信頼された</string>
-<string name="downgrade">ダウングレードする。</string>
+<string name="downgrade">ダウングレード</string>
 <string name="open">開く</string>
 <string name="about_aptoide_antimalware">アンチマルウェアのプラットフォーム「アプトイド」はプログラムの実行時に、アプリケーションを分析し、ストア全体から危険が含まれるもの全てを利用不可能にします。このシステムはストアから新規のアプリケーション全てをスキャンし、他のアンドロイドマーケットと比較して認証させます。</string>
 <string name="schDown_nodownloadselect">ダウンロードがスケジュールされていません。</string>
@@ -171,12 +171,12 @@
 <string name="error_IARG_4">無効なMD5データ</string>
 <string name="error_IARG_5">無効なhmacフォーマット</string>
 <string name="error_IARG_6">無効な言語</string>
-<string name="error_IARG_100">コメントには最大10文字入力できます。</string>
-<string name="error_IARG_101">返信には最大10文字入力できます。</string>
+<string name="error_IARG_100">コメントには最大10文字入力できます</string>
+<string name="error_IARG_101">返信には少なくとも10文字入力してください</string>
 <string name="error_IARG_102">無効な引数</string>
 <string name="error_IARG_104">無効な評価</string>
-<string name="error_IARG_105">このウェブサイトのURLは有効ではありません。</string>
-<string name="error_IARG_106">このEメールアドレスは有効ではありません。</string>
+<string name="error_IARG_105">このウェブサイトのURLは有効ではありません</string>
+<string name="error_IARG_106">このEメールアドレスは有効ではありません</string>
 <string name="error_IARG_107">無効なフラグ</string>
 <string name="error_IARG_108">無効なコメント</string>
 <string name="error_IARG_109">無効な投票</string>
@@ -185,7 +185,7 @@
 <string name="error_IARG_201">無効なログインモード</string>
 <string name="error_IARG_300">無効なカスタムカテゴリー</string>
 <string name="error_IARG_301">無効なカテゴリー</string>
-<string name="error_IARG_302">このアプリケーションはすでにこのカテゴリーに存在します。</string>
+<string name="error_IARG_302">このアプリケーションはすでにこのカテゴリーに存在します</string>
 <string name="error_AUTH_1">無効なログイン証明書です！</string>
 <string name="error_AUTH_2">無効な証明書です！</string>
 <string name="error_AUTH_3">ユーザーアカウントがキャンセルされました。質問がある場合には、Aptiodeサポートチームにご連絡ください。</string>
@@ -194,21 +194,21 @@
 <string name="error_AUTH_101">Googleでログインできません。再度お試しください。</string>
 <string name="error_AUTH_102">Facebookでログインできません。Facebookアカウントをチェックしてください(Eメールアドレスの認証が必要です)。</string>
 <string name="error_AUTH_103">Facebookでログインできません。再度お試しください。</string>
-<string name="error_WOP_6">コメントを追加するには、名前を入力する必要があります（これは表示されます）。</string>
+<string name="error_WOP_6">コメントを追加するには、名前を入力する必要があります（これは表示されます）</string>
 <string name="error_WOP_7">コメントエラー</string>
 <string name="error_WOP_8">コメント投票エラー</string>
-<string name="error_WOP_9">このEメールはシステムにすでに存在します。</string>
-<string name="error_WOP_10">このEメールはシステムにまだ存在しません。</string>
+<string name="error_WOP_9">このEメールはシステムにすでに存在します</string>
+<string name="error_WOP_10">このEメールはシステムにまだ存在しません</string>
 <string name="error_WOP_11">ストアが作成できません。再度お試しください。</string>
 <string name="error_REPO_1">ストアが存在しません。</string>
 <string name="error_REPO_2">ストアがキャンセルされました。</string>
 <string name="error_REPO_3">ストアがこのユーザーに属していません。</string>
-<string name="error_APK_1">この情報とバージョンではアプリが開けません。</string>
-<string name="error_APK_4">アプリを開けません。</string>
-<string name="error_SYS_1">不明なエラーが発生しました。もう一度やり直してください。。</string>
-<string name="error_SYS_2">データが見つかりません。後でもう一度やり直して下さい。</string>
-<string name="error_SYS_3">システムのメンテナンス中です。後でもう一度やり直して下さい。</string>
-<string name="error_SYS_4">このコールは現在のAPIバージョンでサポートされていません。</string>
+<string name="error_APK_1">この情報とバージョンではアプリが開けません</string>
+<string name="error_APK_4">このアプリを開けません</string>
+<string name="error_SYS_1">不明なエラーが発生しました。もう一度やり直してください</string>
+<string name="error_SYS_2">データが見つかりません。後でもう一度やり直して下さい</string>
+<string name="error_SYS_3">システムのメンテナンス中です。後でもう一度やり直して下さい</string>
+<string name="error_SYS_4">このコールは現在のAPIバージョンでサポートされていません</string>
 <string name="X_download_number">%s つダウンロードされました。</string>
 <string name="not_found">見つかりません。</string>
 <string name="active">アクティブ</string>
@@ -375,7 +375,7 @@
 
     <string name="order_popup_title3">アダルト コンテンツ</string>
     <string name="timeline_is_empty_send_email">選択した人にメールが送信されます</string>
-    <string name="more_reviews">さらにレビュー</string>
+    <string name="more_reviews">レビュー</string>
     <string name="recommended_for_you">あなたにお勧め</string>
     <string name="like">いいね</string>
     <string name="review_by">レビュー者:\n%s</string>
@@ -393,9 +393,9 @@
     <string name="flag_this_app_need_licence">ライセンスが必要</string>
     <string name="appview_additional_information_title">追加情報</string>
     <string name="appview_latest_version_text">これは最新バージョンです!</string>
-    <string name="appview_subscribe_store_button_text">"購読しますか?"</string>
+    <string name="appview_subscribe_store_button_text">購読しますか?</string>
     <string name="noIgnoreUpdateText">お使いのデバイスでアプリの新しいバージョンが動作しない、またはいくつかの機能が不足していませんか? アプリの更新をブロックします。更新タブに移動し、更新を停止したいアプリで長押ししてください。</string>
-    <string name="createReviewButtonText">レビューを作成</string>
+    <string name="createReviewButtonText">レビュー\nを作成</string>
     <string name="navigation_drawer_signup_login">登録またはログイン</string>
     <string name="_downloads"> ダウンロード</string>
     <string name="no_description">説明はありません</string>
@@ -411,9 +411,9 @@
     <string name="error_occured_uploading">まずこのアプリをアップロードする必要があります。</string>
 
     <string name="test">テスト</string>
-    <string name="update_self_title">更新がご利用できます。</string>
+    <string name="update_self_title">更新が利用できます</string>
     <string name="update_self_msg">%s の新しいバージョンがご利用になれます。更新しますか？</string>
-    <string name="retrieving_update">更新を取得中・・・</string>
+    <string name="retrieving_update">更新の取得中…</string>
 <string name="WidgetProvider_timestamp_week_ago2">1 週間前</string>
     <string name="WidgetProvider_timestamp_days_ago">%s 日前</string>
     <string name="WidgetProvider_timestamp_month_ago">1 ヶ月前</string>
@@ -458,7 +458,7 @@
     <string name="data_usage_constraint">ダウンロードできません 設定 &gt; 全般のダウンロード ルール</string>
 
     <string name="added_to_scheduled">メニューに追加 &gt; ダウンロードの予定</string>
-    <string name="hidden_adult">アダルト コンテンツ フィルターがアクティブのため表示されないアプリがあります。アダルト コンテンツ アプリを一覧表示しますか?</string>
+    <string name="hidden_adult">アダルト コンテンツ フィルターがアクティブのため表示されないアプリがあります。このアプリを一覧表示しますか?</string>
     <string name="dont_show_again">次回からこのダイアログを表示しない</string>
 
     <string name="get_latest">最新バージョンを取得</string>
@@ -578,4 +578,12 @@
 
 <string name="error_410">申し訳ありませんが、要求されたアプリは、このサーバーで見つかりませんでした。</string>
 
-    </resources>
+    <string name="no_email_and_pass_error_message">メールアドレスとパスワードを入力して登録してください。</string>
+    <string name="no_pass_error_message">登録するパスワードを入力してください。</string>
+    <string name="no_email_error_message">登録するメールアドレスを入力してください。</string>
+    <string name="website_copied">ウェブサイトをクリップボードにコピーしました</string>
+    <string name="email_copied">メールをクリップボードにコピーしました</string>
+    <string name="privacy_copied">プライバシー リンクをクリップボードにコピーしました</string>
+    <string name="subscribing_store_message">%s の購読を解除します</string>
+
+</resources>

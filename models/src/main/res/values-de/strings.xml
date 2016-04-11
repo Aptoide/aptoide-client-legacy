@@ -414,7 +414,7 @@
     <string name="flag_this_app_need_licence">Lizenz benötigt</string>
     <string name="appview_additional_information_title">Zusätzliche Information</string>
     <string name="appview_latest_version_text">Dies ist die aktuellste Version!</string>
-    <string name="appview_subscribe_store_button_text">Abonnieren?</string>
+    <string name="appview_subscribe_store_button_text">+  Abonnieren?</string>
     <string name="noIgnoreUpdateText">Keine ignorierte Aktualisierungen</string>
     <string name="createReviewButtonText">Rezension erstellen</string>
     <string name="navigation_drawer_signup_login">Registrieren oder Anmelden</string>

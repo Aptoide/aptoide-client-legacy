@@ -77,15 +77,40 @@ import java.util.List;
 
                     public static final String API_V7_TYPE = "API";
                     public static final String API_V3_TYPE = "v3";
+                    public static final String API_EXTERNAL_TYPE = "EXTERNAL";
 
                     public static final String EVENT_LIST_APPS = "listApps";
                     public static final String EVENT_LIST_STORES = "listStores";
                     public static final String EVENT_GETSTOREWIDGETS = "getStoreWidgets";
+                    public static final String EVENT_FACEBOOK_TYPE = "facebook";
+                    public static final String EVENT_YOUTUBE_TYPE = "youtube";
                     public static final String EVENT_GETAPKCOMMENTS = "getApkComments";
 
-                    public String type; // API, v3
+                    public String type; // API, v3, EXTERNAL
                     public String name; // listApps, getStore, getStoreWidgets, getApkComments
                     public String action;
+
+                    public static boolean isKnownType(String type) {
+                        switch (type) {
+                            case API_EXTERNAL_TYPE:
+                            case API_V3_TYPE:
+                            case API_V7_TYPE:
+                                return true;
+                        }
+                        return false;
+                    }
+                    public static boolean isKnownName(String name) {
+                        switch (name) {
+                            case EVENT_LIST_APPS:
+                            case EVENT_LIST_STORES:
+                            case EVENT_GETSTOREWIDGETS:
+                            case EVENT_YOUTUBE_TYPE:
+                            case EVENT_FACEBOOK_TYPE:
+                            case EVENT_GETAPKCOMMENTS:
+                                return true;
+                        }
+                        return false;
+                    }
                 }
             }
         }

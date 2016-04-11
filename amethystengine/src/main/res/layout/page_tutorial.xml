@@ -34,13 +34,20 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tutorialViewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appbar"
+        android:layout_above="@+id/divider">
 
-    <FrameLayout android:id="@+id/wizard_fragment"
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:layout_below="@id/appbar"
-                 android:layout_above="@+id/linearLayout"/>
+        <FrameLayout android:id="@+id/wizard_fragment"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@id/appbar"
+                     android:layout_above="@+id/linearLayout"/>
 
+    </android.support.v4.view.ViewPager>
 
     <View
             android:id="@+id/divider"
