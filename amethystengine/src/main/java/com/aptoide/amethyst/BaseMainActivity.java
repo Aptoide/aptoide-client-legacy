@@ -68,7 +68,7 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
     protected PagerSlidingTabStrip tabs;
 
     private SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
-    private DownloadService downloadService;
+    protected DownloadService downloadService;
 
     private boolean mAccountBoxExpanded, isLoggedin;
 
