@@ -157,7 +157,7 @@ public class UpdatesService extends Service {
 
                 UpdatesApi api = new UpdatesApi();
                 initUpdatesApi(api);
-
+                api.get_development_versions = AptoideUtils.getSharedPreferences().getBoolean(Constants.UPDATES_FILTER_KEY, false);
                 Cursor servers = database.getStoresCursor();
                 for (servers.moveToFirst(); !servers.isAfterLast(); servers.moveToNext()) {
 

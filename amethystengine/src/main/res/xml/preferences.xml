@@ -75,6 +75,11 @@
             android:defaultValue="true"
             android:key="checkautoupdate"
             android:title="@string/setting_category_autoupdate_title" />
+
+        <CheckBoxPreference
+            android:key="updatesFilterKey"
+            android:title="@string/updates_filter_setting_title"
+            android:summary="@string/updates_filter_summary"/>
     </PreferenceCategory>
 
     <PreferenceCategory

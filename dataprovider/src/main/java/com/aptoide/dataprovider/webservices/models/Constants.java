@@ -182,5 +182,6 @@ public class Constants {
      */
     public static final String MATURE_CHECK_BOX = "matureChkBox";
 
+    public static final String UPDATES_FILTER_KEY = "updatesFilterKey";
 
 }
