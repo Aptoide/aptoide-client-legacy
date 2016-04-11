@@ -288,7 +288,8 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         for (ListViewItems.DisplayList display : list) {
             if (isKnownType(display.event.type) && isKnownName(display.event.name)) {
                 CategoryRow categ = new CategoryRow(numColumns);
-                if (display.event.type.equals(Action.Event.API_EXTERNAL_TYPE) && (display.event.name.equals(Action.Event.EVENT_YOUTUBE_TYPE)||display.event.name.equals(Action.Event.EVENT_YOUTUBE_TYPE))) {
+                if (display.event.type.equals(Action.Event.API_EXTERNAL_TYPE) && (display.event.name.equals(Action.Event.EVENT_FACEBOOK_TYPE)||display.event.name.equals(Action.Event
+                        .EVENT_YOUTUBE_TYPE))) {
                     categ.setSpanSize(totalSpanSize);
                 } else {
                     categ.setSpanSize(totalSpanSize / 2);

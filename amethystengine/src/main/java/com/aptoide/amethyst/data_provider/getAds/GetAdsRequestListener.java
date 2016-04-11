@@ -53,6 +53,8 @@ public class GetAdsRequestListener {
 								}
 							}
 						});
+					} else {
+						ReferrerUtils.excludedCampaings.remove(packageName);
 					}
 				} catch (NullPointerException e) {
 					// Propositadamente ignorado.

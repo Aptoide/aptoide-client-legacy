@@ -2190,8 +2190,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 executeSpiceRequestWithAppId(appId, storeName, packageName);
                 AptoideUtils.AdNetworks.knock(cpc);
 
-                final String clickUrl = intent.getBundleExtra("partnerExtra").getString("partnerClickUrl");
-                ReferrerUtils.extractReferrer(packageName, appId, adId, -1, clickUrl, spiceManager, null, ReferrerUtils.RETRIES);
+                if (intent.hasExtra("partnerExtra")) {
+                    final String clickUrl = intent.getBundleExtra("partnerExtra").getString("partnerClickUrl");
+                    ReferrerUtils.extractReferrer(packageName, appId, adId, -1, clickUrl, spiceManager, null, ReferrerUtils.RETRIES);
+                }
             } else if (intent.getBooleanExtra(Constants.ROLLBACK_FROM_KEY, false)) {
                 md5sum = intent.getStringExtra(Constants.MD5SUM_KEY);
 
