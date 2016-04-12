@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.IconSizeUtils;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
 import com.bumptech.glide.Glide;
@@ -117,7 +118,7 @@ public class MakeReviewActivity extends AptoideBaseActivity {
 
         @Override
         public void onBindViewHolder(ScreenshotsViewHolder holder, int position) {
-            Glide.with(holder.itemView.getContext()).load(screenshotsUrls.get(position)).crossFade().into(holder.screenshot);
+            Glide.with(holder.itemView.getContext()).load(IconSizeUtils.generateSizeStringScreenshots(screenshotsUrls.get(position))).crossFade().into(holder.screenshot);
         }
 
         @Override
@@ -154,7 +155,7 @@ public class MakeReviewActivity extends AptoideBaseActivity {
         screenshots.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         screenshots.setAdapter(new ScreenshotsAdapter(getIntent().getStringArrayListExtra(EXTRA_SCREENSHOTS_URL)));
 
-        Glide.with(this).load(getIntent().getStringExtra(EXTRA_ICON)).into((ImageView) findViewById(R.id.icon));
+        Glide.with(this).load(AptoideUtils.UI.parseIcon(getIntent().getStringExtra(EXTRA_ICON))).into((ImageView) findViewById(R.id.icon));
 
         ((TextView) findViewById(R.id.name)).setText(getIntent().getStringExtra(EXTRA_APP_NAME));
         String text = getString(R.string.size) + ": " + getIntent().getLongExtra(EXTRA_SIZE,0);

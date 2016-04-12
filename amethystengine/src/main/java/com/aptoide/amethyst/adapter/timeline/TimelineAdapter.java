@@ -185,7 +185,7 @@ public class TimelineAdapter extends ArrayAdapter<TimelineListAPKsJson.UserApk> 
         String icon;
         if (entry.apk.icon_hd != null) {
             icon = entry.apk.icon_hd;
-            String sizeString = IconSizeUtils.generateSizeString(getContext());
+            String sizeString = IconSizeUtils.generateSizeString();
             String[] splittedUrl = icon.split("\\.(?=[^\\.]+$)");
             icon = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
         } else {

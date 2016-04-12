@@ -20,6 +20,7 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
@@ -202,7 +203,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
                     v.getContext().startActivity(i);
                 }
             });
-            Glide.with(updateViewHolder.itemView.getContext()).load(appItem.icon).asBitmap().into(updateViewHolder.icon);
+            Glide.with(updateViewHolder.itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.icon)).asBitmap().into(updateViewHolder.icon);
         } else if (holder.viewType == R.layout.installed_row) {
             final InstalledViewHolder installedViewHolder = (InstalledViewHolder) holder;
 

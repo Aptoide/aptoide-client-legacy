@@ -27,6 +27,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.PaymentServices;
 import com.bumptech.glide.Glide;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -432,7 +433,7 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
                                 aptoideProductId = response.getMetadata().getId();
                                 ((TextView) findViewById(R.id.title)).setText(sku_details.getString("title"));
                                 ((TextView) findViewById(R.id.price)).setText(sku_details.getString("price"));
-                                Glide.with(IABPurchaseActivity.this).load(response.getMetadata().getIcon()).into((ImageView) findViewById(R.id.icon));
+                                Glide.with(IABPurchaseActivity.this).load(AptoideUtils.UI.parseIcon(response.getMetadata().getIcon())).into((ImageView) findViewById(R.id.icon));
                                 ((TextView) findViewById(R.id.app_purchase_description)).setText(sku_details.getString("description"));
                             } catch (Exception e) {
                                 e.printStackTrace();

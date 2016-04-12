@@ -24,6 +24,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.dialogs.ProgressDialogFragment;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.PaymentServices;
 import com.bumptech.glide.Glide;
 import com.octo.android.robospice.persistence.exception.SpiceException;
@@ -166,7 +167,7 @@ public class PaidAppPurchaseActivity extends BasePurchaseActivity {
                 }
             }
 
-            Glide.with(this).load(icon).into((ImageView) findViewById(R.id.icon));
+            Glide.with(this).load(AptoideUtils.UI.parseIcon(icon)).into((ImageView) findViewById(R.id.icon));
             ((TextView) findViewById(R.id.title)).setText(label);
             ((TextView) findViewById(R.id.price)).setText(Float.toString(price) + " " + symbol);
         }

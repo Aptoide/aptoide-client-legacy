@@ -311,7 +311,7 @@ public class UpdatesService extends Service {
                 for (final UpdatesResponse.UpdateApk updateApk : updates) {
                     if (updateApk.icon != null && updateApk.icon.contains("_icon")) {
                         String[] splittedUrl = updateApk.icon.split("\\.(?=[^\\.]+$)");
-                        String iconSize = IconSizeUtils.generateSizeString(context);
+                        String iconSize = IconSizeUtils.generateSizeString();
                         updateApk.icon = splittedUrl[0] + "_" + iconSize + "." + splittedUrl[1];
                     }
                     downloadService.downloadFromV7(updateApk, false);
