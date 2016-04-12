@@ -18,12 +18,16 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aptoide.amethyst.adapter.StorePagerAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.ui.SearchManager;
+import com.aptoide.amethyst.ui.dialogs.PasswordDialog;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
@@ -44,10 +48,6 @@ import com.squareup.otto.Subscribe;
 
 import java.net.HttpURLConnection;
 
-import com.aptoide.amethyst.adapter.StorePagerAdapter;
-import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
-import com.aptoide.amethyst.ui.SearchManager;
-import com.aptoide.amethyst.ui.dialogs.PasswordDialog;
 import retrofit.RetrofitError;
 
 /**
@@ -62,7 +62,7 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
                                    final long storeId,
                                    @NonNull final String storeName,
                                    @NonNull final String storeAvatar,
-                                   final int storeTheme) {
+                                   final EnumStoreTheme storeTheme) {
         final Intent intent = new Intent(context, StoresActivity.class);
         intent.putExtra(Constants.STOREID_KEY, storeId);
         intent.putExtra(Constants.STORENAME_KEY, storeName);
