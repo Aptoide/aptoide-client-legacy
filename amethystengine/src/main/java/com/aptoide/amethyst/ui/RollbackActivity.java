@@ -81,11 +81,7 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
 
         int i = item.getItemId();
 
-        if (i == android.R.id.home) {
-            finish();
-        } else if (i == R.id.home) {
-            finish();
-        } else if (i == R.id.menu_clear_rollback) {
+        if (i == R.id.menu_clear_rollback) {
             Analytics.Rollback.clear();
 //            FlurryAgent.logEvent("Rollback_Cleared_Rollback_List");
             new AptoideDatabase(Aptoide.getDb()).deleteRollbackItems();

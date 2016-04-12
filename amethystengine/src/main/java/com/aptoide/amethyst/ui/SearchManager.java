@@ -111,19 +111,6 @@ public class SearchManager extends AptoideBaseActivity implements SearchQueryCal
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int i = item.getItemId();
-
-        if (i == android.R.id.home) {
-            finish();
-        } else if (i == R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
 
