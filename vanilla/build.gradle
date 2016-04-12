@@ -49,8 +49,8 @@ android {
             minSdkVersion 21
 
             // Enabling multidex support.
-            multiDexEnabled true
-            versionName "7.1.0"
+//            multiDexEnabled true
+            versionName "7.1.2b0"
         }
         prod {
             // The actual minSdkVersion for the application.
