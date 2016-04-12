@@ -1064,7 +1064,7 @@ public class AptoideUtils {
             return request;
         }
 
-        private static GetAppRequest buildGetAppRequest(String storeName) {
+        public static GetAppRequest buildGetAppRequest(String storeName) {
             GetAppRequest request = new GetAppRequest(UI.getBucketSize());
             request.token = SecurePreferences.getInstance().getString("access_token", null);
             request.filters = Aptoide.filters;

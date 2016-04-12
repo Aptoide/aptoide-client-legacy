@@ -89,6 +89,7 @@ import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.AddApkFlagRequest;
 import com.aptoide.amethyst.webservices.CheckUserCredentialsRequest;
+import com.aptoide.amethyst.webservices.GetAppRequest;
 import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
 import com.aptoide.amethyst.webservices.v2.AddCommentRequest;
@@ -608,17 +609,16 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
         };
 
-        private boolean isApkFy;
-        private static boolean isApkFyDialogShowed = false;
-
         private void showDialogIfComingFromAPKFY() {
             if (obb != null ) {
                 AptoideUtils.AppUtils.checkPermissions(getActivity());
             }
 
-            isApkFy = getActivity().getIntent().getBooleanExtra(Constants.FROM_APKFY_KEY, false);
-            if (isApkFy && !isPaidApp() && !isApkFyDialogShowed) {
-                isApkFyDialogShowed = true;
+            boolean isApkFy = getActivity().getIntent().getBooleanExtra(Constants.FROM_APKFY_KEY, false);
+            boolean isShowAutoInstallPopup = getActivity().getIntent().getBooleanExtra(Constants.SHOW_AUTO_INSTALL_POPUP, false);
+            if ((isApkFy || isShowAutoInstallPopup) && !isPaidApp()) {
+                getActivity().getIntent().removeExtra(Constants.FROM_APKFY_KEY);
+                getActivity().getIntent().removeExtra(Constants.SHOW_AUTO_INSTALL_POPUP);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).edit();
                     edit.putString(AptoideConfiguration.PREF_PATH_CACHE_APK, Aptoide.getContext().getFilesDir().getPath()).apply();
@@ -2245,10 +2245,24 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 packageName = intent.getStringExtra(Constants.PACKAGENAME_KEY);
 
                 executeSpiceRequestWithPackageName(packageName, null);
+            } else if (intent.getBooleanExtra(Constants.FROM_APTOIDE_INSTALL_INTENT, false)) {
+                packageName = intent.getStringExtra(Constants.PACKAGENAME_KEY);
+                storeName = intent.getStringExtra(Constants.STORENAME_KEY);
+                executeSpiceRequest();
             }
 
 
             mCollapsingToolbarLayout.setTitle(appName);
+        }
+
+        private void executeSpiceRequest() {
+            long cacheExpiryDuration = forceReload ? DurationInMillis.ALWAYS_EXPIRED : DurationInMillis.ONE_HOUR;
+            GetAppRequest getAppRequest = AptoideUtils.RepoUtils.buildGetAppRequest(storeName);
+            getAppRequest.appId = appId;
+            getAppRequest.md5 = md5sum;
+            getAppRequest.packageName = packageName;
+
+            spiceManager.execute(getAppRequest, md5sum + packageName + appId + bucketSize + storeName, cacheExpiryDuration, listener);
         }
 
         private void executeSpiceRequestWithAppId(long appId, @Nullable String storeName, String packageName) {
@@ -2400,5 +2414,34 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 download();
             }
         }
+    }
+
+    /**
+     * Get appview's intent to start the activity
+     * @param packageName package name of the app to open
+     * @param repo store that contains the app
+     * @param context
+     * @return An intent to open the appview with the wanted app
+     */
+    public static Intent getAppviewIntent(String packageName, String repo, Context context) {
+        Intent intent = new Intent(context, AppViewActivity.class);
+        intent.putExtra(Constants.FROM_APTOIDE_INSTALL_INTENT, true);
+        intent.putExtra(Constants.PACKAGENAME_KEY, packageName);
+        intent.putExtra(Constants.STORENAME_KEY, repo);
+        return intent;
+    }
+
+    /**
+     * Get appview's intent to start the activity
+     * @param packageName package name of the app to open
+     * @param repo store that contains the app
+     * @param showPopup show auto install popup if true
+     * @param context
+     * @return An intent to open the appview with the wanted app
+     */
+    public static Intent getAppviewIntent(String packageName, String repo, boolean showPopup, Context context) {
+        Intent appviewIntent = getAppviewIntent(packageName, repo, context);
+        appviewIntent.putExtra(Constants.SHOW_AUTO_INSTALL_POPUP, showPopup);
+        return appviewIntent;
     }
 }
