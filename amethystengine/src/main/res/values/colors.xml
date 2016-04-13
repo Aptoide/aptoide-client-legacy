@@ -16,7 +16,7 @@
     <!-- EnumStoreTheme -->
 
     <!-- Main colors -->
-    <color name="green">#2E8B57</color>
+    <color name="green">#4CAF50</color>
     <color name="teal">#009688</color>
     <color name="red">#F44336</color>
     <color name="indigo">#3F51B5</color>
@@ -28,7 +28,7 @@
     <color name="black">#000000</color>
     <color name="deeppurple">#673AB7</color>
     <color name="amber">#FFC107</color>
-    <color name="lightgreen">#4CAF50</color>
+    <color name="lightgreen">#8BC34A</color>
     <!--<color name="lime">#CDDC39</color> -->
     <color name="lime">#B7AE00</color>
     <color name="lightblue">#03A9F4</color>
