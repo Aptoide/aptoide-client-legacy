@@ -300,7 +300,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         ImageView mAppIcon;
         View mStoreView;
         ImageView mStoreAvatar;
-        TextView mStoreName;
+        protected TextView mStoreName;
         TextView mStoreUsers;
         CollapsingToolbarLayout mCollapsingToolbarLayout;
         TextView mVersionName;
@@ -417,7 +417,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         private String developer;
         protected String storeName;
         private String storeAvatar;
-        private EnumStoreTheme storeTheme;
+        protected EnumStoreTheme storeTheme;
         private long storeSubscribers;
         private String screen;
         private int minSdk;
