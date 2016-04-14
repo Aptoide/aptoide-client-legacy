@@ -299,9 +299,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         ImageView mFeaturedGraphic;
         ImageView mAppIcon;
         View mStoreView;
-        ImageView mStoreAvatar;
+        protected ImageView mStoreAvatar;
         protected TextView mStoreName;
-        TextView mStoreUsers;
+        protected TextView mStoreUsers;
         CollapsingToolbarLayout mCollapsingToolbarLayout;
         TextView mVersionName;
         TextView mDownloadsNumber;
@@ -416,9 +416,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         protected String packageName;
         private String developer;
         protected String storeName;
-        private String storeAvatar;
+        protected String storeAvatar;
         protected EnumStoreTheme storeTheme;
-        private long storeSubscribers;
+        protected long storeSubscribers;
         private String screen;
         private int minSdk;
         private GetAppMeta.Pay pay;
@@ -480,7 +480,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
         private ApkSuggestionJson.Ads appSuggested;
 
-        private RequestManager glide;
+        protected RequestManager glide;
 
         /**
          * Used to control when we need to refresh the install/open button when coming back from the onResume
