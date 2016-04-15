@@ -287,13 +287,16 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
 
 
     protected void updateBadge(BadgeView badgeUpdates, int num) {
-        badgeUpdates.setTextSize(11);
 
-        if (num > 0) {
-            badgeUpdates.setText(String.valueOf(num));
-            if (!badgeUpdates.isShown()) badgeUpdates.show(true);
-        } else {
-            if (badgeUpdates.isShown()) badgeUpdates.hide(true);
+        if(badgeUpdates != null) {
+            badgeUpdates.setTextSize(11);
+
+            if (num > 0) {
+                badgeUpdates.setText(String.valueOf(num));
+                if (!badgeUpdates.isShown()) badgeUpdates.show(true);
+            } else {
+                if (badgeUpdates.isShown()) badgeUpdates.hide(true);
+            }
         }
     }
 
