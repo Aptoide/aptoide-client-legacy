@@ -183,6 +183,7 @@ public class ReviewActivity extends AptoideBaseActivity {
                         intent.putExtra(Constants.APP_ID_KEY, reviewListJson.getReview().getApk().getId().longValue());
                         intent.putExtra(Constants.APPNAME_KEY, reviewListJson.getReview().getApk().getTitle());
                         intent.putExtra(Constants.PACKAGENAME_KEY, reviewListJson.review.getApk().packageName);
+                        intent.putExtra(Constants.STORENAME_KEY, reviewListJson.review.repoName);
 
                         startActivity(intent);
                     }
