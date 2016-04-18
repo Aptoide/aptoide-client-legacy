@@ -129,6 +129,8 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     private String mAuthTokenType;
     private SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpsService.class);
 
+    protected Button registerButton;
+
     EditText password_box;
     CheckBox checkShowPass;
     private UiLifecycleHelper uiLifecycleHelper;
@@ -231,7 +233,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
         spiceManager.start(this);
     }
 
-    private void setUpLogin() {
+    protected void setUpLogin() {
         String accountName = getIntent().getStringExtra(ARG_ACCOUNT_NAME);
 
         emailBox = (EditText) findViewById(R.id.username);
@@ -273,7 +275,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
             }
         });
 
-        Button registerButton = (Button) findViewById(R.id.button_register);
+        registerButton = (Button) findViewById(R.id.button_register);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

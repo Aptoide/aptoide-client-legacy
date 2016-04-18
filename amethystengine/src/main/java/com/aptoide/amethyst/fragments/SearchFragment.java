@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LinearRecyclerFragment;
 import com.aptoide.amethyst.R;
 import com.aptoide.models.displayables.SearchApk;
@@ -113,13 +114,15 @@ public class SearchFragment extends LinearRecyclerFragment {
                 displayables.add(new SearchMoreHeader(BUCKET_SIZE));
             }
 
-            if (!uApkList.isEmpty()) {
-                displayables.add(new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
-                displayables.addAll(uApkList);
-            } else {
-                displayables.addAll(uApkList);
+            if (Aptoide.getConfiguration().isSearchStores()) {
+                if (!uApkList.isEmpty()) {
+                    displayables.add(new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
+                    displayables.addAll(uApkList);
+                } else {
+                    displayables.addAll(uApkList);
+                }
+                u_offset += uApkList.size();
             }
-            u_offset += uApkList.size();
             adapter.notifyDataSetChanged();
             swipeContainer.setEnabled(false);
             progressBar.setVisibility(View.GONE);

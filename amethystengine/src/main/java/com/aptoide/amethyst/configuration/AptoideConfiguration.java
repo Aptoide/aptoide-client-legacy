@@ -229,4 +229,8 @@ public class AptoideConfiguration {
         return LoginActivity.class;
     }
 
+    public boolean isSearchStores() {
+        return true;
+    }
+
 }

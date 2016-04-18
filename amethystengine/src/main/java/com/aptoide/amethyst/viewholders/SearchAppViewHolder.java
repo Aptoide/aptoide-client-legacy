@@ -170,7 +170,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
         icon = (ImageView )itemView.findViewById(R.id.icon);
         downloads = (TextView )itemView.findViewById(R.id.downloads);
         ratingBar = (RatingBar )itemView.findViewById(R.id.ratingbar);
-        overflow = (ImageView )itemView.findViewById(R.id.overflow);
+        //overflow = (ImageView )itemView.findViewById(R.id.overflow);
         time = (TextView )itemView.findViewById(R.id.search_time);
         store = (TextView )itemView.findViewById(R.id.search_store);
         icTrusted = (ImageView )itemView.findViewById(R.id.ic_trusted_search);
