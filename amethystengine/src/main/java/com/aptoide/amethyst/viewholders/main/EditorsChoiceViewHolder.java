@@ -31,6 +31,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
     public void populateView(Displayable displayable) {
 //        EditorsChoiceViewHolder holder = (EditorsChoiceViewHolder) viewHolder;
         EditorsChoiceRow row = (EditorsChoiceRow) displayable;
+        more.setText("انتخاب بیشتر سردبیران");
         more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, null));
         int i = 0;
         for (; i < images.length && i < row.appItemList.size(); i++) {

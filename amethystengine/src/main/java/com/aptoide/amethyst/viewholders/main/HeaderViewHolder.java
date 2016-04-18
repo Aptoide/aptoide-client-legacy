@@ -6,11 +6,13 @@ import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.models.displayables.Displayable;
@@ -50,7 +52,10 @@ public class HeaderViewHolder extends BaseViewHolder {
     @Override
     public void populateView(Displayable displayable) {
         HeaderRow row = (HeaderRow) displayable;
-        title.setText(row.getLabel());
+        String title2 = translateToFarsi(row.getLabel());
+        title.setText(title2);
+        title.setGravity(Gravity.LEFT);
+        more.setText("بیش");
         if (row.isHasMore()) {
             more.setVisibility(View.VISIBLE);
             if (storeName == null || TextUtils.isEmpty(storeName)) {
@@ -95,5 +100,28 @@ public class HeaderViewHolder extends BaseViewHolder {
         title = (TextView )itemView.findViewById(R.id.title);
         more = (Button )itemView.findViewById(R.id.more);
         moreLayout = (RelativeLayout )itemView.findViewById(R.id.more_layout);
+    }
+
+
+    protected String translateToFarsi(String string) {
+        String translated = null;
+        switch (string) {
+            case "Highlighted":
+                translated = "دانلودها";
+                break;
+            case "Trending":
+                translated = "روند";
+                break;
+            case "Local Top Apps":
+                translated = "برنامه های بالا محلی";
+                break;
+            case "Top Games":
+                translated = "بالا بازی";
+                break;
+            case "Reviews":
+                translated = Aptoide.getContext().getString(R.string.reviews);
+                break;
+        }
+        return translated;
     }
 }
