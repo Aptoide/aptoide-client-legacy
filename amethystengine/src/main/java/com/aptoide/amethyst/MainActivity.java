@@ -41,6 +41,7 @@ import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.model.json.OAuth;
 import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.tutorial.TutorialActivity;
 import com.aptoide.amethyst.ui.MyAccountActivity;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Base64;
@@ -58,6 +59,7 @@ import com.aptoide.models.ApkSuggestionJson;
 import com.aptoide.models.stores.Store;
 import com.astuetz.PagerSlidingTabStrip;
 import com.bumptech.glide.Glide;
+import com.crashlytics.android.Crashlytics;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flurry.android.FlurryAgent;
 import com.octo.android.robospice.SpiceManager;
@@ -79,7 +81,6 @@ import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
 import com.aptoide.amethyst.services.DownloadService;
 import com.aptoide.amethyst.services.UpdatesService;
-import com.aptoide.amethyst.tutorial.Tutorial;
 import com.aptoide.amethyst.ui.BadgeView;
 import com.aptoide.amethyst.ui.ExcludedUpdatesActivity;
 import com.aptoide.amethyst.ui.RollbackActivity;
@@ -147,6 +148,10 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
         if (savedInstanceState == null) {
 
             syncInstalledApps();
+            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this);
+            if (!sPref.getBoolean("firstrun", true)) {
+                AptoideUtils.AppUtils.checkPermissions(this);
+            }
             executeWizard();
             startPushNotifications();
         } else {
@@ -162,6 +167,10 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
     }
 
     protected void navigationDrawerIntentBuild() {
+        if (!hasBootOptions()) {
+            SharedPreferences.Editor edit = AptoideUtils.getSharedPreferences().edit();
+            edit.remove(AptoideConfiguration.PREF_PATH_CACHE_APK).apply();
+        }
         mNavigationView.setItemIconTintList(null);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -232,7 +241,8 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
         tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
     }
 
-    private void hasBootOptions() {
+    private boolean hasBootOptions() {
+        String appId = null;
         try {
             InputStream is = getAssets().open("actionsOnBoot.properties");
             Properties properties = new Properties();
@@ -241,15 +251,15 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
             if (properties.containsKey("downloadId")) {
                 intent = new Intent(this, Aptoide.getConfiguration().getAppViewActivity());
 
-                String id = properties.getProperty("downloadId");
+                appId = properties.getProperty("downloadId");
                 long savedId = sharedPreferences.getLong("downloadId", 0);
 
-                if (Long.valueOf(id) != savedId) {
-                    sharedPreferences.edit().putLong("downloadId", Long.valueOf(id)).apply();
+                if (Long.valueOf(appId) != savedId) {
+                    sharedPreferences.edit().putLong("downloadId", Long.valueOf(appId)).apply();
 
                     intent.putExtra("fromApkInstaller", true);
-                    intent.putExtra(Constants.FROM_MY_APP_KEY, true);
-                    intent.putExtra(Constants.APP_ID_KEY, Long.valueOf(id));
+                    intent.putExtra(Constants.FROM_APKFY_KEY, true);
+                    intent.putExtra(Constants.APP_ID_KEY, Long.valueOf(appId));
 
 
                     if (properties.containsKey("cpi_url")) {
@@ -268,6 +278,7 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
                     FlurryAgent.logEvent("Started_From_Apkfy");
                     startActivityForResult(intent, WIZARD_REQ_CODE);
 
+                    return true;
                 }
 
             } else if (properties.containsKey("aptword")) {
@@ -309,18 +320,18 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
                     startActivityForResult(intent, WIZARD_REQ_CODE);
 
                 }
-
+                return true;
             }
 
 
-
-        } catch (IOException e) {
-            Log.e("MYTAG", "");
-            //e.printStackTrace();
-        } catch (NullPointerException e) {
-            //e.printStackTrace();
+        } catch (Exception e) {
+            if (appId != null) {
+                Crashlytics.setString("APKFY_APP_ID", appId);
+            }
+            Logger.d(TAG, e.getMessage());
+            Crashlytics.logException(e);
         }
-
+        return false;
     }
 
     private void syncInstalledApps() {
@@ -328,6 +339,7 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
         executorService.execute(new Runnable() {
             @Override
             public void run() {
+                Aptoide.getConfiguration().resetPathCacheApks();
                 InstalledAppsHelper.syncInstalledApps(MainActivity.this);
             }
         });
@@ -372,7 +384,7 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
 
         if (sPref.getBoolean("firstrun", true)) {
 
-            Intent newToAptoideTutorial = new Intent(this, Tutorial.class);
+            Intent newToAptoideTutorial = new Intent(this, TutorialActivity.class);
             startActivityForResult(newToAptoideTutorial, WIZARD_REQ_CODE);
             sPref.edit().putBoolean("firstrun", false).apply();
             try {

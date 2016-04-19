@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">วันนี้</string>
 <string name="WidgetProvider_timestamp_yesterday">เมื่อวาน</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s ชั่วโมงที่ผ่านมา</string>
@@ -60,7 +60,7 @@
 <string name="flag_this_app_button_text">ปักธงแอปนี้</string>
 <string name="search">ค้นหา</string>
 <string name="my_account">บัญชีของฉัน</string>
-<string name="no_sch_downloads">"ค้นหาแอปนี้ผ่านการเชื่อมต่อเครือข่ายสัญญาณโทรศัพท์ และต้องการดาวน์โหลดแอปนี้ภายหลังเมื่อคุณเชื่อมต่อไวไฟหรือไม่?  ใช้ตารางการดาวน์โหลดและเปลี่ยนแปลงตั้งค่าได้ตามความชอบของคุณที่เมนูการตั้งค่า-&gt;กฎการดาวน์โหลดทั่วไป-ใช้ไวไฟ"</string>
+<string name="no_sch_downloads">"ค้นหาแอปนี้ผ่านการเชื่อมต่อเครือข่ายสัญญาณโทรศัพท์ และต้องการดาวน์โหลดแอปนี้ภายหลังเมื่อคุณเชื่อมต่อไวไฟหรือไม่?  ใช้ตารางการดาวน์โหลดและเปลี่ยนแปลงการตั้งค่าได้ตามความชอบของคุณที่เมนูการตั้งค่า-&gt;กฎการดาวน์โหลดทั่วไป-ใช้ไวไฟ"</string>
 <string name="schDown_installselected">การติดตั้งที่เลือก</string>
 <string name="stores">ร้านค้า</string>
 <string name="insert_store_name">ใส่ชื่อของร้านค้า:</string>
@@ -93,8 +93,8 @@
 <string name="restore_updates">กู้คืนการอัปเดต</string>
 <string name="start_loading">กำลังโหลด…</string>
 <string name="one_account_allowed">ยอมให้บัญชีเดียวเท่านั้น</string>
-<string name="ip_blacklisted">แบล็กลิสต์ไอพี</string>
-<string name="apk_not_found">"ไม่พบ apk "</string>
+<string name="ip_blacklisted">ไอพีแบล็กลิสต์</string>
+<string name="apk_not_found">ไม่พบ apk</string>
 <string name="invalid_apk">apk ไม่ถูกต้อง</string>
 <string name="remote_in_nospace">อุปกรณ์ของคุณมีพื้นที่ว่างไม่เพียงพอ</string>
 <string name="server_error">เซิร์ฟเวอร์ผิดพลาด</string>
@@ -376,7 +376,7 @@
     <string name="review_final_verdict">คำตัดสินใจสุดท้าย</string>
     <string name="review_speed">ความเร็ว</string>
     <string name="review_usability">ใช้งานได้</string>
-    <string name="review_addictive">ติด</string>
+    <string name="review_addictive">ชื่นชอบ</string>
     <string name="review_stability">ความมั่นคง</string>
     <string name="review_by">ตรวสอบโดย\n%s</string>
     <string name="review_title">ตรวจสอบ</string>
@@ -396,7 +396,7 @@
     <string name="upload_app_backup_apps_installed">"คุณจำเป็นที่จะต้องอัพโหลดแอปนี้ในร้านค้าของคุณก่อน  คุณสามารถสำรองข้อมูลแอป Aptoide ได้"</string>
     <string name="upload_app_backup_apps_not_installed">"คุณจำเป็นที่จะต้องอัพโหลดแอปนี้ในร้านค้าของคุณก่อน  โปรดติดตั้งและใช้การสำรองข้อมูลของแอป Aptoide"</string>
     <string name="upload_app">อัพโหลดแอป</string>
-    <string name="create_review">สร้างการตรวจสอบ</string>
+    <string name="create_review">เขียนรีวิว</string>
 
     <string name="settings_dwn_network_rules">ตัวเลือกเครือข่ายโทรศัพท์</string>
     <string name="setting_sum_icon_download_rules">อนุญาตให้ดาวน์โหลดโดยใช้การเชื่อมต่อสัญญาณโทรศัพท์</string>
@@ -413,12 +413,12 @@
     <string name="flag_this_app_need_licence">ต้องได้รับสิทธิ์</string>
     <string name="appview_additional_information_title">ข้อมูลเพิ่มเติม</string>
     <string name="appview_latest_version_text">นี้คือเวอร์ชั่นล่าสุด!</string>
-    <string name="appview_subscribe_store_button_text">"ตอบรับ?"</string>
+    <string name="appview_subscribe_store_button_text">"+  ตอบรับ?"</string>
     <string name="appview_subscribed_store_button_text">ตอบรับ</string>
     <string name="appview_other_versions_in_others_stores">เวอร์ชั่นอื่นๆในร้านค้าอื่น</string>
     <string name="appview_rate_Success">คะแนนแอปนี้</string>
     <string name="noIgnoreUpdateText">"แอปเวอร์ชั่นล่าสุดไม่สามารถทำงานได้บนเครื่องของคุณ หรือการคุณสมบัติการทำงานบางอย่างหายไป?  ปิดกั้นการอัพเดต  ไปที่แท็ปอัพเดต และกดค้างที่แอปที่คุณต้องการให้หยุดอัพเดต"</string>
-    <string name="createReviewButtonText">สร้างรีวิว</string>
+    <string name="createReviewButtonText">เขียนรีวิว</string>
     <string name="navigation_drawer_signup_login">สมัครหรือลงชื่อเข้าใช้</string>
     <string name="_downloads"> ดาวน์โหลด</string>
     <string name="no_description">ไม่มีคำบรรยาย</string>
@@ -428,7 +428,7 @@
 
     <string name="results_subscribed">สมัครตอบรับร้านค้า</string>
     <string name="results_in_store">ค้นหาในร้านค้า %s</string>
-    <string name="other_stores">ยกเลิกการตอบรับร้านค้า</string>
+    <string name="other_stores">ไม่ตอบรับร้านค้า</string>
     <string name="store">ร้านค้า</string>
     <string name="reviews">ตรวจสอบ</string>
     <string name="title_caps">หัวข้อ</string>

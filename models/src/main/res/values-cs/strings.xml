@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Dnes</string>
 <string name="WidgetProvider_timestamp_yesterday">Včera</string>
 <string name="WidgetProvider_timestamp_hour_ago">před %s hodinou</string>
@@ -21,7 +21,7 @@
 <string name="setting_icon_download_rules">Pravidla stahování ikon</string>
 <string name="setting_sum_icon_download_rules">Povolit stahovaní ikon přes mobilní připojení</string>
 <string name="setting_general_download_rules">Pravidla stahování</string>
-<string name="setting_sum_general_download_rules">Stahujte aplikace, výběr vydavatele, TOP aplikace a obchody přes mobilní datové připojení</string>
+<string name="setting_sum_general_download_rules">Stahujte aplikace, Výběry, TOP aplikace a jiné obchody přes mobilní datové připojení</string>
 <string name="setting_wifi">Wi-Fi</string>
 <string name="setting_3g">3G</string>
 <string name="setting_4g">4G</string>
@@ -64,7 +64,7 @@
 <string name="flag_this_app_button_text">Označte tuto aplikaci</string>
 <string name="search">Hledat</string>
 <string name="my_account">Můj účet</string>
-<string name="no_sch_downloads">Žádná naplánovaná stahování!</string>
+<string name="no_sch_downloads">Chcete aplikaci stáhnout později, až bude dostupné wi-fi připojení? Využijte Plán stahování a nastavte preference v menu Nastavení - Pravidla stahování - Wi-Fi.</string>
 <string name="schDown_installselected">Instalovat vybrané</string>
 <string name="stores">Obchody</string>
 <string name="insert_store_name">Vložit název obchodu:</string>
@@ -73,11 +73,11 @@
 <string name="see_top_stores">Prohlédněte nejlepší obchody</string>
 <string name="setcredentials">Přihlášení</string>
 <string name="rollback">Vrátit zpět</string>
-<string name="rollback_empty">Žádné aplikace na vrácení do původního stavu</string>
+<string name="rollback_empty">Proveďte downgrade na předchozí verzi aplikace a vyřešte problém s kompatibilitou. Udržujeme záznamy o všech vašich nainstalovaných aplikacích (přes Aptoide) včetně jejich verzí a data instalace.</string>
 <string name="rollback_installed">Nainstalováno</string>
 <string name="rollback_uninstalled">Odinstalováno</string>
 <string name="rollback_updated">Aktualizováno</string>
-<string name="rollback_downgraded">Snížen</string>
+<string name="rollback_downgraded">Downgrade</string>
 <string name="appview_rate_this_app_text">Hodnotit tuto aplikaci</string>
 <string name="permissions">Oprávnění</string>
 <string name="home_title">Úvod</string>
@@ -421,7 +421,7 @@
     <string name="upload_app_backup_apps_installed">Nejdříve musíte nahrát tuto aplikaci do Vašeho obchodu. Můžete použít Aptoide Backup Apps.</string>
     <string name="upload_app_backup_apps_not_installed">Nejdříve musíte nahrát tuto aplikaci do Vašeho obchodu. Prosíme, nainstalujte si a použijte Aptoide Backup Apps.</string>
     <string name="upload_app">Nahrát aplikaci</string>
-    <string name="create_review">Vytvořit recenzi</string>
+    <string name="create_review">Napsat recenzi</string>
 
     <string name="setting_dont_show_mature_content">Ukázat obsah pro dospělé</string>
     <string name="whats_new">Co je nového?</string>
@@ -434,11 +434,11 @@
     <string name="flag_this_app_need_licence">Nutná licence</string>
     <string name="appview_additional_information_title">Dodatečné informace</string>
     <string name="appview_latest_version_text">Toto je nejnovější verze!</string>
-    <string name="appview_subscribe_store_button_text">Přihlásit se?</string>
+    <string name="appview_subscribe_store_button_text">+  Přihlásit se?</string>
     <string name="appview_subscribed_store_button_text">Přihlášeno</string>
     <string name="appview_this_app_in_others_stores">Aplikace v jiných obchodech</string>
     <string name="appview_rate_Success">Hodnocení aplikace</string>
-    <string name="createReviewButtonText">Vytvořte recenzi</string>
+    <string name="createReviewButtonText">Napsat recenzi</string>
     <string name="navigation_drawer_signup_login">Registrovat nebo Přihlásit</string>
     <string name="_downloads"> staženo</string>
     <string name="no_description">Žádný popis</string>
@@ -447,7 +447,7 @@
     <string name="version_placeholder">Verze: %s</string>
 
     <string name="results">Výsledky</string>
-    <string name="other_stores">Ostatní obchody</string>
+    <string name="other_stores">Žádné odebírané obchody</string>
     <string name="title_caps">Název</string>
 
     <string name="unsubscribe_yes_no">Jste si jisti, že se chcete odhlásit?</string>
@@ -464,10 +464,10 @@
     <string name="warning">Upozornění</string>
     <string name="trusted_app">Důvěryhodná aplikace</string>
 
-    <string name="reason_third_party">Zkontrolovali jsme podpis aplikace a shoduje se s Google Play Store. Nemějte tedy strach a bavte se :)</string>
-    <string name="reason_scanned">Skenované pomocí AptoideGuard plus 2 různými anti-viry (Zoner 1.8 a Sophos 3.0). Prásk!!! To byla dřina…</string>
-    <string name="reason_signature">Kryptografický podpis garantuje, že soubor je bezpečný pro instalaci a nebyla nijak porušen. Jste připraveni!</string>
-    <string name="reason_manual">Tato aplikace byla prověřena expertním týmem Aptoide a byla označena jako Dobrá. Wow, lepší to už být nemůže.</string>
+    <string name="reason_third_party">Zkontrolovali jsme podpis aplikace a shoduje se s Google Play Store. Nemějte tedy strach a užijte si aplikaci.</string>
+    <string name="reason_scanned">Skenováno pomocí AptoideGuard a dvěma dalšími antivirovými programy.</string>
+    <string name="reason_signature">Kryptografický podpis garantuje, že soubor je bezpečný pro instalaci a nebyla nijak porušen.</string>
+    <string name="reason_manual">Tato aplikace byla prověřena expertním týmem Aptoide a byla označena jako dobrá.</string>
 
     <string name="reply_to">Odpovědět %s</string>
     <string name="comment_submitted">Váš komentář byl úspěšně přidán</string>
@@ -532,5 +532,53 @@
     <string name="application_signature_not_matched">Podpis aplikace nesouhlasí s podpisem vývojáře. Aplikace mohla být někým pozměněna.</string>
     <string name="application_signature_matched">Podpis aplikace souhlasí s podpisem vývojáře.</string>
     <string name="application_signature_analysis">Podpis aplikace byl srovnán s podpisem vývojáře:</string>
-    <string name="noIgnoreUpdateText">Žádné ignorované aktualizace</string>
-    </resources>
+    <string name="noIgnoreUpdateText">Nová verze aplikace nefunguje nebo chybí některé funkce? Zablokujte update. Vstupte do tabulky updatů a podržte prst na vybrané aplikaci, u které chcete update zastavit.</string>
+    <string name="error_REPO_7">Tento uživatel již má platné úložiště.</string>
+
+    <string name="error_410">Omlouváme se, vyžadovaná aplikace nebyla na serveru nalezena.</string>
+
+    <string name="permissions_na">Oprávnění: Není k dispozici</string>
+    <string name="download_pending">Čekání</string>
+
+    <string name="setting_mobile">Mobilní 3G/4G</string>
+    <string name="appview_other_versions_in_others_stores">Jiné verze v ostatních obchodech</string>
+    <string name="results_subscribed">Odebírané obchody</string>
+    <string name="results_in_store">Výsledky vyhledávání v % obchodů</string>
+    <string name="unknown">Neznámý</string>
+
+    <string name="reason_unknown">Na platformě Aptoide Anti-Malware není dost informací o této aplikaci.</string>
+
+
+
+    <string name="write_a_comment">Napište komentář</string>
+    <string name="no_comment_be_the_first">Zatím žádné komentáře. Buďte první!</string>
+
+    <string name="wizard_title_01">Vítejte v Aptoide</string>
+    <string name="wizard_description_01">Založte si účet a registrujte se pro vytvoření vlastního, personalizovaného obchodu s aplikacemi.\n\nProhlížejte si tématické obchody a objevujte nové a zajímavé aplikace.</string>
+    <string name="wizard_title_02">Zvýšená bezpečnost</string>
+    <string name="wizard_description_02">Vyhledávejte ověřené ???? a bezpečně stahujte aplikace.\n\nProblémy s kompatibilitou? Vyhledejte předchozí verze aplikace.</string>
+    <string name="wizard_title_03">Noví členové naší rodiny</string>
+    <string name="wizard_subtitle_03_1">Zkušební verze Aptoide</string>
+    <string name="wizard_description_03_1">pro starší zařízení a pomalé připojení k internetu</string>
+    <string name="wizard_subtitle_03_2">Aptoide TV</string>
+    <string name="wizard_description_03_2">optimalizovaný Obchod pro Set top boxy a chytré televize</string>
+    <string name="search_activity_title">\'%s\'</string>
+
+    <string name="share">Sdílet</string>
+    <string name="share_on_timeline">Sdílet na časové ose</string>
+
+    <string name="search_for_apps">Hledat aplikace…</string>
+    <string name="empty_search">Zadejte název hledané aplikace</string>
+    <string name="manually_reviewed">Prověřená aplikace; tato aplikace v pořádku prošla testy na viry, malware a další bezpečnostní hrozby</string>
+
+    <string name="no_apps_found">Zadaným podmínkám neodpovídá žádná aplikace</string>
+    <string name="no_search_results_message">Žádné výsledky vyhledávání.\nZkuste prosím jiné klíčové slovo.</string>
+
+    <string name="developer">Vývojář</string>
+    <string name="website">Internetová stránka: %s</string>
+    <string name="email">E-mail: %s</string>
+    <string name="privacy_policy">Bezpečnostní podmínky: %s</string>
+    <string name="dialog_version_size">Verze: %1$s | Velikost: %2$s</string>
+    <string name="na">Nedostupné</string>
+
+</resources>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Aujourd\'hui</string>
 <string name="WidgetProvider_timestamp_yesterday">Hier</string>
 <string name="WidgetProvider_timestamp_hour_ago">Il y a %s heure</string>
@@ -8,21 +8,21 @@
 <string name="WidgetProvider_timestamp_weeks_ago">Il y a %s semaines</string>
 <string name="WidgetProvider_timestamp_week_ago">Il y a %s semaine</string>
 <string name="WidgetProvider_timestamp_this_week">Cette semaine</string>
-<string name="update">Mettre à jour</string>
+<string name="update">Mise à jour</string>
 <string name="uninstall">Désinstaller</string>
 <string name="comments">Commentaires</string>
 <string name="write_your_comment">Écrire un commentaire</string>
 <string name="appview_rating_card_text">Note</string>
 <string name="setting_mature_filtering">Contenu adulte</string>
 <string name="new_to_aptoide">Nouveau sur %s ? Créez un compte gratuit</string>
-<string name="forgot_passwd">Mot de passe oublié ?</string>
+<string name="forgot_passwd">Mot de passe oublié ?</string>
 <string name="settings_title_bar">Paramètres</string>
 <string name="settings_dwn_network_rules">Options réseau mobile</string>
 <string name="setting_icon_download_rules">Règles des téléchargements d\'icônes</string>
 <string name="setting_sum_icon_download_rules">Autoriser le téléchargement d\'icônes par le réseau mobile</string>
 <string name="setting_general_download_rules">Règles générales de téléchargement</string>
 <string name="setting_sum_general_download_rules">Téléchargement d\'applications, Choix des éditeurs, Top Applications et Dépôts autorisés par le réseau mobile</string>
-<string name="setting_wifi">WiFi</string>
+<string name="setting_wifi">Wifi</string>
 <string name="setting_3g">3G</string>
 <string name="setting_4g">4G</string>
 <string name="setting_ethernet">Ethernet</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">Ne pas montrer les applications non compatibles avec cet appareil</string>
 <string name="setting_appfiltertitle">Filtrer les applications</string>
 <string name="setting_schdwntitle">Téléchargements planifiés</string>
-<string name="setting_schdwninstallsum">Installer automatiquement les téléchargements planifiés quand une connexion WiFi est active</string>
+<string name="setting_schdwninstallsum">Installer automatiquement les téléchargements planifiés dès qu\'une connexion Wifi est détectée</string>
 <string name="setting_sdk_version">Version du SDK</string>
 <string name="setting_screen_size">Taille de l\'écran</string>
 <string name="setting_esgl_version">Version ESGL</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Signaler l\'application</string>
 <string name="search">Rechercher</string>
 <string name="my_account">Mon compte</string>
-<string name="no_sch_downloads">Vous parcourez les applications en utilisant les données mobiles et voulez les télécharger plus tard lorsque vous serez sur une connexion WIFI ? Utilisez les téléchargements planifiés et modifiez vos préférences dans Réglages -&gt; Règles généraux de téléchargement en WIFI.</string>
+<string name="no_sch_downloads">Vous parcourez les applications en utilisant les données mobiles et souhaitez les télécharger plus tard lorsque vous serez connecté en WIFI ? Utilisez les téléchargements planifiés et basculez vos préférences dans Réglages -&gt; Règles de téléchargement à Wifi.</string>
 <string name="schDown_installselected">Installer sélectionné</string>
 <string name="stores">Dépôts</string>
 <string name="insert_store_name">Saisissez un nom de dépôt :</string>
@@ -90,7 +90,7 @@
 <string name="subscribe_pvt_store">Inscription au Magasin privé</string>
 <string name="accept_terms">En créant un compte vous donnez votre accord aux conditions d\'utilisation d\'Aptoide et à la politique de contenu pour les développeurs</string>
 <string name="register">Inscription</string>
-<string name="or">Ou</string>
+<string name="or">- Ou -</string>
 <string name="dont_have_an_account">Pas de compte ? Inscrivez-vous</string>
 <string name="logged_as">Identifié en tant que :</string>
 <string name="sign_out">Fermer la session</string>
@@ -112,7 +112,7 @@
 <string name="no_permissions_required">Pas d\'autorisation requise pour cette application.</string>
 <string name="connection_error">Pas de connexion réseau</string>
 <string name="install">Installer</string>
-<string name="aptoide_downloading">%s est en cours de téléchargement</string>
+<string name="aptoide_downloading">%s effectue un téléchargement</string>
 <string name="error_occured">Une erreur est survenue. Veuillez réessayer</string>
 <string name="starting_download">Démarrage du téléchargement</string>
 <string name="subscribe_newrepo_alrt">Voulez-vous vous abonner à ce dépôt ?\n\n</string>
@@ -350,7 +350,7 @@
     <string name="installed_tab">Installé</string>
     <string name="updates_tab">Mises à jour</string>
 
-    <string name="settings">Préférences</string>
+    <string name="settings">Paramètres</string>
     <string name="facebook">Facebook</string>
     <string name="twitter">Twitter</string>
     <string name="exclude_update">Ignorer la mise à jour</string>
@@ -358,14 +358,14 @@
     <string name="billing_result">"Résultat de la transaction : "</string>
 
     <string name="order_popup_title3">Contenu pour adultes</string>
-    <string name="more_reviews">Plus de revues</string>
+    <string name="more_reviews">Revues</string>
     <string name="recommended_for_you">Recommandé pour vous</string>
     <string name="like">J\'aime</string>
     <string name="review_by">Revue par :\n%s</string>
     <string name="review_title">Revues</string>
     <string name="review_good">Bien</string>
     <string name="upload_app">Télécharger l\'app</string>
-    <string name="create_review">Ajouter une revue</string>
+    <string name="create_review">Rédiger un avis</string>
 
     <string name="setting_dont_show_mature_content">Afficher le contenu mature</string>
     <string name="drawer_social_media_title">Restons en contact</string>
@@ -373,8 +373,8 @@
     <string name="read_less">Afficher moins</string>
     <string name="appview_additional_information_title">Informations additionnelles</string>
     <string name="appview_latest_version_text">Il s\'agit de la dernière version !</string>
-    <string name="appview_subscribe_store_button_text">S\'inscrire ?</string>
-    <string name="createReviewButtonText">Ajouter une revue</string>
+    <string name="appview_subscribe_store_button_text">S\'abonner ?</string>
+    <string name="createReviewButtonText">Rédiger\nun avis</string>
     <string name="navigation_drawer_signup_login">S\'identifier ou s\'enregistrer</string>
     <string name="_downloads"> téléchargements</string>
     <string name="no_description">Aucune description</string>
@@ -422,9 +422,9 @@
 <string name="aptoide_description">Aptoide boutique officielle d\'apps</string>
 
     <string name="simple_error_occured">Une erreur s\'est produite </string>
-    <string name="create_store">Ajouter une boutique</string>
+    <string name="create_store">Ajouter un dépôt</string>
     <string name="additional_permissions">Permissions supplémentaires</string>
-    <string name="hidden_adult">Certaines applications ne sont pas affichées car le filtre pour adulte est actif. Souhaitez-vous afficher les apps avec du contenu pour adulte ?</string>
+    <string name="hidden_adult">Certaines applications sont masquées car le filtre pour adulte est actif. Souhaitez-vous afficher ces applications ?</string>
     <string name="dont_show_again">Ne plus afficher</string>
 
     <string name="get_latest">Obtenir la dernière version</string>
@@ -436,7 +436,7 @@
     <string name="version_placeholder">Version : %s</string>
 
     <string name="other_stores">Dépôts auxquels vous n’êtes pas abonné</string>
-    <string name="store">Dépôt</string>
+    <string name="store">Magasin</string>
     <string name="menu_search_item_go_to_store">Aller à la boutique</string>
     <string name="app_warning">Attention : %s</string>
     <string name="warning">Attention</string>
@@ -562,4 +562,12 @@
 
     <string name="error_410">Désolé, l\'application demandée n\'a pas été trouvée sur ce serveur.</string>
 
-    </resources>
+    <string name="no_email_and_pass_error_message">Merci de saisir une adresse email et un mot de passe pour vous inscrire.</string>
+    <string name="no_pass_error_message">Merci de saisir un mot de passe.</string>
+    <string name="no_email_error_message">Merci de saisir une adresse email.</string>
+    <string name="website_copied">Site Web copié dans le presse-papier</string>
+    <string name="email_copied">Adresse email copiée dans le presse-papier</string>
+    <string name="privacy_copied">Lien privé copié dans le presse-papier</string>
+    <string name="subscribing_store_message">Désabonnement de %s</string>
+
+</resources>

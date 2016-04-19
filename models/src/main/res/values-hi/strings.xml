@@ -415,7 +415,7 @@
     <string name="flag_this_app_need_licence">लाइसेंस आवश्यक</string>
     <string name="appview_additional_information_title">अतिरिक्त जानकारी</string>
     <string name="appview_latest_version_text">यह नवीनतम संस्करण है!</string>
-    <string name="appview_subscribe_store_button_text">सदस्यता लें?</string>
+    <string name="appview_subscribe_store_button_text">+   सदस्यता लें?</string>
     <string name="appview_subscribed_store_button_text">सदस्यता ली गई</string>
     <string name="appview_this_app_in_others_stores">अन्य स्टोर में यह एप्प</string>
     <string name="appview_rate_Success">एप्प रेट की गई</string>

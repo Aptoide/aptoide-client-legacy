@@ -52,6 +52,17 @@
 
         <activity android:name="fortumo.FortumoPaymentActivity"/>
 
+        <service android:name="com.aptoide.amethyst.services.AccountAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator"/>
+        </service>
+        <provider android:name="com.aptoide.amethyst.webservices.StubProvider"
+            android:authorities="${applicationId}.StubProvider"
+            android:exported="true"/>
         <service
             android:name="com.aptoide.amethyst.services.RabbitMqService"
             android:exported="false"/>

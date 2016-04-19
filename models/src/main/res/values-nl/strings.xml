@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Vandaag</string>
 <string name="WidgetProvider_timestamp_yesterday">Gisteren</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s uur geleden</string>
@@ -22,7 +22,7 @@
 <string name="setting_sum_icon_download_rules">Downloaden van iconen over een mobiel netwerk toestaan</string>
 <string name="setting_general_download_rules">Algemene download regels</string>
 <string name="setting_sum_general_download_rules">Download Apps, Editors Keuze, Top Apps en Winkels over een toegestaan mobiel netwerk</string>
-<string name="setting_wifi">WiFi</string>
+<string name="setting_wifi">Wi-Fi</string>
 <string name="setting_3g">3G</string>
 <string name="setting_4g">4G</string>
 <string name="setting_ethernet">Ethernet</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">Toon geen applicaties die niet compatible zijn met dit apparaat</string>
 <string name="setting_appfiltertitle">Filter Applicaties</string>
 <string name="setting_schdwntitle">Geplande Downloads</string>
-<string name="setting_schdwninstallsum">Installeer geplande downloads automatisch wanneer er een WiFi verbinding beschikbaar is</string>
+<string name="setting_schdwninstallsum">Installeer geplande downloads automatisch wanneer er een Wi-Fi-verbinding aanwezig is</string>
 <string name="setting_sdk_version">SDK Versie</string>
 <string name="setting_screen_size">Scherm Grootte</string>
 <string name="setting_esgl_version">ESGL Versie</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Markeer deze app</string>
 <string name="search">Zoeken</string>
 <string name="my_account">Mijn account</string>
-<string name="no_sch_downloads">Geen geplande downloads!</string>
+<string name="no_sch_downloads">Wil je door apps bladeren wanneer je verbonden bent met een mobiel netwerk, maar pas downloaden als je weer verbonden bent met Wi-Fi? Gebruik dan geplande downloads en schakel alleen \'Wi-Fi\' in onder Instellingen &gt; Algemene downloadregels.</string>
 <string name="schDown_installselected">Geselecteerde installeren</string>
 <string name="stores">Winkels</string>
 <string name="insert_store_name">Vul winkel naam in:</string>
@@ -75,7 +75,7 @@
 <string name="see_top_stores">Bekijk top winkels</string>
 <string name="setcredentials">Inloggen</string>
 <string name="rollback">Terugzetten</string>
-<string name="rollback_empty">Geen apps terug te zetten</string>
+<string name="rollback_empty">Zet vorige versies van geïnstalleerde apps snel en makkelijk terug en los incompatibiliteitsproblemen op. Houd een log bij van al je (via Aptoide) geïnstalleerde apps, inclusief versie en installatiedatum.</string>
 <string name="rollback_installed">Geïnstalleerd</string>
 <string name="rollback_uninstalled">Gedeinstalleerd</string>
 <string name="rollback_updated">Geupdate</string>
@@ -137,46 +137,46 @@
 <string name="signing_in">Inloggen…</string>
 <string name="reinstall">Herinstalleren</string>
 <string name="at_time">op %s</string>
-<string name="error_MARG_1">Missende winkel</string>
-<string name="error_MARG_2">Mist app informatie</string>
-<string name="error_MARG_3">Mist app versie</string>
+<string name="error_MARG_1">Mist winkel</string>
+<string name="error_MARG_2">Mist appinformatie</string>
+<string name="error_MARG_3">Mist appversie</string>
 <string name="error_MARG_4">Mist login</string>
-<string name="error_MARG_5">mist app</string>
-<string name="error_MARG_6">mist MD5 data</string>
-<string name="error_MARG_7">Mist pakket parameter</string>
-<string name="error_MARG_8">Mist hmac parameter</string>
-<string name="error_MARG_9">mist limit parameter</string>
-<string name="error_MARG_10">Mist offset parameter</string>
-<string name="error_MARG_11">mist lang parameter</string>
-<string name="error_MARG_100">Mist app naam</string>
-<string name="error_MARG_101">Mist uitleg</string>
-<string name="error_MARG_102">Mist category</string>
-<string name="error_MARG_103">Mist waardering</string>
-<string name="error_MARG_104">Missende vlag</string>
+<string name="error_MARG_5">Mist app</string>
+<string name="error_MARG_6">Mist MD5-gegevens</string>
+<string name="error_MARG_7">Mist pakketparameter</string>
+<string name="error_MARG_8">Mist hmac-parameter</string>
+<string name="error_MARG_9">Mist limit-parameter</string>
+<string name="error_MARG_10">Mist offset-parameter</string>
+<string name="error_MARG_11">Mist lang-parameter</string>
+<string name="error_MARG_100">Mist appnaam</string>
+<string name="error_MARG_101">Mist beschrijving</string>
+<string name="error_MARG_102">Mist categorie</string>
+<string name="error_MARG_103">Mist beoordeling</string>
+<string name="error_MARG_104">Mist vlag</string>
 <string name="error_MARG_105">Mist opmerking</string>
 <string name="error_MARG_106">Mist stem</string>
 <string name="error_MARG_107">Mist tekst</string>
-<string name="error_MARG_108">Mist like parameter</string>
-<string name="error_MARG_109">Mist email parameter</string>
-<string name="error_MARG_110">Mist passhash parameter</string>
-<string name="error_MARG_111">mist naam parameter</string>
-<string name="error_MARG_112">Mist gebruiker-agent parameter</string>
-<string name="error_MARG_113">Mist hash parameter</string>
-<string name="error_MARG_200">Authenticatie fout</string>
-<string name="error_MARG_201">Verkeerde gebruikersnaam/wachtwoord combinatie</string>
-<string name="error_MARG_202">Onjuiste teken of gebruiker/wachtwoord</string>
-<string name="error_IARG_1">Onjuiste winkel</string>
-<string name="error_IARG_2">Onjuiste inlog</string>
-<string name="error_IARG_3">Ongeldige identificatie</string>
-<string name="error_IARG_4">Ongeldige MD5 data</string>
-<string name="error_IARG_5">Ongeldig hmac formaat</string>
+<string name="error_MARG_108">Mist like-parameter</string>
+<string name="error_MARG_109">Mist e-mail-parameter</string>
+<string name="error_MARG_110">Mist passhash-parameter</string>
+<string name="error_MARG_111">Mist naam-parameter</string>
+<string name="error_MARG_112">Mist user-agent-parameter</string>
+<string name="error_MARG_113">Mist hash-parameter</string>
+<string name="error_MARG_200">Authenticatiefout</string>
+<string name="error_MARG_201">Gebruikersnaam of wachtwoord is ongeldig</string>
+<string name="error_MARG_202">Ongeldige sleutel of gebruiker/wachtwoord</string>
+<string name="error_IARG_1">Ongeldige winkel</string>
+<string name="error_IARG_2">Ongeldige log-in</string>
+<string name="error_IARG_3">Ongeldige identificeerder</string>
+<string name="error_IARG_4">Ongeldige MD5-gegevens</string>
+<string name="error_IARG_5">Ongeldig hmac-formaat</string>
 <string name="error_IARG_6">Ongeldige taal</string>
-<string name="error_IARG_100">Het minimaal aantal tekens toegestaan in een opmerking is 10</string>
-<string name="error_IARG_101">Het minimaal aantal tekens in een antwoord is 10</string>
+<string name="error_IARG_100">Je opmerking moet minimaal 10 tekens bevatten</string>
+<string name="error_IARG_101">Je antwoord op de opmerking moet minimaal 10 tekens bevatten</string>
 <string name="error_IARG_102">Ongeldig argument</string>
-<string name="error_IARG_104">Ongeldige waardering</string>
+<string name="error_IARG_104">Ongeldige beoordeling</string>
 <string name="error_IARG_105">De website is geen geldige URL</string>
-<string name="error_IARG_106">Het e-mail adres is niet geldig</string>
+<string name="error_IARG_106">Het e-mailadres is niet geldig</string>
 <string name="error_IARG_107">Ongeldige vlag</string>
 <string name="error_IARG_108">Ongeldige opmerking</string>
 <string name="error_IARG_109">Ongeldige stem</string>
@@ -287,7 +287,7 @@
 <string name="timeline_empty_send_email_to_friends">Vrienden emailen</string>
 <string name="select_friends_to_invite">Selecteer je vrienden om ze uit te nodigen!</string>
 <string name="aptoide_timeline">Aptoide Tijdlijn</string>
-<string name="timeline_email_invitation">Heeft je uitgenodigd om zijn Aptoide Sociale Tijdlijn te gebruiken.</string>
+<string name="timeline_email_invitation">Heeft je uitgenodigd om deel te nemen aan zijn sociale tijdlijn op Aptoide. Wees verbonden!</string>
 <string name="timeline_email_how_to_join">Hoe kun je je aansluiten bij Sociale Tijdlijn?</string>
 <string name="timeline_email_step1">1- Download de laatste versie van Aptoide:</string>
 <string name="timeline_email_step2">2- Ga naar het tabblad \'\'Sociale Tijdlijn\'\' en sluit je aan bij het netwerk</string>
@@ -383,4 +383,67 @@
     <string name="read_more">Meer lezen</string>
     <string name="read_less">Zie minder</string>
     <string name="appview_latest_version_text">Dit is de nieuwste versie!</string>
+    <string name="error_IARG_103">Ongeldige categorie</string>
+    <string name="error_REPO_4_no_store">Uw account heeft geen winkels aangemaakt. U moet er één aanmaken om een beoordeling te kunnen schrijven.</string>
+    <string name="error_REPO_7">Deze gebruiker heeft al een geldige repo.</string>
+
+    <string name="error_410">Sorry, de gevraagde app is niet gevonden op deze server.</string>
+
+    <string name="facebook_tos">" • Deel de apps die je installeert met je Facebook-vrienden op je tijdlijn in Aptoide.\n\n• Bekijk, reageer en vind berichten leuk op de tijdlijn.\n\n• We posten nooit, maar dan ook echt nooit op je Facebookpagina. We respecteren je privacy. "</string>
+    <string name="feedback_to_write2">Schrijf hier om ons je feedback te sturen...\n\n Geef ons alsjeblieft alle details die je kan vermelden:\n Stappen die je genomen hebt\n Fouten die je ziet</string>
+    <string name="password_validation_text">"Wachtwoord moet minimaal 8 tekens lang zijn en minstens één letter en één cijfer of speciale tekens (!@#$%^*) bevatten. "</string>
+    <string name="store_subscribed">Geabonneerd op winkel \'%s\'</string>
+    <string name="subscribing">Abonneren op winkel \'%s\'…</string>
+    <string name="create_store">Winkel aanmaken</string>
+    <string name="permissions_na">Machtigingen: niet beschikbaar</string>
+    <string name="timeout">Internetverbinding verlopen</string>
+    <string name="data_usage_constraint">Downloaden is niet toegestaan in Instellingen &gt; Algemene downloadregels</string>
+    <string name="casting_vote">Stem verzenden…</string>
+    <string name="vote_submitted">Je stem is met succes ingediend</string>
+    <string name="added_to_scheduled">Toegevoegd aan geplande downloads (Menu &gt; Geplande downloads)</string>
+    <string name="app_name">Aptoide</string>
+
+    <string name="get_latest">Download de laatste versie</string>
+
+    <string name="updates_tab">Updates</string>
+
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="backup_apps">Apps back-uppen</string>
+
+    <string name="menu_select_none">Selecteer geen</string>
+
+    <string name="confirm_carrier_payment">"Wil je \'{title}\' kopen voor {value}? De kosten worden in rekening gebracht door je mobiele provider. "</string>
+    <string name="billing_result">"Transactieresultaat is: "</string>
+
+    <string name="timeline_is_empty_send_email">We sturen een e-mail naar de mensen die je kiest</string>
+    <string name="like">Vind ik leuk</string>
+    <string name="upload_app_backup_apps_installed">Je moet deze app eerst uploaden naar je winkel. Je kan Aptoide\'s app \'Back-up apps\' gebruiken.</string>
+    <string name="upload_app_backup_apps_not_installed">Je moet deze app eerst uploaden naar je winkel. Installeer en gebruik Aptoide\'s app \'Back-up apps\'.</string>
+    <string name="upload_app">App uploaden</string>
+    <string name="create_review">Review schrijven</string>
+
+    <string name="drawer_social_media_title">Blijf verbonden</string>
+    <string name="flag_this_app_need_licence">Licentie nodig</string>
+    <string name="appview_additional_information_title">Extra informatie</string>
+    <string name="appview_subscribe_store_button_text">"+   Abonneren?"</string>
+    <string name="appview_subscribed_store_button_text">Geabonneerd</string>
+    <string name="appview_other_versions_in_others_stores">Andere versies in andere winkels</string>
+    <string name="appview_rate_Success">App beoordeeld</string>
+    <string name="noIgnoreUpdateText">Werkt de nieuwste versie van een app niet op jouw apparaat of mis je een functie? Schakel updates van zulke apps dan uit. Ga naar het tabje met updates en druk lang op een app. Selecteer daarna de optie \'Verberg update\' om de update te verbergen.</string>
+    <string name="createReviewButtonText">Review schrijven</string>
+    <string name="navigation_drawer_signup_login">Aanmelden of inloggen</string>
+    <string name="_downloads"> downloads</string>
+    <string name="no_description">Geen beschrijving</string>
+    <string name="description">Beschrijving</string>
+    <string name="version">Versie</string>
+    <string name="version_placeholder">Versie: %s</string>
+
+    <string name="results_subscribed">Winkels waarop je geabonneerd bent</string>
+    <string name="results_in_store">Zoekresultaten in \'%s\'</string>
+    <string name="other_stores">Winkels waarop je niet geabonneerd bent</string>
+    <string name="store">Winkel</string>
+    <string name="title_caps">TITEL</string>
+
+    <string name="unsubscribe_yes_no">Weet je zeker dat je je abonnement wilt opzeggen?</string>
     </resources>

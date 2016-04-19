@@ -22,6 +22,8 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.utils.ReferrerUtils;
+import com.aptoide.amethyst.utils.SimpleFuture;
 import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.models.ApkSuggestionJson;
@@ -142,7 +144,7 @@ public class AppViewMiddleSuggested {
 
     View view;
 
-    public AppViewMiddleSuggested(final AppViewActivity context, final View view, final SpiceManager spiceManager, final String packageName, List<String> keywords) {
+    public AppViewMiddleSuggested(final AppViewActivity context, final View view, final SpiceManager spiceManager, long appId, final String packageName, List<String> keywords) {
 
         this.context = context;
         this.view = view;
@@ -164,7 +166,7 @@ public class AppViewMiddleSuggested {
         getAdsRequest.setKeyword(AptoideUtils.StringUtils.join(keywords, ",") + "," + "__null__");
         getAdsRequest.setLimit(1);
 
-        spiceManager.execute(getAdsRequest, new RequestListener<ApkSuggestionJson>() {
+        spiceManager.execute(getAdsRequest, Long.toString(appId), 10 * 60 * 1000, new RequestListener<ApkSuggestionJson>() {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
             }
@@ -318,8 +320,7 @@ public class AppViewMiddleSuggested {
                         AptoideUtils.AdNetworks.knock(apkSuggestionJson.getAds().get(0).getInfo().getCpc_url());
                         AptoideUtils.AdNetworks.knock(apkSuggestionJson.getAds().get(0).getInfo().getCpd_url());
 
-                        // TODO referrer
-                        // ReferrerUtils.extractReferrer(context.getWebview(), context, packageName, spiceManager, click_url, md5sumHash, id, adId, referrer);
+                        ReferrerUtils.extractReferrer(apkSuggestionJson.getAds().get(0), spiceManager);
 
                         context.runOnUiThread(new Runnable() {
                             @Override

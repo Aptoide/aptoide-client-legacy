@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">დღეს</string>
 <string name="WidgetProvider_timestamp_yesterday">გუშინ</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s საათის წინ</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">მონიშნე ეს აპლიკაცია</string>
 <string name="search">ძებნა</string>
 <string name="my_account">ჩემი ექაუნთი</string>
-<string name="no_sch_downloads">არ არის დაგეგმილი გადმოწერები!</string>
+<string name="no_sch_downloads"/>
 <string name="schDown_installselected">არჩეულების დაყენება</string>
 <string name="stores">მარკეტები</string>
 <string name="insert_store_name">მიუთითეთ მარკეტის სახელწოდება:</string>
@@ -75,7 +75,7 @@
 <string name="see_top_stores">ტოპ მარკეტების ნახვა</string>
 <string name="setcredentials">ავტორიზაცია</string>
 <string name="rollback">აპლიკაციების აღდგენა</string>
-<string name="rollback_empty">არ არის აღსადგენი აპლიკაციები</string>
+<string name="rollback_empty"/>
 <string name="rollback_installed">თქვენი აპლიკაციები</string>
 <string name="rollback_uninstalled">წაშლილი</string>
 <string name="rollback_updated">განახლებული</string>
@@ -90,7 +90,7 @@
 <string name="subscribe_pvt_store">გამოიწერე პირადი მარკეტი</string>
 <string name="accept_terms">რეგისტრაციით თქვენ ეთანხმების Aptoide-ს მომსახურების პირობებს და პოლიტიკას</string>
 <string name="register">რეგისტრაცია</string>
-<string name="or">ან</string>
+<string name="or">- ან -</string>
 <string name="dont_have_an_account">არ გაქვთ ექაუნთი? დარეგისტრირდით</string>
 <string name="logged_as">თქვენ ავტორიზებული ხართ როგორც:</string>
 <string name="sign_out">ანგარიშიდან გამოსვლა</string>
@@ -102,7 +102,7 @@
 <string name="start_loading">იტვირთება…</string>
 <string name="one_account_allowed">მხოლოდ ერთი ექაუნთია ნებადართული</string>
 <string name="ip_blacklisted">შავ სიაში მყოფი IP</string>
-<string name="apk_not_found">APK ფაილი ვერ მოიძებნა</string>
+<string name="apk_not_found">Apk ფაილი ვერ მოიძებნა</string>
 <string name="invalid_apk">არასწორი APK ფაილი</string>
 <string name="remote_in_nospace">არასაკმარისი მეხსიერება.</string>
 <string name="server_error">სერვერის პრობლემა</string>
@@ -115,8 +115,8 @@
 <string name="error_occured">დაფიქსირდა შეცდომა.სცადეთ თავიდან</string>
 <string name="starting_download">იწყება გადმოწერა</string>
 <string name="subscribe_newrepo_alrt">გსურთ ამ მარკეტის გამოწერა?\n\n</string>
-<string name="downloads">გადმოწერები</string>
-<string name="size">ზომა</string>
+<string name="downloads">გადმოწერების რაოდენობის მიხედვით</string>
+<string name="size">ზომის მიხედვით</string>
 <string name="likes">მოწონებები</string>
 <string name="change_theme">თემის შეცვლა</string>
 <string name="theme">თემები და სურათები</string>
@@ -378,4 +378,66 @@
     <string name="website">საიტი: %s</string>
     <string name="email">ელ.ფოსტა: %s</string>
     <string name="dialog_version_size">ვერსია: %1$s | ზომა: %2$s</string>
+    <string name="password_validation_text">"პაროლი უნდა შეიცავდეს მინიმუმ 8 სიმბოლოს (მინიმუმ 1 ასოს და 1 ციფრს ან სპეც. სიმბოლოს (!@#$%*)) "</string>
+    <string name="subscribing">მიმდინარეობს %s-(ი)ს გამოწერა…</string>
+    <string name="section">სექცია</string>
+
+    <string name="restore">დაყენება</string>
+
+    <string name="connection_error">ქსელთან კავშირი არ არის</string>
+    <string name="data_usage_constraint">გადმოწერა არ არის ნებადართული. იხილეთ: პარამეტრები &gt; გადმოწერის წესები</string>
+    <string name="reply">პასუხი</string>
+    <string name="added_to_scheduled">დაემატა დაგეგმილ გადმოწერებს</string>
+    <string name="dont_show_again">აღარ მანახო ეს ფანჯარა</string>
+
+    <string name="installed_tab">დაყენებული</string>
+    <string name="menu_select_none">არჩევის გაუქმება</string>
+
+    <string name="more_reviews">განხილვები</string>
+    <string name="review_by">განიხილა:\n%s-მ(ა)</string>
+    <string name="review_title">განხილვები</string>
+    <string name="write_one_pro">დაწერეთ ერთი მაინც დადებითი რამ</string>
+    <string name="write_one_con">დაწერეთ ერთი მაინც უარყოფითი რამ</string>
+    <string name="write_your_final_verdict">დაწერეთ საბოლოო ვერდიქტი</string>
+    <string name="review_success">განხილვა მიღებულია!</string>
+    <string name="store_privacy">მარკეტის საჯაროობა</string>
+    <string name="setting_dont_show_mature_content">18+ მასალის გამოჩენა</string>
+    <string name="appview_subscribed_store_button_text">გამოწერილია</string>
+    <string name="appview_other_versions_in_others_stores">სხვა ვერსიები სხვა მარკეტებში</string>
+    <string name="navigation_drawer_signup_login">დარეგისტრირდით ან გაიარეთ ავტორიზაცია</string>
+    <string name="no_description">აღწერის გარეშე</string>
+    <string name="unsubscribe_yes_no">გსურთ გამოწერის გაუქმება?</string>
+    <string name="unsubscribed_">"გამოწერა გაუქმდა "</string>
+    <string name="scanned_with_av">შემოწმდა ანტი-ვირუსით:</string>
+    <string name="reply_to">უპასუხე %s-ს</string>
+    <string name="comment_submitted">კომენტარი განთავსდა</string>
+    <string name="write_a_comment">დატოვეთ კომენტარი</string>
+    <string name="notification_timeline_posts">თქვენმა მეგობრებმა ახალი აპლიკაციები დააყენეს!</string>
+
+    <string name="skip">გამოტოვება</string>
+    <string name="wizard_subtitle_03_1">Aptoide Lite</string>
+    <string name="wizard_description_03_1">ძველი ტელეფონების და ნელი ინტერნეტის მქონე მომხმარებლებისთვის</string>
+    <string name="wizard_reviews_title">განხილვები</string>
+    <string name="wizard_new_and_improved_bullet_1">დაზოგე ელემენტი</string>
+    <string name="wizard_new_and_improved_bullet_2">შეამცირე პროცესორის და ინტერნეტის მოხმარება</string>
+    <string name="wizard_next">შემდეგი</string>
+    <string name="wizard_prev">წინა</string>
+    <string name="share">გააზიარე</string>
+    <string name="no_pass_error_message">შეიყვანეთ პაროლი.</string>
+    <string name="no_email_error_message">შეიყვანეთ ელ-ფოსტის მისამართი.</string>
+    <string name="no_email_and_pass_error_message">შეიყვანეთ ელ-ფოსტის მისამართი და პაროლი.</string>
+    <string name="error_IARG_105">ვებ-გვერდის მისამართი არასწორია</string>
+    <string name="error_REPO_4_no_store">განხილვისთვის საჭიროა, რომ თქვენ შექმნილი გქონდეთ მარკეტი.</string>
+    <string name="error_SYS_Billing">შიდა აპლიკაციური გადახდა არ არის ხელმისაწვდომი ამ მოწყობილობაზე.</string>
+
+    <string name="hidden_adult">ზოგიერთი აპლიკაცია დამალულია 18+ ფილტრის გამო. გსურთ ამ აპლიკაციების გამოჩენა?</string>
+    <string name="confirm_carrier_payment">"გსურთ \'{title}\'-(ი)ს შეძენა {value}-(ა)დ? თანხას ჩამოგაჭრით მობილური ოპერატორი. "</string>
+    <string name="billing_result">"გადარიცხვა დასრულდა: "</string>
+
+    <string name="timeline_is_empty_send_email">ჩვენ გავუგზავნით წერილს მათ, ვისაც აირჩევთ</string>
+    <string name="upload_app_backup_apps_installed">ჯერ თქვენ უნდა ატვირთოთ ეს აპლიკაცია თქვენ მარკეტზე. შეგიძლიათ გამოიყენოთ Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">ჯერ თქვენ უნდა ატვირთოთ ეს აპლიკაცია თქვენ მარკეტზე. გთხოვთ დააყენოთ და გამოიყენოთ Aptoide Backup Apps.</string>
+    <string name="appview_subscribe_store_button_text">გსურთ გამოწერა?</string>
+    <string name="appview_rate_Success">თქვენი შეფასება მიღებულია</string>
+    <string name="error_IARG_200">არასწორი ავტორიზაციის ნიშანი</string>
     </resources>

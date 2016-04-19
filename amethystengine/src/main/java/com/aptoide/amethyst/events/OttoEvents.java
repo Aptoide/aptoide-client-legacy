@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.events;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 
 import com.aptoide.amethyst.downloadmanager.model.Download;
@@ -10,6 +11,8 @@ import com.aptoide.models.displayables.UpdateRow;
 import com.aptoide.amethyst.downloadmanager.state.StatusState;
 
 import java.util.List;
+
+import lombok.Getter;
 
 /**
  * Created by hsousa on 29-06-2015.
@@ -233,4 +236,22 @@ public class OttoEvents {
         }
     }
 
+    public static class ActivityLifeCycleEvent {
+        @Getter LifeCycle state;
+        @Getter Activity activity;
+
+        public ActivityLifeCycleEvent(Activity activity, LifeCycle state) {
+            this.state = state;
+            this.activity = activity;
+        }
+
+        public enum LifeCycle {
+            CREATE,
+            START,
+            RESUME,
+            PAUSE,
+            STOP,
+            DESTROY
+        }
+    }
 }

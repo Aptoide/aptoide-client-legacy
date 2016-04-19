@@ -60,6 +60,7 @@ import com.aptoide.amethyst.ui.SearchManager;
  */
 public class IntentReceiver extends AptoideBaseActivity implements DialogInterface.OnDismissListener {
 
+    public static final String TAG = IntentReceiver.class.getSimpleName();
     private ArrayList<String> server;
     private String TMP_MYAPP_FILE;
     private HashMap<String, String> app;
@@ -272,13 +273,8 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
             downloadMyApp();
 
         } else if (uri.startsWith("aptoideinstall://")) {
-
-            try {
-                long id = Long.parseLong(uri.substring("aptoideinstall://".length()));
-                startFromMyApp(id);
-            } catch (NumberFormatException e) {
-                Logger.printException(e);
-            }
+            String substring = uri.substring("aptoideinstall://".length());
+            parseAptoideInstallUri(substring);
 
             finish();
 
@@ -310,6 +306,37 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 
         } else {
             finish();
+        }
+    }
+
+    private void parseAptoideInstallUri(String substring) {
+        substring = substring.replace("\"", "");
+        String[] split = substring.split("&");
+        String repo = null;
+        String packageName = null;
+        boolean showPopup = false;
+        for (String property : split) {
+            if (property.toLowerCase().contains("package")) {
+                packageName = property.split("=")[1];
+            } else if (property.toLowerCase().contains("store")) {
+                repo = property.split("=")[1];
+            } else if (property.toLowerCase().contains("show_install_popup")) {
+                showPopup = property.split("=")[1].equals("true");
+            } else {
+                //old version only with app id
+                try {
+                    long id = Long.parseLong(substring);
+                    startFromMyApp(id);
+                    return;
+                } catch (NumberFormatException e) {
+                    Logger.printException(e);
+                }
+            }
+        }
+        if (packageName != null && !packageName.isEmpty()) {
+            startActivity(AppViewActivity.getAppviewIntent(packageName, repo, showPopup, this));
+        } else {
+            Log.e(TAG, "Package name is mandatory, it should be in uri. Ex: aptoideinstall://package=cm.aptoide.pt&store=apps&show_install_popup=true");
         }
     }
 
