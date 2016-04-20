@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
 
@@ -52,10 +53,13 @@ public class HeaderViewHolder extends BaseViewHolder {
     @Override
     public void populateView(Displayable displayable) {
         HeaderRow row = (HeaderRow) displayable;
-        String title2 = translateToFarsi(row.getLabel());
-        title.setText(title2);
+        String translated = AptoideUtils.translateToFarsi(row.getLabel());
+        if (translated == null) {
+            translated = row.getLabel();
+        }
+        title.setText(translated);
         title.setGravity(Gravity.LEFT);
-        more.setText("بیش");
+        more.setText(Aptoide.getContext().getString(R.string.more));
         if (row.isHasMore()) {
             more.setVisibility(View.VISIBLE);
             if (storeName == null || TextUtils.isEmpty(storeName)) {
@@ -103,25 +107,5 @@ public class HeaderViewHolder extends BaseViewHolder {
     }
 
 
-    protected String translateToFarsi(String string) {
-        String translated = null;
-        switch (string) {
-            case "Highlighted":
-                translated = "دانلودها";
-                break;
-            case "Trending":
-                translated = "روند";
-                break;
-            case "Local Top Apps":
-                translated = "برنامه های بالا محلی";
-                break;
-            case "Top Games":
-                translated = "بالا بازی";
-                break;
-            case "Reviews":
-                translated = Aptoide.getContext().getString(R.string.reviews);
-                break;
-        }
-        return translated;
-    }
+
 }

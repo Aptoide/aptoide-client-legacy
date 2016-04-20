@@ -104,7 +104,11 @@ public abstract class MoreActivity extends AptoideBaseActivity {
                 storeTheme = EnumStoreTheme.get(sPref.getString("theme", "light"));
             }
             packageName = args.getString(Constants.PACKAGENAME_KEY);
-            getSupportActionBar().setTitle(label);
+            String title = label;
+            if (title !=null) {
+                title = AptoideUtils.translateToFarsi(label);
+            }
+            getSupportActionBar().setTitle(title);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().setStatusBarColor(getResources().getColor(storeTheme.getColor700tint()));
             }

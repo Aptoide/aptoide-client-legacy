@@ -437,7 +437,6 @@
     <string name="results_subscribed">فروشگاه های عضو</string>
     <string name="results_in_store">نتایج جستجو در فروشگاه %s</string>
     <string name="other_stores">فروشگاه های غیر عضو</string>
-    <string name="reviews">بازبینی ها</string>
     <string name="store">فروشگاه</string>
     <string name="title_caps">عنوان</string>
 
@@ -552,4 +551,98 @@
     <string name="flag_added">علامت دار شد</string>
     <string name="manually_reviewed">تضمین برنامه خوب: این اپلیکیشن تست های امنیتی برای ویروس، بدافزار و حملات مخرب را گذرانده است و شامل هیچ یک از این تهدیدها نیست</string>
 
-    </resources>
+
+
+    <!-- Strings added for Persion partners -->
+    <string name="top">بالا</string>
+    <string name="categories">دسته‌ها</string>
+    <string name="highlighted">دانلودها</string>
+    <string name="trending">روند</string>
+    <string name="applications">اپ‌ها</string>
+    <string name="games">بازی‌ها</string>
+    <string name="top_apps">اپ‌های پرطرفدار</string>
+    <string name="latest_apps">اپ‌ها؛ بازی‌ها</string>
+    <string name="facebook_login">ورود با فیسبوک</string>
+    <string name="productivity">کاربردی</string>
+    <string name="shopping">خرید</string>
+    <string name="social">اجتماعی</string>
+
+    <string name="business">کسب‌و‌کار</string>
+    <string name="sports">ورزشی</string>
+    <string name="tools">ابزارها</string>
+
+    <string name="travel">سفر</string>
+    <string name="demo">دمو</string>
+    <string name="software_libs">نرم‌افزارها</string>
+    <string name="news_mags">اخبار و مجله‌ها</string>
+
+    <string name="comics">کمیک</string>
+    <string name="music_audio">صوت و موسیقی</string>
+    <string name="weather">آب و هوا</string>
+    <string name="photography">عکاسی</string>
+    <string name="communication">ارتباطات</string>
+
+    <string name="personalization">شخصی‌سازی</string>
+    <string name="travel_local">گشت و گذار</string>
+    <string name="transportation">حمل و نقل</string>
+    <string name="medical">پزشکی</string>
+
+    <string name="entertainment">سرگرمی</string>
+    <string name="finance">مالی</string>
+    <string name="health">سلامتی</string>
+    <string name="libraries_demo">کتابخانه ها و نسخه ی نمایشی</string>
+
+
+    <string name="books_reference">کتاب‌ها و مراجع</string>
+    <string name="lifestyle">سبک زندگی</string>
+    <string name="transport">حمل و نقل</string>
+    <string name="health_fitness">سلامتی و تناسب اندام</string>
+    <string name="media_video">ویدئو و رسانه</string>
+
+    <string name="multimedia">آموزش</string>
+    <string name="education">مولتی‌مدیا؛</string>
+
+    <string name="news_weather">اخبار و آب و هوا</string>
+    <string name="reference">مرجع</string>
+
+    <string name="themes">تم</string>
+
+    <string name="puzzle">معمایی</string>
+    <string name="casino">کازینو</string>
+    <string name="action">هیجان‌انگیز</string>
+    <string name="strategy">استراتژی</string>
+    <string name="family">خانوادگی</string>
+
+    <string name="simulation">شبیه‌سازی</string>
+    <string name="adventure">ماجراجویی</string>
+    <string name="word">کلمات</string>
+    <string name="arcade">رقابتی</string>
+
+    <string name="trivia">دانستنی‌ها</string>
+    <string name="card">کارتی</string>
+    <string name="role_playing">نقش‌آفرینی</string>
+    <string name="educational">آموزشی</string>
+
+    <string name="music">موسیقی</string>
+    <string name="board">تخته‌ای</string>
+    <string name="arcade_action">رقابتی و هیجان‌انگیز</string>
+    <string name="brain_puzzle">فکری و معمایی</string>
+
+    <string name="cards_casino">کارت و کازینو</string>
+    <string name="casual">تفننی</string>
+    <string name="sport_games">بازی‌های ورزشی</string>
+    <string name="racing">سواری</string>
+    <string name="reviews">نظرها</string>
+    <string name="no_reviews">هنوز نظری داده نشده</string>
+
+    <string name="local_top_apps">برنامه های بالا محلی</string>
+    <string name="top_games">بالا بازی</string>
+
+    <string name="latest_comments">آخرین نظرات</string>
+    <string name="latest_reviews">آخرین بررسی</string>
+
+    <string name="more">بیش</string>
+    <string name="all">همه</string>
+
+
+</resources>

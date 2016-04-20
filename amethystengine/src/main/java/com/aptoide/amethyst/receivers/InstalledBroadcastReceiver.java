@@ -13,9 +13,7 @@ import com.amazon.insights.Event;
 import com.amazon.insights.EventClient;
 import com.amazon.insights.InsightsCredentials;
 import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.analytics.Analytics;
-import com.aptoide.amethyst.data_provider.getAds.GetAdsRequestListener;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
@@ -23,14 +21,17 @@ import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
-import com.aptoide.dataprovider.AptoideSpiceHttpServicePermanent;
 import com.aptoide.dataprovider.webservices.models.UpdatesApi;
+import com.aptoide.models.ApkSuggestionJson;
 import com.aptoide.models.RollBackItem;
 import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.Locale;
 
 import com.aptoide.amethyst.AppViewMiddleSuggested;
+import com.aptoide.amethyst.utils.AptoideExecutors;
 import com.aptoide.amethyst.utils.ReferrerUtils;
 import com.aptoide.amethyst.utils.SimpleFuture;
 
@@ -39,14 +40,14 @@ import com.aptoide.amethyst.utils.SimpleFuture;
  */
 public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
-    protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpServicePermanent.class);
+    protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
 
     @Override
     public void onReceive(final Context context, final Intent intent) {
         Logger.d("InstalledBroadcastReceiver", "intent=" + intent.getAction() + ", extra replaced=" + intent.getBooleanExtra(Intent.EXTRA_REPLACING, false));
         spiceManager.start(context);
 
-        boolean referrerInjected;
+        boolean referrerInjected = false;
 
         final AptoideDatabase db = new AptoideDatabase(Aptoide.getDb());
 
@@ -67,11 +68,59 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
     private void tryToReferrer(final Context context, final String packageName, String location) {
         Logger.d("InstalledBroadcastReceiver", "try to referrer " + packageName + " from " + location);
 
-        // TODO: Este simplefuture não faz falta aqui, para futura refactorização.
-        spiceManager.execute(GetAdsRequest.newDefaultRequest(location, packageName), GetAdsRequestListener.withBroadcast(context, packageName, spiceManager,
-                new SimpleFuture<String>(), 2));
+        final GetAdsRequest request = new GetAdsRequest();
+        request.setLimit(1);
+        request.setLocation(location);
+//        request.setLocation("homepage");
+        request.setKeyword("__NULL__");
+        request.setPackage_name(packageName);
+
+        final SimpleFuture<String> stringSimpleFuture = new SimpleFuture<>();
+
+        // Talvez não fosse mal pensado parar o servico.. lol
+        spiceManager.execute(request, new RequestListener<ApkSuggestionJson>() {
+
+            @Override
+            public void onRequestFailure(SpiceException spiceException) {
+                Logger.e("InstalledBroadcastReceiver", "getAds onRequestFailure");
+            }
+
+            @Override
+            public void onRequestSuccess(ApkSuggestionJson apkSuggestionJson) {
+
+//                if (assertNotNull(apkSuggestionJson, apkSuggestionJson.ads) && apkSuggestionJson.ads.size() > 0) {
+
+//                if (assertNotNull(apkSuggestionJson, apkSuggestionJson.ads) && apkSuggestionJson.ads.size() > 0 && assertNotNull(apkSuggestionJson.getAds()
+//                        .get(0).getPartner(), apkSuggestionJson.getAds().get(0).getPartner().getPartnerData(), apkSuggestionJson.getAds().get(0).getPartner()
+//                        .getPartnerData().getClick_url())) {
+                try {
+                    if (apkSuggestionJson.getAds().size() > 0) {
+                        ApkSuggestionJson.Ads ad = apkSuggestionJson.getAds().get(0);
+                        String click_url = ad.getPartner().getPartnerData().getClick_url();
+
+                        ReferrerUtils.extractReferrer(context, packageName, spiceManager, click_url, stringSimpleFuture);
+
+                        AptoideUtils.AdNetworks.knock(ad.getInfo().getCpc_url());
+                        AptoideUtils.AdNetworks.knock(ad.getInfo().getCpi_url());
+                        AptoideUtils.AdNetworks.knock(ad.getInfo().getCpd_url());
+
+                        AptoideExecutors.getCachedThreadPool().execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                final String referrer = stringSimpleFuture.get();
+
+                                if (!TextUtils.isEmpty(referrer)) {
+                                    broadcastReferrer(context, packageName, referrer);
+                                }
+                            }
+                        });
+                    }
+                } catch (NullPointerException e) {
+                    // Propositadamente ignorado.
+                }
+            }
+        });
     };
-    ;
 
     private boolean assertNotNull(Object... objects) {
         for (Object o : objects) {
@@ -158,7 +207,7 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
                         if (!TextUtils.isEmpty(referrer)) {
 
-                            ReferrerUtils.broadcastReferrer(context, installEvent, referrer);
+                            broadcastReferrer(context, installEvent, referrer);
 
                             Analytics.ApplicationInstall.installed(pkg.packageName, true);
                             control = true;
@@ -189,6 +238,17 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
         return control;
     }
 
+    private void broadcastReferrer(Context context, String packageName, String referrer) {
+        Intent i = new Intent("com.android.vending.INSTALL_REFERRER");
+        i.setPackage(packageName);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+            i.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        }
+        i.putExtra("referrer", referrer);
+        context.sendBroadcast(i);
+        Logger.d("InstalledBroadcastReceiver", "Sent broadcast to " + packageName + " with referrer " + referrer);
+    }
+
     private void processAbTesting(Context context, PackageManager mPm, String installEvent, AptoideDatabase db) {
         try {
 //            System.out.println("Debug: AB Testing: " + intent.getData().getEncodedSchemeSpecificPart());
@@ -197,7 +257,7 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 //            System.out.println("Debug: AB Testing: " + db.isAmazonABTesting(pkg.packageName));
 
             if (db.isAmazonABTesting(pkg.packageName)) {
-                InsightsCredentials credentials = AmazonInsights.newCredentials(BuildConfig.AMAZON_PUBLIC_KEY, BuildConfig.AMAZON_PRIVATE_KEY);
+                InsightsCredentials credentials = AmazonInsights.newCredentials(PUBLIC_KEY, PRIVATE_KEY);
                 AmazonInsights insightsInstance = AmazonInsights.newInstance(credentials, context.getApplicationContext());
                 EventClient eventClient = insightsInstance.getEventClient();
                 eventClient = AppViewMiddleSuggested.eventClient;
@@ -258,4 +318,7 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
+    // Apagar
+    private final static String PUBLIC_KEY = "6cdb9aa8e9c64972b852a6eecc16e2f6";
+    private final static String PRIVATE_KEY = "i9y4q9pEbeW/XN8S0/v2fy3L73FzdQzAyhNu57I90fg=";
 }

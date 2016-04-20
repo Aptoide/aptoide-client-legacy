@@ -403,7 +403,7 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
 
                     if (previousVersion < 467) {
 
-                        Intent whatsNewTutorial = new Intent(this, Tutorial.class);
+                        Intent whatsNewTutorial = new Intent(this, TutorialActivity.class);
                         whatsNewTutorial.putExtra("isUpdate", true);
                         startActivityForResult(whatsNewTutorial, WIZARD_REQ_CODE);
 

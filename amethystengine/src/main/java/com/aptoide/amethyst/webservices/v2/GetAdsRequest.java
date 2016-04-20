@@ -6,7 +6,6 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.preferences.EnumPreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.ReferrerUtils;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.ApkSuggestionJson;
 import com.aptoide.models.InstalledPackage;
@@ -43,7 +42,6 @@ public class GetAdsRequest extends RetrofitSpiceRequest<ApkSuggestionJson, GetAd
 
     private String excludedPackage;
     private boolean addGlobalExcludedAds;
-    private String excludedNetworks;
 
     public GetAdsRequest(String excludedPackageName, boolean addGlobalExcludedAds) {
         this();
@@ -127,10 +125,6 @@ public class GetAdsRequest extends RetrofitSpiceRequest<ApkSuggestionJson, GetAd
 
         if(Aptoide.DEBUG_MODE){
             parameters.put("country", AptoideUtils.getSharedPreferences().getString("forcecountry", null));
-        }
-
-        if (excludedNetworks != null) {
-            parameters.put("excluded_partners", excludedNetworks);
         }
 
         ApkSuggestionJson result = getService().getAds(parameters);
@@ -230,21 +224,4 @@ public class GetAdsRequest extends RetrofitSpiceRequest<ApkSuggestionJson, GetAd
         this.categories = categories;
     }
 
-    public static GetAdsRequest newDefaultRequest(String placement, String packageName) {
-
-        final GetAdsRequest request = new GetAdsRequest();
-        request.setLimit(1);
-        request.setLocation(placement);
-        request.setKeyword("__NULL__");
-        request.setPackage_name(packageName);
-
-        // Só queremos adicionar excluídos no secondtry.
-        if ("secondtry".equals(placement)) {
-            if (ReferrerUtils.excludedCampaings.containsKey(packageName)) {
-                request.excludedNetworks = AptoideUtils.StringUtils.commaSeparatedValues(ReferrerUtils.excludedCampaings.get(packageName));
-            }
-        }
-
-        return request;
-    }
 }

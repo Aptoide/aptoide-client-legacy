@@ -617,5 +617,7 @@
     <string name="privacy_copied">Privacy link copied to clipboard</string>
     <string name="subscribing_store_message">Unsubscribing %s</string>
 
+    <string name="highlighted">Highlighted</string>
+
 </resources>
 
