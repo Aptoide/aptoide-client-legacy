@@ -105,7 +105,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
             }
             packageName = args.getString(Constants.PACKAGENAME_KEY);
             String title = label;
-            if (title !=null) {
+            if (title != null) {
                 title = AptoideUtils.translateToFarsi(label);
             }
             getSupportActionBar().setTitle(title);

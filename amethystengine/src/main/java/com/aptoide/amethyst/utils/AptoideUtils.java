@@ -2335,8 +2335,11 @@ public class AptoideUtils {
             case "Racing":
                 translated = Aptoide.getContext().getString(R.string.racing);
                 break;
+            case "Top Apps":
+                translated = Aptoide.getContext().getString(R.string.top_apps);
+                break;
             default:
-                translated = "";
+                translated = null;
                 break;
         }
         return translated;
