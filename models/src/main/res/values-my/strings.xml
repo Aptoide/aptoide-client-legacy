@@ -448,7 +448,7 @@
     <string name="appview_comment_reply_button_text">စာျပန္သည္</string>
     <string name="appview_header_trusted_text">စိတ္ခ်ရသည္</string>
     <string name="appview_latest_version_text">ေနာက္ဆုံးထြက္ဗားရွင္း ျဖစ္သည္!</string>
-    <string name="appview_subscribe_store_button_text">ၾကည့္ရႈမလား?</string>
+    <string name="appview_subscribe_store_button_text">+ ၾကည့္ရႈမလား?</string>
     <string name="appview_recommended_for_you_title">သင့္အတြက္အႀကံျပဳထားသည္</string>
     <string name="error_occured_retry_later">မွားေနပါသည္. မၾကာမီ Aptoide မွ အလိုအေလ်ာက္ လုပ္ေဆာင္သြားပါမည္.</string>
     <string name="account">အေကာင့္</string>

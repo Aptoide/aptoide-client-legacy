@@ -56,7 +56,6 @@ public class PushNotificationReceiver extends BroadcastReceiver{
     private static final String PUSH_NOTIFICATION_MSG = "MSG";
     private static final String PUSH_NOTIFICATION_EXTERNAL_URL = "url";
     private static final String PUSH_NOTIFICATION_IMG_URL = "img";
-    // TODO: fabio 10-11-2015 uncomment
     public static final long PUSH_NOTIFICATION_TIME_INTERVAL = AlarmManager.INTERVAL_DAY; //AlarmManager.INTERVAL_FIFTEEN_MINUTES / 30;
 
 
@@ -289,7 +288,6 @@ public class PushNotificationReceiver extends BroadcastReceiver{
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         createPendingIntent(am, context, PUSH_NOTIFICATION_Action, PUSH_NOTIFICATION_TIME_INTERVAL, PUSH_NOTIFICATION_BROADCAST_ID);
-        // TODO: fabio 10-11-2015 uncomment
         createPendingIntent(am, context, UPDATE_SERVICE, AlarmManager.INTERVAL_HALF_DAY / 2, UPDATE_NOTIFICATION_BROADCAST_ID);
 
         createPendingIntent(am, context, TIMELINE_POST_SERVICE,  AlarmManager.INTERVAL_HALF_DAY / 2, TIMELINE_POST_NOTIFICATION_BROADCAST_ID);

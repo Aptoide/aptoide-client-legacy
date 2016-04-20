@@ -30,8 +30,8 @@ android {
     defaultConfig {
         applicationId "cm.aptoide.pt.dev"
         targetSdkVersion 23
-        versionCode 478
-        versionName "7.1.0.7"
+        versionCode 479
+        versionName "7.1.1.2"
     }
 
     dexOptions {
@@ -51,7 +51,6 @@ android {
             // Enabling multidex support.
             multiDexEnabled true
             versionName "7.1.0"
-            versionCode 477
         }
         prod {
             // The actual minSdkVersion for the application.
@@ -67,6 +66,17 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    project.ext { appName = 'aptoide' }
+                    def newName = output.outputFile.name
+                    newName = newName.replace("vanilla-", "$project.ext.appName-") //"MyAppName" -> I set my app variables in the root project
+                    newName = newName.replace("prod-release", versionName)
+                    //noinspection GroovyAssignabilityCheck
+                    output.outputFile = new File(output.outputFile.parent, newName)
+                }
+            }
         }
 
         debug {

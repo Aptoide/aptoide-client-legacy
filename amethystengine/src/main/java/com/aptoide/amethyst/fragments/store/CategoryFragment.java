@@ -26,8 +26,11 @@ public class CategoryFragment extends BaseWebserviceFragment {
 
     public static CategoryFragment newInstance(Bundle args, String actionUrl) {
         CategoryFragment categoryFragment = new CategoryFragment();
-        args.putString("actionUrl", actionUrl);
-        categoryFragment.setArguments(args);
+        //instead of using the clone method(that doesn't clone the bundle correctly) we build a new one
+        Bundle bundle = new Bundle();
+        bundle.putString("actionUrl", actionUrl);
+        bundle.putLong(Constants.STOREID_KEY, args.getLong(Constants.STOREID_KEY, -1));
+        categoryFragment.setArguments(bundle);
 
         return categoryFragment;
     }

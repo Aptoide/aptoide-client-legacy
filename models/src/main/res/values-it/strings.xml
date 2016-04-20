@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Oggi</string>
 <string name="WidgetProvider_timestamp_yesterday">Ieri</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s ora fa</string>
@@ -8,14 +8,14 @@
 <string name="WidgetProvider_timestamp_weeks_ago">%s settimane fa</string>
 <string name="WidgetProvider_timestamp_week_ago">%s settimana fa</string>
 <string name="WidgetProvider_timestamp_this_week">Questa settimana</string>
-<string name="update">Aggiorna</string>
-<string name="uninstall">Disinstalla</string>
+<string name="update">Aggiornamento</string>
+<string name="uninstall">Disinstallare</string>
 <string name="comments">Commenti</string>
 <string name="write_your_comment">Scrivi il tuo commento</string>
 <string name="appview_rating_card_text">Valutazione</string>
 <string name="setting_mature_filtering">Contenuti per adulti</string>
 <string name="new_to_aptoide">Nuovo qui su %s? Crea un account gratuito</string>
-<string name="forgot_passwd">Password dimenticata?</string>
+<string name="forgot_passwd">Dimenticato la password?</string>
 <string name="settings_title_bar">Impostazioni</string>
 <string name="settings_dwn_network_rules">Opzioni Rete Mobile</string>
 <string name="setting_icon_download_rules">Regole Download Icone</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">Non mostrare applicazioni che non sono compatibili con questo dispositivo</string>
 <string name="setting_appfiltertitle">Filtra Applicazioni</string>
 <string name="setting_schdwntitle">Download Pianificati</string>
-<string name="setting_schdwninstallsum">Installa download pianificati automaticamente quando è presente una connessione WiFi</string>
+<string name="setting_schdwninstallsum">Installa i download pianificati automaticamente quando è presente una connessione WiFi</string>
 <string name="setting_sdk_version">Versione SDK</string>
 <string name="setting_screen_size">Dimensione Schermo</string>
 <string name="setting_esgl_version">Versione ESGL</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Segnala quest\'app</string>
 <string name="search">Cerca</string>
 <string name="my_account">Il Mio Account</string>
-<string name="no_sch_downloads">Stai sfogliando le app usando la connessione dati e vorresti scaricarle dopo quando sarai in WiFi? Usa i download programmati e cambia le impostazioni in Impostazioni -&gt; Regole Download Generali e seleziona WiFi.</string>
+<string name="no_sch_downloads">Stai sfogliando le app usando il traffico dati da cellulare e vorresti scaricarle dopo quando avrai una connessione WiFi? Utilizza i download programmati e cambia le preferenze in Impostazioni -&gt; Regole Generali di Download - e seleziona WiFi.</string>
 <string name="schDown_installselected">Installa Selezionati</string>
 <string name="stores">Store</string>
 <string name="insert_store_name">Inserisci nome store:</string>
@@ -101,7 +101,7 @@
 <string name="restore_updates">Ripristina Aggiornamenti</string>
 <string name="start_loading">Caricamento…</string>
 <string name="one_account_allowed">È permesso un solo account</string>
-<string name="ip_blacklisted">IP inserito nella blacklist</string>
+<string name="ip_blacklisted">IP nella Blacklist</string>
 <string name="apk_not_found">Apk non trovato</string>
 <string name="invalid_apk">Apk non valido</string>
 <string name="remote_in_nospace">non c\'è abbastanza spazio sul tuo dispositivo.</string>
@@ -118,7 +118,7 @@
 <string name="subscribe_newrepo_alrt">Vuoi iscriverti a questo store?\n\n</string>
 <string name="downloads">Download</string>
 <string name="size">Dimensione</string>
-<string name="likes">Mi Piace</string>
+<string name="likes">\"Mi piace\"</string>
 <string name="change_theme">Cambia tema</string>
 <string name="theme">Temi</string>
 <string name="restart_aptoide">Per favore riavvia l\'applicazione per cambiare il tema</string>
@@ -346,7 +346,7 @@
     <string name="password_validation_text">"La password deve essere lunga almeno 8 caratteri e deve avere almeno una lettera e un numero o caratteri speciali (! @#$%*) "</string>
     <string name="store_subscribed">Iscrizione %s Store</string>
     <string name="subscribing">Iscrizione Store %s…</string>
-    <string name="create_store">Creare Store</string>
+    <string name="create_store">Creare store</string>
     <string name="section">Sezione</string>
 
     <string name="restore">Installare</string>
@@ -402,7 +402,7 @@
     <string name="upload_app_backup_apps_installed">È necessario innanzitutto caricare questa app sul tuo store. È possibile utilizzare il Backupp App Aptoide.</string>
     <string name="upload_app_backup_apps_not_installed">È necessario innanzitutto caricare questa app sul tuo store. Si prega di installare e utilizzare il Backup App Aptoide.</string>
     <string name="upload_app">Caricare app</string>
-    <string name="create_review">Creare recensione</string>
+    <string name="create_review">Scrivi recensione</string>
 
     <string name="setting_dont_show_mature_content">Mostrare contenuti per adulti</string>
     <string name="drawer_social_media_title">Resta connesso</string>
@@ -413,7 +413,7 @@
     <string name="appview_latest_version_text">Questa è l\'ultima versione!</string>
     <string name="appview_subscribe_store_button_text">+  Iscriversi?</string>
     <string name="noIgnoreUpdateText">La nuova versione di un\'app non funziona sul tuo dispositivo o manca qualche funzionalità? Blocca le app dall\'aggiornarsi. Vai nella scheda Aggiornamenti e tieni premuto sull\'app che non vuoi si aggiorni.</string>
-    <string name="createReviewButtonText">Crea Recensione</string>
+    <string name="createReviewButtonText">Scrivi recensione</string>
     <string name="navigation_drawer_signup_login">Iscriviti o effettua il Login</string>
     <string name="_downloads"> download</string>
     <string name="no_description">Nessuna descrizione</string>

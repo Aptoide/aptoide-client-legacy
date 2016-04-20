@@ -405,7 +405,7 @@
     <string name="flag_this_app_need_licence">Necesitas permiso</string>
     <string name="appview_additional_information_title">Información adicional</string>
     <string name="appview_latest_version_text">¡Esta es la última versión!</string>
-    <string name="appview_subscribe_store_button_text">¿Suscribirse?</string>
+    <string name="appview_subscribe_store_button_text">+  ¿Suscribirse?</string>
     <string name="noIgnoreUpdateText">¿La nueva versión de la aplicación no funciona en tu dispositivo, o le falta alguna función? Bloquea las aplicaciones para que no se actualicen. Ve a la sección de Actualizaciones y mantén pulsada la aplicación que quieras que no se siga actualizando.</string>
     <string name="createReviewButtonText">Crea una reseña</string>
     <string name="navigation_drawer_signup_login">Regístrate o entra</string>

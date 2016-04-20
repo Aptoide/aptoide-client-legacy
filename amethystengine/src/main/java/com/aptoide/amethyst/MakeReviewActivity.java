@@ -261,8 +261,6 @@ public class MakeReviewActivity extends AptoideBaseActivity {
 
     public void finishButtonClick(View view){
         //TODO Strings
-        Log.d("pois", "finishButtonClick");
-        Log.d("pois", "avg:"+avg );
         if(avg<1) {
             /*If true the sliders were never moved...*/
             AptoideUtils.UI.toast(getString(R.string.set_sliders));

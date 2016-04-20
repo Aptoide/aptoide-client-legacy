@@ -1,0 +1,555 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources><string name="WidgetProvider_timestamp_today">امروز</string>
+<string name="WidgetProvider_timestamp_yesterday">دیروز</string>
+<string name="WidgetProvider_timestamp_hour_ago">%s ساعت پیش</string>
+<string name="WidgetProvider_timestamp_hours_ago">%s ساعت پیش</string>
+<string name="WidgetProvider_timestamp_minutes_ago">%s دقیقه پیش</string>
+<string name="WidgetProvider_timestamp_just_now">همین الان</string>
+<string name="WidgetProvider_timestamp_weeks_ago">%s هفته قبل</string>
+<string name="WidgetProvider_timestamp_week_ago">%s هفته قبل</string>
+<string name="WidgetProvider_timestamp_this_week">این هفته</string>
+<string name="update">به روز رسانی</string>
+<string name="uninstall">حذف</string>
+<string name="comments">نظرات</string>
+<string name="write_your_comment">نظر خود را بنویسید</string>
+<string name="appview_rating_card_text">امتیاز دهی</string>
+<string name="setting_mature_filtering">محتوای بزرگسال</string>
+<string name="new_to_aptoide">در %s تازه وارد هستید؟ یک حساب رایگان ایجاد کنید</string>
+<string name="forgot_passwd">پسورد را فراموش کرده اید؟</string>
+<string name="settings_title_bar">تنظیمات</string>
+<string name="settings_dwn_network_rules">تنظیمات شبکه موبایل</string>
+<string name="setting_icon_download_rules">قوانین دانلود آیکن ها</string>
+<string name="setting_wifi">وای فای</string>
+<string name="setting_3g">3G</string>
+<string name="setting_4g">4G</string>
+<string name="setting_ethernet">اترنت</string>
+<string name="setting_hwspecstitle">مشخصات سخت افزاری</string>
+<string name="setting_hwspecssum">مشخصات سخت افزاری گوشی شما</string>
+<string name="setting_appfiltersum">اپلیکیشن هایی که با این گوشی سازگار نیسنتد را نشان نده</string>
+<string name="setting_appfiltertitle">فیلتر کردن اپلیکیشن ها</string>
+<string name="setting_schdwntitle">دانلودهای زمانبندی شده</string>
+<string name="setting_schdwninstallsum">زمانی که یک اتصال wifi برقرار است دانلودهای زمانبندی شده را نصب کن</string>
+<string name="setting_sdk_version">نسخه SDK</string>
+<string name="setting_screen_size">اندازه صفحه</string>
+<string name="setting_esgl_version">نسخه ESGL</string>
+<string name="screenCode">کد صفحه</string>
+<string name="cpuAbi">CPU</string>
+<string name="setting_schdwninstalltitle">نصب خودکار</string>
+<string name="setting_clear_memory">حافظه را پاک کن</string>
+<string name="clearcontent_title">تنظیمات و داده ها را حذف کن</string>
+<string name="clearcache_title">پاک کردن حافظه موقت</string>
+<string name="clear_cache_sucess">محتوا با موفقیت حذف شد</string>
+<string name="clearcache_sum">حافظه موقت (نمایه ها، پیش نمایش ها) را از کارت حافظه پاک می کند.</string>
+<string name="clearcache_sum_jolla">حافظه موقت (آیکون ها، پیش نمایش ها) را پاک می کند</string>
+<string name="clearcontent_sum">اطلاعات را از کارت حافظه پاک می کند.</string>
+<string name="clearcontent_sum_jolla">داده ها را پاک می کند</string>
+<string name="about_site">صفحه وب:</string>
+<string name="about_mail">تماس:</string>
+<string name="about_us">در باره ما</string>
+<string name="settings_maxFileCache_sum">حداکثر اندازه ای را برای نگهداری فایلهای apk تنظیم کنید</string>
+<string name="settings_maxFileCache_title">دانلود فایل حافظه موقت (MB)</string>
+<string name="cache_using_X_mb">"MB %s  در حال استفاده"</string>
+<string name="store_already_added">فروشگاه قبلا اضافه شده!</string>
+<string name="setting_auto_update_sum">فعالسازی بروز رسانی خودکار نرم افزارها</string>
+<string name="setting_auto_update_title">فعال کردن بروز رسانی خودکار</string>
+<string name="setting_updates">به روز رسانی ها</string>
+<string name="setting_updates_notification_title">اعلان بروز رسانی ها</string>
+<string name="setting_updates_notification_sum">اعلان آپدیت های جدید را نمایش بده</string>
+<string name="menu_context_reparse">بارگزاری مجدد</string>
+<string name="menu_context_remove">حذف کردن</string>
+<string name="menu_select_all">انتخاب همه</string>
+<string name="flag_this_app_button_text">این نرم افزار را علامت گذاری کن</string>
+<string name="search">جستجو</string>
+<string name="my_account">حساب کاربری من</string>
+<string name="no_sch_downloads">آیا برنامه های جستجو از داده های موبایل استفاده کرده و می خواهند که هنگامی که شما به یک wifi متصل هستید، دانلود کنند؟ استفاده کنید از دانلودهای زمان بندی شده و تغییر بدهید عملکردتان را در تنظیمات &gt; قوانین دانلود عمومی توسط wifi.</string>
+<string name="schDown_installselected">موارد انتخاب شده را نصب کن</string>
+<string name="stores">فروشگاه ها</string>
+<string name="insert_store_name">نام فروشگاه را اضافه کنید:</string>
+<string name="store_name">نام فروشگاه</string>
+<string name="see_top_stores">فروشگاه های برتر را ببین</string>
+<string name="setcredentials">ورود</string>
+<string name="rollback">بازگرداندن</string>
+<string name="rollback_empty"/>
+<string name="rollback_installed">نصب شده</string>
+<string name="rollback_uninstalled">حذف شده</string>
+<string name="rollback_updated">به روز رسانی شده</string>
+<string name="rollback_downgraded">بازگشت یافته به نسخه قبل</string>
+<string name="appview_rate_this_app_text">به این برنامه امتیاز دهید</string>
+<string name="permissions">مشاهده مجوزها</string>
+<string name="login_or_register">ورود یا ثبت نام</string>
+<string name="update_all">همه را بروز رسانی کن</string>
+<string name="username">ایمیل</string>
+<string name="username_tip">ایمیل خود را بنویسید</string>
+<string name="accept_terms">با ثبت نام شما با شرایط استفاده از Aptoide و سیاست محتوایی برای توسعه دهندگان موافقت می کنید</string>
+<string name="register">ثبت نام</string>
+<string name="or">یا</string>
+<string name="logged_as">شما به عنوان .... وارد شده اید</string>
+<string name="sign_out">خروج</string>
+<string name="please_wait">لطفا صبر کنید...</string>
+<string name="excluded_updates">به روز رسانی های حذف شده</string>
+<string name="no_excluded_updates">"هیچ به روز رسانی  حذف نشده ای وجود ندارد"</string>
+<string name="no_excluded_updates_selected">چیزی برای حذف به روز رسانی ها انتخاب نشده است</string>
+<string name="restore_updates">بازگرداندن به روز رسانی ها</string>
+<string name="start_loading">بارگزاری…</string>
+<string name="ip_blacklisted">لیست IP های غیر مجاز</string>
+<string name="apk_not_found">فایل APK موجود نیست</string>
+<string name="invalid_apk">فایل APK نامعتبر است</string>
+<string name="server_error">خطای سرور</string>
+<string name="paidapp_not_found">خطا در دانلود اپلیکیشن. لطفا دوباره سعی کرده و یا با بخش پشتیبانی تماس بگیرید.</string>
+<string name="finished_install">%s نصب شده است.</string>
+<string name="install">نصب</string>
+<string name="aptoide_downloading">%s در حال دانلود است</string>
+<string name="error_occured">خطایی رخ داده است، لطفا دوباره سعی کنید.</string>
+<string name="starting_download">شروع دانلود</string>
+<string name="downloads">دانلود ها</string>
+<string name="size">اندازه</string>
+<string name="change_theme">تغییر نمایه</string>
+<string name="theme">نمایه ها</string>
+<string name="restart_aptoide">لطفا برای تغییر نمایه برنامه را دوباره راه اندازی کنید</string>
+<string name="ignoreUpdateText">به روز رسانی را نادیده بگیر</string>
+<string name="appview_header_trusted_text">مورد اعتماد</string>
+<string name="downgrade">بازگشت به نسخه قبل</string>
+<string name="open">باز کردن</string>
+<string name="about_aptoide_antimalware">برنامه ضد بدافزار Aptoide اپلیکیشن های درحال اجرا را تجزیه و تحلیل کرده و تمامی خطرات و تهدیدات در فروشگاه ها را غیرفعال می کند. این سیستم همه اپلیکیشن های جدید فروشگاه ها را اسکن کرده و با مقایسه با سایر فروشگاه های اندرویدی به آن ها مجوز می دهد.</string>
+<string name="schDown_nodownloadselect">چیزی برای دانلود انتخاب نشده است</string>
+<string name="schDown_invertselection">موارد انتخاب شده را معکوس کن</string>
+<string name="schDown_removeselected">موارد انتخاب شده را حذف کن</string>
+<string name="schDwnBtn">دانلود را زمان بندی کن</string>
+<string name="schDown_install">میخواهید تمام دانلود های زمانبندی شده را نصب کنید؟</string>
+<string name="appview_recommended_for_you_title">پیشنهاد برای شما</string>
+<string name="reinstall">نصب مجدد</string>
+<string name="not_found">پیدا نشد</string>
+<string name="timeline_like">دوست داشتن</string>
+<string name="invite_friends">دوستان را دعوت کنید</string>
+<string name="aptoide_timeline">گاه شمار Aptoide</string>
+<string name="timeline_email_invitation">شما را دعوت کرده تا به گاهشمار اجتماعی Aptoide او ملحق شوید. متصل باشید!</string>
+<string name="timeline_email_how_to_join">چگونه می توانید به گاهشمار اجتماعی ملحق شوید؟</string>
+<string name="timeline_email_step1">1- آخرین نسخه Aptoide را دانلود کنید:</string>
+<string name="timeline_email_step2">2- به سربرگ \"گاهشمار اجتماعی\" رفته و به شبکه ملحق شوید</string>
+<string name="timeline_not_compatible">اوه... این قابلیت با نسخه آندروید شما سازگار نیست</string>
+<string name="social_timeline_notifications">اعلان های گاهشمار</string>
+<string name="social_timeline_notifications_sum2">اعلان های گاهشمار اجتماعی را فعال کن. شما آخرین خبرها را بر روی نواراعلان دریافت خواهید کرد.</string>
+<string name="error503">آه... آیا فقط من در حال نصب اپلیکیشن ها هستم یا اینکه همه با هم در حال نصب آن ها می باشند؟</string>
+<string name="having_some_trouble">مشکلی دارید. آیا می توانید بعدا دوباره سعی کنید؟</string>
+<string name="friends_installs">اپلیکیشن های نصب شده دوستانتان</string>
+<string name="highlighted_apps">برجسته</string>
+<string name="button_more">بیشتر</string>
+<string name="store_password">پسوورد</string>
+<string name="error_MARG_1">فروشگاه قابل دسترسی نیست</string>
+    <string name="error_MARG_2">اطلاعات اپلیکیشن یافت نشد</string>
+    <string name="error_MARG_4">ورودی یافت نشد</string>
+    <string name="error_MARG_5">اپلیکیشن مورد نظر یافت نشد</string>
+    <string name="error_MARG_6">اطلاعات مربوط به روش رمزنگاری MD5 دردسترس نیست</string>
+    <string name="error_MARG_7">پارامتر بسته مورد نظر دردسترس نیست</string>
+    <string name="error_MARG_8">پارامتر مربوط به کد hmac یافت نشد</string>
+    <string name="error_MARG_9">پارامتر محدودیت یافت نشد</string>
+    <string name="error_MARG_10">پارامتر مربوط به آفست یافت نشد</string>
+    <string name="error_MARG_11">پارامتر مربوط به زبان یافت نشد</string>
+    <string name="error_MARG_100">نام اپلیکیشن موجود نیست</string>
+    <string name="error_MARG_101">توضیحات یافت نشد</string>
+    <string name="error_MARG_102">دسته بندی یافت نشد</string>
+    <string name="error_MARG_103">امتیاز موجود نیست</string>
+    <string name="error_MARG_104">"پرچم  یافت نشد"</string>
+    <string name="error_MARG_105">نظر دردسترس نیست</string>
+    <string name="error_MARG_106">رأی دردسترس نیست</string>
+    <string name="error_MARG_107">متن مورد نظر یافت نشد</string>
+    <string name="error_MARG_108">پارامتر لایک یافت نشد</string>
+    <string name="error_MARG_109">پارامتر ایمیل یافت نشد</string>
+    <string name="error_MARG_3">نسخه مورد نظر از اپلیکیشن موجود نیست</string>
+    <string name="error_MARG_110">پارامتر passhash دردسترس نیست</string>
+    <string name="error_MARG_111">پارامتر نام موجود نیست</string>
+    <string name="error_MARG_112">پارامتر ناظر کاربر موجود نیست</string>
+    <string name="error_MARG_113">پارامتر کد hash یافت نشد</string>
+    <string name="error_MARG_200">خطای تشخیص هویت</string>
+    <string name="error_MARG_201">نام کاربری یا رمز عبور اشتباه است</string>
+    <string name="error_MARG_202">کد امنیتی یا رمز عبور/نام کاربری اشتباه است</string>
+
+    <string name="error_IARG_1">فروشگاه نامعتبر است</string>
+    <string name="error_IARG_2">امکان ورود وجود ندارد</string>
+    <string name="error_IARG_3">شناسه نامعتبر است</string>
+    <string name="error_IARG_4">اطلاعات کد رمزگشایی MD5 نامعتبر است</string>
+    <string name="error_IARG_5">فرمت hmac صحیح نیست</string>
+    <string name="error_IARG_6">زبان نامعتبر است</string>
+    <string name="error_IARG_100">حداقل تعداد کاراکتر مجاز در نظر نوشتن ۱۰ عدد می باشد</string>
+    <string name="error_IARG_101">حداقل تعداد کاراکتر مجاز برای پاسخ دادن به نظر ۱۰ عدد می باشد</string>
+    <string name="error_IARG_102">استدلال نامعتبر</string>
+    <string name="error_IARG_103">دسته بندی نامعتبر است</string>
+    <string name="error_IARG_104">امتیازدهی نامعتبر است</string>
+    <string name="error_IARG_105">آدرس وارد شده برای وب سایت صحیح نیست</string>
+    <string name="error_IARG_106">ادرس ایمیل وارد شده صحیح نیست</string>
+    <string name="error_IARG_107">پرچم دار کردن نامعتبر است</string>
+    <string name="error_IARG_108">نظر نامعتبر است</string>
+    <string name="error_IARG_109">"رأی  نامعتبر است"</string>
+    <string name="error_IARG_110">پاسخ ارسالی برای نظر نامعتبر است</string>
+    <string name="error_IARG_200">کد امنیتی ورودی صحیح نیست</string>
+    <string name="error_IARG_201">نحوه ورود نامعتبر است</string>
+    <string name="error_IARG_300">دسته بندی موردنظر شما نامعتبر است</string>
+    <string name="error_IARG_301">دسته بندی نامعتبر است</string>
+    <string name="error_IARG_302">اپلیکیشن ارائه شده از قبل در این دسته بندی وجود دارد</string>
+
+    <string name="error_AUTH_1">اعتبارنامه ورود نادرست است</string>
+    <string name="error_AUTH_2">خطای اعتبارنامه</string>
+    <string name="error_AUTH_3">حساب شما بسته شده است.\nبرای راهنمایی، با تیم پشتیبانی Aptoide تماس بگیرید</string>
+    <string name="error_AUTH_4">تشخیص هویت کد HMAC موفق نبود</string>
+    <string name="error_AUTH_100">ورود با حساب گوگل ممکن نیست.\nلطفا حساب گوگل خودرا بررسی کنید (ممکن است ایمیل شما نیاز به تصحیح داشته باشد).</string>
+    <string name="error_AUTH_101">ورود با حساب گوگل ممکن نیست.\nلطفاً دوباره تلاش کنید</string>
+    <string name="error_AUTH_102">ورود توسط حساب فیس بوک ممکن نیست.\nحساب خودرا برسی کنید (ممکن است آدرس ایمیل شما نیاز به تصحیح داشته باشد).</string>
+    <string name="error_AUTH_103">ورود توسط حساب فیسبوک ممکن نیست. دوباره تلاش کنید.</string>
+
+    <string name="error_WOP_6">برای ارسال نظر خود، وارد کردن نام اجباری است (نام شما قابل مشاهده دیگران خواهد بود)</string>
+    <string name="error_WOP_7">خطای قسمت نظردهی</string>
+    <string name="error_WOP_8">خطای رأی دهی به نظر</string>
+    <string name="error_WOP_9">ایمیل وارد شده قبلا در سیستم ثبت شده است</string>
+    <string name="error_WOP_10">ایمیل وارد شده هنوز در سیستم ثبت نشده است</string>
+    <string name="error_WOP_11">فروشگاه قابل ایجاد نمی باشد.\nلطفاً دوباره تلاش کنید.</string>
+
+    <string name="error_REPO_1">این فروشگاه وجود ندارد</string>
+    <string name="error_REPO_2">فروشگاه حذف شده است.</string>
+    <string name="error_REPO_3">این فروشگاه متعلق به این کاربر نیست.</string>
+    <string name="error_REPO_4_no_store">توسط حساب شما فروشگاهی ایجاد نشده است. برای بررسی، شما نیاز دارید تا یک فروشگاه ایجاد کنید</string>
+    <string name="error_REPO_7">این کاربر دارای یک ریپو معتبر است.</string>
+
+    <string name="error_APK_1">این اپلیکیشن با این نسخه و مشخصات قابل اجرا نیست</string>
+    <string name="error_APK_4">این اپلیکیشن قابل اجرا نیست</string>
+    <string name="error_APK_Description">توضیحات دردسترس نیست</string>
+
+    <string name="error_SYS_1">خطای نامشخصی رخ داده, دوباره تلاش کنید</string>
+    <string name="error_SYS_2">"اطلاعاتی یافت نشد, لطفا بعداً  تلاش کنید"</string>
+    <string name="error_SYS_3">سیستم درحال تعمیر است، لطفا بعدا تلاش کنید</string>
+    <string name="error_SYS_4">"این تماس قابل پشتیبانی با این نسخه از API  نیست"</string>
+    <string name="error_SYS_Billing">پرداخت درون برنامه ای دراین دستگاه پشتیبانی نمی شود.</string>
+
+    <string name="aptoide_description">فروشگاه اپلیکیشن رسمی Aptoide</string>
+
+    <string name="error_410">متاسفانه، برنامه درخواستی برروی این سرور پیدا نشد.</string>
+
+    <string name="home_title">خانه</string>
+    <string name="community">انجمن</string>
+    <string name="updates">به روز رسانی ها</string>
+    <string name="one_account_allowed">فقط یک حساب مجاز است</string>
+    <string name="signing_in">ورود به …</string>
+    <string name="fields_cannot_empty">لطفاً ایمیل و پسوورد خود را چک کنید.</string>
+    <string name="simple_error_occured">خطایی رخ داده است. </string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="password">پسوورد</string>
+    <string name="dont_have_an_account">هنوز حساب ندارید؟ ثبت نام کنید</string>
+    <string name="facebook_timeline_feature">آه... این ویژگی فقط هنگام ورود با حساب فیسبوک کار می کند ولی شما با حساب دیگری وارد شده اید</string>
+    <string name="facebook_private_actions">این برنامه به فیسبوک ارسال نخواهد شد</string>
+    <string name="facebook_timeline_login">" آیا می خواهی با حساب فیسبوک وارد شوی و گاه شمار شبکه اجتماعی را امتحان کنی؟"</string>
+    <string name="facebook_timeline_preview">پیش نمایش گاه شمار:</string>
+    <string name="whats_timeline">گاه شمار شبکه اجتماعی Aptoide چیست؟</string>
+    <string name="feedback_subject">موضوع</string>
+    <string name="feedback_include_logs">شامل اسکرین شات و گزارش ها</string>
+    <string name="feedback_not_valid">لطفاً یک موضوع معتبر وارد کنید!</string>
+    <string name="feedback_no_email">سرویس ایمیل نصب نشده است!</string>
+    <string name="password_validation_text">"پسوورد باید حداقل 8 کاراکتر باشد و همچنین باید حداقل شامل یک حرف و یک عدد یا کاراکترهای خاص (!@#$%*) باشد "</string>
+    <string name="subscribe_newrepo_alrt">آیا می خواهید در این فروشگاه عضو شوید؟\n\n</string>
+    <string name="subscribe_store">در فروشگاه عضو شوید</string>
+    <string name="create_store">ایجاد فروشگاه</string>
+    <string name="section">بخش</string>
+
+    <string name="permissions_na">مجوزها: N/A</string>
+    <string name="additional_permissions">مجوزهای اضافی</string>
+    <string name="no_permissions_required">هیچ مجوزی برای این برنامه احتیاج نیست.</string>
+    <string name="restore">نصب</string>
+
+    <string name="timeout">اتمام زمان اتصال به شبکه</string>
+    <string name="connection_error">عدم اتصال به اینترنت</string>
+    <string name="remote_in_nospace">فضای کافی روی دستگاه شما وجود ندارد.</string>
+    <string name="sd_error">بر روی SD کارت نوشته نشد.</string>
+    <string name="sd_error_jolla">به درستی دانلود نشد</string>
+    <string name="remaining_time">باقی مانده</string>
+    <string name="data_usage_constraint">دانلود در تنظیمات اجازه داده نمی شود&gt; قوانین دانلود عمومی</string>
+    <string name="download_pending">در انتظار</string>
+
+    <string name="download_retry">دوباره سعی کنید</string>
+    <string name="WidgetProvider_timestamp_week_ago2">1 هفته قبل</string>
+    <string name="WidgetProvider_timestamp_days_ago">%s روز قبل</string>
+    <string name="WidgetProvider_timestamp_month_ago">یک ماه قبل</string>
+    <string name="WidgetProvider_timestamp_months_ago">%s ماه قبل</string>
+    <string name="WidgetProvider_timestamp_year_ago">یک سال قبل</string>
+    <string name="WidgetProvider_timestamp_years_ago">%s سال قبل</string>
+
+    <string name="reply">پاسخ</string>
+    <string name="casting_vote">در حال رای دادن…</string>
+    <string name="vote_submitted">رای شما با موفقیت ارسال شد</string>
+    <string name="votes">%s رای</string>
+
+    <string name="reviewed_by">بازبینی شده توسط - %s</string>
+    <string name="installed_this">%s این را نصب کرد.</string>
+
+    <string name="adult_pin_wrong">PIN اشتباه است، دوباره تلاش کنید.</string>
+    <string name="request_adult_pin">برای باز کردن قفل PIN را وارد کنید</string>
+    <string name="are_you_adult">آیا سن شما از ۲۱ سال بیشتر است؟</string>
+    <string name="facebook_logout_and_login">ورود و خروج با حساب فیسبوک</string>
+
+    <string name="added_to_scheduled">اضافه شد به منو &gt; دانلودهای زمان بندی شده</string>
+    <string name="hidden_adult">برخی اپلیکیشن‌ها به دلیل محتوای خاص آن‌ها نشان داده نمی‌شوند. آیا مایل به دیدن این اپلیکیشن ها هستید؟</string>
+    <string name="feedback_to_write2">نظر خود را در اینجا بنویسید و آن را برای ما ارسال کنید...\n لطفا تمام جزییاتی که می توانید به ما بگویید:
+\nمراحلی که انجام داده اید
+\n خطاهایی که مشاهده کرده اید</string>
+    <string name="store_subscribed">&#x200f;شحالا شما مشترک فروشگاه %s هستید</string>
+    <string name="subscribing">برای تکمیل فرایند اشتراک فروشگاه %s کمی صبر کنید…</string>
+    <string name="installing">%s در حال نصب…</string>
+    <string name="vote_down">رای منفی</string>
+    <string name="vote_up">رای مثبت</string>
+    <string name="dont_show_again">این پیام را دیگر به من نشان نده.</string>
+
+    <string name="app_name">Aptoide</string>
+
+    <string name="action_settings">تنظیمات</string>
+    <string name="close">بستن</string>
+    <string name="button_header_more">بیشتر</string>
+    <string name="see_more">ادامه مطلب</string>
+    <string name="see_less">بستن مطلب</string>
+    <string name="get_latest">آخرین نسخه دریافت شود</string>
+
+    <string name="installed_tab">نصب شده</string>
+    <string name="updates_tab">بروز رسانی ها</string>
+
+    <string name="feedback_send_button">ارسال نظر</string>
+    <string name="clear">پاک کردن</string>
+
+    <string name="settings">تنظیمات</string>
+    <string name="facebook">فیسبوک</string>
+    <string name="twitter">توییتر</string>
+    <string name="backup_apps">برنامه های پشتیبان</string>
+
+    <string name="menu_select_none">انتخاب نکردن هیچکدام</string>
+
+    <string name="search_other_stores">یا جستجو برای دیگران…</string>
+    <string name="subscribe">اشتراک</string>
+    <string name="subscribe_pvt_store">در فروشگاه خصوصی عضو شوید</string>
+
+    <string name="exclude_update">نادیده گرفتن بروز رسانی ها</string>
+    <string name="install_update">نصب بروز رسانی ها</string>
+
+    <string name="payment_methods">پرداخت توسط:</string>
+    <string name="cancel">لغو</string>
+    <string name="no_payments_available">هیچ پرداختی در دسترس نیست.</string>
+    <string name="failed_auth_code">شناسایی حساب ممکن نیست. لطفاً دوباره تلاش کنید.</string>
+    <string name="error_occured_paying">یک خطا اتفاق افتاده است. پرداخت کامل نشد.</string>
+    <string name="error_occured_retry_later">"یک خطا اتفاق افتاده است. Aptoide  بصورت اتوماتیک مجدداً تلاش می کند."</string>
+    <string name="account">حساب</string>
+    <string name="buy">خرید</string>
+    <string name="billing_result">"نتیجه تراکنش : "</string>
+
+    <string name="change_payment">بازگشت</string>
+    <string name="cannot_uninstall_self">نمی تواند نصب کننده را حذف کند.</string>
+    <string name="at_time">در %s</string>
+    <string name="downgrade_requires_uninstall">بازگشت به نسخه قبلی احتیاج به حذف اپلیکیشن دارد</string>
+
+    <string name="order_popup_title3">محتوای بزرگسال</string>
+    <string name="friends_to_invite">"همه دیگر دوستان  فیسبوکی در Aptoide"</string>
+    <string name="timeline_is_empty_send_email">ما یک ایمیل به آن هایی که شما انتخاب می کنید خواهیم فرستاد</string>
+    <string name="facebook_timeline_friends_invited">دوستان دعوت شدند!</string>
+    <string name="select_friends_to_invite">لطفاً دوستان خود را برای دعوت کردن آن ها انتخاب کنید!</string>
+    <string name="facebook_friends_list_using_timeline">درحال استفاده از از گاهشمار اجتماعی Aptoide</string>
+    <string name="and">و</string>
+    <string name="more_friends">بیشتر</string>
+    <string name="more_reviews">بازبینی ها</string>
+    <string name="more_editors_choice">انتخاب ویرایشگرهای بیشتر</string>
+    <string name="more_versions">نسخه های بیشتر</string>
+    <string name="facebook_friends_list_using_timeline_empty">گاهشمار اجتماعی به شما اجازه می دهد تا اپلیکیشن های خود را با دوستان فیسبوکی تان به اشتراک بگذارید. آیا می خواهید عضو شبکه شوید؟</string>
+    <string name="sponsored">حمایت کردن</string>
+    <string name="recommended_for_you">پیشنهاد برای شما</string>
+    <string name="unhide_post">از حالت مخفی خارج کردن</string>
+    <string name="hide_post">مخفی کردن</string>
+    <string name="like">دوست داشتن</string>
+    <string name="comment">نظر</string>
+    <string name="hide_post_info">دوستان شما این پست را نخواهند دید</string>
+    <string name="likes">دوست داشتن</string>
+    <string name="unlike">دوست نداشتن</string>
+    <string name="timeline_empty_no_friends_send_email">به نظر می رسد که دوستان شما با حساب فیسبوک خود در Aptoide وارد نشده اند. به آن ها یک ایمیل ارسال کنید تا با حساب فیسبوک خود وارد شوند</string>
+    <string name="timeline_empty_send_email_to_friends">ایمیل به دوستان</string>
+    <string name="timeline_ad">اپلیکیشن پیشنهاد شده توسط فیسبوک</string>
+    <string name="facebook_start_timeline">عضویت در گاهشمار اجتماعی</string>
+    <string name="facebook_join_friends">آیا می خواهی آن ها را در گاهشمار اجتماعی عضو کنی؟</string>
+    <string name="timeline_is_empty_no_friends">گاهشمار شما خالی است. شاید به این دلیل است که شما هنوز دوستی در Aptoide ندارید یا آن ها هیچ پستی ندارند.</string>
+    <string name="timeline_is_empty_start_invite">بیایید با دعوت از برخی دوستانتان شروع کنیم:</string>
+
+    <string name="review_get_app">دریافت اپلیکیشن</string>
+    <string name="review_final_verdict">نظر نهایی</string>
+    <string name="review_speed">سرعت</string>
+    <string name="review_usability">قابلیت استفاده</string>
+    <string name="review_addictive">اعتیاد آور</string>
+    <string name="review_stability">پایداری</string>
+    <string name="review_by">بازبینی توسط:
+\n%s</string>
+    <string name="review_title">بازبینی ها</string>
+    <string name="review_good">خوب</string>
+    <string name="review_bad">بد</string>
+    <string name="review_finish">پایان</string>
+    <string name="review_final_score">امتیاز</string>
+    <string name="make_review_title">بازبینی کردن</string>
+    <string name="write_one_pro">حداقل یک مزیت بنویسید</string>
+    <string name="write_one_con">حداقل یک ضعف بنویسید</string>
+    <string name="write_your_final_verdict">نظر نهایی خود را بنویسید</string>
+    <string name="review_success">بازبینی با موفقیت ارسال شد</string>
+    <string name="store_privacy">حریم خصوصی فروشگاه</string>
+    <string name="public_key">عمومی</string>
+    <string name="private_key">خصوصی</string>
+    <string name="store_username">نام کاربری</string>
+    <string name="upload_app_backup_apps_installed">شما در ابتدا باید این برنامه را در فروشگاهتان بارگزاری کنید. شما می توانید از برنامه های پشتیبانی Aptoide استفاده کنید.</string>
+    <string name="upload_app_backup_apps_not_installed">شما باید در ابتدا این برنامه را در فروشگاهتان بارگذاری کنید. لطفاً برنامه های پشتیبانی Aptoide را نصب و استفاده کنید.</string>
+    <string name="upload_app">بارگزاری اپلیکیشن</string>
+    <string name="create_review">ایجاد بازبینی</string>
+
+    <string name="asksetadultpinmessage">آیا می خواهید یک رمز برای بازکردن محتوای بزرگسال ایجاد کنید؟</string>
+    <string name="setpin">ایجاد رمز</string>
+    <string name="remove_mature_pin_title">حذف رمز محتوای بزرگسال</string>
+    <string name="remove_mature_pin_summary">حذف رمز مورد نیاز برای بازکردن محتوای بزرگسال</string>
+    <string name="set_mature_pin_title">ایجاد رمز محتوای بزرگسال</string>
+    <string name="set_mature_pin_summary">یک رمز که برای بازکردن محتوای بزرگسال احتیاج است ایجاد کنید</string>
+    <string name="setting_sum_icon_download_rules">اجازه بده آیکون ها در هنگام اتصال موبایل دانلود شوند</string>
+    <string name="setting_mobile">موبایل 3G/4G</string>
+    <string name="setting_general_download_rules">قوانین دانلود عمومی</string>
+    <string name="setting_category_autoupdate">بروزرسانی خودکار Aptoide</string>
+    <string name="setting_category_autoupdate_title">فعال کردن بروزرسانی خودکار Aptoide</string>
+    <string name="setting_dont_show_mature_content">محتوای بزرگسال را نشان بده</string>
+    <string name="whats_new">چه چیزی جدید است؟</string>
+    <string name="setting_allUpdates_filtering">فیلتر کردن بروز رسانی ها</string>
+    <string name="disable_social_timeline">غیر فعالسازی گاهشمار اجتماعی</string>
+    <string name="drawer_social_media_title">متصل بمانیم</string>
+    <string name="read_more">بیشتر بخوانید</string>
+    <string name="flag_this_app_need_licence">به مجوز نیاز دارد</string>
+    <string name="flag_this_app_fake">جعلی</string>
+    <string name="flag_this_app_virus">ویروس</string>
+    <string name="appview_additional_information_title">اطلاعات اضافی</string>
+    <string name="appview_comment_reply_button_text">پاسخ</string>
+    <string name="appview_latest_version_text">این آخرین نسخه است!</string>
+    <string name="appview_subscribe_store_button_text">عضو می شوید؟</string>
+    <string name="appview_subscribed_store_button_text">عضو شدید</string>
+    <string name="appview_other_versions_in_others_stores">نسخه های دیگر در فروشگاه های دیگر</string>
+    <string name="appview_rate_Success">اپلیکیشن امتیاز دهی شد</string>
+    <string name="noIgnoreUpdateText">نسخه جدید برنامه روی دستگاه شما کار نمی کند یا برخی ویژگی ها از دست رفته است؟ آپدیت برنامه را متوقف کنید. به زبانه آپدیت ها رفته و بر روی برنامه ای که می خواهید آپدیت آن را متوقف کنید کلیک کنید.</string>
+    <string name="createReviewButtonText">ایجاد\nبازبینی</string>
+    <string name="navigation_drawer_signup_login">ثبت نام یا ورود</string>
+    <string name="active">فعال کردن</string>
+    <string name="completed">کامل شد</string>
+    <string name="_downloads"> دانلودها</string>
+    <string name="no_description">بدون شرح</string>
+    <string name="description">توضیح</string>
+    <string name="version">نسخه</string>
+    <string name="version_placeholder">نسخه: %s</string>
+
+    <string name="results_subscribed">فروشگاه های عضو</string>
+    <string name="results_in_store">نتایج جستجو در فروشگاه %s</string>
+    <string name="other_stores">فروشگاه های غیر عضو</string>
+    <string name="reviews">بازبینی ها</string>
+    <string name="store">فروشگاه</string>
+    <string name="title_caps">عنوان</string>
+
+    <string name="unsubscribe_yes_no">آیا مطمئن هستید که می خواهید اشتراک خود را لغو کنید؟</string>
+    <string name="unsubscribed_">"عضویت لغو شد "</string>
+    <string name="error_occured_uploading">شما باید در ابتدا این برنامه را بارگذاری کنید.</string>
+
+    <string name="update_self_title">بروزرسانی در دسترس است</string>
+    <string name="update_self_msg">نسخه جدیدی از %s در دسترس است\nآیا می خواهید آن را آپدیت کنید؟</string>
+    <string name="retrieving_update">بازیابی بروز رسانی…</string>
+
+    <string name="menu_search_item_go_to_store">به فروشگاه برو</string>
+    <string name="srch_hint">برای برنامه ها جستجو کن…</string>
+
+    <string name="app_trusted">%s قابل اعتماد است</string>
+    <string name="app_warning">هشدار: %s</string>
+    <string name="scanned_with_av">اسکن شده توسط آنتی ویروس:</string>
+    <string name="compared_with_another_marketplace">مقایسه شده با فروشگاه دیگر اندروید:</string>
+    <string name="scanned_manually_by_aptoide_team">اسکن شده بصورت دستی توسط تیم Aptoide :</string>
+    <string name="scanned_verified_by_tester">اپلیکیشن به صورت دستی توسط یک تستر از تیم اپتوید بازبینی شد که امنیت اپلیکیشن را تضمین می کند.</string>
+    <string name="warning">هشدار</string>
+    <string name="trusted_app">اپلیکیشن مورد اعتماد</string>
+    <string name="unknown">ناشناخته</string>
+
+    <string name="reason_scanned">اسکن شده توسط AptoideGuard به اضافه 2 آنتی ویروس دیگر(Zoner 1.8 و Sophos 3.0).</string>
+    <string name="reason_manual">این اپلیکیشن به صورت دستی توسط تیم کارشناسان Aptoide بازبینی شده است، و به عنوان یک اپلیکیشن خوب انتخاب شده است.</string>
+
+    <string name="reason_unknown">"اطلاعات کافی در مورد این برنامه درپلتفرم  ضد بدافزار Aptoide وجود ندارد."</string>
+
+
+
+    <string name="reply_to">پاسخ به %s</string>
+    <string name="comment_submitted">نظر شما با موفقیت ارسال شد</string>
+    <string name="write_a_comment">نظر خود را بنویسید</string>
+    <string name="no_comment_be_the_first">هنوز هیچ نظری وجود ندارد. اولین نفر باشید!</string>
+
+    <string name="installapp_alrt">آیا می خواهید نصب کنید:\n\n%s ؟</string>
+
+    <string name="suggested_app">اپلیکیشن پیشنهاد شده</string>
+
+    <string name="abTest1_label_1">دریافت اپلیکیشن</string>
+    <string name="abTest1_label_2">نصب</string>
+    <string name="abTest1_label_3">نصب</string>
+
+
+    <string name="notification_timeline_new_likes">شما %s لایک جدید دارید. آن را در گاهشمار اجتماعی چک کنید!</string>
+    <string name="notification_timeline_new_comments">شما %s نظر جدید دارید. آن را در گاهشمار اجتماعی چک کنید!</string>
+    <string name="notification_timeline_activity">"شما دارای %1$s  نظر جدید و %2$s لایک جدید هستید. آن را در گاهشمار اجتماعی چک کنید!"</string>
+    <string name="notification_social_timeline">گاهشمار اجتماعی Aptoide. همین الان آن را چک کنید!</string>
+    <string name="notification_timeline_posts">دوستان شما اپلیکیشن های جدید نصب کردند!</string>
+
+    <string name="has_updates">آپدیت جدید %s در دسترس است!</string>
+    <string name="new_updates">%s آپدیت جدید در دسترس می باشد!</string>
+    <string name="one_new_update">%s آپدیت جدید در دسترس می باشد!</string>
+    <string name="updates_tab_adapter_uninstalled">حذف شده</string>
+    <string name="updatesTabAdapterUninstall">حذف</string>
+    <string name="flag_good">خوب</string>
+    <string name="flag_license">نیاز به مجوز دارد</string>
+    <string name="flag_fake">جعلی</string>
+    <string name="flag_virus">ویروس</string>
+    <string name="flag_this_app">علامت دار کردن این برنامه</string>
+    <string name="skip">رد کردن</string>
+    <string name="wizard_title_01">به Aptoide خوش آمدید</string>
+    <string name="wizard_description_01">یک حساب رایگان ایجاد و ثبت کنید تا فروشگاه اپلیکیشن شخصی خود را بسازید.\nتوسط نمایه فروشگاه ها جستجو کنید و برنامه های جدید وقبلی را پیدا کنید.</string>
+    <string name="wizard_title_02">افزایش امنیت</string>
+    <string name="wizard_title_03">اعضای جدید خانواده ما</string>
+    <string name="wizard_description_03_1">برای دستگاه های قدیمی و اتصال اینترنت با سرعت پایین</string>
+    <string name="wizard_subtitle_03_2">تلویزیون Aptoide</string>
+    <string name="wizard_description_03_2">بهینه سازی فروشگاه اپلیکیشن برای STB و تلویزیون های هوشمند</string>
+    <string name="wizard_reviews_title">بازبینی ها</string>
+    <string name="wizard_reviews">شما اکنون می توانید بازبینی های اپلیکیشن خود را توسط Aptoide ایجاد کنید!</string>
+    <string name="wizard_new_and_improved">بهبود عملکرد!</string>
+    <string name="wizard_new_and_improved_bullet_1">حفظ عمر باتری</string>
+    <string name="wizard_new_and_improved_bullet_2">کاهش CPU و پهنای باند استفاده شده</string>
+    <string name="wizard_new_and_improved_bullet_3">بارگذاری منابع کمتر</string>
+    <string name="wizard_new_and_improved_bullet_4">پاک کردن رابط کاربری</string>
+    <string name="wizard_new_homepage">طرح صفحه خانگی جدید</string>
+    <string name="wizard_next">بعدی</string>
+    <string name="wizard_prev">قبلی</string>
+    <string name="search_activity_title">\'%s\'</string>
+
+    <string name="share">اشتراک گذاشتن</string>
+    <string name="share_on_timeline">اشتراک گذاشتن در گاهشمار</string>
+
+    <string name="search_for_apps">جستجو برای اپلیکیشن ها…</string>
+    <string name="empty_search">جستجوی خالی است، نام یک اپلیکیشن را بنویسید</string>
+    <string name="no_apps_found">هیچ برنامه ای با فیلتر مورد نظر پیدا نشد</string>
+    <string name="no_search_results_message">هیچ نتیجه ای برای جستجوی شما یافت نشد.\nلطفاً کلمات دیگری را امتحان کنید.</string>
+
+    <string name="developer">توسعه دهنده</string>
+    <string name="website">وب سایت: %s</string>
+    <string name="email">ایمیل: %s</string>
+    <string name="privacy_policy">سیاست حفظ حریم خصوصی: %s</string>
+    <string name="dialog_version_size">نسخه: %1$s | سایز: %2$s</string>
+    <string name="na">N/A</string>
+    <string name="no_email_and_pass_error_message">لطفاً برای ثبت نام یک ایمیل و پسوورد وارد کنید.</string>
+    <string name="no_pass_error_message">لطفاً برای ثبت نام یک پسوورد وارد کنید.</string>
+    <string name="no_email_error_message">لطفاً برای ثبت نام یک ایمیل وارد کنید.</string>
+    <string name="subscribing_store_message">لغو عضویت %s</string>
+
+<string name="flag_freeze"/>
+    <string name="show_all_updates">بروز رسانی ها را برای برنامه های با امضاهای دیجیتالی متفاوت نشان نده</string>
+    <string name="read_less">بستن مطلب</string>
+    <string name="flag_this_app_good">خوب</string>
+    <string name="application_signature_analysis">امضای دیجیتالی اپلیکیشن با امضای دیجیتالی توسعه دهنده مقایسه شد:</string>
+    <string name="application_signature_matched">امضای دیجیتالی اپلیکیشن با امضای دیجیتالی مربوط به توسعه دهنده آن منطبق است.</string>
+    <string name="application_signature_not_matched">امضای دیجیتالی اپلیکیشن با امضای دیجیتالی توسعه دهنده آن منطبق نیست. نرم افزار ممکن است جعلی باشد.</string>
+    <string name="application_signature_blacklisted">"امضای دیجیتال اپلیکیشن یک امضای مورد اعتماد در پلتفورم ضد بدافزار Aptoide نیست زیرا این امضا برای امضا کردن  اپلیکیشنی دیگر که امضای آن با امضای توسعه دهنده قانونی مطابق نیست استفاده شده است."</string>
+    <string name="reason_third_party">ما امضای دیجیتالی اپلیکیشن را بررسی کرده ایم و آن با فروشگاه Google Play منطبق است، بنابراین مطمئن باشید و از اپلیکیشن لذت ببرید.</string>
+    <string name="reason_signature">امضای پنهانی تضمین می کند که فایل برای نصب ایمن است و به هیچ وجه دستکاری نشده است.</string>
+    <string name="reason_failed">امضای دیجیتالی اپلیکیشن با امضای دیجیتالی توسعه دهنده منطبق نیست. اپلیکیشن شاید دستکاری شده باشد.</string>
+    <string name="flag_added">علامت دار شد</string>
+    <string name="manually_reviewed">تضمین برنامه خوب: این اپلیکیشن تست های امنیتی برای ویروس، بدافزار و حملات مخرب را گذرانده است و شامل هیچ یک از این تهدیدها نیست</string>
+
+    </resources>

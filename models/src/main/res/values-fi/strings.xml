@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Tänään</string>
 <string name="WidgetProvider_timestamp_yesterday">Eilen</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s tunti sitten</string>
@@ -22,7 +22,7 @@
 <string name="setting_sum_icon_download_rules">Sallii kuvakkeiden latauksen mobiilidatayhteyksillä</string>
 <string name="setting_general_download_rules">Yleiset lataussäännöt</string>
 <string name="setting_sum_general_download_rules">Lataa sovellukset, toimittajan valinnat, huippusovellukset ja kaupat sallituilla mobiilidatayhteyksillä</string>
-<string name="setting_wifi">WiFi</string>
+<string name="setting_wifi">Wi-Fi</string>
 <string name="setting_3g">3G</string>
 <string name="setting_4g">4G</string>
 <string name="setting_ethernet">Ethernet</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">Älä näytä sovelluksia, jotka eivät ole yhteensopivia tämän laitteen kanssa</string>
 <string name="setting_appfiltertitle">Suodata sovelluksia</string>
 <string name="setting_schdwntitle">Ajastetut lataukset</string>
-<string name="setting_schdwninstallsum">Asenna ajastetut lataukset automaattisesti, kun WiFi-yhteys on muodostettu</string>
+<string name="setting_schdwninstallsum">Asenna ajastetut lataukset automaattisesti, kun Wi-Fi -yhteys on muodostettu</string>
 <string name="setting_sdk_version">SDK-versio</string>
 <string name="setting_screen_size">Näytön koko</string>
 <string name="setting_esgl_version">ESGL-versio</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Merkitse tämä sovellus lipulla</string>
 <string name="search">Haku</string>
 <string name="my_account">Oma tilini</string>
-<string name="no_sch_downloads">Selaisetko sovelluksia mobiilidatalla ja haluaisit ladata ne vasta wifi-yhteydellä? Käytä ajastettuja latauksia ja valitse palkkä WiFi kohdasta Asetukset -&gt; Yleiset lataussäännöt.</string>
+<string name="no_sch_downloads">Selailetko sovelluksia mobiilidatalla ja haluaisit ladata ne vasta Wi-Fi-yhteydellä? Käytä ajastettuja latauksia ja valitse pelkkä Wi-Fi kohdasta Asetukset -&gt; Yleiset lataussäännöt.</string>
 <string name="schDown_installselected">Asenna valitut</string>
 <string name="stores">Kaupat</string>
 <string name="insert_store_name">Syötä kaupan nimi:</string>
@@ -394,7 +394,7 @@
     <string name="upload_app_backup_apps_installed">Sinun pitää ladata tämä sovellus ensin kauppaasi. Voit käyttää Aptoide Backup Apps -sovellusta.</string>
     <string name="upload_app_backup_apps_not_installed">Sinun pitää ladata tämä sovellus ensin kauppaasi. Asenna ja käytä Aptoide Backup Apps -sovellusta.</string>
     <string name="upload_app">Lataa sovellus</string>
-    <string name="create_review">Luo arvostelu</string>
+    <string name="create_review">Kirjoita arvostelu</string>
 
     <string name="setting_dont_show_mature_content">Näytä aikuissisältö</string>
     <string name="drawer_social_media_title">Pysytään yhdeydessä</string>
@@ -403,16 +403,16 @@
     <string name="flag_this_app_need_licence">Tarvitsee lisenssin</string>
     <string name="appview_additional_information_title">Lisätietoa</string>
     <string name="appview_latest_version_text">Tämä on viimeisin versio!</string>
-    <string name="appview_subscribe_store_button_text">Tilaa?</string>
+    <string name="appview_subscribe_store_button_text">+  Tilaa?</string>
     <string name="noIgnoreUpdateText">Sovelluksen uusi versio ei toimi laitteellasi tai jokin ominaisuus puuttuu? Estä sovellusten päivittyminen. Mene Päivitykset-välilehdelle ja paina pitkään sovellusta, jota et halua päivittää.</string>
-    <string name="createReviewButtonText">Luo arvostelu</string>
-    <string name="navigation_drawer_signup_login">Rekisteröidy tai kirjaudu sisään</string>
+    <string name="createReviewButtonText">Kirjoita arvostelu</string>
+    <string name="navigation_drawer_signup_login">Rekisteröidy tai kirjaudu</string>
     <string name="_downloads"> latausta</string>
     <string name="no_description">Ei kuvausta</string>
     <string name="version">Versio</string>
 
     <string name="results">Tulokset</string>
-    <string name="other_stores">Kaupat, joiden tilaus peruttu</string>
+    <string name="other_stores">Kaupat, joita ei ole tilattu</string>
     <string name="store">Kauppa</string>
 
     <string name="unsubscribe_yes_no">Haluatko varmasti peruuttaa tilauksen?</string>
