@@ -65,6 +65,7 @@ import com.flurry.android.FlurryAgent;
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
+import com.optimizely.Optimizely;
 import com.squareup.otto.Subscribe;
 
 import java.io.IOException;
@@ -345,6 +346,18 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         Analytics.Dimenstions.setPartnerDimension(getPartnerName());
         Analytics.Dimenstions.setVerticalDimension(getVertical());
         Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
+        setUpABTesting();
+    }
+
+    private void setUpABTesting() {
+        if (BuildConfig.OPTIMIZELY_CONFIGURED) {
+            Optimizely.setVerboseLogging(BuildConfig.DEBUG);
+            Optimizely.setEditGestureEnabled(BuildConfig.DEBUG);
+            if (BuildConfig.DEBUG) {
+                Optimizely.enableEditor();
+            }
+            Optimizely.startOptimizelyWithAPIToken(BuildConfig.OPTIMIZELY_KEY, getApplication());
+        }
     }
 
     protected int getContentView() {
