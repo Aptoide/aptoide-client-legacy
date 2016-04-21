@@ -239,7 +239,7 @@
 
         <service
             android:name="org.onepf.oms.StoreService"
-            android:exported="true" android:permission="${applicationId}.org.onepf.openiab.permission.BILLING">
+            android:exported="true" android:permission="org.onepf.openiab.permission.BILLING">
             <intent-filter>
                 <action android:name="org.onepf.oms.openappstore.BIND" />
             </intent-filter>
@@ -248,7 +248,7 @@
 
         <service
             android:name="org.onepf.oms.BillingService"
-            android:exported="true" android:permission="${applicationId}.org.onepf.openiab.permission.BILLING">
+            android:exported="true" android:permission="org.onepf.openiab.permission.BILLING">
 
             <intent-filter>
                 <action android:name="org.onepf.oms.billing.BIND" />
