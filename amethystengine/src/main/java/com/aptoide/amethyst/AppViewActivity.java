@@ -240,14 +240,18 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_view_activity);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content, createFragment()).commit();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content, AppViewFragment.newInstance(lifecycleController)).commit();
+            //getSupportFragmentManager().beginTransaction().replace(R.id.content, createFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content, createFragment(lifecycleController)).commit();
         }
     }
 
     @NonNull
-    protected AppViewFragment createFragment() {
-        return new AppViewFragment();
+    protected AppViewFragment createFragment(boolean lifecycleController) {
+        AppViewFragment f = new AppViewFragment();
+        Bundle args = new Bundle();
+        args.putBoolean("lifecycleController", lifecycleController);
+        f.setArguments(args);
+        return f;
     }
 
     @Override
@@ -276,7 +280,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         /*getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content, createFragment())
                 .commitAllowingStateLoss();*/
-        final AppViewFragment fragment = AppViewFragment.newInstance(lifecycleController);
+        final AppViewFragment fragment = createFragment(lifecycleController);
         final FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.content, fragment)
@@ -326,14 +330,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         private static final String BADGE_DIALOG_TAG = "badgeDialog";
         protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
         private boolean lifecycleController;
-
-        public static AppViewFragment newInstance(boolean lifecycleController) {
-            AppViewFragment f = new AppViewFragment();
-            Bundle args = new Bundle();
-            args.putBoolean("lifecycleController", lifecycleController);
-            f.setArguments(args);
-            return f;
-        }
 
 
         public AppViewFragment() { }

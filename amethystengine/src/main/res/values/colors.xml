@@ -29,8 +29,8 @@
     <color name="deeppurple">#673AB7</color>
     <color name="amber">#FFC107</color>
     <color name="lightgreen">#8BC34A</color>
-    <!--<color name="lime">#CDDC39</color> -->
-    <color name="lime">#B7AE00</color>
+    <color name="lime">#CDDC39</color>
+    <!--<color name="lime">#B7AE00</color>-->
     <color name="lightblue">#03A9F4</color>
 
     <!-- Old palette - still being used for drawables -->
