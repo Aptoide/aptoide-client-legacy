@@ -159,14 +159,14 @@ public class IconSizeUtils {
 
         int size;
         if(orient != null && orient.equals("portrait")){
-            size =  baseLineScreenshotPort * ((int) densityMultiplier);
+            size =  (int) (baseLineScreenshotPort * densityMultiplier);
         }else{
-            size = baseLineScreenshotLand * ((int) densityMultiplier);
+            size = (int) (baseLineScreenshotLand * densityMultiplier);
         }
 
         //Log.d("Aptoide-IconSize", "Size is " + size + " baseline is " + baseLineScreenshotPort + " with multiplier " +densityMultiplier );
 
-        return size+"x"+AptoideUtils.HWSpecifications.getDensityDpi(context);
+        return  size+"x"+AptoideUtils.HWSpecifications.getDensityDpi(context);
     }
 
 
