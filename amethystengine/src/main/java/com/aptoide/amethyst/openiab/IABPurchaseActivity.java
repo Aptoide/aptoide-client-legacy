@@ -411,10 +411,6 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
                                         case UNITEL_CODE:
                                             caseUNITEL(service,paymentMethodsLayout);
                                             break;
-                                        case FORTUMO_CODE:
-                                            aptoideProductId = response.getMetadata().getId();
-                                            caseFortumo(aptoideProductId,service,paymentMethodsLayout);
-                                            break;
                                     }
 
 

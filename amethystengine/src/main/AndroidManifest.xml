@@ -58,8 +58,6 @@
             android:name="com.aptoide.amethyst.SignUpActivity"
             android:theme="@style/AptoideThemeDefault"/>
 
-        <activity android:name="fortumo.FortumoPaymentActivity"/>
-
         <activity android:name=".tutorial.TutorialActivity" />
 
         <service android:name="com.aptoide.amethyst.services.AccountAuthenticatorService">
