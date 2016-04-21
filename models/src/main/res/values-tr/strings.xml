@@ -424,7 +424,7 @@
     <string name="flag_this_app_need_licence">Lisans lazım</string>
     <string name="appview_additional_information_title">Ek bilgi</string>
     <string name="appview_latest_version_text">Bu son sürümdür!</string>
-    <string name="appview_subscribe_store_button_text">Abone olunsun mu?</string>
+    <string name="appview_subscribe_store_button_text">+ Abone olunsun mu?</string>
     <string name="appview_subscribed_store_button_text">Abone olundu</string>
     <string name="appview_other_versions_in_others_stores">Diğer mağazalardaki diğer sürümler</string>
     <string name="appview_rate_Success">Uygulama değerlendirildi</string>

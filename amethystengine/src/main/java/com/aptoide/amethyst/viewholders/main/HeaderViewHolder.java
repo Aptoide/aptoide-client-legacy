@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HeaderRow;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
 
 
 import com.aptoide.amethyst.adapter.BaseAdapter;

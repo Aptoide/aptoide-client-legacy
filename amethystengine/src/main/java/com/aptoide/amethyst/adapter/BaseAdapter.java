@@ -8,6 +8,7 @@
 package com.aptoide.amethyst.adapter;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -17,26 +18,26 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.downloadmanager.adapter.NotOngoingDownloadRow;
 import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.StoreHeaderRow;
+import com.aptoide.models.displayables.StoreHeaderRow;
 import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.AdItem;
-import com.aptoide.models.AdultItem;
-import com.aptoide.models.AppItem;
-import com.aptoide.models.BrickAppItem;
-import com.aptoide.models.CommentItem;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.EditorsChoiceRow;
-import com.aptoide.models.HeaderRow;
-import com.aptoide.models.HomeStoreItem;
+import com.aptoide.models.displayables.AdItem;
+import com.aptoide.models.displayables.AdultItem;
+import com.aptoide.models.displayables.AppItem;
+import com.aptoide.models.displayables.BrickAppItem;
+import com.aptoide.models.displayables.CommentItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.EditorsChoiceRow;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.HomeStoreItem;
 import com.aptoide.models.IHasMore;
-import com.aptoide.models.MoreVersionsItem;
-import com.aptoide.models.ProgressBarRow;
-import com.aptoide.models.ReviewRowItem;
-import com.aptoide.models.hometab.CategoryRow;
-import com.aptoide.models.hometab.TimelineRow;
-import com.aptoide.models.placeholders.CommentPlaceHolderRow;
-import com.aptoide.models.placeholders.ReviewPlaceHolderRow;
-import com.aptoide.models.placeholders.TimeLinePlaceHolderRow;
+import com.aptoide.models.displayables.MoreVersionsItem;
+import com.aptoide.models.displayables.ProgressBarRow;
+import com.aptoide.models.displayables.ReviewRowItem;
+import com.aptoide.models.displayables.CategoryRow;
+import com.aptoide.models.displayables.TimelineRow;
+import com.aptoide.models.displayables.CommentPlaceHolderRow;
+import com.aptoide.models.displayables.ReviewPlaceHolderRow;
+import com.aptoide.models.displayables.TimeLinePlaceHolderRow;
 
 import java.util.List;
 
@@ -53,9 +54,11 @@ import com.aptoide.amethyst.ui.MoreStoreWidgetActivity;
 import com.aptoide.amethyst.viewholders.BaseViewHolder;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_FACEBOOK_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_GETSTOREWIDGETS;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_APPS;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_STORES;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_YOUTUBE_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.COMMENTS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.TIMELINE_TYPE;
@@ -255,6 +258,12 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     case EVENT_GETSTOREWIDGETS:
                         i = new Intent(view.getContext(), MoreStoreWidgetActivity.class);
                         break;
+                    case EVENT_FACEBOOK_TYPE:
+                    case EVENT_YOUTUBE_TYPE:
+                        i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(row.getEventActionUrl()));
+                        view.getContext().startActivity(i);
+                        return;
                     case ADS_TYPE:
                         i = new Intent(view.getContext(), MoreHighlightedActivity.class);
                         break;

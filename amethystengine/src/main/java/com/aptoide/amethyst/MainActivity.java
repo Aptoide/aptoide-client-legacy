@@ -41,6 +41,7 @@ import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.model.json.OAuth;
 import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.tutorial.TutorialActivity;
 import com.aptoide.amethyst.ui.MyAccountActivity;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Base64;
@@ -81,7 +82,6 @@ import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
 import com.aptoide.amethyst.services.DownloadService;
 import com.aptoide.amethyst.services.UpdatesService;
-import com.aptoide.amethyst.tutorial.Tutorial;
 import com.aptoide.amethyst.ui.BadgeView;
 import com.aptoide.amethyst.ui.ExcludedUpdatesActivity;
 import com.aptoide.amethyst.ui.RollbackActivity;
@@ -505,7 +505,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
 
         if (sPref.getBoolean("firstrun", true)) {
 
-            Intent newToAptoideTutorial = new Intent(this, Tutorial.class);
+            Intent newToAptoideTutorial = new Intent(this, TutorialActivity.class);
             startActivityForResult(newToAptoideTutorial, WIZARD_REQ_CODE);
             sPref.edit().putBoolean("firstrun", false).apply();
             try {
@@ -524,7 +524,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
 
                     if (previousVersion < 467) {
 
-                        Intent whatsNewTutorial = new Intent(this, Tutorial.class);
+                        Intent whatsNewTutorial = new Intent(this, TutorialActivity.class);
                         whatsNewTutorial.putExtra("isUpdate", true);
                         startActivityForResult(whatsNewTutorial, WIZARD_REQ_CODE);
 

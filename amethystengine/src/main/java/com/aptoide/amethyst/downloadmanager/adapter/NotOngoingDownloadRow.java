@@ -1,6 +1,7 @@
 package com.aptoide.amethyst.downloadmanager.adapter;
 
 import com.aptoide.amethyst.downloadmanager.model.Download;
+import com.aptoide.models.displayables.DownloadRow;
 
 /**
  * In this row there can be ERROR and COMPLETE status.

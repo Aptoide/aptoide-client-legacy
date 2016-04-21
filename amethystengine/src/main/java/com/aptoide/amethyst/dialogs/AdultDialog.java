@@ -76,7 +76,6 @@ public class AdultDialog extends DialogFragment {
                         }
                         break;
                     case DialogInterface.BUTTON_NEGATIVE:
-                        // TODO: fabio 26-10-2015 check if this method should be called here
                         positiveButtonlistener.onClick(dialog, which);
                         break;
                 }

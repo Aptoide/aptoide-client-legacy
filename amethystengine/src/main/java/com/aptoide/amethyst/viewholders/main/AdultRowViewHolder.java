@@ -12,7 +12,7 @@ import com.aptoide.amethyst.dialogs.AdultDialog;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 
 
 import com.aptoide.amethyst.viewholders.BaseViewHolder;

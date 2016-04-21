@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
-import com.aptoide.models.AdItem;
+import com.aptoide.models.displayables.AdItem;
 import com.aptoide.models.ApkSuggestionJson;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;

@@ -15,7 +15,7 @@
 <string name="appview_rating_card_text">Avaliação</string>
 <string name="setting_mature_filtering">Conteúdo Adulto</string>
 <string name="new_to_aptoide">Novo no %s? Crie uma conta grátis</string>
-<string name="forgot_passwd">Esqueceu sua senha?</string>
+<string name="forgot_passwd">Esqueceu a senha?</string>
 <string name="settings_title_bar">Configurações</string>
 <string name="settings_dwn_network_rules">Opções de Rede Móvel</string>
 <string name="setting_icon_download_rules">Regras de Download de Ícones</string>
@@ -84,7 +84,7 @@
 <string name="permissions">Ver Permissões</string>
 <string name="home_title">Principal</string>
 <string name="login_or_register">Entrar ou registrar</string>
-<string name="update_all">Atualizar todos</string>
+<string name="update_all">Atualizar tudo</string>
 <string name="username">E-mail</string>
 <string name="username_tip">Digite seu e-mail</string>
 <string name="subscribe_pvt_store">Assinar loja privada</string>
@@ -101,7 +101,7 @@
 <string name="restore_updates">Restaurar Atualizações</string>
 <string name="start_loading">Carregando…</string>
 <string name="one_account_allowed">Só uma conta é permitida</string>
-<string name="ip_blacklisted">IP na lista negra</string>
+<string name="ip_blacklisted">IP na Lista Negra</string>
 <string name="apk_not_found">Apk não encontrado</string>
 <string name="invalid_apk">Apk inválido</string>
 <string name="remote_in_nospace">não há espaço suficiente no seu dispositivo.</string>
@@ -124,7 +124,7 @@
 <string name="restart_aptoide">Por favor, reinicie o aplicativo para alterar o tema</string>
 <string name="ignoreUpdateText">Ignorar Atualização</string>
 <string name="appview_header_trusted_text">Confiável</string>
-<string name="downgrade">Desatualizar</string>
+<string name="downgrade">Rebaixar</string>
 <string name="open">Abrir</string>
 <string name="about_aptoide_antimalware">A plataforma Anti-Malware do Aptoide analisa aplicativos em tempo de execução e desativa potenciais ameaças em todas as lojas. Este sistema escaneia todos os novos arquivos de aplicativos das lojas e certifica-os por comparação com outros Mercados Android.</string>
 <string name="schDown_nodownloadselect">Sem Downloads Selecionados</string>
@@ -416,7 +416,7 @@
     <string name="flag_this_app_need_licence">Precisa de Licença</string>
     <string name="appview_additional_information_title">Informações Adicionais</string>
     <string name="appview_latest_version_text">Esta é a última versão!</string>
-    <string name="appview_subscribe_store_button_text">Assinar?</string>
+    <string name="appview_subscribe_store_button_text">+   Assinar?</string>
     <string name="noIgnoreUpdateText">A nova versão de um aplicativo não funciona no seu dispositivo ou alguma coisa está faltando? Bloqueie a atualização dos aplicativos. Vá para a aba Atualizações e pressione sobre o aplicativo que você deseja parar de atualizar.</string>
     <string name="createReviewButtonText">Criar Análise</string>
     <string name="navigation_drawer_signup_login">Registrar ou Entrar</string>

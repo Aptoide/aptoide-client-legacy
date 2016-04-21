@@ -13,17 +13,17 @@ import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action;
 import com.aptoide.dataprovider.webservices.models.v7.ListViewItems;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
-import com.aptoide.models.AppItem;
-import com.aptoide.models.BrickAppItem;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.EditorsChoiceRow;
-import com.aptoide.models.HeaderRow;
-import com.aptoide.models.HomeStoreItem;
-import com.aptoide.models.hometab.CategoryRow;
-import com.aptoide.models.placeholders.AdPlaceHolderRow;
-import com.aptoide.models.placeholders.CommentPlaceHolderRow;
-import com.aptoide.models.placeholders.ReviewPlaceHolderRow;
-import com.aptoide.models.placeholders.TimeLinePlaceHolderRow;
+import com.aptoide.models.displayables.AppItem;
+import com.aptoide.models.displayables.BrickAppItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.EditorsChoiceRow;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.HomeStoreItem;
+import com.aptoide.models.displayables.CategoryRow;
+import com.aptoide.models.displayables.AdPlaceHolderRow;
+import com.aptoide.models.displayables.CommentPlaceHolderRow;
+import com.aptoide.models.displayables.ReviewPlaceHolderRow;
+import com.aptoide.models.displayables.TimeLinePlaceHolderRow;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
 
 import java.util.ArrayList;
@@ -31,6 +31,8 @@ import java.util.List;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.APPS_GROUP_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.isKnownName;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.isKnownType;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.CATEGORIES_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.COMMENTS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
@@ -284,20 +286,25 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         List<Displayable> displayables = new ArrayList<>();
 
         for (ListViewItems.DisplayList display : list) {
-
-            CategoryRow categ = new CategoryRow(numColumns);
-            categ.setSpanSize(singleSpanSize);
-            categ.setLabel(display.label);
-            categ.setGraphic(display.graphic);
-            categ.setEventType(display.event.type);
-            categ.setEventName(display.event.name);
-            categ.setEventActionUrl(display.event.action);
-            displayables.add(categ);
+            if (isKnownType(display.event.type) && isKnownName(display.event.name)) {
+                CategoryRow categ = new CategoryRow(numColumns);
+                if (display.event.type.equals(Action.Event.API_EXTERNAL_TYPE) && (display.event.name.equals(Action.Event.EVENT_FACEBOOK_TYPE)||display.event.name.equals(Action.Event
+                        .EVENT_YOUTUBE_TYPE))) {
+                    categ.setSpanSize(totalSpanSize);
+                } else {
+                    categ.setSpanSize(totalSpanSize / 2);
+                }
+                categ.setLabel(display.label);
+                categ.setGraphic(display.graphic);
+                categ.setEventType(display.event.type);
+                categ.setEventName(display.event.name);
+                categ.setEventActionUrl(display.event.action);
+                displayables.add(categ);
+            }
         }
 
         return displayables;
     }
-
 
 
     @NonNull

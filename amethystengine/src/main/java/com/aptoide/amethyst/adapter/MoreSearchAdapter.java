@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.search.SearchApk;
-import com.aptoide.models.Displayable;
-import com.aptoide.models.HeaderRow;
-import com.aptoide.models.ProgressBarRow;
-import com.aptoide.models.SuggestedAppDisplayable;
+import com.aptoide.models.displayables.SearchApk;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.ProgressBarRow;
+import com.aptoide.models.displayables.SuggestedAppDisplayable;
 
 import java.util.List;
 

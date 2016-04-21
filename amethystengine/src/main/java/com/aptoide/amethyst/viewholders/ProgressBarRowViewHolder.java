@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.aptoide.amethyst.R;
-import com.aptoide.models.Displayable;
+import com.aptoide.models.displayables.Displayable;
 
 
 
