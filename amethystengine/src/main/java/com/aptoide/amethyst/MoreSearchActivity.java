@@ -61,7 +61,6 @@ public class MoreSearchActivity extends MoreActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (mToolbar != null) {
-            mToolbar.setLogo(null);
             mToolbar.setTitle(AptoideUtils.StringUtils.getFormattedString(this, R.string.search_activity_title, getIntent().getExtras().getString(QUERY_BUNDLE_KEY)));
             try {
                 storeTheme = (EnumStoreTheme) getIntent().getExtras().get(SearchActivity.SEARCH_THEME);
