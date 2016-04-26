@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.aptoide.amethyst.analytics.ABTestingManager;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.SQLiteDatabaseHelper;
@@ -21,8 +23,6 @@ import com.aptoide.amethyst.utils.Logger;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -137,6 +137,11 @@ public class Aptoide extends Application {
         setThemePicker(getNewThemePicker());
         Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());
         AptoideUtils.CrashlyticsUtils.subsctibeActivityLiveCycleEvent();
+        ABTestingManager.initialize(this);
+    }
+
+    @Override public Resources getResources() {
+        return ABTestingManager.getResources(super.getResources());
     }
 
     /**
