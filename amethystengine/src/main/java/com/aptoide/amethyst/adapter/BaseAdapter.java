@@ -15,8 +15,8 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.downloadmanager.adapter.NotOngoingDownloadRow;
-import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
+import com.aptoide.download_manager.adapter.NotOngoingDownloadRow;
+import com.aptoide.download_manager.adapter.OngoingDownloadRow;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.models.displayables.StoreHeaderRow;
 import com.aptoide.dataprovider.webservices.models.Constants;

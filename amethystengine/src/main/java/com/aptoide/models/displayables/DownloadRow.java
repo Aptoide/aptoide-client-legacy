@@ -1,7 +1,6 @@
 package com.aptoide.models.displayables;
 
-import com.aptoide.amethyst.downloadmanager.model.Download;
-import com.aptoide.models.displayables.AppItem;
+import com.aptoide.download_manager.model.Download;
 
 /**
  * Created by hsousa on 13-07-2015.

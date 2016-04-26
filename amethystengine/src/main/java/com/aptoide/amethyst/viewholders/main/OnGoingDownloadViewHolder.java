@@ -4,8 +4,8 @@ import android.text.Html;
 import android.view.View;
 
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
-import com.aptoide.amethyst.downloadmanager.model.Download;
+import com.aptoide.download_manager.adapter.OngoingDownloadRow;
+import com.aptoide.download_manager.model.Download;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.displayables.Displayable;
 import com.bumptech.glide.Glide;

@@ -3,9 +3,9 @@ package com.aptoide.amethyst.viewholders.main;
 import android.text.Html;
 import android.view.View;
 
-import com.aptoide.amethyst.downloadmanager.adapter.NotOngoingDownloadRow;
-import com.aptoide.amethyst.downloadmanager.model.Download;
-import com.aptoide.amethyst.downloadmanager.state.EnumState;
+import com.aptoide.download_manager.adapter.NotOngoingDownloadRow;
+import com.aptoide.download_manager.model.Download;
+import com.aptoide.download_manager.state.EnumState;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.models.displayables.Displayable;

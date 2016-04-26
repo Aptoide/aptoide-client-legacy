@@ -8,7 +8,7 @@ import android.util.Log;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.LoginActivity;
-import com.aptoide.amethyst.downloadmanager.model.Download;
+import com.aptoide.download_manager.model.Download;
 import com.aptoide.amethyst.preferences.EnumPreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;

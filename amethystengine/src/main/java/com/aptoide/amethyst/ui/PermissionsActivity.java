@@ -14,8 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.downloadmanager.DownloadUtils;
-import com.aptoide.amethyst.downloadmanager.model.FinishedApk;
+import com.aptoide.download_manager.DownloadUtils;
+import com.aptoide.download_manager.model.FinishedApk;
 import com.aptoide.amethyst.utils.GlideUtils;
 import com.aptoide.models.ApkPermission;
 

@@ -142,6 +142,7 @@ dependencies {
     compile 'com.rabbitmq:amqp-client:3.5.3'
     compile 'com.github.lecho:hellocharts-library:1.5.0@aar'
     compile project(':dataprovider')
+    compile project(':download-manager')
     compile files('lib/AmazonInsights-android-sdk-2.1.26.jar')
     compile files('lib/localytics.jar')
     compile files('lib/FlurryAnalytics-4.2.0.jar')

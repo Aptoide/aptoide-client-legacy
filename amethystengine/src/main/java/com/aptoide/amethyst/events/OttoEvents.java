@@ -3,12 +3,12 @@ package com.aptoide.amethyst.events;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 
-import com.aptoide.amethyst.downloadmanager.model.Download;
+import com.aptoide.download_manager.model.Download;
 import com.aptoide.models.stores.Login;
 import com.aptoide.models.stores.Store;
 import com.aptoide.models.displayables.UpdateRow;
 
-import com.aptoide.amethyst.downloadmanager.state.StatusState;
+import com.aptoide.download_manager.state.StatusState;
 
 import java.util.List;
 

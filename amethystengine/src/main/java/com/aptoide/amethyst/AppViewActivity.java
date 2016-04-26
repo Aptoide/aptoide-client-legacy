@@ -73,7 +73,7 @@ import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.dialogs.DialogPermissions;
 import com.aptoide.amethyst.dialogs.FlagApkDialog;
 import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
-import com.aptoide.amethyst.downloadmanager.model.Download;
+import com.aptoide.download_manager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.model.json.CheckUserCredentialsJson;
@@ -137,8 +137,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import com.aptoide.amethyst.adapter.DividerItemDecoration;
 import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
