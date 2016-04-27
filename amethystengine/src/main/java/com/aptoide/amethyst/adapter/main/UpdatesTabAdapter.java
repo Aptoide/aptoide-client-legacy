@@ -12,19 +12,27 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.UninstallRetainFragment;
+import com.aptoide.amethyst.UploadApkActivity;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.viewholders.BaseViewHolder;
+import com.aptoide.amethyst.viewholders.DummyBaseViewHolder;
+import com.aptoide.amethyst.viewholders.main.HeaderViewHolder;
+import com.aptoide.amethyst.viewholders.main.InstalledViewHolder;
+import com.aptoide.amethyst.viewholders.main.UpdateViewHolder;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
-import com.aptoide.models.displayables.UpdateHeaderRow;
 import com.aptoide.models.displayables.InstallRow;
+import com.aptoide.models.displayables.UpdateHeaderRow;
 import com.aptoide.models.displayables.UpdateRow;
 import com.bumptech.glide.Glide;
 
@@ -33,16 +41,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-
-import com.aptoide.amethyst.AppViewActivity;
-
-import com.aptoide.amethyst.UninstallRetainFragment;
-import com.aptoide.amethyst.UploadApkActivity;
-import com.aptoide.amethyst.viewholders.BaseViewHolder;
-import com.aptoide.amethyst.viewholders.DummyBaseViewHolder;
-import com.aptoide.amethyst.viewholders.main.HeaderViewHolder;
-import com.aptoide.amethyst.viewholders.main.InstalledViewHolder;
-import com.aptoide.amethyst.viewholders.main.UpdateViewHolder;
 
 /**
  * Created by rmateus on 02/06/15.
@@ -254,6 +252,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
                     return true;
                 }
             });
+            /*
             installedViewHolder.installedItemFrame.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -263,6 +262,24 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
                     }
                 }
             });
+            */
+            installedViewHolder.installedItemFrame.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(v.getContext(), AppViewActivity.class);
+                        i.putExtra(Constants.FROM_RELATED_KEY, true);
+                        //i.putExtra(Constants.MD5SUM_KEY, installRow.md5sum);
+                        i.putExtra(Constants.PACKAGENAME_KEY, installRow.packageName);
+                        i.putExtra(Constants.VERSIONNAME_KEY, installRow.versionName);
+                        i.putExtra(Constants.APPNAME_KEY, installRow.appName);
+                        //i.putExtra(Constants.STORENAME_KEY, installRow.storeName);
+                        i.putExtra(Constants.ICON_KEY, installRow.icon);
+                        i.putExtra(Constants.DOWNLOAD_FROM_KEY, "installed");
+                        v.getContext().startActivity(i);
+                    }
+                }
+            );
 //                installedViewHolder.downloads.setText(String.valueOf(installRow.versionName));
 //                installedViewHolder.ratingBar.setRating((float) installRow.rating);
 

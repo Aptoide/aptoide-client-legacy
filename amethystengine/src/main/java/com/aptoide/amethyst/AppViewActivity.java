@@ -65,8 +65,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aptoide.amethyst.adapter.DividerItemDecoration;
+import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
+import com.aptoide.amethyst.adapter.store.CommentsStoreAdapter;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
@@ -76,19 +80,29 @@ import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
+import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
 import com.aptoide.amethyst.model.json.CheckUserCredentialsJson;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.openiab.PaidAppPurchaseActivity;
 import com.aptoide.amethyst.preferences.Preferences;
 import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.services.DownloadService;
 import com.aptoide.amethyst.ui.IMediaObject;
+import com.aptoide.amethyst.ui.MoreCommentsActivity;
+import com.aptoide.amethyst.ui.MoreVersionsActivity;
 import com.aptoide.amethyst.ui.MyAccountActivity;
 import com.aptoide.amethyst.ui.Screenshot;
+import com.aptoide.amethyst.ui.SearchManager;
 import com.aptoide.amethyst.ui.Video;
+import com.aptoide.amethyst.ui.WrappingLinearLayoutManager;
 import com.aptoide.amethyst.ui.callbacks.AddCommentCallback;
+import com.aptoide.amethyst.ui.widget.CircleTransform;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.utils.ReferrerUtils;
 import com.aptoide.amethyst.webservices.AddApkFlagRequest;
 import com.aptoide.amethyst.webservices.CheckUserCredentialsRequest;
+import com.aptoide.amethyst.webservices.GetApkInfoRequestFromId;
 import com.aptoide.amethyst.webservices.GetAppRequest;
 import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
@@ -137,23 +151,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import com.aptoide.amethyst.adapter.DividerItemDecoration;
-import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
-import com.aptoide.amethyst.adapter.store.CommentsStoreAdapter;
-import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
-import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
-import com.aptoide.amethyst.openiab.PaidAppPurchaseActivity;
-import com.aptoide.amethyst.services.DownloadService;
-import com.aptoide.amethyst.ui.MoreCommentsActivity;
-import com.aptoide.amethyst.ui.MoreVersionsActivity;
-import com.aptoide.amethyst.ui.SearchManager;
-import com.aptoide.amethyst.ui.WrappingLinearLayoutManager;
-import com.aptoide.amethyst.ui.widget.CircleTransform;
-import com.aptoide.amethyst.utils.ReferrerUtils;
-import com.aptoide.amethyst.webservices.GetApkInfoRequestFromId;
 
 import lombok.Getter;
 
@@ -179,6 +176,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
     private static final short MAX_COMMENTS_REQUEST = 4;
 
     private static final String APP_NOT_AVAILABLE = "410 Gone";
+    private static final String APP_NOT_FOUND = "404 Not Found";
 
     private ResultBundle resultBundle;
 
@@ -1952,7 +1950,12 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             mAppBarLayout.setVisibility(View.GONE);
             mContentView.setVisibility(View.GONE);
 
-            if (e != null && e.getCause() != null && e.getCause().getMessage() != null && e.getCause().getMessage().equals(APP_NOT_AVAILABLE)) {
+            if (e != null && e.getCause() != null && e.getCause().getMessage() != null &&
+                    (
+                            e.getCause().getMessage().equalsIgnoreCase(APP_NOT_AVAILABLE) ||
+                            e.getCause().getMessage().equalsIgnoreCase(APP_NOT_FOUND)
+                    )
+            ) {
                 layoutError410.setVisibility(View.VISIBLE);
                 Toolbar mToolbar = (Toolbar) getView().findViewById(R.id.toolbar_410);
                 final AppViewActivity activity = (AppViewActivity) getActivity();
@@ -1976,7 +1979,13 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                         refresh();
                     }
                 });
+            //} else if( ?? ) {
             } else {
+
+                // FIXME what should I do here??
+                // use case: user opened AppView from an development app in his device. this app
+                // is not available in Aptoide...
+
                 showGenericError();
             }
         }
