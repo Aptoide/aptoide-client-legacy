@@ -66,6 +66,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.analytics.ABTestingManager;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
@@ -137,8 +138,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import com.aptoide.amethyst.adapter.DividerItemDecoration;
 import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
@@ -749,6 +748,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             spiceManager.start(getActivity());
             final View view = inflater.inflate(R.layout.fragment_app_view, container, false);
             bindViews(view);
+            setUpABTestingViewStyles();
             recyclerOffset = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
             bucketSize = AptoideUtils.UI.getBucketSize();
             mRatingBar.setOnRatingBarChangeListener(new RatingBarClickListener());
@@ -833,6 +833,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             mMoreVersionsList = (RecyclerView) view.findViewById(R.id.more_versions_recycler);
 
             descriptionLines = view.getContext().getResources().getInteger(R.integer.minimum_description_lines);
+        }
+
+        private void setUpABTestingViewStyles() {
+            mButtonInstall.setTextColor(ABTestingManager.getColorVariable(ABTestingManager.APP_VIEW_BUTTON_FONT_COLOR_VARIABLE));
+            mButtonInstall.setBackgroundColor(ABTestingManager.getColorVariable(ABTestingManager.APP_VIEW_BUTTON_BACKGROUND_COLOR_VARIABLE));
         }
 
         @Override
@@ -2394,6 +2399,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
             @Override
             public void onClick(View v) {
+                ABTestingManager.trackEvent(ABTestingManager.APP_VIEW_BUTTON_TAP_EVENT);
                 reloadButtons = true;
                 if (appSuggested != null && appSuggested.getInfo().getCpc_url() != null) {
                     AptoideUtils.AdNetworks.knock(appSuggested.getInfo().getCpd_url());
