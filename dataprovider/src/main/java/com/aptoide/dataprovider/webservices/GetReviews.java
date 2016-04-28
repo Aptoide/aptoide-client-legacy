@@ -18,6 +18,7 @@ public abstract class GetReviews<T> extends RetrofitSpiceRequest<T, GetReviews.G
     public long store_id;
     public int offset;
     public int limit;
+    public boolean editors;
 
     public GetReviews(Class<T> clazz) {
         super(clazz, GetReviewListWebservice.class);
@@ -86,6 +87,7 @@ public abstract class GetReviews<T> extends RetrofitSpiceRequest<T, GetReviews.G
     public static class GetReviewList extends GetReviews<ReviewListJson> {
         public long store_id;
         public boolean homePage;
+        public boolean editors;
 
         private String order_by;
         private String order = "asc";
@@ -97,9 +99,9 @@ public abstract class GetReviews<T> extends RetrofitSpiceRequest<T, GetReviews.G
         @Override
         public ReviewListJson response(HashMap<String, String> args) {
 
-            if (homePage) {
+            /*if (homePage) {
                 args.put("editors", "true");
-            }
+            }*/
 
             if (store_id > 0) {
                 args.put("repo_id", String.valueOf(store_id));
