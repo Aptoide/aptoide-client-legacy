@@ -4,9 +4,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.viewholders.AdsViewHolder;
+import com.aptoide.models.displayables.DummyDisplayable;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
@@ -26,8 +29,9 @@ import com.aptoide.amethyst.viewholders.main.HeaderViewHolder;
  * Created by fabio on 20-11-2015.
  */
 public class MoreSearchAdapter extends BaseAdapter implements SpannableRecyclerAdapter {
+
     public MoreSearchAdapter(List<Displayable> displayableList) {
-        super(displayableList);
+       super(displayableList);
     }
 
     @Override
@@ -36,6 +40,8 @@ public class MoreSearchAdapter extends BaseAdapter implements SpannableRecyclerA
 
         if (viewType == R.layout.search_app_row) {
             return new SearchAppViewHolder(view, viewType);
+        } else if (viewType == R.layout.search_ad) {
+            return new AdsViewHolder(view, viewType);
         } else if (viewType == R.layout.layout_header) {
             return new HeaderViewHolder(view, viewType, EnumStoreTheme.APTOIDE_STORE_THEME_DEFAULT);
         } else if (viewType == R.layout.suggested_app_search) {
@@ -57,7 +63,10 @@ public class MoreSearchAdapter extends BaseAdapter implements SpannableRecyclerA
             return R.layout.suggested_app_search;
         } else if (displayableList.get(position) instanceof ProgressBarRow) {
             return R.layout.row_progress_bar;
-        } else {
+        } else if (displayableList.get(position) instanceof DummyDisplayable) {
+            return R.layout.search_ad;
+        }
+        else {
             throw new IllegalStateException("This adapter doesn't know how to show " + displayableList.get(position).getClass().getName());
         }
     }
@@ -70,4 +79,5 @@ public class MoreSearchAdapter extends BaseAdapter implements SpannableRecyclerA
     public int getItemCount() {
         return displayableList.size();
     }
+
 }

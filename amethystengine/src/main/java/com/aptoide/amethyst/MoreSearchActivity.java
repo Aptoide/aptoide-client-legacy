@@ -17,6 +17,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.DummyDisplayable;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
@@ -126,6 +128,7 @@ public class MoreSearchActivity extends MoreActivity {
         @Override
         protected BaseAdapter getAdapter() {
             if (adapter == null) {
+                displayableList.add(0, new DummyDisplayable(BUCKET_SIZE));
                 return new MoreSearchAdapter(displayableList);
             }
             return adapter;

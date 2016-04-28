@@ -149,5 +149,6 @@ dependencies {
 
     compile files('lib/AudienceNetwork.jar')
     compile files('lib/PayPalAndroidSDK-2.8.4.jar')
+    compile files('lib/go2reach.ads_4.2.7.jar')
     compile 'com.commonsware.cwac:endless:1.2.3'
 }
