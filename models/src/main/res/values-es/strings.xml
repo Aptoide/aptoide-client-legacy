@@ -574,4 +574,6 @@
 
 <string name="error_410">Lo sentimos. La aplicación solicitada no se encuentra en este servidor.</string>
 
-    </resources>
+    <string name="latest_reviews">Últimas Revisiones</string>
+    <string name="latest_comments">Últimos Comentarios</string>
+</resources>
