@@ -31,6 +31,27 @@
             android:layout_marginLeft="2dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/left_image2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:layout_marginRight="2dp"/>
+
+        <ImageView
+            android:id="@+id/right_image2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"/>
 
     </LinearLayout>
 
