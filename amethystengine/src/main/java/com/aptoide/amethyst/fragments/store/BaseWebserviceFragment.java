@@ -118,7 +118,13 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
             if (isHomePage() && Aptoide.getConfiguration().isMature()) {
                 displayableList.add(new AdultItem(BUCKET_SIZE));
             }
-
+            try {
+                if (tab.store.nodes.meta.data.id.longValue() > 0) {
+                    storeId = tab.store.nodes.meta.data.id.longValue();
+                }
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
             for (Displayable row : tab.list) {
 
                 if (row instanceof ReviewPlaceHolderRow) {
@@ -342,9 +348,14 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         GetReviews.GetReviewList reviewRequest = new GetReviews.GetReviewList();
 
         reviewRequest.setOrderBy("rand");
-        reviewRequest.store_id = getStoreId();
+        if (args != null) {
+            reviewRequest.store_id = args.getLong(Constants.STOREID_KEY, storeId);
+        } else {
+            reviewRequest.store_id = storeId;
+        }
         reviewRequest.homePage = isHomePage();
         reviewRequest.limit = 1;
+        reviewRequest.editors = false;
 
         // in order to present the right info on screen after a screen rotation, always pass the bucketsize as cachekey
         spiceManager.execute(reviewRequest, "review-store-" + getStoreId() + "--" + BUCKET_SIZE, useCache ? DurationInMillis.ONE_HOUR : DurationInMillis.ALWAYS_EXPIRED, new RequestListener<ReviewListJson>() {
