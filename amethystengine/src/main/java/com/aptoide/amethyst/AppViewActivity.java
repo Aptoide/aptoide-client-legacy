@@ -52,6 +52,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -156,8 +158,10 @@ import com.aptoide.amethyst.webservices.GetApkInfoRequestFromId;
 
 import lombok.Getter;
 
+import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.PASSED;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.TRUSTED;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.UNKNOWN;
+import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.WARN;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.WARNING;
 
 /**
@@ -301,7 +305,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         private static final String BADGE_DIALOG_TAG = "badgeDialog";
         protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
         private boolean lifecycleController;
-
         public static AppViewFragment newInstance(boolean lifecycleController) {
             AppViewFragment f = new AppViewFragment();
             Bundle args = new Bundle();
@@ -310,10 +313,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             return f;
         }
 
-
         public AppViewFragment() { }
 
+
         Toolbar mToolbar;
+
         ImageView mFeaturedGraphic;
         ImageView mAppIcon;
         View mStoreView;
@@ -329,8 +333,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         TextView mDescription;
         TextView mSeeMore;
         LinearLayout mSeeMoreLayout;
-
         Button mButtonInstall;
+
         NestedScrollView mContentView;
         ProgressBar mProgressBar;
         AppBarLayout mAppBarLayout;
@@ -345,9 +349,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         Button mButtonGetLatest;
         Button mButtonUninstall;
         Button mButtonSubscribe;
-        RelativeLayout mTrustedLayout;
-        RelativeLayout mWarningLayout;
-        RelativeLayout mUnknownLayoutt;
+        TextView mTrustedLayout;
+        TextView mWarningLayout;
+        TextView mUnknownLayoutt;
         RelativeLayout badgeLayout;
         ImageView mBadgeMarket;
         ImageView mBadgeSignature;
@@ -388,8 +392,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         TextView mPrivacyLabel;
         TextView mPermissionsLabel;
         RecyclerView mScreenshotsList;
-
         RecyclerView mMoreVersionsList;
+        View mAppViewSecurityOverlay;
 
         int descriptionLines;
 
@@ -787,9 +791,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             mButtonGetLatest = (Button) view.findViewById(R.id.btn_get_latest);
             mButtonUninstall = (Button) view.findViewById(R.id.btn_uninstall);
             mButtonSubscribe = (Button) view.findViewById(R.id.btn_subscribe);
-            mTrustedLayout = (RelativeLayout) view.findViewById(R.id.trusted_layout);
-            mWarningLayout = (RelativeLayout) view.findViewById(R.id.warning_layout);
-            mUnknownLayoutt = (RelativeLayout) view.findViewById(R.id.unknown_layout);
+            mTrustedLayout = (TextView) view.findViewById(R.id.trusted_layout);
+            mWarningLayout = (TextView) view.findViewById(R.id.warning_layout);
+            mUnknownLayoutt = (TextView) view.findViewById(R.id.unknown_layout);
             badgeLayout = (RelativeLayout) view.findViewById(R.id.badge_layout);
             mBadgeMarket = (ImageView) view.findViewById(R.id.iv_market_badge);
             mBadgeSignature = (ImageView) view.findViewById(R.id.iv_signature_badge);
@@ -831,6 +835,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             mPermissionsLabel = (TextView) view.findViewById(R.id.permissions_label);
             mScreenshotsList = (RecyclerView) view.findViewById(R.id.screenshots_list);
             mMoreVersionsList = (RecyclerView) view.findViewById(R.id.more_versions_recycler);
+
+            mAppViewSecurityOverlay = view.findViewById(R.id.activity_app_view_trusted_information_overlay);
 
             descriptionLines = view.getContext().getResources().getInteger(R.integer.minimum_description_lines);
         }
@@ -1229,7 +1235,59 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         View.OnClickListener badgeClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AptoideDialog.badgeDialogV7(malware, appName, malware.rank).show(getFragmentManager(), BADGE_DIALOG_TAG);
+
+                if (malware != null
+                        && malware.reason != null
+                        && !GetAppMeta.File.Malware.UNKNOWN.equals(malware.rank)) {
+
+                    if (malware.reason.scanned != null && malware.reason.scanned.status != null && (PASSED.equals(malware.reason.scanned.status) || WARN.equals(malware.reason.scanned.status))) {
+
+                        if (malware.reason.scanned.avInfo != null) {
+                            getActivity().findViewById(R.id.activity_app_view_trusted_information_overlay_tr_scanned).setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    if (malware.reason.thirdpartyValidated != null && GetAppMeta.File.Malware.GOOGLE_PLAY.equalsIgnoreCase(malware.reason.thirdpartyValidated.store)) {
+                        getActivity().findViewById(R.id.activity_app_view_trusted_information_overlay_tr_third_party).setVisibility(View.VISIBLE);
+                    }
+
+                    if (malware.reason.signatureValidated != null && malware.reason.signatureValidated.status != null) {
+
+                        switch (malware.reason.signatureValidated.status) {
+                            case PASSED:
+                                getActivity().findViewById(R.id.activity_app_view_trusted_information_overlay_tr_signature).setVisibility(View.VISIBLE);
+                                ((TextView) getActivity().findViewById(R.id.activity_app_view_trusted_information_overlay_tv_reason_signature_validation)).setText(getString(R.string.reason_signature));
+                                break;
+                            case "failed":
+                                // still in study by the UX team
+                                getActivity().findViewById(R.id.activity_app_view_trusted_information_overlay_tr_signature).setVisibility(View.VISIBLE);
+                                getActivity().findViewById(R.id.activity_app_view_trusted_information_overlay_iv_signature).setVisibility(View.INVISIBLE);
+                                ((TextView) getActivity().findViewById(R.id.activity_app_view_trusted_information_overlay_tv_reason_signature_validation)).setText(getString(R.string.reason_failed));
+                                break;
+                            case "blacklisted":
+                                // still in study by the UX team
+//                        getActivity().findViewById(R.id.malware.reason_signature_not_validated).setVisibility(View.VISIBLE);
+//                        ((TextView) getActivity().findViewById(R.id.malware.reason_signature_not_validated)).setText(getString(R.string.application_signature_blacklisted));
+                                break;
+                        }
+                    }
+
+                    if (malware.reason.manualQA != null && malware.reason.manualQA.status != null && PASSED.equals(malware.reason.manualQA.status)) {
+                        getActivity().findViewById(R.id.activity_app_view_trusted_information_overlay_tr_manual).setVisibility(View.VISIBLE);
+                    }
+
+                    Animation animation;
+                    if (mAppViewSecurityOverlay.getVisibility() == View.VISIBLE) {
+                        animation = AnimationUtils.loadAnimation(getActivity(), android.R.anim
+                                .fade_out);
+                        mAppViewSecurityOverlay.setVisibility(View.INVISIBLE);
+                    } else {
+                        animation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
+                        mAppViewSecurityOverlay.setVisibility(View.VISIBLE);
+                    }
+                    mAppViewSecurityOverlay.startAnimation(animation);
+//                AptoideDialog.badgeDialogV7(malware, appName, malware.rank).show(getFragmentManager(), BADGE_DIALOG_TAG);
+                }
             }
         };
 
