@@ -104,10 +104,13 @@ public abstract class MoreActivity extends AptoideBaseActivity {
             if(storeTheme == null) {
                 storeTheme = EnumStoreTheme.get(sPref.getString("theme", "light"));
             }
+            String title = "";
             packageName = args.getString(Constants.PACKAGENAME_KEY);
-            String title = Translator.translate(label);
-            if(title == null) {
-                title = label;
+            if (label != null) {
+                title = Translator.translate(label);
+                if (title == null) {
+                    title = label;
+                }
             }
             getSupportActionBar().setTitle(title);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
