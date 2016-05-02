@@ -167,4 +167,7 @@ dependencies {
     compile 'com.commonsware.cwac:endless:1.2.3'
 
     compile 'com.seatgeek:sixpack-java:0.4-SNAPSHOT'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
 }

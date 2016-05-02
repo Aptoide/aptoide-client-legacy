@@ -1,6 +1,9 @@
 package com.aptoide.amethyst.webservices.timeline.json;
 
+import com.aptoide.amethyst.social.AptoideFriends;
 import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 
@@ -8,26 +11,27 @@ import java.util.ArrayList;
  * Created by fabio on 14-10-2015.
  */
 public class ListUserFriendsJson extends GenericResponseV2 {
-    public ArrayList<Friend> getInactiveFriends() {
-        if(userfriends!=null){
-            return userfriends.timeline_inactive;
-        }else{
-            return new ArrayList<Friend>();
-        }
-    }
-    public ArrayList<Friend> getActiveFriends() {
-        if(userfriends!=null){
-            return userfriends.timeline_active;
-        }else{
-            return new ArrayList<Friend>();
-        }
-    }
 
-    Friends userfriends;
+	private AptoideFriends aptoideFriends;
 
-    public static class Friends{
-        ArrayList<Friend> timeline_inactive;
+	@JsonCreator
+	public ListUserFriendsJson(@JsonProperty("userfriends") AptoideFriends aptoideFriends) {
+		this.aptoideFriends = aptoideFriends;
+	}
 
-        ArrayList<Friend> timeline_active;
-    }
+	public ArrayList<Friend> getInactiveFriends() {
+		if (aptoideFriends != null) {
+			return aptoideFriends.getInactiveFriends();
+		} else {
+			return new ArrayList<>();
+		}
+	}
+
+	public ArrayList<Friend> getActiveFriends() {
+		if (aptoideFriends != null) {
+			return aptoideFriends.getActiveFriends();
+		} else {
+			return new ArrayList<>();
+		}
+	}
 }
