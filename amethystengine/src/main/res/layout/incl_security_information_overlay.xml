@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <TableRow
-            android:id="@+id/activity_app_view_trusted_information_overlay_tr_third_party"
+            android:id="@+id/incl_security_information_overlay_tr_third_party"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
@@ -26,7 +26,7 @@
                 android:src="@drawable/ic_badge_market" />
 
             <TextView
-                android:id="@+id/activity_app_view_trusted_information_overlay_tv_reason_thirdparty_validated"
+                android:id="@+id/incl_security_information_overlay_tv_reason_thirdparty_validated"
                 style="@style/badgeReasonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,21 +34,21 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/activity_app_view_trusted_information_overlay_tr_signature"
+            android:id="@+id/incl_security_information_overlay_tr_signature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
             android:visibility="gone">
 
             <ImageView
-                android:id="@+id/activity_app_view_trusted_information_overlay_iv_signature"
+                android:id="@+id/incl_security_information_overlay_iv_signature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="2dp"
                 android:src="@drawable/ic_badge_signature" />
 
             <TextView
-                android:id="@+id/activity_app_view_trusted_information_overlay_tv_reason_signature_validation"
+                android:id="@+id/incl_security_information_overlay_tv_reason_signature_validation"
                 style="@style/badgeReasonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -56,7 +56,7 @@
 
 
         <TableRow
-            android:id="@+id/activity_app_view_trusted_information_overlay_tr_scanned"
+            android:id="@+id/incl_security_information_overlay_tr_scanned"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
@@ -69,7 +69,7 @@
                 android:src="@drawable/ic_badge_antivirus" />
 
             <TextView
-                android:id="@+id/activity_app_view_trusted_information_overlay_tv_reason_scanned_passed"
+                android:id="@+id/incl_security_information_overlay_tv_reason_scanned_passed"
                 style="@style/badgeReasonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
 
 
         <TableRow
-            android:id="@+id/activity_app_view_trusted_information_overlay_tr_manual"
+            android:id="@+id/incl_security_information_overlay_tr_manual"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
@@ -91,7 +91,7 @@
                 android:src="@drawable/ic_badge_flag" />
 
             <TextView
-                android:id="@+id/activity_app_view_trusted_information_overlay_tv_reason_manual_qa"
+                android:id="@+id/incl_security_information_overlay_tv_reason_manual_qa"
                 style="@style/badgeReasonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,21 +99,22 @@
         </TableRow>
 
 
-
         <TableRow
-            android:id="@+id/activity_app_view_trusted_information_overlay_tr_unknown"
+            android:id="@+id/incl_security_information_overlay_tr_unknown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="14dp"
             android:visibility="gone">
 
             <TextView
-                android:id="@+id/activity_app_view_trusted_information_overlay_tv_reason_unknown"
+                android:id="@+id/incl_security_information_overlay_tv_reason_unknown"
                 style="@style/badgeReasonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/reason_unknown" />
         </TableRow>
+
+
     </TableLayout>
 
 </LinearLayout>

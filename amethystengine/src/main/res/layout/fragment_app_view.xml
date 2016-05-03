@@ -34,6 +34,7 @@
                 app:layout_collapseMode="parallax">
 
                 <ImageView
+                    tools:ignore="ContentDescription"
                     android:id="@+id/featured_graphic"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -42,11 +43,14 @@
 
                 <include
                     android:id="@+id/activity_app_view_trusted_information_overlay"
-                    layout="@layout/activity_app_view_trusted_information_overlay"
+                    layout="@layout/incl_security_information_overlay"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    tools:layout_height="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/app_icon"
+                    android:layout_toRightOf="@+id/app_icon"
                     android:layout_above="@+id/black_header_background"
-                    android:visibility="visible"/>
+                    android:visibility="invisible"/>
 
                 <RelativeLayout
                     android:id="@+id/black_header_background"
@@ -57,9 +61,9 @@
                     android:padding="12dp">
 
                     <LinearLayout
+                        android:layout_centerVertical="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
                         android:layout_alignWithParentIfMissing="true"
                         android:layout_marginLeft="@dimen/appview_header_app_text_margin_start"
                         android:layout_marginStart="@dimen/appview_header_app_text_margin_start"

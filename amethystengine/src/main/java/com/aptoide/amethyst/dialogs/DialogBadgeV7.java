@@ -84,7 +84,7 @@ public class DialogBadgeV7 extends DialogFragment {
                     break;
                 case UNKNOWN:
                     v.findViewById(R.id.unknown_header_layout).setVisibility(View.VISIBLE);
-                    v.findViewById(R.id.tr_unknown).setVisibility(View.VISIBLE);
+                    v.findViewById(R.id.incl_security_information_overlay_tr_unknown).setVisibility(View.VISIBLE);
                     // Doesn't need to do more logic, exit.
                     return builder;
             }
@@ -94,26 +94,26 @@ public class DialogBadgeV7 extends DialogFragment {
             if (malware.reason.scanned != null && malware.reason.scanned.status != null && (PASSED.equals(malware.reason.scanned.status) || WARN.equals(malware.reason.scanned.status))) {
 
                 if (malware.reason.scanned.avInfo != null) {
-                    v.findViewById(R.id.tr_scanned).setVisibility(View.VISIBLE);
+                    v.findViewById(R.id.incl_security_information_overlay_tr_scanned).setVisibility(View.VISIBLE);
                 }
             }
 
             if (malware.reason.thirdpartyValidated != null && GetAppMeta.File.Malware.GOOGLE_PLAY.equalsIgnoreCase(malware.reason.thirdpartyValidated.store)) {
-                v.findViewById(R.id.tr_third_party).setVisibility(View.VISIBLE);
+                v.findViewById(R.id.incl_security_information_overlay_tr_third_party).setVisibility(View.VISIBLE);
             }
 
             if (malware.reason.signatureValidated != null && malware.reason.signatureValidated.status != null) {
 
                 switch (malware.reason.signatureValidated.status) {
                     case PASSED:
-                        v.findViewById(R.id.tr_signature).setVisibility(View.VISIBLE);
-                        ((TextView) v.findViewById(R.id.tv_reason_signature_validation)).setText(getString(R.string.reason_signature));
+                        v.findViewById(R.id.incl_security_information_overlay_tr_signature).setVisibility(View.VISIBLE);
+                        ((TextView) v.findViewById(R.id.incl_security_information_overlay_tv_reason_signature_validation)).setText(getString(R.string.reason_signature));
                         break;
                     case "failed":
                         // still in study by the UX team
-                        v.findViewById(R.id.tr_signature).setVisibility(View.VISIBLE);
-                        v.findViewById(R.id.iv_signature).setVisibility(View.INVISIBLE);
-                        ((TextView) v.findViewById(R.id.tv_reason_signature_validation)).setText(getString(R.string.reason_failed));
+                        v.findViewById(R.id.incl_security_information_overlay_tr_signature).setVisibility(View.VISIBLE);
+                        v.findViewById(R.id.incl_security_information_overlay_iv_signature).setVisibility(View.INVISIBLE);
+                        ((TextView) v.findViewById(R.id.incl_security_information_overlay_tv_reason_signature_validation)).setText(getString(R.string.reason_failed));
                         break;
                     case "blacklisted":
                         // still in study by the UX team
@@ -124,7 +124,7 @@ public class DialogBadgeV7 extends DialogFragment {
             }
 
             if (malware.reason.manualQA != null && malware.reason.manualQA.status != null && PASSED.equals(malware.reason.manualQA.status)) {
-                v.findViewById(R.id.tr_manual).setVisibility(View.VISIBLE);
+                v.findViewById(R.id.incl_security_information_overlay_tr_manual).setVisibility(View.VISIBLE);
             }
         }
 
