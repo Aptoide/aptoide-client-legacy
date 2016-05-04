@@ -1783,7 +1783,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         }
 
         @Subscribe
-        protected void onUnInstalledEvent(OttoEvents.UnInstalledApkEvent event) {
+        public void onUnInstalledEvent(OttoEvents.UnInstalledApkEvent event) {
             refresh();
         }
 
