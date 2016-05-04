@@ -113,7 +113,7 @@
 
         <provider
             android:name="com.aptoide.amethyst.SuggestionProvider"
-            android:authorities="${applicationId}.SuggestionProvider"
+            android:authorities="cm.aptoide.pt.SuggestionProvider"
             android:exported="false" />
 
 

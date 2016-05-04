@@ -66,8 +66,7 @@ android {
         facebookAppId = facebookAppIdExists ? facebookAppId.toString() : "0"
         resValue "string", "facebook_app_id", "\"" + facebookAppId + "\""
 
-        //suggestion provider authority key, this method is used to allow both, dev and prod version, be installed at the same time
-        resValue "string", "search_suggest_authority", "\"" + applicationId + ".SuggestionProvider" + "\""
+
     }
 
     buildTypes {
