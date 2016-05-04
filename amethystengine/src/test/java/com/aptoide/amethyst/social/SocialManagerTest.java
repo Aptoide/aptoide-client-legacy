@@ -5,10 +5,13 @@
 
 package com.aptoide.amethyst.social;
 
+import android.support.annotation.NonNull;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -32,8 +35,8 @@ public class SocialManagerTest {
 	@Test
 	public void getContactsAptoideFriends() throws Exception {
 
-		final List<SimpleContact> contactList = Arrays.asList(new SimpleContact("marcelo.benites@aptoide.com", "+5551555555555"),
-				new SimpleContact("frederico@aptoide.com", "+55515555444"));
+		final List<SimpleContact> contactList = Arrays.asList(getSimpleContact("marcelo.benites@aptoide.com", "+5551555555555"), getSimpleContact("frederico@aptoide.com", "+55515555444"));
+
 		when(contactsProviderMock.getDeviceContacts()).thenReturn(contactList);
 		final AptoideFriends expectedFriends = new AptoideFriends(null, null);
 		when(repositoryMock.getFriends(contactList)).thenReturn(expectedFriends);
@@ -41,5 +44,10 @@ public class SocialManagerTest {
 		assertEquals(expectedFriends, socialManager.getContacsAptoideFriends());
 		verify(contactsProviderMock).getDeviceContacts();
 		verify(repositoryMock).getFriends(contactList);
+	}
+
+	@NonNull
+	private SimpleContact getSimpleContact(String email, String phoneNumber) {
+		return new SimpleContact(Collections.singletonList(email), Collections.singletonList(phoneNumber));
 	}
 }

@@ -15,10 +15,3 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
-
-#-keepnames class * com.mypackage.MyGlideModule
--keep class com.aptoide.amethyst.** {*;}
--keep class mp.** { *; }
--keep class android.support.design.widget.AppBarLayout$Behavior$SavedState { *; }
--keep class android.support.design.widget.CoordinatorLayout$SavedState { *; }

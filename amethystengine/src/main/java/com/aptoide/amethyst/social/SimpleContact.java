@@ -5,21 +5,23 @@
 
 package com.aptoide.amethyst.social;
 
+import java.util.List;
+
 public class SimpleContact {
 
-	private String email;
-	private String phoneNumber;
+	private List<String> emails;
+	private List<String> phoneNumbers;
 
-	public SimpleContact(String email, String phoneNumber) {
-		this.email = email;
-		this.phoneNumber = phoneNumber;
+	public SimpleContact(List<String> emails, List<String> phoneNumbers) {
+		this.emails = emails;
+		this.phoneNumbers = phoneNumbers;
 	}
 
-	public String getEmail() {
-		return email;
+	public List<String> getEmails() {
+		return emails;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public List<String> getPhoneNumbers() {
+		return phoneNumbers;
 	}
 }
