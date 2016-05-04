@@ -1385,7 +1385,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					switch (malware.reason.signatureValidated.status) {
 						case PASSED:
 							getActivity().findViewById(R.id
-									.incl_security_information_overlay_tr_signature)
+									.incl_security_information_overlay_tv_reason_signature_validation)
 									.setVisibility(View.VISIBLE);
 							((TextView) getActivity().findViewById(R.id
 									.incl_security_information_overlay_tv_reason_signature_validation))
@@ -1394,11 +1394,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 						case "failed":
 							// still in study by the UX team
 							getActivity().findViewById(R.id
-									.incl_security_information_overlay_tr_signature)
+									.incl_security_information_overlay_tv_reason_signature_validation)
 									.setVisibility(View.VISIBLE);
-							getActivity().findViewById(R.id
-									.incl_security_information_overlay_iv_signature)
-									.setVisibility(View.INVISIBLE);
 							((TextView) getActivity().findViewById(R.id
 									.incl_security_information_overlay_tv_reason_signature_validation))
 									.setText(getString(R.string.reason_failed));

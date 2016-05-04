@@ -41,17 +41,6 @@
                     android:foreground="#80000000"
                     android:scaleType="centerCrop"/>
 
-                <include
-                    android:id="@+id/activity_app_view_trusted_information_overlay"
-                    layout="@layout/incl_security_information_overlay"
-                    android:layout_width="match_parent"
-                    tools:layout_height="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/app_icon"
-                    android:layout_toRightOf="@+id/app_icon"
-                    android:layout_above="@+id/black_header_background"
-                    android:visibility="invisible"/>
-
                 <RelativeLayout
                     android:id="@+id/black_header_background"
                     android:layout_width="match_parent"
@@ -179,6 +168,18 @@
                         android:textSize="@dimen/text_size_small"
                         android:visibility="invisible"/>
                 </RelativeLayout>
+
+                <include
+                    android:layout_margin="8dp"
+                    tools:visibility="visible"
+                    android:id="@+id/activity_app_view_trusted_information_overlay"
+                    layout="@layout/incl_security_information_overlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/app_icon"
+                    android:layout_toRightOf="@+id/app_icon"
+                    android:layout_above="@id/black_header_background"
+                    android:visibility="invisible"/>
 
                 <ImageView
                     android:id="@+id/app_icon"

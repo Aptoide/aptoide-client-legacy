@@ -106,13 +106,13 @@ public class DialogBadgeV7 extends DialogFragment {
 
                 switch (malware.reason.signatureValidated.status) {
                     case PASSED:
-                        v.findViewById(R.id.incl_security_information_overlay_tr_signature).setVisibility(View.VISIBLE);
+                        v.findViewById(R.id.incl_security_information_overlay_tv_reason_signature_validation).setVisibility(View.VISIBLE);
                         ((TextView) v.findViewById(R.id.incl_security_information_overlay_tv_reason_signature_validation)).setText(getString(R.string.reason_signature));
                         break;
                     case "failed":
                         // still in study by the UX team
-                        v.findViewById(R.id.incl_security_information_overlay_tr_signature).setVisibility(View.VISIBLE);
-                        v.findViewById(R.id.incl_security_information_overlay_iv_signature).setVisibility(View.INVISIBLE);
+                        v.findViewById(R.id.incl_security_information_overlay_tv_reason_signature_validation).setVisibility(View.VISIBLE);
+                        v.findViewById(R.id.incl_security_information_overlay_tv_reason_signature_validation).setVisibility(View.INVISIBLE);
                         ((TextView) v.findViewById(R.id.incl_security_information_overlay_tv_reason_signature_validation)).setText(getString(R.string.reason_failed));
                         break;
                     case "blacklisted":

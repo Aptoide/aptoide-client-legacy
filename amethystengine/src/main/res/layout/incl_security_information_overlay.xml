@@ -4,118 +4,107 @@
   ~ Modified by marcelo.benites@aptoide.com on 02/05/2016.
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@drawable/overlay_security_information_balloon"
               android:orientation="vertical">
 
-    <TableLayout
+    <TextView
+        android:id="@+id/incl_security_information_overlay_tr_third_party"
+        style="@style/badgeReasonStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_badge_market"
+        android:drawablePadding="16dp"
+        android:drawableStart="@drawable/ic_badge_market"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="3"
+        android:minHeight="48dp"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/reason_third_party"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
-        <TableRow
-            android:id="@+id/incl_security_information_overlay_tr_third_party"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:visibility="gone">
+    <TextView
+        android:id="@+id/incl_security_information_overlay_tv_reason_signature_validation"
+        style="@style/badgeReasonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_badge_signature"
+        android:drawablePadding="16dp"
+        android:drawableStart="@drawable/ic_badge_signature"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="3"
+        android:minHeight="48dp"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:src="@drawable/ic_badge_market" />
+    <TextView
+        android:id="@+id/incl_security_information_overlay_tr_scanned"
+        style="@style/badgeReasonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_badge_antivirus"
+        android:drawablePadding="16dp"
+        android:drawableStart="@drawable/ic_badge_antivirus"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="3"
+        android:minHeight="48dp"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/reason_scanned"
+        android:visibility="gone"
+        tools:visibility="gone"/>
 
-            <TextView
-                android:id="@+id/incl_security_information_overlay_tv_reason_thirdparty_validated"
-                style="@style/badgeReasonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reason_third_party" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/incl_security_information_overlay_tr_signature"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/incl_security_information_overlay_iv_signature"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:src="@drawable/ic_badge_signature" />
-
-            <TextView
-                android:id="@+id/incl_security_information_overlay_tv_reason_signature_validation"
-                style="@style/badgeReasonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </TableRow>
-
-
-        <TableRow
-            android:id="@+id/incl_security_information_overlay_tr_scanned"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:visibility="gone">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:src="@drawable/ic_badge_antivirus" />
-
-            <TextView
-                android:id="@+id/incl_security_information_overlay_tv_reason_scanned_passed"
-                style="@style/badgeReasonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reason_scanned" />
-        </TableRow>
-
-
-        <TableRow
-            android:id="@+id/incl_security_information_overlay_tr_manual"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:visibility="gone">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:src="@drawable/ic_badge_flag" />
-
-            <TextView
-                android:id="@+id/incl_security_information_overlay_tv_reason_manual_qa"
-                style="@style/badgeReasonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reason_manual" />
-        </TableRow>
+    <TextView
+        android:id="@+id/incl_security_information_overlay_tr_manual"
+        style="@style/badgeReasonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_badge_flag"
+        android:drawablePadding="16dp"
+        android:drawableStart="@drawable/ic_badge_flag"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="3"
+        android:minHeight="48dp"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/reason_manual"
+        android:visibility="gone"
+        tools:visibility="gone"/>
 
 
-        <TableRow
-            android:id="@+id/incl_security_information_overlay_tr_unknown"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="14dp"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/incl_security_information_overlay_tv_reason_unknown"
-                style="@style/badgeReasonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reason_unknown" />
-        </TableRow>
-
-
-    </TableLayout>
+    <TextView
+        android:id="@+id/incl_security_information_overlay_tr_unknown"
+        style="@style/badgeReasonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="3"
+        android:minHeight="48dp"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/reason_unknown"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
 </LinearLayout>
-
