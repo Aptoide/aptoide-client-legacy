@@ -34,12 +34,12 @@
                 app:layout_collapseMode="parallax">
 
                 <ImageView
-                    tools:ignore="ContentDescription"
                     android:id="@+id/featured_graphic"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:foreground="#80000000"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    tools:ignore="ContentDescription"/>
 
                 <RelativeLayout
                     android:id="@+id/black_header_background"
@@ -50,10 +50,10 @@
                     android:padding="12dp">
 
                     <LinearLayout
-                        android:layout_centerVertical="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignWithParentIfMissing="true"
+                        android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/appview_header_app_text_margin_start"
                         android:layout_marginStart="@dimen/appview_header_app_text_margin_start"
                         android:layout_toLeftOf="@+id/trusted_layout"
@@ -169,17 +169,20 @@
                         android:visibility="invisible"/>
                 </RelativeLayout>
 
-                <include
-                    android:layout_margin="8dp"
-                    tools:visibility="visible"
+                <FrameLayout
                     android:id="@+id/activity_app_view_trusted_information_overlay"
-                    layout="@layout/incl_security_information_overlay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_above="@id/black_header_background"
+                    android:layout_margin="12dp"
                     android:layout_toEndOf="@+id/app_icon"
                     android:layout_toRightOf="@+id/app_icon"
-                    android:layout_above="@id/black_header_background"
-                    android:visibility="invisible"/>
+                    android:background="@drawable/overlay_security_information_balloon"
+                    android:visibility="invisible"
+                    tools:visibility="visible">
+                    <include
+                        layout="@layout/incl_security_information_overlay"/>
+                </FrameLayout>
 
                 <ImageView
                     android:id="@+id/app_icon"

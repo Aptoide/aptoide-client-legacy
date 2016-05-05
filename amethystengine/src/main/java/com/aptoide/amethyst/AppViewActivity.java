@@ -28,12 +28,14 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
@@ -307,6 +309,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private static final String BADGE_DIALOG_TAG = "badgeDialog";
 		protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
 		private boolean lifecycleController;
+		private Animation securityOverlayAnimation;
 
 		public static AppViewFragment newInstance(boolean lifecycleController) {
 			AppViewFragment f = new AppViewFragment();
@@ -604,8 +607,12 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					showDialogIfComingFromBrowser();
 					showDialogIfComingFromAPKFY();
 					populateRatings(model.getApp);
-					setSecurityInformationOverlay(malware);
-					startSecurityInformationOverlayAnimation();
+
+					if (ABTestingManager.getBooleanVariable(ABTestingManager
+							.APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE)) {
+						setSecurityInformationOverlay(malware);
+						startSecurityInformationOverlayAnimation(securityOverlayAnimation);
+					}
 
 					if (!fromSponsored) {
 						new AppViewMiddleSuggested((AppViewActivity) getActivity(), getView()
@@ -776,6 +783,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			setHasOptionsMenu(true);
 			glide = Glide.with(this);
 
+			securityOverlayAnimation = loadSecurityInformationOverlayAnimation();
 			lifecycleController = getArguments().getBoolean("lifecycleController");
 
 			if (savedInstanceState != null) {
@@ -906,8 +914,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		}
 
 		private void setUpABTestingViewStyles() {
-			mButtonInstall.setTextColor(ABTestingManager.getColorVariable(ABTestingManager
-					.APP_VIEW_BUTTON_FONT_COLOR_VARIABLE));
 			mButtonInstall.setBackgroundColor(ABTestingManager.getColorVariable(ABTestingManager
 					.APP_VIEW_BUTTON_BACKGROUND_COLOR_VARIABLE));
 		}
@@ -1344,15 +1350,21 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 		};
 
-		private void startSecurityInformationOverlayAnimation() {
+		private void startSecurityInformationOverlayAnimation(final Animation animation) {
 			mAppViewSecurityInformationOverlay.post(new Runnable() {
 				@Override
 				public void run() {
-					final Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim
-							.security_information_overlay_fade_in_fade_out);
 					mAppViewSecurityInformationOverlay.startAnimation(animation);
 				}
 			});
+		}
+
+		@NonNull
+		private Animation loadSecurityInformationOverlayAnimation() {
+			final Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim
+					.security_information_overlay_fade_in_fade_out);
+			animation.setInterpolator(new FastOutSlowInInterpolator());
+			return animation;
 		}
 
 		private void setSecurityInformationOverlay(GetAppMeta.File.Malware malware) {
