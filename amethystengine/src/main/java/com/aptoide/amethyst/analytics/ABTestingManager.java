@@ -5,15 +5,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 
-import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.utils.Logger;
-import com.leanplum.Leanplum;
-import com.leanplum.LeanplumActivityHelper;
-import com.leanplum.LeanplumResources;
-import com.leanplum.Var;
-import com.leanplum.annotations.Parser;
-import com.optimizely.Optimizely;
-import com.optimizely.Variable.LiveVariable;
 
 /**
  * Manages AB Testing. Class abstracts which tools are used in order to perform AB tests.
@@ -25,48 +17,22 @@ public class ABTestingManager {
 	public static final String APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE =
             "AppViewShowSecurityOverlay";
 
-	private static LiveVariable<Boolean> appViewShowSecurityOverlay = Optimizely.booleanForKey
-			(APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE, false);
-	private static Var<String> appViewButtonBackgroundColor = Var.define
-            (APP_VIEW_BUTTON_BACKGROUND_COLOR_VARIABLE, "#E17117");
-
 	/**
 	 * Initialize AB testing with application. Usually called from {@link Application#onCreate()}.
 	 *
 	 * @param application which is going to initialize AB testing.
 	 */
 	public static void initialize(Application application) {
-		if (BuildConfig.LEANPLUM_CONFIGURED) {
-			Leanplum.setApplicationContext(application);
-			Parser.parseVariables(application);
-			LeanplumActivityHelper.enableLifecycleCallbacks(application);
-		}
+
 	}
 
 	/**
-	 * Starts a new session for AB testing. When this is called is important it will help to define
-	 * what is the session length important for analytics metrics. Should be called from launcher
-	 * {@link android.app.Activity}.
-	 *
+	 * Starts a new session for AB testing. Session length is important for analytics metrics.
+	 * Should be called from launcher {@link android.app.Activity}.
 	 * @param context of the launcher {@link android.app.Activity}
 	 */
 	public static void startSession(Context context) {
-		if (BuildConfig.LEANPLUM_CONFIGURED) {
-			if (BuildConfig.DEBUG) {
-				Leanplum.enableVerboseLoggingInDevelopmentMode();
-			}
-			Leanplum.setAppIdForDevelopmentMode(BuildConfig.LEANPLUM_PROJECT_ID, BuildConfig
-                    .LEANPLUM_KEY);
-			Leanplum.start(context);
-		}
 
-		if (BuildConfig.OPTIMIZELY_CONFIGURED) {
-			Optimizely.setVerboseLogging(BuildConfig.DEBUG);
-			Optimizely.setEditGestureEnabled(BuildConfig.DEBUG);
-			Optimizely.startOptimizelyWithAPIToken(BuildConfig.OPTIMIZELY_KEY, (Application)
-                    context
-					.getApplicationContext());
-		}
 	}
 
 	/**
@@ -78,11 +44,7 @@ public class ABTestingManager {
 	 * @return application resources plus AB testing resources.
 	 */
 	public static Resources getResources(Resources resources) {
-		if (BuildConfig.LEANPLUM_CONFIGURED) {
-			return new LeanplumResources(resources);
-		} else {
-			return resources;
-		}
+		return resources;
 	}
 
 	/**
@@ -95,8 +57,7 @@ public class ABTestingManager {
 	public static int getColorVariable(String key) {
 		switch (key) {
 			case APP_VIEW_BUTTON_BACKGROUND_COLOR_VARIABLE:
-				return parseColorOrDefault(appViewButtonBackgroundColor.stringValue(), Color
-                        .BLACK);
+				return Color.WHITE;
 			default:
 				throw new IllegalArgumentException("Color variable not defined for AB Testing: " +
 						key);
@@ -112,7 +73,7 @@ public class ABTestingManager {
 	public static boolean getBooleanVariable(String key) {
 		switch (key) {
 			case APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE:
-				return appViewShowSecurityOverlay.get();
+				return true;
 			default:
 				throw new IllegalArgumentException("Boolean variable not defined for AB Testing: " +
 						key);
@@ -125,8 +86,6 @@ public class ABTestingManager {
 	 * @param eventKey event identifier.
 	 */
 	public static void trackEvent(String eventKey) {
-		Optimizely.trackEvent(eventKey);
-		Leanplum.track(eventKey);
 	}
 
 	private static int parseColorOrDefault(String colorString, int defaultColorInt) {

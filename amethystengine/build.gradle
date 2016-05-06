@@ -9,7 +9,6 @@ def gmsServerId = localProperties.GMS_SERVER_ID
 def gmsConfigured = gmsServerId != null
 
 def fabricApiKey = localProperties.FABRIC_API_KEY
-def leanplumProjectId = localProperties.LEANPLUM_PROJECT_ID
 
 android {
     publishNonDefault true
@@ -34,11 +33,6 @@ android {
     def AMAZON_CONFIGURED = "AMAZON_CONFIGURED"
     def AMAZON_PUBLIC_KEY = "AMAZON_PUBLIC_KEY"
     def AMAZON_PRIVATE_KEY = "AMAZON_PRIVATE_KEY"
-    def OPTIMIZELY_CONFIGURED = "OPTIMIZELY_CONFIGURED"
-    def OPTIMIZELY_KEY = "OPTIMIZELY_KEY"
-    def LEANPLUM_PROJECT_ID = "LEANPLUM_PROJECT_ID"
-    def LEANPLUM_CONFIGURED = "LEANPLUM_CONFIGURED"
-    def LEANPLUM_KEY = "LEANPLUM_KEY"
 
     defaultConfig {
         minSdkVersion 9
@@ -61,12 +55,6 @@ android {
 
         buildConfigField BOOLEAN, FABRIC_CONFIGURED, (fabricApiKey != null).toString()
 //        buildConfigField STRING, FABRIC_API_KEY, "\"" + fabricApiKey.toString() + "\""
-
-        def optimizelyApiKey = localProperties.OPTIMIZELY_KEY
-        buildConfigField BOOLEAN, OPTIMIZELY_CONFIGURED, (optimizelyApiKey != null).toString()
-        buildConfigField STRING, OPTIMIZELY_KEY, "\"" + optimizelyApiKey.toString() + "\""
-
-        buildConfigField STRING, LEANPLUM_PROJECT_ID, "\"" + leanplumProjectId.toString() + "\""
 
         def flurryKey = localProperties.FLURRY_KEY
         buildConfigField BOOLEAN, FLURRY_CONFIGURED, (flurryKey != null).toString()
@@ -92,10 +80,6 @@ android {
             def localyticsKeyExists = localyticsKey != null
             buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
             manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
-
-            def leanplumKeyProd = localProperties.LEANPLUM_KEY_PROD
-            buildConfigField BOOLEAN, LEANPLUM_CONFIGURED, (leanplumKeyProd != null && leanplumProjectId != null).toString()
-            buildConfigField STRING, LEANPLUM_KEY, "\"" + leanplumKeyProd.toString() + "\""
         }
 
         debug {
@@ -108,10 +92,6 @@ android {
             def localyticsKeyExists = localyticsKey != null
             buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
             manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
-
-            def leanplumKeyDev = localProperties.LEANPLUM_KEY_DEV
-            buildConfigField BOOLEAN, LEANPLUM_CONFIGURED, (leanplumKeyDev != null && leanplumProjectId != null).toString()
-            buildConfigField STRING, LEANPLUM_KEY, "\"" + leanplumKeyDev.toString() + "\""
         }
     }
     compileOptions {
@@ -169,13 +149,4 @@ dependencies {
     compile files('lib/AudienceNetwork.jar')
     compile files('lib/PayPalAndroidSDK-2.8.4.jar')
     compile 'com.commonsware.cwac:endless:1.2.3'
-
-    compile('com.optimizely:optimizely:1.4.2@aar') {
-        transitive = true
-        exclude group: "com.squareup.okhttp"
-    }
-
-    compile ('com.leanplum:Leanplum:1.2.23') {
-        transitive = true
-    }
 }
