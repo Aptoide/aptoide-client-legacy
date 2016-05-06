@@ -98,44 +98,48 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
             final SearchApk appItem = (SearchApk) list.get(position);
 
-            item.overflow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    final PopupMenu popup = new PopupMenu(view.getContext(), view);
-                    MenuInflater inflater = popup.getMenuInflater();
-                    inflater.inflate(R.menu.menu_search_item, popup.getMenu());
-                    MenuItem menuItem = popup.getMenu().findItem(R.id.versions);
-                    menuItem.setVisible(appItem.hasOtherVersions);
-                    menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem menuItem) {
-                            Intent intent = new Intent(item.itemView.getContext(), MoreVersionsActivity.class);
-                            intent.putExtra(Constants.PACKAGENAME_KEY, appItem.packageName);
-                            intent.putExtra(Constants.EVENT_LABEL, appItem.name);
-                            item.itemView.getContext().startActivity(intent);
-                            return true;
-                        }
-                    });
-                    menuItem = popup.getMenu().findItem(R.id.go_to_store);
-                    menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem menuItem) {
-                            Intent intent = new Intent(item.itemView.getContext(), StoresActivity.class);
-                            intent.putExtra(Constants.STORENAME_KEY, appItem.repo);
-                            intent.putExtra(Constants.STOREAVATAR_KEY, appItem.icon);
-                            intent.putExtra(Constants.THEME_KEY, appItem.repo_theme);
-                            intent.putExtra(Constants.DOWNLOAD_FROM_KEY, "store");
-                            boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(appItem.repo);
-                            intent.putExtra(Constants.STORE_SUBSCRIBED_KEY, subscribed);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                            item.itemView.getContext().startActivity(intent);
-                            return true;
-                        }
-                    });
+            item.overflow.setVisibility(View.GONE);
+            if(Aptoide.getConfiguration().isMultipleStores()) {
+                item.overflow.setVisibility(View.VISIBLE);
+                item.overflow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        final PopupMenu popup = new PopupMenu(view.getContext(), view);
+                        MenuInflater inflater = popup.getMenuInflater();
+                        inflater.inflate(R.menu.menu_search_item, popup.getMenu());
+                        MenuItem menuItem = popup.getMenu().findItem(R.id.versions);
+                        menuItem.setVisible(appItem.hasOtherVersions);
+                        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem menuItem) {
+                                Intent intent = new Intent(item.itemView.getContext(), MoreVersionsActivity.class);
+                                intent.putExtra(Constants.PACKAGENAME_KEY, appItem.packageName);
+                                intent.putExtra(Constants.EVENT_LABEL, appItem.name);
+                                item.itemView.getContext().startActivity(intent);
+                                return true;
+                            }
+                        });
+                        menuItem = popup.getMenu().findItem(R.id.go_to_store);
+                        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem menuItem) {
+                                Intent intent = new Intent(item.itemView.getContext(), StoresActivity.class);
+                                intent.putExtra(Constants.STORENAME_KEY, appItem.repo);
+                                intent.putExtra(Constants.STOREAVATAR_KEY, appItem.icon);
+                                intent.putExtra(Constants.THEME_KEY, appItem.repo_theme);
+                                intent.putExtra(Constants.DOWNLOAD_FROM_KEY, "store");
+                                boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(appItem.repo);
+                                intent.putExtra(Constants.STORE_SUBSCRIBED_KEY, subscribed);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                                item.itemView.getContext().startActivity(intent);
+                                return true;
+                            }
+                        });
 
-                    popup.show();
-                }
-            });
+                        popup.show();
+                    }
+                });
+            }
 
             item.name.setText(appItem.name);
             String downloadNumber = AptoideUtils.StringUtils.withSuffix(appItem.downloads) + " " + item.bottomView.getContext().getString(R.string.downloads);
