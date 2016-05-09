@@ -5,6 +5,7 @@
 
 package com.aptoide.amethyst.analytics;
 
+import com.aptoide.amethyst.BuildConfig;
 import com.seatgeek.sixpack.Alternative;
 import com.seatgeek.sixpack.Sixpack;
 import com.seatgeek.sixpack.SixpackBuilder;
@@ -23,40 +24,43 @@ public class ABTestManager {
 			"app-view-show-security-overlay";
 	private static ABTestManager instance;
 
-	private Sixpack sixpack;
+	private SixpackBuilder sixpackBuilder;
 	private final ExecutorService executorService;
-	private Set<ABTest> tests;
+	private final Set<ABTest<?>> tests;
+	private Sixpack sixpack;
 
 	public static ABTestManager getInstance() {
 		if (instance == null) {
-			instance = new ABTestManager(new SixpackBuilder()
-					.setSixpackUrl(HttpUrl.parse("http://10.0.2.2:5000/sixpack/"))
-					.setClientId("1234")
-					.setLogLevel(LogLevel.VERBOSE)
-					.build(), Executors.newCachedThreadPool());
+			instance = new ABTestManager(new SixpackBuilder(), Executors.newCachedThreadPool());
 		}
 		return instance;
 	}
 
-	private ABTestManager(Sixpack sixpack, ExecutorService executorService) {
-		this.sixpack = sixpack;
+	private ABTestManager(SixpackBuilder sixpackBuilder, ExecutorService executorService) {
+		this.sixpackBuilder = sixpackBuilder;
 		this.executorService = executorService;
 		this.tests = new HashSet<>();
 	}
 
-	public void initialize() {
+	public void initialize(String clientId) {
+		initializeSixpack(clientId);
 		registerTests();
 		prefetchTests();
+	}
+
+	private void initializeSixpack(String clientId) {
+		sixpack = sixpackBuilder.setSixpackUrl(HttpUrl.parse("http://10.0.2.2:5000/sixpack/"))
+				.setClientId(clientId)
+				.setLogLevel(BuildConfig.DEBUG ? LogLevel.VERBOSE : LogLevel.NONE)
+				.build();
 	}
 
 	@SuppressWarnings("unchecked")
 	private void registerTests() {
 		tests.add(new ABTest(executorService, sixpack.experiment()
 				.withName(APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE)
-				.withAlternatives(
-					new Alternative("true"),
-					new Alternative("false"))
-				.build(), new BooleanAlternativeConverter()));
+				.withAlternatives(new Alternative("false"), new Alternative("true"))
+				.build(), new BooleanAlternativeParser()));
 	}
 
 	private void prefetchTests() {

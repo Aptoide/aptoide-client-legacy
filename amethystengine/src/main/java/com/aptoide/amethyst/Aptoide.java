@@ -94,6 +94,7 @@ public class Aptoide extends Application {
                 }
 
                 AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", aaid).apply();
+                ABTestManager.getInstance().initialize(aaid);
             }
         }).start();
     }
@@ -136,7 +137,6 @@ public class Aptoide extends Application {
         setThemePicker(getNewThemePicker());
         Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());
         AptoideUtils.CrashlyticsUtils.subsctibeActivityLiveCycleEvent();
-        ABTestManager.getInstance().initialize();
     }
 
     /**

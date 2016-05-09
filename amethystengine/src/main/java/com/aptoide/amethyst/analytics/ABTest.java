@@ -14,13 +14,14 @@ public class ABTest<T> {
 
 	private final ExecutorService executorService;
 	private final Experiment experiment;
-	private final AlternativeConverter<T> alternativeConverter;
+	private final AlternativeParser<T> alternativeParser;
 	private ParticipatingExperiment participatingExperiment;
 
-	public ABTest(ExecutorService executorService, Experiment experiment, AlternativeConverter<T> alternativeConverter) {
+	public ABTest(ExecutorService executorService, Experiment experiment, AlternativeParser<T>
+			alternativeParser) {
 		this.executorService = executorService;
 		this.experiment = experiment;
-		this.alternativeConverter = alternativeConverter;
+		this.alternativeParser = alternativeParser;
 	}
 
 	public String getName() {
@@ -39,24 +40,26 @@ public class ABTest<T> {
 	}
 
 	public void convert() {
-		if (participatingExperiment != null) {
+		if (isParticipating()) {
 			executorService.submit(new Runnable() {
 				@Override
 				public void run() {
 					participatingExperiment.convert();
 				}
 			});
-		} else {
-			throw new IllegalStateException("Must participate first.");
 		}
 	}
 
 	public T alternative() {
-		if (participatingExperiment != null) {
-			return alternativeConverter.convert(participatingExperiment.selectedAlternative.name);
+		if (isParticipating()) {
+			return alternativeParser.parse(participatingExperiment.selectedAlternative.name);
 		} else {
-			throw new IllegalStateException("Must participate first.");
+			return alternativeParser.parse(experiment.getControlAlternative().name);
 		}
+	}
+
+	private boolean isParticipating() {
+		return participatingExperiment != null;
 	}
 
 	public void prefetch() {
@@ -75,11 +78,11 @@ public class ABTest<T> {
 
 		ABTest<?> abTest = (ABTest<?>) o;
 
-		return experiment.name.equals(abTest.experiment.name);
+		return getName().equals(abTest.getName());
 	}
 
 	@Override
 	public int hashCode() {
-		return experiment.name.hashCode();
+		return getName().hashCode();
 	}
 }

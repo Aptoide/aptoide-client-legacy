@@ -5,10 +5,10 @@
 
 package com.aptoide.amethyst.analytics;
 
-public class BooleanAlternativeConverter implements AlternativeConverter<Boolean> {
+public class BooleanAlternativeParser implements AlternativeParser<Boolean> {
 
 	@Override
-	public Boolean convert(String string) {
+	public Boolean parse(String string) {
 		if (string.equals("true")) {
 			return true;
 		}

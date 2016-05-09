@@ -8,8 +8,8 @@ package com.aptoide.amethyst.analytics;
 /**
  * Created by marcelobenites on 5/6/16.
  */
-public interface AlternativeConverter<T> {
+public interface AlternativeParser<T> {
 
-	T convert(String string);
+	T parse(String string);
 
 }
