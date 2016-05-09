@@ -67,9 +67,14 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aptoide.amethyst.adapter.DividerItemDecoration;
+import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
+import com.aptoide.amethyst.adapter.store.CommentsStoreAdapter;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
-import com.aptoide.amethyst.analytics.ABTestingManager;
+import com.aptoide.amethyst.analytics.ABTest;
+import com.aptoide.amethyst.analytics.ABTestManager;
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
@@ -79,19 +84,29 @@ import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
+import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
 import com.aptoide.amethyst.model.json.CheckUserCredentialsJson;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.openiab.PaidAppPurchaseActivity;
 import com.aptoide.amethyst.preferences.Preferences;
 import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.services.DownloadService;
 import com.aptoide.amethyst.ui.IMediaObject;
+import com.aptoide.amethyst.ui.MoreCommentsActivity;
+import com.aptoide.amethyst.ui.MoreVersionsActivity;
 import com.aptoide.amethyst.ui.MyAccountActivity;
 import com.aptoide.amethyst.ui.Screenshot;
+import com.aptoide.amethyst.ui.SearchManager;
 import com.aptoide.amethyst.ui.Video;
+import com.aptoide.amethyst.ui.WrappingLinearLayoutManager;
 import com.aptoide.amethyst.ui.callbacks.AddCommentCallback;
+import com.aptoide.amethyst.ui.widget.CircleTransform;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.utils.ReferrerUtils;
 import com.aptoide.amethyst.webservices.AddApkFlagRequest;
 import com.aptoide.amethyst.webservices.CheckUserCredentialsRequest;
+import com.aptoide.amethyst.webservices.GetApkInfoRequestFromId;
 import com.aptoide.amethyst.webservices.GetAppRequest;
 import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
@@ -140,21 +155,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-
-import com.aptoide.amethyst.adapter.DividerItemDecoration;
-import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
-import com.aptoide.amethyst.adapter.store.CommentsStoreAdapter;
-import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
-import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
-import com.aptoide.amethyst.openiab.PaidAppPurchaseActivity;
-import com.aptoide.amethyst.services.DownloadService;
-import com.aptoide.amethyst.ui.MoreCommentsActivity;
-import com.aptoide.amethyst.ui.MoreVersionsActivity;
-import com.aptoide.amethyst.ui.SearchManager;
-import com.aptoide.amethyst.ui.WrappingLinearLayoutManager;
-import com.aptoide.amethyst.ui.widget.CircleTransform;
-import com.aptoide.amethyst.utils.ReferrerUtils;
-import com.aptoide.amethyst.webservices.GetApkInfoRequestFromId;
 
 import lombok.Getter;
 
@@ -310,6 +310,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
 		private boolean lifecycleController;
 		private Animation securityOverlayAnimation;
+		private ABTest<Boolean> overlayABTest;
 
 		public static AppViewFragment newInstance(boolean lifecycleController) {
 			AppViewFragment f = new AppViewFragment();
@@ -608,8 +609,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					showDialogIfComingFromAPKFY();
 					populateRatings(model.getApp);
 
-					if (ABTestingManager.getBooleanVariable(ABTestingManager
-							.APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE)) {
+					if (overlayABTest.alternative()) {
 						setSecurityInformationOverlay(malware);
 						startSecurityInformationOverlayAnimation(securityOverlayAnimation);
 					}
@@ -784,6 +784,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			glide = Glide.with(this);
 
 			securityOverlayAnimation = loadSecurityInformationOverlayAnimation();
+			overlayABTest = ABTestManager.getInstance().get(ABTestManager
+					.APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE);
+			overlayABTest.participate();
 			lifecycleController = getArguments().getBoolean("lifecycleController");
 
 			if (savedInstanceState != null) {
@@ -811,7 +814,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			spiceManager.start(getActivity());
 			final View view = inflater.inflate(R.layout.fragment_app_view, container, false);
 			bindViews(view);
-			setUpABTestingViewStyles();
 			recyclerOffset = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4,
 					getResources()
 					.getDisplayMetrics());
@@ -911,11 +913,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			descriptionLines = view.getContext()
 					.getResources()
 					.getInteger(R.integer.minimum_description_lines);
-		}
-
-		private void setUpABTestingViewStyles() {
-			mButtonInstall.setBackgroundColor(ABTestingManager.getColorVariable(ABTestingManager
-					.APP_VIEW_BUTTON_BACKGROUND_COLOR_VARIABLE));
 		}
 
 		@Override
@@ -2677,7 +2674,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 			@Override
 			public void onClick(View v) {
-				ABTestingManager.trackEvent(ABTestingManager.APP_VIEW_BUTTON_TAP_EVENT);
+				overlayABTest.convert();
 				reloadButtons = true;
 				if (appSuggested != null && appSuggested.getInfo().getCpc_url() != null) {
 					AptoideUtils.AdNetworks.knock(appSuggested.getInfo().getCpd_url());

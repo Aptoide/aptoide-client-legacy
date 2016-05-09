@@ -33,7 +33,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.adapter.MainPagerAdapter;
-import com.aptoide.amethyst.analytics.ABTestingManager;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
@@ -344,7 +343,6 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         Analytics.Dimenstions.setPartnerDimension(getPartnerName());
         Analytics.Dimenstions.setVerticalDimension(getVertical());
         Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
-        ABTestingManager.startSession(this);
     }
 
     protected int getContentView() {
