@@ -292,7 +292,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         }
 
         final GetAdsRequest request = new GetAdsRequest();
-        request.setLimit(BUCKET_SIZE);
+        request.setLimit(BUCKET_SIZE*2);
         request.setLocation("homepage");
         request.setKeyword("__NULL__");
 
