@@ -645,8 +645,13 @@
     <string name="finance">Finance</string>
     <string name="games">Games</string>
     <string name="health_fitness">Health &#38; Fitness</string>
+    <string name="highlighted">Highlighted</string>
+    <string name="local_top_apps">Local Top Apps</string>
     <string name="lifestyle">Lifestyle</string>
     <string name="media_video">Media &#38; Video</string>
+    <string name="medical">Medical</string>
+    <string name="multimedia">Multimedia</string>
+    <string name="music_audio">Music &#38; Audio</string>
     <string name="news_magazines">News &#38; Magazines</string>
     <string name="news_weather">News &#38; Weather</string>
     <string name="personalization">Personalization</string>

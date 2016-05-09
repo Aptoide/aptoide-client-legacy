@@ -10,7 +10,7 @@ public class Translator {
 
     public static String translate(String string) {
         String translated = null;
-        switch (string) {/*
+        switch (string) {
             case "Highlighted":
                 translated = Aptoide.getContext().getString(R.string.highlighted);
                 break;
@@ -33,7 +33,7 @@ public class Translator {
                 translated = Aptoide.getContext().getString(R.string.productivity);
                 break;
             case "News & Magazines":
-                translated = Aptoide.getContext().getString(R.string.news_mags);
+                translated = Aptoide.getContext().getString(R.string.news_magazines);
                 break;
             case "Reference":
                 translated = Aptoide.getContext().getString(R.string.reference);
@@ -60,7 +60,7 @@ public class Translator {
                 translated = Aptoide.getContext().getString(R.string.travel);
                 break;
             case "Software Libraries":
-                translated = Aptoide.getContext().getString(R.string.software_libs);
+                translated = Aptoide.getContext().getString(R.string.software_libraries);
                 break;
             case "Demo":
                 translated = Aptoide.getContext().getString(R.string.demo);
@@ -100,10 +100,10 @@ public class Translator {
                 break;
             case "Health":
                 translated = Aptoide.getContext().getString(R.string.health);
-                break;
+                break;/*
             case "Libraries & Demo":
                 translated = Aptoide.getContext().getString(R.string.libraries_demo);
-                break;
+                break;*/
             case "Books & Reference":
                 translated = Aptoide.getContext().getString(R.string.books_reference);
                 break;
@@ -190,7 +190,7 @@ public class Translator {
                 break;
             case "Top Apps":
                 translated = Aptoide.getContext().getString(R.string.top_apps);
-                break;*/
+                break;
             default:
                 translated = null;
                 break;
