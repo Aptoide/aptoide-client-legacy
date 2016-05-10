@@ -11,8 +11,11 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Translator;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
 
@@ -50,9 +53,14 @@ public class HeaderViewHolder extends BaseViewHolder {
     @Override
     public void populateView(Displayable displayable) {
         HeaderRow row = (HeaderRow) displayable;
-        title.setText(row.getLabel());
+        String translated = Translator.translate(row.getLabel());
+        if(translated == null) {
+            translated = row.getLabel();
+        }
+        title.setText(translated);
         if (row.isHasMore()) {
             more.setVisibility(View.VISIBLE);
+            more.setText(Aptoide.getContext().getString(R.string.button_header_more));
             if (storeName == null || TextUtils.isEmpty(storeName)) {
                 if (storeId == 0) {
                     more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme));

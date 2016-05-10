@@ -41,7 +41,7 @@
 
 
             <ImageView
-                android:layout_marginRight="-15dp"
+                android:layout_marginRight="0dp"
                 android:id="@+id/ic_trusted_search"
                 android:layout_width="@dimen/trusted_badge_size"
                 android:layout_height="@dimen/trusted_badge_size"

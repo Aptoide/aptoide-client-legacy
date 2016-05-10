@@ -14,6 +14,7 @@ import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Translator;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.octo.android.robospice.SpiceManager;
@@ -103,8 +104,15 @@ public abstract class MoreActivity extends AptoideBaseActivity {
             if(storeTheme == null) {
                 storeTheme = EnumStoreTheme.get(sPref.getString("theme", "light"));
             }
+            String title = "";
             packageName = args.getString(Constants.PACKAGENAME_KEY);
-            getSupportActionBar().setTitle(label);
+            if (label != null) {
+                title = Translator.translate(label);
+                if (title == null) {
+                    title = label;
+                }
+            }
+            getSupportActionBar().setTitle(title);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().setStatusBarColor(getResources().getColor(storeTheme.getColor700tint()));
             }

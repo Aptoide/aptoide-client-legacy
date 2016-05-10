@@ -101,6 +101,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             item.overflow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if(Aptoide.getConfiguration().isMultipleStores()) {
                     final PopupMenu popup = new PopupMenu(view.getContext(), view);
                     MenuInflater inflater = popup.getMenuInflater();
                     inflater.inflate(R.menu.menu_search_item, popup.getMenu());
@@ -134,6 +135,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     });
 
                     popup.show();
+                }
                 }
             });
 
