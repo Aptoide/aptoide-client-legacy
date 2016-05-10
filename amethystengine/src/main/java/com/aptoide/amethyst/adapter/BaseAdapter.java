@@ -18,6 +18,7 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.downloadmanager.adapter.NotOngoingDownloadRow;
 import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.displayables.StoreHeaderRow;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.displayables.AdItem;
@@ -259,10 +260,14 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         i = new Intent(view.getContext(), MoreStoreWidgetActivity.class);
                         break;
                     case EVENT_FACEBOOK_TYPE:
+                        if (AptoideUtils.AppUtils.isAppInstalled(view.getContext(), "com.facebook.katana")) {
+                            sendActionEvent(view, row.getEventActionUrl());
+                        } else {
+                            sendActionEvent(view, row.getAltEventActionUrl());
+                        }
+                        return;
                     case EVENT_YOUTUBE_TYPE:
-                        i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(row.getEventActionUrl()));
-                        view.getContext().startActivity(i);
+                        sendActionEvent(view, row.getEventActionUrl());
                         return;
                     case ADS_TYPE:
                         i = new Intent(view.getContext(), MoreHighlightedActivity.class);
@@ -297,6 +302,13 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     view.getContext().startActivity(i);
                 }
             }
+        }
+
+        private void sendActionEvent(View view, String eventActionUrl) {
+            Intent i;
+            i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(eventActionUrl));
+            view.getContext().startActivity(i);
         }
     }
 

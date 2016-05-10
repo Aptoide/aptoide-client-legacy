@@ -89,6 +89,7 @@ import java.util.List;
                     public String type; // API, v3, EXTERNAL
                     public String name; // listApps, getStore, getStoreWidgets, getApkComments
                     public String action;
+                    public String altAction;
 
                     public static boolean isKnownType(String type) {
                         switch (type) {

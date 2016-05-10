@@ -299,6 +299,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                 categ.setEventType(display.event.type);
                 categ.setEventName(display.event.name);
                 categ.setEventActionUrl(display.event.action);
+                categ.setEventAltActionUrl(display.event.altAction);
                 displayables.add(categ);
             }
         }
