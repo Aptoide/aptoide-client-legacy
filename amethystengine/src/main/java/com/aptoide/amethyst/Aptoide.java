@@ -128,14 +128,18 @@ public class Aptoide extends Application {
         Crashlytics crashlyticsKit = new Crashlytics.Builder()
                 .core(new CrashlyticsCore.Builder().disabled(!BuildConfig.FABRIC_CONFIGURED).build())
                 .build();
-        Fabric.with(this, crashlyticsKit);
+        Fabric.with(this, crashlyticsKit).getExecutorService().submit(new Runnable() {
+            @Override
+            public void run() {
+                Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());
+            }
+        });
 
         setConfiguration(getAptoideConfiguration());
         initImageLoader();
         setDebugMode();
         checkIsSystem();
         setThemePicker(getNewThemePicker());
-        Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());
         AptoideUtils.CrashlyticsUtils.subsctibeActivityLiveCycleEvent();
     }
 
