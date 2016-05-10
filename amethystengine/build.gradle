@@ -97,8 +97,11 @@ android {
 
         debug {
 
-            multiDexEnabled true
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'proguard-rules-debug.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules' +
+                    '.pro', 'proguard-rules-debug-test.pro'
 
             buildConfigField BOOLEAN, REPORT_CRASHES, FALSE
 
@@ -118,6 +121,9 @@ android {
     }
     lintOptions {
         abortOnError false
+    }
+    dexOptions {
+        jumboMode = true
     }
 }
 
@@ -173,6 +179,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
 
-    androidTestCompile 'com.android.support.test:runner:0.4.1'
+    androidTestCompile 'com.android.support.test:runner:0.5'
 
 }
