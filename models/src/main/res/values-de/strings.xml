@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Heute</string>
 <string name="WidgetProvider_timestamp_yesterday">Gestern</string>
 <string name="WidgetProvider_timestamp_hour_ago">vor %s Stunde</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Diese App als Gefahr melden</string>
 <string name="search">Suchen</string>
 <string name="my_account">Mein Konto</string>
-<string name="no_sch_downloads">Keine geplanten Downloads!</string>
+<string name="no_sch_downloads">Stöbern Sie unterwegs durch die Apps und möchten später downloaden, wenn Sie eine WLAN-Verbindung haben? Verwenden Sie eingeplante Downloads und ändern Sie Ihre Präferenzen unter Einstellungen -&gt; Generelle Download-Regeln zu WLAN.</string>
 <string name="schDown_installselected">Ausgewählte installieren</string>
 <string name="stores">Stores</string>
 <string name="insert_store_name">Store Name eingeben:</string>
@@ -75,7 +75,7 @@
 <string name="see_top_stores">Siehe Top Stores</string>
 <string name="setcredentials">Anmelden</string>
 <string name="rollback">Zurücksetzen</string>
-<string name="rollback_empty">Keine Apps zum Zurücksetzen</string>
+<string name="rollback_empty">Setzen Sie schnell jede beliebige App zurück auf eine frühere Version und lösen Sie Probleme aufgrund von fehlender Kompatibilität. Behalten Sie ein Log all Ihrer installierten Apps (über Aptoide) inklusive der Version und des Installationsdatums.</string>
 <string name="rollback_installed">Installiert</string>
 <string name="rollback_uninstalled">Deinstalliert</string>
 <string name="rollback_updated">Aktualisiert</string>
@@ -90,7 +90,7 @@
 <string name="subscribe_pvt_store">Privaten Store abonnieren</string>
 <string name="accept_terms">Durch die Anmeldung erklären Sie sich mit den Aptoide Nutzungsbedingungen und Inhaltsrichtlinien für Entwickler einverstanden</string>
 <string name="register">Registrieren</string>
-<string name="or">Oder</string>
+<string name="or">- Oder -</string>
 <string name="dont_have_an_account">Haben Sie kein Konto? Registriere Sie sich</string>
 <string name="logged_as">Angemeldet als:</string>
 <string name="sign_out">Abmelden</string>
@@ -394,7 +394,7 @@
 
     <string name="order_popup_title3">Inhalt für Erwachsene</string>
     <string name="timeline_is_empty_send_email">Es wird eine E-Mail an die von Ihnen Ausgewählten gesendet</string>
-    <string name="more_reviews">Mehr Rezensionen</string>
+    <string name="more_reviews">Rezensionen</string>
     <string name="more_editors_choice">Mehr Editor-Vorschläge</string>
     <string name="more_versions">Weitere Versionen</string>
     <string name="recommended_for_you">Empfehlungen für Sie</string>
@@ -414,9 +414,10 @@
     <string name="flag_this_app_need_licence">Lizenz benötigt</string>
     <string name="appview_additional_information_title">Zusätzliche Information</string>
     <string name="appview_latest_version_text">Dies ist die aktuellste Version!</string>
-    <string name="appview_subscribe_store_button_text">+  Abonnieren?</string>
-    <string name="noIgnoreUpdateText">Keine ignorierte Aktualisierungen</string>
-    <string name="createReviewButtonText">Rezension erstellen</string>
+    <string name="appview_subscribe_store_button_text">Abonnieren?</string>
+    <string name="noIgnoreUpdateText">Die neue Version einer App funktioniert auf Ihrem Gerät nicht, oder ein paar Features fehlen? Hindern Sie Apps am Update. Gehen Sie zum Reiter Updates und drücken Sie lange auf die App, deren Update Sie verhindern möchten.</string>
+    <string name="createReviewButtonText">Rezension
+\nerstellen</string>
     <string name="navigation_drawer_signup_login">Registrieren oder Anmelden</string>
     <string name="_downloads"> Downloads</string>
     <string name="no_description">Keine Beschreibung</string>
@@ -455,7 +456,7 @@
     <string name="data_usage_constraint">Download ist unter Einstellungen &gt; Generelle Downloadregeln nicht gestattet</string>
 
     <string name="added_to_scheduled">Zu Menü &gt; Geplante Downloads hinzugefügt</string>
-    <string name="hidden_adult">Es werden keine Apps angezeigt, weil Adult-Filter aktiv sind. Möchten Sie Apps mit Adult-Inhalten anzeigen?</string>
+    <string name="hidden_adult">Manche Apps werden nicht angezeigt, weil Adult-Filter aktiv sind. Möchten Sie diese Apps anzeigen?</string>
     <string name="dont_show_again">Zeigen Sie diesen Dialog nicht mehr an</string>
 
     <string name="get_latest">Holen Sie die neueste Version</string>
@@ -570,5 +571,15 @@
     <string name="privacy_policy">Sicherheitspolitik: %s</string>
     <string name="dialog_version_size">Version: %1$s | Größe: %2$s</string>
     <string name="na">N/A</string>
+
+<string name="error_410">Entschuldigung, die angeforderte App wurde auf diesem Server nicht gefunden.</string>
+
+    <string name="no_email_and_pass_error_message">Geben Sie bitte eine E-Mail-Adresse und ein Passwort zur Anmeldung ein.</string>
+    <string name="no_pass_error_message">Bitte geben Sie ein Passwort ein, um sich anzumelden.</string>
+    <string name="no_email_error_message">Bitte geben Sie eine E-Mail-Adresse ein, um sich anzumelden.</string>
+    <string name="website_copied">Website wurde zum Clipboard kopiert</string>
+    <string name="email_copied">E-Mail wurde zur Zwischenablage kopiert</string>
+    <string name="privacy_copied">Datenschutz-Link zur Zwischenablage kopiert</string>
+    <string name="subscribing_store_message">Abmelden %s</string>
 
 </resources>

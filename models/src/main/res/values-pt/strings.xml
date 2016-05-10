@@ -22,7 +22,7 @@
 <string name="setting_sum_icon_download_rules">Permite a transferência de ícones em ligações móveis</string>
 <string name="setting_general_download_rules">Regras gerais de download</string>
 <string name="setting_sum_general_download_rules">Transfira Apps, Escolhas do Editor, Top de Apps e Lojas em ligações de dados móveis permitidas</string>
-<string name="setting_wifi">Wi-Fi</string>
+<string name="setting_wifi">WiFi</string>
 <string name="setting_3g">3G</string>
 <string name="setting_4g">4G</string>
 <string name="setting_ethernet">Por cabo</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">Ocultar aplicações não compatíveis com este dispositivo</string>
 <string name="setting_appfiltertitle">Filtrar aplicações</string>
 <string name="setting_schdwntitle">Transferências agendadas</string>
-<string name="setting_schdwninstallsum">Instalar downloads agendados automaticamente quando estiver disponível uma ligação WiFi</string>
+<string name="setting_schdwninstallsum">Instalar downloads agendados automaticamente quando estiver presente uma ligação WiFi</string>
 <string name="setting_sdk_version">Versão SDK</string>
 <string name="setting_screen_size">Tamanho do ecrã</string>
 <string name="setting_esgl_version">Versão GLES</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Classificar esta app</string>
 <string name="search">Pesquisar</string>
 <string name="my_account">A minha conta</string>
-<string name="no_sch_downloads">Quer navegar pelas apps usando os dados móveis e transferir mais tarde com uma ligação wifi? Use as transferências agendadas e mude as suas preferências em Definições -&gt; Regras gerais de download - para WiFi.</string>
+<string name="no_sch_downloads">Quer navegar pelas apps usando os dados móveis e transferir mais tarde com uma ligação wifi? Use as transferências agendadas e mude as suas preferências em Definições -&gt; Regras gerais de download - para Wi-Fi.</string>
 <string name="schDown_installselected">Instalar seleccionados</string>
 <string name="stores">Lojas</string>
 <string name="insert_store_name">Inserir nome da loja:</string>
@@ -101,13 +101,13 @@
 <string name="restore_updates">Restaurar actualizações</string>
 <string name="start_loading">A carregar…</string>
 <string name="one_account_allowed">Apenas uma conta é permitida</string>
-<string name="ip_blacklisted">IP excluído</string>
-<string name="apk_not_found">A aplicação não foi encontrada</string>
-<string name="invalid_apk">Aplicação inválida</string>
+<string name="ip_blacklisted">IP na lista negra</string>
+<string name="apk_not_found">Apk não encontrada</string>
+<string name="invalid_apk">Apk inválido</string>
 <string name="remote_in_nospace">não tem espaço suficiente no seu dispositivo.</string>
 <string name="server_error">Erro de servidor</string>
 <string name="paidapp_not_found">Ocorreu um erro no download. Por favor tente novamente ou contacte a equipa de suporte.</string>
-<string name="finished_install">%s foi instalado.</string>
+<string name="finished_install">%s foi instalada.</string>
 <string name="installing">%s está a instalar…</string>
 <string name="no_permissions_required">Esta app não precisa de permissões.</string>
 <string name="connection_error">Sem ligação à rede</string>
@@ -116,7 +116,7 @@
 <string name="error_occured">Ocorreu um erro. Por favor tente novamente</string>
 <string name="starting_download">A iniciar a transferência</string>
 <string name="subscribe_newrepo_alrt">Quer subscrever esta loja?\n\n</string>
-<string name="downloads">Transferências</string>
+<string name="downloads">Descargas</string>
 <string name="size">Tamanho</string>
 <string name="likes">Gostos</string>
 <string name="change_theme">Mudar tema</string>
@@ -380,7 +380,7 @@
 
     <string name="order_popup_title3">Conteúdo para adultos</string>
     <string name="timeline_is_empty_send_email">Vamos enviar um email para quem escolher</string>
-    <string name="more_reviews">Mais críticas</string>
+    <string name="more_reviews">Críticas</string>
     <string name="recommended_for_you">Recomendado para si</string>
     <string name="like">Gosto</string>
     <string name="review_by">Crítica de:\n%s</string>
@@ -398,10 +398,11 @@
     <string name="flag_this_app_need_licence">Requer Licença</string>
     <string name="appview_additional_information_title">Informação adicional</string>
     <string name="appview_latest_version_text">Esta é a última versão!</string>
-    <string name="appview_subscribe_store_button_text">"+  Subscrever?"</string>
+    <string name="appview_subscribe_store_button_text">Subscrever?</string>
     <string name="noIgnoreUpdateText">A nova versão da app não funciona no seu dispositivo ou falta alguma funcionalidade? Bloqueie a actualização de apps. Vá até à aba Actualizações e pressione continuamente na app onde deseja parar a atualização.</string>
-    <string name="createReviewButtonText">Escrever crítica</string>
-    <string name="navigation_drawer_signup_login">Registar ou entrar</string>
+    <string name="createReviewButtonText">Escrever
+\ncrítica</string>
+    <string name="navigation_drawer_signup_login">Registar ou Entrar</string>
     <string name="_downloads"> downloads</string>
     <string name="no_description">Sem descrição</string>
     <string name="version">Versão</string>
@@ -451,7 +452,7 @@
     <string name="data_usage_constraint">Tem de permitir os downloads em Definições &gt; Regras gerais de Transferências</string>
 
     <string name="added_to_scheduled">Adicionado ao Menu &gt; Transferências agendadas</string>
-    <string name="hidden_adult">Há apps que não estão a ser mostradas porque tem os filtros de conteúdo para adultos activos. Quer ver o conteúdo para adultos?</string>
+    <string name="hidden_adult">Algumas apps estão ocultas devido ao filtro de conteúdo adulto estar activo. Deseja listar estas apps?</string>
     <string name="dont_show_again">Não mostrar este diálogo novamente</string>
 
     <string name="get_latest">Obter a última versão</string>
@@ -556,4 +557,62 @@
     <string name="wizard_new_top">Nova aba com o top de aplicações</string>
     <string name="no_email_and_pass_error_message">Por favor introduza um email e palavra-passe para se registar.</string>
     <string name="no_pass_error_message">Por favor introduza a palavra-passe para se registar.</string>
+    <string name="no_email_error_message">Por favor, insira um e-mail para registar.</string>
+    <string name="website_copied">Website copiado para a área de transferência</string>
+    <string name="email_copied">E-mail copiado para a área de transferência</string>
+    <string name="privacy_copied">Link de privacidade copiado para a área de transferência</string>
+    <string name="subscribing_store_message">Deixar de subscrever %s</string>
+
+<string name="latest_reviews">Últimas críticas</string>
+    <string name="latest_comments">Últimos comentários</string>
+    <string name="action">Acção</string>
+    <string name="adventure">Aventura</string>
+    <string name="all">Todos</string>
+    <string name="applications">Aplicações</string>
+    <string name="arcade">Arcade</string>
+    <string name="arcade_action">Arcade &amp; Acção</string>
+    <string name="board">Tabuleiro</string>
+    <string name="books_reference">Livros &amp; Referências</string>
+    <string name="brain_puzzle">Cerebrais &amp; Puzzle</string>
+    <string name="business">Negócios</string>
+    <string name="card">Cartas</string>
+    <string name="cards_casino">Cartas &amp; Casino</string>
+    <string name="casino">Casino</string>
+    <string name="casual">Casual</string>
+    <string name="comics">Banda desenhada</string>
+    <string name="communication">Comunicação</string>
+    <string name="demo">Demonstração</string>
+    <string name="education">Educação</string>
+    <string name="educational">Educativos</string>
+    <string name="enable">Activar</string>
+    <string name="entertainment">Entretenimento</string>
+    <string name="family">Família</string>
+    <string name="finance">Finanças</string>
+    <string name="games">Jogos</string>
+    <string name="health_fitness">Saúde &amp; Fitness</string>
+    <string name="lifestyle">Estilo de vida</string>
+    <string name="media_video">Media &amp; Vídeo</string>
+    <string name="news_magazines">Jornais &amp; Revistas</string>
+    <string name="news_weather">Notícias &amp; Meteorologia</string>
+    <string name="personalization">Personaliação</string>
+    <string name="photography">Fotografia</string>
+    <string name="productivity">Produtividade</string>
+    <string name="puzzle">Puzzle</string>
+    <string name="quick_start">Iniciação rápida</string>
+    <string name="racing">Corrida</string>
+    <string name="Reference">Referências</string>
+    <string name="role_playing">Role Playing (RPG)</string>
+    <string name="simulation">Simulação</string>
+    <string name="social">Social</string>
+    <string name="software_libraries">Biliotecas de software</string>
+    <string name="sports">Desporto</string>
+    <string name="sports_games">Jogos de desporto</string>
+    <string name="strategy">Estratégia</string>
+    <string name="themes">Temas</string>
+    <string name="tools">Ferramentas</string>
+    <string name="transport">Transportes</string>
+    <string name="transportation">Transportes</string>
+    <string name="travel_local">Viagens &amp; Locais</string>
+    <string name="trending">Tendências</string>
+    <string name="trivia">Trívia</string>
     </resources>

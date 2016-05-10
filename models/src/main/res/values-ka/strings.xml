@@ -42,7 +42,7 @@
 <string name="clearcontent_title">წაშალე კონფიგურაცია და მონაცემები</string>
 <string name="clearcache_title">წაშალე cache</string>
 <string name="clear_cache_sucess">მონაცემები წარმატებულად წაიშალა</string>
-<string name="clearcache_sum">წაშალე cache (icon-ები და სურათები) მეხსიერების ბარათიდან.</string>
+<string name="clearcache_sum">წაშალე cache (ხატულები და სურათები) მეხსიერების ბარათიდან.</string>
 <string name="clearcache_sum_jolla">ქეშის წაშლა</string>
 <string name="clearcontent_sum">მონაცემების წაშლა მეხიერების ბარათიდან.</string>
 <string name="clearcontent_sum_jolla">მონაცემების წაშლა</string>
@@ -65,8 +65,8 @@
 <string name="menu_select_all">ყველას არჩევა</string>
 <string name="flag_this_app_button_text">მონიშნე ეს აპლიკაცია</string>
 <string name="search">ძებნა</string>
-<string name="my_account">ჩემი ექაუნთი</string>
-<string name="no_sch_downloads"/>
+<string name="my_account">ჩემი ანგარიში</string>
+<string name="no_sch_downloads">დაათვალიერეთ აპლიკაციები მობილური ინტერნეტით და გადმოწერეთ მაშინ, როდესაც დაუკავშირდებით Wi-Fi-ს. გადადეთ გადმოწერა და შეცვალეთ: პარამეტრები -&gt; გადმოწერის წესები -&gt; Wi-Fi.</string>
 <string name="schDown_installselected">არჩეულების დაყენება</string>
 <string name="stores">მარკეტები</string>
 <string name="insert_store_name">მიუთითეთ მარკეტის სახელწოდება:</string>
@@ -75,7 +75,7 @@
 <string name="see_top_stores">ტოპ მარკეტების ნახვა</string>
 <string name="setcredentials">ავტორიზაცია</string>
 <string name="rollback">აპლიკაციების აღდგენა</string>
-<string name="rollback_empty"/>
+<string name="rollback_empty">ხარვეზის აღმოჩენი შემთხვევაში, მარტივად დააყენეთ აპლიკაციის ძველი ვერსია.</string>
 <string name="rollback_installed">თქვენი აპლიკაციები</string>
 <string name="rollback_uninstalled">წაშლილი</string>
 <string name="rollback_updated">განახლებული</string>
@@ -88,10 +88,10 @@
 <string name="username">ელ.ფოსტა</string>
 <string name="username_tip">შეიყვანეთ თქვენი ელ.ფოსტის მისამართი</string>
 <string name="subscribe_pvt_store">გამოიწერე პირადი მარკეტი</string>
-<string name="accept_terms">რეგისტრაციით თქვენ ეთანხმების Aptoide-ს მომსახურების პირობებს და პოლიტიკას</string>
+<string name="accept_terms">რეგისტრაციით თქვენ ეთანხმებით Aptoide-ს მომსახურების პირობებს და პოლიტიკას</string>
 <string name="register">რეგისტრაცია</string>
 <string name="or">- ან -</string>
-<string name="dont_have_an_account">არ გაქვთ ექაუნთი? დარეგისტრირდით</string>
+<string name="dont_have_an_account">არ გაქვთ ანგარიში? დარეგისტრირდით</string>
 <string name="logged_as">თქვენ ავტორიზებული ხართ როგორც:</string>
 <string name="sign_out">ანგარიშიდან გამოსვლა</string>
 <string name="please_wait">გთხოვთ დაელოდეთ…</string>
@@ -100,7 +100,7 @@
 <string name="no_excluded_updates_selected">გაუქმებული განახლებები არ არის მონიშნული</string>
 <string name="restore_updates">აღადგინე განახლება</string>
 <string name="start_loading">იტვირთება…</string>
-<string name="one_account_allowed">მხოლოდ ერთი ექაუნთია ნებადართული</string>
+<string name="one_account_allowed">მხოლოდ ერთი ანგარიშია ნებადართული</string>
 <string name="ip_blacklisted">შავ სიაში მყოფი IP</string>
 <string name="apk_not_found">Apk ფაილი ვერ მოიძებნა</string>
 <string name="invalid_apk">არასწორი APK ფაილი</string>
@@ -129,7 +129,7 @@
 <string name="schDown_nodownloadselect">აირჩიეთ გადმოსაწერი აპლიკაცია</string>
 <string name="schDown_invertselection">მონიშნულის გარდა</string>
 <string name="schDown_removeselected">მონიშნულის წაშლა</string>
-<string name="schDwnBtn">გადმოწერის დაგეგმვა</string>
+<string name="schDwnBtn">გადმოწერის გადადება</string>
 <string name="schDown_install">გსურთ დააყენოთ ყველა გადადებული გადმოწერა?</string>
 <string name="appview_recommended_for_you_title">თქვენთვის რეკომენდებული</string>
 <string name="downgrade_requires_uninstall">ვერსიის დაქვეითებისთვის აუცილებელია აპლიკაციის წაშლა</string>
@@ -184,7 +184,7 @@
 <string name="error_IARG_302">აპლიკაცია უკვე არსებობს ამ კატეგორიაში</string>
 <string name="error_AUTH_1">არასწორი ლოგინი ან პაროლი!</string>
 <string name="error_AUTH_2">არასწორი ლოგინი ან პაროლი!</string>
-<string name="error_AUTH_3">თქვენი ექაუნთი გაუქმდა. ინფორმაციისთვის, დაუკავშირდით Aptoide-ის დამხმარე ჯგუფს.</string>
+<string name="error_AUTH_3">თქვენი ანგარიში გაუქმდა. ინფორმაციისთვის, დაუკავშირდით Aptoide-ის დამხმარე ჯგუფს.</string>
 <string name="error_AUTH_4">HMAC ავტორიზაცია ვერ მოხერხდა</string>
 <string name="error_AUTH_100">შეუძლებელია Google ით შესვლა. გთხოვთ შეამოწმოთ თქვენი ანგარიში (შეიძლება თქვენ გჭირდებათ თქვენი იმეილის დადასტურება).</string>
 <string name="error_AUTH_101">Google-ით ავტორიზაცია ვერ მოხერხდა. კიდევ სცადეთ.</string>
@@ -210,7 +210,7 @@
 <string name="active">მიმდინარე</string>
 <string name="completed">დამთავრებული</string>
 <string name="clear">წაშლა</string>
-<string name="link_device_webinstall">დაუკავშირე ექაუნთი Webinstall-ს</string>
+<string name="link_device_webinstall">დაუკავშირე ანგარიში Webinstall-ს</string>
 <string name="remaining_time">დარჩა</string>
 <string name="sd_error">SD ბარათზე ჩაწერა ვერ მოხდა.</string>
 <string name="sd_error_jolla">ვერ მოხერხდა სწორად გადმოწერა</string>
@@ -239,7 +239,7 @@
 <string name="adult_pin_wrong">არასწორი პინ კოდი.</string>
 <string name="cancel">გაუქმება</string>
 <string name="error_occured_paying">აღმოჩენილია ჩეცდომა. გადახდა ვერ მოხერხდა.</string>
-<string name="failed_auth_code">აუტორიცაზიის დროს დაფიქსირდა შეცდომა. სცადეთ ახლიდან.</string>
+<string name="failed_auth_code">ავტორიცაზიის დროს დაფიქსირდა შეცდომა. სცადეთ ახლიდან.</string>
 <string name="error_occured_retry_later">დაფიქსირდა შეცდომა. Aptoide მოგვიანებით ხელახლა ცდის.</string>
 <string name="account">ანგარიში</string>
 <string name="no_payments_available">გადახდის ფორმები ხელმიუწვდომელია.</string>
@@ -292,7 +292,7 @@
 <string name="error503">უიი...ეს მხოლოდ მე ვარ, თუ ყველა იწერს აპლიკაციებს ერთდროულად?</string>
 <string name="having_some_trouble">რაღაც პრობლემაა. შეგიძლიათ, რომ მოგვიანებით სცადოთ?</string>
 <string name="friends_installs">თქვენი მეგობრების აპლიკაციები</string>
-<string name="highlighted_apps">გამოყოფილი</string>
+<string name="highlighted_apps">გამორჩეული</string>
 <string name="button_more">მეტი</string>
 <string name="setting_category_autoupdate_title">ჩართე ავტო განახლება</string>
 <string name="review_speed">სიჩქარე</string>
@@ -307,7 +307,7 @@
 <string name="store_username">მომხმარებლის სახელი</string>
 <string name="store_password">პაროლი</string>
 <string name="update_self_title">ახალი ვერსია ხელმისაწვდომია</string>
-<string name="update_self_msg">%s -ს ახალი ვერსია ხელმისაწვდომია.\nგსურთ მისი დაყენება?</string>
+<string name="update_self_msg">%s -ის ახალი ვერსია ხელმისაწვდომია.\nგსურთ მისი დაყენება?</string>
 <string name="retrieving_update">განახლების მიღება…</string>
 <string name="error_IARG_103">არასწორი კატეგორია</string>
     <string name="no">არა</string>
@@ -374,7 +374,7 @@
     <string name="flag_fake">ყალბია</string>
     <string name="flag_virus">ვირუსია</string>
     <string name="wizard_title_01">კეთილი იყოს თქვენი მობრძანება Aptoide-ში</string>
-    <string name="wizard_subtitle_03_2">Aptoide TV</string>
+    <string name="wizard_subtitle_03_2">"Aptoide  TV"</string>
     <string name="website">საიტი: %s</string>
     <string name="email">ელ.ფოსტა: %s</string>
     <string name="dialog_version_size">ვერსია: %1$s | ზომა: %2$s</string>
@@ -387,7 +387,7 @@
     <string name="connection_error">ქსელთან კავშირი არ არის</string>
     <string name="data_usage_constraint">გადმოწერა არ არის ნებადართული. იხილეთ: პარამეტრები &gt; გადმოწერის წესები</string>
     <string name="reply">პასუხი</string>
-    <string name="added_to_scheduled">დაემატა დაგეგმილ გადმოწერებს</string>
+    <string name="added_to_scheduled">დაემატა გადადებულ გადმოწერებს</string>
     <string name="dont_show_again">აღარ მანახო ეს ფანჯარა</string>
 
     <string name="installed_tab">დაყენებული</string>
@@ -415,7 +415,7 @@
     <string name="notification_timeline_posts">თქვენმა მეგობრებმა ახალი აპლიკაციები დააყენეს!</string>
 
     <string name="skip">გამოტოვება</string>
-    <string name="wizard_subtitle_03_1">Aptoide Lite</string>
+    <string name="wizard_subtitle_03_1">"Aptoide  Lite"</string>
     <string name="wizard_description_03_1">ძველი ტელეფონების და ნელი ინტერნეტის მქონე მომხმარებლებისთვის</string>
     <string name="wizard_reviews_title">განხილვები</string>
     <string name="wizard_new_and_improved_bullet_1">დაზოგე ელემენტი</string>
@@ -439,5 +439,86 @@
     <string name="upload_app_backup_apps_not_installed">ჯერ თქვენ უნდა ატვირთოთ ეს აპლიკაცია თქვენ მარკეტზე. გთხოვთ დააყენოთ და გამოიყენოთ Aptoide Backup Apps.</string>
     <string name="appview_subscribe_store_button_text">გსურთ გამოწერა?</string>
     <string name="appview_rate_Success">თქვენი შეფასება მიღებულია</string>
-    <string name="error_IARG_200">არასწორი ავტორიზაციის ნიშანი</string>
+    <string name="error_IARG_200"/>
+    <string name="read_more">მეტი</string>
+    <string name="read_less">ნაკლების ჩვენება</string>
+    <string name="srch_hint">მოძებნეთ აპლიკაციები…</string>
+
+    <string name="scanned_manually_by_aptoide_team">შემოწმდა პირადად Aptoide-ს გუნდის მიერ:</string>
+    <string name="scanned_verified_by_tester">შემოწმდა პირადად Aptoide-ს გუნდის მიერ, რაც იძლევა გარანტიას, რომ ეს აპლიკაცია უსაფრთხოა.</string>
+    <string name="setting_category_autoupdate">ავტომატური განახლება</string>
+    <string name="reason_scanned">შემოწმდა AptoideGuard-ით და კიდევ 2 ანტივირუსით(Zoner 1.8 და Sophos 3.0).</string>
+    <string name="reason_manual">ეს აპლიკაცია პირადად შეამოწმა Aptiode-ს გუნდმა და მოინიშნა, როგორც \"კარგი\".</string>
+
+    <string name="no_comment_be_the_first">იყავი პირველი ვინც დატოვებს კომენტარს!</string>
+
+    <string name="installapp_alrt">გსურთ, რომ დააყენოთ:\n\n %s?</string>
+
+    <string name="suggested_app">შემოთავაზებული აპლიკაცია</string>
+
+    <string name="has_updates">ხელმისაწვდომია განახლებები!</string>
+    <string name="new_updates">ხელმისაწვდომია %s განახლება!</string>
+    <string name="one_new_update">ხელმისაწვდომია %s განახლება!</string>
+    <string name="error_410">ბოდიში, მოთხოვნილი აპლიკაცია ვერ მოიძებნა ამ სერვერზე.</string>
+
+    <string name="website_copied">ვებ-გვერდის მისამართი კოპირებულია</string>
+    <string name="email_copied">ელ-ფოსტის მისამართი კოპირებულია</string>
+    <string name="no_apps_found">ამ ფილტრით ვერცერთი აპლიკაცია ვერ მოიძებნა</string>
+    <string name="search_for_apps">მოძებნე აპლიკაცია…</string>
+    <string name="subscribe_apps_official_store">გამოიწერე \"apps\", Aptoide-ს ოფიციალური მარკეტი</string>
+    <string name="wizard_title_03">ჩვენი ოჯახის ახალი წევრები</string>
+    <string name="share_on_timeline">გააზიარე სოციალურ გვერდზე</string>
+
+    <string name="wizard_new_homepage">განახლებული მთავარი გვერდი</string>
+    <string name="wizard_title_02">გაზრდილი უსაფრთხოება</string>
+    <string name="flag_added">მოინიშნა</string>
+    <string name="flag_this_app">მონიშნეთ ეს აპლიკაცია</string>
+    <string name="timeout">ქსელთან კავშირის შეფერხება</string>
+    <string name="timeline_ad">Facebook-ის მიერ შემოთავაზებული აპლიკაცია</string>
+    <string name="review_usability">მოხერხებულობა</string>
+    <string name="flag_this_app_need_licence">გასააქტიურებელია</string>
+    <string name="unknown">უცნობი</string>
+
+    <string name="notification_timeline_new_likes">თქვენ გაქვთ %s ახალი მოწონება. შეამოწმეთ სოციალური გვერდი!</string>
+    <string name="notification_timeline_new_comments">თქვენ გაქვთ %s ახალი კომენტარი. შეამოწმეთ სოციალური გვერდი!</string>
+    <string name="facebook_tos">" • Aptoide-შივე გაუზიარეთ თქვენ მიერ დაყენებული აპლიკაციები Facebook მეგობრებს.\n\n • ნახე, მოიწონე და დატოვე კომენტარი.\n\n • ჩვენ არასდროს გამოვაქვეყნებთ თქვენ Facebook კედელზე. "</string>
+    <string name="error_occured_uploading">ჯერ თქვენ უნდა ატვირთოთ ეს აპლიკაცია.</string>
+
+    <string name="wizard_new_and_improved">გაუმჯობესებული წარმადობა!</string>
+    <string name="search_activity_title">\' %s \'</string>
+
+    <string name="create_review">შექმენით განხილვა</string>
+
+    <string name="createReviewButtonText">შექმენით\nგანხილვა</string>
+    <string name="community">საზოგადოება</string>
+    <string name="make_review_title">განხილვა</string>
+    <string name="no_search_results_message">შედეგი ვერ მოიძებნა.</string>
+
+    <string name="updates_tab_adapter_uninstalled">წაიშალა</string>
+    <string name="feedback_to_write2">აქ დაწერეთ თქვენი გამოხმაურება…\n\nმიუთითეთ რაც შეიძლება მეტი დეტალი</string>
+    <string name="results_subscribed">გამოწერილ მარკეტებში</string>
+    <string name="other_stores">გამოუწერელ მარკეტებში</string>
+    <string name="store">მარკეტი</string>
+    <string name="notification_timeline_activity">თქვენ გაქვთ %1$s ახალი კომენტარი და %2$s ახალი მოწონება. შეამოწმეთ სოციალური გვერდი!</string>
+    <string name="updatesTabAdapterUninstall">წაშლა</string>
+    <string name="drawer_social_media_title">კონტაქტი</string>
+    <string name="results_in_store">ძიების შედეგი მარკეტში: %s</string>
+    <string name="menu_search_item_go_to_store">მარკეტში გადასვლა</string>
+    <string name="more_versions">სხვა ვერსიები</string>
+    <string name="review_get_app">გადმოწერა</string>
+    <string name="noIgnoreUpdateText">თუ აპლიკაციის ახალი ვერსია არ მუშაობს თქვენ მოწყობილობაზე და არ გინდათ, რომ ის განახლდეს, გადადით \"განახლებების\" ჩანართზე, ცოტა ხნით დააჭირეთ ამ აპლიკაციას და შემდეგ \"განახლების იგნორირებას\".</string>
+    <string name="privacy_policy">კონფიდენციალურობის პოლიტიკა: %s</string>
+    <string name="manually_reviewed">აპლიკაციის სანდოობა გარანტირებულია. მან გაიარა შემოწმება ვირუსებზე</string>
+
+    <string name="wizard_new_top">ახალი \"ტოპ\" ჩანართი</string>
+    <string name="privacy_copied">ბმული კოპირებულია</string>
+    <string name="developer">შემმუშავებელი</string>
+    <string name="download_pending">მოლოდინში</string>
+
+    <string name="wizard_reviews">თქვენ ახლა შეგიძლიათ განიხილოთ აპლიკაციები!</string>
+    <string name="wizard_description_01">დარეგისტრირდით უფასოდ და შექმენით საკუთარი მარკეტი.\n\n დაათვალიერეთ სხვა მარკეტები და აღმოაჩინეთ საინტერესო აპლიკაციები.</string>
+    <string name="abTest1_label_3">დაყენება</string>
+
+
+    <string name="abTest1_label_2">დაყენება</string>
     </resources>

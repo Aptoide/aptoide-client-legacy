@@ -21,7 +21,7 @@
 <string name="setting_icon_download_rules">Regole Download Icone</string>
 <string name="setting_sum_icon_download_rules">Consenti donwload app tramite connessioni dati mobili</string>
 <string name="setting_general_download_rules">Regole Download Generali</string>
-<string name="setting_sum_general_download_rules">Scarica Applicazioni, Scelte Editori, Top App e Store oltre la connessione dati mobili consentita</string>
+<string name="setting_sum_general_download_rules">Scarica Applicazioni, Scelte Editori, Top App e Store con la connessione dati mobili</string>
 <string name="setting_wifi">WiFi</string>
 <string name="setting_3g">3G</string>
 <string name="setting_4g">4G</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">Non mostrare applicazioni che non sono compatibili con questo dispositivo</string>
 <string name="setting_appfiltertitle">Filtra Applicazioni</string>
 <string name="setting_schdwntitle">Download Pianificati</string>
-<string name="setting_schdwninstallsum">Installa i download pianificati automaticamente quando è presente una connessione WiFi</string>
+<string name="setting_schdwninstallsum">Installa automaticamente i download pianificati quando è presente una connessione WiFi</string>
 <string name="setting_sdk_version">Versione SDK</string>
 <string name="setting_screen_size">Dimensione Schermo</string>
 <string name="setting_esgl_version">Versione ESGL</string>
@@ -90,7 +90,7 @@
 <string name="subscribe_pvt_store">Iscriviti allo store privato</string>
 <string name="accept_terms">Iscrivendoti stai accettando i Termini del Servizio e la Politica dei Contenuti per gli Sviluppatori di Aptoide</string>
 <string name="register">Registrati</string>
-<string name="or">O</string>
+<string name="or">-O-</string>
 <string name="dont_have_an_account">Non hai un account? Registrati</string>
 <string name="logged_as">Sei connesso come:</string>
 <string name="sign_out">Esci</string>
@@ -303,7 +303,7 @@
 <string name="setting_category_autoupdate_title">Abilita l\'aggiornamento automatico di Aptoide</string>
 <string name="review_speed">Velocità</string>
 <string name="review_usability">Usabilità</string>
-<string name="review_addictive">Dipendenza</string>
+<string name="review_addictive">Da\' dipendenza</string>
 <string name="review_stability">Stabilità</string>
 <string name="reviews">Recensioni</string>
 <string name="review_finish">Finitura</string>
@@ -391,7 +391,7 @@
 
     <string name="order_popup_title3">Contenuti per adulti</string>
     <string name="timeline_is_empty_send_email">Invieremo un\'email a quelli che hai scelto</string>
-    <string name="more_reviews">Altre Recensioni</string>
+    <string name="more_reviews">Recensioni</string>
     <string name="more_editors_choice">Altre Scelte Editori</string>
     <string name="more_versions">Altre Versioni</string>
     <string name="recommended_for_you">Consigliati per te</string>
@@ -411,7 +411,7 @@
     <string name="flag_this_app_need_licence">Richiede Licenza</string>
     <string name="appview_additional_information_title">Ulteriori Informazioni</string>
     <string name="appview_latest_version_text">Questa è l\'ultima versione!</string>
-    <string name="appview_subscribe_store_button_text">+  Iscriversi?</string>
+    <string name="appview_subscribe_store_button_text">Iscriversi?</string>
     <string name="noIgnoreUpdateText">La nuova versione di un\'app non funziona sul tuo dispositivo o manca qualche funzionalità? Blocca le app dall\'aggiornarsi. Vai nella scheda Aggiornamenti e tieni premuto sull\'app che non vuoi si aggiorni.</string>
     <string name="createReviewButtonText">Scrivi recensione</string>
     <string name="navigation_drawer_signup_login">Iscriviti o effettua il Login</string>
@@ -452,7 +452,7 @@
     <string name="data_usage_constraint">Non è consentito il download in Impostazioni &gt; Regole Generali di Download</string>
 
     <string name="added_to_scheduled">Aggiunto al Menu &gt; Download Pianificati</string>
-    <string name="hidden_adult">Alcune app non sono visibili perchè sono stati attivati i filtri per i contenuti per adulti. Vuoi una lista di app con contenuto per Adulti?</string>
+    <string name="hidden_adult">Alcune app non sono visibili perchè sono stati attivati i filtri per i contenuti per adulti. includere una lista di app con contenuto per Adulti?</string>
     <string name="dont_show_again">Non visualizzare più questa finestra di dialogo</string>
 
     <string name="get_latest">Ottieni la versione più recente</string>
@@ -494,7 +494,7 @@
     <string name="flag_good">Bene</string>
     <string name="flag_license">Richiede Licenza</string>
     <string name="flag_fake">Falso</string>
-    <string name="flag_freeze">Blocco</string>
+    <string name="flag_freeze">crea blocchi nel dispositivo</string>
     <string name="flag_virus">Virus</string>
     <string name="flag_this_app">Contrassegna quest\'app</string>
     <string name="flag_added">Contrassegno aggiunto</string>
@@ -569,4 +569,12 @@
 
 <string name="error_410">Siamo spiacenti, ma l\'app richiesta non è stata trovata su questo server.</string>
 
-    </resources>
+    <string name="no_pass_error_message">inserire una password per registrarsi.</string>
+    <string name="no_email_and_pass_error_message">"Inserire email e  password per registrarsi."</string>
+    <string name="no_email_error_message">Inserire una email per registrarsi.</string>
+    <string name="website_copied">Sito copiato nel blocco appunti</string>
+    <string name="email_copied">E-mail copiata nel blocco appunti</string>
+    <string name="privacy_copied">Link privato copiato nel blocco appunti</string>
+    <string name="subscribing_store_message">Annullare l\'iscrizione %s</string>
+
+</resources>

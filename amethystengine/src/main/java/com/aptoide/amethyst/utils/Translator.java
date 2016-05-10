@@ -11,6 +11,27 @@ public class Translator {
     public static String translate(String string) {
         String translated = null;
         switch (string) {
+            case "Home":
+                translated = Aptoide.getContext().getString(R.string.home_title);
+                break;
+            case "Updates":
+                translated = Aptoide.getContext().getString(R.string.updates);
+                break;
+            case "Downloads":
+                translated = Aptoide.getContext().getString(R.string.downloads);
+                break;
+            case "Latest Reviews":
+                translated = Aptoide.getContext().getString(R.string.latest_reviews);
+                break;
+            case "Latest Comments":
+                translated = Aptoide.getContext().getString(R.string.latest_comments);
+                break;
+            case "Applications":
+                translated = Aptoide.getContext().getString(R.string.applications);
+                break;
+            case "Games":
+                translated = Aptoide.getContext().getString(R.string.games);
+                break;
             case "Highlighted":
                 translated = Aptoide.getContext().getString(R.string.highlighted);
                 break;
@@ -154,6 +175,9 @@ public class Translator {
                 break;
             case "Arcade":
                 translated = Aptoide.getContext().getString(R.string.arcade);
+                break;
+            case "Arcade & Action":
+                translated = Aptoide.getContext().getString(R.string.arcade_action);
                 break;
             case "Trivia":
                 translated = Aptoide.getContext().getString(R.string.trivia);
