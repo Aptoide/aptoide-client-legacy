@@ -100,10 +100,10 @@ public class Translator {
                 break;
             case "Health":
                 translated = Aptoide.getContext().getString(R.string.health);
-                break;/*
+                break;
             case "Libraries & Demo":
                 translated = Aptoide.getContext().getString(R.string.libraries_demo);
-                break;*/
+                break;
             case "Books & Reference":
                 translated = Aptoide.getContext().getString(R.string.books_reference);
                 break;
@@ -183,7 +183,7 @@ public class Translator {
                 translated = Aptoide.getContext().getString(R.string.casual);
                 break;
             case "Sports Games":
-                translated = Aptoide.getContext().getString(R.string.sport_games);
+                translated = Aptoide.getContext().getString(R.string.sports_games);
                 break;
             case "Racing":
                 translated = Aptoide.getContext().getString(R.string.racing);

@@ -644,6 +644,7 @@
     <string name="family">Family</string>
     <string name="finance">Finance</string>
     <string name="games">Games</string>
+    <string name="health">Health</string>
     <string name="health_fitness">Health &#38; Fitness</string>
     <string name="highlighted">Highlighted</string>
     <string name="local_top_apps">Local Top Apps</string>
@@ -651,6 +652,7 @@
     <string name="media_video">Media &#38; Video</string>
     <string name="medical">Medical</string>
     <string name="multimedia">Multimedia</string>
+    <string name="music">Music</string>
     <string name="music_audio">Music &#38; Audio</string>
     <string name="news_magazines">News &#38; Magazines</string>
     <string name="news_weather">News &#38; Weather</string>
@@ -660,7 +662,7 @@
     <string name="puzzle">Puzzle</string>
     <string name="quick_start">Quick Start</string>
     <string name="racing">Racing</string>
-    <string name="Reference">Reference</string>
+    <string name="reference">Reference</string>
     <string name="role_playing">Role Playing</string>
     <string name="simulation">Simulation</string>
     <string name="social">Social</string>
@@ -674,9 +676,13 @@
     <string name="top_games">Top Games</string>
     <string name="transport">Transport</string>
     <string name="transportation">Transportations</string>
+    <string name="travel">Travel</string>
     <string name="travel_local">Travek &#38; Local</string>
     <string name="trending">Trending</string>
     <string name="trivia">Trivia</string>
     <string name="word">Word</string>
+    <string name="libraries_demo">Libraries &#38; Demo</string>
+    <string name="shopping">Shopping</string>
+    <string name="weather">Weather</string>
 </resources>
 
