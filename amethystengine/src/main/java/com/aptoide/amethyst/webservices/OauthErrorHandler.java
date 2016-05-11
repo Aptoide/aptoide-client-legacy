@@ -7,6 +7,7 @@ import android.accounts.OperationCanceledException;
 import android.content.SharedPreferences;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.model.json.OAuth;
 import com.aptoide.amethyst.preferences.SecurePreferences;
@@ -68,7 +69,10 @@ public class OauthErrorHandler {
                             parameters.put("client_id", "Aptoide");
                             parameters.put("refresh_token", refreshToken);
 
-                            OAuth oAuth = new RestAdapter.Builder().setConverter(createConverter()).setEndpoint("http://webservices.aptoide.com/webservices").build().create(OauthService.class).authenticate(parameters);
+                            OAuth oAuth = new RestAdapter.Builder()
+                                    .setConverter(createConverter())
+                                    .setLogLevel(BuildConfig.DEBUG? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE)
+                                    .setEndpoint("http://webservices.aptoide.com/webservices").build().create(OauthService.class).authenticate(parameters);
 
                             preferences.edit().putString("access_token", oAuth.getAccess_token()).apply();
 

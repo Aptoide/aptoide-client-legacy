@@ -3,6 +3,7 @@ package com.aptoide.amethyst.webservices;
 import android.preference.PreferenceManager;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.amethyst.webservices.json.TimelineActivityJson;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -56,7 +57,10 @@ public class TimelineCheckRequestSync {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
 
-        RestAdapter adapter = new RestAdapter.Builder().setEndpoint("http://webservices.aptoide.com/webservices").setConverter(new JacksonConverter(mapper)).build();
+        RestAdapter adapter = new RestAdapter.Builder()
+                .setEndpoint("http://webservices.aptoide.com/webservices")
+                .setLogLevel(BuildConfig.DEBUG? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE)
+                .setConverter(new JacksonConverter(mapper)).build();
 
         //Request request = new Request.Builder().url("http:/" + WebserviceOptions.WebServicesLink + "3/checkUserApkInstallsActivity").post(body).build();
 

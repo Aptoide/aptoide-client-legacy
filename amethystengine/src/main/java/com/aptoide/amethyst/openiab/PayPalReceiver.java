@@ -6,7 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.openiab.webservices.IabPurchaseStatusRequest;
 import com.aptoide.amethyst.openiab.webservices.PaidAppPurchaseStatusRequest;
 import com.octo.android.robospice.persistence.exception.SpiceException;
@@ -83,7 +83,9 @@ public class PayPalReceiver extends BroadcastReceiver {
 
                     //purchaseStatus.setHttpRequestFactory(AndroidHttp.newCompatibleTransport().createRequestFactory());
 
-                    purchaseStatus.setService(new RestAdapter.Builder().setEndpoint("http://").build().create(BasePurchaseStatusRequest.Webservice.class));
+                    purchaseStatus.setService(new RestAdapter.Builder().setEndpoint("http://")
+                            .setLogLevel(BuildConfig.DEBUG? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE)
+                            .build().create(BasePurchaseStatusRequest.Webservice.class));
                     purchaseStatus.loadDataFromNetwork();
                     AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 

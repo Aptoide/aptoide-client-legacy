@@ -12,6 +12,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.downloadmanager.model.FinishedApk;
@@ -148,7 +149,11 @@ public class DownloadExecutor implements Serializable {
 
             try {
 
-                RestAdapter adapter = new RestAdapter.Builder().setConverter(new JacksonConverter()).setEndpoint("http://webservices.aptoide.com/webservices").build();
+                RestAdapter adapter = new RestAdapter.Builder()
+                        .setConverter(new JacksonConverter())
+                        .setEndpoint("http://webservices.aptoide.com/webservices")
+                        .setLogLevel(BuildConfig.DEBUG? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE)
+                        .build();
                 HashMap<String, String> parameters = new HashMap<String, String>();
 
                 parameters.put("access_token", SecurePreferences.getInstance().getString("access_token", null));

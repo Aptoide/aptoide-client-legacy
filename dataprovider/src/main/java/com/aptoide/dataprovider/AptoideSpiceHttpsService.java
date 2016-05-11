@@ -27,7 +27,9 @@ public class AptoideSpiceHttpsService extends RetrofitJackson2SpiceService {
 
     @Override
     protected RestAdapter.Builder createRestAdapterBuilder() {
-        return new RestAdapter.Builder().setLogLevel(RestAdapter.LogLevel.NONE).setEndpoint(getServerUrl()).setConverter(getConverter());
+        return new RestAdapter.Builder()
+                .setLogLevel(BuildConfig.DEBUG? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE)
+                .setEndpoint(getServerUrl()).setConverter(getConverter());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.webservices.timeline;
 
+import com.aptoide.amethyst.BuildConfig;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,7 +23,7 @@ public class HttpService extends RetrofitJackson2SpiceService {
     @Override
     protected RestAdapter.Builder createRestAdapterBuilder() {
         return new RestAdapter.Builder()
-//                .setLogLevel(RestAdapter.LogLevel.FULL)
+                .setLogLevel(BuildConfig.DEBUG? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE)
                 .setEndpoint(getServerUrl())
                 .setConverter(getConverter());
     }

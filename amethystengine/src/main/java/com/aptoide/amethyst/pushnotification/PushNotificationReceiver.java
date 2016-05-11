@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
@@ -200,7 +201,11 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 
                             //HttpContent content = new UrlEncodedContent(parameters);
                             //HttpRequest httpRequest = AndroidHttp.newCompatibleTransport().createRequestFactory().buildPostRequest(url, content);
-                            PushNotificationJson response = new RestAdapter.Builder().setConverter(OauthErrorHandler.createConverter()).setEndpoint("http://webservices.aptoide.com/webservices").build().create(Notifications.class).getPushNotifications(parameters);
+                            PushNotificationJson response = new RestAdapter.Builder()
+                                    .setConverter(OauthErrorHandler.createConverter())
+                                    .setEndpoint("http://webservices.aptoide.com/webservices")
+                                    .setLogLevel(BuildConfig.DEBUG? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE)
+                                    .build().create(Notifications.class).getPushNotifications(parameters);
                             //httpRequest.setParser(new JacksonFactory().createJsonObjectParser());
                             //PushNotificationJson response = httpRequest.execute().parseAs(PushNotificationJson.class);
 //                            Log.i("PushNotificationReceiver", "getResults() is " + response.getResults().size());

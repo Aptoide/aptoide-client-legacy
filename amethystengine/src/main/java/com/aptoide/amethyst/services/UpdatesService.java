@@ -18,6 +18,7 @@ import android.support.v7.app.NotificationCompat;
 import android.text.TextUtils;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
@@ -195,7 +196,9 @@ public class UpdatesService extends Service {
                     ObjectMapper mapper = new ObjectMapper();
                     mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
                     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                    RestAdapter adapter = new RestAdapter.Builder().setLogLevel(RestAdapter.LogLevel.FULL).setConverter(new JacksonConverter(mapper)).setEndpoint("http://").build();
+                    RestAdapter adapter = new RestAdapter.Builder()
+                            .setLogLevel(BuildConfig.DEBUG? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE)
+                            .setConverter(new JacksonConverter(mapper)).setEndpoint("http://").build();
                     Logger.d("AptoideUpdates", "Getting updates");
                     UpdatesResponse webUpdates = adapter.create(Webservices.class).getUpdates(api);
 
