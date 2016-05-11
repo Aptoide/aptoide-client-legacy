@@ -14,6 +14,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import rx.Observable;
+import rx.observers.TestObserver;
+import rx.observers.TestSubscriber;
+import rx.schedulers.TestScheduler;
+import rx.subjects.TestSubject;
+
 import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -35,15 +41,27 @@ public class SocialManagerTest {
 	@Test
 	public void getContactsAptoideFriends() throws Exception {
 
+		final TestScheduler testScheduler = new TestScheduler();
+		final TestSubject<List<SimpleContact>> contactsProvider = TestSubject.create(testScheduler);
 		final List<SimpleContact> contactList = Arrays.asList(getSimpleContact("marcelo.benites@aptoide.com", "+5551555555555"), getSimpleContact("frederico@aptoide.com", "+55515555444"));
 
-		when(contactsProviderMock.getDeviceContacts()).thenReturn(contactList);
-		final AptoideFriends expectedFriends = new AptoideFriends(null, null);
-		when(repositoryMock.getFriends(contactList)).thenReturn(expectedFriends);
+		when(contactsProviderMock.getDeviceContacts()).thenReturn(contactsProvider.asObservable());
 
-		assertEquals(expectedFriends, socialManager.getContacsAptoideFriends());
-		verify(contactsProviderMock).getDeviceContacts();
-		verify(repositoryMock).getFriends(contactList);
+		final AptoideFriends expectedFriends = new AptoideFriends(null, null);
+		when(repositoryMock.getFriends(contactList)).thenReturn(Observable.just(expectedFriends));
+
+		final TestSubscriber<AptoideFriends> testSubscriber = new TestSubscriber<>();
+
+		socialManager.getContacsAptoideFriends().subscribe(testSubscriber);
+		contactsProvider.onNext(contactList);
+		testScheduler.triggerActions();
+
+		testSubscriber.assertValues(expectedFriends);
+		testSubscriber.assertNotCompleted();
+		testSubscriber.assertNoErrors();
+
+		testSubscriber.unsubscribe();
+		testSubscriber.assertUnsubscribed();
 	}
 
 	@NonNull

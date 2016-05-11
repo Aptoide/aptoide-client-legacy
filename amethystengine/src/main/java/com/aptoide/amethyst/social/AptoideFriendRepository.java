@@ -7,12 +7,14 @@ package com.aptoide.amethyst.social;
 
 import java.util.List;
 
+import rx.Observable;
+
 /**
  * Repository for logged user friends also users of Aptoide.
  */
 public interface AptoideFriendRepository {
 
 
-	AptoideFriends getFriends(List<SimpleContact> contacts);
+	Observable<AptoideFriends> getFriends(List<SimpleContact> contacts);
 
 }

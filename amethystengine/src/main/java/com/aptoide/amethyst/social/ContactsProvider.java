@@ -14,6 +14,9 @@ import android.support.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+import rx.Observable;
+import rx.functions.Func1;
+
 public class ContactsProvider {
 
 	private final ContentResolver contentResolver;
@@ -22,39 +25,44 @@ public class ContactsProvider {
 		this.contentResolver = contentResolver;
 	}
 
-	public List<SimpleContact> getDeviceContacts() throws SecurityException {
+	public Observable<List<SimpleContact>> getDeviceContacts() throws SecurityException {
+		return Observable.create(new OnSubscribeRegisterContentObserver(contentResolver,
+				ContactsContract.Contacts.CONTENT_URI, true, null))
+				.flatMap(new Func1<Void, Observable<List<SimpleContact>>>() {
 
-		List<SimpleContact> contacts = new ArrayList<>();
+					@Override
+					public Observable<List<SimpleContact>> call(Void aVoid) {
+						List<SimpleContact> contacts = new ArrayList<>();
 
-		final Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null,
-				null, null, null);
+						final Cursor cursor = contentResolver.query(ContactsContract.Contacts
+								.CONTENT_URI, null, null, null, null);
 
-		try {
-			SimpleContact simpleContact;
-			if (cursor != null && cursor.moveToFirst()) {
-				do {
-					simpleContact = getSimpleContact(cursor.getString(cursor
-							.getColumnIndex(ContactsContract.Contacts._ID)));
-					if (simpleContact != null) {
-						contacts.add(simpleContact);
+						try {
+							SimpleContact simpleContact;
+							if (cursor != null && cursor.moveToFirst()) {
+								do {
+									simpleContact = getSimpleContact(cursor.getString(cursor
+											.getColumnIndex(ContactsContract.Contacts._ID)));
+									if (simpleContact != null) {
+										contacts.add(simpleContact);
+									}
+								} while (cursor.moveToNext());
+							}
+						} finally {
+							if (cursor != null) {
+								cursor.close();
+							}
+						}
+						return Observable.just(contacts);
 					}
-				} while (cursor.moveToNext());
-			}
-		} finally {
-			if (cursor != null) {
-				cursor.close();
-			}
-		}
-
-		return contacts;
+				});
 	}
 
 	@Nullable
 	private SimpleContact getSimpleContact(String contactId) {
 		final List<String> phones = getContactPhones(contactId);
 		final List<String> emails = getContactEmails(contactId);
-		if (emails.isEmpty()
-				&& phones.isEmpty()) {
+		if (emails.isEmpty() && phones.isEmpty()) {
 			return null;
 		}
 		return new SimpleContact(emails, phones);

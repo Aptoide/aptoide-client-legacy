@@ -5,6 +5,11 @@
 
 package com.aptoide.amethyst.social;
 
+import java.util.List;
+
+import rx.Observable;
+import rx.functions.Func1;
+
 /**
  * Manages social related features of Aptoide.
  */
@@ -18,7 +23,12 @@ public class SocialManager {
 		this.contactsProvider = contactsProvider;
 	}
 
-	public AptoideFriends getContacsAptoideFriends() {
-		return aptoideRepository.getFriends(contactsProvider.getDeviceContacts());
+	public Observable<AptoideFriends> getContacsAptoideFriends() {
+		return contactsProvider.getDeviceContacts().flatMap(new Func1<List<SimpleContact>, Observable<AptoideFriends>>() {
+			@Override
+			public Observable<AptoideFriends> call(List<SimpleContact> contacts) {
+				return aptoideRepository.getFriends(contacts);
+			}
+		});
 	}
 }

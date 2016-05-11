@@ -16,3 +16,5 @@
 #   public *;
 #}
 -dontobfuscate
+-keep class com.aptoide.amethyst.** {*;}
+-keep class rx.** {*;}
