@@ -16,5 +16,3 @@
 #   public *;
 #}
 -dontobfuscate
-
--keep class com.aptoide.amethyst.social.**{ *; }

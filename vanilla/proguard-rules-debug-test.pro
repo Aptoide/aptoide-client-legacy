@@ -16,5 +16,8 @@
 #   public *;
 #}
 -dontobfuscate
-
--keep class com.aptoide.amethyst.social.**{ *; }
+-dontwarn org.mockito.**
+-dontwarn sun.reflect.**
+-dontwarn android.test.**
+-dontwarn android.support.**
+-dontwarn org.junit.**

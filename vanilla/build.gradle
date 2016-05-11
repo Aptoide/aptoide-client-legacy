@@ -32,6 +32,7 @@ android {
         targetSdkVersion 23
         versionCode 480
         versionName "7.1.1.4"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         def optimizelyProjectId = localProperties.OPTIMIZELY_PROJECT_ID
         def optimizelyProjectIdExists = optimizelyProjectId != null
@@ -50,10 +51,10 @@ android {
             // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
             // to pre-dex each module and produce an APK that can be tested on
             // Android Lollipop without time consuming dex merging processes.
-            minSdkVersion 21
+            minSdkVersion 9
 
             // Enabling multidex support.
-            multiDexEnabled true
+//            multiDexEnabled true
             versionName "7.1.0"
         }
         prod {
@@ -66,7 +67,6 @@ android {
 
     buildTypes {
         release {
-            zipAlignEnabled true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
@@ -84,9 +84,10 @@ android {
         }
 
         debug {
-            zipAlignEnabled true
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro',  'proguard-rules-debug' +
+                    '.pro'
+            testProguardFile 'proguard-rules-debug-test.pro'
         }
     }
 
@@ -135,6 +136,7 @@ dependencies {
     compile 'com.commonsware.cwac:endless:1.2.3'
     provided 'org.projectlombok:lombok:1.16.6'
 
+    androidTestCompile 'com.android.support.test:runner:0.5'
 }
 
 def File propFile = new File('signing.properties')
