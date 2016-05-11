@@ -43,6 +43,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        consumerProguardFile 'proguard-rules-consumer.pro'
 
         def amazonPublicKey = localProperties.AMAZON_PUBLIC_KEY
         def amazonPrivateKey = localProperties.AMAZON_PRIVATE_KEY
