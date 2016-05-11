@@ -216,7 +216,7 @@ public class Translator {
                 translated = Aptoide.getContext().getString(R.string.top_apps);
                 break;
             default:
-                translated = null;
+                translated = string;
                 break;
         }
         return translated;

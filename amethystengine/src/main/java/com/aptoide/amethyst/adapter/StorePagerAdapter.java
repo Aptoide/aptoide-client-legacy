@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.aptoide.amethyst.utils.Translator;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreTabs.Tab;
 
 import java.util.List;
@@ -60,6 +61,6 @@ public class StorePagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
 
         Tab tab = tabs.get(position);
-        return tab.label;
+        return Translator.translate(tab.label);
     }
 }
