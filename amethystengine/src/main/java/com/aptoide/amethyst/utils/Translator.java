@@ -215,6 +215,30 @@ public class Translator {
             case "Top Apps":
                 translated = Aptoide.getContext().getString(R.string.top_apps);
                 break;
+            case "Latest Applications":
+                translated = Aptoide.getContext().getString(R.string.latest_applications);
+                break;
+            case "Top Apps in this store":
+                translated = Aptoide.getContext().getString(R.string.top_apps_in_store);
+                break;
+            case "Apps for Kids":
+                translated = Aptoide.getContext().getString(R.string.apps_for_kids);
+                break;
+            case "Aptoide Publishers":
+                translated = Aptoide.getContext().getString(R.string.aptoide_publishers);
+                break;
+            case "Music & Video":
+                translated = Aptoide.getContext().getString(R.string.music_video);
+                break;
+            case "Essential Apps":
+                translated = Aptoide.getContext().getString(R.string.essential_apps);
+                break;
+            case "Summer Apps":
+                translated = Aptoide.getContext().getString(R.string.summer_apps);
+                break;
+            case "Play-it!":
+                translated = Aptoide.getContext().getString(R.string.play_it);
+                break;
             default:
                 translated = string;
                 break;

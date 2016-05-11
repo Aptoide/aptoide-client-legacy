@@ -59,8 +59,6 @@ public class StorePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-
-        Tab tab = tabs.get(position);
-        return Translator.translate(tab.label);
+        return Translator.translate(tabs.get(position).label);
     }
 }

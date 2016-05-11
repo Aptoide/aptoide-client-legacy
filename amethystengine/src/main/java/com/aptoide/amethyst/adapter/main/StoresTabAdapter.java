@@ -21,6 +21,7 @@ import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.Translator;
 import com.aptoide.models.displayables.StoreItem;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.displayables.AddStoreRow;
@@ -74,7 +75,7 @@ public class StoresTabAdapter extends RecyclerView.Adapter<BaseViewHolder> imple
         if (viewHolder.viewType == R.layout.layout_header) {
             HeaderRow row = (HeaderRow) displayableList.get(position);
             HeaderViewHolder headerViewHolder = (HeaderViewHolder) viewHolder;
-            headerViewHolder.title.setText(row.getLabel());
+            headerViewHolder.title.setText(Translator.translate(row.getLabel()));
         } else if (viewHolder.viewType == R.layout.row_store_item) {
             final StoreItem storeItem = (StoreItem) displayableList.get(position);
             StoreItemRowViewHolder holder = (StoreItemRowViewHolder) viewHolder;
