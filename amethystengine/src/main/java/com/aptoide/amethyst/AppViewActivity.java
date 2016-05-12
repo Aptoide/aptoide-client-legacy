@@ -608,10 +608,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					showDialogIfComingFromBrowser();
 					showDialogIfComingFromAPKFY();
 					populateRatings(model.getApp);
+					setSecurityInformationBalloon(malware);
 
 					if (shouldDisplaySecurityInformationBalloon(malware)
 							&& Preferences.getInt(Preferences.BALLOON_SECURITY_NUMBER_OF_DISPLAYS_INT, 0) < 5) {
-						setSecurityInformationBalloon(malware);
 						startSecurityInformationBalloonAnimation(securityOverlayAnimation);
 						Preferences.putIntAndCommit(Preferences
 								.BALLOON_SECURITY_NUMBER_OF_DISPLAYS_INT, Preferences.getInt
