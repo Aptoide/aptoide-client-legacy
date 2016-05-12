@@ -12,6 +12,7 @@ import com.amazon.insights.AmazonInsights;
 import com.amazon.insights.Event;
 import com.amazon.insights.EventClient;
 import com.amazon.insights.InsightsCredentials;
+import com.aptoide.amethyst.AppViewMiddleSuggested;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.analytics.Analytics;
@@ -21,18 +22,15 @@ import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.utils.ReferrerUtils;
+import com.aptoide.amethyst.utils.SimpleFuture;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
-import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.AptoideSpiceHttpServicePermanent;
 import com.aptoide.dataprovider.webservices.models.UpdatesApi;
 import com.aptoide.models.RollBackItem;
 import com.octo.android.robospice.SpiceManager;
 
 import java.util.Locale;
-
-import com.aptoide.amethyst.AppViewMiddleSuggested;
-import com.aptoide.amethyst.utils.ReferrerUtils;
-import com.aptoide.amethyst.utils.SimpleFuture;
 
 /**
  * Created by rmateus on 13-12-2013.
@@ -69,7 +67,7 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
         // TODO: Este simplefuture não faz falta aqui, para futura refactorização.
         spiceManager.execute(GetAdsRequest.newDefaultRequest(location, packageName), GetAdsRequestListener.withBroadcast(context, packageName, spiceManager,
-                new SimpleFuture<String>(), 2));
+                new SimpleFuture<String>(), 0));
     };
     ;
 
