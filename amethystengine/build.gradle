@@ -34,6 +34,10 @@ android {
     def AMAZON_PUBLIC_KEY = "AMAZON_PUBLIC_KEY"
     def AMAZON_PRIVATE_KEY = "AMAZON_PRIVATE_KEY"
 
+    def SIXPACK_USER = "SIXPACK_USER"
+    def SIXPACK_PASSWORD = "SIXPACK_PASSWORD"
+    def SIXPACK_URL = "SIXPACK_URL"
+
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 23
@@ -80,6 +84,14 @@ android {
             def localyticsKeyExists = localyticsKey != null
             buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
             manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
+
+            def sixpackUrl = localProperties.SIXPACK_URL
+            def sixpackUser = localProperties.SIXPACK_USER
+            def sixpackPassword = localProperties.SIXPACK_PASSWORD
+
+            buildConfigField STRING, SIXPACK_USER, "\"" + sixpackUser.toString() + "\""
+            buildConfigField STRING, SIXPACK_PASSWORD, "\"" + sixpackPassword.toString() + "\""
+            buildConfigField STRING, SIXPACK_URL, "\"" + sixpackUrl.toString() + "\""
         }
 
         debug {
@@ -92,6 +104,10 @@ android {
             def localyticsKeyExists = localyticsKey != null
             buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
             manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
+
+            buildConfigField STRING, SIXPACK_USER, "\"\""
+            buildConfigField STRING, SIXPACK_PASSWORD, "\"\""
+            buildConfigField STRING, SIXPACK_URL, "\"http://10.0.2.2:5000/sixpack/\"" // Emulator localhost
         }
     }
     compileOptions {
