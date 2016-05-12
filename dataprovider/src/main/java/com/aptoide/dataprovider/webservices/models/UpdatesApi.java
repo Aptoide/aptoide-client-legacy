@@ -21,7 +21,7 @@ public class UpdatesApi {
     public String aaid = null;
     public String access_token = null;
     public String cpuid = DEFAULT_CPUID;
-    public boolean get_development_versions;    //review the var name
+    public String not_apk_tags;    //review the var name
 
     public static class StoreAuth {
 

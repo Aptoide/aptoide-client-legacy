@@ -616,8 +616,8 @@
     <string name="email_copied">E-mail copied to clipboard</string>
     <string name="privacy_copied">Privacy link copied to clipboard</string>
     <string name="subscribing_store_message">Unsubscribing %s</string>
-    <string name="updates_filter_summary">show updates to alpha and beta versions</string>
-    <string name="updates_filter_setting_title">Filter Updates</string>
+    <string name="updates_filter_setting_title">Just show me stable app version updates</string>
+    <string name="updates_filter_summary">Checking this, you won’t be notified of beta versions.</string>
 
 </resources>
 
