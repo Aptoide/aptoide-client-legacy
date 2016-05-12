@@ -15,14 +15,11 @@ import java.util.Collections;
 import java.util.List;
 
 import rx.Observable;
-import rx.observers.TestObserver;
 import rx.observers.TestSubscriber;
 import rx.schedulers.TestScheduler;
 import rx.subjects.TestSubject;
 
-import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class SocialManagerTest {
