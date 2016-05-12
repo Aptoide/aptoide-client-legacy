@@ -147,6 +147,9 @@ public class Schema {
         @ColumnDefinition(type = SQLType.TEXT)
         public final static String COLUMN_REPO = "reponame";
 
+        @ColumnDefinition(type = SQLType.INTEGER)
+        public final static String COLUMN_IS_TRUSTED = "isTrusted";
+
 
         public static String getName() {
             return "rollbacktbl";

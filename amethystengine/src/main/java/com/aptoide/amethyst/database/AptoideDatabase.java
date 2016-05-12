@@ -457,6 +457,7 @@ public class AptoideDatabase {
         values.put(Schema.RollbackTbl.COLUMN_PREVIOUS_VERSION, rollBackItem.getPreviousVersion());
         values.put(Schema.RollbackTbl.COLUMN_ICONPATH, rollBackItem.getIconPath());
         values.put(Schema.RollbackTbl.COLUMN_MD5, rollBackItem.getMd5());
+        values.put(Schema.RollbackTbl.COLUMN_IS_TRUSTED, rollBackItem.isTrusted() ? 1 : 0);
 
         String action = "";
 
@@ -540,6 +541,19 @@ public class AptoideDatabase {
         if(resultsCount != 0) {
             cursor.moveToFirst();
             action = cursor.getString(0);
+        }
+        cursor.close();
+        return action;
+    }
+
+    public boolean getIsTrustedAppRollbackAction(String packageName) {
+        Cursor cursor = database.rawQuery("select isTrusted from rollbacktbl where package_name = ? and confirmed = ?", new String[]{packageName, Integer.toString(0)});
+        int resultsCount = cursor.getCount();
+
+        boolean action = false;
+        if(resultsCount != 0) {
+            cursor.moveToFirst();
+            action = cursor.getInt(0)==1;
         }
         cursor.close();
         return action;

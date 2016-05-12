@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
@@ -188,6 +189,7 @@ public class MoreSearchActivity extends MoreActivity {
                             return false;
                         }
                     });
+                    Analytics.Search.noSearchResultEvent(query);
                 }
             }
         };

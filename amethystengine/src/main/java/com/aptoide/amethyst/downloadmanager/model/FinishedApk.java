@@ -19,6 +19,15 @@ public class FinishedApk implements Parcelable, Serializable{
 
     private String name;
     private String apkid;
+
+    public boolean isTrusted() {
+        return isTrusted;
+    }
+
+    public void setTrusted(boolean trusted) {
+        isTrusted = trusted;
+    }
+
     private String version;
     private long appHashId;
     private String iconpath;
@@ -26,6 +35,7 @@ public class FinishedApk implements Parcelable, Serializable{
     private List<String> permissionsList;
     private String repoName;
     private String cpiUrl;
+    private boolean isTrusted;
 
     /** The appID of the webservices */
     private long id;
@@ -33,7 +43,8 @@ public class FinishedApk implements Parcelable, Serializable{
 
 
 
-    public FinishedApk(String name, String apkid, String version, long appHashId, String iconpath, String path, List<String> permissions) {
+    public FinishedApk(String name, String apkid, String version, long appHashId, String iconpath, String path, List<String> permissions, boolean isTrusted) {
+        this.isTrusted = isTrusted;
         this.name = name;
         this.apkid = apkid;
         this.version = version;

@@ -154,16 +154,16 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
                     if (action.split("\\|")[0].equals(RollBackItem.Action.INSTALLING.toString())) {
                         Logger.d("InstalledBroadcastReceiver", "Installed rollback action");
 
+                        boolean isTrusted = db.getIsTrustedAppRollbackAction(pkg.packageName);
                         db.confirmRollBackAction(pkg.packageName, action, RollBackItem.Action.INSTALLED.toString());
-
                         if (!TextUtils.isEmpty(referrer)) {
 
                             ReferrerUtils.broadcastReferrer(context, installEvent, referrer);
 
-                            Analytics.ApplicationInstall.installed(pkg.packageName, true);
+                            Analytics.ApplicationInstall.installed(pkg.packageName, true, isTrusted);
                             control = true;
                         } else {
-                            Analytics.ApplicationInstall.installed(pkg.packageName, false);
+                            Analytics.ApplicationInstall.installed(pkg.packageName, false, isTrusted);
                         }
 
                         processAbTesting(context, mPm, installEvent, db);

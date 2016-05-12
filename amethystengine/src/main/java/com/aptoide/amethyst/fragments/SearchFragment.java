@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.LinearRecyclerFragment;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
@@ -143,6 +144,7 @@ public class SearchFragment extends LinearRecyclerFragment {
                         return false;
                     }
                 });
+                Analytics.Search.noSearchResultEvent(query);
             }
         }
     };
