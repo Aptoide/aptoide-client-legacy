@@ -609,9 +609,13 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					showDialogIfComingFromAPKFY();
 					populateRatings(model.getApp);
 
-					if (shouldDisplaySecurityInformationBalloon(malware)) {
+					if (shouldDisplaySecurityInformationBalloon(malware)
+							&& Preferences.getInt(Preferences.BALLOON_SECURITY_NUMBER_OF_DISPLAYS_INT, 0) < 5) {
 						setSecurityInformationBalloon(malware);
 						startSecurityInformationBalloonAnimation(securityOverlayAnimation);
+						Preferences.putIntAndCommit(Preferences
+								.BALLOON_SECURITY_NUMBER_OF_DISPLAYS_INT, Preferences.getInt
+								(Preferences.BALLOON_SECURITY_NUMBER_OF_DISPLAYS_INT, 0) + 1);
 					}
 
 					if (!fromSponsored) {
@@ -635,11 +639,12 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		};
 
 		private Boolean shouldDisplaySecurityInformationBalloon(GetAppMeta.File.Malware malware) {
-			return overlayABTest.alternative() && malware != null && !UNKNOWN.equals(malware.rank)
-					&& malware.reason != null &&
-					malware.reason.scanned != null && (PASSED
-					.equals(malware.reason.scanned.status) || WARN.equals(malware.reason.scanned
-					.status));
+			return overlayABTest.alternative() && malware != null &&
+					!UNKNOWN
+					.equals(malware.rank) && malware.reason != null &&
+					malware.reason.scanned != null && (PASSED.equals(malware.reason.scanned
+					.status) || WARN
+					.equals(malware.reason.scanned.status));
 		}
 
 		private void showDialogIfComingFromAPKFY() {
@@ -1350,7 +1355,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		View.OnClickListener badgeClickListener = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (shouldDisplaySecurityInformationBalloon(malware)){
+				if (shouldDisplaySecurityInformationBalloon(malware)) {
 					startSecurityInformationBalloonAnimation(securityOverlayAnimation);
 				} else {
 					AptoideDialog.badgeDialogV7(malware, appName, malware.rank)
