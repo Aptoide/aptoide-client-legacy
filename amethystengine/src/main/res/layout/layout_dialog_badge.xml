@@ -6,11 +6,10 @@
   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:background="@drawable/dialog_bg"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bg"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/trusted_header_layout"
@@ -25,14 +24,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_badge_trusted"/>
+            android:src="@drawable/ic_badge_trusted" />
 
         <TextView
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/trusted_app"/>
+            android:text="@string/trusted_app" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,14 +47,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_badge_warning"/>
+            android:src="@drawable/ic_badge_warning" />
 
         <TextView
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/warning"/>
+            android:text="@string/warning" />
     </LinearLayout>
 
     <LinearLayout
@@ -71,19 +70,125 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_badge_unknown"/>
+            android:src="@drawable/ic_badge_unknown" />
 
         <TextView
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/unknown"/>
+            android:text="@string/unknown" />
     </LinearLayout>
 
-    <include
-        tools:layout="@layout/incl_security_information_overlay"
-        layout="@layout/incl_security_information_overlay"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:id="@+id/tr_third_party"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:src="@drawable/ic_badge_market" />
+
+            <TextView
+                android:id="@+id/tv_reason_thirdparty_validated"
+                style="@style/badgeReasonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reason_third_party" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr_signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_signature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:src="@drawable/ic_badge_signature" />
+
+            <TextView
+                android:id="@+id/tv_reason_signature_validation"
+                style="@style/badgeReasonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/tr_scanned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:src="@drawable/ic_badge_antivirus" />
+
+            <TextView
+                android:id="@+id/tv_reason_scanned_passed"
+                style="@style/badgeReasonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reason_scanned" />
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/tr_manual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:src="@drawable/ic_badge_flag" />
+
+            <TextView
+                android:id="@+id/tv_reason_manual_qa"
+                style="@style/badgeReasonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reason_manual" />
+        </TableRow>
+
+
+
+        <TableRow
+            android:id="@+id/tr_unknown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_reason_unknown"
+                style="@style/badgeReasonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reason_unknown" />
+        </TableRow>
+
+
+    </TableLayout>
 
     <Button
         android:id="@+id/dialog_ok_button"
@@ -93,7 +198,7 @@
         android:background="?attr/selectableItemBackground"
         android:paddingTop="8dp"
         android:text="@android:string/ok"
-        android:textColor="@android:color/darker_gray"/>
+        android:textColor="@android:color/darker_gray" />
 
 </LinearLayout>
 

@@ -136,7 +136,8 @@
                         android:textAllCaps="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_small"
-                        android:visibility="visible"/>
+                        tools:visibility="visible"
+                        android:visibility="invisible"/>
 
                     <TextView
                         android:id="@+id/warning_layout"
@@ -179,6 +180,7 @@
                     android:layout_marginBottom="12dp"
                     app:layout_anchor="@id/appbar"
                     app:layout_anchorGravity="bottom|left|start"
+                    tools:ignore="contentDescription"
                     tools:src="@drawable/icon_brand_aptoide"/>
 
                 <FrameLayout
@@ -186,14 +188,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_above="@id/black_header_background"
-                    android:layout_margin="12dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/overlay_security_information_balloon"
+                    android:layout_marginBottom="-8dp"
+                    android:background="@drawable/overlay_security_information_balloon_no_blur"
                     android:visibility="invisible"
                     tools:visibility="visible">
                     <include
-                        layout="@layout/incl_security_information_overlay"/>
+                        layout="@layout/balloon_security_information"/>
                 </FrameLayout>
             </RelativeLayout>
 

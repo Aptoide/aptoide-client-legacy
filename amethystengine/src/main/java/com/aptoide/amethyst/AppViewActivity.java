@@ -609,9 +609,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					showDialogIfComingFromAPKFY();
 					populateRatings(model.getApp);
 
-					if (overlayABTest.alternative()) {
-						setSecurityInformationOverlay(malware);
-						startSecurityInformationOverlayAnimation(securityOverlayAnimation);
+					if (shouldDisplaySecurityInformationBalloon(malware)) {
+						setSecurityInformationBalloon(malware);
+						startSecurityInformationBalloonAnimation(securityOverlayAnimation);
 					}
 
 					if (!fromSponsored) {
@@ -633,6 +633,14 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				}
 			}
 		};
+
+		private Boolean shouldDisplaySecurityInformationBalloon(GetAppMeta.File.Malware malware) {
+			return overlayABTest.alternative() && malware != null && !UNKNOWN.equals(malware.rank)
+					&& malware.reason != null &&
+					malware.reason.scanned != null && (PASSED
+					.equals(malware.reason.scanned.status) || WARN.equals(malware.reason.scanned
+					.status));
+		}
 
 		private void showDialogIfComingFromAPKFY() {
 			if (obb != null) {
@@ -784,8 +792,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			glide = Glide.with(this);
 
 			securityOverlayAnimation = loadSecurityInformationOverlayAnimation();
-			overlayABTest = ABTestManager.getInstance().get(ABTestManager
-					.APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE);
+			overlayABTest = ABTestManager.getInstance()
+					.get(ABTestManager.APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE);
 			overlayABTest.participate();
 			lifecycleController = getArguments().getBoolean("lifecycleController");
 
@@ -1342,12 +1350,16 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		View.OnClickListener badgeClickListener = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				AptoideDialog.badgeDialogV7(malware, appName, malware.rank)
-						.show(getFragmentManager(), BADGE_DIALOG_TAG);
+				if (shouldDisplaySecurityInformationBalloon(malware)){
+					startSecurityInformationBalloonAnimation(securityOverlayAnimation);
+				} else {
+					AptoideDialog.badgeDialogV7(malware, appName, malware.rank)
+							.show(getFragmentManager(), BADGE_DIALOG_TAG);
+				}
 			}
 		};
 
-		private void startSecurityInformationOverlayAnimation(final Animation animation) {
+		private void startSecurityInformationBalloonAnimation(final Animation animation) {
 			mAppViewSecurityInformationOverlay.post(new Runnable() {
 				@Override
 				public void run() {
@@ -1364,66 +1376,14 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			return animation;
 		}
 
-		private void setSecurityInformationOverlay(GetAppMeta.File.Malware malware) {
-			if (malware != null && malware.reason != null && !GetAppMeta.File.Malware.UNKNOWN
-					.equals(malware.rank)) {
-
-				if (malware.reason.scanned != null && malware.reason.scanned.status != null &&
-						(PASSED.equals(malware.reason.scanned.status) || WARN.equals(this
-								.malware
-								.reason.scanned.status))) {
-
-					if (malware.reason.scanned.avInfo != null) {
-						getActivity().findViewById(R.id
-								.incl_security_information_overlay_tr_scanned)
-								.setVisibility(View.VISIBLE);
-					}
-				}
-
-				if (malware.reason.thirdpartyValidated != null && GetAppMeta.File.Malware
-						.GOOGLE_PLAY
-						.equalsIgnoreCase(malware.reason.thirdpartyValidated.store)) {
-					getActivity().findViewById(R.id
-							.incl_security_information_overlay_tr_third_party)
-							.setVisibility(View.VISIBLE);
-				}
-
-				if (malware.reason.signatureValidated != null && malware.reason.signatureValidated
-						.status != null) {
-
-					switch (malware.reason.signatureValidated.status) {
-						case PASSED:
-							getActivity().findViewById(R.id
-									.incl_security_information_overlay_tv_reason_signature_validation)
-									.setVisibility(View.VISIBLE);
-							((TextView) getActivity().findViewById(R.id
-									.incl_security_information_overlay_tv_reason_signature_validation))
-									.setText(getString(R.string.reason_signature));
-							break;
-						case "failed":
-							// still in study by the UX team
-							getActivity().findViewById(R.id
-									.incl_security_information_overlay_tv_reason_signature_validation)
-									.setVisibility(View.VISIBLE);
-							((TextView) getActivity().findViewById(R.id
-									.incl_security_information_overlay_tv_reason_signature_validation))
-									.setText(getString(R.string.reason_failed));
-							break;
-						case "blacklisted":
-							// still in study by the UX team
-//                        getActivity().findViewById(R.id.malware.reason_signature_not_validated)
-// .setVisibility(View.VISIBLE);
-//                        ((TextView) getActivity().findViewById(R.id.malware
-// .reason_signature_not_validated)).setText(getString(R.string.application_signature_blacklisted));
-							break;
-					}
-				}
-
-				if (malware.reason.manualQA != null && malware.reason.manualQA.status != null &&
-						PASSED.equals(malware.reason.manualQA.status)) {
-					getActivity().findViewById(R.id.incl_security_information_overlay_tr_manual)
-							.setVisibility(View.VISIBLE);
-				}
+		private void setSecurityInformationBalloon(GetAppMeta.File.Malware malware) {
+			if (malware.reason.thirdpartyValidated != null && GetAppMeta.File.Malware.GOOGLE_PLAY
+					.equalsIgnoreCase(malware.reason.thirdpartyValidated.store)) {
+				getActivity().findViewById(R.id.balloon_security_information_google_play)
+						.setVisibility(View.VISIBLE);
+			} else {
+				getActivity().findViewById(R.id.balloon_security_information_google_play)
+						.setVisibility(View.GONE);
 			}
 		}
 
