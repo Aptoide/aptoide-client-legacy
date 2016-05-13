@@ -1,0 +1,34 @@
+<resources>
+
+    <string name="app_name">Aptoide</string>
+
+    <string name="email_encoding">message/rfc822</string>
+    <string name="ip_blacklisted_email_contact">ipblacklist@aptoide.com</string>
+    <string name="aptoide_url">http://www.aptoide.com/</string>
+    <string name="http_url">http://</string>
+    <string name="store_path">.store.aptoide.com/</string>
+    <string name="aptoide_email"> aptoide@aptoide.com</string>
+	<string name="aptoide_url_topapps">http://www.aptoide.com/more/topapps</string>
+	<string name="paypal">PayPal</string>
+
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+
+    <string name="dark">Dark</string>
+    <string name="light">Light</string>
+
+    <array name="themes">
+        <item>dark</item>
+        <item>light</item>
+    </array>
+
+    <array name="theme_names">
+        <item>@string/dark</item>
+        <item>@string/light</item>
+    </array>
+    <string name="backup_apps">Backup Apps</string>
+
+
+</resources>

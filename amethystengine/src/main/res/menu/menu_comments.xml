@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_reply"
+        android:title="@string/reply"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/menu_vote_up"
+        android:title="@string/vote_up"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/menu_vote_down"
+        android:title="@string/vote_down"
+        app:showAsAction="collapseActionView" />
+</menu>

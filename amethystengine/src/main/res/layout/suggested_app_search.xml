@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/app_view_middle_sugested"
+    >
+
+    <!--<TextView-->
+        <!--style="@style/HeaderText"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/suggested_app_search"/>-->
+
+    <RelativeLayout
+        android:id="@+id/apkinfoheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?attr/backgroundCard"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:id="@+id/icon_layout"
+            >
+
+            <ImageView
+                android:id="@+id/app_icon"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+
+                android:layout_margin="8dp"
+                android:layout_gravity="right"
+
+                android:src="@drawable/icon_brand_aptoide" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/app_name"
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/icon_layout"
+            android:layout_toLeftOf="@+id/ic_trusted_search"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/size_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_name"
+            android:layout_toRightOf="@+id/icon_layout"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Size: "
+            android:textSize="10dp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/size_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_name"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/size_label"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:maxLines="1"
+            android:singleLine="true"
+
+            android:textSize="10dp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/sponsored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_name"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/size_value"
+            android:layout_marginLeft="5dp"
+            android:ellipsize="end"
+            android:layout_gravity="center_horizontal"
+            android:maxLines="1"
+            android:singleLine="true"
+
+            android:text="@string/sponsored"
+            android:textSize="@dimen/text_size_small"
+            />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/size_label"
+            android:layout_toRightOf="@+id/icon_layout"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:maxLines="1"
+            android:layout_marginTop="4dp"
+
+            android:textSize="13dp"
+            android:visibility="visible" />
+
+
+        <ImageView
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/ic_trusted_search"
+            android:layout_width="@dimen/trusted_badge_size"
+            android:layout_height="@dimen/trusted_badge_size"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_badge_trusted" />
+
+
+        <View
+            android:id="@+id/bottom_view"
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/search_row_bottom_line" />
+
+
+        <TextView
+            android:id="@+id/search_store"
+            android:layout_width="120dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/search_row_store_background"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:singleLine="true"
+            android:textColor="?attr/inverseTextColor"
+            android:textSize="@dimen/text_size_small" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+

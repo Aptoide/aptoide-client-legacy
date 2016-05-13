@@ -1,0 +1,2 @@
+rootProject.name = "Aptoide"
+include ':vanilla', ':models', ':dataprovider', ':amethystengine'

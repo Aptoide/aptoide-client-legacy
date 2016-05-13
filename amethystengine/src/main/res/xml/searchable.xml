@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/srch_hint"
+    android:hint="@string/srch_hint"
+    android:includeInGlobalSearch="true"
+    android:searchSuggestIntentAction="android.intent.action.SEARCH"
+
+    android:searchSuggestAuthority="@string/search_suggest_authority"
+    android:queryAfterZeroResults="false"
+    android:searchSuggestThreshold="3"
+    android:searchSuggestSelection=" ?" >
+
+</searchable>

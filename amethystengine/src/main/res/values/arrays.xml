@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="operadoras_array">
+        <item>TIM</item>
+        <item>VIVO</item>
+    </string-array>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="@layout/app_review"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pros_label"
+            android:layout_width="match_parent"
+            android:text="Good"
+            android:textSize="18dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:drawableRight="@drawable/good"
+            android:textColor="#00c81b"
+            android:layout_height="wrap_content"
+            android:background="?attr/backgroundMain" />
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_below="@id/pros_label"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:id="@+id/pros_container"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical">
+
+        <TextView
+            android:textColor="#ff3037"
+            android:id="@+id/cons_label"
+            android:layout_width="match_parent"
+            android:text="Bad"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:drawableRight="@drawable/bad"
+            android:layout_height="wrap_content"
+            android:background="?attr/backgroundMain" />
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_below="@id/cons_label"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:id="@+id/cons_container"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

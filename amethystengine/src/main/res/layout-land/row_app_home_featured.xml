@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright (c) 2013 tdeus.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the GNU Public License v2.0
+  which accompanies this distribution, and is available at
+  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/fl_central"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="1dp"
+
+            android:layout_weight="1" android:clickable="true"
+            style="?attr/customRowForegroundHomeLayout">
+
+            <ImageView
+                android:id="@+id/app_icon_central"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_row1_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:padding="1dp"
+
+            style="?attr/customRowForegroundHomeLayout">
+
+            <ImageView
+                android:id="@+id/app_icon_row1_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter" />
+        </FrameLayout>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/fl_row1_right"
+            android:layout_width="match_parent"
+            android:padding="1dp"
+
+            android:layout_height="match_parent"
+            android:layout_weight="1" android:clickable="true"
+            style="?attr/customRowForegroundHomeLayout">
+
+            <ImageView
+                android:id="@+id/app_icon_row1_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@drawable/highlight_overlay"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fl_row2_left"
+            android:padding="1dp"
+
+            android:layout_weight="1" android:clickable="true"
+            style="?attr/customRowForegroundHomeLayout">
+            <ImageView
+                android:id="@+id/app_icon_row2_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@drawable/highlight_overlay"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_row2_right"
+            android:layout_width="match_parent"
+            android:padding="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" android:clickable="true"
+            style="?attr/customRowForegroundHomeLayout" >
+
+            <ImageView
+                android:id="@+id/app_icon_row2_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/highlight_overlay"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

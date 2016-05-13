@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?selectableItemBackground">
+
+    <!-- it's not useless: it provides a selectable behaviour on the parent-->
+    <RelativeLayout
+        android:id="@+id/other_stores_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/other_stores_avatar_store_layout"
+            android:layout_width="@dimen/other_stores_store_avatar_dimen"
+            android:layout_height="@dimen/other_stores_store_avatar_dimen"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="@dimen/other_stores_store_avatar_dimen"
+                android:layout_height="@dimen/other_stores_store_avatar_dimen"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/white_border_circle" />
+
+            <ImageView
+                android:id="@+id/other_stores_avatar_store"
+                android:layout_width="@dimen/other_stores_store_avatar_inner_dimen"
+                android:layout_height="@dimen/other_stores_store_avatar_inner_dimen"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_avatar_apps" />
+
+            <ImageView
+                android:layout_width="@dimen/other_stores_store_avatar_dimen"
+                android:layout_height="@dimen/other_stores_store_avatar_dimen"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/oculo" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/other_stores_app_avatar_dimen"
+            android:layout_height="@dimen/other_stores_app_avatar_dimen"
+            android:layout_alignBottom="@id/other_stores_avatar_store_layout"
+            android:layout_alignRight="@id/other_stores_avatar_store_layout"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/other_stores_app_avatar_dimen"
+                android:layout_height="@dimen/other_stores_app_avatar_dimen"
+                android:scaleType="fitCenter"
+                android:src="@drawable/white_border_circle" />
+
+            <ImageView
+                android:id="@+id/other_stores_avatar_app"
+                android:layout_width="@dimen/other_stores_app_avatar_inner_dimen"
+                android:layout_height="@dimen/other_stores_app_avatar_inner_dimen"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_avatar_apps" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/other_stores_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/other_stores_avatar_store_layout"
+            android:layout_marginLeft="@dimen/this_app_in_other_store_text_margin_left"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_large" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/other_stores_name"
+            android:layout_marginBottom="4dp"
+            android:gravity="bottom">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:src="@drawable/ic_appview_version_white" />
+
+            <TextView
+                android:id="@+id/other_stores_app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/this_app_in_other_store_text_margin_left"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small" />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,43 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+
+    tools:context="lecho.lib.hellocharts.samples.PieChartActivity$PlaceholderFragment" >
+
+    <ImageView
+        android:id="@+id/screenshot"
+        android:layout_above="@+id/designation"
+        android:layout_width="match_parent"
+        android:src="@drawable/generic_image"
+        android:layout_height="match_parent" android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:layout_above="@+id/designation">
+
+        <lecho.lib.hellocharts.view.PieChartView
+            android:id="@+id/chart"
+            android:background="#99000000"
+            android:layout_width="100dp"
+            android:padding="5dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/designation"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textColor="?attr/inverseTextColor"
+        android:shadowRadius="2.0"
+        android:padding="5dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Class holding Number constants -->
+<resources>
+    <integer name="minimum_description_lines">4</integer>
+    <integer name="bucket_size_magic_number">120</integer>
+</resources>

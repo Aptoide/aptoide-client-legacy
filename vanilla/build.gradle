@@ -1,0 +1,146 @@
+apply plugin: 'com.android.application'
+
+// Should be moved to application module when possible
+Properties localProperties = new Properties()
+localProperties.load(new FileInputStream("local.properties"))
+
+def fabricApiKey = localProperties.FABRIC_API_KEY
+def fabricConfigured = fabricApiKey != null
+if(fabricConfigured) {
+    task fabricGenerateProperties {
+        doFirst {
+            def fabricProperties = project.file("fabric.properties")
+            fabricProperties.delete()
+            fabricProperties.append("# Do not modify this file -- YOUR CHANGES WILL BE ERASED!\n")
+            fabricProperties.append("apiKey=" + fabricApiKey)
+        }
+    }
+    preBuild.dependsOn(fabricGenerateProperties)
+    apply plugin: 'io.fabric'
+}
+
+if(project.file("google-services.json").exists()) {
+    apply plugin: 'com.google.gms.google-services'
+}
+
+android {
+
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
+    defaultConfig {
+        applicationId "cm.aptoide.pt.dev"
+        targetSdkVersion 23
+        versionCode 478
+        versionName "7.1.0.7"
+    }
+
+    dexOptions {
+        javaMaxHeapSize "3g"
+    }
+
+    signingConfigs { release }
+
+    productFlavors {
+        // Define separate dev and prod product flavors.
+        dev {
+            // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
+            // to pre-dex each module and produce an APK that can be tested on
+            // Android Lollipop without time consuming dex merging processes.
+            minSdkVersion 21
+
+            // Enabling multidex support.
+            multiDexEnabled true
+            versionName "7.1.0"
+            versionCode 477
+        }
+        prod {
+            // The actual minSdkVersion for the application.
+            minSdkVersion 9
+
+            applicationId "cm.aptoide.pt"
+        }
+    }
+
+    buildTypes {
+        release {
+            zipAlignEnabled true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            zipAlignEnabled false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    variantFilter { variant ->
+        def names = variant.flavors*.name
+        if (names.contains("prod") && variant.buildType.name == "debug") {
+            variant.ignore = true
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        disable 'InvalidPackage'
+    }
+
+    useLibrary 'org.apache.http.legacy'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    packagingOptions {
+        pickFirst 'META-INF/services/javax.annotation.processing.Processor'
+        pickFirst 'META-INF/DEPENDENCIES.txt'
+        pickFirst 'META-INF/DEPENDENCIES'
+        pickFirst 'META-INF/LICENSE.txt'
+        pickFirst 'META-INF/LICENSE'
+        pickFirst 'META-INF/NOTICE.txt'
+        pickFirst 'META-INF/NOTICE'
+        pickFirst 'META-INF/MANIFEST.MF'
+        pickFirst 'META-INF/LGPL2.1'
+    }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    maven { url "http://repo.commonsware.com.s3.amazonaws.com" }
+}
+
+dependencies {
+    //    compile fileTree(include: ['*.jar'], dir: 'lib')
+    debugCompile project(path: ':amethystengine', configuration: 'debug')
+    releaseCompile project(path: ':amethystengine', configuration: 'release')
+    compile 'com.commonsware.cwac:endless:1.2.3'
+    provided 'org.projectlombok:lombok:1.16.6'
+
+}
+
+def File propFile = new File('signing.properties')
+if (propFile.canRead()) {
+    def Properties props = new Properties()
+    props.load(new FileInputStream(propFile))
+
+    if (props != null && props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
+            props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+
+        android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
+        android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
+        println 'all good to go'
+    } else {
+        android.buildTypes.release.signingConfig = null
+        println 'signing.properties found but some entries are missing'
+    }
+} else {
+    println 'signing.properties not found'
+    android.buildTypes.release.signingConfig = null
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright (c) 2015 Aptoide
+  Author: Henrique de Sousa
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the GNU Public License v2.0
+  which accompanies this distribution, and is available at
+  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_trusted" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trusted App"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_badge_market" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Run, jump, smash, and slide into new levels and adventures with Bugs Bunny, Road Runner, Tweety Bird, and other Looney Tunes favorites! Complete level objectives to unlock new Looney Tunes characters and zones based on iconic Looney Tunes landscapes. Enjoy loads of wild, whacky, and looney ways to run as you discover each character’s Special Ability and Collector’s Card. It’s time to run, Doc!
+•	Run as Bugs Bunny, Tweety Bird, Road Runner, and other favorite Looney Tunes characters!
+•	Explore and run in iconic Episodes like Painted Desert, Tweety’s Neighborhood, and more!
+•	Complete level goals to progress on the Looney Tunes map and unlock more zones!
+•	Unlock and master each character’s Special Ability for extra running power!
+•	Grab Power-Ups to fly like a superhero, blast through obstacles, plus loads of other surprises!
+•	Collect Looney Tunes Collector’s Cards to fill your Looney Tunes Bin and learn fun trivia!
+•	Prank other Looney Tunes characters for more coins and points!
+Having issues with the Game? We would love to hear from you! Drop us a line at"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_badge_flag" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Run, jump, smash, and slide into new levels and adventures with Bugs Bunny, Road Runner, Tweety Bird, and other Looney Tunes favorites! Complete level objectives to unlock new Looney Tunes characters and zones based on iconic Looney Tunes landscapes. Enjoy loads of wild, whacky, and looney ways to run as you discover each character’s Special Ability and Collector’s Card. It’s time to run, Doc!
+•	Run as Bugs Bunny, Tweety Bird, Road Runner, and other favorite Looney Tunes characters!
+•	Explore and run in iconic Episodes like Painted Desert, Tweety’s Neighborhood, and more!
+•	Complete level goals to progress on the Looney Tunes map and unlock more zones!
+•	Unlock and master each character’s Special Ability for extra running power!
+•	Grab Power-Ups to fly like a superhero, blast through obstacles, plus loads of other surprises!
+•	Collect Looney Tunes Collector’s Cards to fill your Looney Tunes Bin and learn fun trivia!
+•	Prank other Looney Tunes characters for more coins and points!
+Having issues with the Game? We would love to hear from you! Drop us a line at"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright (c) 2013 tdeus.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the GNU Public License v2.0
+  which accompanies this distribution, and is available at
+  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/screenshots_background_color">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/screenShotsPager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+
+
+    <ImageView
+        android:id="@+id/btn_close_screenshots_window"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close_btn"
+        android:layout_alignParentRight="true"
+        android:padding="10dp"/>
+
+</RelativeLayout>

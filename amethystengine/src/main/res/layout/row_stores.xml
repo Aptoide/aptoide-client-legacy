@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2013 tdeus.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the GNU Public License v2.0
+  which accompanies this distribution, and is available at
+  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+  TODO: delete when in production
+-->
+<com.manuelpeinado.multichoiceadapter.CheckableFrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:foreground="@drawable/highlight_overlay">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/store_avatar"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="@null"
+                android:layout_centerInParent="true"/>
+
+
+        <View android:id="@+id/view_alpha"
+              android:layout_width="150dp"
+              android:layout_height="@dimen/label_height"
+              android:layout_alignParentBottom="true"
+              android:layout_gravity="center_horizontal"
+              android:layout_centerHorizontal="true"/>
+
+
+
+        <RelativeLayout android:layout_width="150dp"
+                        android:layout_height="@dimen/label_height"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:orientation="vertical">
+            <TextView
+                    android:id="@+id/store_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/listPreferredItemHeight"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="@dimen/label_padding"
+                    android:paddingRight="@dimen/label_padding"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textColor="?attr/inverseTextColor"
+                    android:textSize="@dimen/text_size_large"/>
+
+            <TextView
+                    android:id="@+id/store_dwn_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:singleLine="true"
+                    android:paddingLeft="@dimen/label_padding"
+                    android:paddingRight="@dimen/label_padding"
+                    android:ellipsize="end"
+                    android:textColor="?attr/inverseTextColor"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="@dimen/text_size_small"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</com.manuelpeinado.multichoiceadapter.CheckableFrameLayout>
+
+

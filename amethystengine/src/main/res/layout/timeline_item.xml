@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:clickable="true"
+             android:foreground="?selectableItemBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="?attr/backgroundCard"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp">
+
+        <ImageView
+            android:id="@+id/app_icon"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_icon"
+            android:ellipsize="end"
+            android:lines="2"
+            android:maxLines="2"
+            android:layout_marginLeft="3dp"
+            android:maxWidth="100dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+        <TextView
+            android:id="@+id/app_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/app_icon"
+            android:layout_alignRight="@+id/app_icon"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_below="@+id/app_name"
+            android:layout_toEndOf="@+id/user_avatar"
+            android:layout_toRightOf="@+id/user_avatar"
+            android:ellipsize="end"
+            android:maxWidth="120dp"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10sp"/>
+
+        <ImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignLeft="@+id/app_icon"
+            android:layout_alignStart="@+id/app_icon"
+            android:layout_below="@+id/app_name"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"/>
+
+    </RelativeLayout>
+</FrameLayout>

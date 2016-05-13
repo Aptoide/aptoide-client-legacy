@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/navdrawer_chosen_account_height"
+    android:background="?attr/colorPrimary"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/img_navdrawer_wallpaper"
+        android:scaleType="centerInside" />
+
+    <RelativeLayout
+        android:id="@+id/chosen_account_content_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/keyline_1"
+        android:paddingRight="@dimen/keyline_1"
+        android:paddingTop="@dimen/keyline_1">
+
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/navdrawer_profile_image_size"
+            android:layout_height="@dimen/navdrawer_profile_image_size"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter"
+            android:src="@drawable/user_account_white"
+            android:paddingTop="@dimen/keyline_1"
+            android:layout_marginTop="23dp"/>
+
+        <TextView
+            android:id="@+id/profile_email_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/profile_image"
+            android:layout_alignParentBottom="true"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingBottom="16dp"
+            android:singleLine="true"
+            android:text="Aptoider@aptoide.com"
+            android:textColor="?attr/inverseTextColor"
+            android:textSize="@dimen/text_size_medium" />
+
+        <TextView
+            android:id="@+id/profile_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/profile_email_text"
+            android:layout_alignLeft="@id/profile_image"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Aptoider"
+            android:textColor="?attr/inverseTextColor"
+            android:textSize="@dimen/text_size_large" />
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,20 @@
+<!--
+  Copyright (c) 2015 Aptoide
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the GNU Public License v2.0
+  which accompanies this distribution, and is available at
+  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_widget_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/backgroundMain"
+    android:drawableLeft="@drawable/icon_brand_aptoide"
+    android:drawablePadding="7dp"
+    android:drawableRight="@drawable/ic_action_search"
+    android:gravity="center|left"
+    android:hint="@string/search_for_apps"
+    android:padding="5dp"
+    android:textSize="20sp"
+    android:textStyle="italic" />

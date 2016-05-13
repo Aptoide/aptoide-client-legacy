@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="subscription_store_model">freemium</string>
+    <string name="subscription_trigger">store_open</string>
+    <string name="subscription_url">http://wap.toing.com.br/landing/?origem=MADNET_TESTE_BOXAPPS-2015</string>
+    <bool name="subscription_api">false</bool>
+</resources>

@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // do not update retrofit library because it won't add the User-Agent to the header, needed for some old Webservices
+    compile 'com.squareup.retrofit:converter-jackson:1.7.1'
+    compile('com.octo.android.robospice:robospice-retrofit:1.4.14') {
+        exclude(group: 'org.apache.httpcomponents', module: 'httpclient') //by both name and group
+        exclude group: 'commons-io', module: 'commons-io'
+        exclude group: 'com.google.code.gson'
+        exclude group: 'com.squareup.retrofit'
+    }
+    compile project(':models')
+}

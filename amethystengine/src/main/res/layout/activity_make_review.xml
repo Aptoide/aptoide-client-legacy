@@ -1,0 +1,166 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MakeReviewActivity" >
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="?attr/toolbarTheme" />
+    </android.support.design.widget.AppBarLayout>
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        layout="@layout/row_app_title_rating_2texts" />
+
+    <View
+        android:layout_height="1dp"
+        android:layout_width="fill_parent"
+        android:background="?attr/backgroundSecondary" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/layout_screenshots"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="160dp">
+            </android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:orientation="vertical"
+                style="?attr/backgroundCard"
+                android:layout_marginBottom="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/pros_label"
+                    android:layout_width="match_parent"
+                    android:text="@string/review_good"
+                    android:textSize="18dp"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:drawableRight="@drawable/good"
+                    android:textColor="#00c81b"
+                    android:layout_height="wrap_content" />
+
+                <include android:id="@+id/Pro1" layout="@layout/review_form" />
+                <include android:id="@+id/Pro2" layout="@layout/review_form" />
+                <include android:id="@+id/Pro3" layout="@layout/review_form" />
+
+                <TextView
+                    android:textColor="#ff3037"
+                    android:id="@+id/cons_label"
+                    android:layout_width="match_parent"
+                    android:text="@string/review_bad"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:textSize="18dp"
+                    android:drawableRight="@drawable/bad"
+                    android:layout_height="wrap_content" />
+
+                <include android:id="@+id/Con1" layout="@layout/review_form" />
+                <include android:id="@+id/Con2" layout="@layout/review_form" />
+                <include android:id="@+id/Con3" layout="@layout/review_form" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:orientation="vertical"
+                style="?attr/backgroundCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/Seek_Bar_Speed"
+                    layout="@layout/row_seekbar_number" />
+                <View
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="1dp"
+                    android:layout_width="fill_parent"
+                    android:background="?attr/backgroundSecondary" />
+                <include
+                    android:id="@+id/Seek_Bar_Usability"
+                    layout="@layout/row_seekbar_number" />
+                <View
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="1dp"
+                    android:layout_width="fill_parent"
+                    android:background="?attr/backgroundSecondary" />
+                <include
+                    android:id="@+id/Seek_Bar_Stability"
+                    layout="@layout/row_seekbar_number" />
+                <View
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="1dp"
+                    android:layout_width="fill_parent"
+                    android:background="?attr/backgroundSecondary" />
+                <include
+                    android:id="@+id/Seek_Bar_Funny"
+                    layout="@layout/row_seekbar_number" />
+
+
+                <View
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="1dp"
+                    android:layout_width="fill_parent"
+                    android:background="?attr/backgroundSecondary" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="5dp">
+
+                    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/review_final_verdict"
+                        android:layout_alignParentLeft="true" />
+
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/make_review_final_verdict"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:background="@drawable/edittext_bg_round_corner"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+                    android:minLines="4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="3000" />
+            </LinearLayout>
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="finishButtonClick"
+                android:text="@string/review_finish"
+                style="?attr/customButton" />
+
+        </LinearLayout>
+
+    </ScrollView></LinearLayout>

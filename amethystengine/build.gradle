@@ -1,0 +1,153 @@
+apply plugin: 'com.android.library'
+apply plugin: 'io.fabric'
+
+// Should be moved to application module when possible
+Properties localProperties = new Properties()
+localProperties.load(new FileInputStream("local.properties"))
+
+def gmsServerId = localProperties.GMS_SERVER_ID
+def gmsConfigured = gmsServerId != null
+
+def fabricApiKey = localProperties.FABRIC_API_KEY
+
+android {
+    publishNonDefault true
+    useLibrary 'org.apache.http.legacy'
+
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    def TRUE = "true"
+    def FALSE = "false"
+    def BOOLEAN = "boolean"
+    def STRING = "String"
+    def REPORT_CRASHES = "REPORT_CRASHES"
+    def GMS_CONFIGURED = "GMS_CONFIGURED"
+    def GMS_SERVER_ID = "GMS_SERVER_ID"
+    def LOCALYTICS_CONFIGURED = "LOCALYTICS_CONFIGURED"
+    def FACEBOOK_CONFIGURED = "FACEBOOK_CONFIGURED"
+    def FLURRY_CONFIGURED = "FLURRY_CONFIGURED"
+    def FLURRY_KEY = "FLURRY_KEY"
+    def FABRIC_CONFIGURED = "FABRIC_CONFIGURED"
+    def FABRIC_API_KEY = "FABRIC_KEY"
+    def AMAZON_CONFIGURED = "AMAZON_CONFIGURED"
+    def AMAZON_PUBLIC_KEY = "AMAZON_PUBLIC_KEY"
+    def AMAZON_PRIVATE_KEY = "AMAZON_PRIVATE_KEY"
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+        def amazonPublicKey = localProperties.AMAZON_PUBLIC_KEY
+        def amazonPrivateKey = localProperties.AMAZON_PRIVATE_KEY
+        buildConfigField BOOLEAN, AMAZON_CONFIGURED, (amazonPublicKey != null && amazonPrivateKey != null).toString()
+        buildConfigField STRING, AMAZON_PUBLIC_KEY, "\"" + amazonPublicKey.toString() + "\""
+        buildConfigField STRING, AMAZON_PRIVATE_KEY, "\"" + amazonPrivateKey.toString() + "\""
+
+        buildConfigField BOOLEAN, GMS_CONFIGURED, (gmsServerId != null).toString()
+        buildConfigField STRING, GMS_SERVER_ID, "\"" + gmsServerId.toString() + "\""
+
+        def localyticsDebugKey = localProperties.LOCALYTICS_DEBUG_KEY
+        def localyticsReleaseKey = localProperties.LOCALYTICS_RELEASE_KEY
+        buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, (localyticsDebugKey != null && localyticsReleaseKey != null).toString()
+
+        buildConfigField BOOLEAN, FABRIC_CONFIGURED, (fabricApiKey != null).toString()
+//        buildConfigField STRING, FABRIC_API_KEY, "\"" + fabricApiKey.toString() + "\""
+
+        def flurryKey = localProperties.FLURRY_KEY
+        buildConfigField BOOLEAN, FLURRY_CONFIGURED, (flurryKey != null).toString()
+        buildConfigField STRING, FLURRY_KEY, "\"" + flurryKey.toString() + "\""
+
+        def facebookAppId = localProperties.FACEBOOK_APP_ID
+        def facebookAppIdExists = facebookAppId != null
+        buildConfigField BOOLEAN, FACEBOOK_CONFIGURED, facebookAppIdExists.toString()
+        facebookAppId = facebookAppIdExists ? facebookAppId.toString() : "0"
+        resValue "string", "facebook_app_id", "\"" + facebookAppId + "\""
+
+        //suggestion provider authority key, this method is used to allow both, dev and prod version, be installed at the same time
+        resValue "string", "search_suggest_authority", "\"" + applicationId + ".SuggestionProvider" + "\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField BOOLEAN, REPORT_CRASHES, FALSE
+
+            def localyticsKey = localProperties.LOCALYTICS_RELEASE_KEY
+            def localyticsKeyExists = localyticsKey != null
+            buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
+            manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField BOOLEAN, REPORT_CRASHES, FALSE
+
+            def localyticsKey = localProperties.LOCALYTICS_DEBUG_KEY
+            def localyticsKeyExists = localyticsKey != null
+            buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
+            manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories{
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    maven { url "http://repo.commonsware.com.s3.amazonaws.com" }
+}
+
+ext {
+    supportLibVersion = '23.1.1'
+}
+
+dependencies {
+    //compile fileTree(dir: 'libs', include: ['*.jar'])
+    //compile 'net.danlew:android.joda:2.8.1'
+    //compile 'org.apache.httpcomponents:httpcore:4.3.2'
+    //    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile "com.android.support:recyclerview-v7:${supportLibVersion}"
+    compile "com.android.support:palette-v7:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.jpardogo.materialtabstrip:library:1.0.9'
+    //compile 'com.jakewharton.timber:timber:3.1.0'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+    compile 'com.github.bumptech.glide:okhttp-integration:1.3.1@aar'
+    provided 'org.projectlombok:lombok:1.16.6'
+    compile 'com.facebook.android:facebook-android-sdk:3.23.0'
+    compile 'com.google.android.gms:play-services-measurement:8.4.0'
+    compile 'com.google.android.gms:play-services-auth:8.4.0'
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.0') { transitive = true }
+    //compile 'com.github.manuelpeinado.multichoiceadapter:multichoiceadapter-abc:3.0.0'
+    compile 'com.squareup:otto:1.3.5'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    //compile 'org.apache.httpcomponents:httpclient:4.5'
+    //compile 'org.apache.httpcomponents:httpcore:4.4.1'
+    compile 'com.rabbitmq:amqp-client:3.5.3'
+    compile 'com.github.lecho:hellocharts-library:1.5.0@aar'
+    compile project(':dataprovider')
+    compile files('lib/AmazonInsights-android-sdk-2.1.26.jar')
+    compile files('lib/localytics.jar')
+    compile files('lib/FlurryAnalytics-4.2.0.jar')
+    compile files('lib/fortumo-in-app-android-sdk.jar')
+
+    compile files('lib/AudienceNetwork.jar')
+    compile files('lib/PayPalAndroidSDK-2.8.4.jar')
+    compile 'com.commonsware.cwac:endless:1.2.3'
+}

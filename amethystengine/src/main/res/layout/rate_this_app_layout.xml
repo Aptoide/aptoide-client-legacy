@@ -1,0 +1,32 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        style="?android:attr/textAppearanceSmall"
+        android:textColor="?android:attr/textColorSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:maxWidth="120dp"
+        android:text="@string/appview_rate_this_app_text"
+        android:textStyle="bold" />
+
+    <RatingBar
+        android:id="@+id/ratingbar_appview"
+        style="@style/RateThisAppBarAppviewAppbarRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:progressTint="@color/yellow"
+        android:secondaryProgressTint="@color/yellow"
+        android:stepSize="1" />
+
+</LinearLayout>
