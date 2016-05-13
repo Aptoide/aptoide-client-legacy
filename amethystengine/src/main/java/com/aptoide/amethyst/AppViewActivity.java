@@ -85,6 +85,7 @@ import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
+import com.aptoide.amethyst.model.TrustedBalloon;
 import com.aptoide.amethyst.model.json.CheckUserCredentialsJson;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.openiab.PaidAppPurchaseActivity;
@@ -158,10 +159,8 @@ import java.util.concurrent.CountDownLatch;
 
 import lombok.Getter;
 
-import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.PASSED;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.TRUSTED;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.UNKNOWN;
-import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.WARN;
 import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.WARNING;
 
 /**
@@ -309,8 +308,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private static final String BADGE_DIALOG_TAG = "badgeDialog";
 		protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
 		private boolean lifecycleController;
-		private Animation securityOverlayAnimation;
-		private ABTest<Boolean> overlayABTest;
+		private Animation trustedBalloonAnimation;
+		private ABTest<Boolean> showTrustedBalloonABTest;
 
 		public static AppViewFragment newInstance(boolean lifecycleController) {
 			AppViewFragment f = new AppViewFragment();
@@ -400,7 +399,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		TextView mPermissionsLabel;
 		RecyclerView mScreenshotsList;
 		RecyclerView mMoreVersionsList;
-		View mAppViewSecurityInformationOverlay;
+		View mTrustedBalloon;
 
 		int descriptionLines;
 
@@ -523,6 +522,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 		private ResultBundle resultBundle;
 
+		private TrustedBalloon trustedBalloon;
 		private RequestListener<GetAppModel> listener = new RequestListener<GetAppModel>() {
 
 			@Override
@@ -608,15 +608,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					showDialogIfComingFromBrowser();
 					showDialogIfComingFromAPKFY();
 					populateRatings(model.getApp);
-					setSecurityInformationBalloon(malware);
 
-					if (shouldDisplaySecurityInformationBalloon(malware)
-							&& Preferences.getInt(Preferences.BALLOON_SECURITY_NUMBER_OF_DISPLAYS_INT, 0) < 5) {
-						startSecurityInformationBalloonAnimation(securityOverlayAnimation);
-						Preferences.putIntAndCommit(Preferences
-								.BALLOON_SECURITY_NUMBER_OF_DISPLAYS_INT, Preferences.getInt
-								(Preferences.BALLOON_SECURITY_NUMBER_OF_DISPLAYS_INT, 0) + 1);
-					}
+					setTrustedBalloon(new TrustedBalloon(malware, 5, !showTrustedBalloonABTest.alternative()));
+					showTrustedBalloonAutomatically(trustedBalloonAnimation);
 
 					if (!fromSponsored) {
 						new AppViewMiddleSuggested((AppViewActivity) getActivity(), getView()
@@ -637,15 +631,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				}
 			}
 		};
-
-		private Boolean shouldDisplaySecurityInformationBalloon(GetAppMeta.File.Malware malware) {
-			return overlayABTest.alternative() && malware != null &&
-					!UNKNOWN
-					.equals(malware.rank) && malware.reason != null &&
-					malware.reason.scanned != null && (PASSED.equals(malware.reason.scanned
-					.status) || WARN
-					.equals(malware.reason.scanned.status));
-		}
 
 		private void showDialogIfComingFromAPKFY() {
 			if (obb != null) {
@@ -796,10 +781,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			setHasOptionsMenu(true);
 			glide = Glide.with(this);
 
-			securityOverlayAnimation = loadSecurityInformationOverlayAnimation();
-			overlayABTest = ABTestManager.getInstance()
-					.get(ABTestManager.APP_VIEW_SHOW_SECURITY_OVERLAY_BOOLEAN_VARIABLE);
-			overlayABTest.participate();
+			showTrustedBalloonABTest = ABTestManager.getInstance().get(ABTestManager.SHOW_TRUSTED_BALLOON);
+			showTrustedBalloonABTest.participate();
+			trustedBalloonAnimation = loadTrustedBalloonAnimation();
 			lifecycleController = getArguments().getBoolean("lifecycleController");
 
 			if (savedInstanceState != null) {
@@ -919,9 +903,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			mPermissionsLabel = (TextView) view.findViewById(R.id.permissions_label);
 			mScreenshotsList = (RecyclerView) view.findViewById(R.id.screenshots_list);
 			mMoreVersionsList = (RecyclerView) view.findViewById(R.id.more_versions_recycler);
-
-			mAppViewSecurityInformationOverlay = view.findViewById(R.id
-					.activity_app_view_trusted_information_overlay);
+			mTrustedBalloon = view.findViewById(R.id.fragment_app_view_trusted_balloon);
 
 			descriptionLines = view.getContext()
 					.getResources()
@@ -1355,8 +1337,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		View.OnClickListener badgeClickListener = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (shouldDisplaySecurityInformationBalloon(malware)) {
-					startSecurityInformationBalloonAnimation(securityOverlayAnimation);
+				if (trustedBalloon.shouldDisplay()) {
+					showTrustedBalloon(trustedBalloonAnimation);
 				} else {
 					AptoideDialog.badgeDialogV7(malware, appName, malware.rank)
 							.show(getFragmentManager(), BADGE_DIALOG_TAG);
@@ -1364,32 +1346,39 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 		};
 
-		private void startSecurityInformationBalloonAnimation(final Animation animation) {
-			mAppViewSecurityInformationOverlay.post(new Runnable() {
+		private void showTrustedBalloonAutomatically(Animation animation) {
+			if (trustedBalloon.shouldDisplayAutomatically()) {
+				showTrustedBalloon(animation);
+				trustedBalloon.didDisplayAutomatically();
+			}
+		}
+
+		private void showTrustedBalloon(final Animation animation) {
+			mTrustedBalloon.post(new Runnable() {
 				@Override
 				public void run() {
-					mAppViewSecurityInformationOverlay.startAnimation(animation);
+					mTrustedBalloon.startAnimation(animation);
 				}
 			});
 		}
 
 		@NonNull
-		private Animation loadSecurityInformationOverlayAnimation() {
+		private Animation loadTrustedBalloonAnimation() {
 			final Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim
 					.security_information_overlay_fade_in_fade_out);
 			animation.setInterpolator(new FastOutSlowInInterpolator());
 			return animation;
 		}
 
-		private void setSecurityInformationBalloon(GetAppMeta.File.Malware malware) {
-			if (malware.reason.thirdpartyValidated != null && GetAppMeta.File.Malware.GOOGLE_PLAY
-					.equalsIgnoreCase(malware.reason.thirdpartyValidated.store)) {
+		private void setTrustedBalloon(TrustedBalloon trustedBalloon) {
+			if (trustedBalloon.hasGooglePlayLogo()) {
 				getActivity().findViewById(R.id.balloon_security_information_google_play)
 						.setVisibility(View.VISIBLE);
 			} else {
 				getActivity().findViewById(R.id.balloon_security_information_google_play)
 						.setVisibility(View.GONE);
 			}
+			this.trustedBalloon = trustedBalloon;
 		}
 
 		private View.OnClickListener extendListener = new View.OnClickListener() {
@@ -2639,7 +2628,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 			@Override
 			public void onClick(View v) {
-				overlayABTest.convert();
+				showTrustedBalloonABTest.convert();
 				reloadButtons = true;
 				if (appSuggested != null && appSuggested.getInfo().getCpc_url() != null) {
 					AptoideUtils.AdNetworks.knock(appSuggested.getInfo().getCpd_url());

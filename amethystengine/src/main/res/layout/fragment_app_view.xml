@@ -184,7 +184,7 @@
                     tools:src="@drawable/icon_brand_aptoide"/>
 
                 <FrameLayout
-                    android:id="@+id/activity_app_view_trusted_information_overlay"
+                    android:id="@+id/fragment_app_view_trusted_balloon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_above="@id/black_header_background"
@@ -195,11 +195,11 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginBottom="-8dp"
-                    android:background="@drawable/overlay_security_information_balloon_no_blur"
+                    android:background="@drawable/trusted_balloon_background"
                     android:visibility="invisible"
                     tools:visibility="visible">
                     <include
-                        layout="@layout/balloon_security_information"/>
+                        layout="@layout/balloon_trusted"/>
                 </FrameLayout>
             </RelativeLayout>
 
