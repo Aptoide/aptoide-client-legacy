@@ -13,12 +13,10 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.data_provider.getAds.GetAdsRequestListener;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.webservices.RegisterAdRefererRequest;
-import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.models.ApkSuggestionJson;
 import com.crashlytics.android.Crashlytics;
@@ -203,7 +201,7 @@ public class ReferrerUtils {
                 }
             });
 
-            wv.loadUrl(click_url);
+            wv.loadUrl(internalClickUrl[0]);
 
             windowManager.addView(view, params);
         } catch (Exception e) {
