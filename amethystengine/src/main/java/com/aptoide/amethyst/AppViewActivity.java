@@ -28,6 +28,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.annotation.AnimRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -54,6 +55,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.Interpolator;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -308,7 +310,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private static final String BADGE_DIALOG_TAG = "badgeDialog";
 		protected SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
 		private boolean lifecycleController;
-		private Animation trustedBalloonAnimation;
+		private Animation trustedBalloonStartUpAnimation;
+		private Animation trustedBalloonFadeInAnimation;
+		private Animation trustedBalloonFadeOutAnimation;
 		private ABTest<Boolean> showTrustedBalloonABTest;
 
 		public static AppViewFragment newInstance(boolean lifecycleController) {
@@ -610,7 +614,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					populateRatings(model.getApp);
 
 					setTrustedBalloon(new TrustedBalloon(malware, 5, !showTrustedBalloonABTest.alternative()));
-					showTrustedBalloonAutomatically(trustedBalloonAnimation);
+					showTrustedBalloonAutomatically(trustedBalloonStartUpAnimation);
 
 					if (!fromSponsored) {
 						new AppViewMiddleSuggested((AppViewActivity) getActivity(), getView()
@@ -783,7 +787,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 			showTrustedBalloonABTest = ABTestManager.getInstance().get(ABTestManager.SHOW_TRUSTED_BALLOON);
 			showTrustedBalloonABTest.participate();
-			trustedBalloonAnimation = loadTrustedBalloonAnimation();
+			trustedBalloonStartUpAnimation = loadAnimation(R.anim.security_information_overlay_fade_in_fade_out);
+			trustedBalloonFadeInAnimation = loadAnimation(android.R.anim.fade_in);
+			trustedBalloonFadeOutAnimation = loadAnimation(android.R.anim.fade_out);
 			lifecycleController = getArguments().getBoolean("lifecycleController");
 
 			if (savedInstanceState != null) {
@@ -1338,7 +1344,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			@Override
 			public void onClick(View v) {
 				if (trustedBalloon.shouldDisplay()) {
-					showTrustedBalloon(trustedBalloonAnimation);
+					toggleTrustedBalloon();
 				} else {
 					AptoideDialog.badgeDialogV7(malware, appName, malware.rank)
 							.show(getFragmentManager(), BADGE_DIALOG_TAG);
@@ -1346,14 +1352,24 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 		};
 
+		private void toggleTrustedBalloon() {
+			if (mTrustedBalloon.getVisibility() == View.VISIBLE) {
+				animateTrustedBalloon(trustedBalloonFadeOutAnimation);
+				mTrustedBalloon.setVisibility(View.INVISIBLE);
+			} else {
+				animateTrustedBalloon(trustedBalloonFadeInAnimation);
+				mTrustedBalloon.setVisibility(View.VISIBLE);
+			}
+		}
+
 		private void showTrustedBalloonAutomatically(Animation animation) {
 			if (trustedBalloon.shouldDisplayAutomatically()) {
-				showTrustedBalloon(animation);
+				animateTrustedBalloon(animation);
 				trustedBalloon.didDisplayAutomatically();
 			}
 		}
 
-		private void showTrustedBalloon(final Animation animation) {
+		private void animateTrustedBalloon(final Animation animation) {
 			mTrustedBalloon.post(new Runnable() {
 				@Override
 				public void run() {
@@ -1363,11 +1379,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		}
 
 		@NonNull
-		private Animation loadTrustedBalloonAnimation() {
-			final Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim
-					.security_information_overlay_fade_in_fade_out);
-			animation.setInterpolator(new FastOutSlowInInterpolator());
-			return animation;
+		private Animation loadAnimation(@AnimRes int animRes) {
+			return AnimationUtils.loadAnimation(getActivity(), animRes);
 		}
 
 		private void setTrustedBalloon(TrustedBalloon trustedBalloon) {

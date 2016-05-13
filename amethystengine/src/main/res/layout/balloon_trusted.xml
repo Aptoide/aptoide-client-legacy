@@ -8,26 +8,18 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:orientation="vertical"
-              android:paddingBottom="8dp"
-              android:paddingEnd="12dp"
-              android:paddingLeft="12dp"
-              android:paddingRight="12dp"
-              android:paddingStart="12dp"
-              android:paddingTop="8dp">
-
+              android:padding="8dp">
 
     <TextView
-        style="@style/badgeReasonStyle"
+        style="@style/trustedBalloonStyle"
         android:text="@string/balloon_security_information_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
-        style="@style/badgeReasonStyle"
+        style="@style/trustedBalloonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
         android:text="@string/balloon_security_information_subtitle"/>
 
     <LinearLayout
@@ -106,16 +98,15 @@
     <TextView
         android:layout_marginTop="8dp"
         android:id="@+id/balloon_security_information_google_play"
-        style="@style/badgeReasonStyle"
+        style="@style/trustedBalloonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableEnd="@drawable/ic_google_play"
-        android:drawablePadding="16dp"
+        android:drawablePadding="8dp"
         android:drawableRight="@drawable/ic_google_play"
         android:ellipsize="end"
         android:gravity="center_vertical"
         android:text="@string/balloon_security_information_google_play"
-        android:textColor="@color/white"
         android:visibility="gone"
         tools:visibility="visible"/>
 

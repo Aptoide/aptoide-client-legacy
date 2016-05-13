@@ -207,6 +207,11 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="trustedBalloonStyle">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="WidgetButtonCarrierBillingFortumo" parent="WidgetButtonCustom">
         <item name="android:layout_width">match_parent</item>
         <item name="android:drawableLeft">@drawable/ic_action_fortumo</item>
