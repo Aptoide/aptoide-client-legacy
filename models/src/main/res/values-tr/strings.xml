@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Bugün</string>
 <string name="WidgetProvider_timestamp_yesterday">Dün</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s saat önce</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Bu uygulamayı işaretle</string>
 <string name="search">Ara</string>
 <string name="my_account">Hesabım</string>
-<string name="no_sch_downloads">Uygulamaları mobil veride mi tarıyorsunuz ve daha sonra WİFİ bağlantısında olduğunuzda mı indirmek istiyorsunuz? İndirme programlamasını kullanın ve tercihlerinizi Ayarlar -&gt; Genel İndirme Kurallarında WİFİ olarak değiştirin.</string>
+<string name="no_sch_downloads">Uygulamaları mobil veride mi inceliyor ve daha sonra WİFİ bağlantısında olduğunuzda mı indirmek istiyorsunuz? İndirme programlayıcısını kullanın ve tercihlerinizi Ayarlar -&gt; Genel İndirme Kurallarında WİFİ olarak değiştirin.</string>
 <string name="schDown_installselected">Seçilenleri kur</string>
 <string name="stores">Mağaza</string>
 <string name="insert_store_name">Mağaza ismini ekle:</string>
@@ -424,13 +424,13 @@
     <string name="flag_this_app_need_licence">Lisans lazım</string>
     <string name="appview_additional_information_title">Ek bilgi</string>
     <string name="appview_latest_version_text">Bu son sürümdür!</string>
-    <string name="appview_subscribe_store_button_text">+ Abone olunsun mu?</string>
+    <string name="appview_subscribe_store_button_text">Abone olunsun mu?</string>
     <string name="appview_subscribed_store_button_text">Abone olundu</string>
     <string name="appview_other_versions_in_others_stores">Diğer mağazalardaki diğer sürümler</string>
     <string name="appview_rate_Success">Uygulama değerlendirildi</string>
     <string name="noIgnoreUpdateText">Herhangi bir uygulamanın yeni sürümü cihazınızda çalışmıyor ya da işlev eksikliği mi var? Uygulamaların güncellemesini engelleyin. Güncellemeler sekmesine gidin ve güncellemesini engellemek istediğiniz uygulamaya uzun dokunun.</string>
-    <string name="createReviewButtonText">Yorum Oluştur</string>
-    <string name="navigation_drawer_signup_login">Oturum Aç veya Oluştur</string>
+    <string name="createReviewButtonText">Oluştur\nYorum</string>
+    <string name="navigation_drawer_signup_login">Oturum Aç veya Hesap Oluştur</string>
     <string name="_downloads"> indirme</string>
     <string name="no_description">Açıklama yok</string>
     <string name="description">Açıklama</string>
@@ -549,4 +549,12 @@
 <string name="error_410">Üzgünüz, talep edilen Uygulama bu sunucuda bulunamadı.</string>
 
     <string name="wizard_new_and_improved_bullet_1">Daha uzun pil ömrü</string>
+    <string name="no_email_and_pass_error_message">Lütfen kayıt olmak için e-posta ve şifre giriniz.</string>
+    <string name="no_pass_error_message">Lütfen kayıt olmak için şifre giriniz.</string>
+    <string name="no_email_error_message">Lütfen kayıt olmak için bir e-posta giriniz.</string>
+    <string name="website_copied">Websitesi clipboarda kopyalandı.</string>
+    <string name="email_copied">E-posta clipboarda kopyalandı</string>
+    <string name="subscribing_store_message">Üyelikten çıkılıyor %s</string>
+
+<string name="privacy_copied">gizlilik linki clipboarda kopyalandı</string>
     </resources>

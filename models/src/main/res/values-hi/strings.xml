@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">आज</string>
 <string name="WidgetProvider_timestamp_yesterday">कल</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s घंटे पहले</string>
@@ -9,7 +9,7 @@
 <string name="WidgetProvider_timestamp_week_ago">%s ह्ता पहले</string>
 <string name="WidgetProvider_timestamp_this_week">इस सप्ताह</string>
 <string name="update">अपडेट</string>
-<string name="uninstall">स्थापना रद्द करो</string>
+<string name="uninstall">अस्थापित करें</string>
 <string name="comments">टिप्पणियाँ</string>
 <string name="write_your_comment">अापका कोमेत लिकिये</string>
 <string name="appview_rating_card_text">रेटिंग</string>
@@ -22,7 +22,7 @@
 <string name="setting_sum_icon_download_rules">मोबाइल डेटा कनेक्शन पर आइकन डाउनलोड किये जाने की अनुमति दें</string>
 <string name="setting_general_download_rules">जनरल डाउनलोड नियम</string>
 <string name="setting_sum_general_download_rules">मोबाइल डेटा कनेक्शन पर डाउनलोड ऐप्स, संपादक की पसंद, शीर्ष ऐप्स एवं स्टोर की अनुमति है</string>
-<string name="setting_wifi">वाई फेय</string>
+<string name="setting_wifi">वाईफाई</string>
 <string name="setting_3g">३ज</string>
 <string name="setting_4g">४ज</string>
 <string name="setting_ethernet">ईथरनेट</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">इस उपकरण के साथ संगत नहीं हैं कि आवेदन पत्र दिखाने के लिए नहीं</string>
 <string name="setting_appfiltertitle">अनुप्रयोगों को फिल्टर करो</string>
 <string name="setting_schdwntitle">समय सारणी डाऊनलोड</string>
-<string name="setting_schdwninstallsum">एक वाईफ़ाई कनेक्शन मौजूद है जब स्वचालित रूप से अनुसूचित डाउनलोड स्थापित करें</string>
+<string name="setting_schdwninstallsum">एक वाईफ़ाई कनेक्शन मौजूद होने पर स्वचालित रूप से अनुसूचित डाउनलोड स्थापित करें</string>
 <string name="setting_sdk_version">एस डी के संस्करण</string>
 <string name="setting_screen_size">स्क्रीन आकार</string>
 <string name="setting_esgl_version">ई एस जी एल संस्करण</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">इस एप्लिकेशन को चिह्नित करें</string>
 <string name="search">खोज</string>
 <string name="my_account">मेरा खाता</string>
-<string name="no_sch_downloads">कोई समय सारणी डाऊनलोड नहीं है!</string>
+<string name="no_sch_downloads">मोबाइल डाटा का उपयोग करते हुए एप्स ब्राउज करते हैं और वाईफाई कनेक्शन पर बाद में डाउनलोड करना चाहते हैं? शेड्यूल डाउनलोड का प्रयोग करें और अपनी प्राथमिकताओं को निम्न में बदलें, सेटिंग्स -&gt; जनरल डाउनलोड नियम - वाईफाई।</string>
 <string name="schDown_installselected">संपादन का चयन</string>
 <string name="stores">स्टोर</string>
 <string name="insert_store_name">दुकान का नाम सम्मिलित करें:</string>
@@ -75,7 +75,7 @@
 <string name="see_top_stores">शीर्ष स्टोर देखें</string>
 <string name="setcredentials">लॉग इन करें</string>
 <string name="rollback">रॉलबैक</string>
-<string name="rollback_empty">कोई क्षुधा रोलबैक करने के लिए</string>
+<string name="rollback_empty">किसी भी एप्प को तुरंत पिछले संस्करण में डाउनग्रेड करें और संगतता के मुद्दों को हल करें। अपनी सभी स्थापित एप्प (Aptoide के माध्यम से) का संस्करण तथा स्थापना तिथि सहित एक लॉग रखें।</string>
 <string name="rollback_installed">स्थापित</string>
 <string name="rollback_uninstalled">स्थापना रद्द करो</string>
 <string name="rollback_updated">अपडेट</string>
@@ -84,13 +84,13 @@
 <string name="permissions">अनुमतियां देखें</string>
 <string name="home_title">घर</string>
 <string name="login_or_register">भाग लें या पंजीकरण करें</string>
-<string name="update_all">सभी को अपडेट करो</string>
+<string name="update_all">सभी अपडेट करें</string>
 <string name="username">ईमेल</string>
 <string name="username_tip">अपना ईमेल लिखें</string>
 <string name="subscribe_pvt_store">निजी दुकान सदस्यता लें</string>
 <string name="accept_terms">साइन अप करने से आप Aptoide सेवा की शर्तें और डेवलपर्स के लिए सामग्री नीति से सहमत हैं</string>
 <string name="register">साइन अप</string>
-<string name="or">या</string>
+<string name="or">- या -</string>
 <string name="dont_have_an_account">कोई खाता नहीं है? साइन अप करें</string>
 <string name="logged_as">आप के रूप में लॉग इन किया है :</string>
 <string name="sign_out">साइन आऊट</string>
@@ -101,22 +101,22 @@
 <string name="restore_updates">अपडेट को दुबारा स्टोर करो</string>
 <string name="start_loading">लोड हो रहा है …</string>
 <string name="one_account_allowed">केवल एक खाते की अनुमति दी</string>
-<string name="ip_blacklisted">ब्लैकलिस्ट आई पी</string>
-<string name="apk_not_found">ए पी के नहीं मिला</string>
-<string name="invalid_apk">अवैध ए पी के</string>
+<string name="ip_blacklisted">ब्लैकलिस्ट आईपी</string>
+<string name="apk_not_found">एपीके नहीं मिली</string>
+<string name="invalid_apk">अमान्य एपीके</string>
 <string name="remote_in_nospace">आपके डिवाइस पर पर्याप्त स्थान नहीं है|</string>
 <string name="server_error">सर्वर त्रुटी</string>
 <string name="paidapp_not_found">प्लिकेशन को डाउनलोड करने में त्रुटि । फिर से कोशिश या समर्थन से संपर्क करें।</string>
-<string name="finished_install">%s को स्थापित कर दिया गया है|</string>
+<string name="finished_install">%s इंस्टाल किया गया है।</string>
 <string name="installing">%s को स्थापित कर रहा है …</string>
 <string name="no_permissions_required">कोई अनुमतियां इस एप्लिकेशन के लिए जरूरी है।</string>
 <string name="connection_error">कोई नैटवर्क संपर्क नहीं है</string>
-<string name="install">संस्थापित</string>
+<string name="install">स्थापित करें</string>
 <string name="aptoide_downloading">%s है डाउनलोडिंग</string>
 <string name="error_occured">एक त्रुटी उत्पन्न हुई है। कृपया फिर से कोशिश करें</string>
 <string name="starting_download">डाऊनलोड शुरू हो रहा है</string>
 <string name="subscribe_newrepo_alrt">आप इस स्टोर सदस्यता के लिए करना चाहते हैं?\n\n</string>
-<string name="downloads">डाऊनलोड</string>
+<string name="downloads">डाउनलोड</string>
 <string name="size">आकार</string>
 <string name="likes">पसंद</string>
 <string name="change_theme">विषय को परिवर्तित करें</string>
@@ -124,7 +124,7 @@
 <string name="restart_aptoide">विषय बदलने के लिए आवेदन पुनः प्रारंभ करें</string>
 <string name="ignoreUpdateText">अपडेट को अनदेखा करो</string>
 <string name="appview_header_trusted_text">विश्वसनीय</string>
-<string name="downgrade">अधोगति</string>
+<string name="downgrade">डाउनग्रेड</string>
 <string name="open">खोलो</string>
 <string name="about_aptoide_antimalware">"Aptoide ऐंटी मालवेयर प्लेटफार्म चलते समय अनुप्रयोगों का विश्लेषण करता है और सभी स्टोरों में संभावित खतरों को  निष्क्रिय करता है। यह प्रणाली स्टोरों से सभी नए अनुप्रयोग फाइलों को स्कैन करती और उनको अन्य एंड्रॉयड बाजारों के साथ तुलना द्वारा प्रमाणित करता है।"</string>
 <string name="schDown_nodownloadselect">कोई डाउनलोड का चयन नहीं हुआ</string>
@@ -241,7 +241,7 @@
 <string name="asksetadultpinmessage">आप वयस्क सामग्री अनलॉक करने के लिए एक पिन सेट करना चाहते हैं ?</string>
 <string name="request_adult_pin">अनलॉक करने के लिए पिन डालें</string>
 <string name="adult_pin_wrong">गलत पिन , फिर कोशिश करें।</string>
-<string name="cancel">रद्द</string>
+<string name="cancel">रद्द करें</string>
 <string name="error_occured_paying">एक त्रुटि पाई गई। भुगतान पूरा नहीं किया गया ।</string>
 <string name="failed_auth_code">अकाउंट को अधिकृत करने में विफल रहा । कृपया पुन: प्रयास करें।</string>
 <string name="error_occured_retry_later">एक त्रुटि पाई गई। Aptoide बाद में स्वचालित रूप से फिर से प्रयास करेंगे ।</string>
@@ -330,7 +330,7 @@
     <string name="error_SYS_Billing">इस डिवाइस में इन-एप्प बिलिंग समर्थित नहीं।</string>
 
     <string name="community">कम्युनिटी</string>
-    <string name="updates">अद्यतन</string>
+    <string name="updates">अपडेट</string>
     <string name="simple_error_occured">एक त्रुटि उत्पन्न हुई है। </string>
     <string name="yes">हाँ</string>
     <string name="no">नहीं</string>
@@ -364,7 +364,7 @@
     <string name="installed_this">%s ने इसे स्थापित किया।</string>
 
     <string name="added_to_scheduled">मेनू&gt; अनुसूचिबद्ध डाउनलोड में जोड़ा गया</string>
-    <string name="hidden_adult">वहां पर अनदेखी एप्प मौजूद हैं क्योंकि वयस्क सामग्री फिल्टर सक्रिय हैं। क्या आप वयस्क सामग्री एप्प को सूचीबद्ध करना चाहते हैं?</string>
+    <string name="hidden_adult">कुछ एप्स छुपी हुई हैं क्योंकि वयस्क सामग्री फिल्टर सक्रिय हैं। क्या आप यह एप्प सूचीबद्ध करना चाहते हैं?</string>
     <string name="dont_show_again">यह डायलॉग दोबारा न दिखाएं</string>
 
     <string name="app_name">Aptoide</string>
@@ -394,7 +394,7 @@
 
     <string name="order_popup_title3">व्यस्क सामग्री</string>
     <string name="timeline_is_empty_send_email">हम आपके द्वारा चयनित लोगों को ईमेल भेजेंगे</string>
-    <string name="more_reviews">अधिक समीक्षाएं</string>
+    <string name="more_reviews">समीक्षाएं</string>
     <string name="more_editors_choice">अधिक संपादकों की पसंद</string>
     <string name="more_versions">अधिक संस्करण</string>
     <string name="recommended_for_you">आपके लिए अनुशंसित</string>
@@ -415,12 +415,12 @@
     <string name="flag_this_app_need_licence">लाइसेंस आवश्यक</string>
     <string name="appview_additional_information_title">अतिरिक्त जानकारी</string>
     <string name="appview_latest_version_text">यह नवीनतम संस्करण है!</string>
-    <string name="appview_subscribe_store_button_text">+   सदस्यता लें?</string>
+    <string name="appview_subscribe_store_button_text">सदस्यता लें?</string>
     <string name="appview_subscribed_store_button_text">सदस्यता ली गई</string>
     <string name="appview_this_app_in_others_stores">अन्य स्टोर में यह एप्प</string>
     <string name="appview_rate_Success">एप्प रेट की गई</string>
-    <string name="noIgnoreUpdateText">कोई अनदेखे अद्यतन नहीं</string>
-    <string name="createReviewButtonText">समीक्षा बनाएं</string>
+    <string name="noIgnoreUpdateText">एक एप्प का नया संस्करण आपकी डिवाइस पर काम नहीं करता है या कोई सुविधा अनुपलब्ध है? एप्स को अपडेट करने से ब्लॉक करें। अपडेट टैब पर जाएं और उस एप्प को देर तक दबाएं जिसे आप अपडेट होने से रोकना चाहते हैं।</string>
+    <string name="createReviewButtonText">समीक्षा\nबनाएं</string>
     <string name="navigation_drawer_signup_login">साइन अप या लॉगिन करें</string>
     <string name="_downloads"> डाउनलोड</string>
     <string name="no_description">कोई विवरण नहीं</string>
@@ -429,7 +429,7 @@
     <string name="version_placeholder">संस्करण: %s</string>
 
     <string name="results">परिणाम</string>
-    <string name="other_stores">सदस्यता रद्द स्टोर</string>
+    <string name="other_stores">स्टोर जिनकी सदस्यता नहीं ली गई</string>
     <string name="store">स्टोर</string>
     <string name="title_caps">शीर्षक</string>
 
@@ -437,7 +437,7 @@
     <string name="unsubscribed_">"सदस्यता रद्द की गई "</string>
     <string name="error_occured_uploading">आपको पहले यह एप्प अपलोड करने की जरूरत है।</string>
 
-    <string name="update_self_title">अद्यतन उपलब्ध</string>
+    <string name="update_self_title">अपडेट उपलब्ध</string>
     <string name="update_self_msg">%s का एक नया संस्करण उपलब्ध है\nक्या आप अद्यतन करना चाहते हैं?</string>
     <string name="retrieving_update">अद्यतन पुनर्प्राप्त कर रहा है…</string>
 
@@ -457,7 +457,7 @@
     <string name="warning">चेतावनी</string>
     <string name="trusted_app">विश्वसनीय एप्प</string>
 
-    <string name="reason_third_party">हमने एप्प हस्ताक्षर की जाँच की है और यह गूगल प्ले स्टोर के साथ मेल खाता है, तो निश्चिंत रहें और इस एप्प का आनंद लें</string>
+    <string name="reason_third_party">हमने एप्प हस्ताक्षर की जाँच की है और यह गूगल प्ले स्टोर के साथ मेल खाता है, तो निश्चिंत रहें और इस एप्प का आनंद लें।</string>
     <string name="reason_scanned">Aptoide गार्ड और 2 अलग एंटी-वायरस (ज़ोनर 1.8 और सोफ़ोस 3.0) के साथ स्कैन किया गया।</string>
     <string name="reason_signature">क्रिप्टोग्राफिक हस्ताक्षर गारंटी देता है कि फ़ाइल स्थापित किये जाने के लिए सुरक्षित है और किसी भी तरह से छेड़छाड़ नहीं की गई थी।</string>
     <string name="reason_manual">इस एप्प की Aptoide विशेषज्ञ टीम द्वारा हाथ से समीक्षा की गई थी, और इसे अच्छा के रूप में चिह्नित किया था। वाह, इससे बेहतर कुछ नहीं हो सकता है।</string>
@@ -528,7 +528,7 @@
     <string name="results_in_store">% दुकान में खोज परिणाम</string>
     <string name="unknown">अज्ञात</string>
 
-    <string name="reason_unknown">Aptoide विरोधी मैलवेयर मंच में इस एप्लिकेशन के बारे में पर्याप्त जानकारी नहीं है ।</string>
+    <string name="reason_unknown">Aptoide एंटी-मैलवेयर प्लेटफार्म में इस एप्लीकेशन के बारे में पर्याप्त जानकारी नहीं है।</string>
 
 
 
@@ -561,7 +561,7 @@
     <string name="permissions_na">अनुमतियाँ: एन / ए</string>
     <string name="setting_mobile">मोबाइल 3 जी / 4 जी</string>
     <string name="appview_other_versions_in_others_stores">अन्य दुकानों में अन्य संस्करणों</string>
-    <string name="no_search_results_message">अपनी खोज के लिए कोई परिणाम नहीं कर रहे हैं।\nअन्य खोजशब्दों का प्रयास करें</string>
+    <string name="no_search_results_message">आपकी खोज के लिए कोई परिणाम नहीं हैं।\nकृपया अन्य कीवर्ड से प्रयास करें।</string>
 
     <string name="developer">डेवलपर</string>
     <string name="website">वेबसाइट है:%s</string>
@@ -569,5 +569,15 @@
     <string name="privacy_policy">गोपनीयता नीति :%s</string>
     <string name="dialog_version_size">संस्करण: %1$s | आकार: %2$s</string>
     <string name="na">एन / ए</string>
+
+<string name="error_410">क्षमा करें, अनुरोधित एप्प इस सर्वर पर नहीं मिली थी।</string>
+
+    <string name="no_email_and_pass_error_message">पंजीकरण के लिए एक ईमेल और पासवर्ड डालें।</string>
+    <string name="no_pass_error_message">रजिस्टर करने के लिए एक पासवर्ड डालें।</string>
+    <string name="no_email_error_message">रजिस्टर करने के लिए एक ईमेल डालें।</string>
+    <string name="website_copied">वेबसाइट क्लिपबोर्ड पर कॉपी की गई</string>
+    <string name="email_copied">ई-मेल क्लिपबोर्ड पर कॉपी की गई</string>
+    <string name="privacy_copied">गोपनीयता लिंक क्लिपबोर्ड पर कॉपी किया गया</string>
+    <string name="subscribing_store_message">%s की सदस्यता छोड़ रहा है</string>
 
 </resources>

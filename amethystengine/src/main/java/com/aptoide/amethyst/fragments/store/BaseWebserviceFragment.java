@@ -131,7 +131,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                     executeReviewsSpiceRequest();
                 } else if (row instanceof AdPlaceHolderRow) {
                     executeAdsSpiceRequest();
-                } else if (row instanceof TimeLinePlaceHolderRow) {
+                } else if (row instanceof TimeLinePlaceHolderRow && Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
                     executeTimelineRequest();
                 }
             }

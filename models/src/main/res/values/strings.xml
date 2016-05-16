@@ -230,7 +230,7 @@
     <string name="schDwnBtn">Schedule Download</string>
     <string name="added_to_scheduled">Added to Menu &gt; Scheduled Downloads</string>
     <string name="schDown_install">Do you want to install all scheduled downloads?</string>
-    <string name="hidden_adult">Some apps are hidden because adult content filter is active. Do you want to list this apps?</string>
+    <string name="hidden_adult">Some apps are hidden because adult content filter is active. Do you want to list these apps?</string>
     <string name="dont_show_again">Don\'t show this dialog again</string>
 
     <!-- App View -->
@@ -617,6 +617,7 @@
     <string name="privacy_copied">Privacy link copied to clipboard</string>
     <string name="subscribing_store_message">Unsubscribing %s</string>
 
+    <!-- Strings added for further translation (tabs and categories) -->
     <string name="latest_reviews">Latest Reviews</string>
     <string name="latest_comments">Latest Comments</string>
     <string name="action">Action</string>
@@ -684,5 +685,17 @@
     <string name="libraries_demo">Libraries &#38; Demo</string>
     <string name="shopping">Shopping</string>
     <string name="weather">Weather</string>
+
+    <string name="latest_applications">Latest Applications</string>
+    <string name="top_apps_in_store">Top Apps In This Store</string>
+    <string name="apps_for_kids">Apps for Kids</string>
+    <string name="aptoide_publishers">Aptoide Publishers</string>
+    <string name="music_video">Music &#38; Video</string>
+    <string name="essential_apps">Essential Apps</string>
+    <string name="summer_apps">Summer Apps</string>
+    <string name="play_it">Play-It!</string>
+
+    <string name="unsubscribe">Unsubscribe</string>
+    <string name="add_more_stores">Add more stores</string>
 </resources>
 

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Ma</string>
 <string name="WidgetProvider_timestamp_yesterday">Tegnap</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s órával ezelőtt</string>
@@ -27,7 +27,7 @@
 <string name="setting_appfiltersum">Ne mutasson olyan appokat, amelyek nem kompatibilisek ezzek a készülékkel</string>
 <string name="setting_appfiltertitle">Appok szűrése</string>
 <string name="setting_schdwntitle">Ütemezett letöltések</string>
-<string name="setting_schdwninstallsum">Ütemezett letöltések automatikus végrehajtása, amennyiben van Wi-Fi a közelben</string>
+<string name="setting_schdwninstallsum">Ütemezett letöltések automatikus végrehajtása Wifi-kapcsolat megléte esetében</string>
 <string name="setting_sdk_version">Szoftverfejlesztői készlet verziója</string>
 <string name="setting_screen_size">Képernyő méret</string>
 <string name="setting_esgl_version">ESGL verziója</string>
@@ -60,43 +60,43 @@
 <string name="flag_this_app_button_text">Jelölje meg az appot</string>
 <string name="search">Keresés</string>
 <string name="my_account">Saját fiók</string>
-<string name="no_sch_downloads">Nincsenek ütemezett letöltések!</string>
+<string name="no_sch_downloads">Mobilinternettel böngészget alkalmazásokat, és letöltené őket később wifiről? Használja a Letöltések ütemezését és változtassa meg a preferenciát Wi-Fi-re itt: Beállítások -&gt; Általános Letöltési Szabályok.</string>
 <string name="schDown_installselected">Kijelöltek telepítése</string>
 <string name="stores">Áruházak</string>
 <string name="insert_store_name">Adott nevű áruház név beillesztése:</string>
-<string name="store_name">Áruház neve:</string>
+<string name="store_name">Áruház neve</string>
 <string name="see_top_stores">Legjobb áruházak megtekintése</string>
 <string name="setcredentials">Bejelentkezés</string>
 <string name="rollback">Visszaállítás</string>
-<string name="rollback_empty">Nincsenek visszaállítandó appok</string>
+<string name="rollback_empty">Bárnely alkalmazást visszaállíthat régebbi verzióra a kompabilitási problémák megoldásához. Naplózza az összes (Aptoide-on keresztül) telepített alkalmazást, azok verziószámát és telepítési dátumát.</string>
 <string name="rollback_installed">Telepített</string>
 <string name="rollback_uninstalled">Eltávolított</string>
 <string name="rollback_updated">Frissített</string>
 <string name="rollback_downgraded">Visszaállított</string>
 <string name="appview_rate_this_app_text">Értékelje ezt az appot</string>
-<string name="permissions">Engedélyek</string>
+<string name="permissions">Engedélyek mutatása</string>
 <string name="home_title">Kezdőlap</string>
 <string name="login_or_register">Jelentkezzen be vagy regisztráljon</string>
 <string name="update_all">Minden frissítése</string>
 <string name="username">E-mail cím</string>
 <string name="username_tip">Adja meg az e-mail címét</string>
-<string name="accept_terms">A feliratkozással Ön automatikusan elfogadja az Aptoide fejlesztőkre vonatkozó felhasználási és tartalmi feltételeit.</string>
+<string name="accept_terms">A feliratkozással Ön automatikusan elfogadja az Aptoide fejlesztőkre vonatkozó felhasználási és tartalmi feltételeit</string>
 <string name="register">Feliratkozás</string>
 <string name="or">Vagy</string>
 <string name="dont_have_an_account">Nincs felhasználóneve? Iratkozzon fel</string>
 <string name="logged_as">Bejelentkezett, mint:</string>
 <string name="sign_out">Kijelentkezés</string>
-<string name="please_wait">Kérjük várjon...</string>
+<string name="please_wait">Kérjük várjon…</string>
 <string name="excluded_updates">Kihagyott frissítések</string>
 <string name="no_excluded_updates">Nincsenek kihagyott frissítések</string>
 <string name="no_excluded_updates_selected">Nincs kijelölve kihagyott frissítése</string>
 <string name="restore_updates">Frissítések visszaállítása</string>
-<string name="start_loading">Betöltés...</string>
+<string name="start_loading">Betöltés…</string>
 <string name="one_account_allowed">Csak egy felhasználói fiók engedélyezett</string>
 <string name="ip_blacklisted">Tiltólistás IP-cím</string>
 <string name="apk_not_found">Az apk nem található</string>
 <string name="invalid_apk">Érvénytelen apk</string>
-<string name="remote_in_nospace">nincs elég hely az Ön készülékén</string>
+<string name="remote_in_nospace">nincs elég hely az Ön készülékén.</string>
 <string name="server_error">Szerverhiba</string>
 <string name="paidapp_not_found">Hiba az app letöltése közben. Kérjük próbálja újra, vagy kérjen segítséget.</string>
 <string name="finished_install">A(z) %s telepítésre került.</string>
@@ -123,7 +123,7 @@
 <string name="schDown_install">Telepíteni kívánja az ütemezett letöltéseket?</string>
 <string name="appview_recommended_for_you_title">Önnek ajánlott</string>
 <string name="downgrade_requires_uninstall">A visszaállításhoz el kell távolítani az appot</string>
-<string name="signing_in">Bejelentkezés folyamatban...</string>
+<string name="signing_in">Bejelentkezés folyamatban…</string>
 <string name="reinstall">Újratelepítés</string>
 <string name="at_time">Ekkor: %s</string>
 <string name="error_MARG_1">Hibás áruház</string>
@@ -182,8 +182,8 @@
 <string name="error_AUTH_100">Nem tudott bejelentkezni a Google fiókjával. Kérjük ellenőrizze a fiókját (előfordulhat, hogy meg kell erősítenie az e-mail címét).</string>
 <string name="error_AUTH_101">Nem tudott bejelentkezni a Google fiókjával.</string>
 <string name="error_AUTH_102">Nem tudott bejelentkezni a Facebook fiókjával. Kérjük ellenőrizze a fiókját (előfordulhat, hogy meg kell erősítenie az e-mail címét).</string>
-<string name="error_AUTH_103">"Nem tudott bejelentkezni a Facebook fiókjával. "</string>
-<string name="error_WOP_6">A hozzászólás elküldéséhez Önnek meg kell adnia a nevét (látható lesz).</string>
+<string name="error_AUTH_103">Sikertelen Facebook-bejelentkezés. Próbálja újra később.</string>
+<string name="error_WOP_6">A hozzászólás elküldéséhez Önnek meg kell adnia a nevét (megjelenik)</string>
 <string name="error_WOP_7">Hiba a hozzászólásban</string>
 <string name="error_WOP_8">Hiba a hozzászólás szavazásában</string>
 <string name="error_WOP_9">A megadott e-mail cím már szerepel a rendszerünkben</string>
@@ -193,11 +193,11 @@
 <string name="error_REPO_2">Az áruházat megszűntették.</string>
 <string name="error_REPO_3">Az áruház nem tartozik ehhez a felhasználóhoz.</string>
 <string name="error_APK_1">Az app nem megnyitható a megadott információval és verzióval</string>
-<string name="error_APK_4">Az app nem megnyitható.</string>
+<string name="error_APK_4">Az app nem nyitható meg</string>
 <string name="error_SYS_1">Ismeretlen hiba merült fel, kérjük próbálja újra</string>
 <string name="error_SYS_2">Nem található adat, kérjük próbálja újra később</string>
 <string name="error_SYS_3">A rendszer jelenleg karbantartás alatt áll, kérjük próbálja újra később</string>
-<string name="error_SYS_4">A lekérés nem engedélyezett a jelenlegi API verzió által.</string>
+<string name="error_SYS_4">A lekérés nem engedélyezett a jelenlegi API verzió által</string>
 <string name="X_download_number">%s letöltés.</string>
 <string name="not_found">Nem található</string>
 <string name="active">Aktív</string>
@@ -206,7 +206,7 @@
 <string name="link_device_webinstall">Csatolja a felhasználónevét a webes telepítéssel</string>
 <string name="remaining_time">hátralevő</string>
 <string name="sd_error">Az SD kártya nem volt írható.</string>
-<string name="sd_error_jolla">A letöltés nem volt megfelelő.</string>
+<string name="sd_error_jolla">A letöltés nem volt megfelelő</string>
 <string name="download_retry">Újra</string>
 <string name="root_access_dialog">Úgy tűnik az Ön készüléke rootolva van. Szeretné engedélyezni a letöltés utáni automatikus telepítést?</string>
 <string name="cannot_uninstall_self">Nem távolítható el a telepítő.</string>
@@ -215,7 +215,7 @@
 <string name="payment_methods">Fizetés az alábbi módon:</string>
 <string name="root">Root</string>
 <string name="allow_root">Root telepítés engedélyezése</string>
-<string name="fields_cannot_empty">Kérjük ellenőrizze az e-mail címét és a jelszavát</string>
+<string name="fields_cannot_empty">Kérjük ellenőrizze az e-mail címét és a jelszavát.</string>
 <string name="flag_this_app_good">Jó</string>
 <string name="flag_this_app_fake">Hamisítvány</string>
 <string name="flag_this_app_freeze">Lefagyós</string>
@@ -232,7 +232,7 @@
 <string name="adult_pin_wrong">Hibás kitűző, próbálja újra.</string>
 <string name="cancel">Mégse</string>
 <string name="error_occured_paying">Hiba merült fel. A tranzakció nem ment végbe.</string>
-<string name="failed_auth_code">Sikertelen fe</string>
+<string name="failed_auth_code">Sikertelen azonosítás. Kérjük próbálja ismét.</string>
 <string name="error_occured_retry_later">Hiba merült fel. Az Aptoide később automatikusan újra próbálkozik.</string>
 <string name="account">Felhasználói fiók</string>
 <string name="no_payments_available">Nincs elérhető fizetési mód.</string>
@@ -241,7 +241,7 @@
 <string name="set_mature_pin_summary">Helyezze el a felnőtt tartalmakat engedélyező kitűzőt</string>
 <string name="remove_mature_pin_title">Távolítsa el a felnőtt tartalmakat engedélyező kitűzőt</string>
 <string name="remove_mature_pin_summary">Távolítsa el a felnőtt tartalmakat engedélyező kitűzőt</string>
-<string name="feedback_send_button">Visszajelzés elküldése</string>
+<string name="feedback_send_button">Visszajelzés küldése</string>
 <string name="feedback_subject">Téma</string>
 <string name="feedback_include_logs">Képernyőképek és naplók mellékelése</string>
 <string name="feedback_not_valid">Kérjük érvényes tárgyat adjon meg!</string>
@@ -252,5 +252,373 @@
 <string name="store_password">Jelszó</string>
 <string name="update_self_title">Frissítés elérhető</string>
 <string name="update_self_msg">A(z) %s új verziója elérhető\nSzeretné frissíteni?</string>
-<string name="retrieving_update">Frissítés beszerzése</string>
+<string name="retrieving_update">Frissítés beszerzése…</string>
+<string name="error_IARG_103">Érvénytelen kategória</string>
+    <string name="error_REPO_4_no_store">A fiókjához nem tartozik áruház. Hozzon létre egyet, hogy értékelért írhasson.</string>
+    <string name="error_REPO_7">Ez a felhasználó már rendelkezik érvényes repo-val.</string>
+
+    <string name="error_APK_Description">Nincs megjeleníthető leírás</string>
+
+    <string name="error_SYS_Billing">Alkalmazáson belüli vásárlás nem támogatott az eszközön.</string>
+
+    <string name="aptoide_description">Aptoide hivatalos alkalmazásbolt</string>
+
+    <string name="error_410">Sajnáljuk, nem található a szerveren a kívánt Alkalmazás.</string>
+
+    <string name="community">Közösség</string>
+    <string name="updates">Frissítések</string>
+    <string name="social_timeline">Közösségi idővonal</string>
+    <string name="simple_error_occured">Hiba történt. </string>
+    <string name="yes">Igen</string>
+    <string name="no">Nem</string>
+    <string name="password">Jelszó</string>
+    <string name="facebook_timeline_feature">Hoppá... Ez a szolgáltatás csak Facebook-bejelentkezéssel működik, Ön pedig másfajta módon jelentkezett be</string>
+    <string name="facebook_tos">" • Ossza meg Facebook-os ismerőseivel az Aptoide-on belüli Idővonalon, hogy milyen alkalmazásokat telepített\n\n• Olvasson, lájkoljon és kommenteljen az Idővonalon
+\n\n• Esküszünk, hogy soha, de soha nem posztolunk az Ön Facebook-falára. Tisztetetben tartjuk a privát szféráját. "</string>
+    <string name="facebook_private_actions">Ez az alkalmazás nem fog Facebook-ra posztolni</string>
+    <string name="facebook_timeline_login">" Bejelentkeznik Facebook-kal, hogy kipróbálhassa a Közösségi Idővonalat?"</string>
+    <string name="facebook_timeline_preview">Idővonal előnézete:</string>
+    <string name="whats_timeline">Mi az Aptoide Közösségi Idővonal?</string>
+    <string name="feedback_to_write2">Írjon nekünk visszajelzést itt…\n\n Kérjük, minden lehetséges részletet adjon meg:
+\n Milyen lépéseket tett
+\n Milyen hibákat tapasztal</string>
+    <string name="password_validation_text">"A jelszónak legalább 8 karakterből kell állnia, és tartalmaznia kell legalább egy betűt és egy számot vagy speciális karaktert (!@#$%*) "</string>
+    <string name="subscribe_newrepo_alrt">Feliratkozik erre az áruházra?\n\n</string>
+    <string name="subscribe_store">Feliratkozás az áruházra</string>
+    <string name="store_subscribed">Feliratkozott a %s áruházra</string>
+    <string name="subscribing">Feliratkozás a %s áruházra…</string>
+    <string name="create_store">Áruház létrehozása</string>
+    <string name="section">Részleg</string>
+
+    <string name="permissions_na">Engedélyek: Nincs Adat</string>
+    <string name="additional_permissions">További engedélyek</string>
+    <string name="restore">Telepítés</string>
+
+    <string name="timeout">Hálózati időtúllépés</string>
+    <string name="connection_error">Nincs hálózati kapcsolat</string>
+    <string name="installing">%s telepítése folyamatban…</string>
+    <string name="data_usage_constraint">A letöltés nincs engedélyezve itt: Beállítások &gt; Általános Letöltési Szabályok</string>
+    <string name="download_pending">Várakozás</string>
+
+    <string name="error503">Uhh... Csak én érzem úgy, hogy mindenki egyszerre telepítget alkalmazásokat?</string>
+    <string name="having_some_trouble">Probléma merült fel. Megpróbálná újra később?</string>
+
+    <string name="WidgetProvider_timestamp_week_ago2">1 héttel ezelőtt</string>
+    <string name="WidgetProvider_timestamp_days_ago">%s nappal ezelőtt</string>
+    <string name="WidgetProvider_timestamp_month_ago">1 hónappal ezelőtt</string>
+    <string name="WidgetProvider_timestamp_months_ago">%s hónappal ezelőtt</string>
+    <string name="WidgetProvider_timestamp_year_ago">1 évvel ezelőtt</string>
+    <string name="WidgetProvider_timestamp_years_ago">%s évvel ezelőtt</string>
+
+    <string name="reply">Válasz</string>
+    <string name="casting_vote">Szavazat beküldése…</string>
+    <string name="vote_submitted">Szavazata sikeresen beérkezett</string>
+    <string name="reviewed_by">Értékelte - %s</string>
+    <string name="installed_this">%s telepítette ezt.</string>
+
+    <string name="facebook_logout_and_login">Kijelentkezés és belépés Facebook-kal</string>
+
+    <string name="added_to_scheduled">Hozzáadva ide: Menü &gt; Ütemezett Letöltések</string>
+    <string name="hidden_adult">Néhány alkalmazást kiszűrt a felnőtt tartalmak szűrője. Szeretné látni ezeket az alkalmazásokat ?</string>
+    <string name="dont_show_again">Ne mutassa többet ezt az ablakot</string>
+
+    <string name="app_name">Aptoide</string>
+
+    <string name="action_settings">Beállítások</string>
+    <string name="close">Bezárás</string>
+    <string name="button_header_more">egyebek</string>
+    <string name="see_more">Bővebb info</string>
+    <string name="see_less">Kevesebb info</string>
+    <string name="get_latest">Legújabb verzió beszerzése</string>
+
+    <string name="installed_tab">Telepítve</string>
+    <string name="updates_tab">Frissítések</string>
+
+    <string name="settings">Beállítások</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="backup_apps">Bizt. másolat készítése</string>
+
+    <string name="menu_select_none">Kiválasztás megszüntetése</string>
+
+    <string name="search_other_stores">Vagy keressünk másokat…</string>
+    <string name="subscribe">Feliratkozás</string>
+    <string name="subscribe_pvt_store">Feliratkozás privát áruházra</string>
+
+    <string name="exclude_update">Frissítés mellőzése</string>
+    <string name="install_update">Frissítés telepítése</string>
+
+    <string name="confirm_carrier_payment">"Megvásárolja ezt: \'{title}\', amely ennyibe kerül: {value}? A szolgáltatói számláját terheljük meg.. "</string>
+    <string name="billing_result">"A tranzakció végeredménye: "</string>
+
+    <string name="order_popup_title3">Felnőtt tartalom</string>
+    <string name="friends_to_invite">A többi, Aptoide-on lévő Facebook-barát</string>
+    <string name="invite_friends">Barátok meghívása</string>
+    <string name="timeline_is_empty_send_email">Emailt küldünk azoknak, akiket kiválaszt</string>
+    <string name="facebook_timeline_friends_invited">Barátok meghívva!</string>
+    <string name="select_friends_to_invite">Kérjük, válassza ki a meghívni kívánt barátokat!</string>
+    <string name="facebook_friends_list_using_timeline">már használják az Aptoide Közösségi Idővonalat</string>
+    <string name="and">és</string>
+    <string name="more_friends">bővebb</string>
+    <string name="more_reviews">Értékelések</string>
+    <string name="more_editors_choice">További Szerkesztőségi Javaslatok</string>
+    <string name="more_versions">További verziók</string>
+    <string name="facebook_friends_list_using_timeline_empty">A Közösségi Idővonal srgítségével megoszthatja alkalmazásait a Facebookos ismerőseivel. Szeretne csatlakozni a közösséghez?</string>
+    <string name="timeline_not_compatible">Hoppá... Ez a szolgáltatás nem kompatibilis az Ön Android verziójával</string>
+    <string name="friends_installs">A barátai feltelepítették</string>
+    <string name="recommended_for_you">Önnek ajánlott</string>
+    <string name="highlighted_apps">Kiemelt</string>
+    <string name="button_more">Továbbiak</string>
+    <string name="unhide_post">MEGJELENíTÉS</string>
+    <string name="hide_post">ELREJTÉS</string>
+    <string name="like">Tetszik</string>
+    <string name="comment">Hozzászólás</string>
+    <string name="hide_post_info">A barátai nem fogják látni ezt a bejegyzést</string>
+    <string name="unlike">Mégsem tetszik</string>
+    <string name="timeline_empty_no_friends_send_email">Úgy tünik, a barátai nem a Facebook-fiókjukkal jelentkeztek be az Aptoide-be. Küldjön nekik e-mailt, hogy Facebook-kal lépjenek be</string>
+    <string name="timeline_empty_send_email_to_friends">E-mail barátoknak</string>
+    <string name="aptoide_timeline">Aptoide Idővonal</string>
+    <string name="timeline_email_invitation">Meghívta Önt, hogy csatlakozzon az Aptoide Közösségi Idővonalhoz. Legyenek kapcsolatban!</string>
+    <string name="timeline_email_how_to_join">Hogyan csatlakozhatok a Közösségi Idővonalhoz?</string>
+    <string name="timeline_email_step1">1. Töltse le az Aptoide legújabb verzióját:</string>
+    <string name="timeline_email_step2">2- Lépjen a \"Közösségi Idővonal\" fülre, és csatlakozzon a hálózathoz</string>
+    <string name="timeline_ad">Facebook által javasolt alkalmazás</string>
+    <string name="facebook_start_timeline">Csatl. a Közösségi Idővonalhoz</string>
+    <string name="facebook_join_friends">Szeretne kapcsolódni hozzájuk a Közösségi Idővonalon?</string>
+    <string name="timeline_is_empty_no_friends">Az Idővonala üres. Valószínüleg azért, mert még nincsenek barátai az Aptoide-on, vagy még nem tettek közzé bejegyzéseket.</string>
+    <string name="timeline_is_empty_start_invite">Kezdjük azzal, hogy meghívunk néhány barátot:</string>
+
+    <string name="review_get_app">App beszerzése</string>
+    <string name="review_final_verdict">Végső ítélet</string>
+    <string name="review_speed">Gyorsaság</string>
+    <string name="review_usability">Használhatóság</string>
+    <string name="review_addictive">Addiktív</string>
+    <string name="review_stability">Stabilitás</string>
+    <string name="review_by">Értékelés szerzője:\n%s</string>
+    <string name="review_title">Értékelések</string>
+    <string name="review_good">Jó</string>
+    <string name="review_bad">Rossz</string>
+    <string name="review_finish">Befejezés</string>
+    <string name="review_final_score">Pont</string>
+    <string name="make_review_title">Értékelés írása</string>
+    <string name="set_sliders">Állítsa be a csúszkákat</string>
+    <string name="write_one_pro">Írjon legalább egy pozitívumot</string>
+    <string name="write_one_con">Írjon legalább egy negatívumot</string>
+    <string name="write_your_final_verdict">Írja meg a végső ítéletét</string>
+    <string name="review_success">Értékelés sikeresen beküldve!</string>
+    <string name="store_privacy">Áruház nyilvánossága</string>
+    <string name="public_key">nyilvános</string>
+    <string name="private_key">privát</string>
+    <string name="upload_app_backup_apps_installed">Először fel kell töltenie ezt az alkalmazást az áruházába. Használhatja az Aptoide Alkalmazásmentőt.</string>
+    <string name="upload_app_backup_apps_not_installed">Először fel kell töltenie ezt az alkalmazást az áruházába. Kérjük telepítse és használja az Aptoide Alkalmazásmentőt.</string>
+    <string name="upload_app">Alkalmazás feltöltése</string>
+    <string name="create_review">Értékelés írása</string>
+
+    <string name="settings_dwn_network_rules">Mobiladat-beállítások</string>
+    <string name="setting_sum_icon_download_rules">Ikonok letöltésének engedélyezése mobil interneten keresztül</string>
+    <string name="setting_mobile">Mobil 3G/4G</string>
+    <string name="setting_sum_general_download_rules">Alkalmazások, Szerkesztőségi Javaslatok, Legjobb Alkalmazások és Áruházak letöltése engedélyezett mobilinternet-kapcsolatokon</string>
+    <string name="setting_general_download_rules">Általános letöltési szabályok</string>
+    <string name="setting_category_autoupdate">Aptoide automatikus frissítés</string>
+    <string name="setting_category_autoupdate_title">Aptoide automatikus frissítés engedélyezése</string>
+    <string name="setting_dont_show_mature_content">Felnőtt tartalom megjelenítése</string>
+    <string name="whats_new">Mi újság?</string>
+    <string name="disable_social_timeline">Közösségi idővonal kikapcsolása</string>
+    <string name="social_timeline_notifications_sum2">Aptoide Közösségi Idővonal értesítéseinek engedélyezése. A legújabb híreket megkapja az értesítési sávon.</string>
+    <string name="social_timeline_notifications">Idővonal értesítései</string>
+    <string name="drawer_social_media_title">Maradjunk kapcsolatban</string>
+    <string name="read_more">Tudjon meg többet</string>
+    <string name="read_less">Kevesebbet mutat</string>
+    <string name="flag_this_app_need_licence">Licensz szükséges</string>
+    <string name="appview_additional_information_title">További tudnivalók</string>
+    <string name="appview_latest_version_text">Ez a legújabb verzió!</string>
+    <string name="appview_subscribe_store_button_text">Feliratkozik?</string>
+    <string name="appview_subscribed_store_button_text">Feliratkozva</string>
+    <string name="appview_other_versions_in_others_stores">Egyéb verziók más áruházakban</string>
+    <string name="appview_rate_Success">App értékelve</string>
+    <string name="noIgnoreUpdateText">Egy alkalmazás új verziója nem működik az eszközén, vagy hiányzik valamilyen szolgáltatása? Tiltsa le a frissítéseiket. Lépjen a Frissítések fülre és nyomjon hosszan azon az alkalmazáson, melyet nem akar frissíteni.</string>
+    <string name="createReviewButtonText">Létrehozás\nÉrtékelés</string>
+    <string name="navigation_drawer_signup_login">Regisztráció vagy Bejelentkezés</string>
+    <string name="_downloads"> letöltés</string>
+    <string name="no_description">Nincs leírás</string>
+    <string name="description">Leírás</string>
+    <string name="version">Verzió</string>
+    <string name="version_placeholder">Verzió: %s</string>
+
+    <string name="results_subscribed">Feliratkozott áruházak</string>
+    <string name="results_in_store">Keresés a(z) %s áruház találatai között</string>
+    <string name="other_stores">Áruházak, melyekre nem iratkozott fel</string>
+    <string name="reviews">Értékelések</string>
+    <string name="store">Áruház</string>
+    <string name="title_caps">CÍM</string>
+
+    <string name="unsubscribe_yes_no">Biztosan leiratkozik?</string>
+    <string name="unsubscribed_">"Leiratkozott "</string>
+    <string name="error_occured_uploading">Először fel kell töltenie ezt az alkalmazást.</string>
+
+    <string name="menu_search_item_go_to_store">Ugrás áruházra</string>
+    <string name="srch_hint">Alkalmazások keresése…</string>
+
+    <string name="app_trusted">%s Megbízható</string>
+    <string name="app_warning">Figyelmeztetés: %s</string>
+    <string name="scanned_with_av">Víruskeresővel ellenőrizve:</string>
+    <string name="compared_with_another_marketplace">Más Androidos áruházzal összevetve:</string>
+    <string name="application_signature_analysis">Alkalmazás aláírása összehasonlítva a fejlesztői aláírással:</string>
+    <string name="application_signature_matched">Alkalmazás aláírása egyezik az alkalmazás fejlesztőjének aláírásával.</string>
+    <string name="application_signature_not_matched">Az alkalmazás aláírása nem egyezik meg az alkalmazásfejlesztő aláírásával. Lehet, hogy az alkalmazást meghamisították.</string>
+    <string name="application_signature_blacklisted">Az alkalmazás aláírását nem megbízhatónak ítélte az Aptoide Anti-Malware platform, mivel azt felhasználták más, az eredeti fejlesztővel nem megegyező aláírású alkalmazás aláírásához.</string>
+    <string name="scanned_manually_by_aptoide_team">Az Aptoide csapata által manuálisan ellenőrizve:</string>
+    <string name="scanned_verified_by_tester">Az alkalmazást személyesen ellenőrizte egy tesztelő az Aptoide csapatból, így biztosítva annak biztonságosságát.</string>
+    <string name="warning">Figyelmeztetés</string>
+    <string name="trusted_app">Megbízható app</string>
+    <string name="unknown">Ismeretlen</string>
+
+    <string name="reason_third_party">Ellenőriztük az alkalmazás aláírását, és nyugodtan használhatja, mivel az megegyezik a Google Play Áruházban lévőével.</string>
+    <string name="reason_scanned">Ellenőrizve AptoideGuard-dal és két másik antivírussal (Zoner 1.8 és Sophos 3.0).</string>
+    <string name="reason_signature">A kriptográfiai aláírás garantálja, hogy a fájlt semmilyen módon nem piszkálták meg, így telepítése biztonságos.</string>
+    <string name="reason_manual">Ezt az alkalmazást személyesen az Aptoide szakértői csapata vizsgálta, és Jó értékeléssel lett megjelölve.</string>
+
+    <string name="reason_failed">Az alkalmazás aláírása nem egyezik meg a fejlesztőével, így lehet, hogy megpiszkálták.</string>
+    <string name="reason_unknown">Nincs elég információ erről az alkalmazásról az Aptoide Anti-Malware platformban.</string>
+
+
+
+    <string name="reply_to">Válasz neki: %s</string>
+    <string name="comment_submitted">Hozzászólása sikeresen publikálva</string>
+    <string name="write_a_comment">Hozzászólás írása</string>
+    <string name="no_comment_be_the_first">Még nem érkezett hozzászólás, legyen Öné az első!</string>
+
+    <string name="installapp_alrt">Szeretné telepíteni ezt:
+\n\n %s?</string>
+
+    <string name="suggested_app">Javasolt alkalmazás</string>
+
+    <string name="abTest1_label_1">App beszerzése</string>
+    <string name="abTest1_label_2">Telepítés</string>
+    <string name="abTest1_label_3">Telepítés</string>
+
+
+    <string name="notification_timeline_new_likes">%s új lájkot kapott. Nézzen rá a Közösségi Idővonalra!</string>
+    <string name="notification_timeline_new_comments">%s új hozzászólása érkezett. Nézzen rá a Közösségi Idővonalra!</string>
+    <string name="notification_timeline_activity">%1$s új hozzászólása és %2$s lájkja érkezett. Nézzen rá a Közösségi Idővonalra!</string>
+    <string name="notification_social_timeline">Aptoide Közösségi Idővonak. Próbálja ki most!</string>
+    <string name="notification_timeline_posts">A barátai új alkalmazásokat telepítettek!</string>
+
+    <string name="has_updates">%s alkalmazáshoz elérhető új frissítés!</string>
+    <string name="new_updates">%s új frissítés érhető el!</string>
+    <string name="one_new_update">%s új frissítés érhető el!</string>
+    <string name="updates_tab_adapter_uninstalled">Eltávolítva</string>
+    <string name="updatesTabAdapterUninstall">Eltávolítás</string>
+    <string name="flag_good">Jó</string>
+    <string name="flag_license">Licensz szükséges</string>
+    <string name="flag_fake">Hamis</string>
+    <string name="flag_freeze">Lefagy</string>
+    <string name="flag_virus">Vírusos</string>
+    <string name="flag_this_app">App jelentése</string>
+    <string name="flag_added">Megjelölve</string>
+    <string name="skip">Átugrás</string>
+    <string name="wizard_title_01">Üdvözlünk az Aptoide-on</string>
+    <string name="wizard_description_01">Regisztráljon egy ingyenes fiókot, hogy felépítse a saját személyes alkalmazásboltját.\n\n Böngésszen tematikus áruházakat és fedezzen fel új és izgalmas alkalmazásokat..</string>
+    <string name="wizard_title_02">Megnövelt biztonság</string>
+    <string name="wizard_description_02">Keresse a megbízható pecsétet és töltsön le alkalmazásokat biztonságosan.\n\n Kompatibilitási problémák vannak? Keresse meg az alkalmazások korábbi verzióit.</string>
+    <string name="wizard_title_03">A családunk új tagjai</string>
+    <string name="wizard_subtitle_03_1">Aptoide Lite</string>
+    <string name="wizard_description_03_1">régi eszközökre és lassú internetkapcsolatokhoz</string>
+    <string name="wizard_subtitle_03_2">Aptoide TV</string>
+    <string name="wizard_description_03_2">Set-top box-okra és okostévékre optimalizált Alkalmazásbolt</string>
+    <string name="wizard_reviews_title">Értékelések</string>
+    <string name="wizard_reviews">Most már értékelhet alkalmazásokat az Aptoide-ben!</string>
+    <string name="wizard_new_and_improved">Megnövelt teljesítmény!</string>
+    <string name="wizard_new_and_improved_bullet_1">Akkumulátor-barátabb</string>
+    <string name="wizard_new_and_improved_bullet_2">Csökkentett processzor- és adatforgalom-használat</string>
+    <string name="wizard_new_and_improved_bullet_3">Kevesebb erőforrást használ</string>
+    <string name="wizard_new_and_improved_bullet_4">Letisztult kezelőfelület</string>
+    <string name="wizard_new_homepage">Új kezdőképernyő-kialakítás</string>
+    <string name="wizard_new_top">Új Legnépszerűbbek fül</string>
+    <string name="subscribe_apps_official_store">Feliratkozás \'apps\' Aptoide Hivatalos Alkalmazásboltjára</string>
+    <string name="wizard_next">Következő</string>
+    <string name="wizard_prev">Előző</string>
+    <string name="search_activity_title">\'%s\'</string>
+
+    <string name="share">Megosztás</string>
+    <string name="share_on_timeline">Megosztás az idővonalon</string>
+
+    <string name="search_for_apps">Alkalmazások keresése…</string>
+    <string name="empty_search">Üres keresés, írjon be egy alkalmazásnevet</string>
+    <string name="manually_reviewed">Jó Alkalmazás Garancia: ez az alkalmazás átment a vírus- malware és egyéb ellenőrzéseken, és nem tartalmaz semmiféle veszélyforrást</string>
+
+    <string name="no_apps_found">Nem találhatók appok ezen keresési feltételekkel</string>
+    <string name="no_search_results_message">Nincsenek eredmények a keresésre.
+\nKérjük próbálkozzon más kulcsszavakkal.</string>
+
+    <string name="developer">Fejlesztő</string>
+    <string name="website">Weboldal: %s</string>
+    <string name="email">E-mail: %s</string>
+    <string name="privacy_policy">Üzletszabályzat: %s</string>
+    <string name="dialog_version_size">Verzió: %1$s | Méret: %2$s</string>
+    <string name="na">Nincs</string>
+    <string name="no_email_and_pass_error_message">Kérjük, adjon meg egy e-mailt és jelszót a regisztrációhoz.</string>
+    <string name="no_pass_error_message">Kérjük, a regisztrációhoz adjon meg egy jelszót.</string>
+    <string name="no_email_error_message">Kérjük, a regisztrációhoz adjon meg egy e-mailt .</string>
+    <string name="website_copied">Weboldal vágólapra másolva</string>
+    <string name="email_copied">E-mail vágólapra másolva</string>
+    <string name="privacy_copied">Üzletszabályzat linkje vágólapra másolva</string>
+    <string name="subscribing_store_message">Leiratkozás erről: %s</string>
+
+    <string name="latest_reviews">Legújabb értékelések</string>
+    <string name="latest_comments">Legújabb hozzászólások</string>
+    <string name="action">Akció</string>
+    <string name="adventure">Kaland</string>
+    <string name="all">Mind</string>
+    <string name="applications">Alkalmazások</string>
+    <string name="arcade">Árkád</string>
+    <string name="arcade_action">Árkád és akció</string>
+    <string name="auto_update">Automatikus frissítés</string>
+    <string name="board">Táblajáték</string>
+    <string name="books_reference">Könyvek és lexikonok</string>
+    <string name="brain_puzzle">Feladványok és puzzle-k</string>
+    <string name="business">Üzleti</string>
+    <string name="card">Kártya</string>
+    <string name="cards_casino">Kártya és kaszinó</string>
+    <string name="casino">Kaszinó</string>
+    <string name="casual">Alkalmi</string>
+    <string name="comics">Képregények</string>
+    <string name="communication">Kommunikáció</string>
+    <string name="demo">Demó</string>
+    <string name="education">Oktatás</string>
+    <string name="educational">Oktatási</string>
+    <string name="enable">Engedélyezés</string>
+    <string name="entertainment">Szórakoztatás</string>
+    <string name="family">Családi</string>
+    <string name="finance">Pénzügyi</string>
+    <string name="games">Játékok</string>
+    <string name="health_fitness">Egészség és fitnessz</string>
+    <string name="lifestyle">Életstílus</string>
+    <string name="media_video">Média és videó</string>
+    <string name="news_magazines">Újságok és magazinok</string>
+    <string name="news_weather">Hírek és időjárás</string>
+    <string name="personalization">Testreszabás</string>
+    <string name="photography">Fényképezés</string>
+    <string name="productivity">Produktivitás</string>
+    <string name="puzzle">Puzzle</string>
+    <string name="quick_start">Gyors kezdés</string>
+    <string name="racing">Versenyzős</string>
+    <string name="Reference">Enciklopédiák és lexikonok</string>
+    <string name="role_playing">Szerepjáték</string>
+    <string name="simulation">Szimuláció</string>
+    <string name="social">Közösségi</string>
+    <string name="software_libraries">Szoftver-könyvtárak</string>
+    <string name="sports">Sport</string>
+    <string name="sports_games">Sportjátékok</string>
+    <string name="strategy">Stratégiai</string>
+    <string name="themes">Témák</string>
+    <string name="tools">Eszközök</string>
+    <string name="top_apps">Legjobb appok</string>
+    <string name="top_games">Legjobb játékok</string>
+    <string name="transport">Szállítás</string>
+    <string name="transportation">Szállítások</string>
+    <string name="travel_local">Utazás és Helyi</string>
+    <string name="trending">Feltörekvő</string>
+    <string name="trivia">Kvíz</string>
+    <string name="word">Szó</string>
 </resources>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">今天</string>
 <string name="WidgetProvider_timestamp_yesterday">昨天</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s小時前</string>
@@ -9,7 +9,7 @@
 <string name="WidgetProvider_timestamp_week_ago">%s周前</string>
 <string name="WidgetProvider_timestamp_this_week">本周</string>
 <string name="update">更新</string>
-<string name="uninstall">卸載</string>
+<string name="uninstall">解除安裝</string>
 <string name="comments">評論</string>
 <string name="write_your_comment">寫下您的評論</string>
 <string name="appview_rating_card_text">評分</string>
@@ -27,7 +27,7 @@
 <string name="setting_appfiltersum">不要顯示與該設備部兼容的應用</string>
 <string name="setting_appfiltertitle">過濾應用</string>
 <string name="setting_schdwntitle">已計劃的下載</string>
-<string name="setting_schdwninstallsum">當存在WiFi連接時，自動安裝已計劃的下載</string>
+<string name="setting_schdwninstallsum">存在WiFi連接時，自動安裝已計劃的下載</string>
 <string name="setting_sdk_version">SDK版本</string>
 <string name="setting_screen_size">屏幕尺寸</string>
 <string name="setting_esgl_version">ESGL版本</string>
@@ -59,8 +59,8 @@
 <string name="menu_select_all">全部選擇</string>
 <string name="flag_this_app_button_text">標示本應用</string>
 <string name="search">搜索</string>
-<string name="my_account">我的賬戶</string>
-<string name="no_sch_downloads">沒有已計劃的下載！</string>
+<string name="my_account">我的帳戶</string>
+<string name="no_sch_downloads">使用行動資料瀏覽應用並在連接wifi後下載？使用計劃下載並在「設定 -&gt; 一般下載規則」中將喜好設定變更為WiFi。</string>
 <string name="schDown_installselected">安裝選中的</string>
 <string name="stores">商店</string>
 <string name="insert_store_name">插入商店名：</string>
@@ -68,7 +68,7 @@
 <string name="see_top_stores">查看熱門商店</string>
 <string name="setcredentials">登錄</string>
 <string name="rollback">回滾</string>
-<string name="rollback_empty">沒有要回滾的應用</string>
+<string name="rollback_empty">快速將任何應用降級至先前的版本，從而解決不相容問題。記錄您透過Aptoide安裝的所有應用，包括版本和安裝日期。</string>
 <string name="rollback_installed">已安裝</string>
 <string name="rollback_uninstalled">已卸載的</string>
 <string name="rollback_updated">已更新的</string>
@@ -77,13 +77,13 @@
 <string name="permissions">檢視權限</string>
 <string name="home_title">首頁</string>
 <string name="login_or_register">登錄或注冊</string>
-<string name="update_all">更新所有</string>
+<string name="update_all">全部更新</string>
 <string name="username">郵箱</string>
 <string name="username_tip">輸入您的郵箱</string>
 <string name="accept_terms">注冊則意味著您同意Aptoide的服務條款及開發人員的內容政策</string>
 <string name="register">注冊</string>
 <string name="or">或者</string>
-<string name="dont_have_an_account">沒有賬戶嗎？注冊</string>
+<string name="dont_have_an_account">沒有帳戶嗎？注冊</string>
 <string name="logged_as">您已登錄爲：</string>
 <string name="sign_out">退出</string>
 <string name="please_wait">請等待…</string>
@@ -93,13 +93,13 @@
 <string name="restore_updates">恢複更新</string>
 <string name="start_loading">正在加載…</string>
 <string name="one_account_allowed">只允許一個賬戶</string>
-<string name="ip_blacklisted">已被列入黑名單的IP</string>
-<string name="apk_not_found">未找到Apk文件</string>
-<string name="invalid_apk">無效的apk文件</string>
+<string name="ip_blacklisted">已列入黑名單的IP</string>
+<string name="apk_not_found">未找到Apk</string>
+<string name="invalid_apk">無效的apk</string>
 <string name="remote_in_nospace">您設備的空間不足。</string>
-<string name="server_error">服務器錯誤</string>
+<string name="server_error">伺服器錯誤</string>
 <string name="paidapp_not_found">下載應用出錯。請重試或聯系支持團隊。</string>
-<string name="finished_install">%s已被安裝。</string>
+<string name="finished_install">已安裝%s。</string>
 <string name="no_permissions_required">該應用無需權限。</string>
 <string name="install">安裝</string>
 <string name="aptoide_downloading">%s個正在下載</string>
@@ -107,7 +107,7 @@
 <string name="starting_download">開始下載</string>
 <string name="downloads">下載</string>
 <string name="size">大小</string>
-<string name="likes">贊</string>
+<string name="likes">讚</string>
 <string name="change_theme">更改主題</string>
 <string name="theme">主題</string>
 <string name="restart_aptoide">請重啓應用以更改主題</string>
@@ -129,9 +129,9 @@
 <string name="error_MARG_1">缺少商店</string>
 <string name="error_MARG_2">缺少商店信息</string>
 <string name="error_MARG_3">缺少應用版本</string>
-<string name="error_MARG_4">缺少登錄</string>
+<string name="error_MARG_4">缺少登入</string>
 <string name="error_MARG_5">缺少應用</string>
-<string name="error_MARG_6">缺少MD5數據</string>
+<string name="error_MARG_6">缺少MD5資料</string>
 <string name="error_MARG_7">缺少壓縮包參數</string>
 <string name="error_MARG_8">缺少hmac參數</string>
 <string name="error_MARG_9">缺少限制參數</string>
@@ -175,8 +175,8 @@
 <string name="error_IARG_300">無效的自定義分類</string>
 <string name="error_IARG_301">無效的分類</string>
 <string name="error_IARG_302">此應用已經在分類中</string>
-<string name="error_AUTH_1">無效的登錄信息!</string>
-<string name="error_AUTH_2">無效的證書!</string>
+<string name="error_AUTH_1">無效的登錄信息！</string>
+<string name="error_AUTH_2">無效的證書！</string>
 <string name="error_AUTH_3">您的帳號被取消了。有任何疑問，請聯系Aptoide技術支持團隊。</string>
 <string name="error_AUTH_4">HMAC認證失敗</string>
 <string name="error_AUTH_100">無法登錄谷歌。請檢查您的谷歌帳戶（您可能需要驗證您的電子郵件地址）。</string>
@@ -199,11 +199,11 @@
 <string name="error_SYS_3">系統正在維護中，請稍後重試</string>
 <string name="error_SYS_4">當前版本的API不支持該調用</string>
 <string name="X_download_number">%s個下載。</string>
-<string name="not_found">爲找到</string>
+<string name="not_found">未找到</string>
 <string name="active">活動的</string>
 <string name="completed">完成的</string>
 <string name="clear">清除</string>
-<string name="link_device_webinstall">將賬戶關聯到Webinstall</string>
+<string name="link_device_webinstall">將帳戶關聯到Webinstall</string>
 <string name="remaining_time">剩余的</string>
 <string name="sd_error">無法寫入SD卡。</string>
 <string name="sd_error_jolla">不能正確地下載</string>
@@ -213,8 +213,8 @@
 <string name="are_you_adult">您是否滿21歲？</string>
 <string name="buy">購買</string>
 <string name="payment_methods">支付：</string>
-<string name="root">底部</string>
-<string name="allow_root">允許底部安裝</string>
+<string name="root">根</string>
+<string name="allow_root">允許根安裝</string>
 <string name="fields_cannot_empty">請檢查您的郵件和密碼。</string>
 <string name="flag_this_app_good">優秀</string>
 <string name="flag_this_app_fake">假冒</string>
@@ -245,7 +245,7 @@
 <string name="feedback_subject">標題</string>
 <string name="feedback_include_logs">包括截屏和日志</string>
 <string name="feedback_not_valid">請輸入有效的標題!</string>
-<string name="feedback_no_email">沒有登記郵件的用戶植入！</string>
+<string name="feedback_no_email">未安裝電子郵件用戶端！</string>
 <string name="sponsored">贊助的</string>
 <string name="timeline_like">喜歡</string>
 <string name="store_username">用戶名</string>
@@ -314,7 +314,7 @@
     <string name="facebook_logout_and_login">登出并使用Facebook登入</string>
 
     <string name="added_to_scheduled">已新增至功能表&gt;計劃的下載</string>
-    <string name="hidden_adult">有些應用未顯示，因為成人內容篩選器正在作用中。是否列出成人內容應用？</string>
+    <string name="hidden_adult">有些應用已隱藏，因為成人內容篩選器正在作用中。是否列出這些應用？</string>
     <string name="dont_show_again">不再顯示此對話</string>
 
     <string name="app_name">Aptoide</string>
@@ -353,7 +353,7 @@
     <string name="facebook_timeline_friends_invited">已邀請好友！</string>
     <string name="select_friends_to_invite">請選擇好友以邀請他們！</string>
     <string name="facebook_friends_list_using_timeline">已在使用Aptoide社交時間表</string>
-    <string name="more_reviews">更多檢閱</string>
+    <string name="more_reviews">檢閱</string>
     <string name="more_editors_choice">更多編輯精選</string>
     <string name="more_versions">更多版本</string>
     <string name="facebook_friends_list_using_timeline_empty">社交時間表允許您與Facebook好友分享您的應用。是否加入網路？</string>
@@ -423,12 +423,13 @@
     <string name="flag_this_app_need_licence">需要授權</string>
     <string name="appview_additional_information_title">其他資訊</string>
     <string name="appview_latest_version_text">這是最新版本！</string>
-    <string name="appview_subscribe_store_button_text">+   訂閱？</string>
+    <string name="appview_subscribe_store_button_text">訂閱？</string>
     <string name="appview_subscribed_store_button_text">已訂閱</string>
     <string name="appview_other_versions_in_others_stores">其他商店中的其他版本</string>
     <string name="appview_rate_Success">已評分應用</string>
-    <string name="noIgnoreUpdateText">無忽略的更新</string>
-    <string name="createReviewButtonText">建立檢閱</string>
+    <string name="noIgnoreUpdateText">應用的新版本無法在裝置上正常工作或缺失某些功能？阻止應用進行更新。請轉至「更新」索引標籤並長按要停止更新的應用。</string>
+    <string name="createReviewButtonText">建立
+\n檢閱</string>
     <string name="navigation_drawer_signup_login">註冊或登入</string>
     <string name="_downloads"> 下載</string>
     <string name="no_description">無描述</string>
@@ -438,7 +439,7 @@
 
     <string name="results_subscribed">已訂閱的商店</string>
     <string name="results_in_store">%s商店中的搜尋結果</string>
-    <string name="other_stores">已取消訂閱的商店</string>
+    <string name="other_stores">未訂閱的商店</string>
     <string name="reviews">檢閱</string>
     <string name="store">商店</string>
     <string name="title_caps">標題</string>
@@ -553,4 +554,70 @@
     <string name="section">區段</string>
 
     <string name="review_addictive">上癮程度</string>
+    <string name="error_410">抱歉，未在此伺服器上找到請求的應用。</string>
+
+    <string name="no_email_and_pass_error_message">請鍵入電子郵件和密碼以註冊。</string>
+    <string name="no_pass_error_message">請鍵入密碼以註冊。</string>
+    <string name="no_email_error_message">請鍵入電子郵件以註冊。</string>
+    <string name="website_copied">複製到剪貼簿的網站</string>
+    <string name="email_copied">複製到剪貼簿的電子郵件</string>
+    <string name="privacy_copied">複製到剪貼簿的隱私權連結</string>
+    <string name="subscribing_store_message">正在取消訂閱 %s</string>
+
+<string name="productivity">生產力</string>
+    <string name="comics">漫畫</string>
+    <string name="communication">通訊</string>
+    <string name="entertainment">娛樂</string>
+    <string name="finance">金融理財</string>
+    <string name="lifestyle">生活方式</string>
+    <string name="news_weather">新聞和天氣</string>
+    <string name="social">社交</string>
+    <string name="sports">體育</string>
+    <string name="themes">主題</string>
+    <string name="tools">工具</string>
+    <string name="demo">示範</string>
+    <string name="software_libraries">軟體庫</string>
+    <string name="all">全部</string>
+    <string name="latest_reviews">最新審核</string>
+    <string name="latest_comments">最新評論</string>
+    <string name="action">動作</string>
+    <string name="adventure">冒險</string>
+    <string name="applications">應用</string>
+    <string name="arcade">街機</string>
+    <string name="arcade_action">街機和動作</string>
+    <string name="auto_update">自動更新</string>
+    <string name="books_reference">圖書和工具書</string>
+    <string name="brain_puzzle">腦力和益智</string>
+    <string name="business">商務</string>
+    <string name="card">卡牌</string>
+    <string name="cards_casino">卡牌和賭博</string>
+    <string name="casino">賭博</string>
+    <string name="casual">休閒</string>
+    <string name="education">教育</string>
+    <string name="educational">教育</string>
+    <string name="enable">啟用</string>
+    <string name="family">家庭</string>
+    <string name="games">遊戲</string>
+    <string name="health_fitness">健康和健身</string>
+    <string name="media_video">媒體和視訊</string>
+    <string name="news_magazines">新聞和雜誌</string>
+    <string name="personalization">個人化</string>
+    <string name="photography">攝影</string>
+    <string name="puzzle">益智</string>
+    <string name="quick_start">快速入門</string>
+    <string name="racing">競速</string>
+    <string name="Reference">工具書</string>
+    <string name="role_playing">角色扮演</string>
+    <string name="simulation">模擬</string>
+    <string name="sports_games">體育遊戲</string>
+    <string name="strategy">策略</string>
+    <string name="top_apps">熱門應用</string>
+    <string name="top_games">熱門遊戲</string>
+    <string name="transport">交通</string>
+    <string name="transportation">交通</string>
+    <string name="travel_local">旅行和本地出行</string>
+    <string name="trivia">百科</string>
+    <string name="word">詞彙</string>
+<string name="board">棋盤</string>
+    <string name="trending">時尚</string>
     </resources>

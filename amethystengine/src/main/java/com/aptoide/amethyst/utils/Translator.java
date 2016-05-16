@@ -11,6 +11,27 @@ public class Translator {
     public static String translate(String string) {
         String translated = null;
         switch (string) {
+            case "Home":
+                translated = Aptoide.getContext().getString(R.string.home_title);
+                break;
+            case "Updates":
+                translated = Aptoide.getContext().getString(R.string.updates);
+                break;
+            case "Downloads":
+                translated = Aptoide.getContext().getString(R.string.downloads);
+                break;
+            case "Latest Reviews":
+                translated = Aptoide.getContext().getString(R.string.latest_reviews);
+                break;
+            case "Latest Comments":
+                translated = Aptoide.getContext().getString(R.string.latest_comments);
+                break;
+            case "Applications":
+                translated = Aptoide.getContext().getString(R.string.applications);
+                break;
+            case "Games":
+                translated = Aptoide.getContext().getString(R.string.games);
+                break;
             case "Highlighted":
                 translated = Aptoide.getContext().getString(R.string.highlighted);
                 break;
@@ -155,6 +176,9 @@ public class Translator {
             case "Arcade":
                 translated = Aptoide.getContext().getString(R.string.arcade);
                 break;
+            case "Arcade & Action":
+                translated = Aptoide.getContext().getString(R.string.arcade_action);
+                break;
             case "Trivia":
                 translated = Aptoide.getContext().getString(R.string.trivia);
                 break;
@@ -191,8 +215,32 @@ public class Translator {
             case "Top Apps":
                 translated = Aptoide.getContext().getString(R.string.top_apps);
                 break;
+            case "Latest Applications":
+                translated = Aptoide.getContext().getString(R.string.latest_applications);
+                break;
+            case "Top Apps in this store":
+                translated = Aptoide.getContext().getString(R.string.top_apps_in_store);
+                break;
+            case "Apps for Kids":
+                translated = Aptoide.getContext().getString(R.string.apps_for_kids);
+                break;
+            case "Aptoide Publishers":
+                translated = Aptoide.getContext().getString(R.string.aptoide_publishers);
+                break;
+            case "Music & Video":
+                translated = Aptoide.getContext().getString(R.string.music_video);
+                break;
+            case "Essential Apps":
+                translated = Aptoide.getContext().getString(R.string.essential_apps);
+                break;
+            case "Summer Apps":
+                translated = Aptoide.getContext().getString(R.string.summer_apps);
+                break;
+            case "Play-it!":
+                translated = Aptoide.getContext().getString(R.string.play_it);
+                break;
             default:
-                translated = null;
+                translated = string;
                 break;
         }
         return translated;
