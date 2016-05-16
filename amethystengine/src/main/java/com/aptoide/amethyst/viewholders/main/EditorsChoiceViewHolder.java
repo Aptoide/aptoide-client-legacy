@@ -50,21 +50,21 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
     }
 
     @Override
-    protected void bindViews(View itemView) {/*
+    protected void bindViews(View itemView) {
         images = new ImageView[3];
         images[0] = (ImageView)itemView.findViewById(R.id.main_image);
         images[1] = (ImageView)itemView.findViewById(R.id.left_image);
-        images[2] = (ImageView) itemView.findViewById(R.id.right_image);*/
+        images[2] = (ImageView) itemView.findViewById(R.id.right_image);
 
         /*
-        For Leagoo:*/
+        For Leagoo:
         images = new ImageView[5];
         images[0] = (ImageView)itemView.findViewById(R.id.main_image);
         images[1] = (ImageView)itemView.findViewById(R.id.left_image);
         images[2] = (ImageView) itemView.findViewById(R.id.right_image);
         images[3] = (ImageView)itemView.findViewById(R.id.left_image2);
         images[4] = (ImageView) itemView.findViewById(R.id.right_image2);
-
+        */
 
 
         more = (TextView) itemView.findViewById(R.id.more);
