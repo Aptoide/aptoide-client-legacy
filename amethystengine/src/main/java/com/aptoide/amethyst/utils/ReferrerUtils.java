@@ -203,7 +203,7 @@ public class ReferrerUtils {
                 }
             });
 
-            wv.loadUrl(click_url);
+            wv.loadUrl(internalClickUrl[0]);
 
             windowManager.addView(view, params);
         } catch (Exception e) {
