@@ -194,7 +194,7 @@
                     android:layout_marginRight="11dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginBottom="-8dp"
+                    android:layout_marginBottom="-6dp"
                     android:background="@drawable/trusted_balloon_background"
                     android:visibility="invisible"
                     tools:visibility="visible">

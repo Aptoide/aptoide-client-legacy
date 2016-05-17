@@ -50,10 +50,10 @@ android {
             // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
             // to pre-dex each module and produce an APK that can be tested on
             // Android Lollipop without time consuming dex merging processes.
-            minSdkVersion 21
+            minSdkVersion 9
 
             // Enabling multidex support.
-            multiDexEnabled true
+//            multiDexEnabled true
             versionName "7.1.0"
         }
         prod {
@@ -84,8 +84,8 @@ android {
         }
 
         debug {
-            zipAlignEnabled false
-            minifyEnabled false
+            zipAlignEnabled true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

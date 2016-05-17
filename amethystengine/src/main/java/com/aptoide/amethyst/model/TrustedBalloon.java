@@ -19,36 +19,23 @@ public class TrustedBalloon {
 
 	private final GetAppMeta.File.Malware malware;
 	private final int maxStartUpDisplays;
-	private final boolean neverShow;
 
 	/**
 	 * Creates a new trusted balloon.
 	 * @param malware information about application.
 	 * @param maxStartUpDisplays number of times ballon is going to be displayed automatically.
-	 * @param neverShow forces balloon never to be shown for testing purposes.
 	 */
-	public TrustedBalloon(GetAppMeta.File.Malware malware, int maxStartUpDisplays, boolean
-			neverShow) {
+	public TrustedBalloon(GetAppMeta.File.Malware malware, int maxStartUpDisplays) {
 		this.malware = malware;
 		this.maxStartUpDisplays = maxStartUpDisplays;
-		this.neverShow = neverShow;
 	}
 
 	/**
 	 * Returns whether balloon should be displayed or not.
 	 */
 	public boolean shouldDisplay() {
-
-		if (neverShow) {
-			return false;
-		}
-
 		return malware != null
-				&& !UNKNOWN.equals(malware.rank)
-				&& malware.reason != null
-				&& malware.reason.scanned != null
-				&& (PASSED.equals(malware.reason.scanned.status)
-					|| WARN.equals(malware.reason.scanned.status));
+				&& !UNKNOWN.equals(malware.rank);
 	}
 
 	/**
@@ -56,9 +43,6 @@ public class TrustedBalloon {
 	 * the balloon {@link #didDisplayAutomatically()} should be called.
 	 */
 	public boolean shouldDisplayAutomatically() {
-		if (neverShow) {
-			return false;
-		}
 		return shouldDisplay()
 				&& Preferences.getInt(Preferences.BALLOON_SECURITY_NUMBER_OF_DISPLAYS_INT, 0) <
 				maxStartUpDisplays;
