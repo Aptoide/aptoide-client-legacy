@@ -48,6 +48,9 @@ public class SearchActivity extends AptoideBaseActivity {
             e.printStackTrace();
         }
         String storeName = getIntent().getStringExtra(SEARCH_SOURCE);
+        if (storeName == null) {
+            storeName = Aptoide.getConfiguration().getDefaultStore();
+        }
 		String query = getIntent().getExtras().getString(SearchManager.QUERY);
 
 		Analytics.Search.searchTerm(query, storeName);

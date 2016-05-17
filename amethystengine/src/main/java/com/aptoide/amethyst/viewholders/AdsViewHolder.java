@@ -26,6 +26,7 @@ public class AdsViewHolder extends BaseViewHolder {
 
     public AdsViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
+        bindViews(itemView);
     }
 
 

@@ -17,6 +17,8 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.viewholders.AdsViewHolder;
+import com.aptoide.models.displayables.DummyDisplayable;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
@@ -67,6 +69,8 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         if (viewType == R.layout.search_app_row) {
             return new SearchAppViewHolder(view, viewType);
+        } else if (viewType == R.layout.search_ad) {
+            return new AdsViewHolder(view, viewType);
         } else if (viewType == R.layout.layout_header) {
             return new HeaderViewHolder(view, viewType, EnumStoreTheme.APTOIDE_STORE_THEME_DEFAULT);
         } else if (viewType == R.layout.search_more_results) {
@@ -235,6 +239,8 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             return R.layout.suggested_app_search;
         } else if (list.get(position) instanceof ProgressBarRow) {
             return R.layout.row_progress_bar;
+        } else if (list.get(position) instanceof DummyDisplayable) {
+            return R.layout.search_ad;
         } else {
             throw new IllegalStateException("This adapter doesn't know how to show " + list.get(position).getClass().getName());
         }

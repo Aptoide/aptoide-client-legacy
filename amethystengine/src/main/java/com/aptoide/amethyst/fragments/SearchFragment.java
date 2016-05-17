@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LinearRecyclerFragment;
 import com.aptoide.amethyst.R;
+import com.aptoide.models.displayables.DummyDisplayable;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
@@ -123,6 +124,7 @@ public class SearchFragment extends LinearRecyclerFragment {
                 }
                 u_offset += uApkList.size();
             }
+            displayables.add(0, new DummyDisplayable(BUCKET_SIZE));
             adapter.notifyDataSetChanged();
             swipeContainer.setEnabled(false);
             progressBar.setVisibility(View.GONE);
@@ -230,7 +232,6 @@ public class SearchFragment extends LinearRecyclerFragment {
             displayables.add(0, suggestedAppHeader);
             SuggestedAppDisplayable suggestedAppDisplayable = new SuggestedAppDisplayable(apkSuggestionJson);
             displayables.add(1, suggestedAppDisplayable);
-
             adapter.notifyDataSetChanged();
 //            swipeContainer.setEnabled(false);
 //            progressBar.setVisibility(View.GONE);
