@@ -75,7 +75,6 @@
                                 android:drawablePadding="2dp"
                                 android:drawableStart="@drawable/ic_dimension"
                                 android:maxLines="1"
-                                android:maxWidth="50dp"
                                 android:singleLine="true"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/text_size_small"
@@ -90,7 +89,6 @@
                                 android:drawablePadding="2dp"
                                 android:drawableStart="@drawable/ic_appview_version"
                                 android:maxLines="1"
-                                android:maxWidth="50dp"
                                 android:singleLine="true"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/text_size_small"
@@ -105,7 +103,6 @@
                                 android:drawablePadding="2dp"
                                 android:drawableStart="@drawable/ic_appview_download_icon"
                                 android:maxLines="1"
-                                android:maxWidth="50dp"
                                 android:singleLine="true"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/text_size_small"
@@ -188,8 +185,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_above="@id/black_header_background"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginLeft="11dp"
+                    android:layout_marginStart="@dimen/fragment_app_view_trusted_balloon_margin_start"
+                    android:layout_marginLeft="@dimen/fragment_app_view_trusted_balloon_margin_start"
                     android:layout_marginEnd="11dp"
                     android:layout_marginRight="11dp"
                     android:layout_alignParentRight="true"
@@ -208,8 +205,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="?attr/toolbarTheme"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+                app:layout_collapseMode="pin"/>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 

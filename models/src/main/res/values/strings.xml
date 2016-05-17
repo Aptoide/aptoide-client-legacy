@@ -617,8 +617,6 @@
     <string name="privacy_copied">Privacy link copied to clipboard</string>
     <string name="subscribing_store_message">Unsubscribing %s</string>
     <string name="balloon_security_information_google_play">App matched with</string>
-    <string name="balloon_security_information_title">Aptoide has changed.</string>
-    <string name="balloon_security_information_subtitle">We now check all apps for Virus.</string>
-
+    <string name="balloon_security_information_title">Aptoide has changed.\nWe now check all apps for Virus.</string>
 </resources>
 

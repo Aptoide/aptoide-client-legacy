@@ -8,7 +8,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:orientation="vertical"
-              android:padding="8dp">
+              android:padding="12dp">
 
     <TextView
         style="@style/trustedBalloonStyle"
@@ -16,16 +16,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <TextView
-        style="@style/trustedBalloonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/balloon_security_information_subtitle"/>
-
     <LinearLayout
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="30dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -61,7 +55,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="30dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -96,13 +90,13 @@
     </LinearLayout>
 
     <TextView
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:id="@+id/balloon_security_information_google_play"
         style="@style/trustedBalloonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableEnd="@drawable/ic_google_play"
-        android:drawablePadding="14dp"
+        android:drawablePadding="12dp"
         android:drawableRight="@drawable/ic_google_play"
         android:ellipsize="end"
         android:gravity="center_vertical"
