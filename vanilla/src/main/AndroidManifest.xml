@@ -239,7 +239,7 @@
 
         <service
             android:name="org.onepf.oms.StoreService"
-            android:exported="true" android:permission="${applicationId}.org.onepf.openiab.permission.BILLING">
+            android:exported="true" android:permission="org.onepf.openiab.permission.BILLING">
             <intent-filter>
                 <action android:name="org.onepf.oms.openappstore.BIND" />
             </intent-filter>
@@ -248,7 +248,7 @@
 
         <service
             android:name="org.onepf.oms.BillingService"
-            android:exported="true" android:permission="${applicationId}.org.onepf.openiab.permission.BILLING">
+            android:exported="true" android:permission="org.onepf.openiab.permission.BILLING">
 
             <intent-filter>
                 <action android:name="org.onepf.oms.billing.BIND" />
@@ -286,18 +286,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- Declare these objects, this is part of Fortumo SDK, and should not be called directly -->
-        <receiver android:name="mp.MpSMSReceiver">
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
-        <service android:name="mp.MpService" />
-        <service android:name="mp.StatusUpdateService" />
-        <activity android:name="mp.MpActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
-
     </application>
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -306,11 +294,5 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-
-    <!-- If your app doesn't need to make phone calls, you can add this, so the app
-    could be installed on tablets. -->
-    <uses-feature android:name="android.hardware.telephony" android:required="false" />
 
 </manifest>
