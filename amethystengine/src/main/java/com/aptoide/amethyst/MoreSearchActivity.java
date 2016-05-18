@@ -128,7 +128,9 @@ public class MoreSearchActivity extends MoreActivity {
         @Override
         protected BaseAdapter getAdapter() {
             if (adapter == null) {
-                displayableList.add(0, new DummyDisplayable(BUCKET_SIZE));
+                if(displayableList.size() > 0) {
+                    displayableList.add(0, new DummyDisplayable(BUCKET_SIZE));
+                }
                 return new MoreSearchAdapter(displayableList);
             }
             return adapter;
