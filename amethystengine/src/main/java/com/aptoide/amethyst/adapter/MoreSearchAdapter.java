@@ -8,6 +8,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.viewholders.AdsViewHolder;
 import com.aptoide.models.displayables.DummyDisplayable;
 import com.aptoide.models.displayables.SearchApk;

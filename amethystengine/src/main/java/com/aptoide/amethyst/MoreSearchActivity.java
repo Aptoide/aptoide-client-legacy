@@ -128,9 +128,6 @@ public class MoreSearchActivity extends MoreActivity {
         @Override
         protected BaseAdapter getAdapter() {
             if (adapter == null) {
-                if(displayableList.size() > 0) {
-                    displayableList.add(0, new DummyDisplayable(BUCKET_SIZE));
-                }
                 return new MoreSearchAdapter(displayableList);
             }
             return adapter;
@@ -171,6 +168,9 @@ public class MoreSearchActivity extends MoreActivity {
                     displayableList.addAll(apkList);
                 }
                 offset += apkList.size();
+                if(displayableList.size() > 0) {
+                    displayableList.add(0, new DummyDisplayable(AptoideUtils.UI.getBucketSize()));
+                }
                 getAdapter().notifyDataSetChanged();
                 swipeContainer.setEnabled(false);
                 mLoading = false;
