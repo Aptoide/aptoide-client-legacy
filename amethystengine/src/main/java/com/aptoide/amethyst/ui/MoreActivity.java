@@ -87,7 +87,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
             if (args.getString(SearchActivity.SEARCH_SOURCE) != null) {
                 mToolbar.setLogo(R.drawable.ic_store);
             } else {
-                mToolbar.setLogo(R.drawable.ic_aptoide_toolbar);
+                //mToolbar.setLogo(R.drawable.ic_aptoide_toolbar);
             }
         }
 
