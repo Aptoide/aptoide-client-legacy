@@ -1,7 +1,5 @@
 package com.aptoide.dataprovider.webservices.v7;
 
-import android.support.annotation.NonNull;
-
 import com.aptoide.dataprovider.exceptions.MalformedActionUrlException;
 import com.aptoide.dataprovider.exceptions.TicketException;
 import com.aptoide.dataprovider.webservices.interfaces.v7.IGetStoreV7WebService;
@@ -13,26 +11,26 @@ import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action;
 import com.aptoide.dataprovider.webservices.models.v7.ListViewItems;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
+import com.aptoide.models.displayables.AdPlaceHolderRow;
 import com.aptoide.models.displayables.AppItem;
 import com.aptoide.models.displayables.BrickAppItem;
+import com.aptoide.models.displayables.CategoryRow;
+import com.aptoide.models.displayables.CommentPlaceHolderRow;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.EditorsChoiceRow;
 import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.displayables.HomeStoreItem;
-import com.aptoide.models.displayables.CategoryRow;
-import com.aptoide.models.displayables.AdPlaceHolderRow;
-import com.aptoide.models.displayables.CommentPlaceHolderRow;
 import com.aptoide.models.displayables.ReviewPlaceHolderRow;
 import com.aptoide.models.displayables.TimeLinePlaceHolderRow;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
+
+import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.APPS_GROUP_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.isKnownName;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.isKnownType;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.CATEGORIES_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.COMMENTS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
@@ -116,7 +114,8 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                 case APPS_GROUP_TYPE:
 
                     // Only create widget if it has apps
-                    if (widget.listApps.datalist.itemView != null && !widget.listApps.datalist.itemView.isEmpty()) {
+                    if (widget.listApps.datalist.itemView != null && !widget.listApps.datalist.itemView
+                            .isEmpty()) {
 
                         // if layout type == BRICK, (for now) it can only be an EditorsChoice.
                         if (widget.data != null && widget.data.layout != null && widget.data.layout.equals(Constants.LAYOUT_BRICK)) {
@@ -138,7 +137,8 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                 case STORE_GROUP:
 
                     // Only create widget if it has apps
-                    if (widget.listApps.datalist.itemView != null && !widget.listApps.datalist.itemView.isEmpty()) {
+                    if (widget.listApps.datalist.itemView != null && !widget.listApps.datalist.itemView
+                            .isEmpty()) {
 
                         Displayable headerRow = createHeaderRow(widget.title, widget.tag, true, widget.actions, storeId, widget.data.layout);
                         if (headerRow != null) {
@@ -200,7 +200,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         return createAppItem(item, null);
     }
 
-    protected AppItem createAppItem(ViewItem item, AppItem appItem){
+    protected AppItem createAppItem(ViewItem item, AppItem appItem) {
 
         if (appItem == null) {
             appItem = new AppItem(numColumns);
@@ -225,7 +225,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         return appItem;
     }
 
-    protected BrickAppItem createBrickItem(ViewItem item){
+    protected BrickAppItem createBrickItem(ViewItem item) {
 
         BrickAppItem appItem = new BrickAppItem(numColumns);
         createAppItem(item, appItem);
@@ -236,16 +236,13 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
 
     /**
      * The Action with button is turned into an headerRow
-     * @param name
-     * @param hasMore
-     * @param actions
-     * @return
      */
     protected HeaderRow createHeaderRow(String name, String tag, boolean hasMore, List<Action> actions, long storeId, String layout) {
 
         if (actions != null && !actions.isEmpty()) {
             for (Action action : actions) {
-                if (action != null && action.event != null && action.event.action != null && action.type.equals("button")) {
+                if (action != null && action.event != null && action.event.action != null && action.type
+                        .equals("button")) {
                     return createHeaderRow(name, tag, hasMore, action, storeId, layout);
                 }
             }
@@ -286,22 +283,19 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         List<Displayable> displayables = new ArrayList<>();
 
         for (ListViewItems.DisplayList display : list) {
-            if (isKnownType(display.event.type) && isKnownName(display.event.name)) {
-                CategoryRow categ = new CategoryRow(numColumns);
-                if (display.event.type.equals(Action.Event.API_EXTERNAL_TYPE) && (display.event.name.equals(Action.Event.EVENT_FACEBOOK_TYPE)||display.event.name.equals(Action.Event
-                        .EVENT_YOUTUBE_TYPE))) {
-                    categ.setSpanSize(totalSpanSize);
-                } else {
-                    categ.setSpanSize(totalSpanSize / 2);
-                }
-                categ.setLabel(display.label);
-                categ.setGraphic(display.graphic);
-                categ.setEventType(display.event.type);
-                categ.setEventName(display.event.name);
-                categ.setEventActionUrl(display.event.action);
-                categ.setEventAltActionUrl(display.event.altAction);
-                displayables.add(categ);
+            CategoryRow categ = new CategoryRow(numColumns);
+            if (display.event.type.equals(Action.Event.API_V7_TYPE) || display.event.type.equals(Action.Event.API_V3_TYPE)) {
+                categ.setSpanSize(totalSpanSize / 2);
+            } else {
+                categ.setSpanSize(totalSpanSize);
             }
+            categ.setLabel(display.label);
+            categ.setGraphic(display.graphic);
+            categ.setEventType(display.event.type);
+            categ.setEventName(display.event.name);
+            categ.setEventActionUrl(display.event.action);
+            categ.setEventAltActionUrl(display.event.altAction);
+            displayables.add(categ);
         }
 
         return displayables;
