@@ -84,11 +84,13 @@ import java.util.List;
                     public static final String EVENT_GETSTOREWIDGETS = "getStoreWidgets";
                     public static final String EVENT_FACEBOOK_TYPE = "facebook";
                     public static final String EVENT_YOUTUBE_TYPE = "youtube";
+                    public static final String EVENT_TWITCH_TYPE = "twitch";
                     public static final String EVENT_GETAPKCOMMENTS = "getApkComments";
 
                     public String type; // API, v3, EXTERNAL
                     public String name; // listApps, getStore, getStoreWidgets, getApkComments
                     public String action;
+                    public String altAction;
 
                     public static boolean isKnownType(String type) {
                         switch (type) {

@@ -84,6 +84,11 @@ public class HeaderRow extends Displayable implements IHasMore {
         return eventActionUrl;
     }
 
+    @Override
+    public String getAltEventActionUrl() {
+        return null;
+    }
+
     public String getEventType() {
         return eventType;
     }

@@ -1565,6 +1565,21 @@ public class AptoideUtils {
             }
         }
 
+
+        public static @Nullable String getFacebookPageURL(@NonNull Context context, String facebookUrl) {
+            PackageManager packageManager = context.getPackageManager();
+            String toReturn = facebookUrl;
+            try {
+                int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
+                if (versionCode >= 3002850) { //newer versions of fb app
+                    toReturn = "fb://facewebmodal/f?href=" + facebookUrl;
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                toReturn = facebookUrl; //normal web url
+            }
+            return toReturn;
+        }
+
         public static void showFacebook(Context context) {
             if (AppUtils.isAppInstalled(context, "com.facebook.katana")) {
                 Intent sharingIntent;
