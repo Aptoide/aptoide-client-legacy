@@ -157,7 +157,12 @@ public class UpdatesService extends Service {
 
                 UpdatesApi api = new UpdatesApi();
                 initUpdatesApi(api);
-
+                if (AptoideUtils.getSharedPreferences().getBoolean(Constants.UPDATES_FILTER_KEY, false)) {
+                    ArrayList<String> params = new ArrayList<>();
+                    params.add("alpha");
+                    params.add("beta");
+                    api.not_apk_tags = AptoideUtils.StringUtils.commaSeparatedValues(params);
+                }
                 Cursor servers = database.getStoresCursor();
                 for (servers.moveToFirst(); !servers.isAfterLast(); servers.moveToNext()) {
 

@@ -619,6 +619,8 @@
     <string name="balloon_security_information_google_play">App matched with</string>
     <string name="balloon_security_information_title">Aptoide has changed.</string>
     <string name="balloon_security_information_subtitle">We now check all apps for Virus.</string>
+    <string name="updates_filter_setting_title">Just show me stable app version updates</string>
+    <string name="updates_filter_summary">Checking this, you won’t be notified of beta versions.</string>
 
 </resources>
 
