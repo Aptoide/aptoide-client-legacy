@@ -763,16 +763,16 @@ public class Analytics {
         private static final String TYPE = "Type";
         private static final String APPLICATION_PUBLISHER = "Application Publisher";
         private static final String SOURCE = "Source";
-        private static final String TRUSTED = "Trusted";
+        private static final String TRUSTED = "Trusted Badge";
 
-        public static void view(String packageName, String developer, String download_from, boolean isTrusted) {
+        public static void view(String packageName, String developer, String download_from, String isTrusted) {
             try {
                 HashMap<String, String> map = new HashMap<>();
 
                 map.put(APPLICATION_NAME, packageName);
                 map.put(APPLICATION_PUBLISHER, developer);
                 map.put(SOURCE, download_from);
-                map.put(TRUSTED, Boolean.toString(isTrusted));
+                map.put(TRUSTED, isTrusted);
 
                 track(VIEWED_APPLICATION, map, ALL);
 
