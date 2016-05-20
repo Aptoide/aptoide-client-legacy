@@ -80,6 +80,8 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.dialogs.DialogPermissions;
 import com.aptoide.amethyst.dialogs.FlagApkDialog;
+import com.aptoide.amethyst.dialogs.InstallWarningDialog;
+import com.aptoide.amethyst.dialogs.InstallWarningDialogListener;
 import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
@@ -167,7 +169,7 @@ import static com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Mal
  * Created by hsousa
  */
 public class AppViewActivity extends AptoideBaseActivity implements AddCommentVoteCallback,
-		FlagApkDialog.ApkFlagCallback {
+		FlagApkDialog.ApkFlagCallback, InstallWarningDialogListener {
 
 	/**
 	 * True when activity is created.
@@ -285,6 +287,22 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		}
 	}
 
+	@Override
+	public void searchForTrustedApp() {
+		final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
+		if (fragment != null) {
+			((AppViewFragment) fragment).openSearchView();
+		}
+	}
+
+	@Override
+	public void installApp() {
+		final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
+		if (fragment != null) {
+			((AppViewFragment) fragment).download();
+		}
+	}
+
 	@Nullable
 	public DownloadService getService() {
 		final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
@@ -312,6 +330,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private Animation trustedBalloonFadeInAnimation;
 		private Animation mTrustedBalloonFadeOutAnimation;
 		private ABTest<Boolean> mShowTrustedBalloonABTest;
+		private boolean openSearchView;
 
 		public static AppViewFragment newInstance(boolean lifecycleController) {
 			AppViewFragment f = new AppViewFragment();
@@ -660,7 +679,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 							.getPath()).apply();
 				}
 				final InstallListener installListener = new InstallListener(iconUrl, appName,
-						versionName, packageName, md5sum, isPaidApp());
+						versionName, packageName, md5sum, isPaidApp(), malware.rank);
 				DialogFragment dialog = AptoideDialog.myAppInstall(appName, installListener, null);
 				AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(),
 						Constants.FROM_APKFY_KEY);
@@ -689,7 +708,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				if (getApkInfoJson.getPayment().status.equals("OK")) {
 					mButtonInstall.setText(R.string.install);
 					InstallListener installListener = new InstallListener(iconUrl, appName,
-							versionName, packageName, md5sum, true);
+							versionName, packageName, md5sum, true, malware.rank);
 					mButtonInstall.setOnClickListener(installListener);
 					mButtonInstall.setVisibility(View.VISIBLE);
 					path = getApkInfoJson.getApk().getPath();
@@ -1007,7 +1026,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
 			super.onCreateOptionsMenu(menu, inflater);
 			inflater.inflate(R.menu.menu_appview_activity, menu);
-			SearchManager.setupSearch(menu, getActivity());
+			SearchManager.setupSearch(menu, getActivity(), openSearchView);
+			openSearchView = false;
 		}
 
 		@Override
@@ -1602,6 +1622,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 		}
 
+		public void openSearchView() {
+			openSearchView = true;
+			getActivity().supportInvalidateOptionsMenu();
+		}
+
 		class OpenStoreOnClickListener implements View.OnClickListener {
 
 			@Override
@@ -1774,14 +1799,14 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				isPaidToschedule = true;
 //                mButtonInstall.setVisibility(View.GONE);
 				InstallListener installListener = new InstallListener(iconUrl, appName,
-						versionName, packageName, md5sum, isPaidApp());
+						versionName, packageName, md5sum, isPaidApp(), malware.rank);
 				mButtonInstall.setOnClickListener(installListener);
 			} else {
 				PackageInfo info = getPackageInfo(getActivity(), packageName);
 				if (info == null) {
 					mButtonInstall.setText(getString(R.string.install));
 					mButtonInstall.setOnClickListener(new InstallListener(iconUrl, appName,
-							versionName, packageName, md5sum, isPaidApp()));
+							versionName, packageName, md5sum, isPaidApp(), malware.rank));
 					isInstalled = false;
 				} else {
 					isInstalled = true;
@@ -1797,7 +1822,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 						mButtonInstall.setText(getString(R.string.update));
 						mButtonInstall.setEnabled(true);
 						mButtonInstall.setOnClickListener(new InstallListener(iconUrl, appName,
-								versionName, packageName, md5sum, isPaidApp()));
+								versionName, packageName, md5sum, isPaidApp(), malware.rank));
 //                    UpdateAppVersionInstalled(info.versionName);
 					} else if (versionCode < info.versionCode) {
 						isUpdate = false;
@@ -2377,7 +2402,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			if (getActivity().getIntent()
 					.getBooleanExtra(Constants.FROM_MY_APP_KEY, false) && !isPaidApp()) {
 				final InstallListener installListener = new InstallListener(iconUrl, appName,
-						versionName, packageName, md5sum, isPaidApp());
+						versionName, packageName, md5sum, isPaidApp(), malware.rank);
 				DialogFragment dialog = AptoideDialog.myAppInstall(appName, installListener,
 						onDismissListener);
 				AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(),
@@ -2625,15 +2650,17 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			protected String md5;
 			private long downloadId;
 			private boolean paid;
+			private final String rank;
 
 			public InstallListener(String icon, String name, String versionName, String
-					packageName, String md5, boolean paid) {
+					packageName, String md5, boolean paid, String rank) {
 				this.icon = icon;
 				this.name = name;
 				this.versionName = versionName;
 				this.package_name = packageName;
 				this.md5 = md5;
 				this.paid = paid;
+				this.rank = rank;
 				this.downloadId = md5.hashCode();
 			}
 
@@ -2665,8 +2692,13 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					AptoideUtils.AdNetworks.knock(cpd);
 				}
 
-				download();
-
+				if (mShowTrustedBalloonABTest.alternative()
+						&& !GetAppMeta.File.Malware.TRUSTED.equals(rank)) {
+					InstallWarningDialog.newInstance(rank)
+							.show(getFragmentManager(), "InstallWarningDialog");
+				} else {
+					download();
+				}
 				Analytics.ClickedOnInstallButton.clicked(package_name, developer);
 			}
 

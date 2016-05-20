@@ -218,4 +218,8 @@
     <style name="AptoideThemeDefaultDark" parent="AppBaseThemeDark">
     </style>
 
+    <style name="Theme.Aptoide.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@drawable/dialog_bg</item>
+    </style>
+
 </resources>

@@ -106,7 +106,7 @@ public class SearchActivity extends AptoideBaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.simple_search_menu, menu);
-        com.aptoide.amethyst.ui.SearchManager.setupSearch(menu, this);
+        com.aptoide.amethyst.ui.SearchManager.setupSearch(menu, this, false);
 //        setupSearch(menu);
 
         return super.onCreateOptionsMenu(menu);

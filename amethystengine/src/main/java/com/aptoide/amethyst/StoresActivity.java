@@ -137,7 +137,7 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        SearchManager.setupSearch(menu, this);
+        SearchManager.setupSearch(menu, this, false);
         return super.onCreateOptionsMenu(menu);
     }
 
