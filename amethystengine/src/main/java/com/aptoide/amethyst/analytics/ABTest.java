@@ -56,11 +56,13 @@ public class ABTest<T> {
 	}
 
 	public T alternative() {
+		if (experiment.hasForcedChoice()) {
+			return alternativeParser.parse(experiment.forcedChoice.name);
+		}
 		if (isParticipating()) {
 			return alternativeParser.parse(participatingExperiment.selectedAlternative.name);
-		} else {
-			return alternativeParser.parse(experiment.getControlAlternative().name);
 		}
+		return alternativeParser.parse(experiment.getControlAlternative().name);
 	}
 
 	private boolean isParticipating() {
