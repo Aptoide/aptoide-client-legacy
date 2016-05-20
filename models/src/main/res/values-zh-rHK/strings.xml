@@ -82,7 +82,7 @@
 <string name="username_tip">輸入您的郵箱</string>
 <string name="accept_terms">注冊則意味著您同意Aptoide的服務條款及開發人員的內容政策</string>
 <string name="register">注冊</string>
-<string name="or">或者</string>
+<string name="or">- 或者 -</string>
 <string name="dont_have_an_account">沒有帳戶嗎？注冊</string>
 <string name="logged_as">您已登錄爲：</string>
 <string name="sign_out">退出</string>
@@ -292,7 +292,7 @@
     <string name="timeout">網路連線逾時</string>
     <string name="connection_error">無網路連線</string>
     <string name="installing">%s正在安裝…</string>
-    <string name="data_usage_constraint">設定&gt;一般下載規則中不允許下載</string>
+    <string name="data_usage_constraint">「設定&gt;一般下載規則」中不允許下載</string>
     <string name="download_pending">正在等候</string>
 
     <string name="error503">嗯…是否只有我下載或是所有人同時在下載應用？</string>
@@ -311,9 +311,9 @@
     <string name="reviewed_by">檢閱者 - %s</string>
     <string name="installed_this">%s安裝了此應用。</string>
 
-    <string name="facebook_logout_and_login">登出并使用Facebook登入</string>
+    <string name="facebook_logout_and_login">登出並使用Facebook登入</string>
 
-    <string name="added_to_scheduled">已新增至功能表&gt;計劃的下載</string>
+    <string name="added_to_scheduled">已新增至「功能表&gt;計劃的下載」</string>
     <string name="hidden_adult">有些應用已隱藏，因為成人內容篩選器正在作用中。是否列出這些應用？</string>
     <string name="dont_show_again">不再顯示此對話</string>
 
@@ -343,7 +343,7 @@
     <string name="exclude_update">忽略更新</string>
     <string name="install_update">安裝更新</string>
 
-    <string name="confirm_carrier_payment">"是否花{value}購買“{title}”？您的運營商將向您收費。 "</string>
+    <string name="confirm_carrier_payment">"是否花{value}購買「{title}」？您的運營商將向您收費。 "</string>
     <string name="billing_result">"交易結果： "</string>
 
     <string name="order_popup_title3">成人內容</string>
@@ -374,8 +374,8 @@
     <string name="timeline_email_invitation">已邀請您加入其Aptoide社交時間表。已連線！</string>
     <string name="timeline_email_how_to_join">如何加入社交時間表？</string>
     <string name="timeline_email_step1">1- 下載最新版本的Aptoide：</string>
-    <string name="timeline_email_step2">2- 移至“社交時間表”索引標籤，加入網路</string>
-    <string name="timeline_ad">Facebook建議應用</string>
+    <string name="timeline_email_step2">2- 移至「社交時間表」索引標籤，加入網路</string>
+    <string name="timeline_ad">Facebook推薦應用</string>
     <string name="facebook_start_timeline">加入社交時間表</string>
     <string name="facebook_join_friends">是否在社交時間表中加入他們？</string>
     <string name="timeline_is_empty_no_friends">您的時間表為空。原因可能是您在Aptoide上還沒有好友，或者他們未發佈任何內容。</string>
@@ -559,10 +559,10 @@
     <string name="no_email_and_pass_error_message">請鍵入電子郵件和密碼以註冊。</string>
     <string name="no_pass_error_message">請鍵入密碼以註冊。</string>
     <string name="no_email_error_message">請鍵入電子郵件以註冊。</string>
-    <string name="website_copied">複製到剪貼簿的網站</string>
-    <string name="email_copied">複製到剪貼簿的電子郵件</string>
-    <string name="privacy_copied">複製到剪貼簿的隱私權連結</string>
-    <string name="subscribing_store_message">正在取消訂閱 %s</string>
+    <string name="website_copied">網站已複製到剪貼簿</string>
+    <string name="email_copied">電子郵件已複製到剪貼簿</string>
+    <string name="privacy_copied">隱私權連結已複製到剪貼簿</string>
+    <string name="subscribing_store_message">取消訂閱 %s</string>
 
 <string name="productivity">生產力</string>
     <string name="comics">漫畫</string>
@@ -578,7 +578,7 @@
     <string name="demo">示範</string>
     <string name="software_libraries">軟體庫</string>
     <string name="all">全部</string>
-    <string name="latest_reviews">最新審核</string>
+    <string name="latest_reviews">最新檢閱</string>
     <string name="latest_comments">最新評論</string>
     <string name="action">動作</string>
     <string name="adventure">冒險</string>
@@ -586,7 +586,7 @@
     <string name="arcade">街機</string>
     <string name="arcade_action">街機和動作</string>
     <string name="auto_update">自動更新</string>
-    <string name="books_reference">圖書和工具書</string>
+    <string name="books_reference">書籍與參考資料</string>
     <string name="brain_puzzle">腦力和益智</string>
     <string name="business">商務</string>
     <string name="card">卡牌</string>
@@ -615,9 +615,30 @@
     <string name="top_games">熱門遊戲</string>
     <string name="transport">交通</string>
     <string name="transportation">交通</string>
-    <string name="travel_local">旅行和本地出行</string>
+    <string name="travel_local">旅行和本地</string>
     <string name="trivia">百科</string>
     <string name="word">詞彙</string>
 <string name="board">棋盤</string>
     <string name="trending">時尚</string>
-    </resources>
+    <string name="health">健康</string>
+    <string name="highlighted">亮點</string>
+    <string name="local_top_apps">本地最佳應用</string>
+    <string name="medical">醫療</string>
+    <string name="multimedia">多媒體</string>
+    <string name="music">音樂</string>
+    <string name="music_audio">音樂和音頻</string>
+    <string name="reference">參考</string>
+    <string name="travel">旅行</string>
+    <string name="libraries_demo">素材庫與示範</string>
+    <string name="shopping">購物</string>
+    <string name="weather">天氣</string>
+
+    <string name="latest_applications">最新應用</string>
+    <string name="top_apps_in_store">本店最佳應用</string>
+    <string name="apps_for_kids">兒童應用</string>
+    <string name="aptoide_publishers">Aptoide發行者</string>
+    <string name="music_video">音樂與影片</string>
+    <string name="essential_apps">必備應用</string>
+    <string name="summer_apps">夏季應用</string>
+    <string name="play_it">暢玩應用！</string>
+</resources>

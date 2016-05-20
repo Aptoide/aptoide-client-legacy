@@ -521,4 +521,45 @@
 
 
     <string name="abTest1_label_2">დაყენება</string>
+    <string name="essential_apps">აუცილებელი აპლიკაციები</string>
+    <string name="subscribing_store_message">გამოწერა უქმდება</string>
+
+    <string name="latest_reviews">უახლესი განხილვები</string>
+    <string name="latest_comments">უახლესი კომენტარები</string>
+    <string name="adventure">სათავგადასავლო</string>
+    <string name="all">ყველა</string>
+    <string name="applications">პროგრამები</string>
+    <string name="auto_update">ავტო განახლება</string>
+    <string name="board">სამაგიდო</string>
+    <string name="business">ბიზნესისთვის</string>
+    <string name="cards_casino">აზარტული</string>
+    <string name="casino">აზარტული</string>
+    <string name="demo">დემო</string>
+    <string name="educational">საგანმანათლებლო</string>
+    <string name="entertainment">გასართობი</string>
+    <string name="family">საოჯახო</string>
+    <string name="finance">ფინანსური</string>
+    <string name="games">თამაშები</string>
+    <string name="health">ჯანმრთელობა</string>
+    <string name="health_fitness">ფიტნესი</string>
+    <string name="highlighted">გამორჩეული</string>
+    <string name="media_video">მედია და ვიდეო</string>
+    <string name="medical">სამედიცინო</string>
+    <string name="multimedia">მულტიმედია</string>
+    <string name="music">მუსიკა</string>
+    <string name="music_audio">აუდიო</string>
+    <string name="photography">ფოტოგრაფია</string>
+    <string name="racing">რბოლები</string>
+    <string name="simulation">სიმულატორები</string>
+    <string name="social">სოციალური</string>
+    <string name="sports">სპორტი</string>
+    <string name="sports_games">სპორტული თამაშები</string>
+    <string name="strategy">სტრატეგია</string>
+    <string name="tools">ხელსაწყოები</string>
+    <string name="top_apps">ტოპ აპლიკაციები</string>
+    <string name="top_games">ტოპ თამაშები</string>
+    <string name="weather">ამინდი</string>
+
+    <string name="summer_apps">ზაფხულისთვის</string>
+    <string name="apps_for_kids">საბავშვო</string>
     </resources>

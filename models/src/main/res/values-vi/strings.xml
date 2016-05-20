@@ -316,7 +316,7 @@
     <string name="facebook_logout_and_login">Đăng thoát và đăng nhập bằng Facebook</string>
 
     <string name="added_to_scheduled">Được thêm vào Trình đơn &gt; Tải theo lịch trình</string>
-    <string name="hidden_adult">Có nhiều ứng dụng không được hiển thị do bộ lọc nội dung dành cho Người lớn được kích hoạt. Bạn có muốn liệt kê ứng dụng có nội dung dành cho Người lớn không?</string>
+    <string name="hidden_adult">Một vài ứng dụng không được hiển thị do bộ lọc nội dung người lớn được kích hoạt. Bạn có muốn liệt kê những ứng dụng này không?</string>
     <string name="dont_show_again">Đừng hiển thị lại đoạn hội thoại này</string>
 
     <string name="app_name">Aptoide</string>
@@ -589,7 +589,7 @@
     <string name="latest_comments">Bình luận mới nhất</string>
     <string name="latest_reviews">Đánh giá mới nhất</string>
     <string name="action">Hành động</string>
-    <string name="all">"Tất  cả"</string>
+    <string name="all">Tất cả</string>
     <string name="books_reference">Sách và tham khảo</string>
     <string name="casual">Bình thường</string>
     <string name="educational">Thuộc về giáo dục</string>
@@ -599,4 +599,43 @@
     <string name="sports_games">Trò chơi thể thao</string>
     <string name="top_apps">Những ứng dụng hàng đầu</string>
     <string name="top_games">Những trò chơi hàng đầu</string>
+    <string name="health">Sức khỏe</string>
+    <string name="multimedia">Đa phương tiện</string>
+    <string name="music">Âm nhạc</string>
+    <string name="music_audio">Âm nhạc và âm thanh</string>
+    <string name="reference">Tham khảo</string>
+    <string name="travel">Du lịch</string>
+    <string name="shopping">Mua sắm</string>
+    <string name="weather">Thời tiết</string>
+
+    <string name="latest_applications">Những ứng dụng mới nhất</string>
+    <string name="top_apps_in_store">Những ứng dụng hàng đầu trong cửa hàng này</string>
+    <string name="aptoide_publishers">Các nhà xuất bản Aptoide</string>
+    <string name="music_video">Âm nhạc và Video</string>
+    <string name="essential_apps">Các ứng dụng thiết yếu</string>
+    <string name="summer_apps">Các ứng dụng mùa hè</string>
+    <string name="adventure">Hành trình</string>
+    <string name="board">Bảng</string>
+    <string name="business">Kinh doanh</string>
+    <string name="card">Thẻ</string>
+    <string name="cards_casino">Thẻ và sòng bạc</string>
+    <string name="health_fitness">Sức khỏe và thể hình</string>
+    <string name="highlighted">Được nhấn mạnh</string>
+    <string name="local_top_apps">Các ứng dụng hàng đầu địa phương</string>
+    <string name="medical">Y khoa</string>
+    <string name="photography">Nhiếp ảnh</string>
+    <string name="quick_start">Giới thiệu nhanh</string>
+    <string name="role_playing">Trò chơi nhập vai</string>
+    <string name="transport">Giao thông</string>
+    <string name="transportation">Phương tiện giao thông</string>
+    <string name="travel_local">Địa điểm và du lịch</string>
+    <string name="trending">Theo xu hướng</string>
+    <string name="trivia">Chuyện vặt</string>
+    <string name="word">Từ</string>
+    <string name="apps_for_kids">Các ứng dụng cho trẻ con</string>
+    <string name="play_it">Chơi đi!</string>
+<string name="brain_puzzle">Trò chơi ghép hình và trí tuệ</string>
+    <string name="libraries_demo">Các thư viện và Demo</string>
+    <string name="arcade_action">Hành động và giải trí</string>
+    <string name="arcade">Trò chơi trên một loại máy sử dụng đồng xu</string>
     </resources>

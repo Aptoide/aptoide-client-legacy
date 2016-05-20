@@ -90,7 +90,7 @@
 <string name="subscribe_pvt_store">Subscrever loja privada</string>
 <string name="accept_terms">Ao registar, está a concordar com os Termos do Serviço da Aptoide e com a Política de Conteúdo para Developers</string>
 <string name="register">Registar</string>
-<string name="or">Ou</string>
+<string name="or">- Ou -</string>
 <string name="dont_have_an_account">Não tem conta? Registe-se</string>
 <string name="logged_as">Tem sessão iniciada como:</string>
 <string name="sign_out">Terminar sessão</string>
@@ -569,8 +569,8 @@
     <string name="adventure">Aventura</string>
     <string name="all">Todos</string>
     <string name="applications">Aplicações</string>
-    <string name="arcade">Arcade</string>
-    <string name="arcade_action">Arcade &amp; Acção</string>
+    <string name="arcade">Arcada</string>
+    <string name="arcade_action">Arcada &amp; Acção</string>
     <string name="board">Tabuleiro</string>
     <string name="books_reference">Livros &amp; Referências</string>
     <string name="brain_puzzle">Cerebrais &amp; Puzzle</string>
@@ -615,4 +615,19 @@
     <string name="travel_local">Viagens &amp; Locais</string>
     <string name="trending">Tendências</string>
     <string name="trivia">Trívia</string>
+    <string name="health">Saúde</string>
+    <string name="highlighted">Em destaque</string>
+    <string name="local_top_apps">Top de Apps Locais</string>
+    <string name="medical">Medicina</string>
+    <string name="multimedia">Multimédia</string>
+    <string name="music">Música</string>
+    <string name="music_audio">Música &amp; Áudio</string>
+    <string name="reference">Referência</string>
+    <string name="top_apps">Top de Apps</string>
+    <string name="top_games">Top de Jogos</string>
+    <string name="travel">Viagens</string>
+    <string name="libraries_demo">Bibliotecas &amp; Demo</string>
+    <string name="shopping">Compras</string>
+    <string name="weather">Meteorologia</string>
+<string name="word"></string>
     </resources>

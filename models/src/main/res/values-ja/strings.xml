@@ -90,7 +90,7 @@
 <string name="subscribe_pvt_store">プライベート ストアを購読する</string>
 <string name="accept_terms">サインアップすると、Aptoide(アプトイド)のサービス利用規約、開発者のコンテンツポリシーに同意する事になります</string>
 <string name="register">サインアップ</string>
-<string name="or">または</string>
+<string name="or">- または -</string>
 <string name="dont_have_an_account">アカウントをお持ちではありませんか？サインアップ</string>
 <string name="logged_as">～としてログイン:</string>
 <string name="sign_out">サインアウト</string>
@@ -458,7 +458,7 @@
     <string name="data_usage_constraint">ダウンロードできません 設定 &gt; 全般のダウンロード ルール</string>
 
     <string name="added_to_scheduled">メニューに追加 &gt; ダウンロードの予定</string>
-    <string name="hidden_adult">アダルト コンテンツ フィルターがアクティブになっているため表示されないアプリがあります。これらのアプリを一覧表示しますか?</string>
+    <string name="hidden_adult">アダルト コンテンツ フィルターがアクティブになっているため表示されないアプリがあります。このアプリを一覧表示しますか?</string>
     <string name="dont_show_again">次回からこのダイアログを表示しない</string>
 
     <string name="get_latest">最新バージョンを取得</string>
@@ -634,7 +634,7 @@
     <string name="strategy">戦略</string>
     <string name="themes">テーマ</string>
     <string name="tools">ツール</string>
-    <string name="top_apps">上位アプリ</string>
+    <string name="top_apps">トップアプリ</string>
     <string name="top_games">上位ゲーム</string>
     <string name="transport">交通</string>
     <string name="transportation">交通運輸</string>
@@ -642,4 +642,25 @@
     <string name="trending">トレンド</string>
     <string name="trivia">トリビア</string>
     <string name="word">ワード</string>
+<string name="health">健康</string>
+    <string name="highlihighlighted">ハイライト</string>
+    <string name="local_top_apps">地域のトップアプリ</string>
+    <string name="medical">医療</string>
+    <string name="multimedia">マルチメディア</string>
+    <string name="music">音楽</string>
+    <string name="music_audio">音楽 &amp; オーディオ</string>
+    <string name="reference">リファレンス</string>
+    <string name="travel">旅行</string>
+    <string name="libraries_demo">ライブラリー &amp; デモ</string>
+    <string name="shopping">ショッピング</string>
+    <string name="weather">天気</string>
+<string name="latest_applications">最新アプリケーション</string>
+    <string name="top_apps_in_store">このストアのトップアプリ</string>
+    <string name="highlighted">ハイライト</string>
+    <string name="apps_for_kids">子供向けアプリ</string>
+    <string name="aptoide_publishers">Aptoide 発行者</string>
+    <string name="music_video">音楽 &amp; ビデオ</string>
+    <string name="essential_apps">必須アプリ</string>
+    <string name="summer_apps">夏のアプリ</string>
+    <string name="play_it">プレイ イット!</string>
 </resources>
