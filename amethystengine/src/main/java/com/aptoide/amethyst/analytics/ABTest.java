@@ -5,6 +5,7 @@
 
 package com.aptoide.amethyst.analytics;
 
+import com.seatgeek.sixpack.ConversionError;
 import com.seatgeek.sixpack.Experiment;
 import com.seatgeek.sixpack.ParticipatingExperiment;
 
@@ -44,7 +45,11 @@ public class ABTest<T> {
 			executorService.submit(new Runnable() {
 				@Override
 				public void run() {
-					participatingExperiment.convert();
+					try {
+						participatingExperiment.convert();
+					} catch (ConversionError error) {
+						error.printStackTrace();
+					}
 				}
 			});
 		}
