@@ -454,7 +454,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
                 db.insert(Schema.Excluded.getName(), null, values);
             }
         } else if (oldVersion < 32) {
-            db.execSQL("ALTER TABLE rollbacktbl ADD COLUMN " + Schema.RollbackTbl.COLUMN_IS_TRUSTED + " INTEGER DEFAULT 0");
+            db.execSQL("ALTER TABLE rollbacktbl ADD COLUMN " + Schema.RollbackTbl.COLUMN_IS_TRUSTED + " TEXT DEFAULT UNKNOWN");
         }
 
 

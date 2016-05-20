@@ -34,7 +34,7 @@ public class UninstallRetainFragment extends Fragment {
     private String packageName;
     private String versionName;
     private String iconPath;
-    private boolean isTrusted;
+    private String isTrusted;
 
     private String versionToDowngrade;
     private RollBackItem.Action rollBackAction;
@@ -111,7 +111,7 @@ public class UninstallRetainFragment extends Fragment {
                     versionName = c.getString(c.getColumnIndex("version_name"));
                     String icon = c.getString(c.getColumnIndex("icon"));
                     String repoIconPath = c.getString(c.getColumnIndex("iconpath"));
-                    isTrusted = c.getInt(c.getColumnIndex(Schema.RollbackTbl.COLUMN_IS_TRUSTED)) == 1;
+                    isTrusted = c.getString(c.getColumnIndex(Schema.RollbackTbl.COLUMN_IS_TRUSTED));
                     iconPath = repoIconPath + icon;
                 }
 

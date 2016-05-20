@@ -523,7 +523,7 @@ public class Analytics {
         private static final String TYPE = "Type";
         private static final String PACKAGE_NAME = "Package Name";
         private static final String REFERRED = "Referred";
-        private static final String TRUSTED = "Trusted";
+        public static final String TRUSTED = "Trusted_Badge";
 
         private static final String REPLACED = "Replaced";
         private static final String INSTALLED = "Installed";
@@ -549,7 +549,7 @@ public class Analytics {
             }
         }
 
-        private static void innerTrack(String packageName, String type,@Nullable Boolean referred, int flags, boolean isTrusted) {
+        private static void innerTrack(String packageName, String type,@Nullable Boolean referred, int flags, String isTrusted) {
             try {
                 HashMap<String, String> stringObjectHashMap = new HashMap<>();
 
@@ -561,7 +561,7 @@ public class Analytics {
                 } else {
                     stringObjectHashMap.put(REFERRED, new Boolean(false).toString());
                 }
-                stringObjectHashMap.put(TRUSTED, Boolean.toString(isTrusted));
+                stringObjectHashMap.put(TRUSTED, isTrusted);
 
                 track(EVENT_NAME, stringObjectHashMap, flags);
 
@@ -570,7 +570,7 @@ public class Analytics {
             }
         }
 
-        public static void installed(String packageName, boolean referred, boolean isTrusted) {
+        public static void installed(String packageName, boolean referred, String isTrusted) {
             Log.d("trinkes", "installed() called with: " + "packageName = [" + packageName + "], referred = [" + referred + "], isTrusted = [" + isTrusted + "]");
             innerTrack(packageName, INSTALLED, referred, ALL, isTrusted);
         }

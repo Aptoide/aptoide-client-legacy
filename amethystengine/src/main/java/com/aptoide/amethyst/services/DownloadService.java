@@ -262,7 +262,7 @@ public class DownloadService extends Service {
                 download.getVersion(), id,
                 download.getIcon(),
                 path + md5 + ".apk",
-                new ArrayList<String>(),download.isTrusted());
+                new ArrayList<String>(),download.getTrusted());
         apk.setRepoName(repoName);
 
         download(id, download, apk, filesToDownload);
@@ -306,7 +306,7 @@ public class DownloadService extends Service {
         download.setIcon(apk.icon);
         download.setSize(fileSize);
         download.setCpiUrl(downloadOld.getCpiUrl());
-        download.setTrusted(downloadOld.isTrusted());
+        download.setTrusted(downloadOld.getTrusted());
 
         startDownload(download, apk, obb, permissions);
     }
@@ -380,7 +380,7 @@ public class DownloadService extends Service {
                 download.getVersion(), id,
                 download.getIcon(),
                 path + json.apk.md5sum + ".apk",
-                new ArrayList<>(json.apk.permissions),download.isTrusted());
+                new ArrayList<>(json.apk.permissions),download.getTrusted());
         apk.setId(json.apk.id.longValue());
 
         download(download.getId(), download, apk, filesToDownload);
@@ -424,7 +424,7 @@ public class DownloadService extends Service {
                 download.getMd5().hashCode(),
                 download.getIcon(),
                 path + download.getMd5() + ".apk",
-                permissions,download.isTrusted());
+                permissions,download.getTrusted());
 
 
         apk.setId(updateApk.id.longValue());

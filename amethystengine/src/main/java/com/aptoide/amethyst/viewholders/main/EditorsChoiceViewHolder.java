@@ -41,8 +41,8 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
 
         //when it's a tablet, we have to fill the extra image
         ImageView extraImage = (ImageView) itemView.findViewById(R.id.extra_image);
-        if (extraImage != null && row.appItemList.size() > i + 1) {
-            AppItem appItem = row.appItemList.get(i + 1);
+        if (extraImage != null && row.appItemList.size() > i) {
+            AppItem appItem = row.appItemList.get(i);
             Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(extraImage);
             extraImage.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
         }

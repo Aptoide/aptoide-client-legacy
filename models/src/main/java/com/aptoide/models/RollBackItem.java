@@ -47,11 +47,11 @@ public class RollBackItem {
         }
     }
 
-    public boolean isTrusted() {
+    public String getTrusted() {
         return isTrusted;
     }
 
-    public void setTrusted(boolean trusted) {
+    public void setTrusted(String trusted) {
         isTrusted = trusted;
     }
 
@@ -71,9 +71,9 @@ public class RollBackItem {
 
     private Action action;
 
-    private boolean isTrusted;
+    private String isTrusted;
 
-    public RollBackItem(String name, String packageName, String version, String previousVersion, String pathIcon, String timestamp, String md5, Action action, String repoName, boolean isTrusted) {
+    public RollBackItem(String name, String packageName, String version, String previousVersion, String pathIcon, String timestamp, String md5, Action action, String repoName, String isTrusted) {
         this.name = name;
         this.packageName = packageName;
         this.version = version;

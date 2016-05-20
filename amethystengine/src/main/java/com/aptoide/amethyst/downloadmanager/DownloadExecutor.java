@@ -83,14 +83,14 @@ public class DownloadExecutor implements Serializable {
             File apkFile = new File(pkgInfo.applicationInfo.sourceDir);
             String md5_sum = AptoideUtils.Algorithms.md5Calc(apkFile);
 
-            db.insertRollbackAction(new RollBackItem(apk.getName(), apk.getApkid(), apk.getVersion(), pkgInfo.versionName, apk.getIconPath(), null, md5_sum, RollBackItem.Action.UPDATING, apk.getRepoName(),apk.isTrusted()));
+            db.insertRollbackAction(new RollBackItem(apk.getName(), apk.getApkid(), apk.getVersion(), pkgInfo.versionName, apk.getIconPath(), null, md5_sum, RollBackItem.Action.UPDATING, apk.getRepoName(),apk.getTrusted()));
 
         } catch (PackageManager.NameNotFoundException e) {
 
             // Check if its a downgrade
             if (!db.updateDowngradingAction(apk.getApkid())) {
                 // New Installation
-                db.insertRollbackAction(new RollBackItem(apk.getName(), apk.getApkid(), apk.getVersion(), null, apk.getIconPath(), null, null, RollBackItem.Action.INSTALLING.setReferrer(apk.getReferrer()), apk.getRepoName(),apk.isTrusted()));
+                db.insertRollbackAction(new RollBackItem(apk.getName(), apk.getApkid(), apk.getVersion(), null, apk.getIconPath(), null, null, RollBackItem.Action.INSTALLING.setReferrer(apk.getReferrer()), apk.getRepoName(),apk.getTrusted()));
             }
         }
 

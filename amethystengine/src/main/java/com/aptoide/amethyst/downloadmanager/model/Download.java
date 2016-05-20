@@ -27,13 +27,13 @@ public class Download implements Serializable {
     private String cpiUrl;
     private String packageName;
     private DownloadInfoRunnable parent;
-    private boolean isTrusted;
+    private String isTrusted;
 
-    public boolean isTrusted() {
+    public String getTrusted() {
         return isTrusted;
     }
 
-    public void setTrusted(boolean trusted) {
+    public void setTrusted(String trusted) {
         isTrusted = trusted;
     }
 

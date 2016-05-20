@@ -17,11 +17,13 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.provider.DatabaseProvider;
 import com.aptoide.amethyst.database.schema.Schema;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.dataprovider.webservices.models.UpdatesApi;
 import com.aptoide.dataprovider.webservices.models.UpdatesResponse;
+import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
 import com.aptoide.models.InstalledPackage;
 import com.aptoide.models.RollBackItem;
 import com.aptoide.models.ScheduledDownloadItem;
@@ -457,7 +459,7 @@ public class AptoideDatabase {
         values.put(Schema.RollbackTbl.COLUMN_PREVIOUS_VERSION, rollBackItem.getPreviousVersion());
         values.put(Schema.RollbackTbl.COLUMN_ICONPATH, rollBackItem.getIconPath());
         values.put(Schema.RollbackTbl.COLUMN_MD5, rollBackItem.getMd5());
-        values.put(Schema.RollbackTbl.COLUMN_IS_TRUSTED, rollBackItem.isTrusted() ? 1 : 0);
+        values.put(Schema.RollbackTbl.COLUMN_IS_TRUSTED, rollBackItem.getTrusted());
 
         String action = "";
 
@@ -546,14 +548,14 @@ public class AptoideDatabase {
         return action;
     }
 
-    public boolean getIsTrustedAppRollbackAction(String packageName) {
+    public String getIsTrustedAppRollbackAction(String packageName) {
         Cursor cursor = database.rawQuery("select isTrusted from rollbacktbl where package_name = ? and confirmed = ?", new String[]{packageName, Integer.toString(0)});
         int resultsCount = cursor.getCount();
 
-        boolean action = false;
+        String action = GetAppMeta.File.Malware.UNKNOWN;
         if(resultsCount != 0) {
             cursor.moveToFirst();
-            action = cursor.getInt(0)==1;
+            action = cursor.getString(0);
         }
         cursor.close();
         return action;

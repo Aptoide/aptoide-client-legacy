@@ -154,7 +154,7 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
                     if (action.split("\\|")[0].equals(RollBackItem.Action.INSTALLING.toString())) {
                         Logger.d("InstalledBroadcastReceiver", "Installed rollback action");
 
-                        boolean isTrusted = db.getIsTrustedAppRollbackAction(pkg.packageName);
+                        String isTrusted = db.getIsTrustedAppRollbackAction(pkg.packageName);
                         db.confirmRollBackAction(pkg.packageName, action, RollBackItem.Action.INSTALLED.toString());
                         if (!TextUtils.isEmpty(referrer)) {
 
