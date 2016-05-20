@@ -28,6 +28,7 @@ public class Analytics {
 
     private static final int ALL = Integer.MAX_VALUE;
     private static final int LOCALYTICS = 1 << 0;
+    private static final int FLURRY = 1 << 1;
 
     // Constantes globais a todos os eventos.
     public static final String ACTION = "Action";
@@ -71,6 +72,9 @@ public class Analytics {
             if(checkAcceptability(flags, LOCALYTICS))
                 Localytics.tagEvent(event, map);
 
+            if(checkAcceptability(flags, FLURRY))
+                FlurryAgent.logEvent(event, map);
+
             Logger.d("Analytics", "Event: " + event + ", Map: " + map);
 
         } catch (Exception e) {
@@ -86,6 +90,9 @@ public class Analytics {
 
             if(checkAcceptability(flags, LOCALYTICS))
                 Localytics.tagEvent(event);
+
+            if(checkAcceptability(flags, FLURRY))
+                FlurryAgent.logEvent(event);
 
             Logger.d("Analytics", "Event: " + event);
 
@@ -207,7 +214,7 @@ public class Analytics {
 
         public static void finishedTutorial(int lastFragment) {
             try {
-                track(EVENT_NAME, STEP_ACCOMPLISHED, Integer.toString(lastFragment), ALL);
+                track(EVENT_NAME, STEP_ACCOMPLISHED, Integer.toString(lastFragment), LOCALYTICS);
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
@@ -226,7 +233,7 @@ public class Analytics {
                 // TODO: Change to setCustomerId
                 Localytics.setCustomerId(username);
 
-                track(EVENT_NAME, ACTION, mode.toString(), ALL);
+                track(EVENT_NAME, ACTION, mode.toString(), LOCALYTICS);
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
@@ -238,7 +245,7 @@ public class Analytics {
         public static final String EVENT_NAME = "User Registered";
 
         public static void registered() {
-            track(EVENT_NAME, ALL);
+            track(EVENT_NAME, LOCALYTICS);
         }
     }
 
@@ -283,7 +290,7 @@ public class Analytics {
         private static final String SEND_FEEDBACK = EVENT_NAME;
 
         public static void sendFeedback() {
-            track(EVENT_NAME, ACTION, SEND_FEEDBACK, ALL);
+            track(EVENT_NAME, ACTION, SEND_FEEDBACK, LOCALYTICS);
         }
     }
 
@@ -292,7 +299,7 @@ public class Analytics {
         private static final String RESTORE_UPDATES = "Restore Updates";
 
         public static void restoreUpdates() {
-            track(EVENT_NAME, ACTION, RESTORE_UPDATES, ALL);
+            track(EVENT_NAME, ACTION, RESTORE_UPDATES, LOCALYTICS);
         }
     }
 
@@ -325,11 +332,11 @@ public class Analytics {
         public static final String LOGIN = "Login";
 
         public static void join() {
-            track(EVENT_NAME, ACTION, JOIN, ALL);
+            track(EVENT_NAME, ACTION, JOIN, LOCALYTICS);
         }
 
         public static void Login() {
-            track(EVENT_NAME, ACTION, LOGIN, ALL);
+            track(EVENT_NAME, ACTION, LOGIN, LOCALYTICS);
         }
     }
 
@@ -337,7 +344,7 @@ public class Analytics {
         public static final String EVENT_NAME = "Opened Backup Apps";
 
         public static void open() {
-            track(EVENT_NAME, ALL);
+            track(EVENT_NAME, LOCALYTICS);
         }
     }
 
@@ -385,11 +392,11 @@ public class Analytics {
         public static final String EVENT_NAME = "Adult Content";
 
         public static void lock() {
-            track(EVENT_NAME, ACTION, "Click on On", ALL);
+            track(EVENT_NAME, ACTION, "Click on On", LOCALYTICS);
         }
 
         public static void unlock() {
-            track(EVENT_NAME, ACTION, "Click on Off", ALL);
+            track(EVENT_NAME, ACTION, "Click on Off", LOCALYTICS);
         }
     }
 
@@ -414,7 +421,7 @@ public class Analytics {
                 map.put(ACTION, "Enter");
                 map.put(STORE_NAME, storeName);
 
-                track(EVENT_NAME, map, ALL);
+                track(EVENT_NAME, map, LOCALYTICS);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -427,7 +434,7 @@ public class Analytics {
                 map.put(ACTION, "Subscribe");
                 map.put(STORE_NAME, storeName);
 
-                track(EVENT_NAME, map, ALL);
+                track(EVENT_NAME, map, LOCALYTICS);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -439,15 +446,15 @@ public class Analytics {
         public static final String EVENT_NAME = "Updates";
 
         public static void update() {
-            track(EVENT_NAME, ACTION, "Update", ALL);
+            track(EVENT_NAME, ACTION, "Update", LOCALYTICS);
         }
 
         public static void updateAll() {
-            track(EVENT_NAME, ACTION, "Update All", ALL);
+            track(EVENT_NAME, ACTION, "Update All", LOCALYTICS);
         }
 
         public static void createReview() {
-            track(EVENT_NAME, ACTION, "Create Review", ALL);
+            track(EVENT_NAME, ACTION, "Create Review", LOCALYTICS);
         }
     }
 
@@ -488,7 +495,7 @@ public class Analytics {
             map.put(SUBSCRIBED, String.valueOf(subscribed));
             map.put(REPO, repo);
 
-            track(EVENT_NAME_POSITION, map, ALL);
+            track(EVENT_NAME_POSITION, map, LOCALYTICS);
         }
 
         public static void searchTerm(String query, String repo) {
@@ -503,17 +510,17 @@ public class Analytics {
                 map.put(INSIDE_STORE, String.valueOf(false));
             }
 
-            track(EVENT_NAME_SEARCH_TERM, map, ALL);
+            track(EVENT_NAME_SEARCH_TERM, map, LOCALYTICS);
         }
 
         public static void noSearchResultEvent(String query) {
             HashMap<String, String> map = new HashMap<>();
             map.put(QUERY, query);
-            track(EVENT_NAME_NO_SEARCH_RESULT, map, ALL);
+            track(EVENT_NAME_NO_SEARCH_RESULT, map, LOCALYTICS);
         }
 
         public static void searchOtherStores() {
-            track(EVENT_NAME_SEARCH_OTHER_STORES, ALL);
+            track(EVENT_NAME_SEARCH_OTHER_STORES, LOCALYTICS);
         }
     }
 
@@ -576,11 +583,11 @@ public class Analytics {
         }
 
         public static void replaced(String packageName) {
-            innerTrack(packageName, REPLACED, null, ALL);
+            innerTrack(packageName, REPLACED, null, LOCALYTICS);
         }
 
         public static void downgraded(String packageName) {
-            innerTrack(packageName, DOWNGRADED_ROLLBACK, null, ALL);
+            innerTrack(packageName, DOWNGRADED_ROLLBACK, null, LOCALYTICS);
         }
     }
 
@@ -597,7 +604,7 @@ public class Analytics {
         public static final String URI = "Uri";
 
         public static void launcher() {
-            track(EVENT_NAME, SOURCE, LAUNCHER, ALL);
+            track(EVENT_NAME, SOURCE, LAUNCHER, LOCALYTICS);
 
         }
 
@@ -610,26 +617,26 @@ public class Analytics {
                     map.put(URI, uri.substring(0, uri.indexOf(":")));
                 }
 
-                track(EVENT_NAME, map, ALL);
+                track(EVENT_NAME, map, LOCALYTICS);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
         public static void newUpdatesNotification() {
-                track(EVENT_NAME, SOURCE, NEW_UPDATES_NOTIFICATION, ALL);
+                track(EVENT_NAME, SOURCE, NEW_UPDATES_NOTIFICATION, LOCALYTICS);
         }
 
         public static void downloadingUpdates() {
-                track(EVENT_NAME, SOURCE, DOWNLOADING_UPDATES, ALL);
+                track(EVENT_NAME, SOURCE, DOWNLOADING_UPDATES, LOCALYTICS);
         }
 
         public static void timelineNotification() {
-                track(EVENT_NAME, SOURCE, TIMELINE_NOTIFICATION, ALL);
+                track(EVENT_NAME, SOURCE, TIMELINE_NOTIFICATION, LOCALYTICS);
         }
 
         public static void newRepo() {
-                track(EVENT_NAME, SOURCE, NEW_REPO, ALL);
+                track(EVENT_NAME, SOURCE, NEW_REPO, LOCALYTICS);
         }
     }
 
@@ -662,7 +669,7 @@ public class Analytics {
                 map.put(APPLICATION_NAME, packageName);
                 map.put(APPLICATION_PUBLISHER, developer);
 
-                track(CLICKED_ON_INSTALL_BUTTON, map, ALL);
+                track(CLICKED_ON_INSTALL_BUTTON, map, LOCALYTICS);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -710,7 +717,7 @@ public class Analytics {
                 map.put(action, like);
                 map.put(APPLICATION_NAME, appName);
 
-                track(eventName, map, ALL);
+                track(eventName, map, LOCALYTICS);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -723,7 +730,7 @@ public class Analytics {
                 map.put(action, DISLIKE);
                 map.put(APPLICATION_NAME, appName);
 
-                track(eventName, map, ALL);
+                track(eventName, map, LOCALYTICS);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -736,7 +743,7 @@ public class Analytics {
                 map.put(action, comment);
                 map.put(APPLICATION_NAME, appName);
 
-                track(eventName, map, ALL);
+                track(eventName, map, LOCALYTICS);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -774,7 +781,7 @@ public class Analytics {
                 map.put(SOURCE, download_from);
                 map.put(TRUSTED, isTrusted);
 
-                track(VIEWED_APPLICATION, map, ALL);
+                track(VIEWED_APPLICATION, map, LOCALYTICS);
 
             } catch (Exception e) {
                 e.printStackTrace();
