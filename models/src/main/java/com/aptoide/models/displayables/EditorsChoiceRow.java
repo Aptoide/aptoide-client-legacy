@@ -66,6 +66,11 @@ public class EditorsChoiceRow extends Displayable implements IHasMore {
     }
 
     @Override
+    public String getAltEventActionUrl() {
+        return null;
+    }
+
+    @Override
     public String getEventType() {
         return eventType;
     }

@@ -7,43 +7,12 @@
  ******************************************************************************/
 package com.aptoide.amethyst.adapter;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.View;
-
+import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.downloadmanager.adapter.NotOngoingDownloadRow;
 import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.displayables.StoreHeaderRow;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.displayables.AdItem;
-import com.aptoide.models.displayables.AdultItem;
-import com.aptoide.models.displayables.AppItem;
-import com.aptoide.models.displayables.BrickAppItem;
-import com.aptoide.models.displayables.CommentItem;
-import com.aptoide.models.displayables.Displayable;
-import com.aptoide.models.displayables.EditorsChoiceRow;
-import com.aptoide.models.displayables.HeaderRow;
-import com.aptoide.models.displayables.HomeStoreItem;
-import com.aptoide.models.IHasMore;
-import com.aptoide.models.displayables.MoreVersionsItem;
-import com.aptoide.models.displayables.ProgressBarRow;
-import com.aptoide.models.displayables.ReviewRowItem;
-import com.aptoide.models.displayables.CategoryRow;
-import com.aptoide.models.displayables.TimelineRow;
-import com.aptoide.models.displayables.CommentPlaceHolderRow;
-import com.aptoide.models.displayables.ReviewPlaceHolderRow;
-import com.aptoide.models.displayables.TimeLinePlaceHolderRow;
-
-import java.util.List;
-
-import com.aptoide.amethyst.AppViewActivity;
-
-import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.ui.MoreCommentsActivity;
 import com.aptoide.amethyst.ui.MoreFriendsInstallsActivity;
 import com.aptoide.amethyst.ui.MoreHighlightedActivity;
@@ -51,13 +20,44 @@ import com.aptoide.amethyst.ui.MoreListViewItemsActivity;
 import com.aptoide.amethyst.ui.MoreListViewItemsBrickActivity;
 import com.aptoide.amethyst.ui.MoreReviewsActivity;
 import com.aptoide.amethyst.ui.MoreStoreWidgetActivity;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.viewholders.BaseViewHolder;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.models.IHasMore;
+import com.aptoide.models.displayables.AdItem;
+import com.aptoide.models.displayables.AdultItem;
+import com.aptoide.models.displayables.AppItem;
+import com.aptoide.models.displayables.BrickAppItem;
+import com.aptoide.models.displayables.CategoryRow;
+import com.aptoide.models.displayables.CommentItem;
+import com.aptoide.models.displayables.CommentPlaceHolderRow;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.EditorsChoiceRow;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.HomeStoreItem;
+import com.aptoide.models.displayables.MoreVersionsItem;
+import com.aptoide.models.displayables.ProgressBarRow;
+import com.aptoide.models.displayables.ReviewPlaceHolderRow;
+import com.aptoide.models.displayables.ReviewRowItem;
+import com.aptoide.models.displayables.StoreHeaderRow;
+import com.aptoide.models.displayables.TimeLinePlaceHolderRow;
+import com.aptoide.models.displayables.TimelineRow;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.View;
+
+import java.util.List;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_FACEBOOK_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_GETSTOREWIDGETS;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_APPS;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_STORES;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_TWITCH_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_YOUTUBE_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.COMMENTS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
@@ -82,6 +82,56 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         holder.populateView(displayableList.get(position));
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+
+        Displayable displayable = displayableList.get(position);
+
+        if (displayable instanceof HeaderRow) {
+            return R.layout.layout_header;
+        } else if (displayable instanceof EditorsChoiceRow) {
+            return R.layout.editors_choice_row;
+        } else if (displayable instanceof StoreHeaderRow) {
+            return R.layout.row_store_header;
+        } else if (displayable instanceof ReviewRowItem) {
+            return R.layout.row_review;
+        } else if (displayable instanceof ReviewPlaceHolderRow) {
+            return R.layout.row_empty;
+        } else if (displayable instanceof CategoryRow) {
+            return R.layout.row_category_home_item;
+        } else if (displayable instanceof TimeLinePlaceHolderRow) {
+            return R.layout.row_empty;
+        } else if (displayable instanceof TimelineRow) {
+            return R.layout.timeline_item;
+        } else if (displayable instanceof HomeStoreItem) {
+            return R.layout.row_store_item;
+        } else if (displayable instanceof AdultItem) {
+            return R.layout.row_adult_switch;
+        } else if (displayable instanceof ProgressBarRow) {
+            return R.layout.row_progress_bar;
+        } else if (displayable instanceof MoreVersionsItem) {
+            return R.layout.grid_item;
+        } else if (displayable instanceof CommentItem) {
+            return R.layout.comment_row;
+        } else if (displayable instanceof OngoingDownloadRow) {
+            return R.layout.row_app_downloading_ongoing;
+        } else if (displayable instanceof NotOngoingDownloadRow) {
+            return R.layout.row_app_downloading_notongoing;
+        } else if (displayable instanceof BrickAppItem) { // this has to be above the instanceof AppItem instruction
+            return R.layout.brick_app_item;
+        } else if (displayable instanceof AppItem) {
+            return R.layout.grid_item;
+        } else if (displayable instanceof CommentPlaceHolderRow) {
+            return R.layout.row_empty;
+        }
+//        else {
+//            throw new IllegalStateException("InvalidType");
+//        }
+
+        return R.layout.row_empty;
+
     }
 
     /**
@@ -258,12 +308,6 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     case EVENT_GETSTOREWIDGETS:
                         i = new Intent(view.getContext(), MoreStoreWidgetActivity.class);
                         break;
-                    case EVENT_FACEBOOK_TYPE:
-                    case EVENT_YOUTUBE_TYPE:
-                        i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(row.getEventActionUrl()));
-                        view.getContext().startActivity(i);
-                        return;
                     case ADS_TYPE:
                         i = new Intent(view.getContext(), MoreHighlightedActivity.class);
                         break;
@@ -279,7 +323,14 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     case COMMENTS_TYPE:
                         i = new Intent(view.getContext(), MoreCommentsActivity.class);
                         break;
+                    case EVENT_FACEBOOK_TYPE:
+                        sendActionEvent(view, AptoideUtils.SocialMedia.getFacebookPageURL(view.getContext(), row
+                                .getEventActionUrl()));
+                        break;
+                    case EVENT_TWITCH_TYPE:
+                    case EVENT_YOUTUBE_TYPE:
                     default:
+                        sendActionEvent(view, row.getEventActionUrl());
                         break;
                 }
 
@@ -298,55 +349,14 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 }
             }
         }
-    }
 
-    @Override
-    public int getItemViewType(int position) {
-
-        Displayable displayable = displayableList.get(position);
-
-        if (displayable instanceof HeaderRow) {
-            return R.layout.layout_header;
-        } else if (displayable instanceof EditorsChoiceRow) {
-            return R.layout.editors_choice_row;
-        } else if (displayable instanceof StoreHeaderRow) {
-            return R.layout.row_store_header;
-        } else if (displayable instanceof ReviewRowItem) {
-            return R.layout.row_review;
-        } else if (displayable instanceof ReviewPlaceHolderRow) {
-            return R.layout.row_empty;
-        } else if (displayable instanceof CategoryRow) {
-            return R.layout.row_category_home_item;
-        } else if (displayable instanceof TimeLinePlaceHolderRow) {
-            return R.layout.row_empty;
-        } else if (displayable instanceof TimelineRow) {
-            return R.layout.timeline_item;
-        } else if (displayable instanceof HomeStoreItem) {
-            return R.layout.row_store_item;
-        } else if (displayable instanceof AdultItem) {
-            return R.layout.row_adult_switch;
-        } else if (displayable instanceof ProgressBarRow) {
-            return R.layout.row_progress_bar;
-        } else if (displayable instanceof MoreVersionsItem) {
-            return R.layout.grid_item;
-        } else if (displayable instanceof CommentItem) {
-            return R.layout.comment_row;
-        } else if (displayable instanceof OngoingDownloadRow) {
-            return R.layout.row_app_downloading_ongoing;
-        } else if (displayable instanceof NotOngoingDownloadRow) {
-            return R.layout.row_app_downloading_notongoing;
-        } else if (displayable instanceof BrickAppItem) { // this has to be above the instanceof AppItem instruction
-            return R.layout.brick_app_item;
-        } else if (displayable instanceof AppItem) {
-            return R.layout.grid_item;
-        } else if (displayable instanceof CommentPlaceHolderRow) {
-            return R.layout.row_empty;
+        private void sendActionEvent(View view, String eventActionUrl) {
+            Intent i;
+            if (eventActionUrl != null) {
+                i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(eventActionUrl));
+                view.getContext().startActivity(i);
+            }
         }
-//        else {
-//            throw new IllegalStateException("InvalidType");
-//        }
-
-        return R.layout.row_empty;
-
     }
 }

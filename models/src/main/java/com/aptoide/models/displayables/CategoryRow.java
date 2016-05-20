@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CategoryRow extends AbstractRow implements IHasMore {
 
     private String eventActionUrl;
+    private String eventAltActionUrl;
     private String label;
     private String tag;
     private String graphic;
@@ -30,6 +31,15 @@ public class CategoryRow extends AbstractRow implements IHasMore {
 
     public void setEventActionUrl(String eventActionUrl) {
         this.eventActionUrl = eventActionUrl;
+    }
+
+    @Override
+    public String getAltEventActionUrl() {
+        return eventAltActionUrl;
+    }
+
+    public void setEventAltActionUrl(String eventActionUrl) {
+        this.eventAltActionUrl = eventActionUrl;
     }
 
     @Override

@@ -478,7 +478,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
                         .setMessage(getString(R.string.setting_sdk_version) + ": " + AptoideUtils.HWSpecifications.getSdkVer() + "\n" +
                                         getString(R.string.setting_screen_size) + ": " + AptoideUtils.HWSpecifications.getScreenSize(mctx) + "\n" +
                                         getString(R.string.setting_esgl_version) + ": " + AptoideUtils.HWSpecifications.getGlEsVer(mctx) + "\n" +
-                                        getString(R.string.screenCode) + ": " + AptoideUtils.HWSpecifications.getNumericScreenSize(mctx) + "/" + AptoideUtils.HWSpecifications.getDensityDpi(mctx) + "\n" +
+                                        getString(R.string.screenCode) + ": " + AptoideUtils.HWSpecifications.getNumericScreenSize(mctx) + "/" + AptoideUtils.HWSpecifications.getDensityDpi() + "\n" +
                                         getString(R.string.cpuAbi) + ": " + AptoideUtils.HWSpecifications.getAbis()
 //                            + (ApplicationAptoide.PARTNERID!=null ? "\nPartner ID:" + ApplicationAptoide.PARTNERID : "")
                         )

@@ -157,7 +157,12 @@ public class UpdatesService extends Service {
 
                 UpdatesApi api = new UpdatesApi();
                 initUpdatesApi(api);
-
+                if (AptoideUtils.getSharedPreferences().getBoolean(Constants.UPDATES_FILTER_KEY, false)) {
+                    ArrayList<String> params = new ArrayList<>();
+                    params.add("alpha");
+                    params.add("beta");
+                    api.not_apk_tags = AptoideUtils.StringUtils.commaSeparatedValues(params);
+                }
                 Cursor servers = database.getStoresCursor();
                 for (servers.moveToFirst(); !servers.isAfterLast(); servers.moveToNext()) {
 
@@ -311,7 +316,7 @@ public class UpdatesService extends Service {
                 for (final UpdatesResponse.UpdateApk updateApk : updates) {
                     if (updateApk.icon != null && updateApk.icon.contains("_icon")) {
                         String[] splittedUrl = updateApk.icon.split("\\.(?=[^\\.]+$)");
-                        String iconSize = IconSizeUtils.generateSizeString(context);
+                        String iconSize = IconSizeUtils.generateSizeString();
                         updateApk.icon = splittedUrl[0] + "_" + iconSize + "." + splittedUrl[1];
                     }
                     downloadService.downloadFromV7(updateApk, false);

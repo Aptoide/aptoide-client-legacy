@@ -180,7 +180,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             }
 
             item.store.setText(appItem.repo);
-            Glide.with(viewHolder.itemView.getContext()).load(appItem.iconHd != null ? appItem.iconHd : appItem.icon).into(item.icon);
+            Glide.with(viewHolder.itemView.getContext()).load(appItem.iconHd != null ? AptoideUtils.UI.parseIcon(appItem.iconHd) : AptoideUtils.UI.parseIcon(appItem.icon)).into(item.icon);
 
             if (appItem.malrank == 2) {
                 item.icTrusted.setVisibility(View.VISIBLE);

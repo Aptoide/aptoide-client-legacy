@@ -623,7 +623,7 @@ public class DownloadService extends Service {
 
         final SpiceManager manager = new SpiceManager(AptoideSpiceHttpService.class);
         if (!manager.isStarted()) manager.start(getApplicationContext());
-        final String sizeString = IconSizeUtils.generateSizeString(getApplicationContext());
+        final String sizeString = IconSizeUtils.generateSizeString();
 
         new Thread(new Runnable() {
             @Override

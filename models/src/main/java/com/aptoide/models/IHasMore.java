@@ -9,6 +9,7 @@ public interface IHasMore {
     String getTag();
     boolean isHasMore();
     String getEventActionUrl();
+    String getAltEventActionUrl();
     String getEventType();
     String getEventName();
     String getLayout();
