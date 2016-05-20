@@ -22,6 +22,8 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
+import com.aptoide.amethyst.preferences.ManagerPreferences;
+import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
 import com.aptoide.amethyst.utils.Logger;
@@ -232,7 +234,8 @@ public class UpdatesService extends Service {
 
         private void initUpdatesApi(UpdatesApi api) {
             api.q = AptoideUtils.HWSpecifications.filters(Aptoide.getContext());
-            api.cpuid = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getString("APTOIDE_CLIENT_UUID", UpdatesApi.DEFAULT_CPUID);
+            api.cpuid = ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
+            api.access_token = SecurePreferences.getInstance().getString(Constants.ACCESS_TOKEN, null);
             api.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
             api.aaid = getAdvertisementId();
         }

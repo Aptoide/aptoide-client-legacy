@@ -1128,6 +1128,10 @@ public class AptoideUtils {
             request.setOtherReposLimit(otherReposLimit);
             request.setU_offset(otherReposOffset);
             request.setOffset(offset);
+            request.setAccess_token(SecurePreferences.getInstance()
+                    .getString("access_token", null));
+            request.setAptoide_uid(ManagerPreferences.getInstance(Aptoide.getContext())
+                    .getAptoideId());
             return request;
         }
 
