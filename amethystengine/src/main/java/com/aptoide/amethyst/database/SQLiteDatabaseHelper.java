@@ -41,7 +41,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
     private static SQLiteDatabaseHelper sInstance;
     private boolean primaryKeyDefined;
 
-    private static final int DATABASE_VERSION = 31;
+    private static final int DATABASE_VERSION = 32;
 
     public static SQLiteDatabaseHelper getInstance(Context context) {
 
@@ -453,6 +453,8 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
 
                 db.insert(Schema.Excluded.getName(), null, values);
             }
+        } else if (oldVersion < 32) {
+            db.execSQL("ALTER TABLE rollbacktbl ADD COLUMN " + Schema.RollbackTbl.COLUMN_IS_TRUSTED + " TEXT DEFAULT UNKNOWN");
         }
 
 

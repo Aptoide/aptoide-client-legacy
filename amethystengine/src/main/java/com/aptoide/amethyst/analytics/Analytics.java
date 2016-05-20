@@ -472,6 +472,7 @@ public class Analytics {
         public static final String EVENT_NAME_SEARCH_TERM = "Search Term";
         public static final String EVENT_NAME_POSITION = "Search Position";
         public static final String EVENT_NAME_SEARCH_OTHER_STORES = "Search Other Stores";
+        public static final String EVENT_NAME_NO_SEARCH_RESULT = "No Search Result";
 
         public static final String SEARCH_POSITION = "Search Position";
         public static final String SUBSCRIBED = "Subscribed";
@@ -505,6 +506,11 @@ public class Analytics {
             track(EVENT_NAME_SEARCH_TERM, map, ALL);
         }
 
+        public static void noSearchResultEvent(String query) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put(QUERY, query);
+            track(EVENT_NAME_NO_SEARCH_RESULT, map, ALL);
+        }
 
         public static void searchOtherStores() {
             track(EVENT_NAME_SEARCH_OTHER_STORES, ALL);
@@ -517,6 +523,7 @@ public class Analytics {
         private static final String TYPE = "Type";
         private static final String PACKAGE_NAME = "Package Name";
         private static final String REFERRED = "Referred";
+        public static final String TRUSTED = "Trusted_Badge";
 
         private static final String REPLACED = "Replaced";
         private static final String INSTALLED = "Installed";
@@ -542,8 +549,30 @@ public class Analytics {
             }
         }
 
-        public static void installed(String packageName, boolean referred) {
-            innerTrack(packageName, INSTALLED, referred, ALL);
+        private static void innerTrack(String packageName, String type,@Nullable Boolean referred, int flags, String isTrusted) {
+            try {
+                HashMap<String, String> stringObjectHashMap = new HashMap<>();
+
+                stringObjectHashMap.put(TYPE, type);
+                stringObjectHashMap.put(PACKAGE_NAME, packageName);
+
+                if (referred != null) {
+                    stringObjectHashMap.put(REFERRED, referred.toString());
+                } else {
+                    stringObjectHashMap.put(REFERRED, new Boolean(false).toString());
+                }
+                stringObjectHashMap.put(TRUSTED, isTrusted);
+
+                track(EVENT_NAME, stringObjectHashMap, flags);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public static void installed(String packageName, boolean referred, String isTrusted) {
+            Log.d("trinkes", "installed() called with: " + "packageName = [" + packageName + "], referred = [" + referred + "], isTrusted = [" + isTrusted + "]");
+            innerTrack(packageName, INSTALLED, referred, ALL, isTrusted);
         }
 
         public static void replaced(String packageName) {
@@ -734,14 +763,16 @@ public class Analytics {
         private static final String TYPE = "Type";
         private static final String APPLICATION_PUBLISHER = "Application Publisher";
         private static final String SOURCE = "Source";
+        private static final String TRUSTED = "Trusted Badge";
 
-        public static void view(String packageName, String developer, String download_from) {
+        public static void view(String packageName, String developer, String download_from, String isTrusted) {
             try {
                 HashMap<String, String> map = new HashMap<>();
 
                 map.put(APPLICATION_NAME, packageName);
                 map.put(APPLICATION_PUBLISHER, developer);
                 map.put(SOURCE, download_from);
+                map.put(TRUSTED, isTrusted);
 
                 track(VIEWED_APPLICATION, map, ALL);
 

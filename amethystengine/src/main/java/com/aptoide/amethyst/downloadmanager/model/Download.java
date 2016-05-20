@@ -27,6 +27,15 @@ public class Download implements Serializable {
     private String cpiUrl;
     private String packageName;
     private DownloadInfoRunnable parent;
+    private String isTrusted;
+
+    public String getTrusted() {
+        return isTrusted;
+    }
+
+    public void setTrusted(String trusted) {
+        isTrusted = trusted;
+    }
 
     public String getReferrer() {
         return referrer;

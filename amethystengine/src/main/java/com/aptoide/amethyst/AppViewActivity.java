@@ -574,7 +574,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					permissions = model.getApp.nodes.meta.data.file.usedPermissions;
 					malware = model.getApp.nodes.meta.data.file.malware;
 
-					Analytics.ViewedApplication.view(packageName, developer, download_from);
+                    Analytics.ViewedApplication.view(packageName, developer, download_from, malware.rank);
 
 					if (model.getApp.nodes.versions != null && !model.getApp.nodes.versions.list
 							.isEmpty() &&
@@ -2014,14 +2014,15 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private void download() {
 			this.showRootDialog();
 
-			Download download = new Download();
-			download.setId(downloadId);
-			download.setName(appName);
-			download.setVersion(versionName);
-			download.setIcon(iconUrl);
-			download.setPackageName(packageName);
-			download.setMd5(md5sum);
-			download.setPaid(isPaidApp());
+            Download download = new Download();
+            download.setId(downloadId);
+            download.setName(appName);
+            download.setVersion(versionName);
+            download.setIcon(iconUrl);
+            download.setPackageName(packageName);
+            download.setMd5(md5sum);
+            download.setPaid(isPaidApp());
+            download.setTrusted(malware.rank);
 
 			if (!isUpdate) {
 				download.setCpiUrl(getActivity().getIntent().getStringExtra("cpi"));
