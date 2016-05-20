@@ -347,7 +347,7 @@ public class UploadApkActivity extends AptoideBaseActivity implements Md5Calcula
                         if (icon != null) {
                             if (icon.contains("_icon")) {
                                 String[] splittedUrl = icon.split("\\.(?=[^\\.]+$)");
-                                icon = splittedUrl[0] + "_" + IconSizeUtils.generateSizeString(Aptoide.getContext()) + "." + splittedUrl[1];
+                                icon = splittedUrl[0] + "_" + IconSizeUtils.generateSizeString() + "." + splittedUrl[1];
                             }
                         } else {
                             icon = getApkInfoJson.getApk().getIcon();
@@ -356,7 +356,7 @@ public class UploadApkActivity extends AptoideBaseActivity implements Md5Calcula
                         ArrayList<String> screenshotsUrl = new ArrayList<String>();
 
                         for (GetApkInfoJson.Media.Screenshots screenshots : getApkInfoJson.getMedia().sshots_hd) {
-                            String imagePath = AptoideUtils.UI.screenshotToThumb(Aptoide.getContext(), screenshots.path, screenshots.orient);
+                            String imagePath = AptoideUtils.UI.screenshotToThumb(screenshots.path, screenshots.orient);
                             screenshotsUrl.add(imagePath);
                         }
 

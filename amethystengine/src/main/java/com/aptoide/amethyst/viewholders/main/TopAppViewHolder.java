@@ -70,7 +70,7 @@ public class TopAppViewHolder extends BaseViewHolder {
         tvStoreName.setText(appItem.storeName);
         tvStoreName.setTypeface(null, Typeface.BOLD);
         itemView.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
-        Glide.with(itemView.getContext()).load(appItem.icon).into(icon);
+        Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.icon)).into(icon);
     }
 
     @Override

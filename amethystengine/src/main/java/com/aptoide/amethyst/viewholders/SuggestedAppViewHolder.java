@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.SuggestedAppDisplayable;
 import com.bumptech.glide.Glide;
@@ -60,7 +61,7 @@ public class SuggestedAppViewHolder extends BaseViewHolder {
             sizeTextView.setText(df.format(suggestedAppDisplayable.getSize()) + " MB");
             descriptionTextView.setText(suggestedAppDisplayable.getDescription());
             store.setText(suggestedAppDisplayable.getStore());
-            Glide.with(itemView.getContext()).load(suggestedAppDisplayable.getIconPath()).into(iconImageView);
+            Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(suggestedAppDisplayable.getIconPath())).into(iconImageView);
 
             itemView.setOnClickListener(generateOnClickListener(suggestedAppDisplayable));
 

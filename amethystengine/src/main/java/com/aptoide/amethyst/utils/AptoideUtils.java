@@ -235,7 +235,7 @@ public class AptoideUtils {
             return Looper.getMainLooper().getThread() == Thread.currentThread();
         }
 
-        public static String screenshotToThumb(Context context, String imageUrl, String orientation) {
+        public static String screenshotToThumb(String imageUrl, String orientation) {
 
             String screen = null;
 
@@ -243,7 +243,7 @@ public class AptoideUtils {
 
                 if (imageUrl.contains("_screen")) {
 
-                    String sizeString = IconSizeUtils.generateSizeStringScreenshots(context, orientation);
+                    String sizeString = IconSizeUtils.generateSizeStringScreenshots(orientation);
 
                     String[] splitUrl = imageUrl.split("\\.(?=[^\\.]+$)");
                     screen = splitUrl[0] + "_" + sizeString + "." + splitUrl[1];
@@ -400,16 +400,38 @@ public class AptoideUtils {
          * On v7 webservices there is no attribute of HD icon. <br />Instead,
          * the logic is that if the filename ends with <b>_icon</b> it is an HD icon.
          *
-         * @param context Context of the app
          * @param iconUrl The String with the URL of the icon
          * @return A String with
          */
-        public static String parseIcon(Context context, String iconUrl) {
+        public static String parseIcon(String iconUrl) {
             try {
                 if (iconUrl.contains("_icon")) {
-                    String sizeString = IconSizeUtils.generateSizeString(context);
-                    String[] splittedUrl = iconUrl.split("\\.(?=[^\\.]+$)");
-                    iconUrl = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
+                    String sizeString = IconSizeUtils.generateSizeString();
+                    if (sizeString != null && !sizeString.isEmpty()) {
+                        String[] splittedUrl = iconUrl.split("\\.(?=[^\\.]+$)");
+                        iconUrl = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
+                    }
+                }
+            } catch (Exception e) {
+                Logger.printException(e);
+            }
+            return iconUrl;
+        }
+        /**
+         * On v7 webservices there is no attribute of HD icon. <br />Instead,
+         * the logic is that if the filename ends with <b>_icon</b> it is an HD icon.
+         *
+         * @param iconUrl The String with the URL of the icon
+         * @return A String with
+         */
+        public static String parseStoreIcon(String iconUrl) {
+            try {
+                if (iconUrl.contains("_ravatar")) {
+                    String sizeString = IconSizeUtils.generateSizeStoreString();
+                    if (sizeString != null && !sizeString.isEmpty()) {
+                        String[] splittedUrl = iconUrl.split("\\.(?=[^\\.]+$)");
+                        iconUrl = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
+                    }
                 }
             } catch (Exception e) {
                 Logger.printException(e);
@@ -828,7 +850,7 @@ public class AptoideUtils {
             store.setDownloads("");
 
 
-            String sizeString = IconSizeUtils.generateSizeStringAvatar(Aptoide.getContext());
+            String sizeString = IconSizeUtils.generateSizeStringAvatar();
 
             String avatar = "http://pool.img.aptoide.com/apps/b62b1c9459964d3a876b04c70036b10a_ravatar.png";
 
@@ -889,7 +911,7 @@ public class AptoideUtils {
                                         store.setName(subscription.getName());
                                         store.setDownloads(subscription.getDownloads());
 
-                                        String sizeString = IconSizeUtils.generateSizeStringAvatar(Aptoide.getContext());
+                                        String sizeString = IconSizeUtils.generateSizeStringAvatar();
                                         String avatar = subscription.getAvatar();
 
                                         if (avatar != null) {
@@ -1195,7 +1217,11 @@ public class AptoideUtils {
             return ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getDeviceConfigurationInfo().getGlEsVersion();
         }
 
-        public static int getDensityDpi(Context context) {
+        public static int getDensityDpi() {
+            Context context = Aptoide.getContext();
+            if (context == null) {
+                return 0;
+            }
 
             DisplayMetrics metrics = new DisplayMetrics();
             WindowManager manager = (WindowManager) context.getSystemService(Service.WINDOW_SERVICE);
@@ -1292,7 +1318,7 @@ public class AptoideUtils {
             String minGlEs = AptoideUtils.HWSpecifications.getGlEsVer(context);
 
 
-            final int density = AptoideUtils.HWSpecifications.getDensityDpi(context);
+            final int density = AptoideUtils.HWSpecifications.getDensityDpi();
 
             String cpuAbi = AptoideUtils.HWSpecifications.getAbis();
 

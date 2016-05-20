@@ -145,7 +145,7 @@ public class AddStoreDialog extends DialogFragment {
                     store.setDownloads(response.datasets.meta.data.downloads.intValue() + "");
 
 
-                    String sizeString = IconSizeUtils.generateSizeStringAvatar(getActivity());
+                    String sizeString = IconSizeUtils.generateSizeStringAvatar();
 
 
                     String avatar = data.avatar;

@@ -214,8 +214,8 @@ public class ReviewActivity extends AptoideBaseActivity {
                     }
                 }
 
-                Glide.with(context).load(reviewListJson.getReview().getApk().getIcon()).transform(new CircleTransform(context)).crossFade().into(appIcon);
-                Glide.with(context).load(reviewListJson.getReview().getUser().getAvatar()).transform(new CircleTransform(context)).into(avatar);
+                Glide.with(context).load(AptoideUtils.UI.parseIcon(reviewListJson.getReview().getApk().getIcon())).transform(new CircleTransform(context)).crossFade().into(appIcon);
+                Glide.with(context).load(AptoideUtils.UI.parseIcon(reviewListJson.getReview().getUser().getAvatar())).transform(new CircleTransform(context)).into(avatar);
 
                 reviewer.setText(AptoideUtils.StringUtils.getFormattedString(context, R.string.review_by, reviewListJson.getReview().getUser().getName()));
 
