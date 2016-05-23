@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2016.
- * Modified by marcelo.benites@aptoide.com on 04/05/2016.
+ * Modified by marcelo.benites@aptoide.com on 16/05/2016.
  */
 
 package com.aptoide.amethyst.social;
@@ -20,6 +20,7 @@ import rx.observers.TestSubscriber;
 
 @RunWith(AndroidJUnit4.class)
 public class ContactsProviderIntegrationTest {
+
 
 	private ContactsProvider contactsProvider;
 
