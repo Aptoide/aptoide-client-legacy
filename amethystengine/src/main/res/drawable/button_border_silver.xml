@@ -1,5 +1,22 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/white" >
+    <item android:state_pressed="true">
+        <inset xmlns:android="http://schemas.android.com/apk/res/android"
+               android:insetLeft="4dp"
+               android:insetTop="6dp"
+               android:insetRight="4dp"
+               android:insetBottom="6dp">
+            <shape>
+                <corners android:radius="2dp" />
+                <solid android:color="@color/silver_border_button_pressed_background" />
+                <padding android:left="8dp"
+                         android:top="4dp"
+                         android:right="8dp"
+                         android:bottom="4dp" />
+                <stroke android:width="0.2dp" android:color="@color/button_silver_border" />
+            </shape>
+        </inset>
+    </item>
+    <item>
         <inset xmlns:android="http://schemas.android.com/apk/res/android"
                android:insetLeft="4dp"
                android:insetTop="6dp"

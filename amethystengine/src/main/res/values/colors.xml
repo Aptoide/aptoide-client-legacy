@@ -135,4 +135,6 @@
     <color name="button_silver_border">#979797</color>
     <color name="dialog_body_text">#9b9b9b</color>
     <color name="dialog_title_text">#666666</color>
+
+    <color name="silver_border_button_pressed_background">#1f000000</color>
 </resources>
