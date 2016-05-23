@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">Hoy</string>
 <string name="WidgetProvider_timestamp_yesterday">Ayer</string>
 <string name="WidgetProvider_timestamp_hour_ago">hace %s hora</string>
@@ -90,7 +90,7 @@
 <string name="subscribe_pvt_store">Suscribirse a tienda privada</string>
 <string name="accept_terms">Registrándote estarás aceptando los Términos de Servicio de Aptoide y la Política de Contenido para los Desarrolladores</string>
 <string name="register">Registrarse</string>
-<string name="or">O</string>
+<string name="or">- O -</string>
 <string name="dont_have_an_account">¿No tienes una cuenta? Regístrate</string>
 <string name="logged_as">Has entrado como:</string>
 <string name="sign_out">Cerrar sesión</string>
@@ -107,7 +107,7 @@
 <string name="remote_in_nospace">No queda espacio en tu dispositivo.</string>
 <string name="server_error">Error de servidor</string>
 <string name="paidapp_not_found">Error en la descarga. Por favor inténtalo de nuevo o contacta con el soporte técnico.</string>
-<string name="finished_install">%s se ha instalado satisfactoriamente.</string>
+<string name="finished_install">%s ha sido instalado.</string>
 <string name="installing">%s se está instalando…</string>
 <string name="no_permissions_required">No se necesitan permisos para esta aplicación.</string>
 <string name="connection_error">Sin conexión de red</string>
@@ -124,7 +124,7 @@
 <string name="restart_aptoide">Por favor reinicia la aplicación para cambiar el tema</string>
 <string name="ignoreUpdateText">Ignorar actualización</string>
 <string name="appview_header_trusted_text">De confianza</string>
-<string name="downgrade">Degradar</string>
+<string name="downgrade">regresar a una versión anterior</string>
 <string name="open">Abrir</string>
 <string name="about_aptoide_antimalware">La plataforma Anti-Malware analiza aplicaciones en tiempo real y deshabilita posibles virus a través de las tiendas. Este sistema escanea toda nueva aplicación y la certifica probándola en otros mercados de aplicaciones.</string>
 <string name="schDown_nodownloadselect">Sin descargas seleccionadas</string>
@@ -164,7 +164,7 @@
 <string name="error_MARG_113">Parámetro de Hash ausente</string>
 <string name="error_MARG_200">Error de autenticación</string>
 <string name="error_MARG_201">Nombre de usuario / contraseña no válidos</string>
-<string name="error_MARG_202">Token o usuario / pass no válidos</string>
+<string name="error_MARG_202">Token o usuario / password no válidos</string>
 <string name="error_IARG_1">Tienda no válida</string>
 <string name="error_IARG_2">Inicio de sesión no válido</string>
 <string name="error_IARG_3">Identificador no válido</string>
@@ -181,7 +181,7 @@
 <string name="error_IARG_108">Comentario no válido</string>
 <string name="error_IARG_109">Voto no válido</string>
 <string name="error_IARG_110">Respuesta no válida</string>
-<string name="error_IARG_200">Token de inicio de sesión no válido</string>
+<string name="error_IARG_200">Token de inicio sesión no válido</string>
 <string name="error_IARG_201">Modo de inicio de sesión no válido</string>
 <string name="error_IARG_300">Categoría personalizada no válida</string>
 <string name="error_IARG_301">Categoría no válida</string>
@@ -377,7 +377,7 @@
     <string name="installed_tab">Instalado</string>
     <string name="updates_tab">Actualizaciones</string>
 
-    <string name="settings">Configuraciones</string>
+    <string name="settings">Ajustes</string>
     <string name="facebook">Facebook</string>
     <string name="twitter">Twitter</string>
     <string name="menu_select_none">No seleccionar ninguna</string>
@@ -389,14 +389,14 @@
 
     <string name="order_popup_title3">Contenido para adultos</string>
     <string name="timeline_is_empty_send_email">Enviaremos un correo electrónico a aquellos que elijas</string>
-    <string name="more_reviews">Más reseñas</string>
+    <string name="more_reviews">reseñas</string>
     <string name="more_versions">Más versiones</string>
     <string name="recommended_for_you">Recomendado para ti</string>
     <string name="like">Me gusta</string>
     <string name="review_title">Reseñas</string>
     <string name="review_good">Bien</string>
     <string name="upload_app">Subir aplicación</string>
-    <string name="create_review">Crea una reseña</string>
+    <string name="create_review">Crear una reseña</string>
 
     <string name="setting_dont_show_mature_content">Enseñar contenido para adultos</string>
     <string name="drawer_social_media_title">Estemos conectados</string>
@@ -405,9 +405,9 @@
     <string name="flag_this_app_need_licence">Necesitas permiso</string>
     <string name="appview_additional_information_title">Información adicional</string>
     <string name="appview_latest_version_text">¡Esta es la última versión!</string>
-    <string name="appview_subscribe_store_button_text">+  ¿Suscribirse?</string>
+    <string name="appview_subscribe_store_button_text">¿Suscribirse?</string>
     <string name="noIgnoreUpdateText">¿La nueva versión de la aplicación no funciona en tu dispositivo, o le falta alguna función? Bloquea las aplicaciones para que no se actualicen. Ve a la sección de Actualizaciones y mantén pulsada la aplicación que quieras que no se siga actualizando.</string>
-    <string name="createReviewButtonText">Crea una reseña</string>
+    <string name="createReviewButtonText">Crear una reseña</string>
     <string name="navigation_drawer_signup_login">Regístrate o entra</string>
     <string name="_downloads"> descargas</string>
     <string name="no_description">Sin descripción</string>
@@ -498,7 +498,7 @@
     <string name="flag_good">Bien</string>
     <string name="flag_license">Necesita licencia</string>
     <string name="flag_fake">Falso</string>
-    <string name="flag_freeze">Bloquear</string>
+    <string name="flag_freeze">Bloquea el dispositivo</string>
     <string name="flag_virus">Virus</string>
     <string name="skip">Saltar</string>
     <string name="wizard_welcome_to_aptoide">1 - Bienvenido/a a Aptoide</string>
@@ -574,6 +574,88 @@
 
 <string name="error_410">Lo sentimos. La aplicación solicitada no se encuentra en este servidor.</string>
 
-    <string name="latest_reviews">Últimas Revisiones</string>
-    <string name="latest_comments">Últimos Comentarios</string>
+    <string name="no_email_and_pass_error_message">Insertar una e-mail y una contraseña para inscribirse.</string>
+    <string name="no_pass_error_message">Insertar una contraseña para inscribirse.</string>
+    <string name="no_email_error_message">Insertar una e-mail para inscribirse.</string>
+    <string name="website_copied">Sitio web copiado en los apuntes</string>
+    <string name="email_copied">E-mail copiado en los apuntes</string>
+    <string name="privacy_copied">Link privado copiado en los apuntes</string>
+    <string name="subscribing_store_message">Darse de baja</string>
+
+<string name="latest_reviews">Últimas reseñas</string>
+    <string name="latest_comments">Últimos comentarios</string>
+    <string name="action">Acción</string>
+    <string name="adventure">Aventuras</string>
+    <string name="all">Todos</string>
+    <string name="applications">Aplicaciones</string>
+    <string name="arcade">Arcade</string>
+    <string name="arcade_action">Arcade &amp; Acción</string>
+    <string name="auto_update">Actualización automática</string>
+    <string name="board">Tablero</string>
+    <string name="books_reference">Libros &amp; Referencia</string>
+    <string name="brain_puzzle">Cerebro &amp; Puzzle</string>
+    <string name="business">Negocios</string>
+    <string name="card">Cartas</string>
+    <string name="cards_casino">Cartas &amp; Casino</string>
+    <string name="casino">Casino</string>
+    <string name="casual">Casual</string>
+    <string name="comics">Cómics</string>
+    <string name="communication">Comunicación</string>
+    <string name="demo">Demostración</string>
+    <string name="education">Educación</string>
+    <string name="educational">Educativos</string>
+    <string name="entertainment">Entretenimiento</string>
+    <string name="family">Familia</string>
+    <string name="finance">Finanzas</string>
+    <string name="games">Juegos</string>
+    <string name="health">Salud</string>
+    <string name="health_fitness">Salud &amp; Fitness</string>
+    <string name="highlighted">Destacados</string>
+    <string name="lifestyle">Estilo de vida</string>
+    <string name="multimedia">Multimedia</string>
+    <string name="music">Música</string>
+    <string name="music_audio">Música &amp; Audio</string>
+    <string name="news_magazines">Noticias &amp; Revistas</string>
+    <string name="enable">Permitir</string>
+    <string name="local_top_apps">Top de aplicaciones locales</string>
+    <string name="media_video">Media &amp; Vídeo</string>
+    <string name="medical">Médico</string>
+    <string name="news_weather">Noticias &amp; el Tiempo</string>
+    <string name="personalization">Personalización</string>
+    <string name="photography">Fotografía</string>
+    <string name="productivity">Productividad</string>
+    <string name="puzzle">Puzzle</string>
+    <string name="quick_start">Inicio rápido</string>
+    <string name="racing">Carreras</string>
+    <string name="reference">Referencia</string>
+    <string name="role_playing">Juegos de Rol</string>
+    <string name="simulation">Simulación</string>
+    <string name="social">Social</string>
+    <string name="software_libraries">Librerías de Software</string>
+    <string name="sports">Deportes</string>
+    <string name="sports_games">Juegos deportivos</string>
+    <string name="strategy">Estrategia</string>
+    <string name="themes">Temas</string>
+    <string name="tools">Herramientas</string>
+    <string name="top_apps">Aplicaciones Top</string>
+    <string name="top_games">Juegos Top</string>
+    <string name="transport">Transporte</string>
+    <string name="transportation">Transportes</string>
+    <string name="travel">Viajes</string>
+    <string name="travel_local">Viajes &amp; Local</string>
+    <string name="trending">Tendencias</string>
+    <string name="trivia">Trivial</string>
+    <string name="word">Palabras</string>
+    <string name="libraries_demo">Librerías &amp; Demostraciones</string>
+    <string name="shopping">Compras</string>
+    <string name="weather">El tiempo</string>
+
+    <string name="latest_applications">Últimas aplicaciones</string>
+    <string name="top_apps_in_store">Aplicaciones Top en esta tienda</string>
+    <string name="apps_for_kids">Aplicaciones para niños</string>
+    <string name="aptoide_publishers">Editores de Aptoide</string>
+    <string name="music_video">Música &amp; Vídeo</string>
+    <string name="essential_apps">Aplicaciones básicas</string>
+    <string name="summer_apps">Aplicaciones de verano</string>
+    <string name="play_it">Juégalo!</string>
 </resources>

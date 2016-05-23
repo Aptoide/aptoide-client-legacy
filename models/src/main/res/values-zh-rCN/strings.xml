@@ -216,7 +216,7 @@
     <string name="schDwnBtn">进度下载</string>
     <string name="added_to_scheduled">已添加到菜单 &gt; 计划下载</string>
     <string name="schDown_install">是否要安装所有计划下载？</string>
-    <string name="hidden_adult">已隐藏部分应用，因为成人内容过滤器已激活。需要列出这些应用？</string>
+    <string name="hidden_adult">已隐藏部分应用，因为成人内容过滤器已激活。需要列出此类应用？</string>
     <string name="dont_show_again">不再显示此对话</string>
 
     <string name="app_name">Aptoide</string>
@@ -635,4 +635,28 @@
     <string name="trending">趋势</string>
     <string name="trivia">琐碎</string>
     <string name="word">字词</string>
+<string name="casual">休闲</string>
+    <string name="health">健康</string>
+    <string name="highlihighlighted">突出</string>
+    <string name="local_top_apps">本地热门应用</string>
+    <string name="medical">医疗</string>
+    <string name="multimedia">多媒体</string>
+    <string name="music">音乐</string>
+    <string name="music_audio">音乐和音频</string>
+    <string name="racing">竞速</string>
+    <string name="reference">参考资料</string>
+    <string name="travel">旅行</string>
+    <string name="travel_local">旅游和本地</string>
+    <string name="libraries_demo">软件库和样品</string>
+    <string name="shopping">购物</string>
+    <string name="weather">天气</string>
+<string name="highlighted">亮点</string>
+    <string name="latest_applications">最新应用</string>
+    <string name="top_apps_in_store">此商店中的热门应用</string>
+    <string name="apps_for_kids">儿童应用</string>
+    <string name="aptoide_publishers">Aptoide 发布者</string>
+    <string name="music_video">音乐和视频</string>
+    <string name="essential_apps">必备应用</string>
+    <string name="summer_apps">夏季应用</string>
+    <string name="play_it">玩这个游戏！</string>
 </resources>

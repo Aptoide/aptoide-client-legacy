@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Error Messages -->
@@ -625,14 +625,14 @@
     <string name="all">All</string>
     <string name="applications">Applications</string>
     <string name="arcade">Arcade</string>
-    <string name="arcade_action">Arcade &#38; Action</string>
+    <string name="arcade_action">Arcade &amp; Action</string>
     <string name="auto_update">Auto Update</string>
     <string name="board">Board</string>
-    <string name="books_reference">Books &#38; Reference</string>
-    <string name="brain_puzzle">Brain &#38; Puzzle</string>
+    <string name="books_reference">Books &amp; Reference</string>
+    <string name="brain_puzzle">Brain &amp; Puzzle</string>
     <string name="business">Business</string>
     <string name="card">Card</string>
-    <string name="cards_casino">Cards &#38; Casino</string>
+    <string name="cards_casino">Cards &amp; Casino</string>
     <string name="casino">Casino</string>
     <string name="casual">Casual</string>
     <string name="comics">Comics</string>

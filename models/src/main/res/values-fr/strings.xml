@@ -626,4 +626,19 @@
     <string name="comics">Bandes dessinées</string>
     <string name="software_libraries">Librairies logicielles</string>
     <string name="trivia">Futile</string>
+    <string name="health">Santé</string>
+    <string name="medical">Médical</string>
+    <string name="multimedia">Multimédia</string>
+    <string name="music">Musique</string>
+    <string name="reference">Référence</string>
+    <string name="travel">Voyage</string>
+    <string name="shopping">Achats</string>
+    <string name="weather">Météo</string>
+<string name="highlighted">En surbrillance</string>
+    <string name="music_audio">Musique &amp; Audio</string>
+    <string name="latest_applications">Nouvelles applications</string>
+    <string name="top_apps_in_store">Meilleures apps de ce dépôt</string>
+    <string name="apps_for_kids">Applications pour enfants</string>
+    <string name="music_video">Musique &amp; Vidéo</string>
+    <string name="summer_apps">Applications pour l\'été</string>
     </resources>
