@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by fabio on 14-10-2015.
@@ -19,7 +20,11 @@ public class ListUserFriendsJson extends GenericResponseV2 {
 		this.aptoideFriends = aptoideFriends;
 	}
 
-	public ArrayList<Friend> getInactiveFriends() {
+	public AptoideFriends getAptoideFriends() {
+		return aptoideFriends;
+	}
+
+	public List<Friend> getInactiveFriends() {
 		if (aptoideFriends != null) {
 			return aptoideFriends.getInactiveFriends();
 		} else {
@@ -27,7 +32,7 @@ public class ListUserFriendsJson extends GenericResponseV2 {
 		}
 	}
 
-	public ArrayList<Friend> getActiveFriends() {
+	public List<Friend> getActiveFriends() {
 		if (aptoideFriends != null) {
 			return aptoideFriends.getActiveFriends();
 		} else {

@@ -8,5 +8,10 @@
           package="com.aptoide.amethyst">
     <application
         tools:replace="android:name"
-        android:name="android.support.multidex.MultiDexApplication"/>
+        android:name="android.support.multidex.MultiDexApplication">
+        <service
+            android:name=".webservices.timeline.AptoideDynamicHostHttpService"
+            android:exported="false"
+            android:label="AptoideHttpTestService" />
+    </application>
 </manifest>

@@ -23,11 +23,11 @@ public class SocialManager {
 		this.contactsProvider = contactsProvider;
 	}
 
-	public Observable<AptoideFriends> getContacsAptoideFriends() {
+	public Observable<AptoideFriends> getContacsAptoideFriends(final int limit, final int offset) {
 		return contactsProvider.getDeviceContacts().flatMap(new Func1<List<SimpleContact>, Observable<AptoideFriends>>() {
 			@Override
 			public Observable<AptoideFriends> call(List<SimpleContact> contacts) {
-				return aptoideRepository.getFriends(contacts);
+				return aptoideRepository.getFriends(contacts, limit, offset);
 			}
 		});
 	}

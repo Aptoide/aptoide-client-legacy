@@ -45,11 +45,12 @@ public class SocialManagerTest {
 		when(contactsProviderMock.getDeviceContacts()).thenReturn(contactsProvider.asObservable());
 
 		final AptoideFriends expectedFriends = new AptoideFriends(null, null);
-		when(repositoryMock.getFriends(contactList)).thenReturn(Observable.just(expectedFriends));
+		when(repositoryMock.getFriends(contactList, 150, 0)).thenReturn(Observable.just
+				(expectedFriends));
 
 		final TestSubscriber<AptoideFriends> testSubscriber = new TestSubscriber<>();
 
-		socialManager.getContacsAptoideFriends().subscribe(testSubscriber);
+		socialManager.getContacsAptoideFriends(150, 0).subscribe(testSubscriber);
 		contactsProvider.onNext(contactList);
 		testScheduler.triggerActions();
 
