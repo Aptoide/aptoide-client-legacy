@@ -1,0 +1,542 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources><string name="error_MARG_1">No hi ha cap botiga</string>
+    <string name="error_MARG_2">No hi ha informació de l\'app</string>
+    <string name="error_MARG_3">No hi ha cap versió de l\'app</string>
+    <string name="error_MARG_4">No hi ha cap inici de sessió</string>
+    <string name="error_MARG_5">No hi ha cap app</string>
+    <string name="error_MARG_6">No hi ha dades MD5</string>
+    <string name="error_MARG_7">Falta el paràmetre package</string>
+    <string name="error_MARG_8">Falta el paràmetre hmac</string>
+    <string name="error_MARG_9">Falta el paràmetre límit</string>
+    <string name="error_MARG_10">Falta el paràmetre offset</string>
+    <string name="error_MARG_11">Falta el paràmetre lang</string>
+    <string name="error_MARG_100">Falta el nom de l\'app</string>
+    <string name="error_MARG_101">Falta la descripció</string>
+    <string name="error_MARG_102">Falta la categoria</string>
+    <string name="error_MARG_103">Falta la puntuació</string>
+    <string name="error_MARG_104">Falta la bandera</string>
+    <string name="error_MARG_105">Falta el comentari</string>
+    <string name="error_MARG_106">Falta el vot</string>
+    <string name="error_MARG_107">Falta el text</string>
+    <string name="error_MARG_108">Falta el paràmetre like</string>
+    <string name="error_MARG_109">Falta el paràmetre email</string>
+    <string name="error_MARG_110">Falta el paràmetre passhash</string>
+    <string name="error_MARG_111">Falta el paràmetre nom</string>
+    <string name="error_MARG_112">Falta el paràmetre usuari-agent</string>
+    <string name="error_MARG_113">Falta el paràmetre hash</string>
+    <string name="error_MARG_200">Error d\'autenticació</string>
+    <string name="error_MARG_201">Combinació de nom d\'usuari/contrasenya incorrecta</string>
+    <string name="error_MARG_202">Token o usuari/contrasenya invàlids</string>
+
+    <string name="error_IARG_1">Botiga invàlida</string>
+    <string name="error_IARG_2">Inici de sessió invàlid</string>
+    <string name="error_IARG_3">Identificador invàlid</string>
+    <string name="error_IARG_4">Dades MD5 invàlides</string>
+    <string name="error_IARG_5">Format hmac invàlid</string>
+    <string name="error_IARG_6">Lang invàlid</string>
+    <string name="error_IARG_100">El nombre mínim de caràcters permès en un comentari és de 10</string>
+    <string name="error_IARG_101">El nombre mínim de caràcters permès en un comentari de resposta és de 10</string>
+    <string name="error_IARG_102">Argument invàlid</string>
+    <string name="error_IARG_103">Categoria invàlida</string>
+    <string name="error_IARG_104">Puntuació invàlida</string>
+    <string name="error_IARG_105">El lloc web no és una URL vàlida</string>
+    <string name="error_IARG_106">Aquesta direcció e-mail no és vàlida</string>
+    <string name="error_IARG_107">Bandera invàlida</string>
+    <string name="error_IARG_108">Comentari invàlid</string>
+    <string name="error_IARG_109">Vot invàlid</string>
+    <string name="error_IARG_110">Comentari de resposta invàlid</string>
+    <string name="error_IARG_200">Token d\'inici de sessió invàlid</string>
+    <string name="error_IARG_201">Mode d\'inici de sessió invàlid</string>
+    <string name="error_IARG_300">Categoria personalitzada invàlida</string>
+    <string name="error_IARG_301">Categoria invàlida</string>
+    <string name="error_IARG_302">L\'aplicació proporcionada ja existeix en aquesta categoria</string>
+
+    <string name="error_AUTH_1">Credencials d\'inici de sessió invàlides!</string>
+    <string name="error_AUTH_2">Credencials invàlides!</string>
+    <string name="error_AUTH_3">El teu compte ha estat cancel·lat. Per qualsevol pregunta, contacta amb l\'equip de Suport d\'Aptoide.</string>
+    <string name="error_AUTH_4">Error d\'autenticació HMAC</string>
+    <string name="error_AUTH_100">No ha estat possible iniciar sessió amb Google. Per favor, comprova el teu compte de Google (és possible que necessitis validar la teva direcció email).</string>
+    <string name="error_AUTH_101">No és possible iniciar sessió amb Google. Per favor, intenta-ho de nou.</string>
+    <string name="error_AUTH_102">No és possible iniciar sessió amb Facebook. Per favor, comprova el teu compte de Facebook (és possible que necessitis validar la teva direcció email).</string>
+    <string name="error_AUTH_103">No és possible iniciar sessió amb Facebook. Per favor, intenta-ho de nou.</string>
+
+    <string name="error_WOP_6">Per afegir un comentari necessites inserir el teu nom (serà visible)</string>
+    <string name="error_WOP_7">Error al comentar</string>
+    <string name="error_WOP_8">Error en el vot del comentari</string>
+    <string name="error_WOP_9">L\'email proporcionat ja existeix en el sistema</string>
+    <string name="error_WOP_10">L\'email proporcionat encara no existeix en el sistema</string>
+    <string name="error_WOP_11">La botiga no ha pogut ser creada. Per favor, intenta-ho de nou.</string>
+
+    <string name="error_REPO_1">La botiga no existeix.</string>
+    <string name="error_REPO_2">La botiga ha estat cancel·lada.</string>
+    <string name="error_REPO_3">La botiga no pertany a aquest usuari.</string>
+    <string name="error_REPO_4_no_store">El teu compte no ha creat cap botiga. Has de crear-ne una per fer una valoració.</string>
+    <string name="error_REPO_7">Aquest usuari ja té un repo vàlid.</string>
+
+    <string name="error_APK_1">No és possible obrir aquesta app amb la informació i la versió proporcionades</string>
+    <string name="error_APK_4">No és possible obrir aquesta app</string>
+    <string name="error_APK_Description">Descripció no disponible</string>
+
+    <string name="error_SYS_1">Ha succeït un error desconegut, per favor, intenta-ho de nou</string>
+    <string name="error_SYS_2">No s\'han trobat dades, per favor, intenta-ho de nou</string>
+    <string name="error_SYS_3">El sistema es troba en manteniment, per favor, intenta-ho de nou més tard</string>
+    <string name="error_SYS_4">Aquesta acció no és compatible amb l\'actual versió d\'API</string>
+    <string name="error_SYS_Billing">Els Pagaments In-App no són compatibles amb aquest dispositiu.</string>
+
+    <string name="sign_out">Tancar sessió</string>
+    <string name="logged_as">Has iniciat sessió com a:</string>
+
+    <string name="aptoide_description">App Store Oficial Aptoide</string>
+
+    <string name="error_410">Ho lamentem, l\'App solicitada no ha estat localitzada en aquest servidor.</string>
+
+    <string name="home_title">Inici</string>
+    <string name="community">Comunitat</string>
+    <string name="stores">Botigues</string>
+    <string name="updates">Actualitzacions</string>
+    <string name="social_timeline">Timeline Social</string>
+    <string name="downloads">Descàrregues</string>
+
+
+    <string name="please_wait">Per favor, espera…</string>
+    <string name="login_or_register">Inicia sessió o registra\'t</string>
+    <string name="one_account_allowed">Només es permet un compte</string>
+    <string name="signing_in">Iniciant sessió…</string>
+    <string name="fields_cannot_empty">Sisplau, comprova el teu email i contrasenya.</string>
+    <string name="new_to_aptoide">Ets nou a %s? Crea un compte gratis</string>
+    <string name="forgot_passwd">Has oblidat la contrasenya?</string>
+    <string name="error_occured">Ha succeït un error. Per favor, intenta-ho de nou</string>
+    <string name="simple_error_occured">Ha succeït un error. </string>
+    <string name="or">- O -</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="username">Email</string>
+    <string name="password">Contrasenya</string>
+    <string name="link_device_webinstall">Enllaçar compte amb Webinstall</string>
+    <string name="setcredentials">Iniciar sessió</string>
+    <string name="dont_have_an_account">No tens un compte? Registra\'t</string>
+    <string name="facebook_timeline_feature">Ooohhh... Aquesta funció només funciona amb un inici de sessió de Facebook, i has iniciat sessió amb una altra autenticació</string>
+    <string name="facebook_tos">" • Comparteix les apps que instal·les amb els teus amics de Facebook en un Timeline dins d\'Aptoide
+\n\n• Consulta, reacciona i comenta al Timeline
+\n\n• Mai, mai, mai, publicarem al teu mur de Facebook. Respectem la teva privacitat "</string>
+    <string name="facebook_private_actions">Aquesta app no publicarà a Facebook</string>
+    <string name="facebook_timeline_login">" Vols iniciar sessió amb Facebook i provar el Timeline Social?"</string>
+    <string name="facebook_timeline_preview">Vista prèvia del Timeline:</string>
+    <string name="whats_timeline">Què és el Timeline Social d\'Aptoide?</string>
+    <string name="feedback_subject">Assumpte</string>
+    <string name="feedback_to_write2">Escriu aquí per enviar-nos la teva opinió…\n\n Sisplau, dóna\'ns tots els detalls possibles:
+\n Passos que has seguit
+\n Errors amb els que t\'has topat</string>
+    <string name="feedback_include_logs">Inclou captures de pantalla i registres</string>
+    <string name="feedback_not_valid">Per favor, introdueix un Assumpte vàlid!</string>
+    <string name="feedback_no_email">No hi ha cap client email instal·lat!</string>
+    <string name="register">Registre</string>
+    <string name="password_validation_text">"La contrasenya ha de tenir almenys 8 caràcters i ha de comptar almenys amb una lletra i una xifra o caràcters especials (!@#$%*) "</string>
+    <string name="about_aptoide_antimalware">La plataforma Anti-Malware d\'Aptoide analitza aplicacions a temps real i inhabilita amenaces potencials a totes les botigues. Aquest sistema escaneja tots els arxius de les noves aplicacions de les botigues i els certifica comparant-los amb altres Mercats d\'Android.</string>
+    <string name="username_tip">Introdueix el teu email</string>
+    <string name="accept_terms">Al registrar-te acceptes les Condicions de Servei i Polítiques de Continguts per Programadors d\'Aptoide</string>
+
+    <string name="start_loading">Carregant…</string>
+    <string name="store_already_added">Botiga ja afegida!</string>
+    <string name="subscribe_newrepo_alrt">Vols subscriure\'t a aquesta botiga?\n\n</string>
+    <string name="subscribe_store">Subscriu-te a la Botiga</string>
+    <string name="store_subscribed">Subscrit a la botiga %s</string>
+    <string name="subscribing">Subscrivint-te a la botiga %s…</string>
+    <string name="create_store">Crear botiga</string>
+    <string name="section">Secció</string>
+
+    <string name="not_found">No s\'ha trobat</string>
+
+
+    <string name="permissions">Veure permisos</string>
+    <string name="permissions_na">Permisos: N/D</string>
+    <string name="additional_permissions">Permisos addicionals</string>
+    <string name="no_permissions_required">No es necessiten permisos per aquesta app.</string>
+    <string name="restore">Instal·lar</string>
+
+    <string name="timeout">Temps de connexió a la xarxa expirat</string>
+    <string name="ip_blacklisted">IP en la llista negra</string>
+    <string name="connection_error">Sense connexió a la xarxa</string>
+    <string name="apk_not_found">Apk no localitzat</string>
+    <string name="invalid_apk">Apk invàlid</string>
+    <string name="remote_in_nospace">no hi ha suficient espai al teu dispositiu.</string>
+    <string name="server_error">Error del servidor</string>
+    <string name="paidapp_not_found">Error al descarregar l\'app. Per favor, intenta-ho de nou o contacta amb suport.</string>
+    <string name="sd_error">No és possible escriure a la SDCard.</string>
+    <string name="sd_error_jolla">No s\'ha pogut descarregar degudament</string>
+    <string name="starting_download">Iniciant la descàrrega</string>
+    <string name="installing">%s s\'està instal·lant…</string>
+    <string name="finished_install">%s ha estat instal·lat.</string>
+    <string name="aptoide_downloading">%s s\'està descarregant</string>
+    <string name="remaining_time">restant</string>
+    <string name="data_usage_constraint">La descàrrega no està permesa a Configuració &gt; Regles generals de descàrrega</string>
+    <string name="download_pending">Esperant</string>
+
+    <string name="download_retry">Reintentar</string>
+    <string name="error503">Ufff… sóc jo o tothom està instal·lant apps al mateix temps?</string>
+    <string name="having_some_trouble">Hi ha alguns problemes. Pots intentar-ho de nou més tard?</string>
+
+    <string name="WidgetProvider_timestamp_today">Avui</string>
+    <string name="WidgetProvider_timestamp_yesterday">Ahir</string>
+    <string name="WidgetProvider_timestamp_hour_ago">Fa %s hora</string>
+    <string name="WidgetProvider_timestamp_hours_ago">Fa %s hores</string>
+    <string name="WidgetProvider_timestamp_minutes_ago">Fa %s minuts</string>
+    <string name="WidgetProvider_timestamp_just_now">Fa un moment</string>
+    <string name="WidgetProvider_timestamp_weeks_ago">Fa %s setmanes</string>
+    <string name="WidgetProvider_timestamp_week_ago">Fa %s setmana</string>
+    <string name="WidgetProvider_timestamp_week_ago2">Fa 1 setmana</string>
+    <string name="WidgetProvider_timestamp_this_week">Aquesta setmana</string>
+    <string name="WidgetProvider_timestamp_days_ago">Fa %s dies</string>
+    <string name="WidgetProvider_timestamp_month_ago">Fa 1 mes</string>
+    <string name="WidgetProvider_timestamp_months_ago">Fa %s mesos</string>
+    <string name="WidgetProvider_timestamp_year_ago">Fa 1 any</string>
+    <string name="WidgetProvider_timestamp_years_ago">Fa %s anys</string>
+
+    <string name="reply">Respondre</string>
+    <string name="vote_down">Votar negativament</string>
+    <string name="vote_up">Votar positivament</string>
+    <string name="casting_vote">Emetent vot…</string>
+    <string name="vote_submitted">El teu vot ha estat enviat amb èxit</string>
+    <string name="votes">%s vots</string>
+
+    <string name="reviewed_by">Revisat per - %s</string>
+    <string name="installed_this">%s ha instal·lat això.</string>
+
+    <string name="adult_pin_wrong">Pin erroni, intenta-ho de nou.</string>
+    <string name="request_adult_pin">Introdueix el pin per desbloquejar</string>
+    <string name="are_you_adult">Tens 21 anys o més?</string>
+    <string name="facebook_logout_and_login">Tanca sessió i inicia sessió amb Facebook</string>
+
+    <string name="schDown_nodownloadselect">No hi ha descàrregues seleccionades</string>
+    <string name="no_sch_downloads">Vols navegar per les apps utilitzant dades mòvils i descarregar-les més tard quan tinguis connexió wifi? Utilitza Programar descàrregues i canvia les teves preferències a Configuració -&gt; Regles generals de descàrregues - a WiFi.</string>
+    <string name="schDown_installselected">Instal·lació seleccionada</string>
+    <string name="schDown_removeselected">Eliminar selecció</string>
+    <string name="schDown_invertselection">Invertir selecció</string>
+
+    <string name="schDwnBtn">Programar descàrrega</string>
+    <string name="added_to_scheduled">Afegida a Menú &gt; Descàrregues programades</string>
+    <string name="schDown_install">Vols instal·lar totes les descàrregues programades?</string>
+    <string name="hidden_adult">Algunes apps estan ocultes perquè el filtre de contingut adult està activat. Vols una llista d\'aquestes apps?</string>
+    <string name="dont_show_again">No tornis a mostrar aquest quadre de diàleg</string>
+
+    <string name="app_name">Aptoide</string>
+
+    <string name="action_settings">Configuració</string>
+    <string name="open">Obrir</string>
+    <string name="close">Tancar</string>
+    <string name="button_header_more">més</string>
+    <string name="search">Buscar</string>
+
+    <string name="update">Actualitzar</string>
+    <string name="uninstall">Desinstal·lar</string>
+    <string name="downgrade">Degradar</string>
+    <string name="reinstall">Reinstal·lar</string>
+
+    <string name="rollback_empty">Degrada ràpidament qualsevol app a una versió anterior i soluciona problemes d\'incompatibilitat. Conserva un registre de totes les apps instal·lades (via Aptoide) incloent-ne la versió i la data d\'instal·lació.</string>
+
+    <string name="see_more">Veure més</string>
+    <string name="see_less">Veure menys</string>
+    <string name="get_latest">Última versió</string>
+
+    <string name="installed_tab">Instal·lada</string>
+    <string name="updates_tab">Actualitzacions</string>
+
+    <string name="feedback_send_button">Enviar valoració</string>
+    <string name="clear">Netejar</string>
+
+    <string name="my_account">El meu compte</string>
+    <string name="rollback">Enrere</string>
+    <string name="setting_schdwntitle">Descàrregues programades</string>
+    <string name="excluded_updates">Actualitzacions excloses</string>
+    <string name="settings">Configuració</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="backup_apps">Fer copia de seguretat de les apps</string>
+
+    <string name="menu_context_reparse">Recarregar</string>
+    <string name="menu_context_remove">Eliminar</string>
+    <string name="menu_select_all">Seleccionar tot</string>
+    <string name="menu_select_none">Des-seleccionar</string>
+
+    <string name="search_other_stores">O busca\'n d\'altres…</string>
+    <string name="see_top_stores">Veure Top Botigues</string>
+    <string name="subscribe">Subscriu-te</string>
+    <string name="store_name">Nom Botiga</string>
+    <string name="insert_store_name">Introdueix el nom de la botiga:</string>
+    <string name="subscribe_pvt_store">Subscriu-te a una botiga privada</string>
+
+    <string name="no_excluded_updates">Cap actualització exclosa</string>
+    <string name="no_excluded_updates_selected">Cap actualització exclosa seleccionada</string>
+    <string name="restore_updates">Restaurar actualitzacions</string>
+    <string name="exclude_update">Ignorar actualització</string>
+    <string name="install_update">Instal·lar actualització</string>
+
+    <string name="payment_methods">Pagar amb:</string>
+    <string name="cancel">Cancel·lar</string>
+    <string name="no_payments_available">No hi ha pagaments disponibles.</string>
+    <string name="failed_auth_code">No ha estat possible autoritzar el compte. Per favor, intenta-ho de nou.</string>
+    <string name="error_occured_paying">Ha succeït un error. El pagament no ha estat completat.</string>
+    <string name="error_occured_retry_later">Ha succeït un error. Aptoide ho intentarà més tard automàticament.</string>
+    <string name="account">Compte</string>
+    <string name="confirm_carrier_payment">"Vols comprar \'{title}\' per {value}? Se\'t cobrarà automàticament. "</string>
+    <string name="buy">Comprar</string>
+    <string name="billing_result">"El resultat de la transacció és: "</string>
+
+    <string name="change_payment">Enrere</string>
+    <string name="rollback_installed">Instal·lada</string>
+    <string name="rollback_uninstalled">Desinstal·lada</string>
+    <string name="rollback_updated">Actualitzada</string>
+    <string name="rollback_downgraded">Degradada</string>
+    <string name="install">Instal·lar</string>
+    <string name="cannot_uninstall_self">No és possible desinstal·lar l\'instal·lador.</string>
+    <string name="at_time">a les %s</string>
+    <string name="root_access_dialog">Sembla que tens root. Vols permetre l\'autoinstal·lació de l\'app després de la descàrrega?</string>
+    <string name="downgrade_requires_uninstall">La degradació requereix la desinstal·lació de l\'Aplicació</string>
+
+    <string name="order_popup_title3">Contingut adult</string>
+    <string name="friends_to_invite">Tots els altres amics de Facebook a Aptoide</string>
+    <string name="invite_friends">Convidar Amics</string>
+    <string name="timeline_is_empty_send_email">Enviarem un email a aquells que escullis</string>
+    <string name="facebook_timeline_friends_invited">Amics convidats!</string>
+    <string name="select_friends_to_invite">Per favor, selecciona als teus amics per convidar-los!</string>
+    <string name="facebook_friends_list_using_timeline">ja utilitzen el Timeline Social d\'Aptoide</string>
+    <string name="and">i</string>
+    <string name="more_friends">més</string>
+    <string name="more_reviews">Valoracions</string>
+    <string name="more_editors_choice">Més selecció de l\'editor</string>
+    <string name="more_versions">Més versions</string>
+    <string name="facebook_friends_list_using_timeline_empty">El Timeline Social et permet compartir les teves aplicacions amb els teus amics de Facebook. Desitges unir-te a la xarxa?</string>
+    <string name="X_download_number">%s menys.</string>
+    <string name="timeline_not_compatible">Ooohh... Aquesta funció no és compatible amb la teva versió d\'Android</string>
+    <string name="sponsored">Patrocinat</string>
+    <string name="friends_installs">Instal·lacions dels teus amics</string>
+    <string name="recommended_for_you">Recomanat per a tu</string>
+    <string name="highlighted_apps">Destacat</string>
+    <string name="button_more">Més</string>
+    <string name="unhide_post">MOSTRAR</string>
+    <string name="hide_post">AMAGAR</string>
+    <string name="like">M\'agrada</string>
+    <string name="comment">Comentari</string>
+    <string name="hide_post_info">Els teus amics no veuran aquesta publicació</string>
+    <string name="timeline_like">M\'agrada</string>
+    <string name="likes">M\'agrada</string>
+    <string name="unlike">Ja no m\'agrada</string>
+    <string name="timeline_empty_no_friends_send_email">Sembla que els teus amics no han iniciat sessió a Aptoide amb el seu compte de Facebook. Envia\'ls un email perquè iniciïn sessió amb el seu Compte de Facebook</string>
+    <string name="timeline_empty_send_email_to_friends">Enviar email als Amics</string>
+    <string name="aptoide_timeline">Timeline Aptoide</string>
+    <string name="timeline_email_invitation">T\'ha convidat a unir-te al Timeline Social d\'Aptoide. Estigues connectat!</string>
+    <string name="timeline_email_how_to_join">Com pots unir-te al Timeline Social?</string>
+    <string name="timeline_email_step1">1- Descarrega l\'última versió d\'Aptoide:</string>
+    <string name="timeline_email_step2">2- Vés a la pestanya \"Timeline Social\" i uneix-te a la xarxa</string>
+    <string name="timeline_ad">App suggerida per Facebook</string>
+    <string name="facebook_start_timeline">Uneix-te al Timeline Social</string>
+    <string name="facebook_join_friends">Vols unir-te a ells al Timeline Social?</string>
+    <string name="timeline_is_empty_no_friends">El teu Timeline és buit. Probablement és perquè encara no tens amics a Aptoide o perquè ells no han publicat res.</string>
+    <string name="timeline_is_empty_start_invite">Comencem per convidar alguns amics:</string>
+
+    <string name="review_get_app">Aconsegueix l\'App</string>
+    <string name="review_final_verdict">Veredicte final</string>
+    <string name="review_speed">Velocitat</string>
+    <string name="review_usability">Facilitat d\'ús</string>
+    <string name="review_addictive">Addictiva</string>
+    <string name="review_stability">Estabilitat</string>
+    <string name="review_by">Valoració de:\n%s</string>
+    <string name="review_title">Valoracions</string>
+    <string name="review_good">Bona</string>
+    <string name="review_bad">Dolenta</string>
+    <string name="review_finish">Finalitzar</string>
+    <string name="review_final_score">Puntuació</string>
+    <string name="make_review_title">Deixar valoració</string>
+    <string name="size">Tamany</string>
+    <string name="set_sliders">Estableix els cursors</string>
+    <string name="write_one_pro">Escriu almenys un punt fort</string>
+    <string name="write_one_con">Escriu almenys un punt feble</string>
+    <string name="write_your_final_verdict">Escriu el teu veredicte final</string>
+    <string name="review_success">Valoració enviada amb èxit!</string>
+    <string name="store_privacy">Privacitat</string>
+    <string name="public_key">pública</string>
+    <string name="private_key">privada</string>
+    <string name="store_username">Nom d\'usuari</string>
+    <string name="store_password">Contrasenya</string>
+    <string name="upload_app_backup_apps_installed">Primer has d\'instal·lar aquesta app a la teva botiga. Pots utilitzar les Apps de Copia de Seguretat d\'Aptoide.</string>
+    <string name="upload_app_backup_apps_not_installed">Primer has de pujar aquesta app a la teva botiga. Sisplau, instal·la-la i utilitza les Apps de Copia de Seguretat d\'Aptoide.</string>
+    <string name="upload_app">Pujar app</string>
+    <string name="create_review">Crear valoració</string>
+
+    <string name="asksetadultpinmessage">Vols establir un pin per desbloquejar el contingut adult?</string>
+    <string name="setpin">Establir pin</string>
+    <string name="remove_mature_pin_title">Eliminar pin per contingut adult</string>
+    <string name="remove_mature_pin_summary">Eliminar el pin requerit per desbloquejar el contingut adult</string>
+    <string name="set_mature_pin_title">Establir pin per contingut adult</string>
+    <string name="set_mature_pin_summary">Establir un pin necessari per desbloquejar el contingut adult</string>
+    <string name="settings_title_bar">Configuració</string>
+    <string name="settings_dwn_network_rules">Opcions de xarxa mòbil</string>
+    <string name="setting_sum_icon_download_rules">Permet que les icones siguin descarregades a través de connexions de dades mòbils</string>
+    <string name="setting_icon_download_rules">Regles de descàrrega d\'icones</string>
+    <string name="setting_wifi">WiFi</string>
+    <string name="setting_mobile">3G/4G mòbil</string>
+    <string name="setting_3g">3G</string>
+    <string name="setting_4g">4G</string>
+    <string name="setting_ethernet">Ethernet</string>
+    <string name="setting_sum_general_download_rules">Descàrrega d\'Apps, Selecció de l\'Editor, Top Apps i Botigues permesa a través de connexions a dades mòbils</string>
+    <string name="setting_general_download_rules">Regles generals de descàrrega</string>
+    <string name="setting_hwspecstitle">Especificacions de hardware</string>
+    <string name="setting_hwspecssum">Informació del hardware del teu telèfon</string>
+    <string name="setting_appfiltersum">No mostris aplicacions que no siguin compatibles amb aquest dispositiu</string>
+    <string name="setting_appfiltertitle">Filtrar aplicacions</string>
+    <string name="setting_category_autoupdate">Auto actualització d\'Aptoide</string>
+    <string name="setting_category_autoupdate_title">Habilitar auto actualitzacions d\'Aptoide</string>
+    <string name="setting_dont_show_mature_content">Mostrar contingut per adults</string>
+    <string name="setting_mature_filtering">Contingut per adults</string>
+    <string name="setting_updates">Actualitzacions</string>
+    <string name="update_all">Actualitzar totes</string>
+    <string name="whats_new">Què hi ha de nou?</string>
+    <string name="setting_updates_notification_sum">Mostrar notificacions de noves actualitzacions</string>
+    <string name="setting_updates_notification_title">Notificació d\'actualitzacions</string>
+    <string name="setting_auto_update_sum">Habilitar actualització automàtica de les aplicacions</string>
+    <string name="setting_auto_update_title">Habilitar auto actualització</string>
+    <string name="show_all_updates">No mostris actualitzacions per aplicacions amb diferents firmes</string>
+    <string name="setting_allUpdates_filtering">Filtrar actualitzacions</string>
+    <string name="setting_schdwninstallsum">Instal·lar descàrregues programades automàticament quan hi hagi una connexió WiFi present</string>
+    <string name="setting_schdwninstalltitle">Instal·lació automàtica</string>
+    <string name="setting_clear_memory">Eliminar memòria</string>
+    <string name="clearcontent_title">Eliminar dades i configuracions</string>
+    <string name="clearcache_title">Eliminar cache</string>
+    <string name="settings_maxFileCache_sum">Establir un tamany màxim per conservar els arxius apk</string>
+    <string name="settings_maxFileCache_title">Descarregar cache de l\'arxiu (MB)</string>
+    <string name="change_theme">Canviar tema</string>
+    <string name="theme">Temes</string>
+    <string name="root">Root</string>
+    <string name="allow_root">Permetre instal·lació root</string>
+    <string name="disable_social_timeline">Inhabilitar Timeline Social</string>
+    <string name="social_timeline_notifications_sum2">Habilitar notificacions del Timeline Social d\'Aptoide. Rebràs les últimes notícies a la barra de notificacions.</string>
+    <string name="social_timeline_notifications">Notificacions del Timeline</string>
+    <string name="about_us">Sobre nosaltres</string>
+    <string name="restart_aptoide">Sisplau, reinicia l\'aplicació per canviar el tema</string>
+    <string name="setting_sdk_version">Versió SDK</string>
+    <string name="setting_screen_size">Tamany pantalla</string>
+    <string name="setting_esgl_version">Versió ESGL</string>
+    <string name="screenCode">Codi de la pantalla</string>
+    <string name="cpuAbi">CPU</string>
+    <string name="about_site">Lloc web:</string>
+    <string name="about_mail">Contacte:</string>
+    <string name="clear_cache_sucess">Contingut esborrat amb èxit</string>
+    <string name="clearcontent_sum">Esborra les dades de la tarjeta SD.</string>
+    <string name="cache_using_X_mb">Utilitzant %s MB</string>
+    <string name="clearcache_sum">Esborra el cache (icones, captures de pantalla) de la tarjeta SD.</string>
+    <string name="clearcontent_sum_jolla">Esborra les dades</string>
+    <string name="clearcache_sum_jolla">Esborra el cache (icones, captures de pantalla)</string>
+    <string name="drawer_social_media_title">Seguim en contacte</string>
+    <string name="read_more">Més informació</string>
+    <string name="read_less">Menys informació</string>
+    <string name="flag_this_app_good">Bona</string>
+    <string name="flag_this_app_button_text">Marca aquesta app</string>
+    <string name="appview_rating_card_text">Puntuació</string>
+    <string name="flag_this_app_need_licence">Llicència necessària</string>
+    <string name="flag_this_app_fake">Falsa</string>
+    <string name="flag_this_app_freeze">Congelar</string>
+    <string name="flag_this_app_virus">Virus</string>
+    <string name="appview_recommended_for_you_title">Recomanat per a tu</string>
+    <string name="appview_additional_information_title">Informació addicional</string>
+    <string name="appview_comment_reply_button_text">Respondre</string>
+    <string name="appview_header_trusted_text">De confiança</string>
+    <string name="appview_latest_version_text">Aquesta és l\'última versió!</string>
+    <string name="appview_subscribe_store_button_text">Subscriure\'t?</string>
+    <string name="appview_subscribed_store_button_text">Subscrit</string>
+    <string name="appview_rate_this_app_text">Puntua aquesta app</string>
+    <string name="appview_other_versions_in_others_stores">Altres versions en altres botigues</string>
+    <string name="appview_rate_Success">App puntuada</string>
+    <string name="ignoreUpdateText">Ignorar actualització</string>
+    <string name="noIgnoreUpdateText">La nova versió d\'una app no funciona al teu dispositiu, o li falta alguna funció? Bloqueja l\'actualització d\'apps. Vés a la pestanya Actualitzacions i prem l\'app que vulguis que deixi d\'actualitzar-se.</string>
+    <string name="createReviewButtonText">Crear
+\nValoració</string>
+    <string name="navigation_drawer_signup_login">Registre o Inici de sessió</string>
+    <string name="active">Actiu</string>
+    <string name="completed">Completat</string>
+    <string name="_downloads"> descàrregues</string>
+    <string name="no_description">Sense descripció</string>
+    <string name="description">Descripció</string>
+    <string name="version">Versió</string>
+    <string name="version_placeholder">Versió: %s</string>
+
+    <string name="results_subscribed">Botigues subscrites</string>
+    <string name="results_in_store">Buscar resultats a la botiga %s</string>
+    <string name="other_stores">No estàs subscrit a cap Botiga</string>
+    <string name="comments">Comentaris</string>
+    <string name="reviews">Valoracions</string>
+    <string name="store">Botiga</string>
+    <string name="title_caps">TÍTOL</string>
+
+    <string name="unsubscribe_yes_no">Estàs segur que vols donar-te de baixa?</string>
+    <string name="unsubscribed_">"Donat de baixa "</string>
+    <string name="error_occured_uploading">Primer has de pujar aquesta app.</string>
+
+    <string name="update_self_title">Actualització disponible</string>
+    <string name="update_self_msg">Hi ha una nova versió de %s disponible\nDesitges actualitzar-la?</string>
+    <string name="retrieving_update">Recuperar actualització…</string>
+
+    <string name="menu_search_item_go_to_store">Vés a la botiga</string>
+    <string name="srch_hint">Buscar apps…</string>
+
+    <string name="app_trusted">%s és de confiança</string>
+    <string name="app_warning">Advertència: %s</string>
+    <string name="scanned_with_av">Escannejat amb Anti-Virus:</string>
+    <string name="compared_with_another_marketplace">En comparació amb un altre Marketplace d\'Android:</string>
+    <string name="application_signature_analysis">Firma de l\'aplicació en comparació amb firmes de programadors:</string>
+    <string name="application_signature_matched">La firma de l\'aplicació es correspon amb la firma relacionada amb el programador de l\'aplicació.</string>
+    <string name="application_signature_not_matched">La firma de l\'aplicació no es correspon amb la firma relacionada amb el programador de l\'aplicació. L\'aplicació podria haver estat adulterada.</string>
+    <string name="application_signature_blacklisted">La firma de l\'aplicació no és una firma de confiança de la plataforma Anti-Malware d\'Aptoide perquè ha estat utilitzada per firmar una altra aplicació que no es correspon amb la firma relacionada al programador autèntic.</string>
+    <string name="scanned_manually_by_aptoide_team">Escannejat manualment per l\'Equip d\'Aptoide:</string>
+    <string name="scanned_verified_by_tester">L\'aplicació va ser revisada manualment per personal de l\'Equip d\'Aptoide que garanteix la seguretat de l\'aplicació.</string>
+    <string name="warning">Advertència</string>
+    <string name="trusted_app">App de confiança</string>
+    <string name="unknown">Desconegut</string>
+
+    <string name="reason_third_party">Hem comprovat la firma de l\'app i es correspon amb la de la Botiga de Google Play, així que pots sentir-te segur i disfrutar de l\'app.</string>
+    <string name="reason_scanned">Escannejat amb AptoideGuard i 2 anti-virus diferents (Zoner 1.8 i Sophos 3.0).</string>
+    <string name="reason_signature">La firma criptogràfica garanteix que la instal·lació de l\'arxiu és segura i no ha estat modificada de forma alguna.</string>
+    <string name="reason_manual">Aquesta app va ser revisada manualment per l\'equip expert d\'Aptoide, i va ser marcada com a Bona.</string>
+
+    <string name="reason_failed">La firma de l\'aplicació no es correspon amb la firma del desenvolupador. L\'app podria haver estat modificada.</string>
+    <string name="reason_unknown">No hi ha prou informació sobre aquesta app a la plataforma Anti-Malware d\'Aptoide.</string>
+
+
+
+    <string name="reply_to">Resposta a %s</string>
+    <string name="comment_submitted">El teu comentari ha estat enviat amb èxit</string>
+    <string name="write_your_comment">Escriu el teu comentari</string>
+    <string name="write_a_comment">Escriu un comentari</string>
+    <string name="no_comment_be_the_first">Encara no hi ha comentaris. Sigues el primer!</string>
+
+    <string name="installapp_alrt">Desitges instal·lar:
+\n\n %s?</string>
+
+    <string name="suggested_app">App suggerida</string>
+
+    <string name="abTest1_label_1">Aconseguir app</string>
+    <string name="abTest1_label_2">Instal·lar</string>
+    <string name="abTest1_label_3">Instal·lar</string>
+
+
+    <string name="notification_timeline_new_likes">Tens %s nous m\'agrada. Comprova-ho al Timeline Social!</string>
+    <string name="notification_timeline_new_comments">Tens %s nous comentaris. Comprova-ho al Timeline Social!</string>
+    <string name="notification_timeline_activity">Tens %1$s nous comentaris i %2$s nous m\'agrada. Comprova-ho al Timeline Social!</string>
+    <string name="notification_social_timeline">Timeline Social d\'Aptoide. Comprova-ho ara!</string>
+    <string name="notification_timeline_posts">Els teus amics han instal·lat noves apps!</string>
+
+    <string name="has_updates">%s té noves actualitzacions disponibles!</string>
+    <string name="new_updates">Hi ha %s noves actualitzacions disponibles!</string>
+    <string name="one_new_update">Hi ha %s nova actualització disponible!</string>
+    <string name="updates_tab_adapter_uninstalled">Desinstal·lada</string>
+    <string name="updatesTabAdapterUninstall">Desinstal·lar</string>
+    <string name="flag_good">Bona</string>
+    <string name="flag_license">Llicència necessària</string>
+    <string name="flag_fake">Falsa</string>
+    <string name="flag_freeze">Congelar</string>
+    <string name="flag_virus">Virus</string>
+    <string name="flag_this_app">Marca aquesta app</string>
+    <string name="flag_added">Marca afegida</string>
+    <string name="skip">Saltar</string>
+    <string name="wizard_title_01">Benvingut a Aptoide</string>
+    <string name="wizard_description_01">Crea un compte gratis i registra\'t per començar a construir la teva propia App Store personalitzada.\n\n Navega per botigues temàtiques i descobreix noves i excitants aplicacions.</string>
+    </resources>

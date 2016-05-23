@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="WidgetProvider_timestamp_today">ਅਜ</string>
+<string name="WidgetProvider_timestamp_yesterday">ਕਲ</string>
+<string name="WidgetProvider_timestamp_hour_ago">"%s ਘਂਟਾ  ਿਪਹਲਾ"</string>
+<string name="WidgetProvider_timestamp_hours_ago">%s ਘਂਟੇ ਿਪਹਲੇ</string>
+<string name="WidgetProvider_timestamp_minutes_ago">ਪਲ ਪਿਹਲੇ</string>
+<string name="WidgetProvider_timestamp_just_now">ਹੋਦੈ ਹੀ</string>
+<string name="WidgetProvider_timestamp_weeks_ago">"ਹਫਤੇ  ਪਿਹਲੇ"</string>
+<string name="WidgetProvider_timestamp_week_ago">"ਹਫਤਾ  ਪਿਹਲੇ"</string>
+<string name="WidgetProvider_timestamp_this_week">"ਇਸੁ  ਹਫਤੇ"</string>
+<string name="rollback_installed">ਸਤਾਫੀਤ</string>
+<string name="update">ਅਪਡੇਟ</string>
+<string name="uninstall">ਐਪ ਕਟਨਾ</string>
+<string name="timeline_like">ਪਸਂਦ</string>
+<string name="comments">ਿਟਪਨੀ</string>
+<string name="write_your_comment">ਟਿਪਨੀ ਿਲਖੋ</string>
+</resources>
