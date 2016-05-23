@@ -113,6 +113,7 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
@@ -2192,6 +2193,38 @@ public class AptoideUtils {
             if (history != null) {
                 history.clear();
             }
+        }
+    }
+
+    public static class FlurryAppviewOrigin {
+
+        public static final int MAX_ARRAY_SIZE = 5;
+
+        private static ArrayList<String> mEventActions = new ArrayList<>();
+
+        public static void addAppviewOrigin(String category) {
+            if (category != null && !TextUtils.isEmpty(category)) {
+                int indexOf = mEventActions.indexOf(category);
+                if (indexOf >= 0) {
+                    mEventActions.remove(category);
+                } else if (mEventActions.size() > MAX_ARRAY_SIZE) {
+                    mEventActions.remove(0);
+                }
+                mEventActions.add(category);
+            }
+        }
+
+        public static String getAppviewOrigin() {
+            List<String> aux = new ArrayList<>();
+            for (int i = mEventActions.size() - 1; i >= 0; i--) {
+                aux.add(mEventActions.get(i));
+            }
+            return TextUtils.join("_", aux);
+        }
+
+        public static void resetAppviewOrigins() {
+            mEventActions.clear();
+            mEventActions.add("home");
         }
     }
 }

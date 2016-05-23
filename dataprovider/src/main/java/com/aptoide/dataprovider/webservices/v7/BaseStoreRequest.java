@@ -129,7 +129,13 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                             }
 
                             for (ViewItem itemList : widget.listApps.datalist.itemView) {
-                                tab.list.add(createAppItem(itemList));
+                                if (context != null && (context.equals("home") || context.equals("community"))) {
+                                    tab.list.add(createAppItem(widget.title, itemList));
+                                } else if (isHome("store")) {
+                                    tab.list.add(createAppItem("store", itemList));
+                                } else {
+                                    tab.list.add(createAppItem(itemList));
+                                }
                             }
                         }
                     }
@@ -200,6 +206,12 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         return createAppItem(item, null);
     }
 
+    protected AppItem createAppItem(String origin, ViewItem item) {
+        AppItem appItem = createAppItem(item, null);
+        appItem.category = origin;
+        return appItem;
+    }
+
     protected AppItem createAppItem(ViewItem item, AppItem appItem) {
 
         if (appItem == null) {
@@ -253,11 +265,15 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
     }
 
     private HeaderRow createHeaderRow(String name, String tag, boolean hasMore, Action action, long storeId, String layout) {
-
-        HeaderRow header = new HeaderRow(name, tag, hasMore, action.event.action, action.event.type, action.event.name, layout, numColumns, storeId == Defaults.DEFAULT_STORE_ID, storeId);
+        boolean isHome = isHome("home");
+        HeaderRow header = new HeaderRow(name, tag, hasMore, action.event.action, action.event.type, action.event.name, layout, numColumns, isHome, storeId);
         header.setSpanSize(totalSpanSize);
 
         return header;
+    }
+
+    private boolean isHome(String home) {
+        return context != null && context.equals(home);
     }
 
     public Displayable createFeaturedEditorsChoice(List<ViewItem> itemList, List<Action> actions, long storeId, String layout) {
@@ -289,6 +305,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
             } else {
                 categ.setSpanSize(totalSpanSize);
             }
+            categ.setHomepage(isHome(context));
             categ.setLabel(display.label);
             categ.setGraphic(display.graphic);
             categ.setEventType(display.event.type);

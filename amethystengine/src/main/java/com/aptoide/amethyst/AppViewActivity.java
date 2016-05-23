@@ -233,6 +233,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					.replace(R.id.content, AppViewFragment.newInstance(lifecycleController))
 					.commit();
 		}
+		Analytics.AppViewViewdFrom.appviewViewdFrom(AptoideUtils.FlurryAppviewOrigin.getAppviewOrigin());
 	}
 
 	@Override

@@ -18,7 +18,6 @@ import com.localytics.android.Localytics;
 import java.util.HashMap;
 
 
-
 /**
  * Created by neuro on 07-05-2015.f
  */
@@ -69,10 +68,10 @@ public class Analytics {
             if (!ACTIVATE)
                 return;
 
-            if(checkAcceptability(flags, LOCALYTICS))
+            if (checkAcceptability(flags, LOCALYTICS))
                 Localytics.tagEvent(event, map);
 
-            if(checkAcceptability(flags, FLURRY))
+            if (checkAcceptability(flags, FLURRY))
                 FlurryAgent.logEvent(event, map);
 
             Logger.d("Analytics", "Event: " + event + ", Map: " + map);
@@ -88,10 +87,10 @@ public class Analytics {
             if (!ACTIVATE)
                 return;
 
-            if(checkAcceptability(flags, LOCALYTICS))
+            if (checkAcceptability(flags, LOCALYTICS))
                 Localytics.tagEvent(event);
 
-            if(checkAcceptability(flags, FLURRY))
+            if (checkAcceptability(flags, FLURRY))
                 FlurryAgent.logEvent(event);
 
             Logger.d("Analytics", "Event: " + event);
@@ -147,7 +146,8 @@ public class Analytics {
                     Localytics.setCustomDimension(0, "Logged In");
                 }
 
-                String cpuid = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getString(EnumPreferences.APTOIDE_CLIENT_UUID.name(), "NoInfo");
+                String cpuid = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext())
+                        .getString(EnumPreferences.APTOIDE_CLIENT_UUID.name(), "NoInfo");
 
                 Localytics.setCustomerId(cpuid);
 
@@ -536,7 +536,7 @@ public class Analytics {
         private static final String INSTALLED = "Installed";
         private static final String DOWNGRADED_ROLLBACK = "Downgraded Rollback";
 
-        private static void innerTrack(String packageName, String type,@Nullable Boolean referred, int flags) {
+        private static void innerTrack(String packageName, String type, @Nullable Boolean referred, int flags) {
             try {
                 HashMap<String, String> stringObjectHashMap = new HashMap<>();
 
@@ -556,7 +556,7 @@ public class Analytics {
             }
         }
 
-        private static void innerTrack(String packageName, String type,@Nullable Boolean referred, int flags, String isTrusted) {
+        private static void innerTrack(String packageName, String type, @Nullable Boolean referred, int flags, String isTrusted) {
             try {
                 HashMap<String, String> stringObjectHashMap = new HashMap<>();
 
@@ -624,19 +624,19 @@ public class Analytics {
         }
 
         public static void newUpdatesNotification() {
-                track(EVENT_NAME, SOURCE, NEW_UPDATES_NOTIFICATION, LOCALYTICS);
+            track(EVENT_NAME, SOURCE, NEW_UPDATES_NOTIFICATION, LOCALYTICS);
         }
 
         public static void downloadingUpdates() {
-                track(EVENT_NAME, SOURCE, DOWNLOADING_UPDATES, LOCALYTICS);
+            track(EVENT_NAME, SOURCE, DOWNLOADING_UPDATES, LOCALYTICS);
         }
 
         public static void timelineNotification() {
-                track(EVENT_NAME, SOURCE, TIMELINE_NOTIFICATION, LOCALYTICS);
+            track(EVENT_NAME, SOURCE, TIMELINE_NOTIFICATION, LOCALYTICS);
         }
 
         public static void newRepo() {
-                track(EVENT_NAME, SOURCE, NEW_REPO, LOCALYTICS);
+            track(EVENT_NAME, SOURCE, NEW_REPO, LOCALYTICS);
         }
     }
 
@@ -850,6 +850,14 @@ public class Analytics {
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static class AppViewViewdFrom {
+        public static void appviewViewdFrom(String viewed) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put("Source", viewed);
+            track("App_Viewed_Open_From", map, FLURRY);
         }
     }
 }

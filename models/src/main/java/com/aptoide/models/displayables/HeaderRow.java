@@ -18,7 +18,7 @@ public class HeaderRow extends Displayable implements IHasMore {
     private final String layout;
 
     @JsonIgnore    public String theme;
-    @JsonIgnore    public boolean homepage;
+    public boolean homepage;
     @JsonIgnore    public long storeId;
 
     public HeaderRow(String label, String tag, boolean hasMore, String eventActionUrl, String eventType, String eventName, String layout, int bucketSize, boolean homepage, long storeId) {

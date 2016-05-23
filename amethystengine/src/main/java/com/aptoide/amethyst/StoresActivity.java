@@ -145,7 +145,7 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
     public void onCreate(Bundle savedInstanceState) {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-
+        AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("store");
         setContentView(getContentView());
         bindViews();
 

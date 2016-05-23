@@ -164,6 +164,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             i.putExtra(Constants.STORENAME_KEY, appItem.storeName);
             i.putExtra(Constants.PACKAGENAME_KEY, appItem.packageName);
             i.putExtra(Constants.VERSIONNAME_KEY, appItem.versionName);
+            AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(appItem.category);
             view.getContext().startActivity(i);
         }
     }
@@ -201,7 +202,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 bundle.putString("partnerClickUrl", adItem.partnerClickUrl);
                 i.putExtra("partnerExtra", bundle);
             }
-
+            AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(adItem.category);
             view.getContext().startActivity(i);
         }
     }
@@ -334,6 +335,9 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         break;
                 }
 
+                if (row.getHomepage()) {
+                    AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(row.getLabel() + " More");
+                }
                 if (i != null) {
                     i.putExtra(Constants.EVENT_ACTION_URL, row.getEventActionUrl());
                     i.putExtra(Constants.EVENT_NAME, row.getEventName());

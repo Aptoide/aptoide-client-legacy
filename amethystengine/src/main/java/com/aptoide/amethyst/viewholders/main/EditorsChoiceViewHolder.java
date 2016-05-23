@@ -19,6 +19,7 @@ import com.aptoide.amethyst.viewholders.BaseViewHolder;
  */
 public class EditorsChoiceViewHolder extends BaseViewHolder {
 
+    public static final String EDITORS_CHOICE_STRING = "Editors Choice";
     public ImageView[] images;
     public TextView more;
 
@@ -36,6 +37,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
         for (; i < images.length && i < row.appItemList.size(); i++) {
             final AppItem appItem = row.appItemList.get(i);
             Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(images[i]);
+            appItem.category = EDITORS_CHOICE_STRING;
             images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
         }
 
@@ -43,6 +45,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
         ImageView extraImage = (ImageView) itemView.findViewById(R.id.extra_image);
         if (extraImage != null && row.appItemList.size() > i) {
             AppItem appItem = row.appItemList.get(i);
+            appItem.category = EDITORS_CHOICE_STRING;
             Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(extraImage);
             extraImage.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
         }
