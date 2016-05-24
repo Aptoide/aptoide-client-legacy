@@ -1,18 +1,16 @@
 package com.aptoide.amethyst.viewholders.main;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
+import com.aptoide.amethyst.viewholders.BaseViewHolder;
 import com.aptoide.models.displayables.AppItem;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.EditorsChoiceRow;
 import com.bumptech.glide.Glide;
 
-
-import com.aptoide.amethyst.adapter.BaseAdapter;
-import com.aptoide.amethyst.viewholders.BaseViewHolder;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by rmateus on 02/06/15.
@@ -38,7 +36,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
             final AppItem appItem = row.appItemList.get(i);
             Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(images[i]);
             appItem.category = EDITORS_CHOICE_STRING;
-            images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
+            images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem, i));
         }
 
         //when it's a tablet, we have to fill the extra image
@@ -47,7 +45,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
             AppItem appItem = row.appItemList.get(i);
             appItem.category = EDITORS_CHOICE_STRING;
             Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(extraImage);
-            extraImage.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
+            extraImage.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem, i));
         }
 
     }

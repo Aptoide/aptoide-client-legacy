@@ -1,10 +1,5 @@
 package com.aptoide.amethyst.analytics;
 
-import android.content.Context;
-import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.util.Log;
-
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.BuildConfig;
 import com.aptoide.amethyst.LoginActivity;
@@ -14,6 +9,11 @@ import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.flurry.android.FlurryAgent;
 import com.localytics.android.Localytics;
+
+import android.content.Context;
+import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.util.HashMap;
 
@@ -863,5 +863,18 @@ public class Analytics {
             map.put("Trusted Badge", rank);
             track(APP_VIEWED_OPEN_FROM_EVENT_NAME_KEY, map, FLURRY);
         }
+    }
+
+    public static class HomePageEditorsChoice {
+
+        public static final String HOME_PAGE_EDITORS_CHOICE = "Home_Page_Editors_Choice";
+
+        public static void sendHomePageEdiorsChoiceEvent(int position, String appName) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put("Search Position", Integer.valueOf(position).toString());
+            map.put("Application Name", appName);
+            track(HOME_PAGE_EDITORS_CHOICE, map, FLURRY);
+        }
+
     }
 }

@@ -10,6 +10,7 @@ package com.aptoide.amethyst.adapter;
 import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SearchActivity;
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.downloadmanager.adapter.NotOngoingDownloadRow;
 import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
 import com.aptoide.amethyst.models.EnumStoreTheme;
@@ -141,9 +142,16 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public static class AppItemOnClickListener implements View.OnClickListener {
 
         private final AppItem appItem;
+        private final int position;
 
         public AppItemOnClickListener(AppItem appItem) {
             this.appItem = appItem;
+            position = -1;
+        }
+
+        public AppItemOnClickListener(AppItem appItem, int position) {
+            this.appItem = appItem;
+            this.position = position;
         }
 
         @Override
@@ -165,6 +173,9 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             i.putExtra(Constants.PACKAGENAME_KEY, appItem.packageName);
             i.putExtra(Constants.VERSIONNAME_KEY, appItem.versionName);
             AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(appItem.category);
+            if ((position >= 0)) {
+                Analytics.HomePageEditorsChoice.sendHomePageEdiorsChoiceEvent(position, appItem.appName);
+            }
             view.getContext().startActivity(i);
         }
     }
