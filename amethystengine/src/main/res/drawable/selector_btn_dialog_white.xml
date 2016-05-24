@@ -7,7 +7,7 @@
                android:insetBottom="6dp">
             <shape>
                 <corners android:radius="2dp" />
-                <solid android:color="@color/silver_border_button_pressed_background" />
+                <solid android:color="@color/btn_color_control_highlight" />
                 <padding android:left="8dp"
                          android:top="4dp"
                          android:right="8dp"

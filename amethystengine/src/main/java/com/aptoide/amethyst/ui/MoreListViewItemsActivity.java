@@ -68,7 +68,7 @@ public class MoreListViewItemsActivity extends MoreActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        SearchManager.setupSearch(menu, this, false);
+        SearchManager.setupSearch(menu, this);
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -912,14 +912,10 @@ public class SearchManager extends AptoideBaseActivity implements SearchQueryCal
 
     private static boolean isSocketDisconnect;
 
-    public static void setupSearch(Menu menu, final Activity activity, boolean expandSearchView) {
+    public static void setupSearch(Menu menu, final Activity activity) {
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         final android.app.SearchManager searchManager = (android.app.SearchManager) activity.getSystemService(Context.SEARCH_SERVICE);
-
-        if (expandSearchView) {
-            MenuItemCompat.expandActionView(searchItem);
-        }
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

@@ -652,7 +652,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-        SearchManager.setupSearch(menu, this, false);
+        SearchManager.setupSearch(menu, this);
         return super.onCreateOptionsMenu(menu);
     }
 

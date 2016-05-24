@@ -150,31 +150,6 @@
         <item name="android:focusable">true</item>
     </style>
 
-    <style name="TextAppearance.Aptoide" parent="TextAppearance.AppCompat"/>
-    <style name="Widget.Aptoide.Button" parent="Widget.AppCompat.Button"/>
-    <style name="Widget.Aptoide.Button.Colored" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
-    </style>
-
-    <style name="TextAppearance.Aptoide.Dialog.Title" parent="TextAppearance.AppCompat.Medium">
-        <item name="android:textColor">@color/dialog_title_text</item>
-    </style>
-
-    <style name="TextAppearance.Aptoide.Dialog.Body" parent="TextAppearance.AppCompat.Caption">
-        <item name="android:textColor">@color/dialog_body_text</item>
-    </style>
-
-    <style name="Widget.Aptoide.Button.White">
-        <item name="android:background">@drawable/button_border_silver</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
-        <item name="android:textColor">@color/aptoide_orange</item>
-    </style>
-
-    <style name="Widget.Aptoide.Button.Orange">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
     <style name="WidgetButtonCustomGray" parent="@android:style/Widget.Button">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -230,11 +205,6 @@
         <item name="android:textAppearance">@android:style/TextAppearance.Small</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@android:color/black</item>
-    </style>
-
-    <style name="trustedBalloonStyle">
-        <item name="android:textSize">10sp</item>
-        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="WidgetButtonCarrierBillingFortumo" parent="WidgetButtonCustom">
@@ -387,6 +357,39 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="windowActionBar">false</item>
+    </style>
+
+
+    <style name="TextAppearance.Aptoide" parent="TextAppearance.AppCompat"/>
+
+    <style name="TextAppearance.Aptoide.Dialog.Title" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/dialog_title_text</item>
+    </style>
+
+    <style name="TextAppearance.Aptoide.Dialog.Body" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/dialog_body_text</item>
+    </style>
+
+    <style name="Widget.Aptoide.Button" parent="Widget.AppCompat.Button"/>
+
+    <style name="Widget.Aptoide.Button.Colored" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
+    </style>
+
+    <style name="Widget.Aptoide.Button.White">
+        <item name="android:background">@drawable/btn_inverse_default</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="android:textColor">@color/aptoide_orange</item>
+    </style>
+
+    <style name="Widget.Aptoide.Button.Orange">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.Aptoide.Balloon" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10.5sp</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
 </resources>

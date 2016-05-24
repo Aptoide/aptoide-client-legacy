@@ -11,7 +11,7 @@
               android:padding="12dp">
 
     <TextView
-        style="@style/trustedBalloonStyle"
+        style="@style/TextAppearance.Aptoide.Balloon"
         android:text="@string/balloon_security_information_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -19,20 +19,20 @@
     <LinearLayout
         android:layout_marginTop="6dp"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="24dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="40dp"
-            android:layout_height="32dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_avg"
             tools:ignore="contentDescription"/>
 
         <ImageView
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             android:layout_width="36dp"
-            android:layout_height="32dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_passed"
             tools:ignore="contentDescription"/>
 
@@ -40,35 +40,36 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_width="56dp"
-            android:layout_height="32dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_avast"
             tools:ignore="contentDescription"/>
 
         <ImageView
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             android:layout_width="36dp"
-            android:layout_height="32dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_passed"
             tools:ignore="contentDescription"/>
 
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="24dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="40dp"
-            android:layout_height="32dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_norton"
             tools:ignore="contentDescription"/>
 
         <ImageView
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             android:layout_width="36dp"
-            android:layout_height="32dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_passed"
             tools:ignore="contentDescription"/>
 
@@ -76,23 +77,23 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_width="56dp"
-            android:layout_height="32dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_mcafee"
             tools:ignore="contentDescription"/>
 
         <ImageView
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             android:layout_width="36dp"
-            android:layout_height="32dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_passed"
             tools:ignore="contentDescription"/>
 
     </LinearLayout>
 
     <TextView
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:id="@+id/balloon_security_information_google_play"
-        style="@style/trustedBalloonStyle"
+        style="@style/TextAppearance.Aptoide.Balloon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableEnd="@drawable/ic_google_play"

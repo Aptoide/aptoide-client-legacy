@@ -339,7 +339,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private Animation trustedBalloonFadeInAnimation;
 		private Animation mTrustedBalloonFadeOutAnimation;
 		private ABTest<Boolean> mShowTrustedBalloonABTest;
-		private boolean openSearchView;
 		private ViewItem trustedVersion;
 
 		public static AppViewFragment newInstance(boolean lifecycleController) {
@@ -1037,8 +1036,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
 			super.onCreateOptionsMenu(menu, inflater);
 			inflater.inflate(R.menu.menu_appview_activity, menu);
-			SearchManager.setupSearch(menu, getActivity(), openSearchView);
-			openSearchView = false;
+			SearchManager.setupSearch(menu, getActivity());
 		}
 
 		@Override
@@ -2737,8 +2735,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		}
 
 		public void openSearchView() {
-			openSearchView = true;
-			getActivity().supportInvalidateOptionsMenu();
+			final Intent searchIntent = new Intent(getActivity(), SearchActivity.class);
+			searchIntent.putExtra(SearchActivity.SEARCH_SOURCE, storeName);
+			searchIntent.putExtra(SearchActivity.SEARCH_THEME, storeTheme);
+			searchIntent.putExtra(android.app.SearchManager.QUERY, appName);
+			startActivity(searchIntent);
 		}
 
 		public void openTrustedVersionAppView() {
