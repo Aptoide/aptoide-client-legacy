@@ -1,8 +1,31 @@
 package com.aptoide.amethyst.adapter.store;
 
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
+import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
+import com.aptoide.amethyst.dialogs.AptoideDialog;
+import com.aptoide.amethyst.dialogs.ReplyCommentDialog;
+import com.aptoide.amethyst.ui.callbacks.AddCommentCallback;
+import com.aptoide.amethyst.ui.widget.CircleTransform;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.viewholders.BaseViewHolder;
+import com.aptoide.amethyst.viewholders.ProgressBarRowViewHolder;
+import com.aptoide.amethyst.viewholders.main.CommentHeaderViewHolder;
+import com.aptoide.amethyst.viewholders.main.EmptyViewHolder;
+import com.aptoide.amethyst.viewholders.store.CommentViewHolder;
+import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
+import com.aptoide.models.displayables.CommentItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.NoCommentPlaceHolderRow;
+import com.aptoide.models.displayables.ProgressBarRow;
+import com.bumptech.glide.Glide;
+
 import android.app.Activity;
-import android.content.res.Resources;
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
 import android.util.TypedValue;
@@ -12,35 +35,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
-import com.aptoide.amethyst.dialogs.AptoideDialog;
-import com.aptoide.amethyst.dialogs.ReplyCommentDialog;
-import com.aptoide.amethyst.ui.callbacks.AddCommentCallback;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
-import com.aptoide.models.displayables.CommentItem;
-import com.aptoide.models.displayables.Displayable;
-import com.aptoide.models.displayables.HeaderRow;
-import com.aptoide.models.displayables.ProgressBarRow;
-import com.aptoide.models.displayables.NoCommentPlaceHolderRow;
-import com.bumptech.glide.Glide;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
-
-
-import com.aptoide.amethyst.adapter.BaseAdapter;
-import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
-import com.aptoide.amethyst.ui.widget.CircleTransform;
-import com.aptoide.amethyst.viewholders.BaseViewHolder;
-import com.aptoide.amethyst.viewholders.ProgressBarRowViewHolder;
-import com.aptoide.amethyst.viewholders.main.CommentHeaderViewHolder;
-import com.aptoide.amethyst.viewholders.main.EmptyViewHolder;
-import com.aptoide.amethyst.viewholders.store.CommentViewHolder;
 
 /**
  * Created by hsousa on 21/07/15.

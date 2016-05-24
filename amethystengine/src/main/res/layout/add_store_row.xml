@@ -11,6 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="showAddStoreDialog"
-        android:text="Add more stores" />
+        android:text="@string/add_more_stores" />
 
 </LinearLayout>

@@ -93,9 +93,9 @@
     <string name="home_title">Utama</string>
     <string name="community">Komuniti</string>
     <string name="stores">Kedai-kedai</string>
-    <string name="updates">Kemas Kini</string>
+    <string name="updates">Kemaskini</string>
     <string name="social_timeline">Garis Waktu Sosial</string>
-    <string name="downloads">Muat Turun</string>
+    <string name="downloads">Muat turun</string>
 
 
     <string name="please_wait">Sila tunggu…</string>
@@ -111,7 +111,7 @@
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="username">E-mel</string>
-    <string name="password">Kata Laluan</string>
+    <string name="password">Kata laluan</string>
     <string name="link_device_webinstall">Pautkan akaun dengan Webinstall</string>
     <string name="setcredentials">Log masuk</string>
     <string name="dont_have_an_account">Tiada akaun? Daftar</string>
@@ -151,10 +151,10 @@
     <string name="restore">Pasang</string>
 
     <string name="timeout">Rangkaian sambungan tamat masa</string>
-    <string name="ip_blacklisted">IP Disenarai Hitam</string>
+    <string name="ip_blacklisted">IP disenaraihitam</string>
     <string name="connection_error">Tiada sambungan rangkaian</string>
     <string name="apk_not_found">Apk tidak dijumpai</string>
-    <string name="invalid_apk">Apk tidak sah</string>
+    <string name="invalid_apk">apk tidak sah</string>
     <string name="remote_in_nospace">Tidak cukup ruang pada peranti anda.</string>
     <string name="server_error">Ralat pelayan</string>
     <string name="paidapp_not_found">Ralat memuat turun aplikasi. Sila cuba lagi atau hubungi sokongan.</string>
@@ -212,7 +212,7 @@
     <string name="schDwnBtn">Menjadualkan Muat Turun</string>
     <string name="added_to_scheduled">Ditambah ke Menu&gt; Muat Turun Berjadual</string>
     <string name="schDown_install">Adakah anda ingin memasang semua muat turun berjadual?</string>
-    <string name="hidden_adult">Terdapat aplikasi tidak ditunjukkan kerana penapis kandungan dewasa adalah aktif. Adakah anda ingin menyenaraikan aplikasi kandungan Dewasa?</string>
+    <string name="hidden_adult">Terdapat aplikasi tidak ditunjukkan kerana penapis kandungan dewasa adalah aktif. Adakah anda ingin menyenaraikan aplikasi begini?</string>
     <string name="dont_show_again">Jangan tunjukkan dialog ini lagi</string>
 
     <string name="app_name">Aptoide</string>
@@ -297,7 +297,7 @@
     <string name="facebook_friends_list_using_timeline">telah menggunakan Garis Masa Sosial Aptoide</string>
     <string name="and">dan</string>
     <string name="more_friends">lebih</string>
-    <string name="more_reviews">Lebih Banyak Ulasan</string>
+    <string name="more_reviews">Ulasan</string>
     <string name="more_editors_choice">Lebih Banyak Pilihan Editor</string>
     <string name="more_versions">Lebih Banyak Versi</string>
     <string name="facebook_friends_list_using_timeline_empty">Garis Masa Sosial membolehkan anda untuk berkongsi aplikasi dengan rakan-rakan Facebook anda. Adakah anda ingin menyertai rangkaian tersebut?</string>
@@ -351,7 +351,7 @@
     <string name="store_privacy">Privasi kedai</string>
     <string name="public_key">awam</string>
     <string name="private_key">peribadi</string>
-    <string name="update">Kemas Kini</string>
+    <string name="update">Kemaskini</string>
     <string name="store_username">Nama pengguna</string>
     <string name="store_password">Kata Laluan</string>
     <string name="upload_app_backup_apps_installed">Anda perlu memuat naik aplikasi ini ke kedai anda dahulu. Anda boleh menggunakan Aplikasi Backup Aptoide.</string>
@@ -385,7 +385,7 @@
     <string name="setting_dont_show_mature_content">Menunjukkan kandungan matang</string>
     <string name="setting_mature_filtering">Kandungan Dewasa</string>
     <string name="setting_updates">Kemas kini</string>
-    <string name="update_all">Kemas kini semua</string>
+    <string name="update_all">Kemaskini semua</string>
     <string name="whats_new">Apa yang baru?</string>
     <string name="setting_updates_notification_sum">Memaparkan notifikasi kemas kini baru</string>
     <string name="setting_updates_notification_title">Pemberitahuan Kemas Kini</string>
@@ -427,7 +427,7 @@
     <string name="read_less">Lihat kurang</string>
     <string name="flag_this_app_good">Bagus</string>
     <string name="flag_this_app_button_text">Tandakan aplikasi ini</string>
-    <string name="appview_rating_card_text">Rating</string>
+    <string name="appview_rating_card_text">Penilaian</string>
     <string name="flag_this_app_need_licence">Perlu Lesen</string>
     <string name="flag_this_app_fake">Palsu</string>
     <string name="flag_this_app_freeze">Beku</string>
@@ -437,7 +437,7 @@
     <string name="appview_comment_reply_button_text">Balas</string>
     <string name="appview_header_trusted_text">Dipercayai</string>
     <string name="appview_latest_version_text">Ini adalah versi terkini!</string>
-    <string name="appview_subscribe_store_button_text">"+   Langgan?"</string>
+    <string name="appview_subscribe_store_button_text">Langgan?</string>
     <string name="appview_subscribed_store_button_text">Melanggan</string>
     <string name="appview_rate_this_app_text">Menilai aplikasi ini</string>
     <string name="appview_other_versions_in_others_stores">Versi lain di kedai-kedai lain</string>
@@ -466,7 +466,7 @@
     <string name="unsubscribed_">"Berhenti melanggan "</string>
     <string name="error_occured_uploading">Anda perlu memuat naik aplikasi ini dahulu.</string>
 
-    <string name="update_self_title">Kemas kini tersedia</string>
+    <string name="update_self_title">Terdapat kemaskini</string>
     <string name="update_self_msg">Terdapat versi baru%s tersedia\nAdakah anda ingin mengemas kini?</string>
     <string name="retrieving_update">Mendapatkan semula kemas kini…</string>
 
@@ -570,5 +570,13 @@
     <string name="privacy_policy">Dasar Privasi: %s</string>
     <string name="dialog_version_size">Versi: %1$s | Saiz: %2$s</string>
     <string name="na">N/A</string>
+
+<string name="no_email_and_pass_error_message">Sila masukkan e-mel dan kata laluan untuk mendaftar.</string>
+    <string name="no_pass_error_message">Sila masukkan kata laluan untuk mendaftar.</string>
+    <string name="no_email_error_message">Sila masukkan e-mel untuk mendaftar.</string>
+    <string name="website_copied">Laman web disalin ke papan keratan</string>
+    <string name="email_copied">E-mel disalin ke papan keratan</string>
+    <string name="privacy_copied">pautan privasi disalin ke papan keratan</string>
+    <string name="subscribing_store_message">Berhenti melanggan %s</string>
 
 </resources>
