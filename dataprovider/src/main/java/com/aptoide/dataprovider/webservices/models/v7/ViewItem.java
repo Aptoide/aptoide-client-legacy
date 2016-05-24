@@ -43,6 +43,14 @@ public class ViewItem {
         public String vername;
         public Number vercode;
         public String md5sum;
+        public Malware malware;
+
+        public static class Malware {
+            public static final String TRUSTED = "TRUSTED";
+            public static final String WARNING = "WARNING";
+            public static final String UNKNOWN = "UNKNOWN";
+            public String rank;
+        }
     }
 
 

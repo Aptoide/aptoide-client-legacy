@@ -30,18 +30,22 @@ public class InstallWarningDialog extends DialogFragment {
 
 	private static final String INSTALL_WARNING_DIALOG_APP_RANK =
 			"INSTALL_WARNING_DIALOG_APP_RANK";
+	private static final String INSTALL_WARNING_DIALOG_TRUSTED_APP_AVAILABLE =
+			"INSTALL_WARNING_DIALOG_TRUSTED_APP_AVAILABLE";
 
 	private InstallWarningDialogListener listener;
 	private String rank;
 	private Button trustedAppButton;
+	private boolean trustedVersionAvailable;
 	private Button proceedButton;
 
-	public static InstallWarningDialog newInstance(String rank) {
+	public static InstallWarningDialog newInstance(String rank, boolean trustedVersionAvailable) {
 
 		final InstallWarningDialog dialog = new InstallWarningDialog();
 
 		final Bundle bundle = new Bundle();
 		bundle.putString(INSTALL_WARNING_DIALOG_APP_RANK, rank);
+		bundle.putBoolean(INSTALL_WARNING_DIALOG_TRUSTED_APP_AVAILABLE, trustedVersionAvailable);
 		dialog.setArguments(bundle);
 
 		return dialog;
@@ -64,6 +68,8 @@ public class InstallWarningDialog extends DialogFragment {
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
 		rank = getArguments().getString(INSTALL_WARNING_DIALOG_APP_RANK);
+		trustedVersionAvailable = getArguments().getBoolean
+				(INSTALL_WARNING_DIALOG_TRUSTED_APP_AVAILABLE);
 	}
 
 	@SuppressLint("InflateParams")
@@ -145,8 +151,15 @@ public class InstallWarningDialog extends DialogFragment {
 	public void setTrustedAppButton(View contentView) {
 
 		trustedAppButton = (Button) contentView.findViewById(R.id.dialog_install_warning_trusted_app_button);
-		final String topString = contentView.getContext().getString(R.string.dialog_install_warning_search_for_trusted_app_button);
-		final String bottonString = contentView.getContext().getString(R.string.dialog_install_warning_trusted_app_button);
+		final String topString;
+		final String bottonString;
+		if (trustedVersionAvailable) {
+			topString = contentView.getContext().getString(R.string.dialog_install_warning_get_trusted_version_button);
+			bottonString = contentView.getContext().getString(R.string.dialog_install_warning_trusted_version_button);
+		} else {
+			topString = contentView.getContext().getString(R.string.dialog_install_warning_search_for_trusted_app_button);
+			bottonString = contentView.getContext().getString(R.string.dialog_install_warning_trusted_app_button);
+		}
 		final int topStringLength = topString.length();
 		final int bottonStringLength = bottonString.length();
 
@@ -158,7 +171,11 @@ public class InstallWarningDialog extends DialogFragment {
 			@Override
 			public void onClick(View v) {
 				if (listener != null) {
-					listener.searchForTrustedApp();
+					if (trustedVersionAvailable) {
+						listener.getTrustedAppVersion();
+					} else {
+						listener.searchForTrustedApp();
+					}
 				}
 				dismiss();
 			}

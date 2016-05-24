@@ -9,6 +9,8 @@ public interface InstallWarningDialogListener {
 
 	void searchForTrustedApp();
 
+	void getTrustedAppVersion();
+
 	void installApp();
 
 }

@@ -126,6 +126,7 @@ import com.aptoide.dataprovider.webservices.models.v2.GetComments;
 import com.aptoide.dataprovider.webservices.models.v3.RateApp;
 import com.aptoide.dataprovider.webservices.models.v7.GetApp;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
+import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
 import com.aptoide.models.ApkSuggestionJson;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
@@ -303,6 +304,14 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		}
 	}
 
+	@Override
+	public void getTrustedAppVersion() {
+		final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
+		if (fragment != null) {
+			((AppViewFragment) fragment).openTrustedVersionAppView();
+		}
+	}
+
 	@Nullable
 	public DownloadService getService() {
 		final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
@@ -331,6 +340,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private Animation mTrustedBalloonFadeOutAnimation;
 		private ABTest<Boolean> mShowTrustedBalloonABTest;
 		private boolean openSearchView;
+		private ViewItem trustedVersion;
 
 		public static AppViewFragment newInstance(boolean lifecycleController) {
 			AppViewFragment f = new AppViewFragment();
@@ -629,6 +639,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					showDialogIfComingFromBrowser();
 					showDialogIfComingFromAPKFY();
 					populateRatings(model.getApp);
+					setTrustedVersion(model.getApp.nodes.meta.data, model.getApp.nodes.versions.list);
 
 					if (mShowTrustedBalloonABTest.alternative()) {
 						setTrustedBalloon(new TrustedBalloon(malware, 5));
@@ -1620,11 +1631,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					}
 				});
 			}
-		}
-
-		public void openSearchView() {
-			openSearchView = true;
-			getActivity().supportInvalidateOptionsMenu();
 		}
 
 		class OpenStoreOnClickListener implements View.OnClickListener {
@@ -2694,7 +2700,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 				if (mShowTrustedBalloonABTest.alternative()
 						&& !GetAppMeta.File.Malware.TRUSTED.equals(rank)) {
-					InstallWarningDialog.newInstance(rank)
+					InstallWarningDialog.newInstance(rank, hasTrustedVersion())
 							.show(getFragmentManager(), "InstallWarningDialog");
 				} else {
 					download();
@@ -2706,6 +2712,44 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			public void onClick(DialogInterface dialog, int which) {
 				// shouldnt check if which is positive?
 				download();
+			}
+		}
+
+		private boolean hasTrustedVersion() {
+			return trustedVersion != null;
+		}
+
+		private void setTrustedVersion(GetAppMeta.App currentVersion, List<ViewItem> versions) {
+			if (currentVersion.file != null
+					&& currentVersion.file.malware != null
+					&& !TRUSTED.equals(currentVersion.file.malware.rank)) {
+
+				for (ViewItem version : versions) {
+					if (!currentVersion.id.equals(version.id)
+							&& version.file != null
+							&& version.file.malware != null
+							&& TRUSTED.equals(version.file.malware.rank)) {
+						trustedVersion = version;
+						break;
+					}
+				}
+			}
+		}
+
+		public void openSearchView() {
+			openSearchView = true;
+			getActivity().supportInvalidateOptionsMenu();
+		}
+
+		public void openTrustedVersionAppView() {
+			if (hasTrustedVersion()) {
+				final Intent appViewIntent = new Intent(getActivity(), AppViewActivity.class);
+				appViewIntent.putExtra(Constants.FROM_RELATED_KEY, true);
+				appViewIntent.putExtra(Constants.APP_ID_KEY, trustedVersion.id);
+				appViewIntent.putExtra(Constants.APPNAME_KEY, trustedVersion.name);
+				appViewIntent.putExtra(Constants.PACKAGENAME_KEY, trustedVersion.packageName);
+				appViewIntent.putExtra(Constants.DOWNLOAD_FROM_KEY, "app_view_more_multiversion");
+				startActivity(appViewIntent);
 			}
 		}
 	}

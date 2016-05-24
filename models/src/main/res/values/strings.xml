@@ -707,4 +707,6 @@
     <string name="dialog_install_warning_trusted_app_button">Trusted app</string>
     <string name="dialog_install_warning_careful_text">Be careful if you choose to install this app. It may have been tampered with, have viruses or malware.</string>
     <string name="dialog_install_warning_credibility_text">Before proceeding, check the Store\'s credibility and other user comments. Aptoide always recommends that you only install Trusted apps.</string>
+    <string name="dialog_install_warning_trusted_version_button">Trusted Version</string>
+    <string name="dialog_install_warning_get_trusted_version_button">Get</string>
 </resources>
