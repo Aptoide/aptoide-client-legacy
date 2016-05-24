@@ -57,15 +57,15 @@
 <string name="menu_context_reparse">Tải lại</string>
 <string name="menu_context_remove">Xóa</string>
 <string name="menu_select_all">Chọn Tất Cả</string>
-<string name="flag_this_app_button_text">Gắn cờ ứng dụng này</string>
+<string name="flag_this_app_button_text">Đánh dấu báo ứng dụng này</string>
 <string name="search">Tìm kiếm</string>
 <string name="my_account">Tài Khoản Của Tôi</string>
 <string name="no_sch_downloads">Duyệt tìm các ứng dụng sử dụng dữ liệu di động và sẽ tải về sau khi bạn kết nối wifi? Chọn Tải về theo lịch và thay đổi tùy chọn của bạn trong mục Cài đặt -&gt; Nội quy tải tổng quát - tới Wi-Fi.</string>
 <string name="schDown_installselected">Cài Đặt Lựa Chọn</string>
-<string name="stores">Kho</string>
+<string name="stores">Cửa hàng</string>
 <string name="insert_store_name">Nhập tên cửa hàng:</string>
-<string name="store_name">Tên Cửa Hàng</string>
-<string name="see_top_stores">Xem các kho hàng đầu</string>
+<string name="store_name">Tên cửa hàng</string>
+<string name="see_top_stores">Xem các cửa hàng hàng đầu</string>
 <string name="setcredentials">Đăng nhập</string>
 <string name="rollback">Ứng dụng gần đây</string>
 <string name="rollback_empty">Nhanh chóng hạ cấp bất kỳ ứng dụng nào xuống phiên bản trước đó và giải quyết các vấn đề tương thích. Giữ một bản ghi của tất cả các ứng dụng đã cài đặt của bạn (thông qua Aptoide) bao gồm cả phiên bản và ngày cài đặt.</string>
@@ -115,7 +115,7 @@
 <string name="appview_header_trusted_text">Tin cậy</string>
 <string name="downgrade">Hạ cấp</string>
 <string name="open">Mở</string>
-<string name="about_aptoide_antimalware">Hệ thống Chống phần mềm độc hại Aptoide phân tích các ứng dụng đang chạy và vô hiệu hóa các mối đe dọa tiềm ẩn trên tất cả các kho. Hệ thống này quét tất cả tập tin ứng dụng mới từ kho và chứng nhận chúng bằng cách so sánh với các Thị trường Android khác.</string>
+<string name="about_aptoide_antimalware">Hệ thống Chống phần mềm độc hại Aptoide phân tích các ứng dụng đang chạy và vô hiệu hóa các mối đe dọa tiềm ẩn trên tất cả các cửa hàng. Hệ thống này quét tất cả tập tin ứng dụng mới từ cửa hàng và chứng nhận chúng bằng cách so sánh với các Thị trường Android khác.</string>
 <string name="schDown_nodownloadselect">Không Có Lựa Chọn Tải Về</string>
 <string name="schDown_invertselection">Chọn Ngược Lại</string>
 <string name="schDown_removeselected">Xóa Lựa Chọn</string>
@@ -126,7 +126,7 @@
 <string name="signing_in">Đang đăng nhập…</string>
 <string name="reinstall">Cài lại</string>
 <string name="at_time">vào lúc %s</string>
-<string name="error_MARG_1">Thiếu kho</string>
+<string name="error_MARG_1">Thiếu cửa hàng</string>
 <string name="error_MARG_2">Thiếu thông tin ứng dụng</string>
 <string name="error_MARG_3">Thiếu phiên bản ứng dụng</string>
 <string name="error_MARG_4">Thiếu đăng nhập</string>
@@ -141,7 +141,7 @@
 <string name="error_MARG_101">Thiếu chú thích</string>
 <string name="error_MARG_102">Thiếu danh mục</string>
 <string name="error_MARG_103">Thiếu rating</string>
-<string name="error_MARG_104">Thiếu cờ</string>
+<string name="error_MARG_104">Thiếu đánh dấu</string>
 <string name="error_MARG_105">Thiếu nhận xét</string>
 <string name="error_MARG_106">Thiếu bình chọn</string>
 <string name="error_MARG_107">Thiếu văn bản</string>
@@ -166,7 +166,7 @@
 <string name="error_IARG_104">rating không hợp lệ</string>
 <string name="error_IARG_105">Website này không phải là một URL hợp lệ</string>
 <string name="error_IARG_106">ĐỊa chỉ email không hợp lệ</string>
-<string name="error_IARG_107">Cờ không hợp lệ</string>
+<string name="error_IARG_107">Đánh dấu không hợp lệ</string>
 <string name="error_IARG_108">Nhận xét không hợp lệ</string>
 <string name="error_IARG_109">Bình chọn không hợp lệ</string>
 <string name="error_IARG_110">Nhận xét trả lời không hợp lệ</string>
@@ -254,7 +254,7 @@
 <string name="update_self_msg">Hiện có một phiên bản mới của %s,\nbạn có muốn cập nhật không?</string>
 <string name="retrieving_update">Đang khôi phục cập nhật…</string>
 <string name="error_IARG_103">Thể loại không hợp lệ</string>
-    <string name="error_REPO_4_no_store">Tài khoản của bạn không có trong danh sách. Bạn cần tạo một tài khoản mới.</string>
+    <string name="error_REPO_4_no_store">Tài khoản của bạn không có cửa hàng được tạo. Bạn cần tạo một cái để xem xét.</string>
     <string name="error_REPO_7">Người dùng này đã có một repo hợp lệ.</string>
 
     <string name="error_APK_Description">Lựa chọn không có hiệu lực</string>
@@ -280,11 +280,11 @@
     <string name="whats_timeline">Dòng thời gian xã hội Aptoide là gì?</string>
     <string name="feedback_to_write2">Gửi cho chúng tôi phản hồi tại đây...\nVui lòng gửi cho chúng tôi tất cả chi tiết bạn có thể nhận:\nCác bước bạn phải làm\nCác lỗi sai bạn sẽ thấy</string>
     <string name="password_validation_text">"Mật khẩu cần phải có ít nhất 8 kí tự và nên có ít nhất 1 chữ cái và 1 chữ số hoặc những kí tự đặc biệt khác (!@#$%*) "</string>
-    <string name="subscribe_newrepo_alrt">Bạn có muốn theo dõi kho này không?\n\n</string>
-    <string name="subscribe_store">Theo dõi kho</string>
-    <string name="store_subscribed">Kho %s được theo dõi</string>
-    <string name="subscribing">Đăng kí %s kho…</string>
-    <string name="create_store">Tạo kho</string>
+    <string name="subscribe_newrepo_alrt">Bạn có muốn theo dõi cửa hàng này không?\n\n</string>
+    <string name="subscribe_store">Theo dõi cửa hàng</string>
+    <string name="store_subscribed">Cửa hàng %s được theo dõi</string>
+    <string name="subscribing">Đăng kí %s cửa hàng…</string>
+    <string name="create_store">Tạo cửa hàng</string>
     <string name="section">Khu vực</string>
 
     <string name="permissions_na">Cho phép: N/A</string>
@@ -316,7 +316,7 @@
     <string name="facebook_logout_and_login">Đăng thoát và đăng nhập bằng Facebook</string>
 
     <string name="added_to_scheduled">Được thêm vào Trình đơn &gt; Tải theo lịch trình</string>
-    <string name="hidden_adult">Có nhiều ứng dụng không được hiển thị do bộ lọc nội dung dành cho Người lớn được kích hoạt. Bạn có muốn liệt kê ứng dụng có nội dung dành cho Người lớn không?</string>
+    <string name="hidden_adult">Một vài ứng dụng không được hiển thị do bộ lọc nội dung người lớn được kích hoạt. Bạn có muốn liệt kê những ứng dụng này không?</string>
     <string name="dont_show_again">Đừng hiển thị lại đoạn hội thoại này</string>
 
     <string name="app_name">Aptoide</string>
@@ -340,7 +340,7 @@
 
     <string name="search_other_stores">Hoặc tìm kiếm những thứ khác…</string>
     <string name="subscribe">Theo dõi</string>
-    <string name="subscribe_pvt_store">Theo dõi kho riêng tư</string>
+    <string name="subscribe_pvt_store">Theo dõi cửa hàng riêng tư</string>
 
     <string name="exclude_update">Bỏ qua cập nhật</string>
     <string name="install_update">Đài đặt cập nhật</string>
@@ -403,24 +403,24 @@
     <string name="write_one_con">Viết ít nhất một điều bất cập</string>
     <string name="write_your_final_verdict">Viết phán quyết cuối cùng của bạn</string>
     <string name="review_success">Đánh giá đã gửi thành công!</string>
-    <string name="store_privacy">Kho riêng tư</string>
+    <string name="store_privacy">Cửa hàng riêng tư</string>
     <string name="public_key">công khai</string>
     <string name="private_key">riêng tư</string>
-    <string name="upload_app_backup_apps_installed">Bạn cần đăng tải ứng dụng này lên kho của bạn trước tiên. Bạn có thể sử dụng Ứng dụng Hỗ trợ Aptoide.</string>
-    <string name="upload_app_backup_apps_not_installed">Bạn cần phải tải ứng dụng này lên kho của mình đầu tiên. Vui lòng cài đặt và sử dụng Ứng dụng hỗ trợ Aptoide.</string>
+    <string name="upload_app_backup_apps_installed">Bạn cần đăng tải ứng dụng này lên cửa hàng của bạn trước tiên. Bạn có thể sử dụng Ứng dụng Hỗ trợ Aptoide.</string>
+    <string name="upload_app_backup_apps_not_installed">Bạn cần phải tải ứng dụng này lên cửa hàng của mình đầu tiên. Vui lòng cài đặt và sử dụng Ứng dụng hỗ trợ Aptoide.</string>
     <string name="upload_app">Đăng tải ứng dụng</string>
     <string name="create_review">Viết nhận xét</string>
 
     <string name="settings_dwn_network_rules">Tùy chọn mạng di động</string>
     <string name="setting_sum_icon_download_rules">Cho phép tải biểu tượng qua kết nối dữ liệu di động</string>
     <string name="setting_mobile">Điện thoại 3G/4G</string>
-    <string name="setting_sum_general_download_rules">Tải Ứng dụng, Lựa chọn chỉnh sửa, Ứng dựng hàng đầu và Kho qua kết nối dữ liệu di động cho phép</string>
+    <string name="setting_sum_general_download_rules">Tải Ứng dụng, Lựa chọn chỉnh sửa, Ứng dựng hàng đầu và cửa hàng qua kết nối dữ liệu di động cho phép</string>
     <string name="setting_general_download_rules">Nội quy tải về tổng quát</string>
     <string name="setting_category_autoupdate">Cập nhật tự động Aptoide</string>
     <string name="setting_category_autoupdate_title">Kích hoạt tính năng tự động cập nhật Aptoide</string>
     <string name="setting_dont_show_mature_content">Hiển thị nội dung dành cho người trưởng thành</string>
     <string name="whats_new">Cái mới là gì vậy?</string>
-    <string name="disable_social_timeline">Dòng thời gian xã hội bị vô hiệu hóa</string>
+    <string name="disable_social_timeline">Vô hiệu hoá Dòng thời gian xã hội</string>
     <string name="social_timeline_notifications_sum2">Kích hoạt tính năng Thông báo dòng thời gian xã hội Aptoide. Bạn sẽ nhận được những tin tức mới nhất trên thanh thông báo.</string>
     <string name="social_timeline_notifications">Thông báo dòng thời gian</string>
     <string name="drawer_social_media_title">Hãy giữ kết nối</string>
@@ -431,7 +431,7 @@
     <string name="appview_latest_version_text">Đây là phiên bản mới nhất!</string>
     <string name="appview_subscribe_store_button_text">Theo dõi?</string>
     <string name="appview_subscribed_store_button_text">Đã theo dõi</string>
-    <string name="appview_other_versions_in_others_stores">Những phiên bản khác ở kho khác</string>
+    <string name="appview_other_versions_in_others_stores">Những phiên bản khác ở cửa hàng khác</string>
     <string name="appview_rate_Success">Tỉ lệ xếp hạng của ứng dụng</string>
     <string name="noIgnoreUpdateText">Phiên bản mới của ứng dụng không hoạt động trên thiết bị của bạn hoặc một số tính năng còn thiếu? Chặn ứng dụng khỏi cập nhật. Tới tab Cập nhật và ấn lâu trên ứng dụng mà bạn muốn dừng cập nhật.</string>
     <string name="createReviewButtonText">Viết\nNhận xét</string>
@@ -442,18 +442,18 @@
     <string name="version">Phiên bản</string>
     <string name="version_placeholder">Phiên bản: %s</string>
 
-    <string name="results_subscribed">Kho đã được theo dõi</string>
-    <string name="results_in_store">"Kết quả tìm kiếm ở kho  %s"</string>
-    <string name="other_stores">Kho không được theo dõi</string>
+    <string name="results_subscribed">Cửa hàng đã được theo dõi</string>
+    <string name="results_in_store">Kết quả tìm kiếm ở cửa hàng %s</string>
+    <string name="other_stores">Cửa hàng không được theo dõi</string>
     <string name="reviews">Nhận xét</string>
-    <string name="store">Kho</string>
+    <string name="store">Cửa hàng</string>
     <string name="title_caps">TIÊU ĐỀ</string>
 
     <string name="unsubscribe_yes_no">Bạn có chắc bạn muốn bỏ theo dõi?</string>
-    <string name="unsubscribed_">"Bỏ theo dõi "</string>
+    <string name="unsubscribed_">"Đã bỏ theo dõi "</string>
     <string name="error_occured_uploading">Bạn cần tải lên ứng dụng này trước tiên.</string>
 
-    <string name="menu_search_item_go_to_store">Đi tới kho</string>
+    <string name="menu_search_item_go_to_store">Đi tới cửa hàng</string>
     <string name="srch_hint">Tìm kiếm ứng dụng…</string>
 
     <string name="app_trusted">%s đáng tin cậy</string>
@@ -470,10 +470,10 @@
     <string name="trusted_app">Ứng dụng đáng tin cậy</string>
     <string name="unknown">Không được biết đến</string>
 
-    <string name="reason_third_party">Chúng tôi vừa kiểm tra chữ kí của ứng dụng và nó khớp với Google Play Store, vì thế hãy thoải mái và thưởng thức ứng dụng.</string>
+    <string name="reason_third_party">Chúng tôi vừa kiểm tra chữ kí của ứng dụng và nó khớp với Cửa hàng Google Play, vì thế hãy thoải mái và thưởng thức ứng dụng.</string>
     <string name="reason_scanned">Quét bằng AptoideGuard thêm 2 phần mềm diệt vi rút khác (Zoner 1.8 và Sophos 3.0).</string>
     <string name="reason_signature">Chữ ký mật mã đảm bảo rằng tập tin an toàn để cài đặt và không bị xâm nhập.</string>
-    <string name="reason_manual">Ứng dụng này đã được đánh giá thủ công bởi đội ngũ chuyên gia của Aptoide, và được gắn cờ Tốt.</string>
+    <string name="reason_manual">Ứng dụng này đã được đánh giá thủ công bởi đội ngũ chuyên gia của Aptoide, và được đánh dấu Tốt.</string>
 
     <string name="reason_failed">Chữ ký ứng dụng không khớp với chữ ký của lập trình viên. Ứng dụng có thể đã bị giả mạo.</string>
     <string name="reason_unknown">Không có đủ thông tin về ứng dụng này trong nền tảng chống mã độc Aptoide.</string>
@@ -510,18 +510,18 @@
     <string name="flag_fake">Giả mạo</string>
     <string name="flag_freeze">Đóng băng</string>
     <string name="flag_virus">Vi rút</string>
-    <string name="flag_this_app">Cảnh báo ứng dụng này</string>
-    <string name="flag_added">Cờ đã được thêm</string>
+    <string name="flag_this_app">Đánh dấu ứng dụng này</string>
+    <string name="flag_added">Đã thêm đánh dấu</string>
     <string name="skip">Bỏ qua</string>
     <string name="wizard_title_01">Chào mừng tới Aptoide</string>
-    <string name="wizard_description_01">Tạo một tài khoản miễn phí và đăng kí để bắt đầu xây dựng Kho ứng dụng cá nhân của bạn.\nDuyệt tìm theo kho đề tài và khám phá những ứng dụng mới và thú vị.</string>
+    <string name="wizard_description_01">Tạo một tài khoản miễn phí và đăng kí để bắt đầu xây dựng cửa hàng ứng dụng cá nhân của bạn.\nDuyệt tìm theo cửa hàng đề tài và khám phá những ứng dụng mới và thú vị.</string>
     <string name="wizard_title_02">An ninh đã được tăng cường</string>
     <string name="wizard_description_02">Tìm kiếm phù hiệu đáng tin cậy và các ứng dụng tải về an toàn.\n\n Vấn đề không tương thích? Tìm kiếm các phiên bản trước của các ứng dụng.</string>
     <string name="wizard_title_03">Thành viên mới của gia đình chúng ta</string>
     <string name="wizard_subtitle_03_1">Aptoide Lite</string>
     <string name="wizard_description_03_1">dành cho thiết bị cũ và kết nối mạng chậm</string>
     <string name="wizard_subtitle_03_2">Aptoide TV</string>
-    <string name="wizard_description_03_2">Kho ứng dụng tối ưu hóa cho hộp Set top và TV thông minh</string>
+    <string name="wizard_description_03_2">Cửa hàng ứng dụng tối ưu hóa cho hộp Set top và TV thông minh</string>
     <string name="wizard_reviews_title">Đánh giá</string>
     <string name="wizard_reviews">Bạn có thể tạo đánh giá của ứng dụng với Aptoide!</string>
     <string name="wizard_new_and_improved">Hoạt động được cải thiện!</string>
@@ -531,7 +531,7 @@
     <string name="wizard_new_and_improved_bullet_4">Giao diện người dùng rõ ràng</string>
     <string name="wizard_new_homepage">Giao diện trang chủ mới</string>
     <string name="wizard_new_top">Tab Điểm xếp hạng đầu mới</string>
-    <string name="subscribe_apps_official_store">Theo dõi kho ứng dụng chính thức Aptoide</string>
+    <string name="subscribe_apps_official_store">Theo dõi cửa hàng ứng dụng chính thức Aptoide</string>
     <string name="wizard_next">Tiếp</string>
     <string name="wizard_prev">Trước</string>
     <string name="search_activity_title">\'%s\'</string>
@@ -559,6 +559,83 @@
     <string name="website_copied">Trang web đã được lưu để sao chép</string>
     <string name="email_copied">Địa chỉ mail đã được lưu để sao chép</string>
     <string name="privacy_copied">Đường dẫn riêng đã được lưu để sao chép</string>
-    <string name="subscribing_store_message">Huỷ đăng ký</string>
+    <string name="subscribing_store_message">Huỷ đăng ký %s</string>
 
-</resources>
+<string name="comics">Truyện cười</string>
+    <string name="tools">Công cụ</string>
+    <string name="themes">Chủ đề</string>
+    <string name="strategy">Chiến lược</string>
+    <string name="sports">Thể thao</string>
+    <string name="software_libraries">Thư viện phần mềm</string>
+    <string name="social">Xã hội</string>
+    <string name="Reference">Tham khảo</string>
+    <string name="puzzle">Câu đố</string>
+    <string name="productivity">Sản lượng</string>
+    <string name="news_weather">Bản tin &amp; Thời tiết</string>
+    <string name="news_magazines">Tin tức và tạp chí</string>
+    <string name="media_video">Truyền thông và video</string>
+    <string name="lifestyle">Phong cách sống</string>
+    <string name="games">Trò chơi</string>
+    <string name="finance">Tài chính</string>
+    <string name="family">Gia đình</string>
+    <string name="entertainment">Giải trí</string>
+    <string name="enable">Kích hoạt</string>
+    <string name="education">Giáo dục</string>
+    <string name="demo">Thử nghiệm</string>
+    <string name="communication">Giao tiếp</string>
+    <string name="casino">Sòng bạc</string>
+    <string name="auto_update">Cập nhật tự động</string>
+    <string name="applications">Ứng dụng</string>
+    <string name="latest_comments">Bình luận mới nhất</string>
+    <string name="latest_reviews">Đánh giá mới nhất</string>
+    <string name="action">Hành động</string>
+    <string name="all">Tất cả</string>
+    <string name="books_reference">Sách và tham khảo</string>
+    <string name="casual">Bình thường</string>
+    <string name="educational">Thuộc về giáo dục</string>
+    <string name="personalization">Cá nhân hóa</string>
+    <string name="racing">Cuộc đua</string>
+    <string name="simulation">Mô phỏng</string>
+    <string name="sports_games">Trò chơi thể thao</string>
+    <string name="top_apps">Những ứng dụng hàng đầu</string>
+    <string name="top_games">Những trò chơi hàng đầu</string>
+    <string name="health">Sức khỏe</string>
+    <string name="multimedia">Đa phương tiện</string>
+    <string name="music">Âm nhạc</string>
+    <string name="music_audio">Âm nhạc và âm thanh</string>
+    <string name="reference">Tham khảo</string>
+    <string name="travel">Du lịch</string>
+    <string name="shopping">Mua sắm</string>
+    <string name="weather">Thời tiết</string>
+
+    <string name="latest_applications">Những ứng dụng mới nhất</string>
+    <string name="top_apps_in_store">Những ứng dụng hàng đầu trong cửa hàng này</string>
+    <string name="aptoide_publishers">Các nhà xuất bản Aptoide</string>
+    <string name="music_video">Âm nhạc và Video</string>
+    <string name="essential_apps">Các ứng dụng thiết yếu</string>
+    <string name="summer_apps">Các ứng dụng mùa hè</string>
+    <string name="adventure">Hành trình</string>
+    <string name="board">Bảng</string>
+    <string name="business">Kinh doanh</string>
+    <string name="card">Thẻ</string>
+    <string name="cards_casino">Thẻ và sòng bạc</string>
+    <string name="health_fitness">Sức khỏe và thể hình</string>
+    <string name="highlighted">Được nhấn mạnh</string>
+    <string name="local_top_apps">Các ứng dụng hàng đầu địa phương</string>
+    <string name="medical">Y khoa</string>
+    <string name="photography">Nhiếp ảnh</string>
+    <string name="quick_start">Giới thiệu nhanh</string>
+    <string name="role_playing">Trò chơi nhập vai</string>
+    <string name="transport">Giao thông</string>
+    <string name="transportation">Phương tiện giao thông</string>
+    <string name="travel_local">Địa điểm và du lịch</string>
+    <string name="trending">Theo xu hướng</string>
+    <string name="trivia">Chuyện vặt</string>
+    <string name="word">Từ</string>
+    <string name="apps_for_kids">Các ứng dụng cho trẻ con</string>
+    <string name="play_it">Chơi đi!</string>
+<string name="brain_puzzle">Trò chơi ghép hình và trí tuệ</string>
+    <string name="libraries_demo">Các thư viện và Demo</string>
+    <string name="arcade_action">Hành động và giải trí</string>
+    <string name="arcade">Trò chơi trên một loại máy sử dụng đồng xu</string>
+    </resources>

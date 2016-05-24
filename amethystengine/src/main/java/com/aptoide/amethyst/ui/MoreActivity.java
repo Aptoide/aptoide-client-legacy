@@ -1,5 +1,15 @@
 package com.aptoide.amethyst.ui;
 
+import com.aptoide.amethyst.AptoideBaseActivity;
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.SearchActivity;
+import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Translator;
+import com.aptoide.dataprovider.AptoideSpiceHttpService;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.octo.android.robospice.SpiceManager;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,17 +17,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
-
-import com.aptoide.amethyst.AptoideBaseActivity;
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.dataprovider.AptoideSpiceHttpService;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.octo.android.robospice.SpiceManager;
-
-
-import com.aptoide.amethyst.SearchActivity;
 
 /**
  * Created by hsousa on 05-10-2015.
@@ -99,7 +98,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
             localyticstag = args.getString(Constants.LOCALYTICS_TAG);
             storeTheme = EnumStoreTheme.values()[args.getInt(Constants.THEME_KEY, 0)];
             packageName = args.getString(Constants.PACKAGENAME_KEY);
-            getSupportActionBar().setTitle(label);
+            getSupportActionBar().setTitle(Translator.translate(label));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().setStatusBarColor(getResources().getColor(storeTheme.getColor700tint()));
             }
