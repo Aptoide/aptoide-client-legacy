@@ -854,10 +854,13 @@ public class Analytics {
     }
 
     public static class AppViewViewdFrom {
+
+        public static final String APP_VIEWED_OPEN_FROM_EVENT_NAME_KEY = "App_Viewed_Open_From";
+
         public static void appviewViewdFrom(String viewed) {
             HashMap<String, String> map = new HashMap<>();
             map.put("Source", viewed);
-            track("App_Viewed_Open_From", map, FLURRY);
+            track(APP_VIEWED_OPEN_FROM_EVENT_NAME_KEY, map, FLURRY);
         }
     }
 }
