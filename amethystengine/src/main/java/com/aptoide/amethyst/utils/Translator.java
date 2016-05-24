@@ -239,6 +239,12 @@ public class Translator {
             case "Play-it!":
                 translated = Aptoide.getContext().getString(R.string.play_it);
                 break;
+            case "More Editors Choice":
+                translated = Aptoide.getContext().getString(R.string.more_editors_choice);
+                break;
+            case "More Editor's Choice":
+                translated = Aptoide.getContext().getString(R.string.more_editors_choice);
+                break;
             default:
                 translated = string;
                 break;

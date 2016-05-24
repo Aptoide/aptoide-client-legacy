@@ -68,7 +68,7 @@
 <string name="see_top_stores">查看熱門商店</string>
 <string name="setcredentials">登錄</string>
 <string name="rollback">回滾</string>
-<string name="rollback_empty">快速將任何應用降級至先前的版本，從而解決不相容問題。記錄您透過Aptoide安裝的所有應用，包括版本和安裝日期。</string>
+<string name="rollback_empty">快速將任何應用降級至先前的版本，從而解決不相容問題。記錄您透過安裝的所有應用，包括版本和安裝日期。</string>
 <string name="rollback_installed">已安裝</string>
 <string name="rollback_uninstalled">已卸載的</string>
 <string name="rollback_updated">已更新的</string>
