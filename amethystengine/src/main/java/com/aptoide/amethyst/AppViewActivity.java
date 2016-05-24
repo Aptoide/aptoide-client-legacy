@@ -233,7 +233,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					.replace(R.id.content, AppViewFragment.newInstance(lifecycleController))
 					.commit();
 		}
-		Analytics.AppViewViewdFrom.appviewViewdFrom(AptoideUtils.FlurryAppviewOrigin.getAppviewOrigin());
 	}
 
 	@Override
@@ -635,6 +634,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 								resultBundle.data);
 						resultBundle = null;
 					}
+					Analytics.AppViewViewedFrom.appviewViewedFrom(AptoideUtils.FlurryAppviewOrigin.getAppviewOrigin(), model.getApp.nodes.meta.data.file.malware.rank);
 				}
 			}
 		};
