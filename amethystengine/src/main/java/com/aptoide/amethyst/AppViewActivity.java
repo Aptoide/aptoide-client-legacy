@@ -2746,10 +2746,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			if (hasTrustedVersion()) {
 				final Intent appViewIntent = new Intent(getActivity(), AppViewActivity.class);
 				appViewIntent.putExtra(Constants.FROM_RELATED_KEY, true);
-				appViewIntent.putExtra(Constants.APP_ID_KEY, trustedVersion.id);
+				appViewIntent.putExtra(Constants.APP_ID_KEY, trustedVersion.id.longValue());
 				appViewIntent.putExtra(Constants.APPNAME_KEY, trustedVersion.name);
 				appViewIntent.putExtra(Constants.PACKAGENAME_KEY, trustedVersion.packageName);
-				appViewIntent.putExtra(Constants.DOWNLOAD_FROM_KEY, "app_view_more_multiversion");
 				startActivity(appViewIntent);
 			}
 		}
