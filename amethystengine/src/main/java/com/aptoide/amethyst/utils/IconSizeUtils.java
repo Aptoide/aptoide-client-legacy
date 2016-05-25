@@ -1,9 +1,9 @@
 package com.aptoide.amethyst.utils;
 
+import com.aptoide.amethyst.Aptoide;
+
 import android.content.Context;
 import android.util.DisplayMetrics;
-
-import com.aptoide.amethyst.Aptoide;
 
 import java.util.HashMap;
 
@@ -31,6 +31,11 @@ public class IconSizeUtils {
         mStoreIconSizes = new HashMap<>();
         mStoreIconSizes.put(DisplayMetrics.DENSITY_XXXHIGH, "");
         mStoreIconSizes.put(DisplayMetrics.DENSITY_XXHIGH, "450x450");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_280, "225x225");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_360, "300x300");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_400, "450x450");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_420, "450x450");
+        mStoreIconSizes.put(DisplayMetrics.DENSITY_560, "450x450");
         mStoreIconSizes.put(DisplayMetrics.DENSITY_XHIGH, "300x300");
         mStoreIconSizes.put(DisplayMetrics.DENSITY_HIGH , "225x225");
         mStoreIconSizes.put(DisplayMetrics.DENSITY_MEDIUM , "150x150");
@@ -43,6 +48,11 @@ public class IconSizeUtils {
         mIconSizes= new HashMap<>();
         mIconSizes.put(DisplayMetrics.DENSITY_XXXHIGH, "");
         mIconSizes.put(DisplayMetrics.DENSITY_XXHIGH, "288x288");
+        mIconSizes.put(DisplayMetrics.DENSITY_280, "144x144");
+        mIconSizes.put(DisplayMetrics.DENSITY_360, "192x192");
+        mIconSizes.put(DisplayMetrics.DENSITY_400, "288x288");
+        mIconSizes.put(DisplayMetrics.DENSITY_420, "288x288");
+        mIconSizes.put(DisplayMetrics.DENSITY_560, "288x288");
         mIconSizes.put(DisplayMetrics.DENSITY_XHIGH, "192x192");
         mIconSizes.put(DisplayMetrics.DENSITY_HIGH , "144x144");
         mIconSizes.put(DisplayMetrics.DENSITY_MEDIUM , "127x127");
