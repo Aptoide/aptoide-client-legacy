@@ -358,7 +358,7 @@
     <string name="added_to_scheduled">Engadida ao Menú &gt; Descargas programadas</string>
     <string name="action_settings">Configuración</string>
     <string name="downgrade">Regresar a unha version anterior</string>
-    <string name="rollback_empty">Regresa rápidamente a versións anteriores de calquera aplicación e resolve os problemas de incompatibilidade. Mantén un rexistro de todas as aplicacións instaladas (a través de Aptoide) onde se inclúa a versión e a data de instalación.</string>
+    <string name="rollback_empty">Regresa rápidamente a versións anteriores de calquera aplicación e resolve os problemas de incompatibilidade. Mantén un rexistro de todas as aplicacións instaladas onde se inclúa a versión e a data de instalación.</string>
 
     <string name="installed_tab">Instalada</string>
     <string name="updates_tab">Actualización</string>

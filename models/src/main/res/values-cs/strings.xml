@@ -73,7 +73,7 @@
 <string name="see_top_stores">Prohlédněte nejlepší obchody</string>
 <string name="setcredentials">Přihlášení</string>
 <string name="rollback">Vrátit zpět</string>
-<string name="rollback_empty">Proveďte downgrade na předchozí verzi aplikace a vyřešte problém s kompatibilitou. Udržujeme záznamy o všech vašich nainstalovaných aplikacích (přes Aptoide) včetně jejich verzí a data instalace.</string>
+<string name="rollback_empty">Proveďte downgrade na předchozí verzi aplikace a vyřešte problém s kompatibilitou. Udržujeme záznamy o všech vašich nainstalovaných aplikacích včetně jejich verzí a data instalace.</string>
 <string name="rollback_installed">Nainstalováno</string>
 <string name="rollback_uninstalled">Odinstalováno</string>
 <string name="rollback_updated">Aktualizováno</string>

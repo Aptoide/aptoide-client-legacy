@@ -75,7 +75,7 @@
 <string name="see_top_stores">トップストアを参照</string>
 <string name="setcredentials">ログイン</string>
 <string name="rollback">ロールバック</string>
-<string name="rollback_empty">任意のアプリをすぐに以前のバージョンにダウングレードして、非互換性の問題を解決します。(Aptoide 経由の) すべてのインストールされているアプリのバージョン、インストール日付などのログを保存します。</string>
+<string name="rollback_empty">任意のアプリをすぐに以前のバージョンにダウングレードして、非互換性の問題を解決します。すべてのインストールされているアプリのバージョン、インストール日付などのログを保存します。</string>
 <string name="rollback_installed">インストールされました</string>
 <string name="rollback_uninstalled">アンインストールされました</string>
 <string name="rollback_updated">更新されました</string>

@@ -75,7 +75,7 @@
 <string name="see_top_stores">En iyi mağazaları gör</string>
 <string name="setcredentials">Giriş</string>
 <string name="rollback">Geri al</string>
-<string name="rollback_empty">Herhangi bir uygulamayı hızlı bir şekilde önceki sürüme geri alın ve uyumsuzluk sorunlarını çözün. Aptoide ile kurduğunuz tüm uygulamaların kütüğünü tutun, ki bu sürüm ve kurulum tarihini de içerir.</string>
+<string name="rollback_empty">Herhangi bir uygulamayı hızlı bir şekilde önceki sürüme geri alın ve uyumsuzluk sorunlarını çözün. ile kurduğunuz tüm uygulamaların kütüğünü tutun, ki bu sürüm ve kurulum tarihini de içerir.</string>
 <string name="rollback_installed">Kuruldu</string>
 <string name="rollback_uninstalled">Kaldırılmış</string>
 <string name="rollback_updated">Güncellenmiş</string>

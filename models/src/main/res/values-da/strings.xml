@@ -232,7 +232,7 @@
     <string name="downgrade">Nedgrader</string>
     <string name="reinstall">Geninstaller</string>
 
-    <string name="rollback_empty">Nedgrader hurtigt en app til en tidligere version og løs kompatibilitetsproblemer. Lav en log over dine installerede apps (via Aptoide) inklusiv version og installationsdato.</string>
+    <string name="rollback_empty">Nedgrader hurtigt en app til en tidligere version og løs kompatibilitetsproblemer. Lav en log over dine installerede apps inklusiv version og installationsdato.</string>
 
     <string name="see_more">Se Mere</string>
     <string name="see_less">Se Mindre</string>

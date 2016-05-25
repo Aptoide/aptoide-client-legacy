@@ -74,7 +74,7 @@
 <string name="see_top_stores">Zobacz najlepsze repozytoria</string>
 <string name="setcredentials">Login</string>
 <string name="rollback">Przywróć</string>
-<string name="rollback_empty">Szybko zmień wersje aplikacji na poprzednie aby rozwiązać problemy kompatybilności. Zachowaj logi wszystkich zainstalowanych aplikacji (przez Aptoide) włączając wersję i datę instalacji.</string>
+<string name="rollback_empty">Szybko zmień wersje aplikacji na poprzednie aby rozwiązać problemy kompatybilności. Zachowaj logi wszystkich zainstalowanych aplikacji włączając wersję i datę instalacji.</string>
 <string name="rollback_installed">Zainstalowane</string>
 <string name="rollback_uninstalled">Odinstalowane</string>
 <string name="rollback_updated">Zaktualizowane</string>

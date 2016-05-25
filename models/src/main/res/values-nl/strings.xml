@@ -75,7 +75,7 @@
 <string name="see_top_stores">Bekijk top winkels</string>
 <string name="setcredentials">Inloggen</string>
 <string name="rollback">Terugzetten</string>
-<string name="rollback_empty">Zet vorige versies van geïnstalleerde apps snel en makkelijk terug en los incompatibiliteitsproblemen op. Houd een log bij van al je (via Aptoide) geïnstalleerde apps, inclusief versie en installatiedatum.</string>
+<string name="rollback_empty">Zet vorige versies van geïnstalleerde apps snel en makkelijk terug en los incompatibiliteitsproblemen op. Houd een log bij van al je geïnstalleerde apps, inclusief versie en installatiedatum.</string>
 <string name="rollback_installed">Geïnstalleerd</string>
 <string name="rollback_uninstalled">Gedeinstalleerd</string>
 <string name="rollback_updated">Geupdate</string>

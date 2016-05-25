@@ -247,7 +247,7 @@
     <string name="downgrade">Downgrade</string>
     <string name="reinstall">Reinstall</string>
 
-    <string name="rollback_empty">Quickly downgrade any app to a previous version and solve incompatibility issues. Keep a log of all your installed apps (via Aptoide) including version and install date.</string>
+    <string name="rollback_empty">Quickly downgrade any app to a previous version and solve incompatibility issues. Keep a log of all your installed apps including version and install date.</string>
 
     <string name="see_more">See More</string>
     <string name="see_less">See Less</string>

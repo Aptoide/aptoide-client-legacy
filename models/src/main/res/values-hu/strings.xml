@@ -68,7 +68,7 @@
 <string name="see_top_stores">Legjobb áruházak megtekintése</string>
 <string name="setcredentials">Bejelentkezés</string>
 <string name="rollback">Visszaállítás</string>
-<string name="rollback_empty">Bárnely alkalmazást visszaállíthat régebbi verzióra a kompabilitási problémák megoldásához. Naplózza az összes (Aptoide-on keresztül) telepített alkalmazást, azok verziószámát és telepítési dátumát.</string>
+<string name="rollback_empty">Bárnely alkalmazást visszaállíthat régebbi verzióra a kompabilitási problémák megoldásához. Naplózza az összes telepített alkalmazást, azok verziószámát és telepítési dátumát.</string>
 <string name="rollback_installed">Telepített</string>
 <string name="rollback_uninstalled">Eltávolított</string>
 <string name="rollback_updated">Frissített</string>

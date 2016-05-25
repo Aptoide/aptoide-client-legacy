@@ -228,7 +228,7 @@
     <string name="downgrade">Nedgrader</string>
     <string name="reinstall">Reinstaller</string>
 
-    <string name="rollback_empty">Nedgrader raskt enhver app til en eldre versjon og løs kompatibilitetsproblemer. Hold en logg over alle installerte apper (via Aptoide), inkludert versjon og installasjonsdato.</string>
+    <string name="rollback_empty">Nedgrader raskt enhver app til en eldre versjon og løs kompatibilitetsproblemer. Hold en logg over alle installerte apper, inkludert versjon og installasjonsdato.</string>
 
     <string name="see_more">Se mer</string>
     <string name="see_less">Se mindre</string>

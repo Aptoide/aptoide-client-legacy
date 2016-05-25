@@ -75,7 +75,7 @@
 <string name="see_top_stores">Siehe Top Stores</string>
 <string name="setcredentials">Anmelden</string>
 <string name="rollback">Zurücksetzen</string>
-<string name="rollback_empty">Setzen Sie schnell jede beliebige App zurück auf eine frühere Version und lösen Sie Probleme aufgrund von fehlender Kompatibilität. Behalten Sie ein Log all Ihrer installierten Apps (über Aptoide) inklusive der Version und des Installationsdatums.</string>
+<string name="rollback_empty">Setzen Sie schnell jede beliebige App zurück auf eine frühere Version und lösen Sie Probleme aufgrund von fehlender Kompatibilität. Behalten Sie ein Log all Ihrer installierten Apps inklusive der Version und des Installationsdatums.</string>
 <string name="rollback_installed">Installiert</string>
 <string name="rollback_uninstalled">Deinstalliert</string>
 <string name="rollback_updated">Aktualisiert</string>

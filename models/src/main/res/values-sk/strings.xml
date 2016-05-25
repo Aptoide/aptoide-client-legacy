@@ -231,7 +231,7 @@
     <string name="downgrade">Znížiť</string>
     <string name="reinstall">Preinštalovať</string>
 
-    <string name="rollback_empty">Rýchlo zmeňte akúkoľvek aplikáciu na predchádzajúcu verziu a vyriešte problémy s kompatibilitou. Udržiavajte záznamy o všetkých vašich nainštalovaných aplikácií (cez Aptoide) vrátane verzie a dátumu inštalácie.</string>
+    <string name="rollback_empty">Rýchlo zmeňte akúkoľvek aplikáciu na predchádzajúcu verziu a vyriešte problémy s kompatibilitou. Udržiavajte záznamy o všetkých vašich nainštalovaných aplikácií vrátane verzie a dátumu inštalácie.</string>
 
     <string name="see_more">Pozrieť viac</string>
     <string name="see_less">Pozrieť menej</string>

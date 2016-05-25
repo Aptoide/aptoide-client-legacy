@@ -231,7 +231,7 @@
     <string name="downgrade">Povrnitev prejšnje različice</string>
     <string name="reinstall">Ponovna namestitev</string>
 
-    <string name="rollback_empty">Hitro namestite prejšnjo različico in rešite težave z nekompatibilnostjo. Hranite zapise vseh nameščenih aplikacij (preko Aptoide), vključno z različicami in datumi namestitev.</string>
+    <string name="rollback_empty">Hitro namestite prejšnjo različico in rešite težave z nekompatibilnostjo. Hranite zapise vseh nameščenih aplikacij, vključno z različicami in datumi namestitev.</string>
 
     <string name="see_more">Oglejte si več</string>
     <string name="see_less">Oglejte si manj</string>

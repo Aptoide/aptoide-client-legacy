@@ -75,7 +75,7 @@
 <string name="see_top_stores">Näytä huippukaupat</string>
 <string name="setcredentials">Kirjaudu</string>
 <string name="rollback">Palautus</string>
-<string name="rollback_empty">Palauta sovellus nopeasti edelliseen versioon ja korjaa yhteensopivuusongelmat. Pidä lokia (Aptoiden kautta) asentamistasi sovelluksista sisältäen version ja asennuspäivän.</string>
+<string name="rollback_empty">Palauta sovellus nopeasti edelliseen versioon ja korjaa yhteensopivuusongelmat. Pidä lokia asentamistasi sovelluksista sisältäen version ja asennuspäivän.</string>
 <string name="rollback_installed">Asennettu</string>
 <string name="rollback_uninstalled">Asennus poistettu</string>
 <string name="rollback_updated">Päivitetty</string>

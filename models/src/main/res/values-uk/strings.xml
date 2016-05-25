@@ -68,7 +68,7 @@
 <string name="see_top_stores">Популярні магазини</string>
 <string name="setcredentials">Логін</string>
 <string name="rollback">Відновити до попереднього стану</string>
-<string name="rollback_empty">Швидкий перехід на попередню версію будь-якого додатку та вирішення проблеми несумісності. Ведіть журнал встановлених додатків (за допомогою Aptoide), включаючи данні про версію та дату встановлення.</string>
+<string name="rollback_empty">Швидкий перехід на попередню версію будь-якого додатку та вирішення проблеми несумісності. Ведіть журнал встановлених додатків, включаючи данні про версію та дату встановлення.</string>
 <string name="rollback_installed">Встановлено</string>
 <string name="rollback_uninstalled">Видалено</string>
 <string name="rollback_updated">Оновлено</string>

@@ -75,7 +75,7 @@
 <string name="see_top_stores">مشاهدة أفضل المتاجر</string>
 <string name="setcredentials">تسجيل الدخول</string>
 <string name="rollback">استرجاع</string>
-<string name="rollback_empty">يمكنك إرجاع أي تطبيق إلى الإصدار السابق بسرعة وحل مشاكل عدم التوافق. كما يمكنك الاحتفاظ بسجل لجميع التطبيقات المثبتة (عن طريق Aptoide) بما في ذلك الإصدار وتاريخ التثبيت.</string>
+<string name="rollback_empty">يمكنك إرجاع أي تطبيق إ بسرعة وحل مشاكل عدم التوافق. كما يمكنك الاحتفاظ بسجل لجميع التطبيقات المثبتة (عن طريق Aptoide) بما في ذلك الإصدار وتاريخ التثبيت.</string>
 <string name="rollback_installed">المثبت</string>
 <string name="rollback_uninstalled">غير مثبتة</string>
 <string name="rollback_updated">مُحدّث</string>

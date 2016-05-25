@@ -75,7 +75,7 @@
 <string name="see_top_stores">Lihat Toko yang Top</string>
 <string name="setcredentials">Login</string>
 <string name="rollback">Memutar kembali</string>
-<string name="rollback_empty">Downgrade aplikasi apa pun secepatnya dengan versi sebelumnya dan selesaikan masalah ketidakcocokan. Simpan log semua aplikasi terpasang (lewat Aptoide) termasuk versi dan tanggal instalasi.</string>
+<string name="rollback_empty">Downgrade aplikasi apa pun secepatnya dengan versi sebelumnya dan selesaikan masalah ketidakcocokan. Simpan log semua aplikasi terpasang termasuk versi dan tanggal instalasi.</string>
 <string name="rollback_installed">Terpasang</string>
 <string name="rollback_uninstalled">Melepas</string>
 <string name="rollback_updated">Memperbarui</string>

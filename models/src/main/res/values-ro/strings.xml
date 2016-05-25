@@ -72,7 +72,7 @@
 <string name="see_top_stores">Vedeți magazinele populare</string>
 <string name="setcredentials">Autentificare</string>
 <string name="rollback">Revenire la versiunea anterioară</string>
-<string name="rollback_empty">Retrogradați rapid orice aplicație la o versiune anterioară și rezolvați problemele de incompatibiliate. Păstrați un jurnal al tuturor aplicațiilor instalate (prin Aptoide) inclusiv versiunea și data instalării.</string>
+<string name="rollback_empty">Retrogradați rapid orice aplicație la o versiune anterioară și rezolvați problemele de incompatibiliate. Păstrați un jurnal al tuturor aplicațiilor instalate inclusiv versiunea și data instalării.</string>
 <string name="rollback_installed">Instalat</string>
 <string name="rollback_uninstalled">Dezinstalat</string>
 <string name="rollback_updated">Actualizat</string>

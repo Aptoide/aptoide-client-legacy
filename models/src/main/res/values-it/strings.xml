@@ -75,7 +75,7 @@
 <string name="see_top_stores">Guarda gli Store Migliori</string>
 <string name="setcredentials">Login</string>
 <string name="rollback">Ripristino</string>
-<string name="rollback_empty">Fai il downgrade di qualsiasi app ad una versione precedente e risolvi i problemi di incompatibilità. Tieni traccia di tutte le app installate (attraverso Aptoide) incluse versione e data di installazione.</string>
+<string name="rollback_empty">Fai il downgrade di qualsiasi app ad una versione precedente e risolvi i problemi di incompatibilità. Tieni traccia di tutte le app installate incluse versione e data di installazione.</string>
 <string name="rollback_installed">Installata</string>
 <string name="rollback_uninstalled">Disinstallata</string>
 <string name="rollback_updated">Aggiornata</string>

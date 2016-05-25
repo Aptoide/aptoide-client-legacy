@@ -271,7 +271,7 @@
     <string name="error_occured_paying">Isang pagkakamali ang naganap. Ang pagbabayad ay hindi nakumpleto.</string>
     <string name="error_occured_retry_later">Isang pagkakamali ang naganap. Ang Aptoide ay otomatikong susubok muli mamaya.</string>
     <string name="account">Account</string>
-    <string name="rollback_empty">Mabilis na ibaba ang anumang app sa nakaraang bersyon at lutasin ang mga isyu ng hindi pagkakabagay. Magpanatili ng isang log ng iyong lahat na nainstalang mga app (Sa pamamagitan ng Aptoide) kasama ang bersyon at petsa ng pagka-instala.</string>
+    <string name="rollback_empty">Mabilis na ibaba ang anumang app sa nakaraang bersyon at lutasin ang mga isyu ng hindi pagkakabagay. Magpanatili ng isang log ng iyong lahat na nainstalang mga app kasama ang bersyon at petsa ng pagka-instala.</string>
 
     <string name="confirm_carrier_payment">"Gusto mo bang bumili \'{titulo}\' para sa {halaga}? Ikaw ay sisingilin mula sa iyong tagapagdala (carrier). "</string>
     <string name="buy">Bumili</string>

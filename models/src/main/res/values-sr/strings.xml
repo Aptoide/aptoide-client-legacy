@@ -68,7 +68,7 @@
 <string name="see_top_stores">Погледајте најпопуларније радње</string>
 <string name="setcredentials">Пријавите се</string>
 <string name="rollback">Враћање</string>
-<string name="rollback_empty">Брзо вратите сваку апликацију на претходну верзију и решите проблеме некомпатибилности. Сачувајте евиденцију свих својих инсталираних апликација (преко Аптоида) укључујући верзију и датум инсталације.</string>
+<string name="rollback_empty">Брзо вратите сваку апликацију на претходну верзију и решите проблеме некомпатибилности. Сачувајте евиденцију свих својих инсталираних апликација укључујући верзију и датум инсталације.</string>
 <string name="rollback_installed">Инсталирано</string>
 <string name="rollback_uninstalled">Деинсталирано</string>
 <string name="rollback_updated">Ажурирано</string>

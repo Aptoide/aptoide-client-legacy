@@ -227,7 +227,7 @@
     <string name="downgrade">Turun taraf</string>
     <string name="reinstall">Pasang semula</string>
 
-    <string name="rollback_empty">Cepat menuruntarafkan sebarang aplikasi ke versi sebelumnya dan selesaikan isu-isu ketidakserasian. Simpan log semua aplikasi anda yang dipasang (melalui Aptoide) termasuk versi dan tarikh pemasangan.</string>
+    <string name="rollback_empty">Cepat menuruntarafkan sebarang aplikasi ke versi sebelumnya dan selesaikan isu-isu ketidakserasian. Simpan log semua aplikasi anda yang dipasang termasuk versi dan tarikh pemasangan.</string>
 
     <string name="see_more">Lihat Lagi</string>
     <string name="see_less">Lihat Kurang</string>

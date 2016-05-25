@@ -72,7 +72,7 @@
 <string name="see_top_stores">Pogledaj Top Trgovine</string>
 <string name="setcredentials">Prijava</string>
 <string name="rollback">Povratak na staro</string>
-<string name="rollback_empty">Brzo vratite staru verziju bilo koje aplikacije i riješite probleme nekompatibilnosti. Sačuvajte log svih instaliranih aplikacija (preko Aptopide-a), uključujući verziju i datum instaliranja.</string>
+<string name="rollback_empty">Brzo vratite staru verziju bilo koje aplikacije i riješite probleme nekompatibilnosti. Sačuvajte log svih instaliranih aplikacija , uključujući verziju i datum instaliranja.</string>
 <string name="rollback_installed">Instalirano</string>
 <string name="rollback_uninstalled">Deinstalirano</string>
 <string name="rollback_updated">Ažurirano</string>

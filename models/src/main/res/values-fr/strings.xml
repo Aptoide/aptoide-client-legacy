@@ -75,7 +75,7 @@
 <string name="see_top_stores">Voir les meilleurs dépôts</string>
 <string name="setcredentials">Ouverture de session</string>
 <string name="rollback">Retour arrière</string>
-<string name="rollback_empty">Revenez rapidement à une précédente version d\'une application et résolvez les problèmes d\'incompatibilité. Gardez un journal de toutes vos applications installées (via Aptoide), y compris la version et la date d\'installation.</string>
+<string name="rollback_empty">Revenez rapidement à une précédente version d\'une application et résolvez les problèmes d\'incompatibilité. Gardez un journal de toutes vos applications installées, y compris la version et la date d\'installation.</string>
 <string name="rollback_installed">Installé</string>
 <string name="rollback_uninstalled">Désinstallé</string>
 <string name="rollback_updated">Mis à jour</string>

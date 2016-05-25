@@ -68,7 +68,7 @@
 <string name="see_top_stores">Xem các cửa hàng hàng đầu</string>
 <string name="setcredentials">Đăng nhập</string>
 <string name="rollback">Ứng dụng gần đây</string>
-<string name="rollback_empty">Nhanh chóng hạ cấp bất kỳ ứng dụng nào xuống phiên bản trước đó và giải quyết các vấn đề tương thích. Giữ một bản ghi của tất cả các ứng dụng đã cài đặt của bạn (thông qua Aptoide) bao gồm cả phiên bản và ngày cài đặt.</string>
+<string name="rollback_empty">Nhanh chóng hạ cấp bất kỳ ứng dụng nào xuống phiên bản trước đó và giải quyết các vấn đề tương thích. Giữ một bản ghi của tất cả các ứng dụng đã cài đặt của bạn bao gồm cả phiên bản và ngày cài đặt.</string>
 <string name="rollback_installed">Đã Cài Đặt</string>
 <string name="rollback_uninstalled">Đã gỡ bỏ</string>
 <string name="rollback_updated">Đã cập nhật</string>

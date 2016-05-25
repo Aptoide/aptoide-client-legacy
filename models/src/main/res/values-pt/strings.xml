@@ -75,7 +75,7 @@
 <string name="see_top_stores">Ver top de lojas</string>
 <string name="setcredentials">Iniciar sessão</string>
 <string name="rollback">Reverter</string>
-<string name="rollback_empty">Fazer o downgrade rápido de qualquer app para uma versão anterior, resolvendo problemas de incompatibilidade. Mantenha um registo de todas as suas apps instaladas (via Aptoide) incluindo a versão e data de instalação.</string>
+<string name="rollback_empty">Fazer o downgrade rápido de qualquer app para uma versão anterior, resolvendo problemas de incompatibilidade. Mantenha um registo de todas as suas apps instaladas incluindo a versão e data de instalação.</string>
 <string name="rollback_installed">Instaladas</string>
 <string name="rollback_uninstalled">Desinstalado</string>
 <string name="rollback_updated">Actualizado</string>

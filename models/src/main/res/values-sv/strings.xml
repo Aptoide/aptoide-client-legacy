@@ -445,7 +445,7 @@
     <string name="schDown_invertselection">Invertera val</string>
 
     <string name="hidden_adult">Vissa appar är dolda pga att vuxen-filter är aktivt. Vill du lista dessa appar?</string>
-    <string name="rollback_empty">Nedgradera en app snabbt till en föregående version och lös kompatibilitetsproblem. Håll en logg över alla dina installerade appar (via Aptoide) inklusive version och installationsdatum.</string>
+    <string name="rollback_empty">Nedgradera en app snabbt till en föregående version och lös kompatibilitetsproblem. Håll en logg över alla dina installerade appar inklusive version och installationsdatum.</string>
 
     <string name="see_less">Se mindre</string>
     <string name="rollback">Återgång</string>

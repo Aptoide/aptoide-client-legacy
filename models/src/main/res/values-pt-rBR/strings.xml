@@ -75,7 +75,7 @@
 <string name="see_top_stores">Ver Top Lojas</string>
 <string name="setcredentials">Login</string>
 <string name="rollback">Restaurar</string>
-<string name="rollback_empty">Voltar rapidamente qualquer aplicativo para uma versão anterior e resolver problemas de incompatibilidade. Mantenha um registro de todos os seus aplicativos instalados (via Aptoide), incluindo a versão e data de instalação.</string>
+<string name="rollback_empty">Voltar rapidamente qualquer aplicativo para uma versão anterior e resolver problemas de incompatibilidade. Mantenha um registro de todos os seus aplicativos instalados incluindo a versão e data de instalação.</string>
 <string name="rollback_installed">Instalado</string>
 <string name="rollback_uninstalled">Desinstalado</string>
 <string name="rollback_updated">Atualizado</string>
