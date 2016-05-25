@@ -41,6 +41,7 @@ public class Constants {
     public static final String CPI_KEY = "cpi";
     public static final String CPD_KEY = "cpd";
     public static final String ACCESS_TOKEN = "access_token";
+    public static final String APTOIDEID = "aptoide_uid";
     public static final String MARKET_INTENT = "market_intent";
     public static final String FROM_APTOIDE_INSTALL_INTENT = "from_aptoide_install_intent";
     public static final String SHOW_AUTO_INSTALL_POPUP = "show_auto_install_popup";

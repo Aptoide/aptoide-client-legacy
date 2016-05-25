@@ -3,6 +3,7 @@ package com.aptoide.amethyst.webservices;
 import android.text.TextUtils;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -40,6 +41,23 @@ public class SearchRequest extends RetrofitSpiceRequest<SearchResults, SearchReq
     private static final String U_OFFSET = "u_offset";
     private static final String LANG = "lang";
     private static final String FILTERS = "q";
+
+    public String getAccess_token() {
+        return access_token;
+    }
+
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
+    }
+
+    public String getAptoide_uid() {
+        return aptoide_uid;
+    }
+
+    public void setAptoide_uid(String aptoide_uid) {
+        this.aptoide_uid = aptoide_uid;
+    }
+
     private static final String SEARCH = "search";
     public static final int SEARCH_LIMIT = 7;
     public static final int OTHER_REPOS_SEARCH_LIMIT = 0;
@@ -48,6 +66,8 @@ public class SearchRequest extends RetrofitSpiceRequest<SearchResults, SearchReq
     private int limit;
     private int offset;
     private int u_offset;
+    private String access_token;
+    private String aptoide_uid;
 
     public void setOtherReposLimit(int otherReposLimit) {
         this.otherReposLimit = otherReposLimit;
@@ -68,7 +88,8 @@ public class SearchRequest extends RetrofitSpiceRequest<SearchResults, SearchReq
 
 
         HashMap<String, String> args = new HashMap<>();
-
+        args.put(Constants.ACCESS_TOKEN, access_token);
+        args.put(Constants.APTOIDEID, aptoide_uid);
         args.put(MODE, "json");
         args.put(SEARCH, search);
         args.put(FILTERS, Aptoide.filters);
