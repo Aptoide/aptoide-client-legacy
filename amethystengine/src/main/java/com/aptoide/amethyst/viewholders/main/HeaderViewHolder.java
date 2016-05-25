@@ -1,5 +1,12 @@
 package com.aptoide.amethyst.viewholders.main;
 
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
+import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.viewholders.BaseViewHolder;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
+
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -10,15 +17,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.displayables.Displayable;
-import com.aptoide.models.displayables.HeaderRow;
-
-
-import com.aptoide.amethyst.adapter.BaseAdapter;
-import com.aptoide.amethyst.viewholders.BaseViewHolder;
 
 /**
  * Created by rmateus on 02/06/15.
@@ -53,23 +51,29 @@ public class HeaderViewHolder extends BaseViewHolder {
         title.setText(row.getLabel());
         if (row.isHasMore()) {
             more.setVisibility(View.VISIBLE);
+            BaseAdapter.IHasMoreOnClickListener listener;
             if (storeName == null || TextUtils.isEmpty(storeName)) {
                 if (storeId == 0) {
-                    more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme));
-                    moreLayout.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme));
+                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme);
+                    more.setOnClickListener(listener);
+                    moreLayout.setOnClickListener(listener);
                 } else {
-                    more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme,storeId));
-                    moreLayout.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme,storeId));
+                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, storeId);
+                    more.setOnClickListener(listener);
+                    moreLayout.setOnClickListener(listener);
                 }
             } else {
                 if (storeId == 0) {
-                    more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName));
-                    moreLayout.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName));
+                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName);
+                    more.setOnClickListener(listener);
+                    moreLayout.setOnClickListener(listener);
                 } else {
-                    more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName,storeId));
-                    moreLayout.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName,storeId));
+                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName, storeId);
+                    more.setOnClickListener(listener);
+                    moreLayout.setOnClickListener(listener);
                 }
             }
+            listener.bundleCategory = row.bundleCategory;
         } else {
             more.setVisibility(View.GONE);
             moreLayout.setClickable(false);

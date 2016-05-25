@@ -13,6 +13,7 @@ import com.localytics.android.Localytics;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.HashMap;
@@ -23,14 +24,12 @@ import java.util.HashMap;
  */
 public class Analytics {
 
+    // Constantes globais a todos os eventos.
+    public static final String ACTION = "Action";
     private static final boolean ACTIVATE = BuildConfig.LOCALYTICS_CONFIGURED;
-
     private static final int ALL = Integer.MAX_VALUE;
     private static final int LOCALYTICS = 1 << 0;
     private static final int FLURRY = 1 << 1;
-
-    // Constantes globais a todos os eventos.
-    public static final String ACTION = "Action";
 
     /**
      * Verifica se as flags fornecidas constam em accepted.
@@ -526,12 +525,10 @@ public class Analytics {
 
     public static class ApplicationInstall {
         public static final String EVENT_NAME = "Application Install";
-
+        public static final String TRUSTED = "Trusted_Badge";
         private static final String TYPE = "Type";
         private static final String PACKAGE_NAME = "Package Name";
         private static final String REFERRED = "Referred";
-        public static final String TRUSTED = "Trusted_Badge";
-
         private static final String REPLACED = "Replaced";
         private static final String INSTALLED = "Installed";
         private static final String DOWNGRADED_ROLLBACK = "Downgraded Rollback";
@@ -874,6 +871,25 @@ public class Analytics {
             map.put("Search Position", Integer.valueOf(position).toString());
             map.put("Application Name", appName);
             track(HOME_PAGE_EDITORS_CHOICE, map, FLURRY);
+        }
+    }
+
+    public static class HomePageBundles {
+
+        public static final String HOME_PAGE_BUNDLES = "Home_Page_Bundles";
+
+        public static void sendHomePageBundleEvent(String category) {
+            sendHomePageBundleEvent(category, null);
+        }
+
+        public static void sendHomePageBundleEvent(String category, String subCategory) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put("Category", category);
+            if (subCategory == null || TextUtils.isEmpty(subCategory)) {
+                subCategory = "n/a";
+            }
+            map.put("Sub-Category", subCategory);
+            track(HOME_PAGE_BUNDLES, map, FLURRY);
         }
 
     }

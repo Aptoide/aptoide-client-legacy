@@ -266,6 +266,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         private final EnumStoreTheme theme;
         private final String storeName;
         private final long storeId;
+        public String bundleCategory;
 
         public IHasMoreOnClickListener(IHasMore row, EnumStoreTheme theme) {
             this.row = row;
@@ -312,6 +313,9 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                                 i.putExtra(SearchActivity.SEARCH_THEME, theme);
                                 i.putExtra(SearchActivity.SEARCH_SOURCE, storeName);
                             }
+                            if (bundleCategory != null && !TextUtils.isEmpty(bundleCategory)) {
+                                Analytics.HomePageBundles.sendHomePageBundleEvent(bundleCategory, row.getTag());
+                            }
                         }
                         break;
                     case EVENT_LIST_STORES:
@@ -319,6 +323,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         break;
                     case EVENT_GETSTOREWIDGETS:
                         i = new Intent(view.getContext(), MoreStoreWidgetActivity.class);
+                        Analytics.HomePageBundles.sendHomePageBundleEvent(row.getTag());
                         break;
                     case ADS_TYPE:
                         i = new Intent(view.getContext(), MoreHighlightedActivity.class);
