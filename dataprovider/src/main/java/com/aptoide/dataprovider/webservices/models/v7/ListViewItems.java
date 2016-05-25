@@ -31,6 +31,7 @@ public class ListViewItems {
 
     public static class DisplayList {
 
+        public String tag;
         public String label;
         public String graphic;
         public Event event;

@@ -25,6 +25,7 @@ import com.aptoide.models.displayables.TimeLinePlaceHolderRow;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
 
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
 
     public String nview;
     public String context;
+    public String bundleTitle;
     public String filters;
     public boolean mature;
     //public String country; // country is being validated server-side
@@ -129,7 +131,20 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                             }
 
                             for (ViewItem itemList : widget.listApps.datalist.itemView) {
-                                tab.list.add(createAppItem(itemList));
+                                AppItem appItem;
+                                if (context != null && (context.equals("home") || context.equals("community"))) {
+                                    appItem = createAppItem(widget.tag, itemList);
+                                } else if (isHome("store")) {
+                                    appItem = createAppItem("store", itemList);
+                                } else {
+                                    appItem = createAppItem(itemList);
+                                }
+
+                                if (bundleTitle!=null && !TextUtils.isEmpty(bundleTitle)) {
+                                    appItem.bundleCateg = bundleTitle;
+                                    appItem.bundleSubCateg = widget.tag;
+                                }
+                                tab.list.add(appItem);
                             }
                         }
                     }
@@ -200,6 +215,12 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         return createAppItem(item, null);
     }
 
+    protected AppItem createAppItem(String origin, ViewItem item) {
+        AppItem appItem = createAppItem(item, null);
+        appItem.category = origin;
+        return appItem;
+    }
+
     protected AppItem createAppItem(ViewItem item, AppItem appItem) {
 
         if (appItem == null) {
@@ -239,25 +260,34 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
      */
     protected HeaderRow createHeaderRow(String name, String tag, boolean hasMore, List<Action> actions, long storeId, String layout) {
 
+        HeaderRow headerRow = null;
         if (actions != null && !actions.isEmpty()) {
             for (Action action : actions) {
                 if (action != null && action.event != null && action.event.action != null && action.type
                         .equals("button")) {
-                    return createHeaderRow(name, tag, hasMore, action, storeId, layout);
+                    headerRow = createHeaderRow(name, tag, hasMore, action, storeId, layout);
                 }
             }
         } else {
-            return new HeaderRow(name, false, numColumns);
+            headerRow = new HeaderRow(name, false, numColumns);
         }
-        return null;
+
+        if (headerRow != null) {
+            headerRow.bundleCategory = bundleTitle;
+        }
+        return headerRow;
     }
 
     private HeaderRow createHeaderRow(String name, String tag, boolean hasMore, Action action, long storeId, String layout) {
-
-        HeaderRow header = new HeaderRow(name, tag, hasMore, action.event.action, action.event.type, action.event.name, layout, numColumns, storeId == Defaults.DEFAULT_STORE_ID, storeId);
+        boolean isHome = isHome("home");
+        HeaderRow header = new HeaderRow(name, tag, hasMore, action.event.action, action.event.type, action.event.name, layout, numColumns, isHome, storeId);
         header.setSpanSize(totalSpanSize);
 
         return header;
+    }
+
+    private boolean isHome(String home) {
+        return context != null && context.equals(home);
     }
 
     public Displayable createFeaturedEditorsChoice(List<ViewItem> itemList, List<Action> actions, long storeId, String layout) {
@@ -289,12 +319,14 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
             } else {
                 categ.setSpanSize(totalSpanSize);
             }
+            categ.setHomepage(isHome(context));
             categ.setLabel(display.label);
             categ.setGraphic(display.graphic);
             categ.setEventType(display.event.type);
             categ.setEventName(display.event.name);
             categ.setEventActionUrl(display.event.action);
             categ.setEventAltActionUrl(display.event.altAction);
+            categ.setTag(display.tag);
             displayables.add(categ);
         }
 

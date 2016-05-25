@@ -634,6 +634,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 								resultBundle.data);
 						resultBundle = null;
 					}
+					Analytics.AppViewViewedFrom.appviewViewedFrom(AptoideUtils.FlurryAppviewOrigin.getAppviewOrigin(), model.getApp.nodes.meta.data.file.malware.rank);
 				}
 			}
 		};

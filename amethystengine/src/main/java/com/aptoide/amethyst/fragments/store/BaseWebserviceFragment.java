@@ -320,7 +320,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                     for (int i = 0; i < apkSuggestionJson.ads.size(); i++) {
                         ApkSuggestionJson.Ads ad = apkSuggestionJson.ads.get(i);
 
-                        AdItem adItem = getAdItem(ad);
+                        AdItem adItem = getAdItem(ad, "Highlighted");
 
                         displayableList.add(index++, adItem);
                     }
@@ -469,7 +469,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
     }
 
     @NonNull
-    protected AdItem getAdItem(ApkSuggestionJson.Ads ad) {
+    protected AdItem getAdItem(ApkSuggestionJson.Ads ad, String category) {
         AdItem adItem = new AdItem(BUCKET_SIZE);
         adItem.setSpanSize(2);
         adItem.appName = ad.data.name;
@@ -483,6 +483,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         adItem.cpdUrl = ad.info.cpd_url;
         adItem.partnerName = ad.partner != null ? ad.partner.partnerInfo.name : null;
         adItem.partnerClickUrl = ad.partner != null ? ad.partner.partnerData.click_url : null;
+        adItem.category = category;
         return adItem;
     }
 

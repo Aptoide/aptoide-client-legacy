@@ -1,6 +1,5 @@
 package com.aptoide.models.displayables;
 
-import com.aptoide.models.displayables.Displayable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -28,6 +27,9 @@ public class AppItem extends Displayable {
     public float rating;
     public String modified;
     public String updated;
+    public String category;
+    public String bundleCateg;
+    public String bundleSubCateg;
 
     public AppItem(@JsonProperty("BUCKETSIZE") int bucketSize) {
         super(bucketSize);

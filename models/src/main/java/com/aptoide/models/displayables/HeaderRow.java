@@ -1,7 +1,6 @@
 package com.aptoide.models.displayables;
 
 import com.aptoide.models.IHasMore;
-import com.aptoide.models.displayables.Displayable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -18,8 +17,9 @@ public class HeaderRow extends Displayable implements IHasMore {
     private final String layout;
 
     @JsonIgnore    public String theme;
-    @JsonIgnore    public boolean homepage;
+    public boolean homepage;
     @JsonIgnore    public long storeId;
+    public String bundleCategory;
 
     public HeaderRow(String label, String tag, boolean hasMore, String eventActionUrl, String eventType, String eventName, String layout, int bucketSize, boolean homepage, long storeId) {
         super(bucketSize);

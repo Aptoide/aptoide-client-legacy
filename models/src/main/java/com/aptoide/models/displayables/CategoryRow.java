@@ -1,6 +1,5 @@
 package com.aptoide.models.displayables;
 
-import com.aptoide.models.displayables.AbstractRow;
 import com.aptoide.models.IHasMore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -45,6 +44,10 @@ public class CategoryRow extends AbstractRow implements IHasMore {
     @Override
     public String getLabel() {
         return label;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     @Override

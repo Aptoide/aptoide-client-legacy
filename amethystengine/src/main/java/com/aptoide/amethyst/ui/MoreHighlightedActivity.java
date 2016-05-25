@@ -66,7 +66,7 @@ public class MoreHighlightedActivity extends MoreActivity {
                     if (apkSuggestionJson != null && apkSuggestionJson.ads != null && apkSuggestionJson.ads.size() > 0) {
 
                         for (ApkSuggestionJson.Ads ad : apkSuggestionJson.ads) {
-                            AdItem adItem = getAdItem(ad);
+                            AdItem adItem = getAdItem(ad, null);
                             displayableList.add(adItem);
                         }
 

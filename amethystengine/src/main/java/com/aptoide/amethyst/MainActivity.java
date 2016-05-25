@@ -137,7 +137,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
     protected void onResume() {
         super.onResume();
         setupUserInfoNavigationDrawer();
-
+        AptoideUtils.FlurryAppviewOrigin.resetAppviewOrigins();
         if (wizardWasExecuted) {
             wizardWasExecuted = false;
             final int OPEN_DELAY = 200;
