@@ -7,6 +7,8 @@
  ******************************************************************************/
 package com.aptoide.amethyst.utils;
 
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7ListSearchApps;
+import com.aptoide.dataprovider.webservices.v7.GetListSearchAppsv7;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -82,7 +84,6 @@ import android.content.pm.PermissionInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
@@ -1148,16 +1149,24 @@ public class AptoideUtils {
             return request;
         }
 
+        public static GetListSearchAppsv7 buildSearchAppsRequest(String query, boolean trusted, int limit, int offset) {
+            final Apiv7ListSearchApps arguments = new Apiv7ListSearchApps();
+            arguments.access_token = SecurePreferences.getInstance().getString("access_token", null);
+            arguments.aptoide_vercode = UI.getVerCode(Aptoide.getContext());
+            arguments.q = HWSpecifications.filters(Aptoide.getContext());
+            arguments.lang = StringUtils.getMyCountry(Aptoide.getContext());
+            arguments.offset = offset;
+            arguments.limit = limit;
+            arguments.trusted = trusted;
+            arguments.query = query;
+            return new GetListSearchAppsv7(arguments);
+        }
+
         public static SearchRequest buildSearchRequest(String query, int limit, int otherReposLimit, int offset, int otherReposOffset) {
             SearchRequest request = new SearchRequest();
             request.setSearchQuery(query);
-            ArrayList<String> strings = new ArrayList<>();
             AptoideDatabase db = new AptoideDatabase(Aptoide.getDb());
-            Cursor servers = db.getStoresCursor();
-            for (servers.moveToFirst(); !servers.isAfterLast(); servers.moveToNext()) {
-                String name = servers.getString(servers.getColumnIndex("name"));
-                strings.add(name);
-            }
+            final List<String> strings = db.getSubscribedStoreNames();
             String[] arraysStrings = new String[strings.size()];
             strings.toArray(arraysStrings);
             request.setRepos(arraysStrings);

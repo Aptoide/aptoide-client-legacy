@@ -4,7 +4,7 @@ import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.dataprovider.webservices.interfaces.v7.IGetAppV7WebService;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.GetAppModel;
-import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetApp;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
 import com.aptoide.models.displayables.MoreVersionsAppViewItem;
@@ -110,9 +110,9 @@ public class GetAppRequest extends RetrofitSpiceRequest<GetAppModel, IGetAppV7We
      *
      * @return Apiv7 the Api params
      */
-    public Apiv7 getApi() {
+    public Apiv7GetStore getApi() {
 
-        Apiv7 api = new Apiv7();
+        Apiv7GetStore api = new Apiv7GetStore();
 
         api.mature = mature;
         api.q = filters;
@@ -124,10 +124,10 @@ public class GetAppRequest extends RetrofitSpiceRequest<GetAppModel, IGetAppV7We
             attempts = 0;
         }
 
-        Apiv7.NodeParams metaParams = new Apiv7.NodeParams("meta");
+        Apiv7GetStore.NodeParams metaParams = new Apiv7GetStore.NodeParams("meta");
         metaParams.package_name = packageName;
 
-        Apiv7.NodeParams versionsParams = new Apiv7.NodeParams("versions");
+        Apiv7GetStore.NodeParams versionsParams = new Apiv7GetStore.NodeParams("versions");
         versionsParams.package_name = packageName;
 
         if (appId == 0) {

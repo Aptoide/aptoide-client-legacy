@@ -239,6 +239,22 @@ public class AptoideDatabase {
 
     }
 
+    public List<String> getSubscribedStoreNames() {
+        ArrayList<String> storeNames = new ArrayList<>();
+        Cursor cursor = null;
+        try {
+            cursor = getStoresCursor();
+            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                storeNames.add(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_NAME)));
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return storeNames;
+    }
+
     public Cursor getStoresCursor() {
         Cursor c = database.rawQuery("select * from repo where is_user = 1", null);
         c.getCount();

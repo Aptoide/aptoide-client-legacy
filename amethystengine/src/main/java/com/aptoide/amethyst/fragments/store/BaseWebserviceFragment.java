@@ -49,9 +49,9 @@ import java.util.UUID;
 
 import com.aptoide.amethyst.adapter.BaseAdapter;
 
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.TIMELINE_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.ADS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.REVIEWS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.TIMELINE_TYPE;
 
 /**
  * Json example for this kind of tab:

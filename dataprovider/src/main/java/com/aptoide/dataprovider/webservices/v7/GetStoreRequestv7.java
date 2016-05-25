@@ -2,7 +2,7 @@ package com.aptoide.dataprovider.webservices.v7;
 
 import com.aptoide.dataprovider.exceptions.TicketException;
 import com.aptoide.dataprovider.webservices.models.StoreHomeTab;
-import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreTabs;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets;
@@ -10,10 +10,10 @@ import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets;
 import java.util.Iterator;
 import java.util.List;
 
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_APK_COMMENTS_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_REVIEWS_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_STORE_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_STORE_WIDGETS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_APK_COMMENTS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_STORE_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_STORE_WIDGETS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_REVIEWS_TAB;
 
 /**
  * Created by hsousa on 14/09/15.
@@ -32,13 +32,13 @@ public class GetStoreRequestv7 extends BaseStoreRequest<GetStore> {
     }
 
     @Override
-    protected GetStore getResponse(Apiv7 api) throws TicketException {
+    protected GetStore getResponse(Apiv7GetStore api) throws TicketException {
         return getService().getStore(api);
     }
 
     public StoreHomeTab bind(GetStore response) {
         StoreHomeTab tab = new StoreHomeTab();
-        List<GetStoreWidgets.Datalist.WidgetList> list;
+        List<GetStoreWidgets.WidgetDatalist.WidgetList> list;
 
         try {
             tab.store = response;
@@ -68,9 +68,9 @@ public class GetStoreRequestv7 extends BaseStoreRequest<GetStore> {
     }
 
     @Override
-    public Apiv7 getApi() {
-        Apiv7 api = super.getApi();
-        api.country = country;
+    public Apiv7GetStore getApi() {
+        Apiv7GetStore api = super.getApi();
+
         if (storeId == 0) {
             api.store_name = storeName;
         } else {

@@ -3,7 +3,7 @@ package com.aptoide.dataprovider.webservices.v7;
 import android.support.annotation.NonNull;
 
 import com.aptoide.dataprovider.webservices.interfaces.v7.IGetAppV7WebService;
-import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetApp;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
 import com.aptoide.models.displayables.DisplayableList;
@@ -54,9 +54,9 @@ public class GetMoreVersionsAppRequest extends RetrofitSpiceRequest<DisplayableL
      *
      * @return
      */
-    public Apiv7 getApi() {
+    public Apiv7GetStore getApi() {
 
-        Apiv7 api = new Apiv7();
+        Apiv7GetStore api = new Apiv7GetStore();
 
         api.mature = mature;
         api.q = filters;

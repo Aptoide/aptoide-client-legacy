@@ -11,16 +11,10 @@ import java.util.List;
     public class GetStoreWidgets {
 
     public Info info;
-    public Datalist datalist;
+    public WidgetDatalist datalist;
 
-    public static class Datalist {
+    public static class WidgetDatalist extends DataList {
 
-        public Number total;
-        public Number count;
-        public Number next;
-        public Number offset;
-        public Number limit;
-        public Number hidden;
         @JsonProperty("list")
         public List<WidgetList> widgetList = new ArrayList<>();
 

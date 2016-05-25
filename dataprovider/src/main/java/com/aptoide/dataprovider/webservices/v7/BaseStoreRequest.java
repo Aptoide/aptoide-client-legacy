@@ -6,9 +6,9 @@ import com.aptoide.dataprovider.webservices.interfaces.v7.IGetStoreV7WebService;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.Defaults;
 import com.aptoide.dataprovider.webservices.models.StoreHomeTab;
-import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets;
-import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action;
+import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action;
 import com.aptoide.dataprovider.webservices.models.v7.ListViewItems;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
 import com.aptoide.models.displayables.AdPlaceHolderRow;
@@ -30,13 +30,13 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.APPS_GROUP_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.CATEGORIES_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.COMMENTS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.STORE_GROUP;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.TIMELINE_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.ADS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.APPS_GROUP_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.CATEGORIES_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.COMMENTS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.REVIEWS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.STORE_GROUP;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.TIMELINE_TYPE;
 
 /**
  * Created by hsousa on 17/09/15.
@@ -78,22 +78,21 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
     public abstract StoreHomeTab bind(T response);
 
 
-    protected abstract T getResponse(Apiv7 api) throws TicketException;
+    protected abstract T getResponse(Apiv7GetStore api) throws TicketException;
 
-    public Apiv7 getApi() {
-        Apiv7 api = new Apiv7();
+    public Apiv7GetStore getApi() {
+        Apiv7GetStore api = new Apiv7GetStore();
         api.nview = nview;
         api.context = context;
         api.q = filters;
         api.mature = mature;
         api.lang = lang;
-        api.country = country;
         api.aptoide_vercode = aptoideVercode;
 
-        Apiv7.WidgetParams paramsApps = new Apiv7.WidgetParams("APPS_GROUP");
+        Apiv7GetStore.WidgetParams paramsApps = new Apiv7GetStore.WidgetParams("APPS_GROUP");
         paramsApps.grid_row_size = numColumns;
 
-        Apiv7.WidgetParams paramsStores = new Apiv7.WidgetParams("STORES_GROUP");
+        Apiv7GetStore.WidgetParams paramsStores = new Apiv7GetStore.WidgetParams("STORES_GROUP");
         paramsStores.grid_row_size = 2;
 
         api.setApiParams(paramsStores);
@@ -103,7 +102,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
     }
 
 
-    protected void parseWidgetList(StoreHomeTab tab, List<GetStoreWidgets.Datalist.WidgetList> list) {
+    protected void parseWidgetList(StoreHomeTab tab, List<GetStoreWidgets.WidgetDatalist.WidgetList> list) {
         long storeId = -1;
         try {
             storeId = tab.store.nodes.meta.data.id.longValue();
@@ -111,19 +110,19 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
             // on getStoreWidgets there's no storeId concept
         }
 
-        for (GetStoreWidgets.Datalist.WidgetList widget : list) {
+        for (GetStoreWidgets.WidgetDatalist.WidgetList widget : list) {
 
             switch (widget.type) {
                 case APPS_GROUP_TYPE:
 
                     // Only create widget if it has apps
-                    if (widget.listApps.datalist.itemView != null && !widget.listApps.datalist.itemView
+                    if (widget.listApps.datalist.list != null && !widget.listApps.datalist.list
                             .isEmpty()) {
 
                         // if layout type == BRICK, (for now) it can only be an EditorsChoice.
                         if (widget.data != null && widget.data.layout != null && widget.data.layout.equals(Constants.LAYOUT_BRICK)) {
 
-                            tab.list.add(createFeaturedEditorsChoice(widget.listApps.datalist.itemView, widget.actions, storeId, widget.data.layout));
+                            tab.list.add(createFeaturedEditorsChoice(widget.listApps.datalist.list, widget.actions, storeId, widget.data.layout));
                         } else {
 
                             Displayable headerRow = createHeaderRow(widget.title, widget.tag, true, widget.actions, storeId, widget.data.layout);
@@ -131,7 +130,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                                 tab.list.add(headerRow);
                             }
 
-                            for (ViewItem itemList : widget.listApps.datalist.itemView) {
+                            for (ViewItem itemList : widget.listApps.datalist.list) {
                                 AppItem appItem;
                                 if (context != null && (context.equals("home") || context.equals("community"))) {
                                     appItem = createAppItem(widget.tag, itemList);
@@ -153,7 +152,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                 case STORE_GROUP:
 
                     // Only create widget if it has apps
-                    if (widget.listApps.datalist.itemView != null && !widget.listApps.datalist.itemView
+                    if (widget.listApps.datalist.list != null && !widget.listApps.datalist.list
                             .isEmpty()) {
 
                         Displayable headerRow = createHeaderRow(widget.title, widget.tag, true, widget.actions, storeId, widget.data.layout);
@@ -161,7 +160,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                             tab.list.add(headerRow);
                         }
 
-                        for (ViewItem itemList : widget.listApps.datalist.itemView) {
+                        for (ViewItem itemList : widget.listApps.datalist.list) {
                             tab.list.add(createStoreItem(itemList));
                         }
                     }

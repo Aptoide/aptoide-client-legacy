@@ -14,10 +14,10 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_APK_COMMENTS_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_REVIEWS_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_STORE_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_STORE_WIDGETS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_APK_COMMENTS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_REVIEWS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_STORE_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_STORE_WIDGETS_TAB;
 
 /**
  * Created by rmateus on 23/06/15.

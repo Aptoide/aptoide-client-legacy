@@ -21,6 +21,7 @@ import com.aptoide.amethyst.fragments.SearchFragment;
  */
 public class SearchActivity extends AptoideBaseActivity {
 
+    public static final String TRUSTED = "trusted";
     Toolbar mToolbar;
     public static final String CONTEXT = "Search";
     public static final String SEARCH_SOURCE = "search_source";
@@ -49,6 +50,7 @@ public class SearchActivity extends AptoideBaseActivity {
         }
         String storeName = getIntent().getStringExtra(SEARCH_SOURCE);
 		String query = getIntent().getExtras().getString(SearchManager.QUERY);
+        boolean trusted = getIntent().getExtras().getBoolean(TRUSTED, false);
 
 		Analytics.Search.searchTerm(query, storeName);
 
@@ -72,7 +74,8 @@ public class SearchActivity extends AptoideBaseActivity {
         setTitle(AptoideUtils.StringUtils.getFormattedString(this, R.string.search_activity_title, query));
 
         if(savedInstanceState==null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.content, SearchFragment.newInstance(getIntent().getStringExtra(SearchManager.QUERY)), "").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.content, SearchFragment
+                    .newInstance(getIntent().getStringExtra(SearchManager.QUERY), trusted), "").commit();
         }
 
 		secondary = getIntent().getBooleanExtra(ARG_SECONDARY, false);

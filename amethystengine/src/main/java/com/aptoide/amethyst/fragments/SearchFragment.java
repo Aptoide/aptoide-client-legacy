@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,20 +16,27 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LinearRecyclerFragment;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.SearchActivity;
+import com.aptoide.amethyst.adapter.SearchAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
-import com.aptoide.models.displayables.SearchApk;
-import com.aptoide.amethyst.models.search.SearchResults;
+import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.models.search.SearchApkConverter;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.SearchRequest;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
+import com.aptoide.dataprovider.webservices.models.v7.ListSearchApps;
+import com.aptoide.dataprovider.webservices.models.v7.SearchItem;
 import com.aptoide.models.ApkSuggestionJson;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.displayables.ProgressBarRow;
+import com.aptoide.models.displayables.SearchApk;
+import com.aptoide.models.displayables.SearchMoreHeader;
 import com.aptoide.models.displayables.SuggestedAppDisplayable;
 import com.octo.android.robospice.exception.NoNetworkException;
 import com.octo.android.robospice.persistence.DurationInMillis;
@@ -37,11 +45,6 @@ import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-import com.aptoide.amethyst.SearchActivity;
-import com.aptoide.amethyst.adapter.SearchAdapter;
-import com.aptoide.models.displayables.SearchMoreHeader;
 
 /**
  * Created by rmateus on 12/06/15.
@@ -62,18 +65,24 @@ public class SearchFragment extends LinearRecyclerFragment {
     private ArrayList<Displayable> displayables = new ArrayList<>();
     private String query;
     private SearchAdapter adapter = new SearchAdapter(displayables);
-    protected int offset = 0, u_offset = 0;
+    private int displayUOffset = 0;
+	private int displayOffset;
+    private int searchOffset;
     boolean mLoading = false;
     private final static String TAG = SearchFragment.class.getSimpleName();
+    private boolean trusted;
+    private AptoideDatabase database;
+    private SearchApkConverter searchApkConverter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        database = new AptoideDatabase(Aptoide.getDb());
         query = getArguments().getString("search");
+        trusted = getArguments().getBoolean("trusted");
         if (adapter != null) {
             adapter.setQuery(query);
         }
-
     }
 
     @Override
@@ -93,7 +102,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         retryNoNetwork = (TextView )view.findViewById(R.id.retry_no_network);
     }
 
-    RequestListener<SearchResults> listener = new RequestListener<SearchResults>() {
+    RequestListener<ListSearchApps> listener = new RequestListener<ListSearchApps>() {
 
         @Override
         public void onRequestFailure(SpiceException spiceException) {
@@ -101,26 +110,11 @@ public class SearchFragment extends LinearRecyclerFragment {
         }
 
         @Override
-        public void onRequestSuccess(SearchResults searchResults) {
+        public void onRequestSuccess(ListSearchApps listSearchApps) {
             handleSuccessCondition();
-            List<SearchApk> apkList = searchResults.apkList;
-            List<SearchApk> uApkList = searchResults.uApkList;
-//            displayables.clear();
-            if (!apkList.isEmpty()) {
-                HeaderRow results = new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE);
-                displayables.add(results);
-                displayables.addAll(apkList);
-                displayables.add(new SearchMoreHeader(BUCKET_SIZE));
-            }
+            updateList(listSearchApps);
 
-            if (!uApkList.isEmpty()) {
-                displayables.add(new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
-                displayables.addAll(uApkList);
-            } else {
-                displayables.addAll(uApkList);
-            }
-            u_offset += uApkList.size();
-            adapter.notifyDataSetChanged();
+            searchOffset += listSearchApps.datalist.limit.intValue();
             swipeContainer.setEnabled(false);
             progressBar.setVisibility(View.GONE);
             mLoading = false;
@@ -238,6 +232,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        searchApkConverter = new SearchApkConverter(BUCKET_SIZE);
         bindViews(getView());
         getRecyclerView().setAdapter(adapter);
 
@@ -260,7 +255,7 @@ public class SearchFragment extends LinearRecyclerFragment {
 
             @Override
             public int getOffset() {
-                return u_offset;
+                return displayOffset + displayUOffset;
             }
 
             @Override
@@ -270,12 +265,13 @@ public class SearchFragment extends LinearRecyclerFragment {
         });
     }
 
-    public static SearchFragment newInstance(String query) {
+    public static SearchFragment newInstance(String query, boolean trusted) {
         SearchFragment searchFragment = new SearchFragment();
 
         Bundle args = new Bundle();
 
         args.putString("search", query);
+        args.putBoolean("trusted", trusted);
 
         searchFragment.setArguments(args);
 
@@ -284,35 +280,108 @@ public class SearchFragment extends LinearRecyclerFragment {
 
     private void executeSpiceManager() {
         long cacheDuration = DurationInMillis.ONE_HOUR * 6;
-        spiceManager.execute(AptoideUtils.RepoUtils.buildSearchRequest(query, SearchRequest.SEARCH_LIMIT, SearchRequest.OTHER_REPOS_SEARCH_LIMIT, offset, u_offset),
+        spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
+                SearchRequest.SEARCH_LIMIT, 0),
                 SearchActivity.CONTEXT+query, cacheDuration, listener);
     }
 
     private void executeEndlessSpiceRequest() {
         long cacheDuration = DurationInMillis.ONE_HOUR * 6;
-        spiceManager.execute(AptoideUtils.RepoUtils.buildSearchRequest(query, SearchRequest.SEARCH_LIMIT, SearchRequest.OTHER_REPOS_SEARCH_LIMIT, offset, u_offset),
-                SearchActivity.CONTEXT+query+u_offset,cacheDuration,new RequestListener<SearchResults>() {
+        spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
+                SearchRequest.SEARCH_LIMIT, searchOffset), SearchActivity.CONTEXT + query + searchOffset, cacheDuration, new RequestListener<ListSearchApps>() {
+
             @Override
             public void onRequestFailure(SpiceException spiceException) {
 
             }
 
             @Override
-            public void onRequestSuccess(SearchResults searchResults) {
-
-                if (mLoading && !displayables.isEmpty()) {
-                    displayables.remove(displayables.size() - 1);
-                    adapter.notifyItemRemoved(displayables.size());
-                }
-
-                List<SearchApk> uApkList = searchResults.uApkList;
-                if (!uApkList.isEmpty()) {
-                    displayables.addAll(uApkList);
-                }
-                u_offset += uApkList.size();
-                adapter.notifyDataSetChanged();
+            public void onRequestSuccess(ListSearchApps listSearchApps) {
+                searchOffset += listSearchApps.datalist.limit.intValue();
+                removeLoadingListItem();
+                updateList(listSearchApps);
                 mLoading = false;
             }
         });
+    }
+
+    private void removeLoadingListItem() {
+        if (mLoading && !displayables.isEmpty()) {
+			displayables.remove(displayables.size() - 1);
+			adapter.notifyItemRemoved(displayables.size());
+		}
+    }
+
+    private void updateList(ListSearchApps listSearchApps) {
+		final List<SearchApk> subscribedApps = getSubscribedApps(listSearchApps.datalist.list);
+		final List<SearchApk> unsubscribedApps = getUnsubscribedApps(listSearchApps.datalist.list);
+
+        for (SearchApk searchApk: unsubscribedApps) {
+            for (Displayable displayable: displayables) {
+                if (displayable instanceof SearchApk
+                        && ((SearchApk) displayable).name.equals(searchApk.name)) {
+                    Log.d("Marcelo", "REPEATED " + searchApk.name);
+                }
+            }
+        }
+
+        if (!subscribedApps.isEmpty()) {
+            if (displayOffset == 0) {
+                displayables.add(0, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
+                displayables.addAll(1, subscribedApps);
+                displayOffset += subscribedApps.size();
+                // Consider subscribed header and subscribed apps
+                displayables.add(1 + displayOffset, new SearchMoreHeader(BUCKET_SIZE));
+            }
+        }
+
+        if (!unsubscribedApps.isEmpty()) {
+            if (displayUOffset == 0) {
+                if (displayOffset == 0) {
+                    displayables.add(0, new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
+                    displayables.addAll(1, unsubscribedApps);
+                } else {
+                    // Consider subscribed header, subscribed apps and subscribed footer
+                    displayables.add(1 + displayOffset + 1, new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
+                    // Consider subscribed header, subscribed apps, subscribed footer and unsubscribed header
+                    displayables.addAll(1 + displayOffset + 1 + 1, unsubscribedApps);
+                }
+
+            } else {
+                if (displayOffset == 0) {
+                    // Consider unsubscribed header
+                    displayables.addAll(1 + displayUOffset, unsubscribedApps);
+                } else {
+                    // Consider subscribed header, subscribed apps, subscribed footer, unsubscribed header and unsubscribed apps
+                    displayables.addAll(1 + displayOffset + 1 + 1 + displayUOffset, unsubscribedApps);
+                }
+            }
+            displayUOffset += unsubscribedApps.size();
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    private List<SearchApk> getUnsubscribedApps(List<SearchItem> allSearchItems) {
+        final List<SearchItem> unsubscribedSearchItems = new ArrayList<>(allSearchItems);
+        unsubscribedSearchItems.removeAll(getSubscribedSearchItems(allSearchItems));
+        return searchApkConverter.convert(unsubscribedSearchItems, false);
+    }
+
+    private List<SearchApk> getSubscribedApps(List<SearchItem> allSearchItems) {
+        return searchApkConverter.convert(getSubscribedSearchItems(allSearchItems), true);
+    }
+
+    private List<SearchItem> getSubscribedSearchItems(List<SearchItem> allSearchItems) {
+        final List<String> subscribedStoresNames = database.getSubscribedStoreNames();
+        final List<SearchItem> subscribedSearchItems = new ArrayList<>();
+
+        for (String storeName: subscribedStoresNames) {
+            for (SearchItem app: allSearchItems) {
+                if (app.store.name.equals(storeName)) {
+                    subscribedSearchItems.add(app);
+                }
+            }
+        }
+        return subscribedSearchItems;
     }
 }

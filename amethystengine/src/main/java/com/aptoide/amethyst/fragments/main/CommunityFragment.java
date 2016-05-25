@@ -37,8 +37,8 @@ import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.adapter.main.CommunityTabAdapter;
 import com.aptoide.amethyst.fragments.store.BaseWebserviceFragment;
 
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.COMMENTS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.COMMENTS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.REVIEWS_TYPE;
 
 /**
  * Created by rmateus on 02/06/15.
