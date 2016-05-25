@@ -9,6 +9,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +18,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.style.ImageSpan;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
@@ -66,6 +69,11 @@ public class InstallWarningDialog extends DialogFragment {
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Holo_Light);
+		} else {
+			setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Dialog);
+		}
 		rank = getArguments().getString(INSTALL_WARNING_DIALOG_APP_RANK);
 		trustedVersionAvailable = getArguments().getBoolean
 				(INSTALL_WARNING_DIALOG_TRUSTED_APP_AVAILABLE);
@@ -85,9 +93,13 @@ public class InstallWarningDialog extends DialogFragment {
 		setTrustedAppButton(contentView);
 		dialogBuilder.setView(contentView);
 
-		final AlertDialog dialog = dialogBuilder.create();
-		dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-		return dialog;
+		return dialogBuilder.create();
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 	}
 
 	private void setRank(View contentView) {
@@ -123,15 +135,17 @@ public class InstallWarningDialog extends DialogFragment {
 	}
 
 	private void setTextBadges(View contentView) {
-		final SpannableString text = new SpannableString(contentView.getContext()
-				.getString(R.string.dialog_install_warning_credibility_text));
+		// We need a placeholder for the span image in order to avoid it from disappearing in case
+		// it is the last character in the line. It happens in when device orientation changes.
+		final String placeholder = "[placeholder]";
+		final String stringText = contentView.getContext().getString(R.string.dialog_install_warning_credibility_text, placeholder);
+		final SpannableString text = new SpannableString(stringText);
 
-		final ImageSpan trustedBadge = new ImageSpan(contentView.getContext(), R.drawable
-				.ic_badge_trusted_small);
+		final int placeholderIndex = stringText.indexOf(placeholder);
+		final ImageSpan trustedBadge = new ImageSpan(contentView.getContext(), R.drawable.ic_badge_trusted_small);
 
-		text.setSpan(trustedBadge, text.length() - 14, text.length() - 13, 0);
-		((TextView) contentView.findViewById(R.id.dialog_install_warning_credibility_text))
-				.setText(text);
+		text.setSpan(trustedBadge, placeholderIndex, placeholderIndex + placeholder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+		((TextView) contentView.findViewById(R.id.dialog_install_warning_credibility_text)).setText(text);
 	}
 
 	private void setProceedButton(View contentView) {
