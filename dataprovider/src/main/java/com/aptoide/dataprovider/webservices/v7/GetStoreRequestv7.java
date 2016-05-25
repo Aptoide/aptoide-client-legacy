@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_APK_COMMENTS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_REVIEWS_TAB;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_STORE_TAB;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_STORE_WIDGETS_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_REVIEWS_TAB;
 
 /**
  * Created by hsousa on 14/09/15.
@@ -24,6 +24,7 @@ public class GetStoreRequestv7 extends BaseStoreRequest<GetStore> {
     public String storeName;
     public String user;
     public String password;
+    public String country;
 
     public GetStoreRequestv7(int numColumns) {
         super(numColumns);
@@ -69,7 +70,7 @@ public class GetStoreRequestv7 extends BaseStoreRequest<GetStore> {
     @Override
     public Apiv7 getApi() {
         Apiv7 api = super.getApi();
-
+        api.country = country;
         if (storeId == 0) {
             api.store_name = storeName;
         } else {

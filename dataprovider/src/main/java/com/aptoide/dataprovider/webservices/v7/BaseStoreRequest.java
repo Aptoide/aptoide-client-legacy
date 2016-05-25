@@ -50,7 +50,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
     public String bundleTitle;
     public String filters;
     public boolean mature;
-    //public String country; // country is being validated server-side
+    public String country; // country is being validated server-side
     public String lang;
     public int totalSpanSize;
     public int aptoideVercode;
@@ -87,6 +87,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         api.q = filters;
         api.mature = mature;
         api.lang = lang;
+        api.country = country;
         api.aptoide_vercode = aptoideVercode;
 
         Apiv7.WidgetParams paramsApps = new Apiv7.WidgetParams("APPS_GROUP");

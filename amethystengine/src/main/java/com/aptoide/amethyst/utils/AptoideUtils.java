@@ -1052,6 +1052,10 @@ public class AptoideUtils {
             request.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
             request.aptoideVercode = AptoideUtils.UI.getVerCode(Aptoide.getContext());
             request.lang = AptoideUtils.StringUtils.getMyCountryCode(Aptoide.getContext());
+            if(Aptoide.DEBUG_MODE){
+                request.country = AptoideUtils.getSharedPreferences()
+                        .getString("forcecountry", null);
+            }
             return request;
         }
 
@@ -1081,6 +1085,10 @@ public class AptoideUtils {
             GetListViewItemsRequestv7 request = new GetListViewItemsRequestv7(actionUrl, layout, UI.getBucketSize(), offset);
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
+            if(Aptoide.DEBUG_MODE){
+                request.country = AptoideUtils.getSharedPreferences()
+                        .getString("forcecountry", null);
+            }
             request.filters = Aptoide.filters;
             request.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
             request.aptoideVercode = AptoideUtils.UI.getVerCode(Aptoide.getContext());
