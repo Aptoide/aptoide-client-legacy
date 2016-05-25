@@ -40,28 +40,24 @@
         android:layout_height="wrap_content"/>
 
     <RelativeLayout
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
-        android:gravity="center_horizontal"
+        android:layout_height="72dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/dialog_install_warning_trusted_app_button"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            style="@style/Widget.Aptoide.Button.Orange"
+            style="?attr/customButtonTwoLines"
             tools:text="Search"
             android:layout_width="120dp"
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/dialog_install_warning_proceed_button"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            style="@style/Widget.Aptoide.Button.White"
+            android:id="@+id/dialog_install_warning_proceed_button"
+            style="?attr/customButtonWhite"
             android:text="@string/dialog_install_warning_proceed_button"
             android:layout_width="120dp"
             android:layout_height="wrap_content"/>

@@ -66,7 +66,6 @@ public class InstallWarningDialog extends DialogFragment {
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setRetainInstance(true);
 		rank = getArguments().getString(INSTALL_WARNING_DIALOG_APP_RANK);
 		trustedVersionAvailable = getArguments().getBoolean
 				(INSTALL_WARNING_DIALOG_TRUSTED_APP_AVAILABLE);

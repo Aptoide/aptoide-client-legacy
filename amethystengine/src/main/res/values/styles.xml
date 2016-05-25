@@ -102,6 +102,12 @@
         <item name="android:background">@drawable/aptoide_btn_default_holo_light</item>
     </style>
 
+    <style name="WidgetButtonCustomAptoideTwoLines" parent="WidgetButtonCustomAptoide">
+        <item name="android:textSize">12sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
     <style name="WidgetButtonCustomAptoideWhite" parent="WidgetButtonCustom">
         <item name="android:background">@drawable/aptoide_white_btn_default_holo_light</item>
         <item name="android:textColor" >@color/orange_700</item>
@@ -368,23 +374,6 @@
 
     <style name="TextAppearance.Aptoide.Dialog.Body" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textColor">@color/dialog_body_text</item>
-    </style>
-
-    <style name="Widget.Aptoide.Button" parent="Widget.AppCompat.Button"/>
-
-    <style name="Widget.Aptoide.Button.Colored" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
-    </style>
-
-    <style name="Widget.Aptoide.Button.White">
-        <item name="android:background">@drawable/btn_inverse_default</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
-        <item name="android:textColor">@color/aptoide_orange</item>
-    </style>
-
-    <style name="Widget.Aptoide.Button.Orange">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
-        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextAppearance.Aptoide.Balloon" parent="@style/TextAppearance.AppCompat.Caption">
