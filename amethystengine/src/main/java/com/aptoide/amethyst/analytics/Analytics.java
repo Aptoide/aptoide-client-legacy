@@ -580,11 +580,11 @@ public class Analytics {
         }
 
         public static void replaced(String packageName) {
-            innerTrack(packageName, REPLACED, null, LOCALYTICS);
+            innerTrack(packageName, REPLACED, null, ALL);
         }
 
         public static void downgraded(String packageName) {
-            innerTrack(packageName, DOWNGRADED_ROLLBACK, null, LOCALYTICS);
+            innerTrack(packageName, DOWNGRADED_ROLLBACK, null, ALL);
         }
     }
 
@@ -666,7 +666,7 @@ public class Analytics {
                 map.put(APPLICATION_NAME, packageName);
                 map.put(APPLICATION_PUBLISHER, developer);
 
-                track(CLICKED_ON_INSTALL_BUTTON, map, LOCALYTICS);
+                track(CLICKED_ON_INSTALL_BUTTON, map, ALL);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -866,10 +866,14 @@ public class Analytics {
 
         public static final String HOME_PAGE_EDITORS_CHOICE = "Home_Page_Editors_Choice";
 
-        public static void sendHomePageEdiorsChoiceEvent(int position, String appName) {
+        public static void sendHomePageEdiorsChoiceEvent(int position, String appName, boolean isHome) {
             HashMap<String, String> map = new HashMap<>();
-            map.put("Search Position", Integer.valueOf(position).toString());
             map.put("Application Name", appName);
+            if (isHome) {
+                map.put("Search Position", "More_"+Integer.valueOf(position).toString());
+            } else {
+                map.put("Search Position", "Home_"+Integer.valueOf(position).toString());
+            }
             track(HOME_PAGE_EDITORS_CHOICE, map, FLURRY);
         }
     }

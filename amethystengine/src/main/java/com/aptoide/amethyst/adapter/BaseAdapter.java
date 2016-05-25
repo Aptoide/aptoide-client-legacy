@@ -143,15 +143,18 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         private final AppItem appItem;
         private final int position;
+        private boolean isHome;
+
 
         public AppItemOnClickListener(AppItem appItem) {
             this.appItem = appItem;
             position = -1;
         }
 
-        public AppItemOnClickListener(AppItem appItem, int position) {
+        public AppItemOnClickListener(AppItem appItem, int position, boolean isHome) {
             this.appItem = appItem;
             this.position = position;
+            this.isHome = isHome;
         }
 
         @Override
@@ -174,7 +177,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             i.putExtra(Constants.VERSIONNAME_KEY, appItem.versionName);
             AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(appItem.category);
             if ((position >= 0)) {
-                Analytics.HomePageEditorsChoice.sendHomePageEdiorsChoiceEvent(position, appItem.appName);
+                Analytics.HomePageEditorsChoice.sendHomePageEdiorsChoiceEvent(position, appItem.appName, isHome);
             }
             view.getContext().startActivity(i);
         }

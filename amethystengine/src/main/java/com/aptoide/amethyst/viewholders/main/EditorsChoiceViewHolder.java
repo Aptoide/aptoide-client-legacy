@@ -36,7 +36,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
             final AppItem appItem = row.appItemList.get(i);
             Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(images[i]);
             appItem.category = EDITORS_CHOICE_STRING;
-            images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem, i));
+            images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem, i, true));
         }
 
         //when it's a tablet, we have to fill the extra image
@@ -45,7 +45,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
             AppItem appItem = row.appItemList.get(i);
             appItem.category = EDITORS_CHOICE_STRING;
             Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(extraImage);
-            extraImage.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem, i));
+            extraImage.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem, i, true));
         }
 
     }
