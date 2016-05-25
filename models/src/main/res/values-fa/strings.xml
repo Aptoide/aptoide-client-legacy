@@ -69,7 +69,7 @@
 <string name="see_top_stores">فروشگاه های برتر را ببین</string>
 <string name="setcredentials">ورود</string>
 <string name="rollback">بازگرداندن</string>
-<string name="rollback_empty">هر اپلیکیشنی را بهی آن بازگردانید و مشکلات ناسازگاری آن را حل کنید. تاریخچه (log) همه اپلیکیشن های نصب شده (از طریق Aptoide) شامل نسخه و تاریخ نصب را نگهداری کنید.</string>
+<string name="rollback_empty">هر اپلیکیشنی را بهی آن بازگردانید و مشکلات ناسازگاری آن را حل کنید. تاریخچه (log) همه اپلیکیشن های نصب شده شامل نسخه و تاریخ نصب را نگهداری کنید.</string>
 <string name="rollback_installed">نصب شده</string>
 <string name="rollback_uninstalled">حذف شده</string>
 <string name="rollback_updated">به روز رسانی شده</string>
