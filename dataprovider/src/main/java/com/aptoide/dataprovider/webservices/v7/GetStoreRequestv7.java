@@ -74,11 +74,9 @@ public class GetStoreRequestv7 extends BaseStoreRequest<GetStore> {
             api.store_name = storeName;
         } else {
             api.store_id = storeId;
-
-            api.store_user = user;
-            api.store_pass_sha1 = password;
-
         }
+        api.store_user = user;
+        api.store_pass_sha1 = password;
         return api;
     }
 }
