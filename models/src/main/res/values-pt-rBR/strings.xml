@@ -583,6 +583,12 @@
     <string name="email_copied">E-mail copiado para a área de transferência</string>
     <string name="privacy_copied">Link de privacidade copiado para a área de transferência</string>
     <string name="subscribing_store_message">Cancelar inscrição %s</string>
+    <string name="balloon_security_google_play">Applicativo encontrado na</string>
+    <string name="balloon_security_subtitle">Agora nós analisamos todos os aplicativos para Vírus.</string>
+    <string name="balloon_security_title">A Aptoide mudou.</string>
+    <string name="balloon_security_subtitle_start_part">Nós analisamos %1$s\u0020</string>
+    <string name="balloon_security_subtitle_final_part"> para Vírus:</string>
+
 
 <string name="auto_update">Auto Atualização</string>
     <string name="board">Painél</string>
@@ -660,4 +666,13 @@
     <string name="music_video">Música &amp; Vídeo</string>
     <string name="essential_apps">Apps Essênciais</string>
     <string name="summer_apps">Apps de Verão</string>
+
+    <string name="dialog_install_warning_proceed_button">Continuar</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">Procurar por</string>
+    <string name="dialog_install_warning_trusted_app_button">App Confiável</string>
+    <string name="dialog_install_warning_careful_text">Tenha cuidado antes se decidir instalar esse app. Ele pode ter sido adulterado, ter vírus ou malware.</string>
+    <string name="dialog_install_warning_credibility_text">Antes de continuar, verifique a credibilidade da loja e os comentários do usuários. A Aptoide recomenda que você instale apenas apps %1$s Confiáveis.</string>
+    <string name="dialog_install_warning_trusted_version_button">Versão Confiável</string>
+    <string name="dialog_install_warning_get_trusted_version_button">Ir para</string>
+
     </resources>

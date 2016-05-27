@@ -21,6 +21,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,13 +30,16 @@ import android.os.Looper;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.annotation.AnimRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
@@ -385,9 +389,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		Button mButtonGetLatest;
 		Button mButtonUninstall;
 		Button mButtonSubscribe;
-		TextView mTrustedLayout;
-		TextView mWarningLayout;
-		TextView mUnknownLayoutt;
+		TextView rankText;
 		RelativeLayout badgeLayout;
 		ImageView mBadgeMarket;
 		ImageView mBadgeSignature;
@@ -894,9 +896,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			mButtonGetLatest = (Button) view.findViewById(R.id.btn_get_latest);
 			mButtonUninstall = (Button) view.findViewById(R.id.btn_uninstall);
 			mButtonSubscribe = (Button) view.findViewById(R.id.btn_subscribe);
-			mTrustedLayout = (TextView) view.findViewById(R.id.trusted_layout);
-			mWarningLayout = (TextView) view.findViewById(R.id.warning_layout);
-			mUnknownLayoutt = (TextView) view.findViewById(R.id.unknown_layout);
+			rankText = (TextView) view.findViewById(R.id.fragment_app_view_malware_rank_text);
 			badgeLayout = (RelativeLayout) view.findViewById(R.id.badge_layout);
 			mBadgeMarket = (ImageView) view.findViewById(R.id.iv_market_badge);
 			mBadgeSignature = (ImageView) view.findViewById(R.id.iv_signature_badge);
@@ -1537,22 +1537,36 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				return;
 			}
 
+			rankText.setVisibility(View.VISIBLE);
+			rankText.setOnClickListener(badgeClickListener);
+			@DrawableRes final int icon;
+			@StringRes final int text;
 			switch (malware.rank) {
 				case TRUSTED:
-					mTrustedLayout.setVisibility(View.VISIBLE);
-					mTrustedLayout.setOnClickListener(badgeClickListener);
-
+					icon = R.drawable.ic_badge_trusted;
+					text = R.string.appview_header_trusted_text;
 					break;
 				case WARNING:
-					mWarningLayout.setVisibility(View.VISIBLE);
-					mWarningLayout.setOnClickListener(badgeClickListener);
-
+					icon = R.drawable.ic_badge_warning;
+					text = R.string.warning;
 					break;
 				case UNKNOWN:
-					mUnknownLayoutt.setVisibility(View.VISIBLE);
-					mUnknownLayoutt.setOnClickListener(badgeClickListener);
+					icon = R.drawable.ic_badge_unknown;
+					text = R.string.unknown;
+					break;
+				default:
+					icon = R.drawable.ic_badge_unknown;
+					text = R.string.unknown;
 					break;
 			}
+			rankText.setText(text);
+			final Drawable iconDrawable;
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+				iconDrawable = getActivity().getDrawable(icon);
+			} else {
+				iconDrawable = getResources().getDrawable(icon);
+			}
+			rankText.setCompoundDrawablesWithIntrinsicBounds(null, iconDrawable, null, null);
 		}
 
 		private void showBadges() {

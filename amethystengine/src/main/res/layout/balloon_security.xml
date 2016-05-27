@@ -22,10 +22,10 @@
 
         <TextView
             android:id="@+id/balloon_security_subtitle_start_part"
-            tools:text="We have checked Medium "
-            android:maxWidth="160dp"
+            tools:text="We have checked Medium Very Big Name"
             android:ellipsize="end"
             android:maxLines="1"
+            android:maxWidth="160dp"
             style="@style/TextAppearance.Aptoide.Balloon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -33,53 +33,52 @@
         <TextView
             android:layout_toEndOf="@id/balloon_security_subtitle_start_part"
             android:layout_toRightOf="@id/balloon_security_subtitle_start_part"
-            android:layout_alignRight="@+id/balloon_security_security_information"
-            android:layout_alignEnd="@+id/balloon_security_security_information"
             android:id="@+id/balloon_security_subtitle_final_part"
             style="@style/TextAppearance.Aptoide.Balloon"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:text="@string/balloon_security_subtitle_final_part"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <LinearLayout
-            android:id="@+id/balloon_security_security_information"
-            android:layout_below="@id/balloon_security_subtitle_start_part"
-            android:layout_marginTop="6dp"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_avg"
-                tools:ignore="contentDescription"/>
-
-            <ImageView
-                android:layout_margin="8dp"
-                android:layout_width="36dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_passed"
-                tools:ignore="contentDescription"/>
-
-            <ImageView
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_width="56dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_avast"
-                tools:ignore="contentDescription"/>
-
-            <ImageView
-                android:layout_margin="8dp"
-                android:layout_width="36dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_passed"
-                tools:ignore="contentDescription"/>
-
-        </LinearLayout>
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_avg"
+            tools:ignore="contentDescription"/>
+
+        <ImageView
+            android:layout_margin="8dp"
+            android:layout_width="36dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_passed"
+            tools:ignore="contentDescription"/>
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_width="56dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_avast"
+            tools:ignore="contentDescription"/>
+
+        <ImageView
+            android:layout_margin="8dp"
+            android:layout_width="36dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_passed"
+            tools:ignore="contentDescription"/>
+
+    </LinearLayout>
 
 
 

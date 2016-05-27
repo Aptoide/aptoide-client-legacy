@@ -41,140 +41,112 @@
                     android:scaleType="centerCrop"
                     tools:ignore="ContentDescription"/>
 
-                <RelativeLayout
+                <LinearLayout
                     android:id="@+id/black_header_background"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/black_header_background_height"
                     android:layout_alignParentBottom="true"
+                    android:padding="12dp"
                     android:background="#80000000"
-                    android:padding="12dp">
+                    android:orientation="vertical">
 
                     <LinearLayout
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="@dimen/appview_header_app_text_margin_start"
+                        android:layout_marginLeft="@dimen/appview_header_app_text_margin_start"
+                        android:layout_marginEnd="49dp"
+                        android:layout_marginRight="49dp"
+                        android:id="@+id/app_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignWithParentIfMissing="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/appview_header_app_text_margin_start"
-                        android:layout_marginStart="@dimen/appview_header_app_text_margin_start"
-                        android:layout_toLeftOf="@+id/trusted_layout"
-                        android:layout_toStartOf="@+id/trusted_layout"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:id="@+id/app_info"
+                        <TextView
+                            android:layout_weight="0.33"
+                            android:id="@+id/file_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:layout_gravity="center"
+                            android:drawableLeft="@drawable/ic_dimension"
+                            android:drawablePadding="2dp"
+                            android:drawableStart="@drawable/ic_dimension"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            tools:text="11.6 Mb"/>
 
-                            <TextView
-                                android:id="@+id/file_size"
-                                android:layout_width="56dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:drawableLeft="@drawable/ic_dimension"
-                                android:drawablePadding="2dp"
-                                android:drawableStart="@drawable/ic_dimension"
-                                android:maxLines="1"
-                                android:singleLine="true"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/text_size_small"
-                                tools:text="11.6 Mb"/>
-
-                            <TextView
-                                android:id="@+id/versionName"
-                                android:layout_width="56dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:drawableLeft="@drawable/ic_appview_version"
-                                android:drawablePadding="2dp"
-                                android:drawableStart="@drawable/ic_appview_version"
-                                android:maxLines="1"
-                                android:singleLine="true"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/text_size_small"
-                                tools:text="16.0.1"/>
-
-                            <TextView
-                                android:id="@+id/downloads_number"
-                                android:layout_width="56dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:drawableLeft="@drawable/ic_appview_download_icon"
-                                android:drawablePadding="2dp"
-                                android:drawableStart="@drawable/ic_appview_download_icon"
-                                android:maxLines="1"
-                                android:singleLine="true"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/text_size_small"
-                                tools:text="216k"/>
-
-                        </LinearLayout>
-
-                        <RatingBar
-                            android:id="@+id/rating_bar_top"
-                            style="@style/RatingBarGridItem"
-                            android:layout_width="wrap_content"
+                        <TextView
+                            android:layout_weight="0.33"
+                            android:id="@+id/versionName"
+                            android:layout_width="56dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/app_info"
-                            android:numStars="5"/>
+                            android:layout_gravity="center_vertical"
+                            android:drawableLeft="@drawable/ic_appview_version"
+                            android:drawablePadding="2dp"
+                            android:drawableStart="@drawable/ic_appview_version"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            tools:text="16.0.1"/>
 
+                        <TextView
+                            android:layout_weight="0.33"
+                            android:id="@+id/downloads_number"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableLeft="@drawable/ic_appview_download_icon"
+                            android:drawablePadding="2dp"
+                            android:drawableStart="@drawable/ic_appview_download_icon"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            tools:text="216k"/>
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/trusted_layout"
+                    <RatingBar
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="@dimen/appview_header_app_text_margin_start"
+                        android:layout_marginLeft="@dimen/appview_header_app_text_margin_start"
+                        android:id="@+id/rating_bar_top"
+                        style="@style/RatingBarGridItem"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_gravity="center_horizontal"
-                        android:drawableTop="@drawable/ic_badge_trusted"
-                        android:text="@string/appview_header_trusted_text"
-                        android:textAllCaps="true"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_small"
-                        tools:visibility="visible"
-                        android:visibility="invisible"/>
+                        android:numStars="5"/>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/warning_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_gravity="center_horizontal"
-                        android:drawableTop="@drawable/ic_badge_warning"
-                        android:text="@string/warning"
-                        android:textAllCaps="true"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_small"
-                        android:visibility="invisible"/>
-
-                    <TextView
-                        android:id="@+id/unknown_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_gravity="center_horizontal"
-                        android:drawableTop="@drawable/ic_badge_unknown"
-                        android:text="@string/unknown"
-                        android:textAllCaps="true"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_small"
-                        android:visibility="invisible"/>
-                </RelativeLayout>
+                <TextView
+                    android:layout_margin="12dp"
+                    android:id="@+id/fragment_app_view_malware_rank_text"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    tools:drawableTop="@drawable/ic_badge_trusted"
+                    android:drawablePadding="-2dp"
+                    android:layout_below="@+id/fragment_app_view_security_balloon"
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:gravity="center"
+                    android:ellipsize="end"
+                    android:textAllCaps="true"
+                    tools:visibility="visible"
+                    tools:text="TRUSTED"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_small"
+                    android:visibility="invisible"/>
 
                 <ImageView
                     android:id="@+id/app_icon"
                     android:layout_width="@dimen/appview_header_app_image_size"
                     android:layout_height="@dimen/appview_header_app_image_size"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginLeft="12dp"
                     android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="12dp"
                     app:layout_anchor="@id/appbar"
                     app:layout_anchorGravity="bottom|left|start"
                     tools:ignore="contentDescription"
@@ -184,20 +156,21 @@
                     android:id="@+id/fragment_app_view_security_balloon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/fragment_app_view_malware_rank_text"
+                    android:layout_alignRight="@id/fragment_app_view_malware_rank_text"
                     android:layout_above="@id/black_header_background"
-                    android:layout_marginStart="@dimen/fragment_app_view_trusted_balloon_margin_start"
-                    android:layout_marginLeft="@dimen/fragment_app_view_trusted_balloon_margin_start"
-                    android:layout_marginEnd="11dp"
-                    android:layout_marginRight="11dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
                     android:layout_marginBottom="-6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginLeft="@dimen/fragment_app_view_trusted_balloon_margin_start"
+                    android:layout_marginStart="@dimen/fragment_app_view_trusted_balloon_margin_start"
                     android:background="@drawable/security_balloon_background"
                     android:visibility="invisible"
                     tools:visibility="visible">
                     <include
                         layout="@layout/balloon_security"/>
                 </FrameLayout>
+
+
             </RelativeLayout>
 
             <android.support.v7.widget.Toolbar
@@ -237,8 +210,8 @@
         android:layout_height="match_parent"
         android:background="?attr/backgroundSecondary"
         android:visibility="gone"
-        tools:visibility="visible"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
