@@ -1,14 +1,13 @@
 package com.aptoide.amethyst.fragments.store;
 
-import android.os.Bundle;
-
+import com.aptoide.amethyst.adapter.BaseAdapter;
+import com.aptoide.amethyst.adapter.main.HomeTabAdapter;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.octo.android.robospice.persistence.DurationInMillis;
 
-import com.aptoide.amethyst.adapter.BaseAdapter;
-import com.aptoide.amethyst.adapter.main.HomeTabAdapter;
+import android.os.Bundle;
 
 import static com.aptoide.amethyst.utils.AptoideUtils.RepoUtils.buildStoreWidgetRequest;
 
@@ -27,9 +26,8 @@ public class CategoryFragment extends BaseWebserviceFragment {
     public static CategoryFragment newInstance(Bundle args, String actionUrl) {
         CategoryFragment categoryFragment = new CategoryFragment();
         //instead of using the clone method(that doesn't clone the bundle correctly) we build a new one
-        Bundle bundle = new Bundle();
+        Bundle bundle = (Bundle) args.clone();
         bundle.putString("actionUrl", actionUrl);
-        bundle.putLong(Constants.STOREID_KEY, args.getLong(Constants.STOREID_KEY, -1));
         categoryFragment.setArguments(bundle);
 
         return categoryFragment;
