@@ -187,4 +187,5 @@ public class Constants {
 
     public static final String UPDATES_FILTER_KEY = "updatesFilterKey";
 
+    public static final String SECURITY_BALLOON_TOGGLED = "securityBalloonToggled";
 }

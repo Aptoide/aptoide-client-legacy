@@ -25,7 +25,7 @@ import okhttp3.Route;
 
 public class ABTestManager {
 
-	public static final String SHOW_TRUSTED_BALLOON =
+	public static final String APP_VIEW_SECURITY =
 			"app-view-show-security-overlay";
 	private static ABTestManager instance;
 
@@ -81,7 +81,7 @@ public class ABTestManager {
 	@SuppressWarnings("unchecked")
 	private void registerTests() {
 		tests.add(new ABTest(executorService, sixpack.experiment()
-				.withName(SHOW_TRUSTED_BALLOON)
+				.withName(APP_VIEW_SECURITY)
 				.withAlternatives(new Alternative("false"), new Alternative("true"))
 				.build(), new BooleanAlternativeParser()));
 	}

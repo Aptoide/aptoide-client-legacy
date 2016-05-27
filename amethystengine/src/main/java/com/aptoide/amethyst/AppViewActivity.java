@@ -39,7 +39,6 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
@@ -341,9 +340,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private boolean lifecycleController;
 		private Animation securityBalloonStartUpAnimation;
 		private Animation securityBalloonFadeInAnimation;
-		private Animation mSecurityBalloonFadeOutAnimation;
-		private ABTest<Boolean> mShowSecurityBalloonABTest;
+		private Animation securityBalloonFadeOutAnimation;
+		private ABTest<Boolean> securityABTest;
 		private ViewItem trustedVersion;
+		private boolean securityBalloonToggled;
 
 		public static AppViewFragment newInstance(boolean lifecycleController) {
 			AppViewFragment f = new AppViewFragment();
@@ -431,7 +431,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		TextView mPermissionsLabel;
 		RecyclerView mScreenshotsList;
 		RecyclerView mMoreVersionsList;
-		View mSecuritydBalloonLayout;
+		View securitydBalloonLayout;
 
 		int descriptionLines;
 
@@ -642,11 +642,15 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					populateRatings(model.getApp);
 					setTrustedVersion(model.getApp.nodes.meta.data, model.getApp.nodes.versions.list);
 
-					if (mShowSecurityBalloonABTest.alternative()) {
+					if (securityABTest.alternative()) {
 						final String thirdPartyValidatedStore = malware.reason != null && malware.reason.thirdpartyValidated != null ? malware.reason.thirdpartyValidated.store : null;
 						setSecurityBalloon(new AppSecurityBalloon(appName, malware.rank,
 								thirdPartyValidatedStore, 5));
-						showSecurityBalloonAutomatically(securityBalloonStartUpAnimation);
+						if (securityBalloonToggled) {
+							toggleSecurityBalloon();
+						} else {
+							showSecurityBalloonAutomatically(securityBalloonStartUpAnimation);
+						}
 					} else {
 						showBadges();
 					}
@@ -821,13 +825,12 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			setHasOptionsMenu(true);
 			glide = Glide.with(this);
 
-			mShowSecurityBalloonABTest = ABTestManager.getInstance()
-					.get(ABTestManager.SHOW_TRUSTED_BALLOON);
-			mShowSecurityBalloonABTest.participate();
-			securityBalloonStartUpAnimation = loadAnimation(R.anim
-					.security_information_overlay_fade_in_fade_out);
+			securityABTest = ABTestManager.getInstance().get(ABTestManager.APP_VIEW_SECURITY);
+			securityABTest.participate();
+			securityBalloonStartUpAnimation = loadAnimation(R.anim.security_information_overlay_fade_in_fade_out);
 			securityBalloonFadeInAnimation = loadAnimation(android.R.anim.fade_in);
-			mSecurityBalloonFadeOutAnimation = loadAnimation(android.R.anim.fade_out);
+			securityBalloonFadeOutAnimation = loadAnimation(android.R.anim.fade_out);
+
 			lifecycleController = getArguments().getBoolean("lifecycleController");
 
 			if (savedInstanceState != null) {
@@ -841,6 +844,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				packageName = savedInstanceState.getString(Constants.PACKAGENAME_KEY);
 				versionName = savedInstanceState.getString(Constants.VERSIONNAME_KEY);
 				md5sum = savedInstanceState.getString(Constants.MD5SUM_KEY);
+				securityBalloonToggled = savedInstanceState.getBoolean(Constants.SECURITY_BALLOON_TOGGLED);
 			} else {
 				forceAutoDownload = getActivity().getIntent()
 						.getBooleanExtra("forceAutoDownload", false);
@@ -945,7 +949,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			mPermissionsLabel = (TextView) view.findViewById(R.id.permissions_label);
 			mScreenshotsList = (RecyclerView) view.findViewById(R.id.screenshots_list);
 			mMoreVersionsList = (RecyclerView) view.findViewById(R.id.more_versions_recycler);
-			mSecuritydBalloonLayout = view.findViewById(R.id.fragment_app_view_security_balloon);
+			securitydBalloonLayout = view.findViewById(R.id.fragment_app_view_security_balloon);
 
 			descriptionLines = view.getContext()
 					.getResources()
@@ -975,6 +979,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		@Override
 		public void onResume() {
 			super.onResume();
+
+			setSecurityBalloonAnimationListeners();
 			if (pay != null && pay.price != null) {
 				setupInstallButton();
 			}
@@ -987,6 +993,12 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 
 			populateDownloadUI();
+		}
+
+		@Override
+		public void onPause() {
+			super.onPause();
+			removeSecurityBalloonAnimationListeners();
 		}
 
 		@Override
@@ -1032,6 +1044,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			outState.putString(Constants.PACKAGENAME_KEY, packageName);
 			outState.putString(Constants.VERSIONNAME_KEY, versionName);
 			outState.putLong(Constants.DOWNLOAD_ID_KEY, downloadId);
+			outState.putBoolean(Constants.SECURITY_BALLOON_TOGGLED, securityBalloonToggled);
 		}
 
 		@Override
@@ -1379,7 +1392,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		View.OnClickListener badgeClickListener = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (mShowSecurityBalloonABTest.alternative()) {
+				if (securityABTest.alternative()) {
 					if (mSecurityBalloon.shouldDisplay()) {
 						toggleSecurityBalloon();
 					}
@@ -1391,14 +1404,13 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		};
 
 		private void toggleSecurityBalloon() {
-			if (mSecuritydBalloonLayout.getVisibility() == View.VISIBLE) {
-				animateSecurityBalloon(mSecurityBalloonFadeOutAnimation);
-				mSecuritydBalloonLayout.setVisibility(View.INVISIBLE);
+			if (securitydBalloonLayout.getVisibility() == View.VISIBLE) {
+				animateSecurityBalloon(securityBalloonFadeOutAnimation);
+				securityBalloonToggled = false;
 			} else {
 				animateSecurityBalloon(securityBalloonFadeInAnimation);
-				mSecuritydBalloonLayout.setVisibility(View.VISIBLE);
+				securityBalloonToggled = true;
 			}
-			
 		}
 
 		private void showSecurityBalloonAutomatically(Animation animation) {
@@ -1409,10 +1421,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		}
 
 		private void animateSecurityBalloon(final Animation animation) {
-			mSecuritydBalloonLayout.post(new Runnable() {
+			securitydBalloonLayout.post(new Runnable() {
 				@Override
 				public void run() {
-					mSecuritydBalloonLayout.startAnimation(animation);
+					securitydBalloonLayout.startAnimation(animation);
 				}
 			});
 		}
@@ -1420,6 +1432,50 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		@NonNull
 		private Animation loadAnimation(@AnimRes int animRes) {
 			return AnimationUtils.loadAnimation(getActivity(), animRes);
+		}
+
+		private void setSecurityBalloonAnimationListeners() {
+			final Animation.AnimationListener listener = new Animation.AnimationListener() {
+
+				@Override
+				public void onAnimationStart(Animation animation) {
+					securitydBalloonLayout.setVisibility(View.VISIBLE);
+				}
+
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					securitydBalloonLayout.setVisibility(View.INVISIBLE);
+				}
+
+				@Override
+				public void onAnimationRepeat(Animation animation) {
+
+				}
+			};
+			securityBalloonStartUpAnimation.setAnimationListener(listener);
+			securityBalloonFadeOutAnimation.setAnimationListener(listener);
+			securityBalloonFadeInAnimation.setAnimationListener(new Animation.AnimationListener() {
+				@Override
+				public void onAnimationStart(Animation animation) {
+					securitydBalloonLayout.setVisibility(View.VISIBLE);
+				}
+
+				@Override
+				public void onAnimationEnd(Animation animation) {
+
+				}
+
+				@Override
+				public void onAnimationRepeat(Animation animation) {
+
+				}
+			});
+		}
+
+		private void removeSecurityBalloonAnimationListeners() {
+			securityBalloonStartUpAnimation.setAnimationListener(null);
+			securityBalloonFadeOutAnimation.setAnimationListener(null);
+			securityBalloonFadeInAnimation.setAnimationListener(null);
 		}
 
 		private void setSecurityBalloon(AppSecurityBalloon securityBalloon) {
@@ -2706,7 +2762,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 			@Override
 			public void onClick(View v) {
-				mShowSecurityBalloonABTest.convert();
+				securityABTest.convert();
 				reloadButtons = true;
 				if (appSuggested != null && appSuggested.getInfo().getCpc_url() != null) {
 					AptoideUtils.AdNetworks.knock(appSuggested.getInfo().getCpd_url());
@@ -2716,7 +2772,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					AptoideUtils.AdNetworks.knock(cpd);
 				}
 
-				if (mShowSecurityBalloonABTest.alternative()
+				if (securityABTest.alternative()
 						&& !GetAppMeta.File.Malware.TRUSTED.equals(rank)) {
 					InstallWarningDialog.newInstance(rank, hasTrustedVersion())
 							.show(getFragmentManager(), "InstallWarningDialog");
