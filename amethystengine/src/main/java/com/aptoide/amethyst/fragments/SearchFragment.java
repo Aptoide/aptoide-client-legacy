@@ -246,7 +246,7 @@ public class SearchFragment extends LinearRecyclerFragment {
 
     private void searchForSubscribedApps() {
         spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
-                SearchActivity.SEARCH_LIMIT, 0, database.getSubscribedStoreNames()),
+                SearchActivity.SEARCH_LIMIT, 0, database.getSubscribedStores()),
                 SearchActivity.CONTEXT+query, SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
 
                     @Override

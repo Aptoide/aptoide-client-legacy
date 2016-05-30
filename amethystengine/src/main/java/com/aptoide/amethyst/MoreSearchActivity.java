@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.adapter.MoreSearchAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.fragments.store.BaseWebserviceFragment;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.models.search.SearchApkConverter;
@@ -29,6 +30,7 @@ import com.aptoide.dataprovider.webservices.models.v7.ListSearchApps;
 import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.displayables.ProgressBarRow;
 import com.aptoide.models.displayables.SearchApk;
+import com.aptoide.models.stores.Store;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
@@ -87,6 +89,7 @@ public class MoreSearchActivity extends MoreActivity {
 		private ScrollView noSearchResultLayout;
 		private boolean trustedAppsOnly;
 		private SearchApkConverter searchApkConverter;
+        private AptoideDatabase database;
 
         @Override
         public void setLayoutManager(RecyclerView recyclerView) {
@@ -101,6 +104,7 @@ public class MoreSearchActivity extends MoreActivity {
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			searchApkConverter = new SearchApkConverter(BUCKET_SIZE);
+            database = new AptoideDatabase(Aptoide.getDb());
 		}
 
 		@Override
@@ -252,10 +256,20 @@ public class MoreSearchActivity extends MoreActivity {
             return storeName != null && !TextUtils.isEmpty(storeName);
         }
 
-        private List<String> formatStore(String storeName) {
+        private List<Store> formatStore(String storeName) {
+
             if (isStoreSearch()) {
-                return Collections.singletonList(storeName);
+                final Store store = database.getSubscribedStore(storeName);
+                if (store != null) {
+                    return Collections.singletonList(store);
+                }
+            } else {
+                final List<Store> stores = database.getSubscribedStores();
+                if (!stores.isEmpty()) {
+                    return stores;
+                }
             }
+
             return null;
         }
     }

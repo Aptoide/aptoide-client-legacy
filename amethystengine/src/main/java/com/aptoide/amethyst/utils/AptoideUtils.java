@@ -133,10 +133,12 @@ import java.security.SecureRandom;
 import java.text.DateFormatSymbols;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -1151,14 +1153,34 @@ public class AptoideUtils {
             return new GetListSearchAppsv7(getApiv7ListSearchApps(query, trusted, limit, offset));
         }
 
-        public static GetListSearchAppsv7 buildSearchAppsRequest(String query, boolean trusted, int limit, int offset, List<String> storeNames) {
-            return new GetListSearchAppsv7(getApiv7ListSearchApps(query, trusted, limit, offset, storeNames));
+        public static GetListSearchAppsv7 buildSearchAppsRequest(String query, boolean trusted, int limit, int offset, List<Store> stores) {
+            return new GetListSearchAppsv7(getApiv7ListSearchApps(query, trusted, limit, offset, stores));
         }
 
         @NonNull
-        private static Apiv7ListSearchApps getApiv7ListSearchApps(String query, boolean trusted, int limit, int offset, List<String> storeNames) {
+        private static Apiv7ListSearchApps getApiv7ListSearchApps(String query, boolean trusted, int limit, int offset, List<Store> stores) {
             final Apiv7ListSearchApps arguments = getApiv7ListSearchApps(query, trusted, limit, offset);
-            arguments.storeNames = storeNames;
+            final Map<String, List<String>> storeAuthMap = new HashMap<>();
+            final List<String> storeNames = new ArrayList<>();
+
+            if (stores != null) {
+                for (Store store : stores) {
+                    if (store.getLogin() != null) {
+                        storeAuthMap.put(store.getName(), Arrays.asList(store.getLogin().getUsername(), store.getLogin().getPassword()));
+                    } else {
+                        storeNames.add(store.getName());
+                    }
+                }
+            }
+
+            if (!storeNames.isEmpty()) {
+                arguments.storeNames = storeNames;
+            }
+
+            if (!storeAuthMap.isEmpty()) {
+                arguments.storeAuthMap = storeAuthMap;
+            }
+
             return arguments;
         }
 
