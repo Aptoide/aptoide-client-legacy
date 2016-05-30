@@ -1150,6 +1150,22 @@ public class AptoideUtils {
         }
 
         public static GetListSearchAppsv7 buildSearchAppsRequest(String query, boolean trusted, int limit, int offset) {
+            return new GetListSearchAppsv7(getApiv7ListSearchApps(query, trusted, limit, offset));
+        }
+
+        public static GetListSearchAppsv7 buildSearchAppsRequest(String query, boolean trusted, int limit, int offset, List<String> storeNames) {
+            return new GetListSearchAppsv7(getApiv7ListSearchApps(query, trusted, limit, offset, storeNames));
+        }
+
+        @NonNull
+        private static Apiv7ListSearchApps getApiv7ListSearchApps(String query, boolean trusted, int limit, int offset, List<String> storeNames) {
+            final Apiv7ListSearchApps arguments = getApiv7ListSearchApps(query, trusted, limit, offset);
+            arguments.storeNames = storeNames;
+            return arguments;
+        }
+
+        @NonNull
+        private static Apiv7ListSearchApps getApiv7ListSearchApps(String query, boolean trusted, int limit, int offset) {
             final Apiv7ListSearchApps arguments = new Apiv7ListSearchApps();
             arguments.access_token = SecurePreferences.getInstance().getString("access_token", null);
             arguments.aptoide_vercode = UI.getVerCode(Aptoide.getContext());
@@ -1160,7 +1176,7 @@ public class AptoideUtils {
             arguments.q = HWSpecifications.filters(Aptoide.getContext());
             arguments.query = query;
             arguments.trusted = trusted;
-            return new GetListSearchAppsv7(arguments);
+            return arguments;
         }
 
         public static SearchRequest buildSearchRequest(String query, int limit, int otherReposLimit, int offset, int otherReposOffset) {
@@ -1181,7 +1197,6 @@ public class AptoideUtils {
                     .getAptoideId());
             return request;
         }
-
         public static SearchRequest buildSearchRequest(String query, int searchLimit, int otherReposSearchLimit, int offset, String storeName) {
             SearchRequest request = buildSearchRequest(query,searchLimit,otherReposSearchLimit,offset,0);
             if (storeName!=null && !TextUtils.isEmpty(storeName)) {
@@ -1191,8 +1206,8 @@ public class AptoideUtils {
             }
             return request;
         }
-    }
 
+    }
 
     public static class HWSpecifications {
 
@@ -1212,11 +1227,6 @@ public class AptoideUtils {
         }
 
 //        private static String cpuAbi2;
-//
-//        public static String getDeviceId(Context context) {
-//            return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-//        }
-//
 
         /**
          * @return the sdkVer
@@ -1320,13 +1330,6 @@ public class AptoideUtils {
         }
 
 //        public static String getCpuAbi() {
-//            return Build.CPU_ABI;
-//        }
-//
-//        public static String getCpuAbi2() {
-//
-//            if (getSdkVer() >= 8 && !Build.CPU_ABI2.equals(Build.UNKNOWN)) {
-//                return Build.CPU_ABI2;
 //            } else {
 //                return "";
 //            }

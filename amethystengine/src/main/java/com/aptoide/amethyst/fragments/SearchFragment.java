@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,6 +50,8 @@ import java.util.List;
  */
 public class SearchFragment extends LinearRecyclerFragment {
 
+    private static final String QUERY = "search";
+    private static final String TRUSTED = "trusted";
     SwipeRefreshLayout swipeContainer;
     ScrollView noSearchResultLayout;
     ImageView searchButton;
@@ -73,13 +74,15 @@ public class SearchFragment extends LinearRecyclerFragment {
     private boolean trusted;
     private SearchItemSubscriptionFilter searchItemFilter;
     private SearchApkConverter searchApkConverter;
+    private AptoideDatabase database;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        searchItemFilter = new SearchItemSubscriptionFilter(new AptoideDatabase(Aptoide.getDb()));
-        query = getArguments().getString("search");
-        trusted = getArguments().getBoolean("trusted");
+        database = new AptoideDatabase(Aptoide.getDb());
+        searchItemFilter = new SearchItemSubscriptionFilter(database);
+        query = getArguments().getString(QUERY);
+        trusted = getArguments().getBoolean(TRUSTED);
         if (adapter != null) {
             adapter.setQuery(query);
         }
@@ -114,7 +117,7 @@ public class SearchFragment extends LinearRecyclerFragment {
             handleSuccessCondition();
             updateList(listSearchApps);
 
-            searchOffset += listSearchApps.datalist.limit.intValue();
+            searchOffset = listSearchApps.datalist.next.intValue();
             swipeContainer.setEnabled(false);
             progressBar.setVisibility(View.GONE);
             mLoading = false;
@@ -239,7 +242,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         executeSpiceManager();
         GetAdsRequest getAdsRequest = new GetAdsRequest();
 
-        getAdsRequest.setLocation("search");
+        getAdsRequest.setLocation(QUERY);
         getAdsRequest.setKeyword(query);
         getAdsRequest.setLimit(1);
         spiceManager.execute(getAdsRequest, getAdsListener);
@@ -283,8 +286,8 @@ public class SearchFragment extends LinearRecyclerFragment {
 
         Bundle args = new Bundle();
 
-        args.putString("search", query);
-        args.putBoolean("trusted", trusted);
+        args.putString(QUERY, query);
+        args.putBoolean(TRUSTED, trusted);
 
         searchFragment.setArguments(args);
 
@@ -294,7 +297,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     private void executeSpiceManager() {
         long cacheDuration = DurationInMillis.ONE_HOUR * 6;
         spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
-                SearchRequest.SEARCH_LIMIT, 0),
+                SearchRequest.SEARCH_LIMIT, 0, database.getSubscribedStoreNames()),
                 SearchActivity.CONTEXT+query, cacheDuration, listener);
     }
 
@@ -310,7 +313,7 @@ public class SearchFragment extends LinearRecyclerFragment {
 
             @Override
             public void onRequestSuccess(ListSearchApps listSearchApps) {
-                searchOffset += listSearchApps.datalist.limit.intValue();
+                searchOffset = listSearchApps.datalist.next.intValue();
                 removeLoadingListItem();
                 updateList(listSearchApps);
                 mLoading = false;
@@ -328,15 +331,6 @@ public class SearchFragment extends LinearRecyclerFragment {
     private void updateList(ListSearchApps listSearchApps) {
 		final List<SearchApk> subscribedApps = searchApkConverter.convert(searchItemFilter.filterSubscribed(listSearchApps.datalist.list), displayOffset, true);
 		final List<SearchApk> unsubscribedApps = searchApkConverter.convert(searchItemFilter.filterUnsubscribed(listSearchApps.datalist.list), displayUnsubscribedOffset, false);
-
-        for (SearchApk searchApk: unsubscribedApps) {
-            for (Displayable displayable: displayables) {
-                if (displayable instanceof SearchApk
-                        && ((SearchApk) displayable).name.equals(searchApk.name)) {
-                    Log.d("Marcelo", "REPEATED " + searchApk.name);
-                }
-            }
-        }
 
         if (!subscribedApps.isEmpty()) {
             if (displayOffset == 0) { // Only display search results for subscribed apps once.
