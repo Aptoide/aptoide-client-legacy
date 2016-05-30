@@ -985,6 +985,10 @@ public class AptoideUtils {
         public static GetStoreRequestv7 buildStoreRequest(long storeId, String context, int bucketSize) {
 
             CommunityGetstoreRequest request = new CommunityGetstoreRequest(bucketSize, UI.getEditorChoiceBucketSize());
+            ArrayList<String> credentials = new ArrayList<String>();
+            if(!Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
+                credentials = Aptoide.getConfiguration().getStoreCredentials();
+            }
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
             request.filters = Aptoide.filters;
@@ -997,11 +1001,23 @@ public class AptoideUtils {
             if (login != null) {
                 request.user = login.getUsername();
                 request.password = login.getPasswordSha1();
-            }
+            } else if (credentials != null) {
+                request.user = credentials.get(0);
+                try {
+                    request.password = AptoideUtils.Algorithms.computeSHA1sum(credentials.get(1));
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }            }
             return request;
         }
 
         public static GetStoreRequestv7 buildStoreRequest(String storeName, String context) {
+            ArrayList<String> credentials = new ArrayList<String>();
+            if(!Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
+                credentials = Aptoide.getConfiguration().getStoreCredentials();
+            }
             GetStoreRequestv7 request = buildGenericStoreRequest(AptoideUtils.UI.getBucketSize());
             request.storeName = storeName;
             request.context = context;
@@ -1009,6 +1025,15 @@ public class AptoideUtils {
             if (login != null) {
                 request.user = login.getUsername();
                 request.password = login.getPasswordSha1();
+            } else if (credentials != null) {
+                request.user = credentials.get(0);
+                try {
+                    request.password = AptoideUtils.Algorithms.computeSHA1sum(credentials.get(1));
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
             return request;
         }

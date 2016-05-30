@@ -17,6 +17,7 @@ import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
 import com.aptoide.dataprovider.webservices.models.Defaults;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -236,5 +237,7 @@ public class AptoideConfiguration {
     public boolean isSearchStores() {
         return true;
     }
+
+    public ArrayList<String> getStoreCredentials () { return null; }
 
 }
