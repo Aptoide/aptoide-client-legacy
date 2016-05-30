@@ -13,10 +13,9 @@
               android:layout_height="match_parent">
 
     <TextView
+        tools:drawableLeft="@drawable/ic_dialog_badge_warning"
         android:layout_marginBottom="20dp"
         android:gravity="center_vertical"
-        android:drawableStart="@drawable/ic_badge_warning"
-        android:drawableLeft="@drawable/ic_badge_warning"
         android:drawablePadding="4dp"
         android:id="@+id/dialog_install_warning_rank_text"
         style="@style/TextAppearance.Aptoide.Dialog.Title"

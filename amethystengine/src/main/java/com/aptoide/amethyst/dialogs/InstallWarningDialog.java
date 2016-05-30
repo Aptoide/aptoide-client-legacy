@@ -108,7 +108,8 @@ public class InstallWarningDialog extends DialogFragment {
 		switch (rank) {
 			case GetAppMeta.File.Malware.WARNING:
 				badge.setText(R.string.warning);
-				badge.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_badge_warning, 0, 0,
+				badge.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_dialog_badge_warning,
+						0, 0,
 						0);
 				break;
 			case GetAppMeta.File.Malware.UNKNOWN:
