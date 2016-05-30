@@ -31,7 +31,6 @@ import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.SearchRequest;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.dataprovider.webservices.models.v7.ListSearchApps;
-import com.aptoide.dataprovider.webservices.models.v7.SearchItem;
 import com.aptoide.models.ApkSuggestionJson;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
@@ -256,7 +255,20 @@ public class SearchFragment extends LinearRecyclerFragment {
 
             @Override
             public int getOffset() {
-                return displayOffset + displayUnsubscribedOffset;
+
+                int totalOffset = 0;
+
+                if (displayOffset > 0) {
+                    // Sum header and footer
+                    totalOffset += 1 + displayOffset + 1;
+                }
+
+                if (displayUnsubscribedOffset > 0) {
+                    // Sum header
+                    totalOffset += 1 + displayUnsubscribedOffset;
+                }
+
+                return totalOffset;
             }
 
             @Override
@@ -331,7 +343,7 @@ public class SearchFragment extends LinearRecyclerFragment {
                 displayables.add(0, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                 displayables.addAll(1, subscribedApps);
                 displayOffset += subscribedApps.size();
-                // Consider subscribed header and subscribed apps
+                // Sum subscribed header and subscribed apps
                 displayables.add(1 + displayOffset, new SearchMoreHeader(BUCKET_SIZE));
             }
         }
@@ -342,18 +354,18 @@ public class SearchFragment extends LinearRecyclerFragment {
                     displayables.add(0, new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
                     displayables.addAll(1, unsubscribedApps);
                 } else {
-                    // Consider subscribed header, subscribed apps and subscribed footer
+                    // Sum subscribed header, subscribed apps and subscribed footer
                     displayables.add(1 + displayOffset + 1, new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
-                    // Consider subscribed header, subscribed apps, subscribed footer and unsubscribed header
+                    // Sum subscribed header, subscribed apps, subscribed footer and unsubscribed header
                     displayables.addAll(1 + displayOffset + 1 + 1, unsubscribedApps);
                 }
 
             } else {
                 if (displayOffset == 0) {
-                    // Consider unsubscribed header
+                    // Sum unsubscribed header
                     displayables.addAll(1 + displayUnsubscribedOffset, unsubscribedApps);
                 } else {
-                    // Consider subscribed header, subscribed apps, subscribed footer, unsubscribed header and unsubscribed apps
+                    // Sum subscribed header, subscribed apps, subscribed footer, unsubscribed header and unsubscribed apps
                     displayables.addAll(1 + displayOffset + 1 + 1 + displayUnsubscribedOffset, unsubscribedApps);
                 }
             }
