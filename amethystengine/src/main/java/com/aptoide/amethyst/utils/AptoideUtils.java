@@ -1153,12 +1153,13 @@ public class AptoideUtils {
             final Apiv7ListSearchApps arguments = new Apiv7ListSearchApps();
             arguments.access_token = SecurePreferences.getInstance().getString("access_token", null);
             arguments.aptoide_vercode = UI.getVerCode(Aptoide.getContext());
-            arguments.q = HWSpecifications.filters(Aptoide.getContext());
             arguments.lang = StringUtils.getMyCountry(Aptoide.getContext());
-            arguments.offset = offset;
             arguments.limit = limit;
-            arguments.trusted = trusted;
+            arguments.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
+            arguments.offset = offset;
+            arguments.q = HWSpecifications.filters(Aptoide.getContext());
             arguments.query = query;
+            arguments.trusted = trusted;
             return new GetListSearchAppsv7(arguments);
         }
 

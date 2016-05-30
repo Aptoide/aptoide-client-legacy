@@ -7,6 +7,7 @@ package com.aptoide.dataprovider.webservices.models.v7;
 
 public class Apiv7ListSearchApps extends Apiv7 {
 
+	public boolean mature;
 	public String query;
 	public boolean trusted;
 
