@@ -8,7 +8,7 @@ package com.aptoide.amethyst;
 import com.aptoide.amethyst.adapter.DividerItemDecoration;
 import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
 import com.aptoide.amethyst.adapter.store.CommentsStoreAdapter;
-import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.analytics.ABTest;
 import com.aptoide.amethyst.analytics.ABTestManager;
 import com.aptoide.amethyst.analytics.Analytics;

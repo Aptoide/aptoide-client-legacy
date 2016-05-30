@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.dialogs.AdultHiddenDialog;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;

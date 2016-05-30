@@ -2,7 +2,7 @@ package com.aptoide.amethyst.adapter.store;
 
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapter.BaseAdapter;
-import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.dialogs.ReplyCommentDialog;

@@ -41,7 +41,7 @@ import java.util.List;
  */
 public class MoreSearchActivity extends MoreActivity {
 
-	private EnumStoreTheme storeTheme;
+	private EnumStoreTheme storeTheme = null;
 	private AppBarLayout mAppBar;
 
     @Override

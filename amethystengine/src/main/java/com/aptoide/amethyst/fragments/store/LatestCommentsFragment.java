@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.ui.callbacks.AddCommentCallback;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
