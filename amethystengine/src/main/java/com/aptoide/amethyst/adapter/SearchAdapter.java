@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
@@ -208,7 +209,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(viewHolder.itemView.getContext(), MoreSearchActivity.class);
-                    i.putExtra(MoreSearchActivity.QUERY_BUNDLE_KEY, query);
+                    i.putExtra(SearchActivity.SEARCH_QUERY, query);
                     viewHolder.itemView.getContext().startActivity(i);
                 }
             });

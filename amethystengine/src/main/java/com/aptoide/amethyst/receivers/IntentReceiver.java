@@ -72,7 +72,6 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 //    private Class appViewClass = Aptoide.getConfiguration().getAppViewActivityClass();
     private Class startClass = MainActivity.class;
     private Class appViewClass = AppViewActivity.class;
-    private Class searchManagerClass = SearchManager.class;
 
 //    private ServiceConnection downloadConnection = new ServiceConnection() {
 //        @Override
@@ -482,7 +481,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 
         } else {
             i = new Intent(this, SearchActivity.class);
-            i.putExtra(android.app.SearchManager.QUERY, packageName);
+            i.putExtra(SearchActivity.SEARCH_QUERY, packageName);
 //            i.putExtra("search", packageName);
         }
 

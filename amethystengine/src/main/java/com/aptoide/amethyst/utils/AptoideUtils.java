@@ -7,67 +7,6 @@
  ******************************************************************************/
 package com.aptoide.amethyst.utils;
 
-import com.aptoide.dataprovider.webservices.models.v7.Apiv7ListSearchApps;
-import com.aptoide.dataprovider.webservices.v7.GetListSearchAppsv7;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-
-import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.BuildConfig;
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
-import com.aptoide.amethyst.configuration.AptoideConfiguration;
-import com.aptoide.amethyst.database.AptoideDatabase;
-import com.aptoide.amethyst.events.BusProvider;
-import com.aptoide.amethyst.events.OttoEvents;
-import com.aptoide.amethyst.preferences.AptoidePreferences;
-import com.aptoide.amethyst.preferences.EnumPreferences;
-import com.aptoide.amethyst.preferences.ManagerPreferences;
-import com.aptoide.amethyst.preferences.Preferences;
-import com.aptoide.amethyst.preferences.SecurePreferences;
-import com.aptoide.amethyst.social.WebViewFacebook;
-import com.aptoide.amethyst.social.WebViewTwitter;
-import com.aptoide.amethyst.webservices.AddApkFlagRequest;
-import com.aptoide.amethyst.webservices.ChangeUserRepoSubscription;
-import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
-import com.aptoide.amethyst.webservices.Errors;
-import com.aptoide.amethyst.webservices.GetAppRequest;
-import com.aptoide.amethyst.webservices.GetUserRepoSubscriptions;
-import com.aptoide.amethyst.webservices.SearchRequest;
-import com.aptoide.amethyst.webservices.json.GetUserRepoSubscriptionJson;
-import com.aptoide.amethyst.webservices.listeners.CheckSimpleStoreListener;
-import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
-import com.aptoide.amethyst.webservices.v3.RateAppRequest;
-import com.aptoide.dataprovider.webservices.GetSimpleStoreRequest;
-import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.dataprovider.webservices.models.Defaults;
-import com.aptoide.dataprovider.webservices.models.ErrorResponse;
-import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
-import com.aptoide.dataprovider.webservices.v7.CommunityGetstoreRequest;
-import com.aptoide.dataprovider.webservices.v7.GetListViewItemsRequestv7;
-import com.aptoide.dataprovider.webservices.v7.GetMoreVersionsAppRequest;
-import com.aptoide.dataprovider.webservices.v7.GetStoreRequestv7;
-import com.aptoide.dataprovider.webservices.v7.GetStoreWidgetRequestv7;
-import com.aptoide.models.ApkPermission;
-import com.aptoide.models.ApkPermissionGroup;
-import com.aptoide.models.stores.Login;
-import com.aptoide.models.stores.Store;
-import com.crashlytics.android.Crashlytics;
-import com.octo.android.robospice.SpiceManager;
-import com.octo.android.robospice.persistence.exception.SpiceException;
-import com.octo.android.robospice.request.listener.RequestListener;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.text.WordUtils;
-
 import android.accounts.AccountManager;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -117,6 +56,65 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.configuration.AptoideConfiguration;
+import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.events.BusProvider;
+import com.aptoide.amethyst.events.OttoEvents;
+import com.aptoide.amethyst.preferences.AptoidePreferences;
+import com.aptoide.amethyst.preferences.EnumPreferences;
+import com.aptoide.amethyst.preferences.ManagerPreferences;
+import com.aptoide.amethyst.preferences.Preferences;
+import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.social.WebViewFacebook;
+import com.aptoide.amethyst.social.WebViewTwitter;
+import com.aptoide.amethyst.webservices.AddApkFlagRequest;
+import com.aptoide.amethyst.webservices.ChangeUserRepoSubscription;
+import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
+import com.aptoide.amethyst.webservices.Errors;
+import com.aptoide.amethyst.webservices.GetAppRequest;
+import com.aptoide.amethyst.webservices.GetUserRepoSubscriptions;
+import com.aptoide.amethyst.webservices.json.GetUserRepoSubscriptionJson;
+import com.aptoide.amethyst.webservices.listeners.CheckSimpleStoreListener;
+import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
+import com.aptoide.amethyst.webservices.v3.RateAppRequest;
+import com.aptoide.dataprovider.webservices.GetSimpleStoreRequest;
+import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.dataprovider.webservices.models.Defaults;
+import com.aptoide.dataprovider.webservices.models.ErrorResponse;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7ListSearchApps;
+import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
+import com.aptoide.dataprovider.webservices.v7.CommunityGetstoreRequest;
+import com.aptoide.dataprovider.webservices.v7.GetListSearchAppsv7;
+import com.aptoide.dataprovider.webservices.v7.GetListViewItemsRequestv7;
+import com.aptoide.dataprovider.webservices.v7.GetMoreVersionsAppRequest;
+import com.aptoide.dataprovider.webservices.v7.GetStoreRequestv7;
+import com.aptoide.dataprovider.webservices.v7.GetStoreWidgetRequestv7;
+import com.aptoide.models.ApkPermission;
+import com.aptoide.models.ApkPermissionGroup;
+import com.aptoide.models.stores.Login;
+import com.aptoide.models.stores.Store;
+import com.crashlytics.android.Crashlytics;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.text.WordUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -1178,35 +1176,6 @@ public class AptoideUtils {
             arguments.trusted = trusted;
             return arguments;
         }
-
-        public static SearchRequest buildSearchRequest(String query, int limit, int otherReposLimit, int offset, int otherReposOffset) {
-            SearchRequest request = new SearchRequest();
-            request.setSearchQuery(query);
-            AptoideDatabase db = new AptoideDatabase(Aptoide.getDb());
-            final List<String> strings = db.getSubscribedStoreNames();
-            String[] arraysStrings = new String[strings.size()];
-            strings.toArray(arraysStrings);
-            request.setRepos(arraysStrings);
-            request.setLimit(limit);
-            request.setOtherReposLimit(otherReposLimit);
-            request.setU_offset(otherReposOffset);
-            request.setOffset(offset);
-            request.setAccess_token(SecurePreferences.getInstance()
-                    .getString("access_token", null));
-            request.setAptoide_uid(ManagerPreferences.getInstance(Aptoide.getContext())
-                    .getAptoideId());
-            return request;
-        }
-        public static SearchRequest buildSearchRequest(String query, int searchLimit, int otherReposSearchLimit, int offset, String storeName) {
-            SearchRequest request = buildSearchRequest(query,searchLimit,otherReposSearchLimit,offset,0);
-            if (storeName!=null && !TextUtils.isEmpty(storeName)) {
-                String[] arraysStrings = new String[1];
-                arraysStrings[0] = storeName;
-                request.setRepos(arraysStrings);
-            }
-            return request;
-        }
-
     }
 
     public static class HWSpecifications {

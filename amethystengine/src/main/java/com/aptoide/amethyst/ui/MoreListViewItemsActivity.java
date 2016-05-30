@@ -45,8 +45,8 @@ public class MoreListViewItemsActivity extends MoreActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        storeTheme = (EnumStoreTheme) getIntent().getExtras().get(SearchActivity.SEARCH_THEME);
-        storeName = getIntent().getStringExtra(SearchActivity.SEARCH_SOURCE);
+        storeTheme = (EnumStoreTheme) getIntent().getExtras().get(SearchActivity.SEARCH_STORE_THEME);
+        storeName = getIntent().getStringExtra(SearchActivity.SEARCH_STORE_NAME);
     }
 
     @Override
@@ -59,8 +59,8 @@ public class MoreListViewItemsActivity extends MoreActivity {
     @Override
     public void startActivity(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            intent.putExtra(SearchActivity.SEARCH_SOURCE, storeName);
-            intent.putExtra(SearchActivity.SEARCH_THEME, storeTheme);
+            intent.putExtra(SearchActivity.SEARCH_STORE_NAME, storeName);
+            intent.putExtra(SearchActivity.SEARCH_STORE_THEME, storeTheme);
         }
         super.startActivity(intent);
     }
@@ -82,7 +82,7 @@ public class MoreListViewItemsActivity extends MoreActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             Bundle args = getArguments();
             eventActionUrl = args.getString("eventActionUrl");
-            storeName = args.getString(SearchActivity.SEARCH_SOURCE);
+            storeName = args.getString(SearchActivity.SEARCH_STORE_NAME);
             return super.onCreateView(inflater, container, savedInstanceState);
         }
 

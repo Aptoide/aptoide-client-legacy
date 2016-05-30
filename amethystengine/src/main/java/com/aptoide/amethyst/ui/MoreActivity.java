@@ -80,7 +80,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
-            if (args.getString(SearchActivity.SEARCH_SOURCE) != null) {
+            if (args.getString(SearchActivity.SEARCH_STORE_NAME) != null) {
                 mToolbar.setLogo(R.drawable.ic_store);
             } else {
                 mToolbar.setLogo(R.drawable.ic_aptoide_toolbar);

@@ -2821,8 +2821,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 		public void searchForTrustedApp() {
 			final Intent searchIntent = new Intent(getActivity(), SearchActivity.class);
-			searchIntent.putExtra(android.app.SearchManager.QUERY, appName);
-			searchIntent.putExtra(SearchActivity.TRUSTED, true);
+			searchIntent.putExtra(SearchActivity.SEARCH_QUERY, appName);
+			searchIntent.putExtra(SearchActivity.SEARCH_ONLY_TRUSTED_APPS, true);
+			searchIntent.putExtra(SearchActivity.SEARCH_STORE_NAME, storeName);
+			searchIntent.putExtra(SearchActivity.SEARCH_STORE_THEME, storeTheme);
 			startActivity(searchIntent);
 		}
 

@@ -313,8 +313,8 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         } else {
                             i = new Intent(view.getContext(), MoreListViewItemsActivity.class);
                             if (storeName != null && !TextUtils.isEmpty(storeName)) {
-                                i.putExtra(SearchActivity.SEARCH_THEME, theme);
-                                i.putExtra(SearchActivity.SEARCH_SOURCE, storeName);
+                                i.putExtra(SearchActivity.SEARCH_STORE_THEME, theme);
+                                i.putExtra(SearchActivity.SEARCH_STORE_NAME, storeName);
                             }
                             if (bundleCategory != null && !TextUtils.isEmpty(bundleCategory)) {
                                 Analytics.HomePageBundles.sendHomePageBundleEvent(bundleCategory, row.getTag());

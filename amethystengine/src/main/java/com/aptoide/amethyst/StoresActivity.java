@@ -129,8 +129,8 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
     @Override
     public void startActivity(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            intent.putExtra(SearchActivity.SEARCH_SOURCE, storeName);
-            intent.putExtra(SearchActivity.SEARCH_THEME, storeTheme);
+            intent.putExtra(SearchActivity.SEARCH_STORE_NAME, storeName);
+            intent.putExtra(SearchActivity.SEARCH_STORE_THEME, storeTheme);
         }
         super.startActivity(intent);
     }
