@@ -24,6 +24,7 @@ import com.aptoide.amethyst.adapter.SearchAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.search.SearchApkConverter;
+import com.aptoide.amethyst.models.search.SearchItemSubscriptionFilter;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
@@ -65,19 +66,19 @@ public class SearchFragment extends LinearRecyclerFragment {
     private ArrayList<Displayable> displayables = new ArrayList<>();
     private String query;
     private SearchAdapter adapter = new SearchAdapter(displayables);
-    private int displayUOffset = 0;
+    private int displayUnsubscribedOffset = 0;
 	private int displayOffset;
     private int searchOffset;
     boolean mLoading = false;
     private final static String TAG = SearchFragment.class.getSimpleName();
     private boolean trusted;
-    private AptoideDatabase database;
+    private SearchItemSubscriptionFilter searchItemFilter;
     private SearchApkConverter searchApkConverter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        database = new AptoideDatabase(Aptoide.getDb());
+        searchItemFilter = new SearchItemSubscriptionFilter(new AptoideDatabase(Aptoide.getDb()));
         query = getArguments().getString("search");
         trusted = getArguments().getBoolean("trusted");
         if (adapter != null) {
@@ -255,7 +256,7 @@ public class SearchFragment extends LinearRecyclerFragment {
 
             @Override
             public int getOffset() {
-                return displayOffset + displayUOffset;
+                return displayOffset + displayUnsubscribedOffset;
             }
 
             @Override
@@ -313,8 +314,8 @@ public class SearchFragment extends LinearRecyclerFragment {
     }
 
     private void updateList(ListSearchApps listSearchApps) {
-		final List<SearchApk> subscribedApps = getSubscribedApps(listSearchApps.datalist.list);
-		final List<SearchApk> unsubscribedApps = getUnsubscribedApps(listSearchApps.datalist.list);
+		final List<SearchApk> subscribedApps = searchApkConverter.convert(searchItemFilter.filterSubscribed(listSearchApps.datalist.list), displayOffset, true);
+		final List<SearchApk> unsubscribedApps = searchApkConverter.convert(searchItemFilter.filterUnsubscribed(listSearchApps.datalist.list), displayUnsubscribedOffset, false);
 
         for (SearchApk searchApk: unsubscribedApps) {
             for (Displayable displayable: displayables) {
@@ -326,7 +327,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         }
 
         if (!subscribedApps.isEmpty()) {
-            if (displayOffset == 0) {
+            if (displayOffset == 0) { // Only display search results for subscribed apps once.
                 displayables.add(0, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                 displayables.addAll(1, subscribedApps);
                 displayOffset += subscribedApps.size();
@@ -336,7 +337,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         }
 
         if (!unsubscribedApps.isEmpty()) {
-            if (displayUOffset == 0) {
+            if (displayUnsubscribedOffset == 0) {
                 if (displayOffset == 0) {
                     displayables.add(0, new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
                     displayables.addAll(1, unsubscribedApps);
@@ -350,38 +351,14 @@ public class SearchFragment extends LinearRecyclerFragment {
             } else {
                 if (displayOffset == 0) {
                     // Consider unsubscribed header
-                    displayables.addAll(1 + displayUOffset, unsubscribedApps);
+                    displayables.addAll(1 + displayUnsubscribedOffset, unsubscribedApps);
                 } else {
                     // Consider subscribed header, subscribed apps, subscribed footer, unsubscribed header and unsubscribed apps
-                    displayables.addAll(1 + displayOffset + 1 + 1 + displayUOffset, unsubscribedApps);
+                    displayables.addAll(1 + displayOffset + 1 + 1 + displayUnsubscribedOffset, unsubscribedApps);
                 }
             }
-            displayUOffset += unsubscribedApps.size();
+            displayUnsubscribedOffset += unsubscribedApps.size();
         }
         adapter.notifyDataSetChanged();
-    }
-
-    private List<SearchApk> getUnsubscribedApps(List<SearchItem> allSearchItems) {
-        final List<SearchItem> unsubscribedSearchItems = new ArrayList<>(allSearchItems);
-        unsubscribedSearchItems.removeAll(getSubscribedSearchItems(allSearchItems));
-        return searchApkConverter.convert(unsubscribedSearchItems, false);
-    }
-
-    private List<SearchApk> getSubscribedApps(List<SearchItem> allSearchItems) {
-        return searchApkConverter.convert(getSubscribedSearchItems(allSearchItems), true);
-    }
-
-    private List<SearchItem> getSubscribedSearchItems(List<SearchItem> allSearchItems) {
-        final List<String> subscribedStoresNames = database.getSubscribedStoreNames();
-        final List<SearchItem> subscribedSearchItems = new ArrayList<>();
-
-        for (String storeName: subscribedStoresNames) {
-            for (SearchItem app: allSearchItems) {
-                if (app.store.name.equals(storeName)) {
-                    subscribedSearchItems.add(app);
-                }
-            }
-        }
-        return subscribedSearchItems;
     }
 }

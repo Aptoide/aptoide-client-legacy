@@ -20,13 +20,13 @@ public class SearchApkConverter {
 		this.bucketSize = bucketSize;
 	}
 
-	public List<SearchApk> convert(List<SearchItem> searchItems, boolean fromSubscribedStore) {
+	public List<SearchApk> convert(List<SearchItem> searchItems, int offset, boolean fromSubscribedStore) {
 		final List<SearchApk> myStoresApps = new ArrayList<>();
 
 		int position = 0;
 		for (SearchItem searchItem: searchItems) {
 			position++;
-			myStoresApps.add(convert(searchItem, fromSubscribedStore, position));
+			myStoresApps.add(convert(searchItem, fromSubscribedStore, offset + position));
 		}
 		return myStoresApps;
 	}
