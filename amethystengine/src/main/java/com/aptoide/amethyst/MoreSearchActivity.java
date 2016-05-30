@@ -148,9 +148,8 @@ public class MoreSearchActivity extends MoreActivity {
         protected void executeSpiceRequest(boolean useCache) {
             mLoading = true;
             long cacheExpiryDuration = useCache ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
-            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trustedAppsOnly, SearchActivity.SEARCH_LIMIT, offset, Collections.singletonList(storeName)), query + offset + SearchActivity.SEARCH_QUERY + storeName, cacheExpiryDuration, listener);
+            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trustedAppsOnly, SearchActivity.SEARCH_LIMIT, offset, formatStore(storeName)), query + offset + SearchActivity.SEARCH_QUERY + storeName, cacheExpiryDuration, listener);
         }
-
 
         RequestListener<ListSearchApps> listener = new RequestListener<ListSearchApps>() {
             @Override
@@ -166,7 +165,7 @@ public class MoreSearchActivity extends MoreActivity {
 
                 List<SearchApk> apkList = searchApkConverter.convert(listSearchApps.datalist.list, offset, true);
                 if (!apkList.isEmpty()) {
-                    if (storeName != null && !TextUtils.isEmpty(storeName)) {
+                    if (isStoreSearch()) {
                         displayableList.add(new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, storeName), false, BUCKET_SIZE));
                     } else {
                         displayableList.add(new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
@@ -210,7 +209,7 @@ public class MoreSearchActivity extends MoreActivity {
 
         private void executeEndlessSpiceRequest() {
             long cacheExpiryDuration = useCache ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
-            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trustedAppsOnly, SearchActivity.SEARCH_LIMIT, offset, Collections.singletonList(storeName)), MoreSearchActivity.class.getSimpleName() + query + offset, cacheExpiryDuration, new RequestListener<ListSearchApps>() {
+            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trustedAppsOnly, SearchActivity.SEARCH_LIMIT, offset, formatStore(storeName)), MoreSearchActivity.class.getSimpleName() + query + offset, cacheExpiryDuration, new RequestListener<ListSearchApps>() {
                 @Override
                 public void onRequestFailure(SpiceException spiceException) {
                     if (mLoading && !displayableList.isEmpty()) {
@@ -227,8 +226,7 @@ public class MoreSearchActivity extends MoreActivity {
                         getAdapter().notifyItemRemoved(displayableList.size());
                     }
 
-                    final List<SearchApk> apkList = searchApkConverter.convert(listSearchApps
-							.datalist.list, offset, true);
+                    List<SearchApk> apkList = searchApkConverter.convert(listSearchApps.datalist.list, offset, true);
                     if (!apkList.isEmpty()) {
                         displayableList.addAll(apkList);
                     }
@@ -248,6 +246,17 @@ public class MoreSearchActivity extends MoreActivity {
             searchButton = (ImageView )view.findViewById(R.id.ic_search_button);
             searchQuery = (EditText )view.findViewById(R.id.search_text);
             noSearchResultLayout = (ScrollView )view.findViewById(R.id.no_search_results_layout);
+        }
+
+        private boolean isStoreSearch() {
+            return storeName != null && !TextUtils.isEmpty(storeName);
+        }
+
+        private List<String> formatStore(String storeName) {
+            if (isStoreSearch()) {
+                return Collections.singletonList(storeName);
+            }
+            return null;
         }
     }
 }
