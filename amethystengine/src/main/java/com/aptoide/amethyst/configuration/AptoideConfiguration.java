@@ -238,6 +238,8 @@ public class AptoideConfiguration {
         return true;
     }
 
-    public ArrayList<String> getStoreCredentials () { return null; }
+    public ArrayList<String> getStoreCredentials () {
+        return null;
+    }
 
 }
