@@ -323,7 +323,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
                 repo = property.split("=")[1];
             } else if (property.toLowerCase().contains("show_install_popup")) {
                 showPopup = property.split("=")[1].equals("true");
-            } else if (substring.contains("referral")) {
+            } else if (substring.contains("referrer")) {
                 referrer = property.split("=")[1];
             } else {
                 //old version only with app id
