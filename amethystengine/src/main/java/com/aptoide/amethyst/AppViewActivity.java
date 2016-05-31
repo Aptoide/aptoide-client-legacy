@@ -77,6 +77,7 @@ import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.analytics.ABTest;
 import com.aptoide.amethyst.analytics.ABTestManager;
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.analytics.SecurityOption;
 import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
@@ -341,7 +342,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private Animation securityBalloonStartUpAnimation;
 		private Animation securityBalloonFadeInAnimation;
 		private Animation securityBalloonFadeOutAnimation;
-		private ABTest<Boolean> securityABTest;
+		private ABTest<SecurityOption> securityABTest;
 		private ViewItem trustedVersion;
 		private boolean securityBalloonToggled;
 
@@ -642,7 +643,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					populateRatings(model.getApp);
 					setTrustedVersion(model.getApp.nodes.meta.data, model.getApp.nodes.versions.list);
 
-					if (securityABTest.alternative()) {
+					if (securityABTest.alternative().showSecurityOverlay()) {
 						final String thirdPartyValidatedStore = malware.reason != null && malware.reason.thirdpartyValidated != null ? malware.reason.thirdpartyValidated.store : null;
 						setSecurityBalloon(new AppSecurityBalloon(appName, malware.rank,
 								thirdPartyValidatedStore, 5));
@@ -1392,7 +1393,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		View.OnClickListener badgeClickListener = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (securityABTest.alternative()) {
+				if (securityABTest.alternative().showSecurityOverlay()) {
 					if (mSecurityBalloon.shouldDisplay()) {
 						toggleSecurityBalloon();
 					}
@@ -2772,7 +2773,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					AptoideUtils.AdNetworks.knock(cpd);
 				}
 
-				if (securityABTest.alternative()
+				if (securityABTest.alternative().showWarningPopUp()
 						&& !GetAppMeta.File.Malware.TRUSTED.equals(rank)) {
 					InstallWarningDialog.newInstance(rank, hasTrustedVersion())
 							.show(getFragmentManager(), "InstallWarningDialog");

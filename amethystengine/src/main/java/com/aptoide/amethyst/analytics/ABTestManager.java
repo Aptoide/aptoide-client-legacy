@@ -26,7 +26,7 @@ import okhttp3.Route;
 public class ABTestManager {
 
 	public static final String APP_VIEW_SECURITY =
-			"app-view-show-security-overlay";
+			"app-view-security-enhancements";
 	private static ABTestManager instance;
 
 	private SixpackBuilder sixpackBuilder;
@@ -82,8 +82,12 @@ public class ABTestManager {
 	private void registerTests() {
 		tests.add(new ABTest(executorService, sixpack.experiment()
 				.withName(APP_VIEW_SECURITY)
-				.withAlternatives(new Alternative("false"), new Alternative("true"))
-				.build(), new BooleanAlternativeParser()));
+				.withAlternatives(
+						new Alternative("none"),
+						new Alternative("warning-pop-up"),
+						new Alternative("security-overlay"),
+						new Alternative("both"))
+				.build(), new SecurityAlternativeParser()));
 	}
 
 	private void prefetchTests() {
