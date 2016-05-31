@@ -1167,9 +1167,8 @@ public class AptoideUtils {
                 for (Store store : stores) {
                     if (store.getLogin() != null) {
                         storeAuthMap.put(store.getName(), Arrays.asList(store.getLogin().getUsername(), store.getLogin().getPassword()));
-                    } else {
-                        storeNames.add(store.getName());
                     }
+                    storeNames.add(store.getName());
                 }
             }
 
