@@ -37,3 +37,4 @@ captures/
 signing.properties
 google-services.json
 fabric.properties
+dump.rdb
