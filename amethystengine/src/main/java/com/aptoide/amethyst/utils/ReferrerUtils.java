@@ -29,6 +29,7 @@ import com.octo.android.robospice.SpiceManager;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
@@ -230,6 +231,20 @@ public class ReferrerUtils {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
             i.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         }
+        i.putExtra("referrer", referrer);
+        context.sendBroadcast(i);
+        Logger.d("InstalledBroadcastReceiver", "Sent broadcast to " + packageName + " with referrer " + referrer);
+    }
+
+    /**
+     * Broadcast an intent with the campaign referrer related with the ad that was pressed.
+     * @param context
+     * @param referrer
+     */
+    public static void broadcastSdkReferrer(Context context, String referrer) {
+        String packageName = Aptoide.getContext().getPackageName();
+        Intent i = new Intent("com.android.vending.INSTALL_REFERRER");
+        i.setPackage(packageName);
         i.putExtra("referrer", referrer);
         context.sendBroadcast(i);
         Logger.d("InstalledBroadcastReceiver", "Sent broadcast to " + packageName + " with referrer " + referrer);
