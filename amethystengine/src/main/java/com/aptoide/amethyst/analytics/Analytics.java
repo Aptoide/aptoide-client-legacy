@@ -515,7 +515,7 @@ public class Analytics {
         public static void noSearchResultEvent(String query) {
             HashMap<String, String> map = new HashMap<>();
             map.put(QUERY, query);
-            track(EVENT_NAME_NO_SEARCH_RESULT, map, LOCALYTICS);
+            track(EVENT_NAME_NO_SEARCH_RESULT, map, ALL);
         }
 
         public static void searchOtherStores() {
