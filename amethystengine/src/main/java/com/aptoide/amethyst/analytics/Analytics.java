@@ -575,7 +575,6 @@ public class Analytics {
         }
 
         public static void installed(String packageName, boolean referred, String isTrusted) {
-            Log.d("trinkes", "installed() called with: " + "packageName = [" + packageName + "], referred = [" + referred + "], isTrusted = [" + isTrusted + "]");
             innerTrack(packageName, INSTALLED, referred, ALL, isTrusted);
         }
 
