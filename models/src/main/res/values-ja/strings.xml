@@ -663,4 +663,12 @@
     <string name="essential_apps">必須アプリ</string>
     <string name="summer_apps">夏のアプリ</string>
     <string name="play_it">プレイ イット!</string>
+<string name="updates_filter_setting_title">安定版のアプリのみ更新を表示します</string>
+    <string name="balloon_security_information_google_play">一致するアプリ</string>
+    <string name="balloon_security_information_subtitle">すべてのアプリでウイルスをチェックします。</string>
+    <string name="balloon_security_information_title">Aptoide が変更されました。\nすべてのアプリでウイルスをチェックします。</string>
+    <string name="updates_filter_summary">これをチェックした場合、ベータ版の通知は行いません。</string>
+
+    <string name="add_more_stores">さらにストアを追加</string>
+    <string name="unsubscribe">購読の解除</string>
 </resources>

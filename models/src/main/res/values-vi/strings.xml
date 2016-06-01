@@ -140,7 +140,7 @@
 <string name="error_MARG_100">Thiếu tên ứng dụng</string>
 <string name="error_MARG_101">Thiếu chú thích</string>
 <string name="error_MARG_102">Thiếu danh mục</string>
-<string name="error_MARG_103">Thiếu rating</string>
+<string name="error_MARG_103">Thiếu đánh giá</string>
 <string name="error_MARG_104">Thiếu đánh dấu</string>
 <string name="error_MARG_105">Thiếu nhận xét</string>
 <string name="error_MARG_106">Thiếu bình chọn</string>
@@ -358,7 +358,7 @@
     <string name="and">và</string>
     <string name="more_friends">Xem thêm</string>
     <string name="more_reviews">Lượt xem</string>
-    <string name="more_editors_choice">Lựa chọn nhiều chỉnh sửa hơn</string>
+    <string name="more_editors_choice">Thêm lựa chọn từ Ban biên tập</string>
     <string name="more_versions">Nhiều phiên bản hơn</string>
     <string name="facebook_friends_list_using_timeline_empty">"Dòng thời gian xã hội cho phép bạn chia sẻ ứng dụng với bạn bè Facebook  của mình. Bạn có muốn tham gia vào mạng lưới không?"</string>
     <string name="timeline_not_compatible">Ooohhh… Tính năng này không tương thích với phiên bản Android của bạn</string>
@@ -414,7 +414,7 @@
     <string name="settings_dwn_network_rules">Tùy chọn mạng di động</string>
     <string name="setting_sum_icon_download_rules">Cho phép tải biểu tượng qua kết nối dữ liệu di động</string>
     <string name="setting_mobile">Điện thoại 3G/4G</string>
-    <string name="setting_sum_general_download_rules">Tải Ứng dụng, Lựa chọn chỉnh sửa, Ứng dựng hàng đầu và cửa hàng qua kết nối dữ liệu di động cho phép</string>
+    <string name="setting_sum_general_download_rules">Tải Ứng dụng, Lựa chọn từ Ban biên tập, Ứng dựng hàng đầu và Cửa hàng qua kết nối dữ liệu di động cho phép</string>
     <string name="setting_general_download_rules">Nội quy tải về tổng quát</string>
     <string name="setting_category_autoupdate">Cập nhật tự động Aptoide</string>
     <string name="setting_category_autoupdate_title">Kích hoạt tính năng tự động cập nhật Aptoide</string>
@@ -638,4 +638,5 @@
     <string name="libraries_demo">Các thư viện và Demo</string>
     <string name="arcade_action">Hành động và giải trí</string>
     <string name="arcade">Trò chơi trên một loại máy sử dụng đồng xu</string>
-    </resources>
+    <string name="unsubscribe">Bỏ theo dõi</string>
+</resources>
