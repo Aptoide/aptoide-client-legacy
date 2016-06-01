@@ -644,6 +644,7 @@ public class Analytics {
 
         private static final String APPLICATION_NAME = "Application Name";
         private static final String APPLICATION_PUBLISHER = "Application Publisher";
+        public static final String WARNING_POPUP = "Warning";
 
 //        public static void clicked(GetApkInfoJson getApkInfoJson) {
 //            try {
@@ -659,12 +660,13 @@ public class Analytics {
 //            }
 //        }
 
-        public static void clicked(String packageName, String developer) {
+        public static void clicked(String packageName, String developer, boolean isWarningPopupShowing) {
             try {
                 HashMap<String, String> map = new HashMap<>();
 
                 map.put(APPLICATION_NAME, packageName);
                 map.put(APPLICATION_PUBLISHER, developer);
+                map.put(WARNING_POPUP, Boolean.toString(isWarningPopupShowing));
 
                 track(CLICKED_ON_INSTALL_BUTTON, map, ALL);
 
@@ -768,8 +770,9 @@ public class Analytics {
         private static final String APPLICATION_PUBLISHER = "Application Publisher";
         private static final String SOURCE = "Source";
         private static final String TRUSTED = "Trusted Badge";
+        public static final String ANTIVIRUS_POPUP_KEY = "Pop-Up";
 
-        public static void view(String packageName, String developer, String download_from, String isTrusted) {
+        public static void view(String packageName, String developer, String download_from, String isTrusted, String popup) {
             try {
                 HashMap<String, String> map = new HashMap<>();
 
@@ -777,8 +780,9 @@ public class Analytics {
                 map.put(APPLICATION_PUBLISHER, developer);
                 map.put(SOURCE, download_from);
                 map.put(TRUSTED, isTrusted);
+                map.put(ANTIVIRUS_POPUP_KEY, popup);
 
-                track(VIEWED_APPLICATION, map, LOCALYTICS);
+                track(VIEWED_APPLICATION, map, ALL);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -897,4 +901,18 @@ public class Analytics {
         }
 
     }
+
+    public static class ClickonWarningPopupButtons {
+
+
+        public static final String CLICK_ON_WARNING_POP_UP_BUTTONS = "Click on Warning Pop up Buttons";
+        public static final String ACTION = "Action";
+
+        public static void sendClickonWarningPopupButtons(String action) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put(ACTION, action);
+            track(CLICK_ON_WARNING_POP_UP_BUTTONS, map, ALL);
+        }
+    }
+
 }
