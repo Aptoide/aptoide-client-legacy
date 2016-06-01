@@ -8,6 +8,7 @@ package com.aptoide.amethyst.analytics;
 import com.seatgeek.sixpack.ConversionError;
 import com.seatgeek.sixpack.Experiment;
 import com.seatgeek.sixpack.ParticipatingExperiment;
+import com.seatgeek.sixpack.PrefetchedExperiment;
 
 import java.util.concurrent.ExecutorService;
 
@@ -17,6 +18,7 @@ public class ABTest<T> {
 	private final Experiment experiment;
 	private final AlternativeParser<T> alternativeParser;
 	private ParticipatingExperiment participatingExperiment;
+	private PrefetchedExperiment prefetchedExperiment;
 
 	public ABTest(ExecutorService executorService, Experiment experiment, AlternativeParser<T>
 			alternativeParser) {
@@ -30,7 +32,7 @@ public class ABTest<T> {
 	}
 
 	public void participate() {
-		if (participatingExperiment == null) {
+		if (!isParticipating()) {
 			executorService.submit(new Runnable() {
 				@Override
 				public void run() {
@@ -61,6 +63,8 @@ public class ABTest<T> {
 		}
 		if (isParticipating()) {
 			return alternativeParser.parse(participatingExperiment.selectedAlternative.name);
+		} else if (isPrefetched()) {
+			return alternativeParser.parse(prefetchedExperiment.selectedAlternative.name);
 		}
 		return alternativeParser.parse(experiment.getControlAlternative().name);
 	}
@@ -69,13 +73,19 @@ public class ABTest<T> {
 		return participatingExperiment != null;
 	}
 
+	private boolean isPrefetched() {
+		return prefetchedExperiment != null;
+	}
+
 	public void prefetch() {
-		executorService.submit(new Runnable() {
-			@Override
-			public void run() {
-				experiment.prefetch();
-			}
-		});
+		if (!isPrefetched()) {
+			executorService.submit(new Runnable() {
+				@Override
+				public void run() {
+					prefetchedExperiment = experiment.prefetch();
+				}
+			});
+		}
 	}
 
 	@Override
