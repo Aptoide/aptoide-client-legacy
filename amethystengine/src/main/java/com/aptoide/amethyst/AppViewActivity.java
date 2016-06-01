@@ -304,7 +304,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 	public void installApp() {
 		final Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content);
 		if (fragment != null) {
-			((AppViewFragment) fragment).download();
+			((AppViewFragment) fragment).installApp();
 		}
 	}
 
@@ -2767,7 +2767,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 			@Override
 			public void onClick(View v) {
-				securityABTest.convert();
+
 				reloadButtons = true;
 				if (appSuggested != null && appSuggested.getInfo().getCpc_url() != null) {
 					AptoideUtils.AdNetworks.knock(appSuggested.getInfo().getCpd_url());
@@ -2782,7 +2782,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					InstallWarningDialog.newInstance(rank, hasTrustedVersion())
 							.show(getFragmentManager(), "InstallWarningDialog");
 				} else {
-					download();
+					installApp();
 				}
 				Analytics.ClickedOnInstallButton.clicked(package_name, developer, securityABTest.alternative().showWarningPopUp());
 			}
@@ -2792,6 +2792,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				// shouldnt check if which is positive?
 				download();
 			}
+		}
+
+		public void installApp() {
+			securityABTest.convert();
+			download();
 		}
 
 		private boolean hasTrustedVersion() {
