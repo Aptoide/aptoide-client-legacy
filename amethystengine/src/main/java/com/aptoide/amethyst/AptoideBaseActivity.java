@@ -1,12 +1,13 @@
 package com.aptoide.amethyst;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.LifeCycleMonitor;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import lombok.Getter;
 
@@ -53,6 +54,12 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         _resumed = true;
         Analytics.Lifecycle.Activity.onResume(this, getScreenName());
         AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Analytics.Lifecycle.Activity.onNewIntent(this, intent);
     }
 
     @Override

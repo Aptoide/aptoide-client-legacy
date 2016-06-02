@@ -20,6 +20,7 @@ allprojects {
         mavenCentral()
         maven { url "http://www.leanplum.com/leanplum-sdks/" }
         maven { url 'http://dl.bintray.com/optimizely/optimizely' }
+        maven { url 'http://maven.localytics.com/public' }
     }
 
 }
