@@ -143,3 +143,7 @@
 -keep class android.support.design.widget.CoordinatorLayout$SavedState { *; }
 
 #-keep class com.octo.android.robospice.retrofit.** { *; }
+
+#localytics
+-keep class com.localytics.android.** { *; }
+-keepattributes JavascriptInterface

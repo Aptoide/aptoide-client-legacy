@@ -11,6 +11,7 @@ import com.flurry.android.FlurryAgent;
 import com.localytics.android.Localytics;
 
 import android.content.Context;
+import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -136,8 +137,7 @@ public class Analytics {
                     return;
 
                 // Localytics
-                Localytics.openSession();
-                Localytics.upload();
+                Localytics.onActivityResume(activity);
 
                 if (!AptoideUtils.AccountUtils.isLoggedIn(activity)) {
                     Localytics.setCustomDimension(0, "Not Logged In");
@@ -167,8 +167,8 @@ public class Analytics {
                     return;
 
                 // Localytics
-                Localytics.closeSession();
-                Localytics.upload();
+                Localytics.onActivityPaused(activity);
+
             }
 
             public static void onStart(android.app.Activity activity) {
@@ -187,6 +187,10 @@ public class Analytics {
 
                 FlurryAgent.onEndSession(activity);
 
+            }
+
+            public static void onNewIntent(android.app.Activity activity, Intent intent) {
+                Localytics.onNewIntent(activity, intent);
             }
         }
 
