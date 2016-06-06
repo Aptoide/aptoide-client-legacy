@@ -246,9 +246,13 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public static class CommentItemOnClickListener implements View.OnClickListener {
 
         private final CommentItem item;
+        private final boolean isCommunity;
+        private final boolean isMore;
 
-        public CommentItemOnClickListener(CommentItem item) {
+        public CommentItemOnClickListener(CommentItem item, boolean isCommunity, boolean isMore) {
             this.item = item;
+            this.isCommunity = isCommunity;
+            this.isMore = isMore;
         }
 
         @Override
@@ -258,6 +262,13 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 i.putExtra(Constants.APP_ID_KEY, item.appid.longValue());
                 i.putExtra(Constants.APPNAME_KEY, item.appname);
                 i.putExtra(Constants.FROM_COMMENT_KEY, true);
+                if (isCommunity) {
+                    if (!isMore) {
+                        AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Comments_Community");
+                    } else {
+                        AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Comments");
+                    }
+                }
                 view.getContext().startActivity(i);
             }
         }
@@ -270,6 +281,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         private final String storeName;
         private final long storeId;
         public String bundleCategory;
+        public boolean isCommunity = false;
 
         public IHasMoreOnClickListener(IHasMore row, EnumStoreTheme theme) {
             this.row = row;
@@ -346,7 +358,10 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     case COMMENTS_TYPE:
                         i = new Intent(view.getContext(), MoreCommentsActivity.class);
                         if (!TextUtils.isEmpty(row.getTag())) {
-                            AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(row.getTag());
+                            AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(row.getTag() + " More_Community");
+                        }
+                        if (isCommunity) {
+                            i.putExtra(MoreCommentsActivity.FROM_COMMUNITY, true);
                         }
                         break;
                     case EVENT_FACEBOOK_TYPE:

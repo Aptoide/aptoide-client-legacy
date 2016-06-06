@@ -238,7 +238,7 @@ public class CommunityFragment extends BaseWebserviceFragment {
                                 return;
                             }
 
-                            HeaderRow header = new HeaderRow(getString(R.string.comments), true, COMMENTS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
+                            HeaderRow header = new HeaderRow(getString(R.string.comments), "Comments", true, COMMENTS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
                             header.FULL_ROW = AptoideUtils.UI.getEditorChoiceBucketSize();
                             displayableList.set(index++, header);
 

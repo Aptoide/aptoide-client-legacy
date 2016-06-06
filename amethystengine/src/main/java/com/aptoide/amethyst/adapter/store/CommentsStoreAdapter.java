@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.adapter.store;
 
+import com.aptoide.amethyst.MainActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
@@ -141,7 +142,7 @@ public class CommentsStoreAdapter extends BaseAdapter implements SpannableRecycl
                 item.votes.setVisibility(View.VISIBLE);
                 item.votes.setText(AptoideUtils.StringUtils.getFormattedString(context, R.string.votes, commentItem.votes));
             }
-            viewHolder.itemView.setOnClickListener(new CommentItemOnClickListener(commentItem));
+            viewHolder.itemView.setOnClickListener(new CommentItemOnClickListener(commentItem, item.isCommunity, !(activity instanceof MainActivity)));
             Glide.with(context).load(commentItem.useravatar).transform(new CircleTransform(context)).into(item.useravatar);
             if (position == displayableList.size() - 1) {
                 item.verticalSeparator.setVisibility(View.GONE);

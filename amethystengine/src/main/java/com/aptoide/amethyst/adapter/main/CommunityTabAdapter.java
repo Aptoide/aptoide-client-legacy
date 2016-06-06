@@ -56,11 +56,11 @@ public class CommunityTabAdapter extends BaseAdapter implements SpannableRecycle
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(viewType, viewGroup, false);
 
         if (viewType == R.layout.layout_header) {
-            holder = new HeaderViewHolder(view, viewType, EnumStoreTheme.APTOIDE_STORE_THEME_DEFAULT);
+            holder = new HeaderViewHolder(view, viewType, EnumStoreTheme.APTOIDE_STORE_THEME_DEFAULT, true);
         } else if (viewType == R.layout.top_app_row) {
             holder = new TopAppViewHolder(view, viewType);
         } else if (viewType == R.layout.comment_row) {
-            holder = new CommentViewHolder(view, viewType, activity, colorResId);
+            holder = new CommentViewHolder(view, viewType, activity, colorResId, true);
         } else if (viewType == R.layout.row_review) {
             holder = new ReviewViewHolder(view, viewType, EnumStoreTheme.APTOIDE_STORE_THEME_DEFAULT, true);
         } else if (viewType == R.layout.row_empty) {
