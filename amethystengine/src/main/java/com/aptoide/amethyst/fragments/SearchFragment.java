@@ -36,12 +36,14 @@ import com.aptoide.models.displayables.ProgressBarRow;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.models.displayables.SearchMoreHeader;
 import com.aptoide.models.displayables.SuggestedAppDisplayable;
+import com.aptoide.models.stores.Store;
 import com.octo.android.robospice.exception.NoNetworkException;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -149,7 +151,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         layoutNoNetwork.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
         swipeContainer.setVisibility(View.VISIBLE);
-        searchForSubscribedApps();
+        searchForSubscribedApps(database.getSubscribedStores());
     }
 
     protected void handleSuccessCondition() {
@@ -173,7 +175,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         getRecyclerView().setAdapter(adapter);
 
         searchForSuggestedApp();
-        searchForSubscribedApps();
+        searchForSubscribedApps(database.getSubscribedStores());
 
         getRecyclerView().addOnScrollListener(new EndlessRecyclerOnScrollListener((LinearLayoutManager) getRecyclerView().getLayoutManager()) {
             @Override
@@ -244,10 +246,10 @@ public class SearchFragment extends LinearRecyclerFragment {
         });
     }
 
-    private void searchForSubscribedApps() {
+    private void searchForSubscribedApps(List<Store> subscribedStores) {
         spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
-                SearchActivity.SEARCH_LIMIT, 0, database.getSubscribedStores()),
-                SearchActivity.CONTEXT+query, SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
+                SearchActivity.SEARCH_LIMIT, 0, subscribedStores),
+                SearchActivity.CONTEXT+query+getStoreListCacheKey(subscribedStores), SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
 
                     @Override
                     public void onRequestFailure(SpiceException spiceException) {
@@ -257,7 +259,7 @@ public class SearchFragment extends LinearRecyclerFragment {
                     @Override
                     public void onRequestSuccess(ListSearchApps listSearchApps) {
                         handleSuccessCondition();
-                        updateList(listSearchApps);
+                        updateList(searchApkConverter.convert(listSearchApps.datalist.list, subscribedAppsOffset, true), Collections.<SearchApk>emptyList());
 
                         swipeContainer.setEnabled(false);
                         progressBar.setVisibility(View.GONE);
@@ -288,6 +290,14 @@ public class SearchFragment extends LinearRecyclerFragment {
                 });
     }
 
+    private String getStoreListCacheKey(List<Store> stores) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        for (Store store: stores) {
+            stringBuilder.append(store.getName());
+        }
+        return stringBuilder.toString();
+    }
+
     private void searchForMoreUnsubscribedApps(final int offset) {
         spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
                 SearchActivity.SEARCH_LIMIT, offset), SearchActivity.CONTEXT + query +
@@ -302,7 +312,7 @@ public class SearchFragment extends LinearRecyclerFragment {
             public void onRequestSuccess(ListSearchApps listSearchApps) {
                 searchOffset = listSearchApps.datalist.next.intValue();
                 removeLoadingListItem();
-                updateList(listSearchApps);
+                updateList(Collections.<SearchApk>emptyList(), searchApkConverter.convert(searchItemFilter.filterUnsubscribed(listSearchApps.datalist.list), unsubscribedAppsOffset, false));
                 loading = false;
             }
         });
@@ -315,9 +325,7 @@ public class SearchFragment extends LinearRecyclerFragment {
 		}
     }
 
-    private void updateList(ListSearchApps listSearchApps) {
-		final List<SearchApk> subscribedApps = searchApkConverter.convert(searchItemFilter.filterSubscribed(listSearchApps.datalist.list), subscribedAppsOffset, true);
-		final List<SearchApk> unsubscribedApps = searchApkConverter.convert(searchItemFilter.filterUnsubscribed(listSearchApps.datalist.list), unsubscribedAppsOffset, false);
+    private void updateList(List<SearchApk> subscribedApps, List<SearchApk> unsubscribedApps) {
 
         if (!subscribedApps.isEmpty()) {
             if (subscribedAppsOffset == 0) { // Only display search results for subscribed apps once.

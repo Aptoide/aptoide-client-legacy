@@ -26,7 +26,7 @@ public class SearchItemSubscriptionFilter {
 		return unsubscribedSearchItems;
 	}
 
-	public List<SearchItem> filterSubscribed(List<SearchItem> items) {
+	private List<SearchItem> filterSubscribed(List<SearchItem> items) {
 		final List<Store> subscribedStores = database.getSubscribedStores();
 		final List<SearchItem> subscribedSearchItems = new ArrayList<>();
 

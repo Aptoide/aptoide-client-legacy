@@ -119,7 +119,7 @@ public class MoreSearchActivity extends MoreActivity {
                     mLoading = true;
                     displayableList.add(new ProgressBarRow(BUCKET_SIZE));
                     adapter.notifyItemInserted(adapter.getItemCount());
-                    executeEndlessSpiceRequest();
+                    executeEndlessSpiceRequest(formatStore(storeName));
                 }
 
                 @Override
@@ -152,7 +152,8 @@ public class MoreSearchActivity extends MoreActivity {
         protected void executeSpiceRequest(boolean useCache) {
             mLoading = true;
             long cacheExpiryDuration = useCache ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
-            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trustedAppsOnly, SearchActivity.SEARCH_LIMIT, offset, formatStore(storeName)), query + offset + SearchActivity.SEARCH_QUERY + storeName, cacheExpiryDuration, listener);
+            final List<Store> stores = formatStore(storeName);
+            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trustedAppsOnly, SearchActivity.SEARCH_LIMIT, offset, stores), query + offset + SearchActivity.SEARCH_QUERY + getStoreListCacheKey(stores), cacheExpiryDuration, listener);
         }
 
         RequestListener<ListSearchApps> listener = new RequestListener<ListSearchApps>() {
@@ -211,9 +212,9 @@ public class MoreSearchActivity extends MoreActivity {
             getContext().startActivity(intent);
         }
 
-        private void executeEndlessSpiceRequest() {
+        private void executeEndlessSpiceRequest(List<Store> stores) {
             long cacheExpiryDuration = useCache ? DurationInMillis.ONE_HOUR * 6 : DurationInMillis.ALWAYS_EXPIRED;
-            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trustedAppsOnly, SearchActivity.SEARCH_LIMIT, offset, formatStore(storeName)), MoreSearchActivity.class.getSimpleName() + query + offset, cacheExpiryDuration, new RequestListener<ListSearchApps>() {
+            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trustedAppsOnly, SearchActivity.SEARCH_LIMIT, offset, stores), MoreSearchActivity.class.getSimpleName() + query + offset + getStoreListCacheKey(stores), cacheExpiryDuration, new RequestListener<ListSearchApps>() {
                 @Override
                 public void onRequestFailure(SpiceException spiceException) {
                     if (mLoading && !displayableList.isEmpty()) {
@@ -271,6 +272,14 @@ public class MoreSearchActivity extends MoreActivity {
             }
 
             return null;
+        }
+
+        private String getStoreListCacheKey(List<Store> stores) {
+            final StringBuilder stringBuilder = new StringBuilder();
+            for (Store store: stores) {
+                stringBuilder.append(store.getName());
+            }
+            return stringBuilder.toString();
         }
     }
 }
