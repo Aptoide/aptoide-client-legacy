@@ -1397,10 +1397,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		View.OnClickListener badgeClickListener = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (securityABTest.alternative().showSecurityOverlay()) {
-					if (mSecurityBalloon.shouldDisplay()) {
-						toggleSecurityBalloon();
-					}
+				if (securityABTest.alternative().showSecurityOverlay()
+						&& mSecurityBalloon.shouldDisplay()) {
+					toggleSecurityBalloon();
 				} else {
 					AptoideDialog.badgeDialogV7(malware, appName, malware.rank)
 							.show(getFragmentManager(), BADGE_DIALOG_TAG);
