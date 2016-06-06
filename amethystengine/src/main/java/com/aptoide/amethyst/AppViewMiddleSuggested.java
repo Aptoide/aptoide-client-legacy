@@ -1,14 +1,5 @@
 package com.aptoide.amethyst;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.amazon.insights.ABTestClient;
 import com.amazon.insights.AmazonInsights;
 import com.amazon.insights.Event;
@@ -23,7 +14,7 @@ import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.utils.ReferrerUtils;
-import com.aptoide.amethyst.utils.SimpleFuture;
+import com.aptoide.amethyst.webservices.GetApkInfoRequestFromId;
 import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.models.ApkSuggestionJson;
@@ -32,11 +23,18 @@ import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.aptoide.amethyst.webservices.GetApkInfoRequestFromId;
 
 import static com.aptoide.dataprovider.webservices.models.Constants.AD_ID_KEY;
 import static com.aptoide.dataprovider.webservices.models.Constants.APPNAME_KEY;
@@ -239,6 +237,7 @@ public class AppViewMiddleSuggested {
                         fillAppViewActivityIntent(i, apkSuggestionJson);
 
                         context.startActivity(i);
+                        AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Suggested_Middle App View");
 
                     }
                 });

@@ -1,21 +1,19 @@
 package com.aptoide.amethyst.viewholders;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
+import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.SuggestedAppDisplayable;
 import com.bumptech.glide.Glide;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import java.text.DecimalFormat;
-
-import com.aptoide.amethyst.AppViewActivity;
-
 
 import static com.aptoide.dataprovider.webservices.models.Constants.AD_ID_KEY;
 import static com.aptoide.dataprovider.webservices.models.Constants.APPNAME_KEY;
@@ -107,7 +105,7 @@ public class SuggestedAppViewHolder extends BaseViewHolder {
 
                     i.putExtra(PARTNER_EXTRA, bundle);
                 }
-
+                AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Suggested_Search Result");
                 itemView.getContext().startActivity(i);
             }
         };

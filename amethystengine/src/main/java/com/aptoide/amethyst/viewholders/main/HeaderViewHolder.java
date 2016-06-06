@@ -58,6 +58,7 @@ public class HeaderViewHolder extends BaseViewHolder {
                     listener = new BaseAdapter.IHasMoreOnClickListener(row, theme);
                     more.setOnClickListener(listener);
                     moreLayout.setOnClickListener(listener);
+                    listener.bundleCategory = ((HeaderRow) displayable).getTag();
                 } else {
                     listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, storeId);
                     more.setOnClickListener(listener);
@@ -74,7 +75,7 @@ public class HeaderViewHolder extends BaseViewHolder {
                     moreLayout.setOnClickListener(listener);
                 }
             }
-            listener.bundleCategory = row.bundleCategory;
+            listener.bundleCategory = row.getTag();
         } else {
             more.setVisibility(View.GONE);
             moreLayout.setClickable(false);

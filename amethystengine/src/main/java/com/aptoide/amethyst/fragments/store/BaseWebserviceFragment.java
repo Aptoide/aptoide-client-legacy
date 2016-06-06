@@ -1,20 +1,10 @@
 package com.aptoide.amethyst.fragments.store;
 
-import android.graphics.PorterDuff;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.ScrollView;
-import android.widget.TextView;
-
 import com.aptoide.amethyst.GridRecyclerFragment;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.dialogs.AdultHiddenDialog;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.displayables.StoreHeaderRow;
 import com.aptoide.amethyst.preferences.Preferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
@@ -27,27 +17,35 @@ import com.aptoide.dataprovider.webservices.json.review.Review;
 import com.aptoide.dataprovider.webservices.json.review.ReviewListJson;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.StoreHomeTab;
-import com.aptoide.models.displayables.AdItem;
-import com.aptoide.models.displayables.AdultItem;
 import com.aptoide.models.ApkSuggestionJson;
+import com.aptoide.models.displayables.AdItem;
+import com.aptoide.models.displayables.AdPlaceHolderRow;
+import com.aptoide.models.displayables.AdultItem;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
-import com.aptoide.models.displayables.ReviewRowItem;
-import com.aptoide.models.displayables.TimelineRow;
-import com.aptoide.models.displayables.AdPlaceHolderRow;
 import com.aptoide.models.displayables.ReviewPlaceHolderRow;
+import com.aptoide.models.displayables.ReviewRowItem;
+import com.aptoide.models.displayables.StoreHeaderRow;
 import com.aptoide.models.displayables.TimeLinePlaceHolderRow;
+import com.aptoide.models.displayables.TimelineRow;
 import com.octo.android.robospice.exception.NoNetworkException;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
+import android.graphics.PorterDuff;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
-
-import com.aptoide.amethyst.adapter.BaseAdapter;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
@@ -249,7 +247,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                         }
 
 
-                        HeaderRow header = new HeaderRow(getString(R.string.friends_installs), true, TIMELINE_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
+                        HeaderRow header = new HeaderRow(getString(R.string.friends_installs), "friends_installs", true, TIMELINE_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
                         displayableList.set(index++, header);
 
                         for (int i = 0; i < timelineListAPKsJson.usersapks.size(); i++) {
@@ -314,7 +312,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                         return;
 
 
-                    HeaderRow header = new HeaderRow(getString(R.string.highlighted_apps), true, ADS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
+                    HeaderRow header = new HeaderRow(getString(R.string.highlighted_apps), "Highlighted", true, ADS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
                     displayableList.set(index++, header);
 
                     for (int i = 0; i < apkSuggestionJson.ads.size(); i++) {
@@ -369,7 +367,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                         return;
 
 
-                    HeaderRow header = new HeaderRow(getString(R.string.more_reviews), true, REVIEWS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
+                    HeaderRow header = new HeaderRow(getString(R.string.more_reviews), "Reviews", true, REVIEWS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
                     displayableList.set(index++, header);
 
                     for (Review review : reviewListJson.reviews) {

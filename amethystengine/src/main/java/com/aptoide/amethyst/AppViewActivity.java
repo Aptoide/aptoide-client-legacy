@@ -642,11 +642,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					populateRatings(model.getApp);
 					setTrustedVersion(model.getApp.nodes.meta.data, model.getApp.nodes.versions.list);
 
-					Analytics.ViewedApplication.view(packageName, developer, download_from, malware.rank, securityABTest
-							.alternative()
-							.showSecurityOverlay() ? "Antivirus" : Boolean.toString(securityABTest.alternative()
-							.showSecurityOverlay()));
-
+					boolean displayedSecurityBalloon = false;
 					if (securityABTest.alternative().showSecurityOverlay()) {
 						final String thirdPartyValidatedStore = malware.reason != null && malware.reason.thirdpartyValidated != null ? malware.reason.thirdpartyValidated.store : null;
 						setSecurityBalloon(new AppSecurityBalloon(appName, malware.rank,
@@ -654,12 +650,19 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 						if (securityBalloonToggled) {
 							toggleSecurityBalloon();
 						} else {
-							showSecurityBalloonAutomatically(securityBalloonStartUpAnimation);
-						}
+							if (mSecurityBalloon.shouldDisplayAutomatically()) {
+								animateSecurityBalloon(securityBalloonFadeInAnimation);
+								mSecurityBalloon.didDisplayAutomatically();
+								displayedSecurityBalloon = true;
+							} 						}
 					} else {
 						showBadges();
 					}
-
+					if (!isRotated) {
+						Analytics.ViewedApplication.view(packageName, developer, download_from, malware.rank, securityABTest
+								.alternative()
+								.showSecurityOverlay() ? "Antivirus" : Boolean.toString(displayedSecurityBalloon));
+					}
 					if (!fromSponsored) {
 						new AppViewMiddleSuggested((AppViewActivity) getActivity(), getView()
 								.findViewById(R.id.middleAppViewContainer), spiceManager, appId,
@@ -823,7 +826,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				mButtonInstall.setVisibility(View.VISIBLE);
 			}
 		};
-
+		private boolean isRotated = false;
 		@Override
 		public void onCreate(@Nullable final Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
@@ -850,6 +853,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				versionName = savedInstanceState.getString(Constants.VERSIONNAME_KEY);
 				md5sum = savedInstanceState.getString(Constants.MD5SUM_KEY);
 				securityBalloonToggled = savedInstanceState.getBoolean(Constants.SECURITY_BALLOON_TOGGLED);
+				isRotated = true;
 			} else {
 				forceAutoDownload = getActivity().getIntent()
 						.getBooleanExtra("forceAutoDownload", false);
@@ -1418,13 +1422,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 		}
 
-		private void showSecurityBalloonAutomatically(Animation animation) {
-			if (mSecurityBalloon.shouldDisplayAutomatically()) {
-				animateSecurityBalloon(animation);
-				mSecurityBalloon.didDisplayAutomatically();
-			}
-		}
-
 		private void animateSecurityBalloon(final Animation animation) {
 			securitydBalloonLayout.post(new Runnable() {
 				@Override
@@ -1773,6 +1770,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					intent.putExtra(Constants.PACKAGENAME_KEY, packageName);
 					intent.putExtra(Constants.EVENT_LABEL, appName);
 					startActivity(intent);
+					AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Other Versions More_App View");
 				}
 			});
 
@@ -2777,14 +2775,15 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					AptoideUtils.AdNetworks.knock(cpd);
 				}
 
-				if (securityABTest.alternative().showWarningPopUp()
-						&& !GetAppMeta.File.Malware.TRUSTED.equals(rank)) {
+				boolean alternative = securityABTest.alternative().showWarningPopUp()
+						&& !GetAppMeta.File.Malware.TRUSTED.equals(rank);
+				if (alternative) {
 					InstallWarningDialog.newInstance(rank, hasTrustedVersion())
 							.show(getFragmentManager(), "InstallWarningDialog");
 				} else {
 					installApp();
 				}
-				Analytics.ClickedOnInstallButton.clicked(package_name, developer, securityABTest.alternative().showWarningPopUp());
+				Analytics.ClickedOnInstallButton.clicked(package_name, developer, alternative);
 			}
 
 			@Override

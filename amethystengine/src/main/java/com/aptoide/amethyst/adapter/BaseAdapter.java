@@ -339,9 +339,15 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         if (storeId > 0) {
                             i.putExtra(Constants.STOREID_KEY, storeId);
                         }
+                        if (!TextUtils.isEmpty(row.getTag())) {
+                            AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(row.getTag());
+                        }
                         break;
                     case COMMENTS_TYPE:
                         i = new Intent(view.getContext(), MoreCommentsActivity.class);
+                        if (!TextUtils.isEmpty(row.getTag())) {
+                            AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(row.getTag());
+                        }
                         break;
                     case EVENT_FACEBOOK_TYPE:
                         sendActionEvent(view, AptoideUtils.SocialMedia.getFacebookPageURL(view.getContext(), row
@@ -355,7 +361,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 }
 
                 if (row.getHomepage()) {
-                    AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(row.getLabel() + " More");
+                    AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(row.getTag() + " More");
                 }
                 if (i != null) {
                     i.putExtra(Constants.EVENT_ACTION_URL, row.getEventActionUrl());

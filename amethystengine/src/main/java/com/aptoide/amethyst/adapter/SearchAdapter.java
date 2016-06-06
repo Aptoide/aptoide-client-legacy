@@ -1,5 +1,31 @@
 package com.aptoide.amethyst.adapter;
 
+import com.aptoide.amethyst.AppViewActivity;
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.MoreSearchActivity;
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.StoresActivity;
+import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.ui.MoreVersionsActivity;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.viewholders.BaseViewHolder;
+import com.aptoide.amethyst.viewholders.DummyBaseViewHolder;
+import com.aptoide.amethyst.viewholders.ProgressBarRowViewHolder;
+import com.aptoide.amethyst.viewholders.SearchAppViewHolder;
+import com.aptoide.amethyst.viewholders.SuggestedAppViewHolder;
+import com.aptoide.amethyst.viewholders.main.HeaderViewHolder;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
+import com.aptoide.models.displayables.ProgressBarRow;
+import com.aptoide.models.displayables.SearchApk;
+import com.aptoide.models.displayables.SearchMoreHeader;
+import com.aptoide.models.displayables.SuggestedAppDisplayable;
+import com.bumptech.glide.Glide;
+
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -12,39 +38,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
-import com.aptoide.amethyst.database.AptoideDatabase;
-import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.displayables.SearchApk;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.displayables.Displayable;
-import com.aptoide.models.displayables.HeaderRow;
-import com.aptoide.models.displayables.ProgressBarRow;
-import com.aptoide.models.displayables.SearchMoreHeader;
-import com.aptoide.models.displayables.SuggestedAppDisplayable;
-import com.bumptech.glide.Glide;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-
-import com.aptoide.amethyst.AppViewActivity;
-import com.aptoide.amethyst.MoreSearchActivity;
-
-import com.aptoide.amethyst.StoresActivity;
-import com.aptoide.amethyst.ui.MoreVersionsActivity;
-import com.aptoide.amethyst.viewholders.BaseViewHolder;
-import com.aptoide.amethyst.viewholders.DummyBaseViewHolder;
-import com.aptoide.amethyst.viewholders.ProgressBarRowViewHolder;
-import com.aptoide.amethyst.viewholders.SearchAppViewHolder;
-import com.aptoide.amethyst.viewholders.SuggestedAppViewHolder;
-import com.aptoide.amethyst.viewholders.main.HeaderViewHolder;
 
 /**
  * Created by rmateus on 12/06/15.
@@ -199,6 +197,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     intent.putExtra(Constants.STORENAME_KEY, appItem.repo);
 
                     Analytics.Search.searchPosition(appItem.position, appItem.fromSubscribedStore, appItem.repo);
+                    AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Search Result");
 
                     v.getContext().startActivity(intent);
                 }
