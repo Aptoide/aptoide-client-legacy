@@ -321,8 +321,8 @@ public class SearchFragment extends LinearRecyclerFragment {
 
         if (!subscribedApps.isEmpty()) {
             if (subscribedAppsOffset == 0) { // Only display search results for subscribed apps once.
-                displayables.add(0, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
-                displayables.addAll(1, subscribedApps);
+                displayables.add(suggestetedAppsOffset, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
+                displayables.addAll(suggestetedAppsOffset + 1, subscribedApps);
                 subscribedAppsOffset += subscribedApps.size();
                 // Sum suggested app header, suggested app, subscribed apps header and subscribed apps
                 displayables.add(suggestetedAppsOffset + 1 + subscribedAppsOffset, new SearchMoreHeader(BUCKET_SIZE));
@@ -334,7 +334,7 @@ public class SearchFragment extends LinearRecyclerFragment {
                 if (subscribedAppsOffset == 0) {
                     // Sum suggested app header and suggested app
                     displayables.add(suggestetedAppsOffset, new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
-                    displayables.addAll(1, unsubscribedApps);
+                    displayables.addAll(suggestetedAppsOffset + 1, unsubscribedApps);
                 } else {
                     // Sum suggested app header, suggested app, subscribed apps header, subscribed apps and subscribed apps footer
                     displayables.add(suggestetedAppsOffset + 1 + subscribedAppsOffset + 1, new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
