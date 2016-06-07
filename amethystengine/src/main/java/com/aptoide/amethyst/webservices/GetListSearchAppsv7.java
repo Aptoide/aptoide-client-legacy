@@ -3,12 +3,14 @@
  * Modified by marcelo.benites@aptoide.com on 25/05/2016.
  */
 
-package com.aptoide.dataprovider.webservices.v7;
+package com.aptoide.amethyst.webservices;
 
 import com.aptoide.dataprovider.webservices.interfaces.v7.IGetListSearchAppsV7WebService;
 import com.aptoide.dataprovider.webservices.models.v7.Apiv7ListSearchApps;
 import com.aptoide.dataprovider.webservices.models.v7.ListSearchApps;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
+
+import retrofit.RetrofitError;
 
 public class GetListSearchAppsv7 extends RetrofitSpiceRequest<ListSearchApps, IGetListSearchAppsV7WebService> {
 
@@ -21,6 +23,12 @@ public class GetListSearchAppsv7 extends RetrofitSpiceRequest<ListSearchApps, IG
 
 	@Override
 	public ListSearchApps loadDataFromNetwork() throws Exception {
-		return getService().listSearchApps(arguments);
+		ListSearchApps listSearchApps = null;
+		try {
+			listSearchApps = getService().listSearchApps(arguments);
+		} catch (RetrofitError error) {
+			OauthErrorHandler.handle(error);
+		}
+		return listSearchApps;
 	}
 }
