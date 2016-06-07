@@ -177,7 +177,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             i.putExtra(Constants.VERSIONNAME_KEY, appItem.versionName);
             AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(appItem.category);
             if ((position >= 0)) {
-                Analytics.HomePageEditorsChoice.sendHomePageEdiorsChoiceEvent(position, appItem.appName, isHome);
+                Analytics.HomePageEditorsChoice.sendHomePageEdiorsChoiceEvent(position, appItem.packageName, isHome);
             }
             view.getContext().startActivity(i);
         }
