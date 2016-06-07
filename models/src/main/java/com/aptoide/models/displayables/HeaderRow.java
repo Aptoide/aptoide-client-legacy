@@ -34,6 +34,10 @@ public class HeaderRow extends Displayable implements IHasMore {
         this.storeId = storeId;
     }
 
+    public HeaderRow(String label, String tag, boolean hasMore, String eventName, int bucketSize, boolean homepage, long storeId) {
+        this(label, tag, hasMore, "", "", eventName, "", bucketSize, homepage, storeId);
+    }
+
     public HeaderRow(String label, boolean hasMore, String eventName, int bucketSize, boolean homepage, long storeId) {
         this(label, "", hasMore, "", "", eventName, "", bucketSize, homepage, storeId);
     }

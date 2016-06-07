@@ -1,15 +1,12 @@
 package com.aptoide.amethyst.fragments.main;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.adapter.main.CommunityTabAdapter;
 import com.aptoide.amethyst.dialogs.AdultHiddenDialog;
+import com.aptoide.amethyst.fragments.store.BaseWebserviceFragment;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.dataprovider.webservices.AllCommentsRequest;
@@ -23,19 +20,20 @@ import com.aptoide.dataprovider.webservices.models.v2.Comment;
 import com.aptoide.dataprovider.webservices.models.v2.GetComments;
 import com.aptoide.models.displayables.AdultItem;
 import com.aptoide.models.displayables.CommentItem;
+import com.aptoide.models.displayables.CommentPlaceHolderRow;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
-import com.aptoide.models.displayables.ReviewRowItem;
-import com.aptoide.models.displayables.CommentPlaceHolderRow;
 import com.aptoide.models.displayables.ReviewPlaceHolderRow;
+import com.aptoide.models.displayables.ReviewRowItem;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
-
-import com.aptoide.amethyst.adapter.BaseAdapter;
-import com.aptoide.amethyst.adapter.main.CommunityTabAdapter;
-import com.aptoide.amethyst.fragments.store.BaseWebserviceFragment;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.COMMENTS_TYPE;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.REVIEWS_TYPE;
@@ -178,7 +176,7 @@ public class CommunityFragment extends BaseWebserviceFragment {
                     if (!reviewPlaceHolderFound)
                         return;
 
-                    HeaderRow header = new HeaderRow(getString(R.string.reviews), true, REVIEWS_TYPE, BUCKET_SIZE, isHomePage(), Constants.GLOBAL_STORE);
+                    HeaderRow header = new HeaderRow(getString(R.string.reviews), "Reviews More_Community", true, REVIEWS_TYPE, BUCKET_SIZE, isHomePage(), Constants.GLOBAL_STORE);
                     header.FULL_ROW = AptoideUtils.UI.getEditorChoiceBucketSize();
                     displayableList.set(index++, header);
 
@@ -240,7 +238,7 @@ public class CommunityFragment extends BaseWebserviceFragment {
                                 return;
                             }
 
-                            HeaderRow header = new HeaderRow(getString(R.string.comments), true, COMMENTS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
+                            HeaderRow header = new HeaderRow(getString(R.string.comments), "Comments", true, COMMENTS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
                             header.FULL_ROW = AptoideUtils.UI.getEditorChoiceBucketSize();
                             displayableList.set(index++, header);
 
