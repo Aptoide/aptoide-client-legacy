@@ -29,6 +29,7 @@ import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.dataprovider.webservices.models.v7.ListSearchApps;
+import com.aptoide.dataprovider.webservices.models.v7.SearchItem;
 import com.aptoide.models.ApkSuggestionJson;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
@@ -43,7 +44,6 @@ import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -71,7 +71,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     private int suggestetedAppsOffset;
     private int unsubscribedAppsOffset;
 	private int subscribedAppsOffset;
-    private int searchOffset;
+    private int infiniteSearchOffset;
     private boolean infiniteLoading = false;
     private boolean trusted;
     private SearchItemSubscriptionFilter searchItemFilter;
@@ -184,7 +184,7 @@ public class SearchFragment extends LinearRecyclerFragment {
                 infiniteLoading = true;
                 displayables.add(new ProgressBarRow(BUCKET_SIZE));
                 adapter.notifyItemInserted(adapter.getItemCount());
-                searchForUnsubscribedApps(searchOffset);
+                searchForUnsubscribedApps(infiniteSearchOffset);
             }
 
             @Override
@@ -260,9 +260,18 @@ public class SearchFragment extends LinearRecyclerFragment {
                     @Override
                     public void onRequestSuccess(ListSearchApps listSearchApps) {
                         handleSuccessCondition();
-                        updateList(searchApkConverter.convert(listSearchApps.datalist.list, subscribedAppsOffset, true), Collections.<SearchApk>emptyList());
+                        updateSubscribedList(searchApkConverter.convert(getSearchItemList(listSearchApps), subscribedAppsOffset, true));
                     }
                 });
+    }
+
+    private List<SearchItem> getSearchItemList(ListSearchApps listSearchApps) {
+        if (listSearchApps != null
+                && listSearchApps.datalist != null
+                && listSearchApps.datalist.list != null) {
+            return listSearchApps.datalist.list;
+        }
+        return new ArrayList<>();
     }
 
     private String getStoreListCacheKey(List<Store> stores) {
@@ -286,16 +295,24 @@ public class SearchFragment extends LinearRecyclerFragment {
             @Override
             public void onRequestSuccess(ListSearchApps listSearchApps) {
                 handleSuccessCondition();
-                searchOffset = listSearchApps.datalist.next.intValue();
+                updateInfiniteSearchOffset(listSearchApps);
                 removeInfiniteLoadingListItem();
-                updateList(Collections.<SearchApk>emptyList(), searchApkConverter.convert(searchItemFilter.filterUnsubscribed(listSearchApps.datalist.list), unsubscribedAppsOffset, false));
+                updateUnsubscribedList(searchApkConverter.convert(searchItemFilter.filterUnsubscribed(getSearchItemList(listSearchApps)), unsubscribedAppsOffset, false));
                 treatEmptyList();
             }
         });
     }
 
+    private void updateInfiniteSearchOffset(ListSearchApps listSearchApps) {
+        if (listSearchApps != null
+                && listSearchApps.datalist != null
+                && listSearchApps.datalist.next != null) {
+            infiniteSearchOffset = listSearchApps.datalist.next.intValue();
+        }
+    }
+
     private void treatEmptyList() {
-        if (searchOffset == 0) {
+        if (infiniteSearchOffset == 0) {
             getRecyclerView().setVisibility(View.GONE);
             noSearchResultLayout.setVisibility(View.VISIBLE);
             searchQuery.setText(query);
@@ -327,7 +344,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         infiniteLoading = false;
     }
 
-    private void updateList(List<SearchApk> subscribedApps, List<SearchApk> unsubscribedApps) {
+    private void updateSubscribedList(List<SearchApk> subscribedApps) {
 
         if (!subscribedApps.isEmpty()) {
             if (subscribedAppsOffset == 0) { // Only display search results for subscribed apps once.
@@ -338,7 +355,10 @@ public class SearchFragment extends LinearRecyclerFragment {
                 displayables.add(suggestetedAppsOffset + 1 + subscribedAppsOffset, new SearchMoreHeader(BUCKET_SIZE));
             }
         }
+        adapter.notifyDataSetChanged();
+    }
 
+    private void updateUnsubscribedList(List<SearchApk> unsubscribedApps) {
         if (!unsubscribedApps.isEmpty()) {
             if (unsubscribedAppsOffset == 0) {
                 if (subscribedAppsOffset == 0) {
