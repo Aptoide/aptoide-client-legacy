@@ -239,6 +239,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             i.putExtra(Constants.MD5SUM_KEY, item.md5sum);
             i.putExtra(Constants.DOWNLOAD_FROM_KEY, "timeline");
 
+            AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Your friends installs");
             view.getContext().startActivity(i);
         }
     }
@@ -276,6 +277,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     public static class IHasMoreOnClickListener implements View.OnClickListener {
 
+        public static final String CATEGORY_TAG = "CATEGORY_TAG";
         private final IHasMore row;
         private final EnumStoreTheme theme;
         private final String storeName;
@@ -339,6 +341,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     case EVENT_GETSTOREWIDGETS:
                         i = new Intent(view.getContext(), MoreStoreWidgetActivity.class);
                         Analytics.HomePageBundles.sendHomePageBundleEvent(row.getTag());
+                        i.putExtra(CATEGORY_TAG, row.getTag());
                         break;
                     case ADS_TYPE:
                         i = new Intent(view.getContext(), MoreHighlightedActivity.class);

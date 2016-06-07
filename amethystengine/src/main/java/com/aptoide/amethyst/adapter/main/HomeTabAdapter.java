@@ -1,19 +1,9 @@
 package com.aptoide.amethyst.adapter.main;
 
-import android.support.v4.app.FragmentManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.displayables.Displayable;
-
-import java.util.List;
-
-
-import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.viewholders.BaseViewHolder;
 import com.aptoide.amethyst.viewholders.HomeBrickItemViewHolder;
 import com.aptoide.amethyst.viewholders.HomeGridItemViewHolder;
@@ -27,12 +17,21 @@ import com.aptoide.amethyst.viewholders.main.ReviewViewHolder;
 import com.aptoide.amethyst.viewholders.main.StoreItemRowViewHolder;
 import com.aptoide.amethyst.viewholders.main.TimelineViewHolder;
 import com.aptoide.amethyst.viewholders.store.StoreHeaderViewHolder;
+import com.aptoide.models.displayables.Displayable;
+
+import android.support.v4.app.FragmentManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import java.util.List;
 
 /**
  * Created by rmateus on 02/06/15.
  */
 public class HomeTabAdapter extends BaseAdapter implements SpannableRecyclerAdapter {
 
+    private String localyticsTag;
     /**
      * flag used to change the Subscribe button. since that info comes from SQLite
      */
@@ -71,6 +70,11 @@ public class HomeTabAdapter extends BaseAdapter implements SpannableRecyclerAdap
         this.storeName = storeName;
     }
 
+    public HomeTabAdapter(List<Displayable> displayableList, FragmentManager fragmentManager, EnumStoreTheme theme, String storeName, String localyticsTag) {
+        this(displayableList, fragmentManager, theme, storeName);
+        this.localyticsTag = localyticsTag;
+    }
+
     public HomeTabAdapter(List<Displayable> displayableList, FragmentManager fragmentManager, EnumStoreTheme theme, String storeName, long storeId) {
         super(displayableList);
         this.fragmentManager = fragmentManager;
@@ -86,7 +90,7 @@ public class HomeTabAdapter extends BaseAdapter implements SpannableRecyclerAdap
 
         BaseViewHolder holder;
         if (viewType == R.layout.layout_header) {
-            holder = new HeaderViewHolder(view, viewType, theme, storeName, storeId);
+            holder = new HeaderViewHolder(view, viewType, theme, storeName, storeId, localyticsTag);
         } else if (viewType == R.layout.grid_item) {
             holder = new HomeGridItemViewHolder(view, viewType);
         } else if (viewType == R.layout.row_store_header) {

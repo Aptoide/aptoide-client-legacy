@@ -27,6 +27,7 @@ public class HeaderViewHolder extends BaseViewHolder {
     private final EnumStoreTheme theme;
     private final String storeName;
     private final long storeId;
+    private String localyticsTag;
     private boolean isCommunity;
 
     public TextView title;
@@ -46,14 +47,15 @@ public class HeaderViewHolder extends BaseViewHolder {
         this.isCommunity = isCommunity;
     }
 
-    public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme, String storeName, long storeId) {
+    public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme, String storeName, long storeId, String localyticsTag) {
+
         super(itemView, viewType);
         this.theme = theme;
         this.storeName = storeName;
         this.storeId = storeId;
         isCommunity = false;
+        this.localyticsTag = localyticsTag;
     }
-
     @Override
     public void populateView(Displayable displayable) {
         HeaderRow row = (HeaderRow) displayable;
@@ -66,7 +68,6 @@ public class HeaderViewHolder extends BaseViewHolder {
                     listener = new BaseAdapter.IHasMoreOnClickListener(row, theme);
                     more.setOnClickListener(listener);
                     moreLayout.setOnClickListener(listener);
-                    listener.bundleCategory = ((HeaderRow) displayable).getTag();
                     listener.isCommunity = isCommunity;
                 } else {
                     listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, storeId);
@@ -84,7 +85,7 @@ public class HeaderViewHolder extends BaseViewHolder {
                     moreLayout.setOnClickListener(listener);
                 }
             }
-            listener.bundleCategory = row.getTag();
+            listener.bundleCategory = localyticsTag;
         } else {
             more.setVisibility(View.GONE);
             moreLayout.setClickable(false);

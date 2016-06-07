@@ -57,7 +57,7 @@ public class MoreStoreWidgetActivity extends MoreActivity {
 
         @Override
         protected BaseAdapter getAdapter() {
-            return new HomeTabAdapter(displayableList, getFragmentManager(), getStoreTheme(),getStoreName());
+            return new HomeTabAdapter(displayableList, getFragmentManager(), getStoreTheme(),getStoreName(), label);
         }
 
         @Override
