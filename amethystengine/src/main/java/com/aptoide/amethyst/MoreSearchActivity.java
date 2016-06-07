@@ -258,20 +258,13 @@ public class MoreSearchActivity extends MoreActivity {
         }
 
         private List<Store> formatStore(String storeName) {
-
             if (isStoreSearch()) {
                 final Store store = database.getSubscribedStore(storeName);
                 if (store != null) {
                     return Collections.singletonList(store);
                 }
-            } else {
-                final List<Store> stores = database.getSubscribedStores();
-                if (!stores.isEmpty()) {
-                    return stores;
-                }
             }
-
-            return null;
+            return database.getSubscribedStores();
         }
 
         private String getStoreListCacheKey(List<Store> stores) {
