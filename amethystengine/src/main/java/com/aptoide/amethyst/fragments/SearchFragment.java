@@ -376,36 +376,46 @@ public class SearchFragment extends LinearRecyclerFragment {
                 subscribedAppsOffset += subscribedApps.size();
                 // Sum suggested app header, suggested app, subscribed apps header and subscribed apps
                 displayables.add(suggestetedAppsOffset + 1 + subscribedAppsOffset, new SearchMoreHeader(BUCKET_SIZE));
+
+                adapter.notifyItemRangeInserted(suggestetedAppsOffset, suggestetedAppsOffset + 1 + subscribedAppsOffset + 1);
             }
         }
-        adapter.notifyDataSetChanged();
     }
 
     private void updateUnsubscribedList(List<SearchApk> unsubscribedApps) {
         if (!unsubscribedApps.isEmpty()) {
+
+            int notifyPositionStart;
+            int notifyItemCount = 0;
             if (unsubscribedAppsOffset == 0) {
                 if (subscribedAppsOffset == 0) {
                     // Sum suggested app header and suggested app
                     displayables.add(suggestetedAppsOffset, new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
                     displayables.addAll(suggestetedAppsOffset + 1, unsubscribedApps);
+                    notifyPositionStart = suggestetedAppsOffset;
                 } else {
                     // Sum suggested app header, suggested app, subscribed apps header, subscribed apps and subscribed apps footer
                     displayables.add(suggestetedAppsOffset + 1 + subscribedAppsOffset + 1, new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
                     // Sum suggested app header, suggested app, subscribed apps header, subscribed apps, subscribed apps footer and unsubscribed apps header
                     displayables.addAll(suggestetedAppsOffset + 1 + subscribedAppsOffset + 1 + 1, unsubscribedApps);
+                    notifyPositionStart = suggestetedAppsOffset + 1 + subscribedAppsOffset + 1;
                 }
-
+                notifyItemCount = 1;
             } else {
                 if (subscribedAppsOffset == 0) {
                     // Sum suggested app header, suggested app and unsubscribed apps header
                     displayables.addAll(suggestetedAppsOffset + 1 + unsubscribedAppsOffset, unsubscribedApps);
+                    notifyPositionStart = suggestetedAppsOffset + 1 + unsubscribedAppsOffset;
                 } else {
                     // Sum suggested app header, suggested app, subscribed apps header, subscribed apps, subscribed apps footer, unsubscribed apps header and unsubscribed apps
                     displayables.addAll(suggestetedAppsOffset + 1 + subscribedAppsOffset + 1 + 1 + unsubscribedAppsOffset, unsubscribedApps);
+                    notifyPositionStart = suggestetedAppsOffset + 1 + subscribedAppsOffset + 1 + 1 + unsubscribedAppsOffset;
                 }
             }
+            notifyItemCount += unsubscribedApps.size();
             unsubscribedAppsOffset += unsubscribedApps.size();
+
+            adapter.notifyItemRangeInserted(notifyPositionStart, notifyItemCount);
         }
-        adapter.notifyDataSetChanged();
     }
 }
