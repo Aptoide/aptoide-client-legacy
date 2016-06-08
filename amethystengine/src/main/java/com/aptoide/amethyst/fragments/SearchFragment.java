@@ -315,9 +315,9 @@ public class SearchFragment extends LinearRecyclerFragment {
             public void onRequestSuccess(ListSearchApps listSearchApps) {
                 handleSuccessCondition();
                 updateInfiniteSearchOffset(listSearchApps);
-                removeInfiniteLoadingListItem();
                 final List<SearchItem> searchItemList = getSearchItemList(listSearchApps);
                 updateUnsubscribedList(searchApkConverter.convert(searchItemFilter.filterUnsubscribed(searchItemList), unsubscribedAppsOffset, false));
+                removeInfiniteLoadingListItem();
                 treatEmptyList(searchItemList);
             }
         });
