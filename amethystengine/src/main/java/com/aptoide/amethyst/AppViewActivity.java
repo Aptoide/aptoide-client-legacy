@@ -104,6 +104,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -129,8 +130,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.text.style.StyleSpan;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -1487,9 +1491,17 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				getActivity().findViewById(R.id.balloon_security_google_play)
 						.setVisibility(View.GONE);
 			}
-			((TextView)getActivity().findViewById(R.id
-					.balloon_security_subtitle_start_part)).setText(getActivity()
-					.getString(R.string.balloon_security_subtitle_start_part, securityBalloon.getApplicationName()));
+
+			final String applicationName = securityBalloon.getApplicationName();
+			final String balloonTitle = getActivity().getString(R.string.balloon_security_subtitle_start_part, applicationName);
+			final Spannable boldApplicationNameTitle = new SpannableString(balloonTitle);
+			boldApplicationNameTitle.setSpan(new StyleSpan(Typeface.BOLD),
+					(balloonTitle.length() - applicationName.length() - 1), // 0-based index start
+					(balloonTitle.length() - 1), // 1-base index plus the space after application name
+					Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+			((TextView)getActivity().findViewById(R.id.balloon_security_subtitle_start_part))
+					.setText(boldApplicationNameTitle);
 			this.mSecurityBalloon = securityBalloon;
 		}
 
