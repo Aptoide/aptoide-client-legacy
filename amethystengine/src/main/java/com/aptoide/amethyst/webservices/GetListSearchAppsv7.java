@@ -25,7 +25,7 @@ public class GetListSearchAppsv7 extends RetrofitSpiceRequest<ListSearchApps, IG
 	@Override
 	public ListSearchApps loadDataFromNetwork() throws Exception {
 		ListSearchApps listSearchApps = null;
-		arguments.access_token = SecurePreferences.getInstance().getString("access_token", "empty");
+		arguments.access_token = SecurePreferences.getInstance().getString("access_token", null);
 		try {
 			listSearchApps = getService().listSearchApps(arguments);
 		} catch (RetrofitError error) {
