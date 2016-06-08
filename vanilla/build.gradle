@@ -33,8 +33,8 @@ android {
     defaultConfig {
         applicationId "cm.aptoide.pt.dev"
         targetSdkVersion 23
-        versionCode 480
-        versionName "7.2.0.6"
+        versionCode 481
+        versionName "7.2.0.7"
 
         def optimizelyProjectId = localProperties.OPTIMIZELY_PROJECT_ID
         def optimizelyProjectIdExists = optimizelyProjectId != null
