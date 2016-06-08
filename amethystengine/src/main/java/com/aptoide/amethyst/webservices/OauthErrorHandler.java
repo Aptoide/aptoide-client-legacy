@@ -1,11 +1,5 @@
 package com.aptoide.amethyst.webservices;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
-import android.content.SharedPreferences;
-
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.model.json.OAuth;
@@ -15,6 +9,12 @@ import com.aptoide.dataprovider.webservices.models.Constants;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
+import android.content.SharedPreferences;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -31,14 +31,14 @@ import retrofit.http.POST;
  * Created by rmateus on 24-11-2014.
  */
 public class OauthErrorHandler {
-
+    static long timeStamp = System.currentTimeMillis();
     public interface OauthService {
         @POST("/3/oauth2Authentication")
         @FormUrlEncoded
         OAuth authenticate(@FieldMap HashMap<String, String> args);
     }
 
-    public static void handle(RetrofitError error) {
+    public static synchronized void handle(RetrofitError error) {
 
         switch (error.getKind()) {
 
@@ -48,7 +48,7 @@ public class OauthErrorHandler {
                 throw error;
             case HTTP:
                 try {
-                    if (error.getResponse().getStatus() == 401) {
+                    if (error.getResponse().getStatus() == 401 && timeStamp + 10000 <= System.currentTimeMillis()) {
                         AccountManager accountManager = AccountManager.get(Aptoide.getContext());
                         SharedPreferences preferences = SecurePreferences.getInstance();
 
@@ -78,6 +78,7 @@ public class OauthErrorHandler {
 
                             preferences.edit().remove(Constants.ACCESS_TOKEN).apply();
                         }
+                        timeStamp = System.currentTimeMillis();
                     } else {
 //                        Crashlytics.logException(new Throwable("Non 401 error", error));
                     }

@@ -1187,7 +1187,6 @@ public class AptoideUtils {
         @NonNull
         private static Apiv7ListSearchApps getApiv7ListSearchApps(String query, boolean trusted, int limit, int offset) {
             final Apiv7ListSearchApps arguments = new Apiv7ListSearchApps();
-            arguments.access_token = SecurePreferences.getInstance().getString("access_token", null);
             arguments.aptoide_vercode = UI.getVerCode(Aptoide.getContext());
             arguments.lang = StringUtils.getMyCountry(Aptoide.getContext());
             arguments.limit = limit;

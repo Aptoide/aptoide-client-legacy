@@ -691,6 +691,7 @@ public class Analytics {
 
                 map.put(APPLICATION_NAME, download.getName());
                 map.put(PACKAGE_NAME, download.getPackageName());
+                map.put(PACKAGE_NAME, download.getTrusted());
 
                 track(EVENT_NAME, map, ALL);
 
