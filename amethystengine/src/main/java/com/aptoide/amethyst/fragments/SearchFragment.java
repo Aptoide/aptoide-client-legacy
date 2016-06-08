@@ -333,7 +333,9 @@ public class SearchFragment extends LinearRecyclerFragment {
 
     private void treatEmptyList(List<SearchItem> searchItemList) {
         if (firstSearchResultEmpty
-                && searchItemList.isEmpty()) {
+                && searchItemList.isEmpty()
+                && unsubscribedAppsOffset == 0
+                && subscribedAppsOffset == 0) {
             getRecyclerView().setVisibility(View.GONE);
             noSearchResultLayout.setVisibility(View.VISIBLE);
             searchQuery.setText(query);
