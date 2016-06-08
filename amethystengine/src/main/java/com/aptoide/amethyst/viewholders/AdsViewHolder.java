@@ -6,13 +6,16 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.models.displayables.Displayable;
 import com.reach.AdServiceManager;
 import com.reach.IAd;
 import com.reach.IAdItem;
 import com.reach.IAdService;
 import com.reach.ICallback;
+import com.reach.IInterstitialAd;
 import com.reach.INativeAd;
+import com.reach.IServiceCallback;
 
 import org.w3c.dom.Text;
 
@@ -43,25 +46,29 @@ public class AdsViewHolder extends BaseViewHolder {
     }
 
     private void addAd(final View view) {
-        IAdService adService = AdServiceManager.get(Aptoide.getContext());
-
-        INativeAd ad1 = adService.getNativeAd("native.ad1", 20, 20, 1, null);
-
-        IAdItem item = ad1.getAdItem(0);
-        item.bind(view,
-                new String[]{IAdItem.ICON, IAdItem.TITLE, IAdItem.CALL_TO_ACTION},
-                new int[]{R.id.ad_icon, R.id.name, R.id.button}
-        );
-        view.setVisibility(View.GONE);
-        ad1.setOnLoadLisenter(new ICallback() {
+        AdServiceManager.get(Aptoide.getContext(), new IServiceCallback<IAdService>(){
             @Override
-            public void call(int resultCode) {
-                if(resultCode == IAd.OK) {
-                    view.setVisibility(View.VISIBLE);
-                }
+            public void call(IAdService service) {
+                INativeAd ad1 = service.getNativeAd("native.ad1", 20, 20, 1, null);
+
+                IAdItem item = ad1.getAdItem(0);
+                item.bind(view,
+                        new String[]{IAdItem.ICON, IAdItem.TITLE, IAdItem.CALL_TO_ACTION},
+                        new int[]{R.id.ad_icon, R.id.name, R.id.button}
+                );
+                view.setVisibility(View.GONE);
+                ad1.setOnLoadLisenter(new ICallback() {
+                    @Override
+                    public void call(int resultCode) {
+                        if(resultCode == IAd.OK) {
+                            view.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
+                ad1.load();
             }
+
         });
-        ad1.load();
     }
 
 }

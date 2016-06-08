@@ -917,6 +917,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         public void onDestroy() {
             super.onDestroy();
 //            Aptoide.getRefWatcher(getContext()).watch(this);
+            System.gc();
         }
 
         @Override
