@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -54,6 +56,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     private static final long SEARCH_CACHE_DURATION = DurationInMillis.ONE_HOUR * 6;
     private static final String QUERY = "search";
     private static final String TRUSTED = "trusted";
+    private static final String USER_TOUCHED_LIST_KEY = "USER_TOUCHED_LIST";
 
     private SwipeRefreshLayout swipeContainer;
     private ScrollView noSearchResultLayout;
@@ -78,6 +81,8 @@ public class SearchFragment extends LinearRecyclerFragment {
     private SearchItemSubscriptionFilter searchItemFilter;
     private SearchApkConverter searchApkConverter;
     private AptoideDatabase database;
+    private boolean userTouchedList;
+    private RecyclerView.OnItemTouchListener userTouchListener;
 
     public static SearchFragment newInstance(String query, boolean trusted) {
         final SearchFragment searchFragment = new SearchFragment();
@@ -101,11 +106,21 @@ public class SearchFragment extends LinearRecyclerFragment {
         displayables = new ArrayList<>();
         adapter = new SearchAdapter(displayables);
         adapter.setQuery(query);
+
+        if (savedInstanceState != null) {
+            userTouchedList = savedInstanceState.getBoolean(USER_TOUCHED_LIST_KEY);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(USER_TOUCHED_LIST_KEY, userTouchedList);
+        super.onSaveInstanceState(outState);
     }
 
     private void bindViews(View view) {
@@ -184,6 +199,25 @@ public class SearchFragment extends LinearRecyclerFragment {
     @Override
     public void onResume() {
         super.onResume();
+        userTouchListener = new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                userTouchedList = true;
+                getRecyclerView().removeOnItemTouchListener(this);
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        };
+        getRecyclerView().addOnItemTouchListener(userTouchListener);
         getRecyclerView().addOnScrollListener(new EndlessRecyclerOnScrollListener((LinearLayoutManager) getRecyclerView().getLayoutManager()) {
             @Override
             public void onLoadMore() {
@@ -206,6 +240,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     public void onPause() {
         super.onPause();
         getRecyclerView().clearOnScrollListeners();
+        getRecyclerView().removeOnItemTouchListener(userTouchListener);
     }
 
     @Override
@@ -240,23 +275,7 @@ public class SearchFragment extends LinearRecyclerFragment {
 
             @Override
             public void onRequestSuccess(ApkSuggestionJson apkSuggestionJson) {
-
-                if (apkSuggestionJson.getAds().size() == 0) {
-                    return;
-                }
-                if (apkSuggestionJson.getAds().get(0).getPartner() == null) {
-                    return;
-                }
-                if (apkSuggestionJson.getAds().get(0).getPartner().getPartnerData() == null) {
-                    return;
-                }
-
-                final HeaderRow suggestedAppHeader = new HeaderRow("Suggested App", false, BUCKET_SIZE);
-                displayables.add(0, suggestedAppHeader);
-                SuggestedAppDisplayable suggestedAppDisplayable = new SuggestedAppDisplayable(apkSuggestionJson);
-                displayables.add(1, suggestedAppDisplayable);
-                suggestetedAppsOffset = 2;
-                adapter.notifyItemRangeInserted(0, 2);
+                updateSuggestedAppList(apkSuggestionJson);
             }
         });
     }
@@ -373,6 +392,27 @@ public class SearchFragment extends LinearRecyclerFragment {
         infiniteLoading = false;
     }
 
+    private void updateSuggestedAppList(ApkSuggestionJson apkSuggestionJson) {
+
+        if (apkSuggestionJson.getAds().size() == 0) {
+            return;
+        }
+        if (apkSuggestionJson.getAds().get(0).getPartner() == null) {
+            return;
+        }
+        if (apkSuggestionJson.getAds().get(0).getPartner().getPartnerData() == null) {
+            return;
+        }
+
+        final HeaderRow suggestedAppHeader = new HeaderRow("Suggested App", false, BUCKET_SIZE);
+        displayables.add(0, suggestedAppHeader);
+        SuggestedAppDisplayable suggestedAppDisplayable = new SuggestedAppDisplayable(apkSuggestionJson);
+        displayables.add(1, suggestedAppDisplayable);
+        suggestetedAppsOffset = 2;
+        adapter.notifyItemRangeInserted(0, 2);
+        updateScrollPosition();
+    }
+
     private void updateSubscribedList(List<SearchApk> subscribedApps) {
 
         if (!subscribedApps.isEmpty()) {
@@ -385,6 +425,7 @@ public class SearchFragment extends LinearRecyclerFragment {
                 displayables.add(suggestetedAppsOffset + 1 + subscribedAppsOffset, new SearchMoreHeader(BUCKET_SIZE));
 
                 adapter.notifyItemRangeInserted(suggestetedAppsOffset, 1 + notifyItemCount + 1);
+                updateScrollPosition();
             }
         }
     }
@@ -423,6 +464,13 @@ public class SearchFragment extends LinearRecyclerFragment {
             unsubscribedAppsOffset += unsubscribedApps.size();
 
             adapter.notifyItemRangeInserted(notifyPositionStart, notifyItemCount);
+            updateScrollPosition();
+        }
+    }
+
+    private void updateScrollPosition() {
+        if (!userTouchedList) {
+            getRecyclerView().smoothScrollToPosition(0);
         }
     }
 }
