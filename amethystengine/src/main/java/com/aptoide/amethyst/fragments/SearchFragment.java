@@ -256,7 +256,7 @@ public class SearchFragment extends LinearRecyclerFragment {
                 SuggestedAppDisplayable suggestedAppDisplayable = new SuggestedAppDisplayable(apkSuggestionJson);
                 displayables.add(1, suggestedAppDisplayable);
                 suggestetedAppsOffset = 2;
-                adapter.notifyDataSetChanged();
+                adapter.notifyItemRangeInserted(0, 2);
             }
         });
     }
@@ -299,9 +299,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     }
 
     private void searchForUnsubscribedApps(final int offset) {
-        infiniteLoading = true;
-        displayables.add(new ProgressBarRow(BUCKET_SIZE));
-        adapter.notifyItemInserted(adapter.getItemCount());
+        addInfiniteLoadingListItem();
         spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
                 SearchActivity.SEARCH_LIMIT, offset), SearchActivity.CONTEXT + query +
                 offset, SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
@@ -361,6 +359,12 @@ public class SearchFragment extends LinearRecyclerFragment {
         }
     }
 
+    private void addInfiniteLoadingListItem() {
+        displayables.add(new ProgressBarRow(BUCKET_SIZE));
+        adapter.notifyItemInserted(displayables.size());
+        infiniteLoading = true;
+    }
+
     private void removeInfiniteLoadingListItem() {
         if (infiniteLoading && !displayables.isEmpty()) {
             displayables.remove(displayables.size() - 1);
@@ -375,11 +379,12 @@ public class SearchFragment extends LinearRecyclerFragment {
             if (subscribedAppsOffset == 0) { // Only display search results for subscribed apps once.
                 displayables.add(suggestetedAppsOffset, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                 displayables.addAll(suggestetedAppsOffset + 1, subscribedApps);
-                subscribedAppsOffset += subscribedApps.size();
+                int notifyItemCount = subscribedApps.size();
+                subscribedAppsOffset += notifyItemCount;
                 // Sum suggested app header, suggested app, subscribed apps header and subscribed apps
                 displayables.add(suggestetedAppsOffset + 1 + subscribedAppsOffset, new SearchMoreHeader(BUCKET_SIZE));
 
-                adapter.notifyItemRangeInserted(suggestetedAppsOffset, suggestetedAppsOffset + 1 + subscribedAppsOffset + 1);
+                adapter.notifyItemRangeInserted(suggestetedAppsOffset, 1 + notifyItemCount + 1);
             }
         }
     }
