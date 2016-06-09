@@ -14,7 +14,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.HashMap;
@@ -684,6 +683,7 @@ public class Analytics {
 
         private static final String APPLICATION_NAME = "Application Name";
         private static final String PACKAGE_NAME = "Package Name";
+        private static final String TRUSTED_BADGE = "Trusted Badge";
 
         public static void downloadComplete(Download download) {
             try {
@@ -691,7 +691,7 @@ public class Analytics {
 
                 map.put(APPLICATION_NAME, download.getName());
                 map.put(PACKAGE_NAME, download.getPackageName());
-                map.put(PACKAGE_NAME, download.getTrusted());
+                map.put(TRUSTED_BADGE, download.getTrusted());
 
                 track(EVENT_NAME, map, ALL);
 
@@ -891,15 +891,12 @@ public class Analytics {
         public static final String HOME_PAGE_BUNDLES = "Home_Page_Bundles";
 
         public static void sendHomePageBundleEvent(String category) {
-            sendHomePageBundleEvent(category, null);
+            sendHomePageBundleEvent(category, "n/a");
         }
 
         public static void sendHomePageBundleEvent(String category, String subCategory) {
             HashMap<String, String> map = new HashMap<>();
             map.put("Category", category);
-            if (subCategory == null || TextUtils.isEmpty(subCategory)) {
-                subCategory = "n/a";
-            }
             map.put("Sub-Category", subCategory);
             track(HOME_PAGE_BUNDLES, map, FLURRY);
         }

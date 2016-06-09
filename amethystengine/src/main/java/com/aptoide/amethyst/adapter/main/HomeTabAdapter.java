@@ -32,6 +32,7 @@ import java.util.List;
 public class HomeTabAdapter extends BaseAdapter implements SpannableRecyclerAdapter {
 
     private String localyticsTag;
+    private boolean isFromHomeBundle;
     /**
      * flag used to change the Subscribe button. since that info comes from SQLite
      */
@@ -55,12 +56,14 @@ public class HomeTabAdapter extends BaseAdapter implements SpannableRecyclerAdap
         this.theme = theme;
         this.subscribed = subscribed;
         this.storeName = storeName;
+        isFromHomeBundle =false;
     }
 
     public HomeTabAdapter(List<Displayable> displayableList, FragmentManager fragmentManager, EnumStoreTheme theme) {
         super(displayableList);
         this.fragmentManager = fragmentManager;
         this.theme = theme;
+        isFromHomeBundle = false;
     }
 
     public HomeTabAdapter(List<Displayable> displayableList, FragmentManager fragmentManager, EnumStoreTheme theme, String storeName) {
@@ -68,11 +71,13 @@ public class HomeTabAdapter extends BaseAdapter implements SpannableRecyclerAdap
         this.fragmentManager = fragmentManager;
         this.theme = theme;
         this.storeName = storeName;
+        isFromHomeBundle = false;
     }
 
-    public HomeTabAdapter(List<Displayable> displayableList, FragmentManager fragmentManager, EnumStoreTheme theme, String storeName, String localyticsTag) {
+    public HomeTabAdapter(List<Displayable> displayableList, FragmentManager fragmentManager, EnumStoreTheme theme, String storeName, String localyticsTag, boolean isFromHomeBundle) {
         this(displayableList, fragmentManager, theme, storeName);
         this.localyticsTag = localyticsTag;
+        this.isFromHomeBundle = isFromHomeBundle;
     }
 
     public HomeTabAdapter(List<Displayable> displayableList, FragmentManager fragmentManager, EnumStoreTheme theme, String storeName, long storeId) {
@@ -81,6 +86,7 @@ public class HomeTabAdapter extends BaseAdapter implements SpannableRecyclerAdap
         this.theme = theme;
         this.storeName = storeName;
         this.storeId = storeId;
+        isFromHomeBundle = false;
     }
 
     @Override
@@ -90,7 +96,7 @@ public class HomeTabAdapter extends BaseAdapter implements SpannableRecyclerAdap
 
         BaseViewHolder holder;
         if (viewType == R.layout.layout_header) {
-            holder = new HeaderViewHolder(view, viewType, theme, storeName, storeId, localyticsTag);
+            holder = new HeaderViewHolder(view, viewType, theme, storeName, storeId, localyticsTag, isFromHomeBundle);
         } else if (viewType == R.layout.grid_item) {
             holder = new HomeGridItemViewHolder(view, viewType);
         } else if (viewType == R.layout.row_store_header) {

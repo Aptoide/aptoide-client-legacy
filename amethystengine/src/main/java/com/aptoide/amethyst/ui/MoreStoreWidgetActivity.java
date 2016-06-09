@@ -28,6 +28,7 @@ public class MoreStoreWidgetActivity extends MoreActivity {
         private String eventActionUrl;
         private String label;
         private long storeId;
+        private boolean isFromHomeBundle;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class MoreStoreWidgetActivity extends MoreActivity {
             eventActionUrl = args.getString(Constants.EVENT_ACTION_URL);
             label = args.getString(Constants.LOCALYTICS_TAG);
             storeId = args.getLong(Constants.STOREID_KEY, -1);
+            isFromHomeBundle = args.getBoolean(Constants.HOME_BUNDLES_KEY, false);
             return super.onCreateView(inflater, container, savedInstanceState);
         }
 
@@ -57,7 +59,7 @@ public class MoreStoreWidgetActivity extends MoreActivity {
 
         @Override
         protected BaseAdapter getAdapter() {
-            return new HomeTabAdapter(displayableList, getFragmentManager(), getStoreTheme(),getStoreName(), label);
+            return new HomeTabAdapter(displayableList, getFragmentManager(), getStoreTheme(),getStoreName(), label, isFromHomeBundle);
         }
 
         @Override

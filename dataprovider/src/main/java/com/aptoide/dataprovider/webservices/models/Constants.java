@@ -158,6 +158,7 @@ public class Constants {
      * Tag for Localytics Screens.
      */
     public static final String LOCALYTICS_TAG = "LOCALYTICS_TAG";
+    public static final String HOME_BUNDLES_KEY = "HOME_BUNDLES_KEY";
 
     /**
      * Ads Stuff

@@ -33,6 +33,7 @@ public class HeaderViewHolder extends BaseViewHolder {
     public TextView title;
     public Button more;
     public RelativeLayout moreLayout;
+    private boolean isFromHomeBundle = false;
 
     public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme) {
         super(itemView, viewType);
@@ -47,14 +48,14 @@ public class HeaderViewHolder extends BaseViewHolder {
         this.isCommunity = isCommunity;
     }
 
-    public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme, String storeName, long storeId, String localyticsTag) {
-
+    public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme, String storeName, long storeId, String localyticsTag, boolean isFromHomeBundle) {
         super(itemView, viewType);
         this.theme = theme;
         this.storeName = storeName;
         this.storeId = storeId;
         isCommunity = false;
         this.localyticsTag = localyticsTag;
+        this.isFromHomeBundle = isFromHomeBundle;
     }
     @Override
     public void populateView(Displayable displayable) {
@@ -65,7 +66,7 @@ public class HeaderViewHolder extends BaseViewHolder {
             BaseAdapter.IHasMoreOnClickListener listener;
             if (storeName == null || TextUtils.isEmpty(storeName)) {
                 if (storeId == 0) {
-                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme);
+                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, isFromHomeBundle);
                     more.setOnClickListener(listener);
                     moreLayout.setOnClickListener(listener);
                     listener.isCommunity = isCommunity;

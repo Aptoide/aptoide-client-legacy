@@ -284,12 +284,18 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         private final long storeId;
         public String bundleCategory;
         public boolean isCommunity = false;
+        private boolean isFromHomeBundle = false;
 
         public IHasMoreOnClickListener(IHasMore row, EnumStoreTheme theme) {
             this.row = row;
             this.theme = theme;
             storeName = null;
             this.storeId = 0;
+        }
+
+        public IHasMoreOnClickListener(IHasMore row, EnumStoreTheme theme, boolean isFromHomeBundle) {
+            this(row, theme);
+            this.isFromHomeBundle = isFromHomeBundle;
         }
 
         public IHasMoreOnClickListener(IHasMore row, EnumStoreTheme theme, String storeName) {
@@ -330,7 +336,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                                 i.putExtra(SearchActivity.SEARCH_STORE_THEME, theme);
                                 i.putExtra(SearchActivity.SEARCH_STORE_NAME, storeName);
                             }
-                            if (bundleCategory != null && !TextUtils.isEmpty(bundleCategory)) {
+                            if (bundleCategory != null && !TextUtils.isEmpty(bundleCategory) && isFromHomeBundle) {
                                 Analytics.HomePageBundles.sendHomePageBundleEvent(bundleCategory, row.getTag());
                             }
                         }
@@ -340,7 +346,10 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         break;
                     case EVENT_GETSTOREWIDGETS:
                         i = new Intent(view.getContext(), MoreStoreWidgetActivity.class);
-                        Analytics.HomePageBundles.sendHomePageBundleEvent(row.getTag());
+                        if (storeName == null && theme == null && storeId == 0) {
+                            Analytics.HomePageBundles.sendHomePageBundleEvent(row.getTag());
+                            i.putExtra(Constants.HOME_BUNDLES_KEY, true);
+                        }
                         i.putExtra(CATEGORY_TAG, row.getTag());
                         break;
                     case ADS_TYPE:
