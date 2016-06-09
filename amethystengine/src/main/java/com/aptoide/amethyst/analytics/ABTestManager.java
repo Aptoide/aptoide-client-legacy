@@ -34,6 +34,7 @@ public class ABTestManager {
 	private final String sixpackUrl;
 	private final ExecutorService executorService;
 	private final Set<ABTest<?>> tests;
+	private final Set<ABTest<?>> controlTests;
 	private Sixpack sixpack;
 
 	public static ABTestManager getInstance() {
@@ -62,12 +63,17 @@ public class ABTestManager {
 		this.sixpackUrl = sixpackUrl;
 		this.executorService = executorService;
 		this.tests = new HashSet<>();
+		this.controlTests = new HashSet<>();
 	}
 
 	public void initialize(String clientId) {
 		initializeSixpack(clientId);
 		registerTests();
 		prefetchTests();
+	}
+
+	private boolean isInitialized() {
+		return sixpack != null;
 	}
 
 	private void initializeSixpack(String clientId) {
@@ -80,7 +86,7 @@ public class ABTestManager {
 
 	@SuppressWarnings("unchecked")
 	private void registerTests() {
-		tests.add(new ABTest(executorService, sixpack.experiment()
+		tests.add(new SixpackABTest(executorService, sixpack.experiment()
 				.withName(APP_VIEW_SECURITY)
 				.withAlternatives(
 						new Alternative("none"),
@@ -88,6 +94,12 @@ public class ABTestManager {
 						new Alternative("security-overlay"),
 						new Alternative("both"))
 				.build(), new SecurityAlternativeParser()));
+	}
+
+	private void registerControlTests() {
+		if (controlTests.isEmpty()) {
+			controlTests.add(new ControlABTest<>(APP_VIEW_SECURITY, SecurityOption.NONE));
+		}
 	}
 
 	private void prefetchTests() {
@@ -103,9 +115,24 @@ public class ABTestManager {
 
 	@SuppressWarnings("unchecked")
 	public <T> ABTest<T> get(String name) {
-		for (ABTest test : tests) {
+		if (isInitialized()) {
+			for (ABTest test : tests) {
+				if (test.getName().equals(name)) {
+					return test;
+				}
+			}
+			throw new IllegalArgumentException("No AB test for name: " + name);
+		} else {
+			registerControlTests();
+			return getControl(name);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private <T> ABTest<T> getControl(String name) {
+		for (ABTest test : controlTests) {
 			if (test.getName().equals(name)) {
-				return (ABTest<T>) test;
+				return test;
 			}
 		}
 		throw new IllegalArgumentException("No AB test for name: " + name);
