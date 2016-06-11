@@ -89,7 +89,7 @@ public class ExcludedUpdatesFragment extends CursorLoaderLinearRecyclerFragment 
 
                         excludedStrings.add(new String[]{excludedUpdate.getApkid(), String.valueOf(excludedUpdate.getVercode())});
 
-//                            new AptoideDatabase(Aptoide.getDb()).deleteFromExcludeUpdate(excludedUpdate.getApkid(), excludedUpdate.getVercode());
+//                            new AptoideDatabase(Aptoide.getDb()).deleteFromExcludeUpdate(excludedUpdate.getApkid(), excludedUpdate.getVersionCode());
 //                        FlurryAgent.logEvent("Excluded_Updates_Removed_Update_From_List");
                     }
                 }

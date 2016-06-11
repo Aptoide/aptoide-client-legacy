@@ -1,5 +1,8 @@
 package com.aptoide.models.displayables;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
@@ -35,15 +38,21 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = MoreVersionsItem.class, name = "more_versions_item"),
         @JsonSubTypes.Type(value = MoreVersionsAppViewItem.class, name = "more_versions_app_view_item"),
 })
-public abstract class Displayable {
+public abstract class Displayable implements Parcelable {
 
     public int BUCKETSIZE;
     public int FULL_ROW;
     int spanSize;
 
-    public Displayable(int bucketSize) {
+    protected Displayable(int bucketSize) {
         BUCKETSIZE = bucketSize;
         FULL_ROW = BUCKETSIZE * 2;
+    }
+
+    protected Displayable(Parcel in) {
+        BUCKETSIZE = in.readInt();
+        FULL_ROW = in.readInt();
+        spanSize = in.readInt();
     }
 
     public void setSpanSize(int spanSize) {
@@ -54,4 +63,15 @@ public abstract class Displayable {
         return spanSize;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(BUCKETSIZE);
+        dest.writeInt(FULL_ROW);
+        dest.writeInt(spanSize);
+    }
 }

@@ -1,5 +1,8 @@
 package com.aptoide.models.displayables;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -35,4 +38,71 @@ public class AppItem extends Displayable {
         super(bucketSize);
     }
 
+    protected AppItem(Parcel in) {
+        super(in);
+        id = in.readLong();
+        appName = in.readString();
+        packageName = in.readString();
+        fileSize = in.readLong();
+        icon = in.readString();
+        featuredGraphic = in.readString();
+        uptype = in.readString();
+        path = in.readString();
+        path_alt = in.readString();
+        storeId = in.readLong();
+        storeName = in.readString();
+        versionName = in.readString();
+        versionCode = in.readString();
+        md5sum = in.readString();
+        downloads = in.readLong();
+        rating = in.readFloat();
+        modified = in.readString();
+        updated = in.readString();
+        category = in.readString();
+        bundleCateg = in.readString();
+        bundleSubCateg = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeLong(id);
+        dest.writeString(appName);
+        dest.writeString(packageName);
+        dest.writeLong(fileSize);
+        dest.writeString(icon);
+        dest.writeString(featuredGraphic);
+        dest.writeString(uptype);
+        dest.writeString(path);
+        dest.writeString(path_alt);
+        dest.writeLong(storeId);
+        dest.writeString(storeName);
+        dest.writeString(versionName);
+        dest.writeString(versionCode);
+        dest.writeString(md5sum);
+        dest.writeLong(downloads);
+        dest.writeFloat(rating);
+        dest.writeString(modified);
+        dest.writeString(updated);
+        dest.writeString(category);
+        dest.writeString(bundleCateg);
+        dest.writeString(bundleSubCateg);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<AppItem> CREATOR = new Creator<AppItem>() {
+        @Override
+        public AppItem createFromParcel(Parcel in) {
+            return new AppItem(in);
+        }
+
+        @Override
+        public AppItem[] newArray(int size) {
+            return new AppItem[size];
+        }
+    };
 }

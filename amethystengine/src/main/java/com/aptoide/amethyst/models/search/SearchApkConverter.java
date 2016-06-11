@@ -32,22 +32,21 @@ public class SearchApkConverter {
 	}
 
 	private SearchApk convert(SearchItem searchItem, boolean fromSubscribedStore, int position) {
-		final SearchApk searchApk = new SearchApk(bucketSize);
-		searchApk.name = searchItem.name;
-		searchApk.downloads = searchItem.stats.downloads.longValue();
-		searchApk.fromSubscribedStore = fromSubscribedStore;
-		searchApk.hasOtherVersions = searchItem.hasVersions;
-		searchApk.icon = searchItem.icon;
-		searchApk.malrank = searchItem.file.malware.rank.equals(ViewItem.File.Malware.TRUSTED)? 2 : 0;
-		searchApk.md5sum = searchItem.file.md5sum;
-		searchApk.packageName = searchItem.packageName;
-		searchApk.repo = searchItem.store.name;
-		searchApk.repo_theme = searchItem.store.appearance.theme;
-		searchApk.stars = searchItem.stats.rating.avg;
-		searchApk.vername = searchItem.file.vername;
-		searchApk.vercode = searchItem.file.vercode.intValue();
-		searchApk.position = position;
-		searchApk.timestamp = searchItem.updated;
-		return searchApk;
+		return new SearchApk(bucketSize,
+				fromSubscribedStore,
+				position,
+				searchItem.name,
+				searchItem.store.name,
+				searchItem.packageName,
+				searchItem.file.vername,
+				searchItem.file.vercode.intValue(),
+				searchItem.file.md5sum,
+				searchItem.updated,
+				searchItem.file.malware.rank.equals(ViewItem.File.Malware.TRUSTED)? 2 : 0,
+				searchItem.icon,
+				searchItem.hasVersions,
+				searchItem.stats.rating.avg,
+				searchItem.store.appearance.theme,
+				searchItem.stats.downloads.longValue());
 	}
 }

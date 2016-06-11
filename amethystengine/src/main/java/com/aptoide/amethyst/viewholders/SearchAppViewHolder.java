@@ -64,13 +64,13 @@ public class SearchAppViewHolder extends BaseViewHolder {
                 MenuInflater inflater = popup.getMenuInflater();
                 inflater.inflate(R.menu.menu_search_item, popup.getMenu());
                 MenuItem menuItem = popup.getMenu().findItem(R.id.versions);
-                menuItem.setVisible(appItem.hasOtherVersions);
+                menuItem.setVisible(appItem.isOtherVersions());
                 menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         Intent intent = new Intent(itemView.getContext(), MoreVersionsActivity.class);
-                        intent.putExtra(Constants.PACKAGENAME_KEY, appItem.packageName);
-                        intent.putExtra(Constants.EVENT_LABEL, appItem.name);
+                        intent.putExtra(Constants.PACKAGENAME_KEY, appItem.getPackageName());
+                        intent.putExtra(Constants.EVENT_LABEL, appItem.getName());
                         itemView.getContext().startActivity(intent);
                         return true;
                     }
@@ -80,11 +80,11 @@ public class SearchAppViewHolder extends BaseViewHolder {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         Intent intent = new Intent(itemView.getContext(), StoresActivity.class);
-                        intent.putExtra(Constants.STORENAME_KEY, appItem.repo);
-                        intent.putExtra(Constants.STOREAVATAR_KEY, appItem.icon);
-                        intent.putExtra(Constants.THEME_KEY, appItem.repo_theme);
+                        intent.putExtra(Constants.STORENAME_KEY, appItem.getRepo());
+                        intent.putExtra(Constants.STOREAVATAR_KEY, appItem.getIcon());
+                        intent.putExtra(Constants.THEME_KEY, appItem.getRepoTheme());
                         intent.putExtra(Constants.DOWNLOAD_FROM_KEY, "store");
-                        boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(appItem.repo);
+                        boolean subscribed = new AptoideDatabase(Aptoide.getDb()).existsStore(appItem.getRepo());
                         intent.putExtra(Constants.STORE_SUBSCRIBED_KEY, subscribed);
                         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         itemView.getContext().startActivity(intent);
@@ -96,20 +96,20 @@ public class SearchAppViewHolder extends BaseViewHolder {
             }
         });
 
-        name.setText(appItem.name);
-        String downloadNumber = AptoideUtils.StringUtils.withSuffix(appItem.downloads)+" "+bottomView.getContext().getString(R.string.downloads);
+        name.setText(appItem.getName());
+        String downloadNumber = AptoideUtils.StringUtils.withSuffix(appItem.getDownloads())+" "+bottomView.getContext().getString(R.string.downloads);
         downloads.setText(downloadNumber);
 
-        if (appItem.stars.floatValue() <= 0) {
+        if (appItem.getStars().floatValue() <= 0) {
             ratingBar.setVisibility(View.GONE);
         } else {
             ratingBar.setVisibility(View.VISIBLE);
-            ratingBar.setRating(appItem.stars.floatValue());
+            ratingBar.setRating(appItem.getStars().floatValue());
         }
 
         Date modified = null;
         try {
-            modified = dateFormatter.parse(appItem.timestamp);
+            modified = dateFormatter.parse(appItem.getTimestamp());
         } catch (ParseException e) {
             Logger.printException(e);
         } finally {
@@ -121,7 +121,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
             }
         }
 
-        final EnumStoreTheme theme = EnumStoreTheme.get(appItem.repo_theme);
+        final EnumStoreTheme theme = EnumStoreTheme.get(appItem.getRepoTheme());
 
         Drawable background = bottomView.getBackground();
         if (background instanceof ShapeDrawable) {
@@ -138,10 +138,10 @@ public class SearchAppViewHolder extends BaseViewHolder {
         }
 
 
-        store.setText(appItem.repo);
-        Glide.with(itemView.getContext()).load(appItem.iconHd != null ? AptoideUtils.UI.parseIcon(appItem.iconHd) : AptoideUtils.UI.parseIcon(appItem.icon)).into(icon);
+        store.setText(appItem.getRepo());
+        Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.getIcon())).into(icon);
 
-        if (appItem.malrank == 2) {
+        if (appItem.getMalwareRank() == 2) {
             icTrusted.setVisibility(View.VISIBLE);
         } else {
             icTrusted.setVisibility(View.GONE);
@@ -151,13 +151,13 @@ public class SearchAppViewHolder extends BaseViewHolder {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AppViewActivity.class);
-                intent.putExtra(Constants.APPNAME_KEY, appItem.name);
+                intent.putExtra(Constants.APPNAME_KEY, appItem.getName());
                 intent.putExtra(Constants.SEARCH_FROM_KEY, true);
-                intent.putExtra(Constants.MD5SUM_KEY, appItem.md5sum);
-                intent.putExtra(Constants.PACKAGENAME_KEY, appItem.packageName);
-                intent.putExtra(Constants.STORENAME_KEY, appItem.repo);
+                intent.putExtra(Constants.MD5SUM_KEY, appItem.getMd5sum());
+                intent.putExtra(Constants.PACKAGENAME_KEY, appItem.getPackageName());
+                intent.putExtra(Constants.STORENAME_KEY, appItem.getRepo());
 
-                Analytics.Search.searchPosition(appItem.position, appItem.fromSubscribedStore, appItem.repo);
+                Analytics.Search.searchPosition(appItem.getPosition(), appItem.isFromSubscribedStore(), appItem.getRepo());
                 AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Search Result");
 
                 v.getContext().startActivity(intent);

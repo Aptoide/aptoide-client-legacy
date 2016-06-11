@@ -1,5 +1,7 @@
 package com.aptoide.models.displayables;
 
+import android.os.Parcel;
+
 import com.aptoide.models.IHasMore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -39,6 +41,52 @@ public class EditorsChoiceRow extends Displayable implements IHasMore {
         this.homepage = homepage;
         this.storeId = storeId;
     }
+
+    protected EditorsChoiceRow(Parcel in) {
+        super(in);
+        hasMore = in.readByte() != 0;
+        eventActionUrl = in.readString();
+        tag = in.readString();
+        label = in.readString();
+        eventType = in.readString();
+        eventName = in.readString();
+        layout = in.readString();
+        homepage = in.readByte() != 0;
+        storeId = in.readLong();
+        appItemList = in.createTypedArrayList(AppItem.CREATOR);
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeByte((byte) (hasMore ? 1 : 0));
+        dest.writeString(eventActionUrl);
+        dest.writeString(tag);
+        dest.writeString(label);
+        dest.writeString(eventType);
+        dest.writeString(eventName);
+        dest.writeString(layout);
+        dest.writeByte((byte) (homepage ? 1 : 0));
+        dest.writeLong(storeId);
+        dest.writeTypedList(appItemList);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<EditorsChoiceRow> CREATOR = new Creator<EditorsChoiceRow>() {
+        @Override
+        public EditorsChoiceRow createFromParcel(Parcel in) {
+            return new EditorsChoiceRow(in);
+        }
+
+        @Override
+        public EditorsChoiceRow[] newArray(int size) {
+            return new EditorsChoiceRow[size];
+        }
+    };
 
     @Override
     public int getSpanSize() {

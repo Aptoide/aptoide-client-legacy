@@ -2,14 +2,13 @@ package com.aptoide.amethyst.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -56,7 +55,14 @@ public class SearchFragment extends LinearRecyclerFragment {
     private static final long SEARCH_CACHE_DURATION = DurationInMillis.ONE_HOUR * 6;
     private static final String QUERY = "search";
     private static final String TRUSTED = "trusted";
+
     private static final String USER_TOUCHED_LIST_KEY = "USER_TOUCHED_LIST";
+    private static final String LIST_STATE_KEY = "LIST_STATE";
+    private static final String UNSUBSCRIBED_OFFSET_KEY = "UNSUBSCRIBED_OFFSET";
+    private static final String INFINITE_SEARCH_OFFSET_KEY = "INFINITE_SEARCH_OFFSET";
+    private static final String SUBSCRIBED_OFFSET_KEY = "SUBSCRIBED_OFFSET";
+    private static final String SUGGESTED_OFFSET_KEY = "SUGGESTED_OFFSET";
+    private static final String DISPLAYABLES_KEY = "DISPLAYABLES";
 
     private SwipeRefreshLayout swipeContainer;
     private ScrollView noSearchResultLayout;
@@ -83,6 +89,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     private AptoideDatabase database;
     private boolean userTouchedList;
     private RecyclerView.OnItemTouchListener userTouchListener;
+    private Parcelable listState;
 
     public static SearchFragment newInstance(String query, boolean trusted) {
         final SearchFragment searchFragment = new SearchFragment();
@@ -103,24 +110,253 @@ public class SearchFragment extends LinearRecyclerFragment {
         searchItemFilter = new SearchItemSubscriptionFilter(database);
         query = getArguments().getString(QUERY);
         trusted = getArguments().getBoolean(TRUSTED);
-        displayables = new ArrayList<>();
-        adapter = new SearchAdapter(displayables);
-        adapter.setQuery(query);
 
         if (savedInstanceState != null) {
             userTouchedList = savedInstanceState.getBoolean(USER_TOUCHED_LIST_KEY);
+            listState = savedInstanceState.getParcelable(LIST_STATE_KEY);
+            subscribedAppsOffset = savedInstanceState.getInt(SUBSCRIBED_OFFSET_KEY);
+            unsubscribedAppsOffset = savedInstanceState.getInt(UNSUBSCRIBED_OFFSET_KEY);
+            infiniteSearchOffset = savedInstanceState.getInt(INFINITE_SEARCH_OFFSET_KEY);
+            suggestetedAppsOffset = savedInstanceState.getInt(SUGGESTED_OFFSET_KEY);
+            displayables = savedInstanceState.getParcelableArrayList(DISPLAYABLES_KEY);
+        } else {
+            displayables = new ArrayList<>();
         }
+
+        adapter = new SearchAdapter(displayables);
+        adapter.setQuery(query);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        searchApkConverter = new SearchApkConverter(BUCKET_SIZE);
+        bindViews(getView());
+        getRecyclerView().setAdapter(adapter);
+
+        if (savedInstanceState != null) {
+            getRecyclerView().getLayoutManager().onRestoreInstanceState(listState);
+        }
+
+        searchForSuggestedApp();
+        searchForSubscribedApps(database.getSubscribedStores());
+        searchForUnsubscribedApps();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        userTouchListener = new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                userTouchedList = true;
+                getRecyclerView().removeOnItemTouchListener(this);
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        };
+        getRecyclerView().addOnItemTouchListener(userTouchListener);
+        getRecyclerView().addOnScrollListener(new EndlessRecyclerOnScrollListener((LinearLayoutManager) getRecyclerView().getLayoutManager()) {
+            @Override
+            public void onLoadMore() {
+                searchForMoreUnsubscribedApps(infiniteSearchOffset);
+            }
+
+            @Override
+            public int getOffset() {
+                return unsubscribedAppsOffset;
+            }
+
+            @Override
+            public boolean isLoading() {
+                return infiniteLoading;
+            }
+        });
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getRecyclerView().clearOnScrollListeners();
+        getRecyclerView().removeOnItemTouchListener(userTouchListener);
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putBoolean(USER_TOUCHED_LIST_KEY, userTouchedList);
+        outState.putParcelable(LIST_STATE_KEY, getRecyclerView().getLayoutManager().onSaveInstanceState());
+        outState.putInt(SUBSCRIBED_OFFSET_KEY, subscribedAppsOffset);
+        outState.putInt(UNSUBSCRIBED_OFFSET_KEY, unsubscribedAppsOffset);
+        outState.putParcelableArrayList(DISPLAYABLES_KEY, displayables);
+        outState.putInt(INFINITE_SEARCH_OFFSET_KEY, infiniteSearchOffset);
+        outState.putInt(SUGGESTED_OFFSET_KEY, suggestetedAppsOffset);
         super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbindViews();
+    }
+
+    private void unbindViews() {
+        swipeContainer = null;
+        noSearchResultLayout = null;
+        searchButton = null;
+        searchQuery = null;
+        progressBar = null;
+        layoutNoNetwork = null;
+        layoutError = null;
+        retryError = null;
+        retryNoNetwork = null;
+    }
+
+    private void searchForSuggestedApp() {
+        if (suggestetedAppsOffset == 0) {
+            final GetAdsRequest getAdsRequest = new GetAdsRequest();
+            getAdsRequest.setLocation(QUERY);
+            getAdsRequest.setKeyword(query);
+            getAdsRequest.setLimit(1);
+            spiceManager.execute(getAdsRequest, new RequestListener<ApkSuggestionJson>() {
+
+                @Override
+                public void onRequestFailure(SpiceException spiceException) {
+
+                }
+
+                @Override
+                public void onRequestSuccess(ApkSuggestionJson apkSuggestionJson) {
+                    if (apkSuggestionJson.getAds().size() == 0) {
+                        return;
+                    }
+                    if (apkSuggestionJson.getAds().get(0).getPartner() == null) {
+                        return;
+                    }
+                    if (apkSuggestionJson.getAds().get(0).getPartner().getPartnerData() == null) {
+                        return;
+                    }
+
+                    updateSuggestedAppList(new SuggestedAppDisplayable(apkSuggestionJson));
+                }
+            });
+        }
+    }
+
+    private void searchForSubscribedApps(List<Store> subscribedStores) {
+        if (subscribedAppsOffset == 0) {
+            spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
+                    SearchActivity.SEARCH_LIMIT, 0, subscribedStores),
+                    SearchActivity.CONTEXT + query + getStoreListCacheKey(subscribedStores), SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
+
+                        @Override
+                        public void onRequestFailure(SpiceException spiceException) {
+                            handleRequestError(spiceException);
+                        }
+
+                        @Override
+                        public void onRequestSuccess(ListSearchApps listSearchApps) {
+                            handleSuccessCondition();
+                            final List<SearchItem> searchItemList = getSearchItemList(listSearchApps);
+                            updateSubscribedList(searchApkConverter.convert(searchItemList, subscribedAppsOffset, true));
+                            treatEmptyList(searchItemList);
+                        }
+                    });
+        } else {
+            handleSuccessCondition();
+        }
+    }
+
+    private List<SearchItem> getSearchItemList(ListSearchApps listSearchApps) {
+        if (listSearchApps != null
+                && listSearchApps.datalist != null
+                && listSearchApps.datalist.list != null) {
+            return listSearchApps.datalist.list;
+        }
+        return new ArrayList<>();
+    }
+
+    private String getStoreListCacheKey(List<Store> stores) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        for (Store store: stores) {
+            stringBuilder.append(store.getName());
+        }
+        return stringBuilder.toString();
+    }
+
+    private void searchForUnsubscribedApps() {
+        if (unsubscribedAppsOffset == 0) {
+            searchForMoreUnsubscribedApps(0);
+        }
+    }
+
+    private void searchForMoreUnsubscribedApps(final int offset) {
+        addInfiniteLoadingListItem();
+        spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
+                SearchActivity.SEARCH_LIMIT, offset), SearchActivity.CONTEXT + query +
+                offset, SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
+
+            @Override
+            public void onRequestFailure(SpiceException spiceException) {
+                handleRequestError(spiceException);
+            }
+
+            @Override
+            public void onRequestSuccess(ListSearchApps listSearchApps) {
+                handleSuccessCondition();
+                updateInfiniteSearchOffset(listSearchApps);
+                final List<SearchItem> searchItemList = getSearchItemList(listSearchApps);
+                updateUnsubscribedList(searchApkConverter.convert(searchItemFilter.filterUnsubscribed(searchItemList), unsubscribedAppsOffset, false));
+                removeInfiniteLoadingListItem();
+                treatEmptyList(searchItemList);
+            }
+        });
+    }
+
+    private void updateInfiniteSearchOffset(ListSearchApps listSearchApps) {
+        if (listSearchApps != null
+                && listSearchApps.datalist != null
+                && listSearchApps.datalist.next != null) {
+            infiniteSearchOffset = listSearchApps.datalist.next.intValue();
+        }
+    }
+
+    private void treatEmptyList(List<SearchItem> searchItemList) {
+        if (firstSearchResultEmpty
+                && searchItemList.isEmpty()
+                && unsubscribedAppsOffset == 0
+                && subscribedAppsOffset == 0) {
+            getRecyclerView().setVisibility(View.GONE);
+            noSearchResultLayout.setVisibility(View.VISIBLE);
+            searchQuery.setText(query);
+            searchButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startSearch();
+                }
+            });
+            searchQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
+                        startSearch();
+                        return true;
+                    }
+                    return false;
+                }
+            });
+            Analytics.Search.noSearchResultEvent(query);
+        } else {
+            firstSearchResultEmpty = searchItemList.isEmpty();
+        }
     }
 
     private void bindViews(View view) {
@@ -184,200 +420,6 @@ public class SearchFragment extends LinearRecyclerFragment {
         getContext().startActivity(intent);
     }
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        searchApkConverter = new SearchApkConverter(BUCKET_SIZE);
-        bindViews(getView());
-        getRecyclerView().setAdapter(adapter);
-
-        searchForSuggestedApp();
-        searchForSubscribedApps(database.getSubscribedStores());
-        searchForUnsubscribedApps(infiniteSearchOffset);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        userTouchListener = new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                userTouchedList = true;
-                getRecyclerView().removeOnItemTouchListener(this);
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        };
-        getRecyclerView().addOnItemTouchListener(userTouchListener);
-        getRecyclerView().addOnScrollListener(new EndlessRecyclerOnScrollListener((LinearLayoutManager) getRecyclerView().getLayoutManager()) {
-            @Override
-            public void onLoadMore() {
-                searchForUnsubscribedApps(infiniteSearchOffset);
-            }
-
-            @Override
-            public int getOffset() {
-                return unsubscribedAppsOffset;
-            }
-
-            @Override
-            public boolean isLoading() {
-                return infiniteLoading;
-            }
-        });
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        getRecyclerView().clearOnScrollListeners();
-        getRecyclerView().removeOnItemTouchListener(userTouchListener);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbindViews();
-    }
-
-    private void unbindViews() {
-        swipeContainer = null;
-        noSearchResultLayout = null;
-        searchButton = null;
-        searchQuery = null;
-        progressBar = null;
-        layoutNoNetwork = null;
-        layoutError = null;
-        retryError = null;
-        retryNoNetwork = null;
-    }
-
-    private void searchForSuggestedApp() {
-        final GetAdsRequest getAdsRequest = new GetAdsRequest();
-        getAdsRequest.setLocation(QUERY);
-        getAdsRequest.setKeyword(query);
-        getAdsRequest.setLimit(1);
-        spiceManager.execute(getAdsRequest, new RequestListener<ApkSuggestionJson>() {
-
-            @Override
-            public void onRequestFailure(SpiceException spiceException) {
-
-            }
-
-            @Override
-            public void onRequestSuccess(ApkSuggestionJson apkSuggestionJson) {
-                updateSuggestedAppList(apkSuggestionJson);
-            }
-        });
-    }
-
-    private void searchForSubscribedApps(List<Store> subscribedStores) {
-        spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
-                SearchActivity.SEARCH_LIMIT, 0, subscribedStores),
-                SearchActivity.CONTEXT+query+getStoreListCacheKey(subscribedStores), SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
-
-                    @Override
-                    public void onRequestFailure(SpiceException spiceException) {
-                        handleRequestError(spiceException);
-                    }
-
-                    @Override
-                    public void onRequestSuccess(ListSearchApps listSearchApps) {
-                        handleSuccessCondition();
-                        final List<SearchItem> searchItemList = getSearchItemList(listSearchApps);
-                        updateSubscribedList(searchApkConverter.convert(searchItemList, subscribedAppsOffset, true));
-                        treatEmptyList(searchItemList);
-                    }
-                });
-    }
-
-    private List<SearchItem> getSearchItemList(ListSearchApps listSearchApps) {
-        if (listSearchApps != null
-                && listSearchApps.datalist != null
-                && listSearchApps.datalist.list != null) {
-            return listSearchApps.datalist.list;
-        }
-        return new ArrayList<>();
-    }
-
-    private String getStoreListCacheKey(List<Store> stores) {
-        final StringBuilder stringBuilder = new StringBuilder();
-        for (Store store: stores) {
-            stringBuilder.append(store.getName());
-        }
-        return stringBuilder.toString();
-    }
-
-    private void searchForUnsubscribedApps(final int offset) {
-        addInfiniteLoadingListItem();
-        spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
-                SearchActivity.SEARCH_LIMIT, offset), SearchActivity.CONTEXT + query +
-                offset, SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
-
-            @Override
-            public void onRequestFailure(SpiceException spiceException) {
-                handleRequestError(spiceException);
-            }
-
-            @Override
-            public void onRequestSuccess(ListSearchApps listSearchApps) {
-                handleSuccessCondition();
-                updateInfiniteSearchOffset(listSearchApps);
-                final List<SearchItem> searchItemList = getSearchItemList(listSearchApps);
-                updateUnsubscribedList(searchApkConverter.convert(searchItemFilter.filterUnsubscribed(searchItemList), unsubscribedAppsOffset, false));
-                removeInfiniteLoadingListItem();
-                treatEmptyList(searchItemList);
-            }
-        });
-    }
-
-    private void updateInfiniteSearchOffset(ListSearchApps listSearchApps) {
-        if (listSearchApps != null
-                && listSearchApps.datalist != null
-                && listSearchApps.datalist.next != null) {
-            infiniteSearchOffset = listSearchApps.datalist.next.intValue();
-        }
-    }
-
-    private void treatEmptyList(List<SearchItem> searchItemList) {
-        if (firstSearchResultEmpty
-                && searchItemList.isEmpty()
-                && unsubscribedAppsOffset == 0
-                && subscribedAppsOffset == 0) {
-            getRecyclerView().setVisibility(View.GONE);
-            noSearchResultLayout.setVisibility(View.VISIBLE);
-            searchQuery.setText(query);
-            searchButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startSearch();
-                }
-            });
-            searchQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                @Override
-                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                    if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
-                        startSearch();
-                        return true;
-                    }
-                    return false;
-                }
-            });
-            Analytics.Search.noSearchResultEvent(query);
-        } else {
-            firstSearchResultEmpty = searchItemList.isEmpty();
-        }
-    }
-
     private void addInfiniteLoadingListItem() {
         displayables.add(new ProgressBarRow(BUCKET_SIZE));
         adapter.notifyItemInserted(displayables.size());
@@ -392,41 +434,28 @@ public class SearchFragment extends LinearRecyclerFragment {
         infiniteLoading = false;
     }
 
-    private void updateSuggestedAppList(ApkSuggestionJson apkSuggestionJson) {
-
-        if (apkSuggestionJson.getAds().size() == 0) {
-            return;
-        }
-        if (apkSuggestionJson.getAds().get(0).getPartner() == null) {
-            return;
-        }
-        if (apkSuggestionJson.getAds().get(0).getPartner().getPartnerData() == null) {
-            return;
-        }
-
+    private void updateSuggestedAppList(SuggestedAppDisplayable suggestedAppDisplayable) {
         final HeaderRow suggestedAppHeader = new HeaderRow("Suggested App", false, BUCKET_SIZE);
         displayables.add(0, suggestedAppHeader);
-        SuggestedAppDisplayable suggestedAppDisplayable = new SuggestedAppDisplayable(apkSuggestionJson);
         displayables.add(1, suggestedAppDisplayable);
         suggestetedAppsOffset = 2;
         adapter.notifyItemRangeInserted(0, 2);
-        updateScrollPosition();
+        final boolean itemsBellow = subscribedAppsOffset + unsubscribedAppsOffset > 0;
+        updateScrollPosition(2, itemsBellow, userTouchedList);
     }
 
     private void updateSubscribedList(List<SearchApk> subscribedApps) {
-
         if (!subscribedApps.isEmpty()) {
-            if (subscribedAppsOffset == 0) { // Only display search results for subscribed apps once.
-                displayables.add(suggestetedAppsOffset, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
-                displayables.addAll(suggestetedAppsOffset + 1, subscribedApps);
-                int notifyItemCount = subscribedApps.size();
-                subscribedAppsOffset += notifyItemCount;
-                // Sum suggested app header, suggested app, subscribed apps header and subscribed apps
-                displayables.add(suggestetedAppsOffset + 1 + subscribedAppsOffset, new SearchMoreHeader(BUCKET_SIZE));
+            displayables.add(suggestetedAppsOffset, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
+            displayables.addAll(suggestetedAppsOffset + 1, subscribedApps);
+            int notifyItemCount = subscribedApps.size();
+            subscribedAppsOffset += notifyItemCount;
+            // Sum suggested app header, suggested app, subscribed apps header and subscribed apps
+            displayables.add(suggestetedAppsOffset + 1 + subscribedAppsOffset, new SearchMoreHeader(BUCKET_SIZE));
 
-                adapter.notifyItemRangeInserted(suggestetedAppsOffset, 1 + notifyItemCount + 1);
-                updateScrollPosition();
-            }
+            adapter.notifyItemRangeInserted(suggestetedAppsOffset, 1 + notifyItemCount + 1);
+            final boolean itemsBellow = unsubscribedAppsOffset > 0;
+            updateScrollPosition(notifyItemCount, itemsBellow, userTouchedList);
         }
     }
 
@@ -464,13 +493,15 @@ public class SearchFragment extends LinearRecyclerFragment {
             unsubscribedAppsOffset += unsubscribedApps.size();
 
             adapter.notifyItemRangeInserted(notifyPositionStart, notifyItemCount);
-            updateScrollPosition();
         }
     }
 
-    private void updateScrollPosition() {
+    private void updateScrollPosition(int updateSize, boolean itemsBellow, boolean userTouchedList) {
         if (!userTouchedList) {
-            getRecyclerView().smoothScrollToPosition(0);
+            getRecyclerView().scrollToPosition(0);
+        } else if (itemsBellow) {
+            final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) getRecyclerView().getLayoutManager();
+            linearLayoutManager.scrollToPosition(linearLayoutManager.findFirstVisibleItemPosition() + updateSize);
         }
     }
 }

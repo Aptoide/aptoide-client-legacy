@@ -1,5 +1,7 @@
 package com.aptoide.models.displayables;
 
+import android.os.Parcel;
+
 import com.aptoide.models.IHasMore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -22,6 +24,52 @@ public class CategoryRow extends AbstractRow implements IHasMore {
     public CategoryRow(@JsonProperty("BUCKETSIZE") int bucketSize) {
         super(bucketSize);
     }
+
+    protected CategoryRow(Parcel in) {
+        super(in);
+        eventActionUrl = in.readString();
+        eventAltActionUrl = in.readString();
+        label = in.readString();
+        tag = in.readString();
+        graphic = in.readString();
+        eventType = in.readString();
+        eventName = in.readString();
+        homepage = in.readByte() != 0;
+        storeId = in.readLong();
+        layout = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeString(eventActionUrl);
+        dest.writeString(eventAltActionUrl);
+        dest.writeString(label);
+        dest.writeString(tag);
+        dest.writeString(graphic);
+        dest.writeString(eventType);
+        dest.writeString(eventName);
+        dest.writeByte((byte) (homepage ? 1 : 0));
+        dest.writeLong(storeId);
+        dest.writeString(layout);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<CategoryRow> CREATOR = new Creator<CategoryRow>() {
+        @Override
+        public CategoryRow createFromParcel(Parcel in) {
+            return new CategoryRow(in);
+        }
+
+        @Override
+        public CategoryRow[] newArray(int size) {
+            return new CategoryRow[size];
+        }
+    };
 
     @Override
     public String getEventActionUrl() {
