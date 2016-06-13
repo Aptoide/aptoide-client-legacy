@@ -182,7 +182,6 @@ public class SearchFragment extends LinearRecyclerFragment {
             @Override
             public void
             onLoadMore() {
-                searchForSubscribedApps(subscribedStores);
                 searchForUnsubscribedApps(searchOffset);
             }
 
