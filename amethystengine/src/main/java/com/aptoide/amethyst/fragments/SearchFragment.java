@@ -59,10 +59,16 @@ public class SearchFragment extends LinearRecyclerFragment {
     private static final String USER_TOUCHED_LIST_KEY = "USER_TOUCHED_LIST";
     private static final String LIST_STATE_KEY = "LIST_STATE";
     private static final String UNSUBSCRIBED_OFFSET_KEY = "UNSUBSCRIBED_OFFSET";
-    private static final String INFINITE_SEARCH_OFFSET_KEY = "INFINITE_SEARCH_OFFSET";
+    private static final String SEARCH_OFFSET_KEY = "SEARCH_OFFSET";
     private static final String SUBSCRIBED_OFFSET_KEY = "SUBSCRIBED_OFFSET";
     private static final String SUGGESTED_OFFSET_KEY = "SUGGESTED_OFFSET";
     private static final String DISPLAYABLES_KEY = "DISPLAYABLES";
+    private static final String UNSUBSCRIBED_LOADING_KEY = "UNSUBSCRIBED_LOADING_KEY";
+    private static final String SUBSCRIBED_LOADING_KEY = "SUBSCRIBED_LOADING_KEY";
+    private static final String EMPTY_RESULT_KEY = "EMPTY_RESULT";
+    private static final String NETWORK_ERROR_KEY = "NETWORK_ERROR";
+    private static final String GENERAL_ERROR_KEY = "GENERAL_ERROR";
+    private static final String STORE_LIST_KEY = "STORE_LIST";
 
     private SwipeRefreshLayout swipeContainer;
     private ScrollView noSearchResultLayout;
@@ -74,22 +80,26 @@ public class SearchFragment extends LinearRecyclerFragment {
     private TextView retryError;
     private TextView retryNoNetwork;
 
-    private ArrayList<Displayable> displayables;
     private String query;
     private SearchAdapter adapter;
-    private int suggestetedAppsOffset;
-    private int unsubscribedAppsOffset;
-	private int subscribedAppsOffset;
-    private int infiniteSearchOffset;
-    private boolean infiniteLoading;
     private boolean trusted;
-    private boolean firstSearchResultEmpty;
     private SearchItemSubscriptionFilter searchItemFilter;
     private SearchApkConverter searchApkConverter;
-    private AptoideDatabase database;
-    private boolean userTouchedList;
     private RecyclerView.OnItemTouchListener userTouchListener;
+
+    private boolean userTouchedList;
+    private ArrayList<Displayable> displayables;
+    private int suggestetedAppsOffset;
+    private int unsubscribedAppsOffset;
+    private int subscribedAppsOffset;
+    private int searchOffset;
     private Parcelable listState;
+    private boolean generalError;
+    private boolean networkError;
+    private boolean emptyResult;
+    private boolean subscribedLoading;
+    private boolean unsubscribedLoading;
+    private List<Store> subscribedStores;
 
     public static SearchFragment newInstance(String query, boolean trusted) {
         final SearchFragment searchFragment = new SearchFragment();
@@ -106,8 +116,9 @@ public class SearchFragment extends LinearRecyclerFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        database = new AptoideDatabase(Aptoide.getDb());
+        final AptoideDatabase database = new AptoideDatabase(Aptoide.getDb());
         searchItemFilter = new SearchItemSubscriptionFilter(database);
+        searchApkConverter = new SearchApkConverter(BUCKET_SIZE);
         query = getArguments().getString(QUERY);
         trusted = getArguments().getBoolean(TRUSTED);
 
@@ -116,11 +127,18 @@ public class SearchFragment extends LinearRecyclerFragment {
             listState = savedInstanceState.getParcelable(LIST_STATE_KEY);
             subscribedAppsOffset = savedInstanceState.getInt(SUBSCRIBED_OFFSET_KEY);
             unsubscribedAppsOffset = savedInstanceState.getInt(UNSUBSCRIBED_OFFSET_KEY);
-            infiniteSearchOffset = savedInstanceState.getInt(INFINITE_SEARCH_OFFSET_KEY);
+            searchOffset = savedInstanceState.getInt(SEARCH_OFFSET_KEY);
             suggestetedAppsOffset = savedInstanceState.getInt(SUGGESTED_OFFSET_KEY);
             displayables = savedInstanceState.getParcelableArrayList(DISPLAYABLES_KEY);
+            unsubscribedLoading = savedInstanceState.getBoolean(UNSUBSCRIBED_LOADING_KEY);
+            subscribedLoading = savedInstanceState.getBoolean(SUBSCRIBED_LOADING_KEY);
+            generalError = savedInstanceState.getBoolean(GENERAL_ERROR_KEY);
+            networkError = savedInstanceState.getBoolean(NETWORK_ERROR_KEY);
+            emptyResult = savedInstanceState.getBoolean(EMPTY_RESULT_KEY);
+            subscribedStores = savedInstanceState.getParcelableArrayList(STORE_LIST_KEY);
         } else {
             displayables = new ArrayList<>();
+            subscribedStores = database.getSubscribedStores();
         }
 
         adapter = new SearchAdapter(displayables);
@@ -130,17 +148,12 @@ public class SearchFragment extends LinearRecyclerFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        searchApkConverter = new SearchApkConverter(BUCKET_SIZE);
         bindViews(getView());
+        removeDefaultLoadingViews();
         getRecyclerView().setAdapter(adapter);
 
-        if (savedInstanceState != null) {
-            getRecyclerView().getLayoutManager().onRestoreInstanceState(listState);
-        }
-
-        searchForSuggestedApp();
-        searchForSubscribedApps(database.getSubscribedStores());
-        searchForUnsubscribedApps();
+        restoreState();
+        searchForApps();
     }
 
     @Override
@@ -167,8 +180,10 @@ public class SearchFragment extends LinearRecyclerFragment {
         getRecyclerView().addOnItemTouchListener(userTouchListener);
         getRecyclerView().addOnScrollListener(new EndlessRecyclerOnScrollListener((LinearLayoutManager) getRecyclerView().getLayoutManager()) {
             @Override
-            public void onLoadMore() {
-                searchForMoreUnsubscribedApps(infiniteSearchOffset);
+            public void
+            onLoadMore() {
+                searchForSubscribedApps(subscribedStores);
+                searchForUnsubscribedApps(searchOffset);
             }
 
             @Override
@@ -178,7 +193,35 @@ public class SearchFragment extends LinearRecyclerFragment {
 
             @Override
             public boolean isLoading() {
-                return infiniteLoading;
+                return unsubscribedLoading;
+            }
+        });
+        retryNoNetwork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                retrySearchForApps();
+            }
+        });
+        retryError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                retrySearchForApps();
+            }
+        });
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startSearch();
+            }
+        });
+        searchQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
+                    startSearch();
+                    return true;
+                }
+                return false;
             }
         });
     }
@@ -188,6 +231,10 @@ public class SearchFragment extends LinearRecyclerFragment {
         super.onPause();
         getRecyclerView().clearOnScrollListeners();
         getRecyclerView().removeOnItemTouchListener(userTouchListener);
+        retryNoNetwork.setOnClickListener(null);
+        retryError.setOnClickListener(null);
+        searchButton.setOnClickListener(null);
+        searchQuery.setOnEditorActionListener(null);
     }
 
     @Override
@@ -197,8 +244,14 @@ public class SearchFragment extends LinearRecyclerFragment {
         outState.putInt(SUBSCRIBED_OFFSET_KEY, subscribedAppsOffset);
         outState.putInt(UNSUBSCRIBED_OFFSET_KEY, unsubscribedAppsOffset);
         outState.putParcelableArrayList(DISPLAYABLES_KEY, displayables);
-        outState.putInt(INFINITE_SEARCH_OFFSET_KEY, infiniteSearchOffset);
+        outState.putInt(SEARCH_OFFSET_KEY, searchOffset);
         outState.putInt(SUGGESTED_OFFSET_KEY, suggestetedAppsOffset);
+        outState.putBoolean(UNSUBSCRIBED_LOADING_KEY, unsubscribedLoading);
+        outState.putBoolean(SUBSCRIBED_LOADING_KEY, subscribedLoading);
+        outState.putBoolean(EMPTY_RESULT_KEY, emptyResult);
+        outState.putBoolean(NETWORK_ERROR_KEY, networkError);
+        outState.putBoolean(GENERAL_ERROR_KEY, generalError);
+        outState.putParcelableArrayList(STORE_LIST_KEY, new ArrayList<Parcelable>(subscribedStores));
         super.onSaveInstanceState(outState);
     }
 
@@ -206,6 +259,43 @@ public class SearchFragment extends LinearRecyclerFragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbindViews();
+    }
+
+    private void restoreState() {
+        getRecyclerView().getLayoutManager().onRestoreInstanceState(listState);
+
+        if (isLoading()) {
+            setLoading(subscribedLoading, unsubscribedLoading);
+        }
+
+        if (emptyResult) {
+            showEmptyResultView();
+        }
+
+        if (generalError) {
+            showGeneralErrorView();
+        }
+
+        if (networkError) {
+            showNoNetworkErrorView();
+        }
+
+        if (unsubscribedLoading
+                && searchOffset > 0) {
+            searchForUnsubscribedApps(searchOffset);
+        }
+    }
+
+    private void bindViews(View view) {
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
+        noSearchResultLayout = (ScrollView) view.findViewById(R.id.no_search_results_layout);
+        searchButton = (ImageView) view.findViewById(R.id.ic_search_button);
+        searchQuery = (EditText) view.findViewById(R.id.search_text);
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        layoutNoNetwork = (ScrollView) view.findViewById(R.id.no_network_connection);
+        layoutError = (ScrollView) view.findViewById(R.id.error);
+        retryError = (TextView) view.findViewById(R.id.retry_error);
+        retryNoNetwork = (TextView) view.findViewById(R.id.retry_no_network);
     }
 
     private void unbindViews() {
@@ -218,6 +308,19 @@ public class SearchFragment extends LinearRecyclerFragment {
         layoutError = null;
         retryError = null;
         retryNoNetwork = null;
+    }
+
+    private void retrySearchForApps() {
+        removeErrorViews();
+        searchForApps();
+    }
+
+    private void searchForApps() {
+        if (!isErrorViewShown()) {
+            searchForSuggestedApp();
+            searchForSubscribedApps(subscribedStores);
+            searchForUnsubscribedApps();
+        }
     }
 
     private void searchForSuggestedApp() {
@@ -235,17 +338,9 @@ public class SearchFragment extends LinearRecyclerFragment {
 
                 @Override
                 public void onRequestSuccess(ApkSuggestionJson apkSuggestionJson) {
-                    if (apkSuggestionJson.getAds().size() == 0) {
-                        return;
+                    if (!isErrorViewShown()) {
+                        addSuggestedApp(displayables, apkSuggestionJson);
                     }
-                    if (apkSuggestionJson.getAds().get(0).getPartner() == null) {
-                        return;
-                    }
-                    if (apkSuggestionJson.getAds().get(0).getPartner().getPartnerData() == null) {
-                        return;
-                    }
-
-                    updateSuggestedAppList(new SuggestedAppDisplayable(apkSuggestionJson));
                 }
             });
         }
@@ -253,25 +348,25 @@ public class SearchFragment extends LinearRecyclerFragment {
 
     private void searchForSubscribedApps(List<Store> subscribedStores) {
         if (subscribedAppsOffset == 0) {
+            setLoading(true, unsubscribedLoading);
             spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
                     SearchActivity.SEARCH_LIMIT, 0, subscribedStores),
                     SearchActivity.CONTEXT + query + getStoreListCacheKey(subscribedStores), SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
 
                         @Override
                         public void onRequestFailure(SpiceException spiceException) {
-                            handleRequestError(spiceException);
+                            showErrorView(spiceException);
                         }
 
                         @Override
                         public void onRequestSuccess(ListSearchApps listSearchApps) {
-                            handleSuccessCondition();
-                            final List<SearchItem> searchItemList = getSearchItemList(listSearchApps);
-                            updateSubscribedList(searchApkConverter.convert(searchItemList, subscribedAppsOffset, true));
-                            treatEmptyList(searchItemList);
+                            if (!isErrorViewShown()) {
+                                setLoading(false, unsubscribedLoading);
+                                addSubsribedApps(displayables, searchApkConverter.convert(getSearchItemList(listSearchApps), subscribedAppsOffset, true));
+                                treatEmptyList();
+                            }
                         }
                     });
-        } else {
-            handleSuccessCondition();
         }
     }
 
@@ -286,7 +381,7 @@ public class SearchFragment extends LinearRecyclerFragment {
 
     private String getStoreListCacheKey(List<Store> stores) {
         final StringBuilder stringBuilder = new StringBuilder();
-        for (Store store: stores) {
+        for (Store store : stores) {
             stringBuilder.append(store.getName());
         }
         return stringBuilder.toString();
@@ -294,124 +389,108 @@ public class SearchFragment extends LinearRecyclerFragment {
 
     private void searchForUnsubscribedApps() {
         if (unsubscribedAppsOffset == 0) {
-            searchForMoreUnsubscribedApps(0);
+            searchForUnsubscribedApps(0);
         }
     }
 
-    private void searchForMoreUnsubscribedApps(final int offset) {
-        addInfiniteLoadingListItem();
+    private void searchForUnsubscribedApps(final int offset) {
+        setLoading(subscribedLoading, true);
         spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
                 SearchActivity.SEARCH_LIMIT, offset), SearchActivity.CONTEXT + query +
                 offset, SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
 
             @Override
             public void onRequestFailure(SpiceException spiceException) {
-                handleRequestError(spiceException);
+                if (unsubscribedAppsOffset == 0) {
+                    showErrorView(spiceException);
+                }
             }
 
             @Override
             public void onRequestSuccess(ListSearchApps listSearchApps) {
-                handleSuccessCondition();
-                updateInfiniteSearchOffset(listSearchApps);
-                final List<SearchItem> searchItemList = getSearchItemList(listSearchApps);
-                updateUnsubscribedList(searchApkConverter.convert(searchItemFilter.filterUnsubscribed(searchItemList), unsubscribedAppsOffset, false));
-                removeInfiniteLoadingListItem();
-                treatEmptyList(searchItemList);
+                if (!isErrorViewShown()) {
+                    updateSearchOffset(listSearchApps);
+                    addUnsubscribedApps(displayables, searchApkConverter.convert(
+                            searchItemFilter.filterUnsubscribed(getSearchItemList(listSearchApps)),
+                            unsubscribedAppsOffset, false));
+                    setLoading(subscribedLoading, false);
+                    treatEmptyList();
+                }
             }
         });
     }
 
-    private void updateInfiniteSearchOffset(ListSearchApps listSearchApps) {
+    private void updateSearchOffset(ListSearchApps listSearchApps) {
         if (listSearchApps != null
                 && listSearchApps.datalist != null
                 && listSearchApps.datalist.next != null) {
-            infiniteSearchOffset = listSearchApps.datalist.next.intValue();
+            searchOffset = listSearchApps.datalist.next.intValue();
         }
     }
 
-    private void treatEmptyList(List<SearchItem> searchItemList) {
-        if (firstSearchResultEmpty
-                && searchItemList.isEmpty()
-                && unsubscribedAppsOffset == 0
-                && subscribedAppsOffset == 0) {
-            getRecyclerView().setVisibility(View.GONE);
-            noSearchResultLayout.setVisibility(View.VISIBLE);
-            searchQuery.setText(query);
-            searchButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startSearch();
-                }
-            });
-            searchQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                @Override
-                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                    if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
-                        startSearch();
-                        return true;
-                    }
-                    return false;
-                }
-            });
+    private void treatEmptyList() {
+        if (!isLoading() && isListEmpty()) {
+            showEmptyResultView();
             Analytics.Search.noSearchResultEvent(query);
-        } else {
-            firstSearchResultEmpty = searchItemList.isEmpty();
         }
     }
 
-    private void bindViews(View view) {
-        swipeContainer = (SwipeRefreshLayout )view.findViewById(R.id.swipe_container);
-        noSearchResultLayout = (ScrollView )view.findViewById(R.id.no_search_results_layout);
-        searchButton = (ImageView )view.findViewById(R.id.ic_search_button);
-        searchQuery = (EditText )view.findViewById(R.id.search_text);
-        progressBar = (ProgressBar )view.findViewById(R.id.progress_bar);
-        layoutNoNetwork = (ScrollView )view.findViewById(R.id.no_network_connection);
-        layoutError = (ScrollView )view.findViewById(R.id.error);
-        retryError = (TextView )view.findViewById(R.id.retry_error);
-        retryNoNetwork = (TextView )view.findViewById(R.id.retry_no_network);
+    private boolean isListEmpty() {
+        // Do not take suggested app into account
+        return unsubscribedAppsOffset == 0 && subscribedAppsOffset == 0;
     }
 
-    private void handleRequestError(Exception e) {
-        Logger.printException(e);
-        progressBar.setVisibility(View.GONE);
+    private void showErrorView(Exception exception) {
+        setLoading(false, false);
+        Logger.printException(exception);
+        if (!isErrorViewShown()) {
+            spiceManager.cancelAllRequests();
+            if (exception instanceof NoNetworkException) {
+                showNoNetworkErrorView();
+            } else {
+                showGeneralErrorView();
+            }
+        }
+    }
+
+    private void showEmptyResultView() {
+        getRecyclerView().setVisibility(View.GONE);
+        noSearchResultLayout.setVisibility(View.VISIBLE);
+        searchQuery.setText(query);
+        emptyResult = true;
+    }
+
+    private boolean isErrorViewShown() {
+        return generalError || networkError;
+    }
+
+    private void showGeneralErrorView() {
         swipeContainer.setVisibility(View.GONE);
-
-        if (e instanceof NoNetworkException) {
-            layoutError.setVisibility(View.GONE);
-            layoutNoNetwork.setVisibility(View.VISIBLE);
-            retryNoNetwork.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    retry();
-                }
-            });
-
-        } else {
-            layoutNoNetwork.setVisibility(View.GONE);
-            layoutError.setVisibility(View.VISIBLE);
-            retryError.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    retry();
-                }
-            });
-        }
+        layoutNoNetwork.setVisibility(View.GONE);
+        layoutError.setVisibility(View.VISIBLE);
+        generalError = true;
+        networkError = false;
     }
 
-    private void retry() {
+    private void showNoNetworkErrorView() {
+        swipeContainer.setVisibility(View.GONE);
+        layoutError.setVisibility(View.GONE);
+        layoutNoNetwork.setVisibility(View.VISIBLE);
+        networkError = true;
+        generalError = false;
+    }
+
+    private void removeErrorViews() {
+        swipeContainer.setVisibility(View.VISIBLE);
         layoutError.setVisibility(View.GONE);
         layoutNoNetwork.setVisibility(View.GONE);
-        progressBar.setVisibility(View.VISIBLE);
-        swipeContainer.setVisibility(View.VISIBLE);
-        searchForSubscribedApps(database.getSubscribedStores());
+        networkError = false;
+        generalError = false;
     }
 
-    protected void handleSuccessCondition() {
+    private void removeDefaultLoadingViews() {
         swipeContainer.setEnabled(false);
         progressBar.setVisibility(View.GONE);
-        layoutError.setVisibility(View.GONE);
-        layoutNoNetwork.setVisibility(View.GONE);
-        swipeContainer.setVisibility(View.VISIBLE);
     }
 
     private void startSearch() {
@@ -420,31 +499,53 @@ public class SearchFragment extends LinearRecyclerFragment {
         getContext().startActivity(intent);
     }
 
-    private void addInfiniteLoadingListItem() {
-        displayables.add(new ProgressBarRow(BUCKET_SIZE));
-        adapter.notifyItemInserted(displayables.size());
-        infiniteLoading = true;
+    private boolean isLoading() {
+        return unsubscribedLoading || subscribedLoading;
     }
 
-    private void removeInfiniteLoadingListItem() {
-        if (infiniteLoading && !displayables.isEmpty()) {
-            displayables.remove(displayables.size() - 1);
-			adapter.notifyItemRemoved(displayables.size());
-		}
-        infiniteLoading = false;
+    private void setLoading(boolean subscribedLoading, boolean unsubscribedLoading) {
+        final boolean enableLoading = subscribedLoading || unsubscribedLoading;
+
+        if (enableLoading) {
+            if (!isLoading()) {
+                displayables.add(new ProgressBarRow(BUCKET_SIZE));
+                adapter.notifyItemInserted(displayables.size());
+            }
+        } else {
+            if (isLoading()) {
+                if (!displayables.isEmpty()) {
+                    displayables.remove(displayables.size() - 1);
+                    adapter.notifyItemRemoved(displayables.size());
+                }
+            }
+        }
+        this.subscribedLoading = subscribedLoading;
+        this.unsubscribedLoading = unsubscribedLoading;
     }
 
-    private void updateSuggestedAppList(SuggestedAppDisplayable suggestedAppDisplayable) {
+    private void addSuggestedApp(List<Displayable> displayables, ApkSuggestionJson apkSuggestionJson) {
+
+        if (apkSuggestionJson.getAds().size() == 0) {
+            return;
+        }
+        if (apkSuggestionJson.getAds().get(0).getPartner() == null) {
+            return;
+        }
+        if (apkSuggestionJson.getAds().get(0).getPartner().getPartnerData() == null) {
+            return;
+        }
+
+
         final HeaderRow suggestedAppHeader = new HeaderRow("Suggested App", false, BUCKET_SIZE);
         displayables.add(0, suggestedAppHeader);
-        displayables.add(1, suggestedAppDisplayable);
+        displayables.add(1, new SuggestedAppDisplayable(apkSuggestionJson));
         suggestetedAppsOffset = 2;
         adapter.notifyItemRangeInserted(0, 2);
         final boolean itemsBellow = subscribedAppsOffset + unsubscribedAppsOffset > 0;
         updateScrollPosition(2, itemsBellow, userTouchedList);
     }
 
-    private void updateSubscribedList(List<SearchApk> subscribedApps) {
+    private void addSubsribedApps(List<Displayable> displayables, List<SearchApk> subscribedApps) {
         if (!subscribedApps.isEmpty()) {
             displayables.add(suggestetedAppsOffset, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
             displayables.addAll(suggestetedAppsOffset + 1, subscribedApps);
@@ -459,7 +560,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         }
     }
 
-    private void updateUnsubscribedList(List<SearchApk> unsubscribedApps) {
+    private void addUnsubscribedApps(List<Displayable> displayables, List<SearchApk> unsubscribedApps) {
         if (!unsubscribedApps.isEmpty()) {
 
             int notifyPositionStart;
@@ -493,6 +594,7 @@ public class SearchFragment extends LinearRecyclerFragment {
             unsubscribedAppsOffset += unsubscribedApps.size();
 
             adapter.notifyItemRangeInserted(notifyPositionStart, notifyItemCount);
+            updateScrollPosition(notifyItemCount, false, userTouchedList);
         }
     }
 
