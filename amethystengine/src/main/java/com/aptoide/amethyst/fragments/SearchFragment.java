@@ -401,9 +401,7 @@ public class SearchFragment extends LinearRecyclerFragment {
 
             @Override
             public void onRequestFailure(SpiceException spiceException) {
-                if (unsubscribedAppsOffset == 0) {
-                    showErrorView(spiceException);
-                }
+                showErrorView(spiceException);
             }
 
             @Override
@@ -443,7 +441,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     private void showErrorView(Exception exception) {
         setLoading(false, false);
         Logger.printException(exception);
-        if (!isErrorViewShown()) {
+        if (isListEmpty() && !isErrorViewShown()) {
             spiceManager.cancelAllRequests();
             if (exception instanceof NoNetworkException) {
                 showNoNetworkErrorView();
