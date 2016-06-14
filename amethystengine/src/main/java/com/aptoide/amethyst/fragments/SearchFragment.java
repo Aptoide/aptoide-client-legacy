@@ -88,7 +88,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     private RecyclerView.OnItemTouchListener userTouchListener;
 
     private boolean userTouchedList;
-    private ArrayList<Displayable> displayables;
+    private List<Displayable> displayables;
     private int suggestetedAppsOffset;
     private int unsubscribedAppsOffset;
     private int subscribedAppsOffset;
@@ -242,7 +242,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         outState.putParcelable(LIST_STATE_KEY, getRecyclerView().getLayoutManager().onSaveInstanceState());
         outState.putInt(SUBSCRIBED_OFFSET_KEY, subscribedAppsOffset);
         outState.putInt(UNSUBSCRIBED_OFFSET_KEY, unsubscribedAppsOffset);
-        outState.putParcelableArrayList(DISPLAYABLES_KEY, displayables);
+        outState.putParcelableArrayList(DISPLAYABLES_KEY, new ArrayList<Parcelable>(displayables));
         outState.putInt(SEARCH_OFFSET_KEY, searchOffset);
         outState.putInt(SUGGESTED_OFFSET_KEY, suggestetedAppsOffset);
         outState.putBoolean(UNSUBSCRIBED_LOADING_KEY, unsubscribedLoading);
@@ -262,10 +262,6 @@ public class SearchFragment extends LinearRecyclerFragment {
 
     private void restoreState() {
         getRecyclerView().getLayoutManager().onRestoreInstanceState(listState);
-
-        if (isLoading()) {
-            setLoading(subscribedLoading, unsubscribedLoading);
-        }
 
         if (emptyResult) {
             showEmptyResultView();
@@ -350,7 +346,9 @@ public class SearchFragment extends LinearRecyclerFragment {
             setLoading(true, unsubscribedLoading);
             spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
                     SearchActivity.SEARCH_LIMIT, 0, subscribedStores),
-                    SearchActivity.CONTEXT + query + getStoreListCacheKey(subscribedStores), SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
+                    SearchActivity.CONTEXT + query + trusted + SearchActivity.SEARCH_LIMIT + 0 +
+                            getStoreListCacheKey(subscribedStores), SEARCH_CACHE_DURATION,
+                    new RequestListener<ListSearchApps>() {
 
                         @Override
                         public void onRequestFailure(SpiceException spiceException) {
@@ -361,7 +359,9 @@ public class SearchFragment extends LinearRecyclerFragment {
                         public void onRequestSuccess(ListSearchApps listSearchApps) {
                             if (!isErrorViewShown()) {
                                 setLoading(false, unsubscribedLoading);
-                                addSubsribedApps(displayables, searchApkConverter.convert(getSearchItemList(listSearchApps), subscribedAppsOffset, true));
+                                addSubsribedApps(displayables, searchApkConverter.convert(
+                                        getSearchItemList(listSearchApps), subscribedAppsOffset,
+                                        true));
                                 treatEmptyList();
                             }
                         }
@@ -395,8 +395,9 @@ public class SearchFragment extends LinearRecyclerFragment {
     private void searchForUnsubscribedApps(final int offset) {
         setLoading(subscribedLoading, true);
         spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
-                SearchActivity.SEARCH_LIMIT, offset), SearchActivity.CONTEXT + query +
-                offset, SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
+                SearchActivity.SEARCH_LIMIT, offset), SearchActivity.CONTEXT + query + trusted +
+                SearchActivity.SEARCH_LIMIT + offset,
+                SEARCH_CACHE_DURATION, new RequestListener<ListSearchApps>() {
 
             @Override
             public void onRequestFailure(SpiceException spiceException) {
@@ -493,6 +494,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     private void startSearch() {
         Intent intent = new Intent(getContext(), SearchActivity.class);
         intent.putExtra(SearchActivity.SEARCH_QUERY, searchQuery.getText().toString());
+        intent.putExtra(SearchActivity.SEARCH_ONLY_TRUSTED_APPS, trusted);
         getContext().startActivity(intent);
     }
 

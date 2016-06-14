@@ -1,11 +1,23 @@
 package com.aptoide.amethyst.adapter;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.support.v7.widget.PopupMenu;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.MoreSearchActivity;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.StoresActivity;
 import com.aptoide.amethyst.SearchActivity;
+import com.aptoide.amethyst.StoresActivity;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
@@ -27,22 +39,10 @@ import com.aptoide.models.displayables.SearchMoreHeader;
 import com.aptoide.models.displayables.SuggestedAppDisplayable;
 import com.bumptech.glide.Glide;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -51,11 +51,11 @@ import java.util.Locale;
 public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
 
-    private final ArrayList<Displayable> list;
+    private final List<Displayable> list;
     private String query;
     private final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
 
-    public SearchAdapter(ArrayList<Displayable> list) {
+    public SearchAdapter(List<Displayable> list) {
         this.list = list;
     }
 
