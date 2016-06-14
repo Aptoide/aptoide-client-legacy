@@ -22,7 +22,7 @@ import com.aptoide.amethyst.adapter.SearchAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.models.search.SearchApkConverter;
+import com.aptoide.amethyst.models.search.SearchAppConverter;
 import com.aptoide.amethyst.ui.MoreActivity;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -32,7 +32,7 @@ import com.aptoide.dataprovider.webservices.models.v7.SearchItem;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.displayables.ProgressBarRow;
-import com.aptoide.models.displayables.SearchApk;
+import com.aptoide.models.displayables.SearchApp;
 import com.aptoide.models.stores.Store;
 import com.octo.android.robospice.exception.NoNetworkException;
 import com.octo.android.robospice.persistence.DurationInMillis;
@@ -113,7 +113,7 @@ public class MoreSearchActivity extends MoreActivity {
 
         private SearchAdapter adapter;
         private String storeName;
-        private SearchApkConverter searchApkConverter;
+        private SearchAppConverter searchAppConverter;
 
         private String query;
         private boolean trusted;
@@ -135,7 +135,7 @@ public class MoreSearchActivity extends MoreActivity {
             query = getArguments().getString(SearchActivity.SEARCH_QUERY);
             trusted = getArguments().getBoolean(SearchActivity.SEARCH_ONLY_TRUSTED_APPS);
 
-            searchApkConverter = new SearchApkConverter(BUCKET_SIZE);
+            searchAppConverter = new SearchAppConverter(BUCKET_SIZE);
 
             if (savedInstanceState != null) {
                 listState = savedInstanceState.getParcelable(LIST_STATE_KEY);
@@ -283,7 +283,7 @@ public class MoreSearchActivity extends MoreActivity {
                         public void onRequestSuccess(ListSearchApps listSearchApps) {
                             if (!isErrorViewShown()) {
                                 updateSearchOffset(listSearchApps);
-                                addApps(displayables, searchApkConverter.convert(
+                                addApps(displayables, searchAppConverter.convert(
                                         getSearchItemList(listSearchApps), appsOffset, false));
                                 setLoading(false);
                                 treatEmptyList();
@@ -308,7 +308,7 @@ public class MoreSearchActivity extends MoreActivity {
             return new ArrayList<>();
         }
 
-        private void addApps(List<Displayable> displayables, List<SearchApk> apps) {
+        private void addApps(List<Displayable> displayables, List<SearchApp> apps) {
             if (!apps.isEmpty()) {
 
                 int notifyPositionStart;

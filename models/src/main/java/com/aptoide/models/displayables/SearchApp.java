@@ -6,17 +6,17 @@ import android.os.Parcelable;
 /**
  * Created by rmateus on 12/06/15.
  */
-public class SearchApk extends Displayable implements Parcelable {
+public class SearchApp extends Displayable implements Parcelable {
 
-    public static final Creator<SearchApk> CREATOR = new Creator<SearchApk>() {
+    public static final Creator<SearchApp> CREATOR = new Creator<SearchApp>() {
         @Override
-        public SearchApk createFromParcel(Parcel in) {
-            return new SearchApk(in);
+        public SearchApp createFromParcel(Parcel in) {
+            return new SearchApp(in);
         }
 
         @Override
-        public SearchApk[] newArray(int size) {
-            return new SearchApk[size];
+        public SearchApp[] newArray(int size) {
+            return new SearchApp[size];
         }
     };
 
@@ -35,8 +35,9 @@ public class SearchApk extends Displayable implements Parcelable {
     private Number stars;
     private String repoTheme;
     private long downloads;
+    private Number size;
 
-    public SearchApk(int bucketSize, boolean fromSubscribedStore, int position, String name, String repo, String packageName, String versionName, Integer versionCode, String md5sum, String timestamp, Integer malwareRank, String icon, boolean otherVersions, Number stars, String repoTheme, long downloads) {
+    public SearchApp(int bucketSize, boolean fromSubscribedStore, int position, String name, String repo, String packageName, String versionName, Integer versionCode, String md5sum, String timestamp, Integer malwareRank, String icon, boolean otherVersions, Number stars, String repoTheme, long downloads, Number size) {
         super(bucketSize);
         this.fromSubscribedStore = fromSubscribedStore;
         this.position = position;
@@ -53,9 +54,10 @@ public class SearchApk extends Displayable implements Parcelable {
         this.stars = stars;
         this.repoTheme = repoTheme;
         this.downloads = downloads;
+        this.size = size;
     }
 
-    protected SearchApk(Parcel in) {
+    protected SearchApp(Parcel in) {
         super(in);
         fromSubscribedStore = in.readByte() != 0;
         position = in.readInt();
@@ -72,6 +74,7 @@ public class SearchApk extends Displayable implements Parcelable {
         stars = (Number) in.readSerializable();
         repoTheme = in.readString();
         downloads = in.readLong();
+        size = (Number) in.readSerializable();
     }
 
     @Override
@@ -92,6 +95,7 @@ public class SearchApk extends Displayable implements Parcelable {
         dest.writeSerializable(stars);
         dest.writeString(repoTheme);
         dest.writeLong(downloads);
+        dest.writeSerializable(size);
     }
 
     @Override
@@ -157,5 +161,9 @@ public class SearchApk extends Displayable implements Parcelable {
 
     public long getDownloads() {
         return downloads;
+    }
+
+    public Number getSize() {
+        return size;
     }
 }
