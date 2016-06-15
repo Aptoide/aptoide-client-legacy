@@ -2,25 +2,17 @@ package com.aptoide.amethyst.viewholders;
 
 import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.displayables.Displayable;
-import com.aptoide.models.displayables.SearchApp;
 import com.aptoide.models.displayables.SponsoredSearchApp;
 import com.bumptech.glide.Glide;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.ShapeDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
-
-import java.text.DecimalFormat;
 
 import static com.aptoide.dataprovider.webservices.models.Constants.AD_ID_KEY;
 import static com.aptoide.dataprovider.webservices.models.Constants.APPNAME_KEY;
@@ -47,7 +39,7 @@ public class SponsoredAppViewHolder extends BaseViewHolder {
     private ImageView icon;
     private TextView description;
     private TextView store;
-    private TextView fileSize;
+    private TextView downloads;
     private TextView versionName;
 
     public SponsoredAppViewHolder(View view, int viewType) {
@@ -60,7 +52,7 @@ public class SponsoredAppViewHolder extends BaseViewHolder {
 
         name.setText(appItem.getName());
         versionName.setText(appItem.getVersionName());
-        fileSize.setText(AptoideUtils.StringUtils.formatBits(appItem.getSize().longValue()));
+        downloads.setText(AptoideUtils.StringUtils.withSuffix(appItem.getDownloads().longValue()));
         description.setText(Html.fromHtml(appItem.getDescription()));
         store.setText(appItem.getRepo());
         Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.getIcon())).into(icon);
@@ -103,7 +95,7 @@ public class SponsoredAppViewHolder extends BaseViewHolder {
     protected void bindViews(View itemView) {
         name = (TextView) itemView.findViewById(R.id.name);
         icon = (ImageView) itemView.findViewById(R.id.icon);
-        fileSize = (TextView) itemView.findViewById(R.id.file_size);
+        downloads = (TextView) itemView.findViewById(R.id.downloads_number);
         versionName = (TextView) itemView.findViewById(R.id.versionName);
         description = (TextView) itemView.findViewById(R.id.description);
         store = (TextView) itemView.findViewById(R.id.search_store);

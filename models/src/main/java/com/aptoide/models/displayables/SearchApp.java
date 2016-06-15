@@ -35,9 +35,8 @@ public class SearchApp extends Displayable implements Parcelable {
     private Number stars;
     private String repoTheme;
     private long downloads;
-    private Number size;
 
-    public SearchApp(int bucketSize, boolean fromSubscribedStore, int position, String name, String repo, String packageName, String versionName, Integer versionCode, String md5sum, String timestamp, Integer malwareRank, String icon, boolean otherVersions, Number stars, String repoTheme, long downloads, Number size) {
+    public SearchApp(int bucketSize, boolean fromSubscribedStore, int position, String name, String repo, String packageName, String versionName, Integer versionCode, String md5sum, String timestamp, Integer malwareRank, String icon, boolean otherVersions, Number stars, String repoTheme, long downloads) {
         super(bucketSize);
         this.fromSubscribedStore = fromSubscribedStore;
         this.position = position;
@@ -54,7 +53,6 @@ public class SearchApp extends Displayable implements Parcelable {
         this.stars = stars;
         this.repoTheme = repoTheme;
         this.downloads = downloads;
-        this.size = size;
     }
 
     protected SearchApp(Parcel in) {
@@ -74,7 +72,6 @@ public class SearchApp extends Displayable implements Parcelable {
         stars = (Number) in.readSerializable();
         repoTheme = in.readString();
         downloads = in.readLong();
-        size = (Number) in.readSerializable();
     }
 
     @Override
@@ -95,7 +92,6 @@ public class SearchApp extends Displayable implements Parcelable {
         dest.writeSerializable(stars);
         dest.writeString(repoTheme);
         dest.writeLong(downloads);
-        dest.writeSerializable(size);
     }
 
     @Override
@@ -163,7 +159,4 @@ public class SearchApp extends Displayable implements Parcelable {
         return downloads;
     }
 
-    public Number getSize() {
-        return size;
-    }
 }

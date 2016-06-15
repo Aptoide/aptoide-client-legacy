@@ -23,11 +23,10 @@ public class SponsoredSearchApp extends Displayable implements Parcelable {
     private String name;
     private String packageName;
     private String repo;
-    private Number size;
     private Number versionCode;
     private String versionName;
 
-    public SponsoredSearchApp(int bucketSize, long adId, String cpcUrl, String cpiUrl, String partnerName, String partnerClickUrl, String description, Number downloads, String icon, Number id, String md5sum, String name, String packageName, String repo, Number size, Number versionCode, String versionName) {
+    public SponsoredSearchApp(int bucketSize, long adId, String cpcUrl, String cpiUrl, String partnerName, String partnerClickUrl, String description, Number downloads, String icon, Number id, String md5sum, String name, String packageName, String repo, Number versionCode, String versionName) {
         super(bucketSize);
         this.adId = adId;
         this.cpcUrl = cpcUrl;
@@ -42,7 +41,6 @@ public class SponsoredSearchApp extends Displayable implements Parcelable {
         this.name = name;
         this.packageName = packageName;
         this.repo = repo;
-        this.size = size;
         this.versionCode = versionCode;
         this.versionName = versionName;
     }
@@ -62,7 +60,6 @@ public class SponsoredSearchApp extends Displayable implements Parcelable {
         name = in.readString();
         packageName = in.readString();
         repo = in.readString();
-        size = (Number) in.readSerializable();
         versionCode = (Number) in.readSerializable();
         versionName = in.readString();
     }
@@ -83,7 +80,6 @@ public class SponsoredSearchApp extends Displayable implements Parcelable {
         dest.writeString(name);
         dest.writeString(packageName);
         dest.writeString(repo);
-        dest.writeSerializable(size);
         dest.writeSerializable(versionCode);
         dest.writeString(versionName);
     }
@@ -155,10 +151,6 @@ public class SponsoredSearchApp extends Displayable implements Parcelable {
 
     public String getRepo() {
         return repo;
-    }
-
-    public Number getSize() {
-        return size;
     }
 
     public Number getVersionCode() {

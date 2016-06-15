@@ -46,7 +46,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
     private TextView store;
     private ImageView icTrusted;
     private View bottomView;
-    private TextView fileSize;
+    private TextView downloads;
     private TextView versionName;
 
     public SearchAppViewHolder(View itemView, int viewType) {
@@ -99,7 +99,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
 
         name.setText(appItem.getName());
         versionName.setText(appItem.getVersionName());
-        fileSize.setText(AptoideUtils.StringUtils.formatBits(appItem.getSize().longValue()));
+        downloads.setText(AptoideUtils.StringUtils.withSuffix(appItem.getDownloads()));
 
         if (appItem.getStars().floatValue() <= 0) {
             ratingBar.setVisibility(View.GONE);
@@ -171,7 +171,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
         name = (TextView) itemView.findViewById(R.id.name);
         icon = (ImageView) itemView.findViewById(R.id.icon);
         ratingBar = (RatingBar) itemView.findViewById(R.id.ratingbar);
-        fileSize = (TextView) itemView.findViewById(R.id.file_size);
+        downloads = (TextView) itemView.findViewById(R.id.downloads_number);
         versionName = (TextView) itemView.findViewById(R.id.versionName);
         overflow = (ImageView) itemView.findViewById(R.id.overflow);
         description = (TextView) itemView.findViewById(R.id.description);

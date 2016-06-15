@@ -49,8 +49,7 @@ public class SearchAppConverter {
 				searchItem.hasVersions,
 				searchItem.stats.rating.avg,
 				searchItem.store.appearance.theme,
-				searchItem.stats.downloads.longValue(),
-				searchItem.size);
+				searchItem.stats.downloads.longValue());
 	}
 
 	public SponsoredSearchApp convert(ApkSuggestionJson searchItem) {
@@ -69,7 +68,6 @@ public class SearchAppConverter {
 				searchItem.getAds().get(0).getData().name,
 				searchItem.getAds().get(0).getData().packageName,
 				searchItem.getAds().get(0).getData().repo,
-				searchItem.getAds().get(0).getData().size,
 				searchItem.getAds().get(0).getData().vercode,
 				searchItem.getAds().get(0).getData().vername);
 	}
