@@ -2607,6 +2607,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				appId = intent.getLongExtra(Constants.APP_ID_KEY, 0);
 
 				executeSpiceRequestWithAppId(appId, storeName, packageName);
+			} else if (intent.getBooleanExtra(Constants.FROM_NOTIFICATION, false)) { // from notification
+				appId = intent.getLongExtra(Constants.APP_ID_KEY, 0);
+				executeSpiceRequestWithAppId(appId, storeName, packageName);
 			} else if (intent.getBooleanExtra(Constants.SEARCH_FROM_KEY, false)) { // from search
 				// inside app
 				appName = intent.getStringExtra(Constants.APPNAME_KEY);

@@ -257,6 +257,8 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             } else if (getIntent().hasExtra("new_updates")) {
                 Analytics.ApplicationLaunch.newUpdatesNotification();
                 mViewPager.setCurrentItem(3);
+            } else if (getIntent().hasExtra("openAppView")) {
+                openAppView(getIntent().getStringExtra("openAppView"));
             } else {
                 Analytics.ApplicationLaunch.launcher();
 
@@ -346,6 +348,14 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         Analytics.Dimenstions.setPartnerDimension(getPartnerName());
         Analytics.Dimenstions.setVerticalDimension(getVertical());
         Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
+    }
+
+    private void openAppView(String appId) {
+        try {
+            startActivity(new Intent(this, AppViewActivity.class).putExtra(Constants.FROM_NOTIFICATION, true).putExtra(Constants.APP_ID_KEY, Long.valueOf(appId)));
+        } catch (NumberFormatException e) {
+            Logger.e("MainActivity", "Could not open openAppView notification. It must be a long value.");
+        }
     }
 
     protected int getContentView() {
