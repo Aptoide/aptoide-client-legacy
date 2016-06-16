@@ -89,7 +89,7 @@
     <string name="sign_out">Sign Out</string>
     <string name="logged_as">You are logged as:</string>
 
-    <string name="aptoide_description">Aptoide Official App Store</string>
+    <string name="aptoide_description">%s Official App Store</string>
 
     <string name="error_410">Sorry, the requested App was not found on this server.</string>
 
@@ -142,7 +142,7 @@
     </string>
     <string name="about_aptoide_antimalware">Aptoide Anti-Malware platform analyses applications in run-time and disables potential threats across all stores. This system scans all the new application files from the stores and certificates them by comparison against other Android Marketplaces.</string>
     <string name="username_tip">Type your email</string>
-    <string name="accept_terms">By signing up you are agreeing to the Aptoide Terms of Service and Content Policy for Developers</string>
+    <string name="accept_terms">By signing up you are agreeing to the %s Terms of Service and Content Policy for Developers</string>
 
     <string name="start_loading">Loading…</string>
     <string name="store_already_added">Store already added!</string>
@@ -247,7 +247,7 @@
     <string name="downgrade">Downgrade</string>
     <string name="reinstall">Reinstall</string>
 
-    <string name="rollback_empty">Quickly downgrade any app to a previous version and solve incompatibility issues. Keep a log of all your installed apps (via Aptoide) including version and install date.</string>
+    <string name="rollback_empty">Quickly downgrade any app to a previous version and solve incompatibility issues. Keep a log of all your installed apps (via %s) including version and install date.</string>
 
     <string name="see_more">See More</string>
     <string name="see_less">See Less</string>
@@ -296,7 +296,7 @@
     <string name="no_payments_available">No payments available.</string>
     <string name="failed_auth_code">Failed to authorize account. Please try again.</string>
     <string name="error_occured_paying">An error occurred. The payment wasn\'t completed.</string>
-    <string name="error_occured_retry_later">An error occurred. Aptoide will retry later automatically.</string>
+    <string name="error_occured_retry_later">An error occurred. %s will retry later automatically.</string>
     <string name="account">Account</string>
     <string name="confirm_carrier_payment">Do you want to purchase \'{title}\' for {value}? You will be charged from
         your carrier.
@@ -316,7 +316,7 @@
     <string name="downgrade_requires_uninstall">Downgrade requires Application uninstall</string>
 
     <string name="order_popup_title3">Adult Content</string>
-    <string name="friends_to_invite">All other Facebook friends in Aptoide</string>
+    <string name="friends_to_invite">All other Facebook friends in %s</string>
     <string name="invite_friends">Invite Friends</string>
     <string name="timeline_is_empty_send_email">We\'ll send an email to those you choose</string>
     <string name="facebook_timeline_friends_invited">Friends invited!</string>
@@ -381,8 +381,8 @@
     <string name="private_key">private</string>
     <string name="store_username">Username</string>
     <string name="store_password">Password</string>
-    <string name="upload_app_backup_apps_installed">You need to upload this app to your store first. You can use Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">You need to upload this app to your store first. Please install and use Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">You need to upload this app to your store first. You can use %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">You need to upload this app to your store first. Please install and use %s Backup Apps.</string>
     <string name="upload_app">Upload app</string>
     <string name="create_review">Create review</string>
 
@@ -408,8 +408,8 @@
     <string name="setting_hwspecssum">Hardware Info about your phone</string>
     <string name="setting_appfiltersum">Don\'t show applications that are not compatible with this device</string>
     <string name="setting_appfiltertitle">Filter Applications</string>
-    <string name="setting_category_autoupdate">Aptoide Auto update</string>
-    <string name="setting_category_autoupdate_title">Enable Aptoide auto update</string>
+    <string name="setting_category_autoupdate">%s Auto update</string>
+    <string name="setting_category_autoupdate_title">Enable %s auto update</string>
     <string name="setting_dont_show_mature_content">Show mature content</string>
     <string name="setting_mature_filtering">Adult Content</string>
     <string name="setting_updates">Updates</string>
@@ -433,7 +433,7 @@
     <string name="root">Root</string>
     <string name="allow_root">Allow root installation</string>
     <string name="disable_social_timeline">Disable Social Timeline</string>
-    <string name="social_timeline_notifications_sum2">Enable Aptoide Social Timeline Notifications. You will receive the latest news on the notification bar.</string>
+    <string name="social_timeline_notifications_sum2">Enable %s Social Timeline Notifications. You will receive the latest news on the notification bar.</string>
     <string name="social_timeline_notifications">Timeline Notifications</string>
     <string name="about_us">About us</string>
     <string name="restart_aptoide">Please restart the application to change theme</string>
@@ -511,9 +511,9 @@
     <string name="application_signature_analysis">Application signature compared with developer signature:</string>
     <string name="application_signature_matched">Application signature match with signature related to the application developer.</string>
     <string name="application_signature_not_matched">Application signature do not match with signature related to the application developer. Application may have been adulterated.</string>
-    <string name="application_signature_blacklisted">Application signature is not a Trusted signature at Aptoide Anti-Malware platform because it has been used to sign another application that does not match the signature related to the legit developer.</string>
-    <string name="scanned_manually_by_aptoide_team">Scanned manually by Aptoide Team:</string>
-    <string name="scanned_verified_by_tester">The application was reviewed manually by a tester from Aptoide Team which ensures the safety of the application.</string>
+    <string name="application_signature_blacklisted">Application signature is not a Trusted signature at %s Anti-Malware platform because it has been used to sign another application that does not match the signature related to the legit developer.</string>
+    <string name="scanned_manually_by_aptoide_team">Scanned manually by %s Team:</string>
+    <string name="scanned_verified_by_tester">The application was reviewed manually by a tester from %s Team which ensures the safety of the application.</string>
     <string name="warning">Warning</string>
     <string name="trusted_app">Trusted App</string>
     <string name="unknown">Unknown</string>
@@ -521,11 +521,12 @@
     <!-- New Badges V7 -->
     <string name="reason_third_party">We\'ve checked the app\'s signature and it matches with Google Play Store, so rest assured and enjoy the app.</string>
     <string name="reason_scanned">Scanned with AptoideGuard plus 2 different anti-virus (Zoner 1.8 and Sophos 3.0).</string>
+    <string name="reason_scanned_partners">Scanned with 6 different anti-virus including Zoner 1.8 and Sophos 3.0.</string>
     <string name="reason_signature">The cryptographic signature guarantees that the file is safe to install and wasn\'t tampered with in any way.</string>
     <string name="reason_manual">This app was manually reviewed by Aptoide\'s expert team, and was flagged as Good.</string>
 
     <string name="reason_failed">Application signature doesn\'t match with developer\'s signature. App may have been tampered with.</string>
-    <string name="reason_unknown">There isn\'t enough information about this app in Aptoide Anti-Malware platform.</string>
+    <string name="reason_unknown">There isn\'t enough information about this app in %s Anti-Malware platform.</string>
 
 
 
