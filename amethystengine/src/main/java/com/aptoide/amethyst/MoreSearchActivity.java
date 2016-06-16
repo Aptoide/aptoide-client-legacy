@@ -161,7 +161,7 @@ public class MoreSearchActivity extends MoreActivity {
                 List<SearchApk> apkList = searchResults.apkList;
                 if (!apkList.isEmpty()) {
                     if (storeName != null && !TextUtils.isEmpty(storeName)) {
-                        displayableList.add(new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, storeName), false, BUCKET_SIZE));
+                        displayableList.add(new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName()), false, BUCKET_SIZE));
                     } else {
                         displayableList.add(new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                     }
