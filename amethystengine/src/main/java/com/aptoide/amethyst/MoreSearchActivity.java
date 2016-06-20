@@ -85,14 +85,14 @@ public class MoreSearchActivity extends MoreActivity {
     static public class MoreSearchFragment extends BaseWebserviceFragment {
         ImageView searchButton;
         EditText searchQuery;
-        ScrollView noSearchResultLayout;
+        public ScrollView noSearchResultLayout;
 
         @Override
         public void setLayoutManager(RecyclerView recyclerView) {
             recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         }
 
-        private String query;
+        protected String query;
         protected String storeName;
         private boolean mLoading = false;
 
@@ -159,7 +159,7 @@ public class MoreSearchActivity extends MoreActivity {
                 List<SearchApk> apkList = searchResults.apkList;
                 if (!apkList.isEmpty()) {
                     if (storeName != null && !TextUtils.isEmpty(storeName)) {
-                        displayableList.add(new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, storeName), false, BUCKET_SIZE));
+                        displayableList.add(new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName()), false, BUCKET_SIZE));
                     } else {
                         displayableList.add(new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                     }
