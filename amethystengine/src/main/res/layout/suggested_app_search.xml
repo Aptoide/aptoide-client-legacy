@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="?attr/backgroundCard"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:clickable="true"
-    tools:layout_height="144dp">
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?attr/backgroundCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                tools:layout_height="144dp">
 
     <ImageView
         android:id="@+id/icon"
@@ -14,7 +14,7 @@
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
         tools:ignore="contentDescription"
-        tools:src="@drawable/icon_brand_aptoide" />
+        tools:src="@drawable/icon_brand_aptoide"/>
 
     <LinearLayout
         android:id="@+id/container"
@@ -25,18 +25,34 @@
         android:layout_toRightOf="@+id/icon"
         android:orientation="vertical">
 
-
-        <TextView
-            android:id="@+id/name"
-            style="?android:attr/textAppearanceMedium"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textStyle="bold"
-            tools:text="Aptoide" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                tools:ignore="contentDescription"
+                android:id="@+id/ic_trusted_search"
+                android:layout_width="@dimen/trusted_badge_size"
+                android:layout_height="@dimen/trusted_badge_size"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_badge_trusted" />
+
+            <TextView
+                android:id="@+id/name"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textStyle="bold"
+                tools:text="Aptoide"/>
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/app_info"
@@ -55,7 +71,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textSize="@dimen/text_size_small"
-                tools:text="11.6 Mb" />
+                tools:text="11.6 Mb"/>
 
             <TextView
                 android:id="@+id/versionName"
@@ -70,7 +86,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textSize="@dimen/text_size_small"
-                tools:text="16.0.1" />
+                tools:text="16.0.1"/>
 
             <TextView
                 android:id="@+id/sponsored"
@@ -89,13 +105,15 @@
         </LinearLayout>
 
         <TextView
-            tools:text="Aptoide is the greatest app store ever developed! Really I have to write a really long text to convince you!"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size_small" />
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="@dimen/text_size_small"
+            tools:text="Aptoide is the greatest app store ever developed! Really I have to write a really long text to convince you!"/>
 
     </LinearLayout>
 
@@ -105,7 +123,7 @@
         android:layout_width="fill_parent"
         android:layout_height="5dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/search_row_bottom_line" />
+        android:background="@drawable/search_row_bottom_line"/>
 
     <TextView
         android:id="@+id/search_store"
@@ -123,7 +141,7 @@
         android:singleLine="true"
         android:textColor="?attr/inverseTextColor"
         android:textSize="@dimen/text_size_small"
-        tools:text="apps" />
+        tools:text="apps"/>
 
 
 </RelativeLayout>
