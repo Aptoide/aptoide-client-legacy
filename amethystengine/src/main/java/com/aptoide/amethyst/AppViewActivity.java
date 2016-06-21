@@ -655,7 +655,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 							toggleSecurityBalloon();
 						} else {
 							if (mSecurityBalloon.shouldDisplayAutomatically()) {
-								animateSecurityBalloon(securityBalloonFadeInAnimation);
+								animateSecurityBalloon(securityBalloonStartUpAnimation);
 								mSecurityBalloon.didDisplayAutomatically();
 								displayedSecurityBalloon = true;
 							} 						}
