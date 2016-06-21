@@ -19,6 +19,7 @@ import retrofit.RetrofitError;
 public class GetAppRequest extends RetrofitSpiceRequest<GetAppModel, IGetAppV7WebService> {
 
 
+    public String aptoideId;
     public String token;
     public Boolean mature;
     public String lang;
@@ -114,6 +115,7 @@ public class GetAppRequest extends RetrofitSpiceRequest<GetAppModel, IGetAppV7We
 
         Apiv7GetStore api = new Apiv7GetStore();
 
+        api.aptoideId = aptoideId;
         api.mature = mature;
         api.q = filters;
         api.lang = lang;

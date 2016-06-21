@@ -28,6 +28,7 @@ public class GetMoreVersionsAppRequest extends RetrofitSpiceRequest<DisplayableL
     public String packageName;
     public int limit;
     public int offset;
+    public String aptoideId;
 
     public GetMoreVersionsAppRequest(int numColumns) {
         super(DisplayableList.class, IGetAppV7WebService.class);
@@ -58,6 +59,7 @@ public class GetMoreVersionsAppRequest extends RetrofitSpiceRequest<DisplayableL
 
         Apiv7GetStore api = new Apiv7GetStore();
 
+        api.aptoideId = aptoideId;
         api.mature = mature;
         api.q = filters;
         api.lang = lang;

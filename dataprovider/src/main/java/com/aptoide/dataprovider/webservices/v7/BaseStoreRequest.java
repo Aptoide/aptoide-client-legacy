@@ -45,6 +45,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
     public static final String WS2 = "http://";
     public static final String SWS2 = "https://";
 
+    public String aptoideId;
     public String nview;
     public String context;
     public String bundleTitle;
@@ -82,6 +83,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
 
     public Apiv7GetStore getApi() {
         Apiv7GetStore api = new Apiv7GetStore();
+        api.aptoideId = aptoideId;
         api.nview = nview;
         api.context = context;
         api.q = filters;
