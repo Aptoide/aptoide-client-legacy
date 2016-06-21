@@ -40,7 +40,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
     private static SQLiteDatabaseHelper sInstance;
     private boolean primaryKeyDefined;
 
-    private static final int DATABASE_VERSION = 32;
+    private static final int DATABASE_VERSION = 33;
 
     public static SQLiteDatabaseHelper getInstance(Context context) {
 
@@ -326,7 +326,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if (oldVersion >= 28 && oldVersion < 33 ){
+        } else if (oldVersion >= 28 && oldVersion < 31 ){
             try {
                 Cursor c = db.query("repo", null, Schema.Repo.COLUMN_IS_USER +"=?", new String[]{"1"}, null, null, null);
 
@@ -364,7 +364,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
             db.delete(Schema.RollbackTbl.getName(), "confirmed = ?", new String[]{"0"});
         }
 
-        if (oldVersion >= 13 && oldVersion < 33) {
+        if (oldVersion >= 13 && oldVersion < 31) {
 
             Cursor c = db.rawQuery("select * from " + Schema.Scheduled.getName(), null);
             for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
@@ -392,8 +392,10 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
 
         }
 
-        dropIndexes(db, oldVersion);
-        dropTables(db, oldVersion);
+        if (oldVersion < 31) {
+            dropIndexes(db, oldVersion);
+            dropTables(db, oldVersion);
+        }
 
         try {
             createDb(db);
@@ -401,7 +403,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
 
-        if (oldVersion >= 13 && oldVersion < 33) {
+        if (oldVersion >= 13 && oldVersion < 31) {
 
             for (StoreItemDB server : oldStores) {
                 ContentValues values = new ContentValues();
@@ -452,6 +454,10 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
 
                 db.insert(Schema.Excluded.getName(), null, values);
             }
+        }
+
+        if (oldVersion >= 13 && oldVersion < 33) {
+            db.execSQL("ALTER TABLE rollbacktbl ADD COLUMN " + Schema.RollbackTbl.COLUMN_IS_TRUSTED + " TEXT DEFAULT UNKNOWN");
         }
 
 
