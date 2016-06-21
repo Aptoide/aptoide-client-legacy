@@ -1,5 +1,16 @@
 package com.aptoide.amethyst.database;
 
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.database.schema.Schema;
+import com.aptoide.amethyst.database.schema.annotations.ColumnDefinition;
+import com.aptoide.amethyst.database.schema.annotations.OnConflict;
+import com.aptoide.amethyst.database.schema.annotations.SQLType;
+import com.aptoide.amethyst.database.schema.annotations.TableDefinition;
+import com.aptoide.models.ScheduledDownloadItem;
+import com.aptoide.models.StoreItemDB;
+import com.aptoide.models.displayables.ExcludedUpdate;
+import com.aptoide.models.stores.Login;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,19 +20,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.database.schema.annotations.OnConflict;
-import com.aptoide.amethyst.database.schema.annotations.SQLType;
-import com.aptoide.amethyst.database.schema.Schema;
-import com.aptoide.amethyst.database.schema.annotations.ColumnDefinition;
-import com.aptoide.amethyst.database.schema.annotations.TableDefinition;
-import com.aptoide.models.ScheduledDownloadItem;
-import com.aptoide.models.StoreItemDB;
-import com.aptoide.models.stores.Login;
-import com.aptoide.models.displayables.ExcludedUpdate;
-
 import java.lang.reflect.Field;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -327,7 +326,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if (oldVersion >= 28 && oldVersion < 31 ){
+        }else if (oldVersion >= 28 && oldVersion < 33 ){
             try {
                 Cursor c = db.query("repo", null, Schema.Repo.COLUMN_IS_USER +"=?", new String[]{"1"}, null, null, null);
 
@@ -365,7 +364,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
             db.delete(Schema.RollbackTbl.getName(), "confirmed = ?", new String[]{"0"});
         }
 
-        if (oldVersion >= 13 && oldVersion < 31) {
+        if (oldVersion >= 13 && oldVersion < 33) {
 
             Cursor c = db.rawQuery("select * from " + Schema.Scheduled.getName(), null);
             for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
@@ -402,7 +401,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
 
-        if (oldVersion >= 13 && oldVersion < 31) {
+        if (oldVersion >= 13 && oldVersion < 33) {
 
             for (StoreItemDB server : oldStores) {
                 ContentValues values = new ContentValues();
@@ -453,8 +452,6 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
 
                 db.insert(Schema.Excluded.getName(), null, values);
             }
-        } else if (oldVersion < 32) {
-            db.execSQL("ALTER TABLE rollbacktbl ADD COLUMN " + Schema.RollbackTbl.COLUMN_IS_TRUSTED + " TEXT DEFAULT UNKNOWN");
         }
 
 
