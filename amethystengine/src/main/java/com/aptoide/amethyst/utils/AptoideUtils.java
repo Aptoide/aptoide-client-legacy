@@ -983,6 +983,7 @@ public class AptoideUtils {
 
         public static GetMoreVersionsAppRequest GetMoreAppVersionsRequest(String packageName, int limit, int offset) {
             GetMoreVersionsAppRequest request = new GetMoreVersionsAppRequest(AptoideUtils.UI.getBucketSize());
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.filters = Aptoide.filters;
             request.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
             request.aptoideVercode = AptoideUtils.UI.getVerCode(Aptoide.getContext());
@@ -1010,6 +1011,7 @@ public class AptoideUtils {
         public static GetStoreRequestv7 buildStoreRequest(long storeId, String context, int bucketSize) {
 
             CommunityGetstoreRequest request = new CommunityGetstoreRequest(bucketSize, UI.getEditorChoiceBucketSize());
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
             request.filters = Aptoide.filters;
@@ -1048,6 +1050,7 @@ public class AptoideUtils {
 
         private static GetStoreRequestv7 buildGenericStoreRequest(int bucketSize) {
             GetStoreRequestv7 request = new GetStoreRequestv7(bucketSize);
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
             request.filters = Aptoide.filters;
@@ -1069,6 +1072,7 @@ public class AptoideUtils {
 
         public static GetStoreWidgetRequestv7 buildStoreWidgetRequest(long storeId, String actionUrl) {
             GetStoreWidgetRequestv7 request = new GetStoreWidgetRequestv7(actionUrl, AptoideUtils.UI.getBucketSize());
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
             request.filters = Aptoide.filters;
@@ -1085,6 +1089,7 @@ public class AptoideUtils {
 
         public static GetListViewItemsRequestv7 buildViewItemsRequest(String storeName, String actionUrl, String layout, int offset) {
             GetListViewItemsRequestv7 request = new GetListViewItemsRequestv7(actionUrl, layout, UI.getBucketSize(), offset);
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
             if(Aptoide.DEBUG_MODE){
@@ -1105,6 +1110,7 @@ public class AptoideUtils {
 
         public static GetAppRequest buildGetAppRequest(String storeName) {
             GetAppRequest request = new GetAppRequest(UI.getBucketSize());
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.token = SecurePreferences.getInstance().getString("access_token", null);
             request.filters = Aptoide.filters;
             request.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
@@ -1187,6 +1193,7 @@ public class AptoideUtils {
         @NonNull
         private static Apiv7ListSearchApps getApiv7ListSearchApps(String query, boolean trusted, int limit, int offset) {
             final Apiv7ListSearchApps arguments = new Apiv7ListSearchApps();
+            arguments.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             arguments.aptoide_vercode = UI.getVerCode(Aptoide.getContext());
             arguments.lang = StringUtils.getMyCountry(Aptoide.getContext());
             arguments.limit = limit;
