@@ -457,7 +457,11 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
         }
 
         if (oldVersion >= 13 && oldVersion < 33) {
-            db.execSQL("ALTER TABLE rollbacktbl ADD COLUMN " + Schema.RollbackTbl.COLUMN_IS_TRUSTED + " TEXT DEFAULT UNKNOWN");
+            int columnIndex = db.rawQuery("select * from rollbacktbl LIMIT 0", null)
+                    .getColumnIndex(Schema.RollbackTbl.COLUMN_IS_TRUSTED);
+            if (columnIndex < 0) {
+                db.execSQL("ALTER TABLE rollbacktbl ADD COLUMN " + Schema.RollbackTbl.COLUMN_IS_TRUSTED + " TEXT DEFAULT 'UNKNOWN'");
+            }
         }
 
 
