@@ -1,7 +1,5 @@
 package com.aptoide.dataprovider.webservices.v7;
 
-import android.support.annotation.NonNull;
-
 import com.aptoide.dataprovider.webservices.interfaces.v7.IGetAppV7WebService;
 import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetApp;
@@ -9,6 +7,8 @@ import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
 import com.aptoide.models.displayables.DisplayableList;
 import com.aptoide.models.displayables.MoreVersionsItem;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
+
+import android.support.annotation.NonNull;
 
 /**
  * Created by fabio on 28-10-2015.
