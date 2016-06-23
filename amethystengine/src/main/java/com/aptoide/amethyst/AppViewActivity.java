@@ -2151,7 +2151,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             download.setPackageName(packageName);
             download.setMd5(md5sum);
             download.setPaid(isPaidApp());
-            download.setTrusted(malware.rank);
+			if (malware != null) {
+				download.setTrusted(malware.rank);
+			}
 
 			if (!isUpdate) {
 				download.setCpiUrl(getActivity().getIntent().getStringExtra("cpi"));

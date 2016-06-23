@@ -32,7 +32,8 @@ public class SearchItemSubscriptionFilter {
 
 		for (Store store: subscribedStores) {
 			for (SearchItem app: items) {
-				if (app.store.name.equals(store.getName())) {
+				if (app.store != null && app.store.name != null
+						&& app.store.name.equals(store.getName())) {
 					subscribedSearchItems.add(app);
 				}
 			}

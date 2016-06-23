@@ -38,18 +38,18 @@ public class SearchAppConverter {
 				fromSubscribedStore,
 				position,
 				searchItem.name,
-				searchItem.store.name,
+				searchItem.store != null? searchItem.store.name: "",
 				searchItem.packageName,
-				searchItem.file.vername,
-				searchItem.file.vercode.intValue(),
-				searchItem.file.md5sum,
+				searchItem.file != null? searchItem.file.vername : "",
+				searchItem.file != null && searchItem.file.vercode != null? searchItem.file.vercode.intValue() : 0,
+				searchItem.file != null? searchItem.file.md5sum: "",
 				searchItem.updated,
-				searchItem.file.malware.rank.equals(ViewItem.File.Malware.TRUSTED)? 2 : 0,
+				searchItem.file != null && searchItem.file.malware != null? (ViewItem.File.Malware.TRUSTED.equals(searchItem.file.malware.rank)? 2 : 0) : 0,
 				searchItem.icon,
 				searchItem.hasVersions,
-				searchItem.stats.rating.avg,
-				searchItem.store.appearance.theme,
-				searchItem.stats.downloads.longValue());
+				searchItem.stats != null && searchItem.stats.rating != null? searchItem.stats.rating.avg: 0,
+				searchItem.store != null && searchItem.store.appearance != null? searchItem.store.appearance.theme: "",
+				searchItem.stats != null && searchItem.stats.downloads != null? searchItem.stats.downloads.longValue(): 0);
 	}
 
 	public SponsoredSearchApp convert(ApkSuggestionJson searchItem) {
