@@ -123,18 +123,20 @@ public class ABTestManager {
 			}
 			throw new IllegalArgumentException("No AB test for name: " + name);
 		} else {
-			registerControlTests();
 			return getControl(name);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	private <T> ABTest<T> getControl(String name) {
-		for (ABTest test : controlTests) {
-			if (test.getName().equals(name)) {
-				return test;
+		synchronized (controlTests) {
+			registerControlTests();
+			for (ABTest test : controlTests) {
+				if (test.getName().equals(name)) {
+					return test;
+				}
 			}
+			throw new IllegalArgumentException("No AB test for name: " + name);
 		}
-		throw new IllegalArgumentException("No AB test for name: " + name);
 	}
 }
