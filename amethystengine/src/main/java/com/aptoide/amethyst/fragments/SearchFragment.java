@@ -29,6 +29,7 @@ import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
+import com.aptoide.amethyst.utils.CacheKeyFactory;
 import com.aptoide.dataprovider.webservices.models.v7.ListSearchApps;
 import com.aptoide.dataprovider.webservices.models.v7.SearchItem;
 import com.aptoide.models.ApkSuggestionJson;
@@ -68,6 +69,9 @@ public class SearchFragment extends LinearRecyclerFragment {
     private static final String NETWORK_ERROR_KEY = "NETWORK_ERROR";
     private static final String GENERAL_ERROR_KEY = "GENERAL_ERROR";
     private static final String STORE_LIST_KEY = "STORE_LIST";
+
+
+    private CacheKeyFactory cacheKeyFactory;
 
     private SwipeRefreshLayout swipeContainer;
     private ScrollView noSearchResultLayout;
@@ -120,6 +124,7 @@ public class SearchFragment extends LinearRecyclerFragment {
         searchAppConverter = new SearchAppConverter(BUCKET_SIZE);
         query = getArguments().getString(QUERY);
         trusted = getArguments().getBoolean(TRUSTED);
+        cacheKeyFactory = new CacheKeyFactory();
 
         if (savedInstanceState != null) {
             userTouchedList = savedInstanceState.getBoolean(USER_TOUCHED_LIST_KEY);
@@ -343,10 +348,10 @@ public class SearchFragment extends LinearRecyclerFragment {
     private void searchForSubscribedApps(List<Store> subscribedStores) {
         if (subscribedAppsOffset == 0) {
             setLoading(true, unsubscribedLoading);
+            String key = SearchActivity.CONTEXT + query + trusted + SearchActivity.SEARCH_LIMIT + 0 + getStoreListCacheKey(subscribedStores);
             spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
                     SearchActivity.SEARCH_LIMIT, 0, subscribedStores),
-                    SearchActivity.CONTEXT + query + trusted + SearchActivity.SEARCH_LIMIT + 0 +
-                            getStoreListCacheKey(subscribedStores), SEARCH_CACHE_DURATION,
+                    cacheKeyFactory.create(key), SEARCH_CACHE_DURATION,
                     new RequestListener<ListSearchApps>() {
 
                         @Override
@@ -380,7 +385,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     private String getStoreListCacheKey(List<Store> stores) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (Store store : stores) {
-            stringBuilder.append(store.getName());
+            stringBuilder.append(store.getId());
         }
         return stringBuilder.toString();
     }

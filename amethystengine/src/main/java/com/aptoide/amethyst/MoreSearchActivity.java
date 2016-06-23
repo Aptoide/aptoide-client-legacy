@@ -27,6 +27,7 @@ import com.aptoide.amethyst.ui.MoreActivity;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.utils.CacheKeyFactory;
 import com.aptoide.dataprovider.webservices.models.v7.ListSearchApps;
 import com.aptoide.dataprovider.webservices.models.v7.SearchItem;
 import com.aptoide.models.displayables.Displayable;
@@ -126,6 +127,7 @@ public class MoreSearchActivity extends MoreActivity {
         private boolean networkError;
         private boolean emptyResult;
         private int appsOffset;
+        private CacheKeyFactory cacheKeyFactory;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -134,6 +136,7 @@ public class MoreSearchActivity extends MoreActivity {
             storeName = getArguments().getString(SearchActivity.SEARCH_STORE_NAME);
             query = getArguments().getString(SearchActivity.SEARCH_QUERY);
             trusted = getArguments().getBoolean(SearchActivity.SEARCH_ONLY_TRUSTED_APPS);
+            cacheKeyFactory = new CacheKeyFactory();
 
             searchAppConverter = new SearchAppConverter(BUCKET_SIZE);
 
@@ -268,10 +271,10 @@ public class MoreSearchActivity extends MoreActivity {
 
         private void searchForApps(final int offset, List<Store> stores) {
             setLoading(true);
+            String key = SearchActivity.CONTEXT + query + trusted + SearchActivity.SEARCH_LIMIT + offset + getStoreListCacheKey(stores);
             spiceManager.execute(AptoideUtils.RepoUtils.buildSearchAppsRequest(query, trusted,
                     SearchActivity.SEARCH_LIMIT, offset, stores),
-                    SearchActivity.CONTEXT + query + trusted + SearchActivity.SEARCH_LIMIT + offset
-                            + getStoreListCacheKey(stores), SEARCH_CACHE_DURATION,
+                    cacheKeyFactory.create(key), SEARCH_CACHE_DURATION,
                     new RequestListener<ListSearchApps>() {
 
                         @Override
@@ -320,7 +323,7 @@ public class MoreSearchActivity extends MoreActivity {
                         displayables.add(0, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                     }
                     displayables.addAll(1, apps);
-                    notifyPositionStart = 0;
+                    notifyPositionStart = 1;
                     notifyItemCount = 1;
                 } else {
                     // Sum apps header
@@ -393,7 +396,6 @@ public class MoreSearchActivity extends MoreActivity {
         }
 
         private boolean isListEmpty() {
-            // Do not take suggested app into account
             return searchOffset == 0;
         }
 
