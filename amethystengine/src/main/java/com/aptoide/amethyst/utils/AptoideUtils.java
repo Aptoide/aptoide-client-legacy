@@ -139,6 +139,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.FormatFlagsConversionMismatchException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -1542,7 +1543,7 @@ public class AptoideUtils {
             final Resources resources = context.getResources();
             try {
                 result = resources.getString(resId, formatArgs);
-            }catch (UnknownFormatConversionException ex){
+            }catch (UnknownFormatConversionException | FormatFlagsConversionMismatchException ex){
                 final String resourceEntryName = resources.getResourceEntryName(resId);
                 final String displayLanguage = Locale.getDefault().getDisplayLanguage();
                 Logger.e("UnknownFormatConversion", "String: " + resourceEntryName + " Locale: " + displayLanguage);
