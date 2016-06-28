@@ -837,13 +837,14 @@ public class AptoideUtils {
                 String[] splittedUrl = avatar.split("\\.(?=[^\\.]+$)");
                 avatar = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
             }
+            String aptoide_description_Resource=context.getResources().getString(R.string.aptoide_description);
+            String  aptoide_description_Formatted= String.format(aptoide_description_Resource, Aptoide.getConfiguration().getMarketName());
 
             store.setAvatar(avatar);
-            store.setDescription(context.getResources().getString(R.string.aptoide_description));
+            store.setDescription( aptoide_description_Formatted);
             store.setTheme("default");
             store.setView("list");
             store.setBaseUrl("apps");
-
 
             try {
                 long l = database.insertStore(store);

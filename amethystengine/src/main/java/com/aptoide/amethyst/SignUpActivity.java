@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.analytics.Analytics;
@@ -54,6 +55,7 @@ public class SignUpActivity extends AptoideBaseActivity {
     private boolean showPassword = true;
     private EditText password_box;
     private EditText emailBox;
+    private TextView acceptTermsText;
     private String activityTitle = "Register";
 
     @Override
@@ -61,6 +63,12 @@ public class SignUpActivity extends AptoideBaseActivity {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.form_create_user);
+
+        acceptTermsText=(TextView) findViewById(R.id.accept_terms);
+        String accept_terms_Resource=getResources().getString(R.string.accept_terms);
+        String  accept_terms_Formatted= String.format(accept_terms_Resource, Aptoide.getConfiguration().getMarketName());
+        acceptTermsText.setText( accept_terms_Formatted);
+
 
 
         findViewById(R.id.submitCreateUser).setOnClickListener(new View.OnClickListener() {

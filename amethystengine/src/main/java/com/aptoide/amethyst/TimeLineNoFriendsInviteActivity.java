@@ -49,7 +49,9 @@ public class TimeLineNoFriendsInviteActivity extends AptoideBaseActivity {
     public static void sendMail(Context c){
 //        FlurryAgent.logEvent("Social_Timeline_Clicked_On_Invite_Friends_By_Email");
 
-        String subject = c.getString(R.string.aptoide_timeline);
+
+
+        String subject =c.getString(R.string.aptoide_timeline);
         String html =
                 "   <p><strong>%s</strong></p>\n" +
                         "   <p>%s</p>\n" +
@@ -60,6 +62,7 @@ public class TimeLineNoFriendsInviteActivity extends AptoideBaseActivity {
                         "   <p>%s</p>\n";
 
         String username = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getString("username", null);
+
         String Invitation= c.getString(R.string.timeline_email_invitation);
         String whatIs= c.getString(R.string.whats_timeline);
         String TOS= c.getString(R.string.facebook_tos).replace("\n\n","<br>");

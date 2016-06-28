@@ -67,6 +67,7 @@ public class TimelineActivitySyncService {
                         .setOngoing(false)
                         .setAutoCancel(true)
                         .setContentTitle(notificationText)
+
                         .setContentText(context.getString(R.string.notification_social_timeline)).build();
                 notification.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_AUTO_CANCEL;
                 ArrayList<String> avatarLinks = new ArrayList<String>();
