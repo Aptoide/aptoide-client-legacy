@@ -2255,5 +2255,9 @@ public class AptoideUtils {
             mEventActions.clear();
             mEventActions.add("home");
         }
+
+        public static String getInstallationSource() {
+            return mEventActions.size() >= 0 ? mEventActions.get(mEventActions.size() - 1) : "";
+        }
     }
 }

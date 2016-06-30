@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.HashMap;
@@ -546,7 +547,7 @@ public class Analytics {
                 if (referred != null) {
                     stringObjectHashMap.put(REFERRED, referred.toString());
                 } else {
-                    stringObjectHashMap.put(REFERRED, new Boolean(false).toString());
+                    stringObjectHashMap.put(REFERRED, Boolean.toString(false));
                 }
 
                 track(EVENT_NAME, stringObjectHashMap, flags);
@@ -566,7 +567,7 @@ public class Analytics {
                 if (referred != null) {
                     stringObjectHashMap.put(REFERRED, referred.toString());
                 } else {
-                    stringObjectHashMap.put(REFERRED, new Boolean(false).toString());
+                    stringObjectHashMap.put(REFERRED, Boolean.toString(false));
                 }
                 stringObjectHashMap.put(TRUSTED, isTrusted);
 
@@ -698,6 +699,17 @@ public class Analytics {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static class SourceDownloadCompleted {
+        private static final String PACKAGE_NAME = "Package Name";
+        public static final String EVENT_NAME = "_Download_Complete";
+
+        public static void downloadCompleteWithSource(Download download) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put(PACKAGE_NAME, download.getPackageName());
+            track(download.getInstallationSource()+EVENT_NAME, map, FLURRY);
         }
     }
 
@@ -862,11 +874,14 @@ public class Analytics {
 
         public static final String APP_VIEWED_OPEN_FROM_EVENT_NAME_KEY = "App_Viewed_Open_From";
 
-        public static void appviewViewedFrom(String viewed, String rank) {
-            HashMap<String, String> map = new HashMap<>();
-            map.put("Source", viewed);
-            map.put("Trusted Badge", rank);
-            track(APP_VIEWED_OPEN_FROM_EVENT_NAME_KEY, map, FLURRY);
+        public static void appviewViewedFrom(String viewed, String rank, String packageName) {
+            if (!TextUtils.isEmpty(viewed)) {
+                HashMap<String, String> map = new HashMap<>();
+                map.put("Source", viewed);
+                map.put("Trusted Badge", rank);
+                map.put("Package Name", packageName);
+                track(APP_VIEWED_OPEN_FROM_EVENT_NAME_KEY, map, FLURRY);
+            }
         }
     }
 
@@ -878,11 +893,11 @@ public class Analytics {
             HashMap<String, String> map = new HashMap<>();
             map.put("Application Name", appName);
             if (isHome) {
-                map.put("Search Position", "More_"+Integer.valueOf(position).toString());
+                map.put("Search Position", "More_" + Integer.valueOf(position).toString());
             } else {
-                map.put("Search Position", "Home_"+Integer.valueOf(position).toString());
+                map.put("Search Position", "Home_" + Integer.valueOf(position).toString());
             }
-            track(HOME_PAGE_EDITORS_CHOICE, map, FLURRY);
+            track(HOME_PAGE_EDITORS_CHOICE, map, ALL);
         }
     }
 
@@ -898,7 +913,7 @@ public class Analytics {
             HashMap<String, String> map = new HashMap<>();
             map.put("Category", category);
             map.put("Sub-Category", subCategory);
-            track(HOME_PAGE_BUNDLES, map, FLURRY);
+            track(HOME_PAGE_BUNDLES, map, ALL);
         }
 
     }
@@ -916,4 +931,40 @@ public class Analytics {
         }
     }
 
+    public static class ClickOnAdultSwitch {
+
+        public static final String EVENT_NAME = "Click on Adult Content";
+        public static final String ACTION = "Action";
+
+        public static void sendSwitchPressedEvent(boolean isChecked) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put(ACTION, Boolean.toString(isChecked));
+            track(EVENT_NAME, map, FLURRY);
+        }
+    }
+
+    public static class AppFlaggedEvent {
+
+        public static final String EVENT_NAME = "Flag Pop up";
+        public static final String ACTION = "Flag";
+
+        public static void sendSwitchPressedEvent(String flag) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put(ACTION, flag);
+            track(EVENT_NAME, map, FLURRY);
+        }
+    }
+
+    public static class OpenSubscribeStoreFromAppviewEvent {
+
+        public static final String EVENT_NAME = "Viewed_App_Click_On_Store_Banner";
+        public static final String ACTION = "Action";
+
+        public static void sendOpenSubscribeStoreFromAppviewEvent(String action) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put(ACTION, action);
+            track(EVENT_NAME, map, FLURRY);
+        }
+
+    }
 }

@@ -28,6 +28,15 @@ public class Download implements Serializable {
     private String packageName;
     private DownloadInfoRunnable parent;
     private String isTrusted;
+    private String installationSource;
+
+    public String getInstallationSource() {
+        return installationSource;
+    }
+
+    public void setInstallationSource(String installationSource) {
+        this.installationSource = installationSource;
+    }
 
     public String getTrusted() {
         return isTrusted;

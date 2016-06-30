@@ -683,7 +683,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 								resultBundle.data);
 						resultBundle = null;
 					}
-					Analytics.AppViewViewedFrom.appviewViewedFrom(AptoideUtils.FlurryAppviewOrigin.getAppviewOrigin(), model.getApp.nodes.meta.data.file.malware.rank);
+					Analytics.AppViewViewedFrom.appviewViewedFrom(AptoideUtils.FlurryAppviewOrigin.getAppviewOrigin(), model.getApp.nodes.meta.data.file.malware.rank, packageName);
 				}
 			}
 		};
@@ -1724,6 +1724,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					@Override
 					public void onClick(View v) {
 						AptoideUtils.RepoUtils.startParse(storeName, getActivity(), spiceManager);
+						Analytics.OpenSubscribeStoreFromAppviewEvent.sendOpenSubscribeStoreFromAppviewEvent("Subscribe");
 					}
 				});
 			}
@@ -1739,6 +1740,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 						storeAvatar, storeTheme
 						.ordinal());
 				intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+				Analytics.OpenSubscribeStoreFromAppviewEvent.sendOpenSubscribeStoreFromAppviewEvent("Click on store");
 				context.startActivity(intent);
 			}
 		}
@@ -2151,6 +2153,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             download.setPackageName(packageName);
             download.setMd5(md5sum);
             download.setPaid(isPaidApp());
+			download.setInstallationSource(AptoideUtils.FlurryAppviewOrigin.getInstallationSource());
 			if (malware != null) {
 				download.setTrusted(malware.rank);
 			}
@@ -2422,7 +2425,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		}
 
 		@Override
-		public void addApkFlagClick(String flag) {
+		public void addApkFlagClick(final String flag) {
 
 			final DialogFragment dialogFragment = AptoideDialog.pleaseWaitDialog();
 			dialogFragment.show(getChildFragmentManager(), "pleaseWaitDialog");
@@ -2445,6 +2448,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 						BusProvider.getInstance().post(new OttoEvents.AppViewRefresh());
 						Toast.makeText(getActivity(), R.string.flag_added, Toast.LENGTH_SHORT)
 								.show();
+						Analytics.AppFlaggedEvent.sendSwitchPressedEvent(flag);
 					} else {
 						Toast.makeText(getActivity(), R.string.error_occured, Toast.LENGTH_SHORT)
 								.show();

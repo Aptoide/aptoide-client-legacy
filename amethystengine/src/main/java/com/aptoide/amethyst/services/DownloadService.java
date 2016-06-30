@@ -307,6 +307,7 @@ public class DownloadService extends Service {
         download.setSize(fileSize);
         download.setCpiUrl(downloadOld.getCpiUrl());
         download.setTrusted(downloadOld.getTrusted());
+        download.setInstallationSource(downloadOld.getInstallationSource());
 
         startDownload(download, apk, obb, permissions);
     }

@@ -346,7 +346,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         break;
                     case EVENT_GETSTOREWIDGETS:
                         i = new Intent(view.getContext(), MoreStoreWidgetActivity.class);
-                        if (storeName == null && theme == null && storeId == 0) {
+                        if (storeName == null /*&& theme == null */&& storeId == 0) {
                             Analytics.HomePageBundles.sendHomePageBundleEvent(row.getTag());
                             i.putExtra(Constants.HOME_BUNDLES_KEY, true);
                         }
