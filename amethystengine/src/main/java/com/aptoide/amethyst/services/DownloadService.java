@@ -38,6 +38,7 @@ import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.Errors;
+import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.ErrorResponse;
 import com.aptoide.dataprovider.webservices.models.UpdatesResponse;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
@@ -182,7 +183,7 @@ public class DownloadService extends Service {
 
         final NotificationCompat.Builder builder = setNotification(id);
 
-        if (mBuilder == null) mBuilder = createDefaultNotification();
+        if (mBuilder == null) mBuilder = createDefaultNotification(id);
         startForeground(-3, mBuilder.build());
 
         startIfStopped();
@@ -492,7 +493,7 @@ public class DownloadService extends Service {
         info.setmBuilder(builder);
         info.download();
 
-        if (mBuilder == null) mBuilder = createDefaultNotification();
+        if (mBuilder == null) mBuilder = createDefaultNotification(id);
 
         startForeground(-3, mBuilder.build());
         startService(new Intent(context, DownloadService.class));
@@ -560,7 +561,7 @@ public class DownloadService extends Service {
     public void resumeDownload(long downloadId) {
         startService(new Intent(getApplicationContext(), DownloadService.class));
 
-        if (mBuilder == null) mBuilder = createDefaultNotification();
+        if (mBuilder == null) mBuilder = createDefaultNotification(downloadId);
         startForeground(-3, mBuilder.build());
 
         //Logger.d("donwload-trace", "setmBuilder: resumeDownload");
@@ -618,7 +619,7 @@ public class DownloadService extends Service {
     public void startDownloadFromAppId(final long id) {
         startService(new Intent(getApplicationContext(), DownloadService.class));
 
-        if (mBuilder == null) mBuilder = createDefaultNotification();
+        if (mBuilder == null) mBuilder = createDefaultNotification(id);
         startForeground(-3, mBuilder.build());
 
         final SpiceManager manager = new SpiceManager(AptoideSpiceHttpService.class);
@@ -671,7 +672,7 @@ public class DownloadService extends Service {
         }).start();
     }
 
-    private NotificationCompat.Builder createDefaultNotification() {
+    private NotificationCompat.Builder createDefaultNotification(final long id) {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
 
@@ -680,6 +681,8 @@ public class DownloadService extends Service {
         onClick.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
         onClick.setAction(Intent.ACTION_VIEW);
         onClick.putExtra("fromDownloadNotification", true);
+        onClick.putExtra(Constants.PACKAGENAME_KEY, getDownload(id).getDownload().getPackageName());
+        onClick.putExtra(Constants.APPNAME_KEY, getDownload(id).getDownload().getName());
 
         // The PendingIntent to launch our activity if the user selects this notification
         PendingIntent onClickAction = PendingIntent.getActivity(getApplicationContext(), 0, onClick, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -697,7 +700,7 @@ public class DownloadService extends Service {
     }
 
     private Class getStartActivityClass() {
-        return MainActivity.class;
+        return Aptoide.getConfiguration().getMainActivity();
     }
 
     private NotificationCompat.Builder setNotification(final long id) {
@@ -712,6 +715,8 @@ public class DownloadService extends Service {
         onClick.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
         onClick.setAction(Intent.ACTION_VIEW);
         onClick.putExtra("fromDownloadNotification", true);
+        onClick.putExtra(Constants.PACKAGENAME_KEY, getDownload(id).getDownload().getPackageName());
+        onClick.putExtra(Constants.APPNAME_KEY, getDownload(id).getDownload().getName());
 
         // The PendingIntent to launch our activity if the user selects this notification
         PendingIntent onClickAction = PendingIntent.getActivity(getApplicationContext(), 0, onClick, PendingIntent.FLAG_UPDATE_CURRENT);

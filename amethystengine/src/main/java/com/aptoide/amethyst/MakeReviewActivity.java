@@ -157,7 +157,7 @@ public class MakeReviewActivity extends AptoideBaseActivity {
         Glide.with(this).load(getIntent().getStringExtra(EXTRA_ICON)).into((ImageView) findViewById(R.id.icon));
 
         ((TextView) findViewById(R.id.name)).setText(getIntent().getStringExtra(EXTRA_APP_NAME));
-        String text = getString(R.string.size) + ": " + getIntent().getLongExtra(EXTRA_SIZE,0);
+        String text = getString(R.string.size) + ": " + AptoideUtils.StringUtils.formatBits(getIntent().getExtras().getInt(EXTRA_SIZE));
         ((TextView) findViewById(R.id.text1)).setText(text);
         text = getString(R.string.downloads) + ": " + getIntent().getIntExtra(EXTRA_DOWNLOADS,0);
         ((TextView) findViewById(R.id.text2)).setText(text);
