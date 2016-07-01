@@ -735,6 +735,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             Logger.i(this, "OttoEvents.StartDownload event was null");
         } else {
             matureLock(event.isMature());
+            Analytics.ClickOnAdultSwitch.sendSwitchPressedEvent(event.isMature());
         }
     }
 

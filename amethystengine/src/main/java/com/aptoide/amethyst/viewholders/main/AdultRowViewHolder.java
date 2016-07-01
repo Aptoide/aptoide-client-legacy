@@ -45,7 +45,6 @@ public class AdultRowViewHolder extends BaseViewHolder {
 				} else {
 					BusProvider.getInstance().post(new OttoEvents.MatureEvent(false));
 				}
-				Analytics.ClickOnAdultSwitch.sendSwitchPressedEvent(isChecked);
 			}
 		});
 	}
