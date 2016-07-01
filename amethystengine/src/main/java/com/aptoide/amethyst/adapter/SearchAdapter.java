@@ -98,6 +98,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             final SearchAppViewHolder item = (SearchAppViewHolder) viewHolder;
 
             final SearchApk appItem = (SearchApk) list.get(position);
+            item.overflow.setVisibility(View.INVISIBLE);
             if(Aptoide.getConfiguration().isMultipleStores()) {
                 item.overflow.setOnClickListener(new View.OnClickListener() {
                     @Override
