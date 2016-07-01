@@ -709,7 +709,7 @@ public class Analytics {
         public static void downloadCompleteWithSource(Download download) {
             HashMap<String, String> map = new HashMap<>();
             map.put(PACKAGE_NAME, download.getPackageName());
-            track(download.getInstallationSource()+EVENT_NAME, map, FLURRY);
+            track(download.getInstallationSource().replace(" More","")+EVENT_NAME, map, FLURRY);
         }
     }
 
@@ -897,7 +897,7 @@ public class Analytics {
             } else {
                 map.put("Search Position", "Home_" + Integer.valueOf(position).toString());
             }
-            track(HOME_PAGE_EDITORS_CHOICE, map, ALL);
+            track(HOME_PAGE_EDITORS_CHOICE, map, FLURRY);
         }
     }
 
@@ -913,7 +913,7 @@ public class Analytics {
             HashMap<String, String> map = new HashMap<>();
             map.put("Category", category);
             map.put("Sub-Category", subCategory);
-            track(HOME_PAGE_BUNDLES, map, ALL);
+            track(HOME_PAGE_BUNDLES, map, FLURRY);
         }
 
     }
