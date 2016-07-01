@@ -7,17 +7,20 @@ import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.preferences.EnumPreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.dataprovider.webservices.models.Constants;
 import com.flurry.android.FlurryAgent;
 import com.localytics.android.Localytics;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.HashMap;
+import java.util.Random;
 
 
 /**
@@ -27,10 +30,12 @@ public class Analytics {
 
     // Constantes globais a todos os eventos.
     public static final String ACTION = "Action";
-    private static final boolean ACTIVATE = BuildConfig.LOCALYTICS_CONFIGURED;
+    private static final String TAG = Analytics.class.getSimpleName();
+    private static boolean ACTIVATE = BuildConfig.LOCALYTICS_CONFIGURED;
     private static final int ALL = Integer.MAX_VALUE;
     private static final int LOCALYTICS = 1 << 0;
     private static final int FLURRY = 1 << 1;
+    private static boolean isFirstSession;
 
     /**
      * Verifica se as flags fornecidas constam em accepted.
@@ -40,7 +45,12 @@ public class Analytics {
      * @return true caso as flags fornecidas constem em accepted.
      */
     private static boolean checkAcceptability(int flag, int accepted) {
-        return (flag & accepted) == accepted;
+        if (accepted == LOCALYTICS && !ACTIVATE) {
+            Logger.d(TAG, "Locallytics Disabled ");
+            return false;
+        } else {
+            return (flag & accepted) == accepted;
+        }
     }
 
     private static void track(String event, String key, String attr, int flags) {
@@ -65,28 +75,24 @@ public class Analytics {
 
     private static void track(String event, HashMap map, int flags) {
         try {
-            if (!ACTIVATE)
-                return;
 
-            if (checkAcceptability(flags, LOCALYTICS))
+            if (checkAcceptability(flags, LOCALYTICS)) {
                 Localytics.tagEvent(event, map);
+            }
 
             if (checkAcceptability(flags, FLURRY))
                 FlurryAgent.logEvent(event, map);
 
-            Logger.d("Analytics", "Event: " + event + ", Map: " + map);
+            Logger.d(TAG, "Event: " + event + ", Map: " + map);
 
         } catch (Exception e) {
-            Log.d("Analytics", e.getStackTrace().toString());
+            Log.d(TAG, e.getStackTrace().toString());
         }
     }
 
     private static void track(String event, int flags) {
 
         try {
-            if (!ACTIVATE)
-                return;
-
             if (checkAcceptability(flags, LOCALYTICS))
                 Localytics.tagEvent(event);
 
@@ -101,16 +107,26 @@ public class Analytics {
 
     }
 
+    public static void MainActivityOncreate() {
+        if (!ACTIVATE) {
+            return;
+        }
+        Localytics.registerPush(BuildConfig.GOOGLE_SENDER_ID);
+    }
+
     public static class Lifecycle {
 
         public static class Application {
             public static void onCreate(Context context) {
-
-                if (!ACTIVATE)
+                SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext());
+                ACTIVATE = ACTIVATE && (sPref.getBoolean(Constants.IS_LOCALYTICS_ENABLE_KEY, false));
+                isFirstSession = sPref.getBoolean(Constants.IS_LOCALYTICS_FIRST_SESSION, false);
+                if (!ACTIVATE && !isFirstSession)
                     return;
 
                 // Integrate Localytics
                 Localytics.integrate(context);
+                Logger.d(TAG, "Localytics session configured");
 
             }
         }
@@ -163,7 +179,7 @@ public class Analytics {
 
             public static void onPause(android.app.Activity activity) {
 
-                if (!ACTIVATE)
+                if (!ACTIVATE && !isFirstSession)
                     return;
 
                 // Localytics
@@ -173,7 +189,7 @@ public class Analytics {
 
             public static void onStart(android.app.Activity activity) {
 
-                if (!ACTIVATE)
+                if (!ACTIVATE && !isFirstSession)
                     return;
 
                 FlurryAgent.onStartSession(activity, BuildConfig.FLURRY_KEY);
@@ -182,7 +198,7 @@ public class Analytics {
 
             public static void onStop(android.app.Activity activity) {
 
-                if (!ACTIVATE)
+                if (!ACTIVATE && !isFirstSession)
                     return;
 
                 FlurryAgent.onEndSession(activity);
@@ -190,6 +206,9 @@ public class Analytics {
             }
 
             public static void onNewIntent(android.app.Activity activity, Intent intent) {
+                if (!ACTIVATE && !isFirstSession) {
+                    return;
+                }
                 Localytics.onNewIntent(activity, intent);
             }
         }
@@ -809,7 +828,7 @@ public class Analytics {
     public static class Dimenstions {
 
         private static void setDimension(int i, String s) {
-            if (!ACTIVATE) {
+            if (!ACTIVATE && !isFirstSession) {
                 return;
             }
 
@@ -966,5 +985,23 @@ public class Analytics {
             track(EVENT_NAME, map, FLURRY);
         }
 
+    }
+
+    public static class LocalyticsSessionControl{
+        public static void firstSession(SharedPreferences sPref) {
+            SharedPreferences.Editor edit = sPref.edit();
+            edit.putBoolean(Constants.IS_LOCALYTICS_FIRST_SESSION, false);
+            Logger.d(TAG, "contains" + sPref.contains(Constants.IS_LOCALYTICS_ENABLE_KEY));
+            if (!sPref.contains(Constants.IS_LOCALYTICS_ENABLE_KEY)) {
+                Random random = new Random();
+                int i = random.nextInt(10);
+                Logger.d(TAG, "firstSession: " + i);
+                edit.putBoolean(Constants.IS_LOCALYTICS_FIRST_SESSION, true);
+                edit.putBoolean(Constants.IS_LOCALYTICS_ENABLE_KEY, i == 0);
+            }
+            edit.commit();
+            Logger.d(TAG, "firstSession: IS_LOCALYTICS_FIRST_SESSION: "+ sPref.getBoolean(Constants.IS_LOCALYTICS_FIRST_SESSION,false));
+            Logger.d(TAG, "firstSession: IS_LOCALYTICS_ENABLE_KEY: "+ sPref.getBoolean(Constants.IS_LOCALYTICS_ENABLE_KEY,false));
+        }
     }
 }

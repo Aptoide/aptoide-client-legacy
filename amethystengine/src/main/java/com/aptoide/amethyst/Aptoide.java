@@ -103,14 +103,7 @@ public class Aptoide extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Analytics.Lifecycle.Application.onCreate(this);
-
-        setAdvertisingIdClient();
-
         context = this;
-        db = SQLiteDatabaseHelper.getInstance(this).getReadableDatabase();
-        filters = AptoideUtils.HWSpecifications.filters(this);
-
         ManagerPreferences.getInstance(this) //inits the ManagerPreferences
                 .preferences
                 .registerOnSharedPreferenceChangeListener(
@@ -125,6 +118,14 @@ public class Aptoide extends Application {
                         });
 
 
+
+
+        setAdvertisingIdClient();
+
+        db = SQLiteDatabaseHelper.getInstance(this).getReadableDatabase();
+        filters = AptoideUtils.HWSpecifications.filters(this);
+
+
         Crashlytics crashlyticsKit = new Crashlytics.Builder()
                 .core(new CrashlyticsCore.Builder().disabled(!BuildConfig.FABRIC_CONFIGURED).build())
                 .build();
@@ -137,6 +138,10 @@ public class Aptoide extends Application {
         setThemePicker(getNewThemePicker());
         Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());
         AptoideUtils.CrashlyticsUtils.subsctibeActivityLiveCycleEvent();
+        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this);
+        Analytics.LocalyticsSessionControl.firstSession(sPref);
+
+        Analytics.Lifecycle.Application.onCreate(this);
     }
 
     /**

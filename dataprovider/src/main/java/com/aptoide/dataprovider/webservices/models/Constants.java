@@ -191,4 +191,6 @@ public class Constants {
 
     public static final String SECURITY_BALLOON_TOGGLED = "securityBalloonToggled";
 
+    public static final String IS_LOCALYTICS_ENABLE_KEY = "IS_LOCALYTICS_ENABLE_KEY";
+    public static final String IS_LOCALYTICS_FIRST_SESSION = "IS_LOCALYTICS_FIRST_SESSION";
 }

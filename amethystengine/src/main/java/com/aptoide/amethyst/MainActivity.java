@@ -210,7 +210,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         setContentView(getContentView());
         bindViews();
 
-        Localytics.registerPush(BuildConfig.GOOGLE_SENDER_ID);
+        Analytics.MainActivityOncreate();
         if(!checkIfInstalled()) {
             createShortCut();
         }
