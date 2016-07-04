@@ -74,7 +74,7 @@
 <string name="see_top_stores">Zobacz najlepsze repozytoria</string>
 <string name="setcredentials">Login</string>
 <string name="rollback">Przywróć</string>
-<string name="rollback_empty">Szybko zmień wersje aplikacji na poprzednie aby rozwiązać problemy kompatybilności. Zachowaj logi wszystkich zainstalowanych aplikacji włączając wersję i datę instalacji.</string>
+<string name="rollback_empty">Szybko zmień wersje aplikacji na poprzednie aby rozwiązać problemy kompatybilności. Zachowaj logi wszystkich zainstalowanych aplikacji (przez %s) włączając wersję i datę instalacji.</string>
 <string name="rollback_installed">Zainstalowane</string>
 <string name="rollback_uninstalled">Odinstalowane</string>
 <string name="rollback_updated">Zaktualizowane</string>
@@ -87,7 +87,7 @@
 <string name="username">Email</string>
 <string name="username_tip">Podaj swój email</string>
 <string name="subscribe_pvt_store">Subskrybuj prywatny sklep</string>
-<string name="accept_terms">Rejestrując się wyrażasz zgodę na Warunki korzystania z usługi Aptoide oraz Politykę dla deweloperów</string>
+<string name="accept_terms">Rejestrując się wyrażasz zgodę na Warunki korzystania z usługi %s oraz Politykę dla deweloperów</string>
 <string name="register">Logowanie</string>
 <string name="or">- Lub -</string>
 <string name="dont_have_an_account">Nie masz konta? Zarejestruj się</string>
@@ -241,7 +241,7 @@
 <string name="cancel">Anuluj</string>
 <string name="error_occured_paying">Wystąpił błąd.Płatność nie została zakończona.</string>
 <string name="failed_auth_code">"Nie można uwierzytelnić  konta. Proszę spróbować ponownie."</string>
-<string name="error_occured_retry_later">Wystąpił błąd. Aptoide ponowi próbę później automatycznie.</string>
+<string name="error_occured_retry_later">Wystąpił błąd. %s ponowi próbę później automatycznie.</string>
 <string name="account">Konto</string>
 <string name="no_payments_available">Brak dostępnych płatności.</string>
 <string name="change_payment">Wróć</string>
@@ -276,7 +276,7 @@
 <string name="facebook_private_actions">Ta appka nie będzie zamieszczona na Facebooku</string>
 <string name="invite_friends">Zaproś znajomych</string>
 <string name="facebook_timeline_friends_invited">Znajomi zaproszeni!</string>
-<string name="friends_to_invite">Wszyscy pozostali znajomi z Facebooka w Aptoide</string>
+<string name="friends_to_invite">Wszyscy pozostali znajomi z Facebooka w %s</string>
 <string name="timeline_is_empty_no_friends">"Twoja Linia czasu jest pusta. Prawdopodobnie  nie masz jeszcze znajomych w Aptoide lub nie zamieścili żadnych wiadomości."</string>
 <string name="timeline_is_empty_start_invite">Zacznij od zaproszenia znajomych:</string>
 <string name="timeline_empty_no_friends_send_email">Wygląda na to, że Twoi znajomi nie zalogowali się do Aptoide kontem Facebooka. Wyślij im emaila aby zalogowali się danymi konta Facebook</string>
@@ -306,7 +306,7 @@
 
     <string name="error_SYS_Billing">Zakupy w aplikacji są niewspierane na tym urządzeniu.</string>
 
-    <string name="aptoide_description">Oficjalny sklep Aptoide</string>
+    <string name="aptoide_description">Oficjalny sklep %s</string>
 
     <string name="community">Społeczność</string>
     <string name="updates">Aktualizacje</string>
@@ -413,14 +413,14 @@
     <string name="store_privacy">Prywatność sklepu</string>
     <string name="public_key">publiczne</string>
     <string name="private_key">prywatne</string>
-    <string name="upload_app_backup_apps_installed">Najpierw musisz przesłać tę aplikację do Twojego sklepu. Możesz użyć Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">Najpierw musisz przesłać tę aplikację do Twojego sklepu. Zainstaluj i skorzystaj z Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">Najpierw musisz przesłać tę aplikację do Twojego sklepu. Możesz użyć %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">Najpierw musisz przesłać tę aplikację do Twojego sklepu. Zainstaluj i skorzystaj z %s Backup Apps.</string>
     <string name="upload_app">Prześlij aplikację</string>
     <string name="create_review">Napisz opinię</string>
 
     <string name="setting_mobile">Sieć komórkowa 3G/4G</string>
-    <string name="setting_category_autoupdate">Automatyczna Aktualizacja Aptoide</string>
-    <string name="setting_category_autoupdate_title">Wyłącz automatyczną aktualizację Aptoide</string>
+    <string name="setting_category_autoupdate">Automatyczna Aktualizacja %s</string>
+    <string name="setting_category_autoupdate_title">Wyłącz automatyczną aktualizację %s</string>
     <string name="setting_dont_show_mature_content">Pokazuj treści dla dorosłych</string>
     <string name="whats_new">Co nowego?</string>
     <string name="drawer_social_media_title">Bądź połączony</string>
@@ -464,9 +464,9 @@
     <string name="application_signature_analysis">Podpis aplikacji porównany z podpisem developera:</string>
     <string name="application_signature_matched">Podpis aplikacji pasuje do podpisu powiązanego z developerem aplikacji.</string>
     <string name="application_signature_not_matched">Podpis aplikacji nie pasuje do podpisu powiązanego z developerem aplikacji. Aplikacja może nie być oryginalna.</string>
-    <string name="application_signature_blacklisted">Podpis aplikacji nie jest zaufanym podpisem na platformie Aptoide Anti-Malware, ponieważ został wykorzystany do podpisania innej aplikacji która nie pasuje do podpisu powiązanego z jej developerem.</string>
-    <string name="scanned_manually_by_aptoide_team">Przeskanowane ręcznie przez Zespół Aptoide:</string>
-    <string name="scanned_verified_by_tester">Ta aplikacja została ręcznie przetestowana przez testera z Zespołu Aptoide, co zapewnia bezpieczeństwo aplikacji.</string>
+    <string name="application_signature_blacklisted">Podpis aplikacji nie jest zaufanym podpisem na platformie %s Anti-Malware, ponieważ został wykorzystany do podpisania innej aplikacji która nie pasuje do podpisu powiązanego z jej developerem.</string>
+    <string name="scanned_manually_by_aptoide_team">Przeskanowane ręcznie przez Zespół %s:</string>
+    <string name="scanned_verified_by_tester">Ta aplikacja została ręcznie przetestowana przez testera z Zespołu %s, co zapewnia bezpieczeństwo aplikacji.</string>
     <string name="warning">Uwaga</string>
     <string name="trusted_app">Zaufana Aplikacja</string>
     <string name="unknown">Nieznana</string>
@@ -474,10 +474,10 @@
     <string name="reason_third_party">Sprawdziliśmy podpis aplikacji i jest zgodny ze sklepem Google Play, więc możesz spokojnie korzystać z aplikacji.</string>
     <string name="reason_scanned">Przeskanowano AptoideGuard oraz 2 różnymi programami antywirusowymi (Zoner 1.8 i Sophos 3.0).</string>
     <string name="reason_signature">Podpis kryptograficzny gwarantuje bezpieczeństwo instalacji pliku oraz brak naruszenia pliku.</string>
-    <string name="reason_manual">Ta aplikacja została ręcznie sprawdzona przez zespół ekspertów Aptoide, i została oznaczona jako Dobra.</string>
+    <string name="reason_manual">Ta aplikacja została ręcznie sprawdzona przez zespół ekspertów %s, i została oznaczona jako Dobra.</string>
 
     <string name="reason_failed">Podpis aplikacji nie pasuje do podpisu developera. Aplikacja mogła zostać naruszona.</string>
-    <string name="reason_unknown">O tej aplikacji nie ma wystarczających informacji na platformie Aptoide Anti-Malware.</string>
+    <string name="reason_unknown">O tej aplikacji nie ma wystarczających informacji na platformie %s Anti-Malware.</string>
 
 
 

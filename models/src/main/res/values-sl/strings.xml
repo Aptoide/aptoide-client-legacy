@@ -86,7 +86,7 @@
     <string name="sign_out">Izpis</string>
     <string name="logged_as">Vpisani ste kot:</string>
 
-    <string name="aptoide_description">Aptoide Uradna trgovina aplikacij</string>
+    <string name="aptoide_description">%s Uradna trgovina aplikacij</string>
 
     <string name="error_410">Zahtevane aplikacije ni bilo moč najti na tem strežniku.</string>
 
@@ -133,7 +133,7 @@
     <string name="password_validation_text">"Geslo mora biti dolgo vsaj 8 znakov, vsebovati mora vsaj eno črko in eno številko ali posebne znake (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">Aptoide Anti-Malware platforma analizira aplikacije med njihovim delovanjem in onemogoča grožnje pri vseh trgovinah. Sistem skenira vse nove datoteke aplikacij trgovin in jih certificira s primerjavo z drugimi Android Prodajalnami.</string>
     <string name="username_tip">Vtipkajte vaš email</string>
-    <string name="accept_terms">Z registracijo sprejmete Aptoide Pogoje uporabe in Seznam pravil za razvijalce</string>
+    <string name="accept_terms">Z registracijo sprejmete %s Pogoje uporabe in Seznam pravil za razvijalce</string>
 
     <string name="start_loading">Nalaganje…</string>
     <string name="store_already_added">Trgovina je že dodana!</string>
@@ -231,7 +231,7 @@
     <string name="downgrade">Povrnitev prejšnje različice</string>
     <string name="reinstall">Ponovna namestitev</string>
 
-    <string name="rollback_empty">Hitro namestite prejšnjo različico in rešite težave z nekompatibilnostjo. Hranite zapise vseh nameščenih aplikacij, vključno z različicami in datumi namestitev.</string>
+    <string name="rollback_empty">Hitro namestite prejšnjo različico in rešite težave z nekompatibilnostjo. Hranite zapise vseh nameščenih aplikacij (preko %s), vključno z različicami in datumi namestitev.</string>
 
     <string name="see_more">Oglejte si več</string>
     <string name="see_less">Oglejte si manj</string>
@@ -275,7 +275,7 @@
     <string name="no_payments_available">Ni možnih plačil.</string>
     <string name="failed_auth_code">Potrditev računa ni uspela. Prosimo, poskusite ponovno.</string>
     <string name="error_occured_paying">Prišlo je do napake. Plačilo ni uspelo.</string>
-    <string name="error_occured_retry_later">Prišlo je do napake. Aptoide bo ponovno poskusil kasneje.</string>
+    <string name="error_occured_retry_later">Prišlo je do napake. %s bo ponovno poskusil kasneje.</string>
     <string name="account">Račun</string>
     <string name="confirm_carrier_payment">"Želite kupiti \'{title}\' za {value}? Plačilo bo izpeljano preko vašega računa. "</string>
     <string name="buy">Nakup</string>
@@ -293,7 +293,7 @@
     <string name="downgrade_requires_uninstall">Povrnitev prejšnje različice zahteva odstranitev aplikacije</string>
 
     <string name="order_popup_title3">Vsebina za odrasle</string>
-    <string name="friends_to_invite">Ostali Facebook prijatelji v Aptoide</string>
+    <string name="friends_to_invite">Ostali Facebook prijatelji v %s</string>
     <string name="invite_friends">Povabite prijatelje</string>
     <string name="timeline_is_empty_send_email">Tistim, ki jih izberete, bomo poslali email sporočila</string>
     <string name="facebook_timeline_friends_invited">Prijatelji povabljeni!</string>
@@ -357,8 +357,8 @@
     <string name="private_key">privatno</string>
     <string name="store_username">Uporabniško ime</string>
     <string name="store_password">Geslo</string>
-    <string name="upload_app_backup_apps_installed">Najprej boste morali naložiti to aplikacijo v vašo trgovino. Uporabite lahko Aptoide Aplikacije za varnostne kopije.</string>
-    <string name="upload_app_backup_apps_not_installed">Najprej boste morali naložiti to aplikacijo v vašo trgovino. Prosimo, uporabite Aptoide Aplikacije za varnostne kopije.</string>
+    <string name="upload_app_backup_apps_installed">Najprej boste morali naložiti to aplikacijo v vašo trgovino. Uporabite lahko %s Aplikacije za varnostne kopije.</string>
+    <string name="upload_app_backup_apps_not_installed">Najprej boste morali naložiti to aplikacijo v vašo trgovino. Prosimo, uporabite %s Aplikacije za varnostne kopije.</string>
     <string name="upload_app">Naložite aplikacijo</string>
     <string name="create_review">Ustvarite oceno</string>
 
@@ -383,8 +383,8 @@
     <string name="setting_hwspecssum">Hardver informacije o vašem telefonu</string>
     <string name="setting_appfiltersum">Ne prikazuj aplikacij, ki niso kompatibilne s to napravo</string>
     <string name="setting_appfiltertitle">Filtriraj aplikacije</string>
-    <string name="setting_category_autoupdate">Aptoide avtomatska nadgradnja</string>
-    <string name="setting_category_autoupdate_title">Omogočite Aptoide avtomatsko nadgradnjo</string>
+    <string name="setting_category_autoupdate">%s avtomatska nadgradnja</string>
+    <string name="setting_category_autoupdate_title">Omogočite %s avtomatsko nadgradnjo</string>
     <string name="setting_dont_show_mature_content">Prikaži vsebino za odrasle</string>
     <string name="setting_mature_filtering">Vsebina za odrasle</string>
     <string name="setting_updates">Nadgradnje</string>
@@ -484,9 +484,9 @@
     <string name="application_signature_analysis">Podpis aplikacije v primerjavi s podpisom razvijalca:</string>
     <string name="application_signature_matched">Podpis aplikacije se ujema s podpisom, ki je povezan z razvijalcem aplikacije.</string>
     <string name="application_signature_not_matched">Podpis aplikacije se ne ujema s podpisom, ki je povezan z razvijalcem aplikacije. Aplikacija je morda ponaredek.</string>
-    <string name="application_signature_blacklisted">Podpis aplikacije ni zaupanja vreden po oceni Aptoide Anti-Malware platforme, ker je bil uporabljen za podpis druge aplikacije, ki se ne ujema s podpisom, ki je povezan z uradnim razvijalcem aplikacije.</string>
-    <string name="scanned_manually_by_aptoide_team">Aptoide ekipa je poskrbela za ročno skeniranje:</string>
-    <string name="scanned_verified_by_tester">Ta aplikacija je bila ročno pregledana s testerjem Aptoide ekipe, ki zagotavlja varnost aplikacije.</string>
+    <string name="application_signature_blacklisted">Podpis aplikacije ni zaupanja vreden po oceni %s Anti-Malware platforme, ker je bil uporabljen za podpis druge aplikacije, ki se ne ujema s podpisom, ki je povezan z uradnim razvijalcem aplikacije.</string>
+    <string name="scanned_manually_by_aptoide_team">%s ekipa je poskrbela za ročno skeniranje:</string>
+    <string name="scanned_verified_by_tester">Ta aplikacija je bila ročno pregledana s testerjem %s ekipe, ki zagotavlja varnost aplikacije.</string>
     <string name="warning">Opozorilo</string>
     <string name="trusted_app">Zaupanja vredna aplikacija</string>
     <string name="unknown">Neznano</string>
@@ -494,10 +494,10 @@
     <string name="reason_third_party">Preverili smo podpis te aplikacije ter ga povezali z Google Play Store tako, da se lahko sprostite in uživate v aplikaciji.</string>
     <string name="reason_scanned">Preverjeno z AptoideGuard in 2 drugima anti-virusnima programoma (Zoner 1.8 in Sophos 3.0).</string>
     <string name="reason_signature">Kriptografski podpis zagotavlja, da je datoteka varna za namestitev in ni prišlo do neželenih posegov.</string>
-    <string name="reason_manual">To aplikacijo je lastnoročno pregledala Aptoide ekipa strokovnjakov ter jo označila kot dobro.</string>
+    <string name="reason_manual">To aplikacijo je lastnoročno pregledala %s ekipa strokovnjakov ter jo označila kot dobro.</string>
 
     <string name="reason_failed">Podpis aplikacije se ne ujema s podpisom razvijalca. Morda je prišlo do neželenega posega v aplikacijo.</string>
-    <string name="reason_unknown">V Aptoide Anti-Malware platformi ni dovolj informacij o tej aplikaciji.</string>
+    <string name="reason_unknown">V %s Anti-Malware platformi ni dovolj informacij o tej aplikaciji.</string>
 
 
 

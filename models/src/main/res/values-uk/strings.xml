@@ -68,7 +68,7 @@
 <string name="see_top_stores">Популярні магазини</string>
 <string name="setcredentials">Логін</string>
 <string name="rollback">Відновити до попереднього стану</string>
-<string name="rollback_empty">Швидкий перехід на попередню версію будь-якого додатку та вирішення проблеми несумісності. Ведіть журнал встановлених додатків, включаючи данні про версію та дату встановлення.</string>
+<string name="rollback_empty">Швидкий перехід на попередню версію будь-якого додатку та вирішення проблеми несумісності. Ведіть журнал встановлених додатків (за допомогою %s), включаючи данні про версію та дату встановлення.</string>
 <string name="rollback_installed">Встановлено</string>
 <string name="rollback_uninstalled">Видалено</string>
 <string name="rollback_updated">Оновлено</string>
@@ -80,7 +80,7 @@
 <string name="update_all">Оновити все</string>
 <string name="username">Email</string>
 <string name="username_tip">Введіть ваш email</string>
-<string name="accept_terms">Зареєструвавшись, ви погоджуєтесь з Умовами надання послуг Aptoide та Політикою про контент для Розробників</string>
+<string name="accept_terms">Зареєструвавшись, ви погоджуєтесь з Умовами надання послуг %s та Політикою про контент для Розробників</string>
 <string name="register">Зареєструватися</string>
 <string name="or">- Або -</string>
 <string name="dont_have_an_account">Ще не маєте акаунту? Зареєструйтесь</string>
@@ -233,7 +233,7 @@
 <string name="cancel">Відміна</string>
 <string name="error_occured_paying">Виникла помилка. Платіж не був завершений.</string>
 <string name="failed_auth_code">Не вдалося авторизуватись. Будь ласка, спробуйте ще раз.</string>
-<string name="error_occured_retry_later">Виникла помилка. Aptoide автоматично спробує пізніше.</string>
+<string name="error_occured_retry_later">Виникла помилка. %s автоматично спробує пізніше.</string>
 <string name="account">Акаунт</string>
 <string name="no_payments_available">Немає доступних платежів.</string>
 <string name="change_payment">Назад</string>
@@ -259,7 +259,7 @@
 
     <string name="error_SYS_Billing">Внутрішні покупки у додатку не підтримуються на цьому пристрої.</string>
 
-    <string name="aptoide_description">Офіційний магазин додатків Aptoide</string>
+    <string name="aptoide_description">Офіційний магазин додатків %s</string>
 
     <string name="error_410">На жаль, додаток, який ви шукаєте, не знайдено на сервері.</string>
 
@@ -348,7 +348,7 @@
     <string name="billing_result">"Результат транзакції: "</string>
 
     <string name="order_popup_title3">Контент для дорослих</string>
-    <string name="friends_to_invite">Усі друзі з Facebook в Aptoide</string>
+    <string name="friends_to_invite">Усі друзі з Facebook в %s</string>
     <string name="invite_friends">Запросити друзів</string>
     <string name="timeline_is_empty_send_email">Ми відправимо email обраним користувачам</string>
     <string name="facebook_timeline_friends_invited">Друзі запрошені!</string>
@@ -402,8 +402,8 @@
     <string name="store_privacy">Конфіденційність магазину</string>
     <string name="public_key">відкритий</string>
     <string name="private_key">приватний</string>
-    <string name="upload_app_backup_apps_installed">Спочатку треба завантажити додаток до вашого магазину. Ви можете скористатися Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">Спочатку треба завантажити додаток до вашого магазину. Будь ласка, встановіть та скористайтесь Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">Спочатку треба завантажити додаток до вашого магазину. Ви можете скористатися %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">Спочатку треба завантажити додаток до вашого магазину. Будь ласка, встановіть та скористайтесь %s Backup Apps.</string>
     <string name="upload_app">Завантажити додаток</string>
     <string name="create_review">Додати відгук</string>
 
@@ -412,8 +412,8 @@
     <string name="setting_mobile">Мобільний 3G/4G</string>
     <string name="setting_sum_general_download_rules">Дозволити завантаження додатків, «Вибору редакції», популярних додатків та магазинів через мобільний інтернет</string>
     <string name="setting_general_download_rules">Загальні параметри завантажень</string>
-    <string name="setting_category_autoupdate">Автоматичне оновлення Aptoide</string>
-    <string name="setting_category_autoupdate_title">Дозволити автоматичне оновлення Aptoide</string>
+    <string name="setting_category_autoupdate">Автоматичне оновлення %s</string>
+    <string name="setting_category_autoupdate_title">Дозволити автоматичне оновлення %s</string>
     <string name="setting_dont_show_mature_content">Показувати матеріали для дорослих</string>
     <string name="whats_new">Що нового?</string>
     <string name="disable_social_timeline">Вимкнути Social Timeline</string>
@@ -469,18 +469,18 @@
     <string name="other_stores">Магазини, на які ви не підписані</string>
     <string name="title_caps">НАЗВА</string>
 
-    <string name="application_signature_blacklisted">Підпис додатка не є Перевіреним на платформі Aptoide Anti-Malware, тому що він вже використовувався для підтвердження іншого додатку, чий підпис не співпадає з підписом розробника.</string>
-    <string name="scanned_manually_by_aptoide_team">Проскановано вручну командою Aptoide:</string>
-    <string name="scanned_verified_by_tester">Додаток було перевірено вручну тестером з команди Aptoide, що гарантує безпечність додатку.</string>
+    <string name="application_signature_blacklisted">Підпис додатка не є Перевіреним на платформі %s Anti-Malware, тому що він вже використовувався для підтвердження іншого додатку, чий підпис не співпадає з підписом розробника.</string>
+    <string name="scanned_manually_by_aptoide_team">Проскановано вручну командою %s:</string>
+    <string name="scanned_verified_by_tester">Додаток було перевірено вручну тестером з команди %s, що гарантує безпечність додатку.</string>
     <string name="reason_third_party">Ми перевірили підпис додатку і він співпадає з Google Play Store, так що ви можете сміливо користуватись додатком.</string>
     <string name="reason_scanned">Проскановано за допомогою AptoideGuard і двох інших антивірусів (Zoner 1.8 та Sophos 3.0).</string>
     <string name="reason_signature">Цей криптографічний підпис гарантує, що файл є безпечним для встановлення та не піддавався жодним зовнішнім втручанням.</string>
     <string name="error_REPO_7">Цей користувач вже має репозиторій.</string>
 
-    <string name="reason_manual">Цей додаток було вручну перевірено командою фахівців Aptoide і має позначку «Гарний».</string>
+    <string name="reason_manual">Цей додаток було вручну перевірено командою фахівців %s і має позначку «Гарний».</string>
 
     <string name="reason_failed">Підпис додатку не співпадає з підписом розробника. Можливо додаток підроблено.</string>
-    <string name="reason_unknown">"Недостатньо  інформації про цей додаток на Антивірусний платформі Aptoide."</string>
+    <string name="reason_unknown">"Недостатньо  інформації про цей додаток на Антивірусний платформі %s."</string>
 
 
 

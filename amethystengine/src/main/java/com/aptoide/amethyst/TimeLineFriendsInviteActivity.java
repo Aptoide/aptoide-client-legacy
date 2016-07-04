@@ -53,7 +53,14 @@ public class TimeLineFriendsInviteActivity extends AptoideBaseActivity {
 
         friends_list = (LinearLayout) findViewById(R.id.friends_list);
         friends_using_timeline = (TextView) findViewById(R.id.friends_using_timeline);
+
+
+
         friends_to_invite = (TextView) findViewById(R.id.friends_to_invite);
+        String friends_to_invite_resource = getResources().getString(R.string.rollback_empty);
+        String firends_to_invite_Formatted = String.format(friends_to_invite_resource, Aptoide.getConfiguration().getMarketName());
+        friends_to_invite.setText(firends_to_invite_Formatted);
+
 
         View footer_friends_to_invite = LayoutInflater.from(this).inflate(R.layout.footer_invite_friends, null);
         listView.addFooterView(footer_friends_to_invite);
@@ -87,6 +94,7 @@ public class TimeLineFriendsInviteActivity extends AptoideBaseActivity {
                     c.findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
                 }
                 else{
+
                     Toast.makeText(c, c.getString(R.string.select_friends_to_invite), Toast.LENGTH_LONG).show();
                 }
             }
@@ -173,8 +181,8 @@ public class TimeLineFriendsInviteActivity extends AptoideBaseActivity {
                 }
             }
 
-            String text;
-            text = getString(R.string.facebook_friends_list_using_timeline);
+            String text = getString(R.string.facebook_friends_list_using_timeline);
+
 
             if ( activeFriendsList.size() - i <= 0 ){
                 text = friendsString.toString() + " " +text;
@@ -202,7 +210,9 @@ public class TimeLineFriendsInviteActivity extends AptoideBaseActivity {
             friends_using_timeline.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
             friends_to_invite.setVisibility(View.VISIBLE);
         }else{
-            friends_using_timeline.setText(getString(R.string.facebook_friends_list_using_timeline_empty));
+
+
+            friends_using_timeline.setText(getString(R.string.facebook_friends_list_using_timeline));
             friends_to_invite.setVisibility(View.GONE);
         }
     }

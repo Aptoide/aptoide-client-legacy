@@ -51,4 +51,15 @@
     <string name="error_IARG_301">Vigane kategooria</string>
     <string name="error_IARG_302">See rakendus on antud kategoorias juba olemas</string>
 
+    <string name="error_AUTH_2">Vigane mandaat!</string>
+    <string name="error_AUTH_1">Vigane sisselogimise mandaat!</string>
+    <string name="error_AUTH_3">Sinu konto tühistati. Küsimuste korral võta ühendust Aptoide kasutajatoega.</string>
+    <string name="error_AUTH_4">HMAC autentimise viga</string>
+    <string name="error_AUTH_100">Google kontoga sisselogimine nurjus. Palun kontrolli oma Google kontot (võib-olla pead valideerima oma meiliaadressi).</string>
+    <string name="error_AUTH_101">Google kontoga sisselogimine nurjus. Palun proovi uuesti.</string>
+    <string name="error_AUTH_102">Facebooki kontoga sisselogimine nurjus. Palun kontrolli oma Facebooki kontot (võib-olla pead valideerima oma meiliaadressi).</string>
+    <string name="error_AUTH_103">Facebooki kontoga sisselogimine nurjus. Palun proovi uuesti.</string>
+
+    <string name="error_WOP_6">Kommenteerimiseks pead sisestama oma nime (see on kõigile näha)</string>
+    <string name="error_WOP_7">Kommentaari viga</string>
     </resources>

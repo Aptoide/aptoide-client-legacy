@@ -425,7 +425,8 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
 
                             //if(detailsJson != null) {
                             try {
-                                findViewById(R.id.progress).setVisibility(View.GONE);
+                                findViewById(R.id.progress).setVisibility(View
+                                        .GONE);
                                 findViewById(R.id.content).setVisibility(View.VISIBLE);
 
                                 JSONObject sku_details = new JSONObject(detailsList.get(0));
@@ -464,7 +465,10 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
                 AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                Toast.makeText(Aptoide.getContext(), R.string.error_occured_retry_later, Toast.LENGTH_LONG).show();
+
+                String error_occured_retry_later_resource=getResources().getString( R.string.error_occured_retry_later);
+                String error_occured_retry_later_formatted= String.format(error_occured_retry_later_resource,Aptoide.getConfiguration().getMarketName());
+                Toast.makeText(Aptoide.getContext(), error_occured_retry_later_formatted, Toast.LENGTH_LONG).show();
 
                 Intent i = buildIntentForAlarm(confirmation, "iab");
                 i.putExtra("apiVersion", apiVersion);

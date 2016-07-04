@@ -140,7 +140,7 @@
     <string name="appview_additional_information_title">Información adicional</string>
     <string name="results_in_store">Resultados de busca na tenda %s</string>
     <string name="scanned_with_av">Analizado con antivirus:</string>
-    <string name="scanned_manually_by_aptoide_team">Analizado de forma manual polo equipo de Aptoide:</string>
+    <string name="scanned_manually_by_aptoide_team">Analizado de forma manual polo equipo de %s:</string>
     <string name="reason_scanned">Analizado con AptoideGuard e con dous antivirus (Zoner 1.8 e Sophos 3.0).</string>
     <string name="reply_to">Responde a %s</string>
     <string name="flag_virus">Virus</string>
@@ -180,7 +180,7 @@
     <string name="sign_out">Cerrar sesión</string>
     <string name="logged_as">Estás rexistrado ou rexistrada como:</string>
 
-    <string name="aptoide_description">Aptoide Official App Store</string>
+    <string name="aptoide_description">%s Official App Store</string>
 
     <string name="error_410">Sentímolo, a aplicación solicitada non se atopa neste servidor.</string>
 
@@ -247,7 +247,7 @@
     <string name="subscribe_pvt_store">Subscribirse á tenda privada</string>
 
     <string name="error_occured_paying">Houbo un erro. Non se completou o pago.</string>
-    <string name="error_occured_retry_later">Houbo un erro. Aptoide intentarao de novo automáticamente máis tarde.</string>
+    <string name="error_occured_retry_later">Houbo un erro. %s intentarao de novo automáticamente máis tarde.</string>
     <string name="buy">Mercar</string>
     <string name="billing_result">"O resultado da transacción é: "</string>
 
@@ -343,7 +343,7 @@
     <string name="password_validation_text">"O contrasinal ten que ter un mínimo de 8 caracteres e, polo menos, unha letra e un número ou caracter especial (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">A plataforma Anti-Malware de Aptoide analiza as aplicacións mentres se executan e deshabilita as ameazas potenciais en todas as tendas. Este sistema escanea todos os ficheiros novos de aplicacións das tendas e certifícaos comparándoos con outros mercados Android.</string>
     <string name="username_tip">Escribe o teu email</string>
-    <string name="accept_terms">Ao rexistrarte estarás de acordo coas Condicións de Servizo Aptoide e coas Políticas de Contidos dos Desenvolvedores</string>
+    <string name="accept_terms">Ao rexistrarte estarás de acordo coas Condicións de Servizo %s e coas Políticas de Contidos dos Desenvolvedores</string>
 
     <string name="start_loading">Cargando…</string>
     <string name="ip_blacklisted">IP na lista negra</string>
@@ -358,7 +358,7 @@
     <string name="added_to_scheduled">Engadida ao Menú &gt; Descargas programadas</string>
     <string name="action_settings">Configuración</string>
     <string name="downgrade">Regresar a unha version anterior</string>
-    <string name="rollback_empty">Regresa rápidamente a versións anteriores de calquera aplicación e resolve os problemas de incompatibilidade. Mantén un rexistro de todas as aplicacións instaladas onde se inclúa a versión e a data de instalación.</string>
+    <string name="rollback_empty">Regresa rápidamente a versións anteriores de calquera aplicación e resolve os problemas de incompatibilidade. Mantén un rexistro de todas as aplicacións instaladas (a través de %s) onde se inclúa a versión e a data de instalación.</string>
 
     <string name="installed_tab">Instalada</string>
     <string name="updates_tab">Actualización</string>
@@ -383,7 +383,7 @@
     <string name="rollback_downgraded">Regresado a unha versión anterior</string>
     <string name="downgrade_requires_uninstall">Para regresar a unha versión anterior tes que desinstalar a aplicación</string>
 
-    <string name="friends_to_invite">O resto dos teus amigos en Aptoide</string>
+    <string name="friends_to_invite">O resto dos teus amigos en %s</string>
     <string name="timeline_is_empty_send_email">Mandarémoslle un email a aqueles que elixas</string>
     <string name="facebook_timeline_friends_invited">Amigos convidados!</string>
     <string name="select_friends_to_invite">Selecciona que amigos convidar!</string>
@@ -422,8 +422,8 @@
     <string name="write_one_con">Escribe polo menos unha cousa en contra</string>
     <string name="write_your_final_verdict">Escribe o teu veredicto final</string>
     <string name="review_success">Reseña enviada correctamente!</string>
-    <string name="upload_app_backup_apps_installed">Tes que facer é subir a aplicación á túa tenda primeiro. Podes utilizar Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">O primeiro que tes que facer é subir a aplicación á túa tenda. Instala Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">Tes que facer é subir a aplicación á túa tenda primeiro. Podes utilizar %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">O primeiro que tes que facer é subir a aplicación á túa tenda. Instala %s Backup Apps.</string>
     <string name="upload_app">Actualizar aplicación</string>
     <string name="create_review">Crear reseña</string>
 
@@ -445,8 +445,8 @@
     <string name="setting_general_download_rules">Reglas xerais de descarga</string>
     <string name="setting_appfiltersum">Non amosar as aplicacións que non sexan compatíbeis con este dispositivo</string>
     <string name="setting_appfiltertitle">Filtrar aplicacións</string>
-    <string name="setting_category_autoupdate">Actualización automática de Aptoide</string>
-    <string name="setting_category_autoupdate_title">Permitir a actualización automática de Aptoide</string>
+    <string name="setting_category_autoupdate">Actualización automática de %s</string>
+    <string name="setting_category_autoupdate_title">Permitir a actualización automática de %s</string>
     <string name="setting_dont_show_mature_content">Mostrar contido para adultos</string>
     <string name="setting_mature_filtering">Contido para adultos</string>
     <string name="update_all">Actualizalo todo</string>
@@ -494,10 +494,10 @@
     <string name="setting_schdwninstallsum">Instalar as descargas programadas automáticamente cando haxa unha conexión WiFi presente</string>
     <string name="clearcontent_title">Eliminar os datos e as configuracións</string>
     <string name="settings_maxFileCache_sum">Establecer un tamaño máximo para gardar os ficheiros APK</string>
-    <string name="reason_manual">Esta aplicación foi avaliada polo equipo experto de Aptoide e foi sinalada como Boa.</string>
+    <string name="reason_manual">Esta aplicación foi avaliada polo equipo experto de %s e foi sinalada como Boa.</string>
 
     <string name="reason_failed">A sinatura da aplicación non coincide coa sinatura do desenvolvedor. Pode que a aplicación estea falsificada.</string>
-    <string name="reason_unknown">Non hai información suficiente sobre esta aplicación na plataforma Anti-Malware de Aptoide.</string>
+    <string name="reason_unknown">Non hai información suficiente sobre esta aplicación na plataforma Anti-Malware de %s.</string>
 
 
 
@@ -641,8 +641,8 @@
     <string name="application_signature_analysis">A sinatura da aplicación en comparación coa sinatura do desenvolvedor:</string>
     <string name="application_signature_matched">A sinatura da aplicación coincide coa asinatura do desenvolvedor da aplicación.</string>
     <string name="application_signature_not_matched">A sinatura da aplicación non coincide coa asinatura do desenvolvedor da aplicación. Pode que a aplicación estea falsificada.</string>
-    <string name="application_signature_blacklisted">A sinatura da aplicación non é unha sinatura Fiábel segundo a plataforma Anti-Malware de Aptoide porque foi utilizada para asinar outra aplicación sen coincidir coa do desenvolvedor lexítimo.</string>
-    <string name="scanned_verified_by_tester">A aplicación foi revisada de forma manual polo equipo de Aptoide, que conclúe que a aplicación é segura.</string>
+    <string name="application_signature_blacklisted">A sinatura da aplicación non é unha sinatura Fiábel segundo a plataforma Anti-Malware de %s porque foi utilizada para asinar outra aplicación sen coincidir coa do desenvolvedor lexítimo.</string>
+    <string name="scanned_verified_by_tester">A aplicación foi revisada de forma manual polo equipo de %s, que conclúe que a aplicación é segura.</string>
     <string name="warning">Coidado</string>
     <string name="trusted_app">Aplicación Fiábel</string>
     <string name="reason_third_party">Comparamos a sinatura da aplicación e coincide coa de Google Play Store, así que podes estar tranquilo e gozar da aplicación.</string>

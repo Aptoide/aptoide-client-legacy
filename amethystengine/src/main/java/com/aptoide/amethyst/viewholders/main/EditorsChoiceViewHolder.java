@@ -51,6 +51,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
 
     @Override
     protected void bindViews(View itemView) {
+
         images = new ImageView[3];
         images[0] = (ImageView)itemView.findViewById(R.id.main_image);
         images[1] = (ImageView)itemView.findViewById(R.id.left_image);

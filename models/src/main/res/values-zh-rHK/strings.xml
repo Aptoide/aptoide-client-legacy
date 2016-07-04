@@ -68,7 +68,7 @@
 <string name="see_top_stores">查看熱門商店</string>
 <string name="setcredentials">登錄</string>
 <string name="rollback">回滾</string>
-<string name="rollback_empty">快速將任何應用降級至先前的版本，從而解決不相容問題。記錄您透過安裝的所有應用，包括版本和安裝日期。</string>
+<string name="rollback_empty">快速將任何應用降級至先前的版本，從而解決不相容問題。記錄您透過%s安裝的所有應用，包括版本和安裝日期。</string>
 <string name="rollback_installed">已安裝</string>
 <string name="rollback_uninstalled">已卸載的</string>
 <string name="rollback_updated">已更新的</string>
@@ -80,7 +80,7 @@
 <string name="update_all">全部更新</string>
 <string name="username">郵箱</string>
 <string name="username_tip">輸入您的郵箱</string>
-<string name="accept_terms">注冊則意味著您同意Aptoide的服務條款及開發人員的內容政策</string>
+<string name="accept_terms">注冊則意味著您同意%s的服務條款及開發人員的內容原則</string>
 <string name="register">注冊</string>
 <string name="or">- 或者 -</string>
 <string name="dont_have_an_account">沒有帳戶嗎？注冊</string>
@@ -233,7 +233,7 @@
 <string name="cancel">取消</string>
 <string name="error_occured_paying">産生錯誤。支付不能完成。</string>
 <string name="failed_auth_code">不能成功地授權帳號。請再次嘗試。</string>
-<string name="error_occured_retry_later">産生錯誤。Aptoide稍後會自動重新嘗試。</string>
+<string name="error_occured_retry_later">産生錯誤。%s稍後會自動重新嘗試。</string>
 <string name="account">帳號</string>
 <string name="no_payments_available">沒有支付可用。</string>
 <string name="change_payment">返回</string>
@@ -261,7 +261,7 @@
 
     <string name="error_SYS_Billing">此裝置不支援應用內付費。</string>
 
-    <string name="aptoide_description">Aptoide官方應用商店</string>
+    <string name="aptoide_description">%s官方應用商店</string>
 
     <string name="community">社群</string>
     <string name="updates">更新</string>
@@ -347,7 +347,7 @@
     <string name="billing_result">"交易結果： "</string>
 
     <string name="order_popup_title3">成人內容</string>
-    <string name="friends_to_invite">Aptoide中的所有其他Facebook好友</string>
+    <string name="friends_to_invite">%s中的所有其他Facebook好友</string>
     <string name="invite_friends">邀請好友</string>
     <string name="timeline_is_empty_send_email">我們將向您選擇的好友傳送電子郵件</string>
     <string name="facebook_timeline_friends_invited">已邀請好友！</string>
@@ -400,8 +400,8 @@
     <string name="store_privacy">商店隱私</string>
     <string name="public_key">公有</string>
     <string name="private_key">私有</string>
-    <string name="upload_app_backup_apps_installed">您需要先將此應用上載至您的商店。您可以使用Aptoide備份應用。</string>
-    <string name="upload_app_backup_apps_not_installed">您需要先將此應用上載至您的商店。請安裝和使用Aptoide備份應用。</string>
+    <string name="upload_app_backup_apps_installed">您需要先將此應用上載至您的商店。您可以使用%s備份應用。</string>
+    <string name="upload_app_backup_apps_not_installed">您需要先將此應用上載至您的商店。請安裝和使用%s備份應用。</string>
     <string name="upload_app">上載應用</string>
     <string name="create_review">建立檢閱</string>
 
@@ -410,8 +410,8 @@
     <string name="setting_mobile">行動3G/4G</string>
     <string name="setting_sum_general_download_rules">允許透過行動資料連線下載應用、編輯精選、熱門應用和商店</string>
     <string name="setting_general_download_rules">一般下載規則</string>
-    <string name="setting_category_autoupdate">Aptoide自動更新</string>
-    <string name="setting_category_autoupdate_title">啟用Aptoide自動更新</string>
+    <string name="setting_category_autoupdate">%s自動更新</string>
+    <string name="setting_category_autoupdate_title">啟用%s自動更新</string>
     <string name="setting_dont_show_mature_content">顯示成人內容</string>
     <string name="whats_new">新增功能？</string>
     <string name="disable_social_timeline">停用社交時間表</string>
@@ -455,8 +455,8 @@
     <string name="app_warning">警告：%s</string>
     <string name="scanned_with_av">已使用防毒程式掃描：</string>
     <string name="compared_with_another_marketplace">與其他Android服務商場比較：</string>
-    <string name="scanned_manually_by_aptoide_team">已由Aptoide團隊手動掃描：</string>
-    <string name="scanned_verified_by_tester">此應用已由來自Aptoide團隊的測試人員手動檢閱，該團隊可確保應用的安全性。</string>
+    <string name="scanned_manually_by_aptoide_team">已由%s團隊手動掃描：</string>
+    <string name="scanned_verified_by_tester">此應用已由來自%s團隊的測試人員手動檢閱，該團隊可確保應用的安全性。</string>
     <string name="warning">警告</string>
     <string name="trusted_app">受信任的應用</string>
     <string name="unknown">未知</string>
@@ -466,13 +466,13 @@
     <string name="application_signature_analysis">應用簽章與開發人員簽章比較：</string>
     <string name="application_signature_matched">應用簽章與應用開發人員相關的簽章匹配。</string>
     <string name="application_signature_not_matched">應用簽章與應用開發人員相關的簽章不匹配。應用可能有假。</string>
-    <string name="application_signature_blacklisted">應用簽章在Aptoide反惡意程式碼平台上不是受信任的簽章，因為該簽章已用於簽署與合法開發人員相關的簽章不匹配的其他應用。</string>
+    <string name="application_signature_blacklisted">應用簽章在%s反惡意程式碼平台上不是受信任的簽章，因為該簽章已用於簽署與合法開發人員相關的簽章不匹配的其他應用。</string>
     <string name="reason_third_party">我們已檢查應用的簽章，簽章與Google Play Store匹配，所以請放心使用此應用。</string>
     <string name="reason_scanned">已使用AptoideGuard和2種不同的防毒程式（Zoner 1.8和Sophos 3.0）掃描。</string>
-    <string name="reason_manual">此應用已由Aptoide專家團隊手動檢閱，并被標記為「優秀」。</string>
+    <string name="reason_manual">此應用已由%s專家團隊手動檢閱，并被標記為「優秀」。</string>
 
     <string name="reason_failed">應用簽章與開發人員簽章不匹配。應用可能已遭竄改。</string>
-    <string name="reason_unknown">Aptoide反惡意程式碼平台中有關此應用的資訊不足。</string>
+    <string name="reason_unknown">%s反惡意程式碼平台中有關此應用的資訊不足。</string>
 
 
 
@@ -542,7 +542,7 @@
     <string name="developer">開發人員</string>
     <string name="website">網站：%s</string>
     <string name="email">電子郵件：%s</string>
-    <string name="privacy_policy">隱私權政策：%s</string>
+    <string name="privacy_policy">隱私權原則：%s</string>
     <string name="dialog_version_size">版本：%1$s | 大小：%2$s</string>
     <string name="na">不適用</string>
 
@@ -641,4 +641,22 @@
     <string name="essential_apps">必備應用</string>
     <string name="summer_apps">夏季應用</string>
     <string name="play_it">暢玩應用！</string>
+<string name="updates_filter_setting_title">顯示穩定的應用版本更新</string>
+    <string name="balloon_security_google_play">應用匹配</string>
+    <string name="balloon_security_subtitle">我們現在檢查所有應用是否攜帶病毒。</string>
+    <string name="balloon_security_title">Aptoide 已經髮生了變化。</string>
+    <string name="balloon_security_subtitle_start_part">"我們已經檢查了 %1$s "</string>
+    <string name="balloon_security_subtitle_final_part">" 的病毒："</string>
+    <string name="updates_filter_summary">檢查此內容時，您不會收到測試版的通知。</string>
+
+    <string name="add_more_stores">新增更多商店</string>
+    <string name="unsubscribe">取消訂閱</string>
+
+    <string name="dialog_install_warning_proceed_button">繼續</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">搜尋</string>
+    <string name="dialog_install_warning_trusted_app_button">可信的應用</string>
+    <string name="dialog_install_warning_careful_text">如果選擇安裝此應用，請格外小心。此應用可能已損壞，攜帶病毒或惡意程式碼。</string>
+    <string name="dialog_install_warning_credibility_text">繼續前，請檢查商店的信譽度和其他使用者的評論。Aptoide 始終建議您僅安裝 %1$s 的可信應用。</string>
+    <string name="dialog_install_warning_trusted_version_button">可信版本</string>
+    <string name="dialog_install_warning_get_trusted_version_button">獲取</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="sign_out">Odhlásiť</string>
     <string name="logged_as">Ste prihlásení ako:</string>
 
-    <string name="aptoide_description">Aptoide Officiálny App Store</string>
+    <string name="aptoide_description">%s Officiálny App Store</string>
 
     <string name="error_410">Ľutujeme, požadovaná aplikácia nebola nájdená na tomto serveri.</string>
 
@@ -133,7 +133,7 @@
     <string name="password_validation_text">"Heslo musí mať najmenej 8 znakov a malo by mať aspoň jedno písmeno a jedno číslo alebo špeciálne znaky (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">Aptoide Anti-Malware platforma analyzuje aplikácie keď bežia a vypína potenciálne hrozby naprieč všetkými obchodmi. Tento systém kontroluje všetky nové súbory aplikácie z obchodov a certifikuje ich porovnaním k iným Android trhoviskám.</string>
     <string name="username_tip">Zadajte Váš email</string>
-    <string name="accept_terms">Registrovaním sa súhlasíte s Aptoide zmluvnými podmienkami a zásad obsahu pre vývojárov</string>
+    <string name="accept_terms">Registrovaním sa súhlasíte s %s zmluvnými podmienkami a zásad obsahu pre vývojárov</string>
 
     <string name="start_loading">Načítavanie…</string>
     <string name="store_already_added">Obchod už bol pridaný!</string>
@@ -231,7 +231,7 @@
     <string name="downgrade">Znížiť</string>
     <string name="reinstall">Preinštalovať</string>
 
-    <string name="rollback_empty">Rýchlo zmeňte akúkoľvek aplikáciu na predchádzajúcu verziu a vyriešte problémy s kompatibilitou. Udržiavajte záznamy o všetkých vašich nainštalovaných aplikácií vrátane verzie a dátumu inštalácie.</string>
+    <string name="rollback_empty">Rýchlo zmeňte akúkoľvek aplikáciu na predchádzajúcu verziu a vyriešte problémy s kompatibilitou. Udržiavajte záznamy o všetkých vašich nainštalovaných aplikácií (cez %s) vrátane verzie a dátumu inštalácie.</string>
 
     <string name="see_more">Pozrieť viac</string>
     <string name="see_less">Pozrieť menej</string>
@@ -275,7 +275,7 @@
     <string name="no_payments_available">Žiadne platby dostupné.</string>
     <string name="failed_auth_code">Nepodarilo sa autorizovať účet. Skúste prosím znovu.</string>
     <string name="error_occured_paying">Vyskytla sa chyba. Platba sa nedokončila.</string>
-    <string name="error_occured_retry_later">Vyskytla sa chyba. Aptoide sa znovu automaticky pokúsi neskôr.</string>
+    <string name="error_occured_retry_later">Vyskytla sa chyba. %s sa znovu automaticky pokúsi neskôr.</string>
     <string name="account">Účet</string>
     <string name="confirm_carrier_payment">"Chcete kúpiť \'{title}\'pre {value}? BUde Vám to zaúčtované vaším operátorom. "</string>
     <string name="buy">Kúpiť</string>
@@ -293,7 +293,7 @@
     <string name="downgrade_requires_uninstall">Zníženie vyžaduje odinštalovanie aplikácie</string>
 
     <string name="order_popup_title3">Obsah pre dospelých</string>
-    <string name="friends_to_invite">Všetci ostatní Facebook priatelia na Aptoide</string>
+    <string name="friends_to_invite">Všetci ostatní Facebook priatelia na %s</string>
     <string name="invite_friends">Pozvať priateľov</string>
     <string name="timeline_is_empty_send_email">Pošleme email tým, ktorých zvolíte</string>
     <string name="facebook_timeline_friends_invited">Priatelia pozvaní!</string>
@@ -357,8 +357,8 @@
     <string name="private_key">súkromie</string>
     <string name="store_username">Užívateľské meno</string>
     <string name="store_password">Heslo</string>
-    <string name="upload_app_backup_apps_installed">Musíte nahrať túto aplikáciu do Vášho obchodu ako prvú. Môžete použiť Aptoide zálohovanie aplikácií.</string>
-    <string name="upload_app_backup_apps_not_installed">Musíte nahrať túto aplikáciu do Vášho obchodu ako prvú. Prosím nainštalujte a použite Aptoide zálohovanie aplikácií.</string>
+    <string name="upload_app_backup_apps_installed">Musíte nahrať túto aplikáciu do Vášho obchodu ako prvú. Môžete použiť %s zálohovanie aplikácií.</string>
+    <string name="upload_app_backup_apps_not_installed">Musíte nahrať túto aplikáciu do Vášho obchodu ako prvú. Prosím nainštalujte a použite %s zálohovanie aplikácií.</string>
     <string name="upload_app">Uploadovať aplikáciu</string>
     <string name="create_review">Vytvoriť recenziu</string>
 
@@ -383,8 +383,8 @@
     <string name="setting_hwspecssum">Informácie o hardvéri Vášho telefónu</string>
     <string name="setting_appfiltersum">Nezobrazovať aplikácie, ktoré nie sú kompatibilné s týmto zariadením</string>
     <string name="setting_appfiltertitle">Filtrovať aplikácie</string>
-    <string name="setting_category_autoupdate">Aptoide automatická aktualizácia</string>
-    <string name="setting_category_autoupdate_title">Povoliť aptoide automatickú aktualizáciu</string>
+    <string name="setting_category_autoupdate">%s automatická aktualizácia</string>
+    <string name="setting_category_autoupdate_title">Povoliť %s automatickú aktualizáciu</string>
     <string name="setting_dont_show_mature_content">Zobraziť obsah pre dospelých</string>
     <string name="setting_mature_filtering">Obsah pre dospelých</string>
     <string name="setting_updates">Aktualizácie</string>
@@ -484,9 +484,9 @@
     <string name="application_signature_analysis">Podpis aplikácie porovnaný s podpisom vývojára:</string>
     <string name="application_signature_matched">Podpis aplikácie sa zhoduje s podpisom spojeným s vývojárom aplikácie.</string>
     <string name="application_signature_not_matched">Podpis aplikácie nesúhlasí s podpisom súvisiacim s vývojárom aplikácie. Aplikácia môže byť sfalšovaná.</string>
-    <string name="application_signature_blacklisted">Podpis aplikácie nie je dôveryhodný podpis na Aptoide Anti-Malware platforme, pretože bol použitý na podpis inej aplikácie, ktorá nezodpovedá podpisu vzťahujúcom sa k správnemu vývjárovi.</string>
-    <string name="scanned_manually_by_aptoide_team">Skenované manuálne Aptoide tímom:</string>
-    <string name="scanned_verified_by_tester">Aplikácia bola preskúmaná ručne pomocou testera z Aptoide tímu, ktorý zaisťuje bezpečnosť aplikácií.</string>
+    <string name="application_signature_blacklisted">Podpis aplikácie nie je dôveryhodný podpis na %s Anti-Malware platforme, pretože bol použitý na podpis inej aplikácie, ktorá nezodpovedá podpisu vzťahujúcom sa k správnemu vývjárovi.</string>
+    <string name="scanned_manually_by_aptoide_team">Skenované manuálne %s tímom:</string>
+    <string name="scanned_verified_by_tester">Aplikácia bola preskúmaná ručne pomocou testera z %s tímu, ktorý zaisťuje bezpečnosť aplikácií.</string>
     <string name="warning">Varovanie</string>
     <string name="trusted_app">Dôveryhodná aplikácia</string>
     <string name="unknown">Neznáme</string>
@@ -494,10 +494,10 @@
     <string name="reason_third_party">Skontrolovali sme podpis aplikácie a zhoduje sa s obchodom Google Play, tak buďte kľudní a užívajte si aplikáciu.</string>
     <string name="reason_scanned">Skenované s AptoideGuard plus 2 rozličnými antivírusovými programami (Zoner 1.8 a Sophos 3.0).</string>
     <string name="reason_signature">Kryptografický podpisuzaručuje, že súbor je bezpečný pre inštaláciu a nebol manipulovaný žiadnom spôsobom.</string>
-    <string name="reason_manual">Táto aplikácia bola ručne preskúmaná Aptoide expertným tímom, a bola označená ako dobrá.</string>
+    <string name="reason_manual">Táto aplikácia bola ručne preskúmaná %s expertným tímom, a bola označená ako dobrá.</string>
 
     <string name="reason_failed">Podpis aplikácie nezodpovedá podpisu vývojárov. S aplikáciou mohlo byť manipulované.</string>
-    <string name="reason_unknown">Nie je k dispozícii dostatok informácií o tejto aplikácii na Aptoide Anti-Malware platforme.</string>
+    <string name="reason_unknown">Nie je k dispozícii dostatok informácií o tejto aplikácii na %s Anti-Malware platforme.</string>
 
 
 

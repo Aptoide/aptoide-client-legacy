@@ -75,7 +75,7 @@
 <string name="see_top_stores">Ver top de lojas</string>
 <string name="setcredentials">Iniciar sessão</string>
 <string name="rollback">Reverter</string>
-<string name="rollback_empty">Fazer o downgrade rápido de qualquer app para uma versão anterior, resolvendo problemas de incompatibilidade. Mantenha um registo de todas as suas apps instaladas incluindo a versão e data de instalação.</string>
+<string name="rollback_empty">Fazer o downgrade rápido de qualquer app para uma versão anterior, resolvendo problemas de incompatibilidade. Mantenha um registo de todas as suas apps instaladas (via %s) incluindo a versão e data de instalação.</string>
 <string name="rollback_installed">Instaladas</string>
 <string name="rollback_uninstalled">Desinstalado</string>
 <string name="rollback_updated">Actualizado</string>
@@ -88,7 +88,7 @@
 <string name="username">Email</string>
 <string name="username_tip">Escreva o seu email</string>
 <string name="subscribe_pvt_store">Subscrever loja privada</string>
-<string name="accept_terms">Ao registar, está a concordar com os Termos do Serviço da Aptoide e com a Política de Conteúdo para Developers</string>
+<string name="accept_terms">Ao registar, está a concordar com os Termos do Serviço da %s e com a Política de Conteúdo para Developers</string>
 <string name="register">Registar</string>
 <string name="or">- Ou -</string>
 <string name="dont_have_an_account">Não tem conta? Registe-se</string>
@@ -244,7 +244,7 @@
 <string name="cancel">Cancelar</string>
 <string name="error_occured_paying">Ocorreu um erro. O pagamento não foi concluído.</string>
 <string name="failed_auth_code">Falha de autorização da conta. Por favor tente novamente.</string>
-<string name="error_occured_retry_later">Ocorreu um erro. O Aptoide voltará a tentar automaticamente.</string>
+<string name="error_occured_retry_later">Ocorreu um erro. O %s voltará a tentar automaticamente.</string>
 <string name="account">Conta</string>
 <string name="no_payments_available">Sem pagamentos disponíveis.</string>
 <string name="change_payment">Voltar</string>
@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Esta aplicação não publica no Facebook</string>
 <string name="invite_friends">Convidar Amigos</string>
 <string name="facebook_timeline_friends_invited">Convite enviado aos seus Amigos!</string>
-<string name="friends_to_invite">Todos os outros amigos do Facebook no Aptoide</string>
+<string name="friends_to_invite">Todos os outros amigos do Facebook no %s</string>
 <string name="timeline_is_empty_no_friends">A sua Cronologia está vazia. Provavelmente ainda não tem amigos registados no Aptoide ou ainda não fizeram nenhuma publicação.</string>
 <string name="timeline_is_empty_start_invite">Vamos começar por convidar alguns amigos:</string>
 <string name="timeline_empty_no_friends_send_email">Parece que os seus amigos não iniciaram sessão Facebook com o Aptoide. Envie-lhes um email para iniciarem a sessão com a conta Facebook</string>
@@ -299,8 +299,8 @@
 <string name="friends_installs">Instalações dos amigos</string>
 <string name="highlighted_apps">Destaques</string>
 <string name="button_more">Mais</string>
-<string name="setting_category_autoupdate">Auto-update da Aptoide</string>
-<string name="setting_category_autoupdate_title">Activar o auto-update da Aptoide</string>
+<string name="setting_category_autoupdate">Auto-update da %s</string>
+<string name="setting_category_autoupdate_title">Activar o auto-update da %s</string>
 <string name="review_speed">Velocidade</string>
 <string name="review_usability">Usabilidade</string>
 <string name="review_addictive">Viciante</string>
@@ -325,7 +325,7 @@
 <string name="error_IARG_103">Categoria inválida</string>
 <string name="error_APK_Description">Descrição não disponível</string>
 <string name="error_SYS_Billing">Pagamentos dentro da aplicação não são suportados por este equipamento.</string>
-<string name="aptoide_description">Loja oficial da Aptoide</string>
+<string name="aptoide_description">Loja oficial da %s</string>
 <string name="community">Comunidade</string>
 <string name="updates">Actualizações</string>
 <string name="yes">Sim</string>
@@ -386,8 +386,8 @@
     <string name="review_by">Crítica de:\n%s</string>
     <string name="review_title">Críticas</string>
     <string name="review_good">Bom</string>
-    <string name="upload_app_backup_apps_installed">Primeiro necessita de fazer o upload desta app para a sua loja. Pode usar a aplicação Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">Primeiro necessita de fazer o upload desta app para a sua loja. Por favor instale e use a aplicação Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">Primeiro necessita de fazer o upload desta app para a sua loja. Pode usar a aplicação %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">Primeiro necessita de fazer o upload desta app para a sua loja. Por favor instale e use a aplicação %s Backup Apps.</string>
     <string name="upload_app">Enviar aplicação</string>
     <string name="create_review">Escrever crítica</string>
 
@@ -479,9 +479,9 @@
     <string name="application_signature_analysis">Assinatura da aplicação comparada com a assinatura do developer:</string>
     <string name="application_signature_matched">A assinatura da aplicação coincide com a assinatura do developer da aplicação.</string>
     <string name="application_signature_not_matched">A assinatura da aplicação não coincide com a assinatura do developer da aplicação. A aplicação poderá ter sido adulterada.</string>
-    <string name="application_signature_blacklisted">A assinatura da aplicação não é uma assinatura fidedigna na plataforma anti-malware da Aptoide, pois foi usada para assinar uma outra aplicação que não coincide com a assinatura do developer legítimo.</string>
-    <string name="scanned_manually_by_aptoide_team">Analisado manualmente pela equipa Aptoide:</string>
-    <string name="scanned_verified_by_tester">Esta aplicação foi manualmente analisada por um testador da equipa Aptoide, que assegura a segurança da aplicação.</string>
+    <string name="application_signature_blacklisted">A assinatura da aplicação não é uma assinatura fidedigna na plataforma anti-malware da %s, pois foi usada para assinar uma outra aplicação que não coincide com a assinatura do developer legítimo.</string>
+    <string name="scanned_manually_by_aptoide_team">Analisado manualmente pela equipa %s:</string>
+    <string name="scanned_verified_by_tester">Esta aplicação foi manualmente analisada por um testador da equipa %s, que assegura a segurança da aplicação.</string>
     <string name="warning">Aviso</string>
     <string name="trusted_app">App Fidedigna</string>
     <string name="unknown">Desconhecido</string>
@@ -489,10 +489,10 @@
     <string name="reason_third_party">Verificamos a assinatura da app e a mesma coincide com a loja Play da Google, por isso descanse e desfrute da app.</string>
     <string name="reason_scanned">Analisado com o AptoideGuard e mais 2 antivírus diferentes (Zoner 1.8 e Sophos 3.0).</string>
     <string name="reason_signature">A assinatura criptográfica garante que o ficheiro é seguro de instalar e que não foi adulterado de algum modo.</string>
-    <string name="reason_manual">Esta app foi manualmente analisada por um expert da equipa Aptoide, e marcada como Boa.</string>
+    <string name="reason_manual">Esta app foi manualmente analisada por um expert da equipa %s, e marcada como Boa.</string>
 
     <string name="reason_failed">A assinatura da aplicação não coincide com a assinatura do developer. A app poderá ter sido adulterada.</string>
-    <string name="reason_unknown">Não existem informações suficientes sobre esta app na plataforma anti-malware da Aptoide.</string>
+    <string name="reason_unknown">Não existem informações suficientes sobre esta app na plataforma anti-malware da %s.</string>
 
 
 
@@ -629,5 +629,32 @@
     <string name="libraries_demo">Bibliotecas &amp; Demo</string>
     <string name="shopping">Compras</string>
     <string name="weather">Meteorologia</string>
-<string name="word"></string>
-    </resources>
+<string name="word">Palavras</string>
+    <string name="balloon_security_google_play"/>
+    <string name="updates_filter_setting_title">Mostrar-me apenas actualizações para versões estáveis</string>
+    <string name="balloon_security_subtitle">Agora verificamos todas as apps em busca de Vírus.</string>
+    <string name="balloon_security_title">A Aptoide mudou.</string>
+    <string name="balloon_security_subtitle_start_part">"Verificámos o %1$s "</string>
+    <string name="balloon_security_subtitle_final_part">" em busca de Vírus:"</string>
+    <string name="updates_filter_summary">Ao marcar esta opção, não será notificado para versões beta.</string>
+
+    <string name="auto_update">Auto Actualização</string>
+    <string name="latest_applications">Últimas aplicações</string>
+    <string name="top_apps_in_store">Top Apps nesta loja</string>
+    <string name="apps_for_kids">Apps para Crianças</string>
+    <string name="aptoide_publishers">Aptoide Publishers</string>
+    <string name="music_video">Música &amp; Vídeo</string>
+    <string name="essential_apps">Apps Essenciais</string>
+    <string name="summer_apps">Apps de Verão</string>
+    <string name="play_it">Joga-os!</string>
+    <string name="add_more_stores">Adicionar mais lojas</string>
+    <string name="unsubscribe">Remover subscrição</string>
+
+    <string name="dialog_install_warning_proceed_button">Continuar</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">Pesquisar por</string>
+    <string name="dialog_install_warning_trusted_app_button">App Fidedigna</string>
+    <string name="dialog_install_warning_careful_text">Tenha cuidado caso decida instalar esta app. Poderá ter sido adulterada, conter vírus ou malware.</string>
+    <string name="dialog_install_warning_credibility_text">Antes de continuar, verifique a credibilidade da loja e os comentários dos utilizadores. A Aptoide recomenda apenas que instale apps %1$s fidedingas.</string>
+    <string name="dialog_install_warning_trusted_version_button">Versão Fidedigna</string>
+    <string name="dialog_install_warning_get_trusted_version_button">Obter</string>
+</resources>

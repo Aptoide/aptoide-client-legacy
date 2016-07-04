@@ -86,7 +86,7 @@
     <string name="sign_out">ອອກຈາກລະບົບ</string>
     <string name="logged_as">ທ່ານໄດ້ເຂົ້າສູ່ລະບົບເປັນ:</string>
 
-    <string name="aptoide_description">ຮ້ານ Aptoide ຢ່າງເປັນທາງການໃນ App Store</string>
+    <string name="aptoide_description">ຮ້ານ %s ຢ່າງເປັນທາງການໃນ App Store</string>
 
     <string name="error_410">ຂໍອະໄພ, ບໍ່ພົບແອັບຯທີ່ຮ້ອງຂໍໃນເຊີບເວີນີ້.</string>
 
@@ -107,7 +107,7 @@
     <string name="forgot_passwd">ລືມລະຫັດຜ່ານຫຼືບໍ່?</string>
     <string name="error_occured">ເກີດຂໍ້ຜິດພາດຂຶ້ນ. ກະລຸນາລອງໃໝ່ອີກຄັ້ງ</string>
     <string name="simple_error_occured">ເກີດຂໍ້ຜິດພາດຂຶ້ນ. </string>
-    <string name="or">ຫຼື</string>
+    <string name="or">- ຫຼື -</string>
     <string name="yes">ຕົກລົງ</string>
     <string name="no">ບໍ່</string>
     <string name="username">ອີເມວ</string>
@@ -134,7 +134,7 @@
     <string name="password_validation_text">"ລະຫັດຜ່ານຕ້ອງມີຢ່າງໜ້ອຍ 8 ໂຕອັກສອນ ແລະ ຄວນມີ 1 ໂຕໜັງສື ແລະ 1 ໂຕເລກ ຫຼື ສັນຍາລັກພິເສດ (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">Aptoide ແພລັດຟອມປ້ອງກັນໄວຣັສ ວິເຄາະແອັບພລິເຄຊັນໃນເວລາເຮັດວຽກ ແລະ ປິດກັ້ນໄພຄຸກຄາມຕ່າງໆທັງໝົດທົ່ວຮ້ານຄ້າ. ລະບົບນີ້ສະແກນໄຟລ໌ແອັບພລິເຄຊັນໃໝ່ຈາກຮ້ານຄ້າ ແລະ ຮອບຮັບພວກມັນໂດຍການປຽບທຽບກັບຕະຫຼາດ Android ອື່ນໆ.</string>
     <string name="username_tip">ພິມອີເມວຂອງທ່ານ</string>
-    <string name="accept_terms">ໂດຍການລົງທະບຽນແມ່ນທ່ານຍິນຍອມຕໍ່ ເງື່ອນໄຂການໃຫ້ບໍລິການ ແລະ ນະໂຍບາຍເນື້ອໃນສຳລັບນັກພັດທະນາຂອງ Aptoide</string>
+    <string name="accept_terms">ໂດຍການລົງທະບຽນແມ່ນທ່ານຍິນຍອມຕໍ່ ເງື່ອນໄຂການໃຫ້ບໍລິການ ແລະ ນະໂຍບາຍເນື້ອໃນສຳລັບນັກພັດທະນາຂອງ %s</string>
 
     <string name="start_loading">ກຳລັງໂຫຼດ…</string>
     <string name="store_already_added">ຮ້ານຄ້າໄດ້ຖືກເພີ່ມແລ້ວ!</string>
@@ -216,7 +216,7 @@
     <string name="schDwnBtn">ຕັ້ງເວລາດາວໂຫຼດ</string>
     <string name="added_to_scheduled">ເພີ່ມໃສ່ ເມນູ &gt; ຕັ້ງເວລາດາວໂຫຼດ</string>
     <string name="schDown_install">ທ່ານຕ້ອງການຕິດຕັ້ງແອັບຯທີ່ຕັ້ງເວລາດາວໂຫຼດທັງໝົດຫຼືບໍ່?</string>
-    <string name="hidden_adult">ບາງແອັບຯໄດ້ຖືກເຊື່ອງໄວ້ ເພາະວ່າການກັ່ນຕອງເນື້ອຫາສຳລັບຜູ້ໃຫຍ່ຖືກເປີດນຳໃຊ້. ທ່ານຕ້ອງການໃຫ້ສະແດງແອັບຯເຫຼົ່ານັ້ນຫຼືບໍ່?</string>
+    <string name="hidden_adult">ບາງແອັບຯໄດ້ຖືກເຊື່ອງໄວ້ ເພາະວ່າການກັ່ນຕອງເນື້ອຫາສຳລັບຜູ້ໃຫຍ່ຖືກເປີດນຳໃຊ້. ທ່ານຕ້ອງການໃຫ້ສະແດງແອັບຯນີ້ຫຼືບໍ່?</string>
     <string name="dont_show_again">ຢ່າສະແດງໜ້າຕ່າງນີ້ອີກ</string>
 
     <string name="app_name">Aptoide</string>
@@ -232,7 +232,7 @@
     <string name="downgrade">ດາວເກຣດ</string>
     <string name="reinstall">ຕິດຕັ້ງຄືນ</string>
 
-    <string name="rollback_empty">ດາວເກຣດແອັບຯໃດໜຶ່ງລົງໄປຫາເວີຊັນກ່ອນໆຢ່າງວ່ອງໄວ ແລະ ແກ້ບັນຫາການເຂົ້າກັນບໍ່ໄດ້: ເກັບບັນທຶກຂອງທຸກແອັບຯທີ່ທ່ານຕິດຕັ້ງ ລວມເຖິງເວີຊັນ ແລະ ວັນທີ່ຕິດຕັ້ງ.</string>
+    <string name="rollback_empty">ດາວເກຣດແອັບຯໃດໜຶ່ງລົງໄປຫາເວີຊັນກ່ອນໆຢ່າງວ່ອງໄວ ແລະ ແກ້ບັນຫາການເຂົ້າກັນບໍ່ໄດ້: ເກັບບັນທຶກຂອງທຸກແອັບຯທີ່ທ່ານຕິດຕັ້ງ (ຜ່ານ %s) ລວມເຖິງເວີຊັນ ແລະ ວັນທີ່ຕິດຕັ້ງ.</string>
 
     <string name="see_more">ເບິ່ງເພີ່ມເຕີມ</string>
     <string name="see_less">ເບິ່ງໜ້ອຍລົງ</string>
@@ -276,7 +276,7 @@
     <string name="no_payments_available">ບໍ່ມີການຊຳລະເງິນທີ່ໃຊ້ໄດ້.</string>
     <string name="failed_auth_code">ການຢືນຢັນບັນຊີລົ້ມເຫຼວ. ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.</string>
     <string name="error_occured_paying">ເກີດຂໍ້ຜິດພາດ. ການຊຳລະເງິນບໍ່ສຳເລັດ.</string>
-    <string name="error_occured_retry_later">ເກີດຂໍ້ຜິດພາດ. Aptoide ຈະລອງໃໝ່ໃນພາຍຫຼັງໂດຍອັດຕະໂນມັດ.</string>
+    <string name="error_occured_retry_later">ເກີດຂໍ້ຜິດພາດ. %s ຈະລອງໃໝ່ໃນພາຍຫຼັງໂດຍອັດຕະໂນມັດ.</string>
     <string name="account">ບັນຊີ</string>
     <string name="confirm_carrier_payment">"ທ່ານຕ້ອງການຊື້ \'{title}\' ໃນລາຄາ {value} ຫຼືບໍ່? ທ່ານຈະຖືກຮຽກເກັບເງິນຈາກເຄືອຂ່າຍຂອງທ່ານ. "</string>
     <string name="buy">ຊື້</string>
@@ -294,7 +294,7 @@
     <string name="downgrade_requires_uninstall">ການດາວເກຣດຈຳຕ້ອງຖອນຕິດຕັ້ງແອັບພລິເຄຊັນ</string>
 
     <string name="order_popup_title3">ເນື້ອຫາຜູ້ໃຫຍ່</string>
-    <string name="friends_to_invite">ໝູ່ອື່ນໆທັງໝົດໃນ Facebook ທີ່ຢູ່ໃນ Aptoide</string>
+    <string name="friends_to_invite">ໝູ່ອື່ນໆທັງໝົດໃນ Facebook ທີ່ຢູ່ໃນ %s</string>
     <string name="invite_friends">ຊວນໝູ່</string>
     <string name="timeline_is_empty_send_email">ພວກເຮົາຈະສົ່ງອີເມວໄປຫາພວກເຂົາທີ່ທ່ານເລືອກ</string>
     <string name="facebook_timeline_friends_invited">ໝູ່ຖືກຊວນແລ້ວ!</string>
@@ -358,8 +358,8 @@
     <string name="private_key">ສ່ວນບຸກຄົນ</string>
     <string name="store_username">ຊື່ຜູ້ໃຊ້</string>
     <string name="store_password">ລະຫັດຜ່ານ</string>
-    <string name="upload_app_backup_apps_installed">ທ່ານຕ້ອງອັບໂຫຼດແອັບຯນີ້ຂຶ້ນຮ້ານຄ້າຂອງທ່ານກ່ອນ. ທ່ານສາມາດນຳໃຊ້ Aptoide Backup Apps ໄດ້.</string>
-    <string name="upload_app_backup_apps_not_installed">ທ່ານຕ້ອງອັບໂຫຼດແອັບຯນີ້ຂຶ້ນຮ້ານຄ້າຂອງທ່ານກ່ອນ. ກະລຸນາຕິດຕັ້ງ ແລະ ໃຊ້ແອັບຯສຳຮອງ Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">ທ່ານຕ້ອງອັບໂຫຼດແອັບຯນີ້ຂຶ້ນຮ້ານຄ້າຂອງທ່ານກ່ອນ. ທ່ານສາມາດນຳໃຊ້ %s Backup Apps ໄດ້.</string>
+    <string name="upload_app_backup_apps_not_installed">ທ່ານຕ້ອງອັບໂຫຼດແອັບຯນີ້ຂຶ້ນຮ້ານຄ້າຂອງທ່ານກ່ອນ. ກະລຸນາຕິດຕັ້ງ ແລະ ໃຊ້ແອັບຯສຳຮອງ %s Backup Apps.</string>
     <string name="upload_app">ອັບໂຫຼດແອັບຯ</string>
     <string name="create_review">ສ້າງບົດວິຈານ</string>
 
@@ -384,8 +384,8 @@
     <string name="setting_hwspecssum">ຂໍ້ມູນຮາດແວກ່ຽວກັບໂທລະສັບຂອງທ່ານ</string>
     <string name="setting_appfiltersum">ບໍ່ສະແດງແອັບພລິເຄຊັນທີ່ບໍ່ເຂົ້າກັບອຸປະກອນນີ້</string>
     <string name="setting_appfiltertitle">ກັ່ນຕອງແອັບພລິເຄຊັນ</string>
-    <string name="setting_category_autoupdate">ອັບເດດ Aptoide ອັດຕະໂນມັດ</string>
-    <string name="setting_category_autoupdate_title">ເປີດນຳໃຊ້ການອັບເດດ Aptoide ອັດຕະໂນມັດ</string>
+    <string name="setting_category_autoupdate">ອັບເດດ %s ອັດຕະໂນມັດ</string>
+    <string name="setting_category_autoupdate_title">ເປີດນຳໃຊ້ການອັບເດດ %s ອັດຕະໂນມັດ</string>
     <string name="setting_dont_show_mature_content">ສະແດງເນື້ອຫາສຳລັບຜູ້ໃຫຍ່</string>
     <string name="setting_mature_filtering">ເນື້ອຫາຜູ້ໃຫຍ່</string>
     <string name="setting_updates">ອັບເດດ</string>
@@ -485,9 +485,9 @@
     <string name="application_signature_analysis">ລາຍເຊັນແອັບພລິເຄຊັນປຽບທຽບກັບລາຍເຊັນຜູ້ພັດທະນາ:</string>
     <string name="application_signature_matched">ລາຍເຊັນແອັບພລິເຄຊັນກົງກັບລາຍເຊັນທີ່ກ່ຽວຂ້ອງກັບນັກພັດທະນາແອັບພລິເຄຊັນ.</string>
     <string name="application_signature_not_matched">ລາຍເຊັນແອັບພລິເຄຊັນບໍ່ກົງກັບລາຍເຊັນທີ່ກ່ຽວຂ້ອງກັບຜູ້ພັດທະນາແອັບພລິເຄຊັນ. ແອັບພລິເຄຊັນອາດຖືກປອມປົນ.</string>
-    <string name="application_signature_blacklisted">ລາຍເຊັນແອັບພລິເຄຊັນບໍ່ແມ່ນລາຍເຊັນທີ່ໜ້າເຊື່ອຖືຢູ່ໃນແພລັດຟອມປ້ອງກັນໄວຣັສ Aptoide ເນື່ອງຈາກມັນຖືກນຳໃຊ້ເພື່ອເຊັນແອັບພລິເຄຊັນອື່ນທີ່ບໍ່ກົງກັບລາຍເຊັນທີ່ກ່ຽວຂ້ອງກັບຜູ້ພັດທະນາທີ່ໜ້າເຊື່ອຖື.</string>
-    <string name="scanned_manually_by_aptoide_team">ສະແກນດ້ວຍຕົນເອງໂດຍທີມງານ Aptoide:</string>
-    <string name="scanned_verified_by_tester">ແອັບພລິເຄຊັນດັ່ງກ່າວໄດ້ຖືກກວດສອບດ້ວຍຕົນເອງໂດຍຜູ້ທົດລອງຈາກທີມງານ Aptoide ເພື່ອຮັບປະກັນຄວາມປອດໄພຂອງແອັບພລິເຄຊັນ.</string>
+    <string name="application_signature_blacklisted">ລາຍເຊັນແອັບພລິເຄຊັນບໍ່ແມ່ນລາຍເຊັນທີ່ໜ້າເຊື່ອຖືຢູ່ໃນແພລັດຟອມປ້ອງກັນໄວຣັສ %s ເນື່ອງຈາກມັນຖືກນຳໃຊ້ເພື່ອເຊັນແອັບພລິເຄຊັນອື່ນທີ່ບໍ່ກົງກັບລາຍເຊັນທີ່ກ່ຽວຂ້ອງກັບຜູ້ພັດທະນາທີ່ໜ້າເຊື່ອຖື.</string>
+    <string name="scanned_manually_by_aptoide_team">ສະແກນດ້ວຍຕົນເອງໂດຍທີມງານ %s:</string>
+    <string name="scanned_verified_by_tester">ແອັບພລິເຄຊັນດັ່ງກ່າວໄດ້ຖືກກວດສອບດ້ວຍຕົນເອງໂດຍຜູ້ທົດລອງຈາກທີມງານ %s ເພື່ອຮັບປະກັນຄວາມປອດໄພຂອງແອັບພລິເຄຊັນ.</string>
     <string name="warning">ຄຳເຕືອນ</string>
     <string name="trusted_app">ແອັບຯໜ້າເຊື່ອຖື</string>
     <string name="unknown">ບໍ່ຮູ້ຈັກ</string>
@@ -495,10 +495,10 @@
     <string name="reason_third_party">ພວກເຮົາໄດ້ກວດສອບລາຍເຊັນຂອງແອັບຯ ແລະ ມັນກົງກັບໃນ Google Play Store, ດັ່ງນັ້ນທ່ານວາງໃຈໄດ້ ແລະ ຂໍໃຫ້ມ່ວນກັບການໃຊ້ແອັບຯ.</string>
     <string name="reason_scanned">ຖືກສະແກນດ້ວຍ AptoideGuard ແລະອີກ 2 ໂປຣແກຣມປ້ອງກັນໄວຣັສ (Zoner 1.8 ແລະ Sophos 3.0).</string>
     <string name="reason_signature">ລາຍເຊັນການເຂົ້າລະຫັດລັບຮັບປະກັນວ່າໄຟລ໌ນັ້ນປອດໄພຕໍ່ການຕິດຕັ້ງ ແລະບໍ່ໄດ້ຖືກດັດແປງດ້ວຍວິທີໃດໆ.</string>
-    <string name="reason_manual">ແອັບຯນີ້ໄດ້ຖືກກວດສອບດ້ວຍຕົນເອງໂດຍທີມງານຜູ້ຊ່ຽວຊານຂອງ Aptoide ແລະ ຖືກປັກທຸງວ່າດີ.</string>
+    <string name="reason_manual">ແອັບຯນີ້ໄດ້ຖືກກວດສອບດ້ວຍຕົນເອງໂດຍທີມງານຜູ້ຊ່ຽວຊານຂອງ %s ແລະ ຖືກປັກທຸງວ່າດີ.</string>
 
     <string name="reason_failed">ລາຍເຊັນແອັບພລິເຄຊັນບໍ່ກົງກັບລາຍເຊັນຜູ້ພັດທະນາ. ແອັບຯອາດຖືກດັດແປງ.</string>
-    <string name="reason_unknown">ບໍ່ມີຂໍ້ມູນພຽງພໍກ່ຽວກັບແອັບຯນີ້ໃນແພລັດຟອມປ້ອງກັນໄວຣັສ Aptoide.</string>
+    <string name="reason_unknown">ບໍ່ມີຂໍ້ມູນພຽງພໍກ່ຽວກັບແອັບຯນີ້ໃນແພລັດຟອມປ້ອງກັນໄວຣັສ %s.</string>
 
 
 
@@ -640,4 +640,43 @@
     <string name="trending">ກຳລັງນິຍົມ</string>
     <string name="trivia">ເກັດຄວາມຮູ້</string>
     <string name="word">ຄຳເວົ້າ</string>
+<string name="updates_filter_setting_title">ສະແດງສະເພາະອັບເດດເວີຊັນທີ່ສະຖຽນເທົ່ານັ້ນ</string>
+    <string name="balloon_security_google_play">ແອັບຯກົງກັບ</string>
+    <string name="balloon_security_subtitle">ປັດຈຸບັນພວກເຮົາໄດ້ກວດສອບໄວຣັສຂອງແອັບຯທັງໝົດແລ້ວ.</string>
+    <string name="balloon_security_title">Aptoide ໄດ້ມີການປ່ຽນແປງ.</string>
+    <string name="balloon_security_subtitle_start_part">"ພວກເຮົາໄດ້ກວດສອບແລ້ວ %1$s "</string>
+    <string name="balloon_security_subtitle_final_part">" ສຳລັບໄວຣັສ:"</string>
+    <string name="updates_filter_summary">ເລືອກບ່ອນນີ້, ທ່ານຈະບໍ່ໄດ້ຮັບການແຈ້ງເຕືອນສຳລັບເວີຊັນທົດສອບ.</string>
+
+    <string name="health">ສຸຂະພາບ</string>
+    <string name="highlighted">ໄຮໄລ້</string>
+    <string name="local_top_apps">ແອັບຯເດັ່ນໃນທ້ອງຖິ່ນ</string>
+    <string name="medical">ການແພດ</string>
+    <string name="multimedia">ບັນເທີງ</string>
+    <string name="music">ເພງ</string>
+    <string name="music_audio">ເພງ &amp; ສຽງ</string>
+    <string name="reference">ການອ້າງອີງ</string>
+    <string name="travel">ການທ່ອງທ່ຽວ</string>
+    <string name="libraries_demo">ຫໍສະໝຸດ &amp; ຕົວຢ່າງ</string>
+    <string name="shopping">ການຊື້ເຄື່ອງ</string>
+    <string name="weather">ສະພາບອາກາດ</string>
+
+    <string name="latest_applications">ແອັບພລິເຄຊັນຫຼ້າສຸດ</string>
+    <string name="top_apps_in_store">ແອັບຯເດັ່ນໃນຮ້ານຄ້ານີ້</string>
+    <string name="apps_for_kids">ແອັບຯສຳລັບເດັກນ້ອຍ</string>
+    <string name="aptoide_publishers">ຜູ້ເຜີຍແຜ່ Aptoide</string>
+    <string name="music_video">ເພງ &amp; ວິດີໂອ</string>
+    <string name="essential_apps">ແອັບຯສຳຄັນ</string>
+    <string name="summer_apps">ແອັບຯພັກຮ້ອນ</string>
+    <string name="play_it">ຫຼິ້ນມັນ!</string>
+    <string name="add_more_stores">ເພີ່ມຮ້ານຄ້າເພີ່ມເຕີມ</string>
+    <string name="unsubscribe">ຢຸດຕິດຕາມ</string>
+
+    <string name="dialog_install_warning_proceed_button">ດຳເນີນການ</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">ຊອກຫາ</string>
+    <string name="dialog_install_warning_trusted_app_button">ແອັບຯໜ້າເຊື່ອຖື</string>
+    <string name="dialog_install_warning_careful_text">ລະວັງຫາກທ່ານເລືອກທີ່ຈະຕິດຕັ້ງແອັບຯນີ້. ມັນອາດຖືກດັດແປງ, ມີໄວຣັສ ຫຼື ໂປຣແກຣມທີ່ເປັນອັນຕະລາຍ.</string>
+    <string name="dialog_install_warning_credibility_text">ກ່ອນທີ່ຈະດຳເນີນການຕໍ່, ກະລຸນາກວດສອບຄວາມໜ້າໄວ້ໃຈຂອງຮ້ານຄ້າ ແລະ ຄຳເຫັນຈາກຜູ້ໃຊ້ອື່ນໆ. Aptoide ແນະນຳໃຫ້ທ່ານຕິດຕັ້ງ %1$s ແອັບຯທີ່ໜ້າເຊື່ອຖືສະເໝີ.</string>
+    <string name="dialog_install_warning_trusted_version_button">ເວີຊັນທີ່ໜ້າເຊື່ອຖື</string>
+    <string name="dialog_install_warning_get_trusted_version_button">ໂຫຼດ</string>
 </resources>

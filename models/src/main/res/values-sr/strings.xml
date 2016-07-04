@@ -68,7 +68,7 @@
 <string name="see_top_stores">Погледајте најпопуларније радње</string>
 <string name="setcredentials">Пријавите се</string>
 <string name="rollback">Враћање</string>
-<string name="rollback_empty">Брзо вратите сваку апликацију на претходну верзију и решите проблеме некомпатибилности. Сачувајте евиденцију свих својих инсталираних апликација укључујући верзију и датум инсталације.</string>
+<string name="rollback_empty">Брзо вратите сваку апликацију на претходну верзију и решите проблеме некомпатибилности. Сачувајте евиденцију свих својих инсталираних апликација (преко %s) укључујући верзију и датум инсталације.</string>
 <string name="rollback_installed">Инсталирано</string>
 <string name="rollback_uninstalled">Деинсталирано</string>
 <string name="rollback_updated">Ажурирано</string>
@@ -80,7 +80,7 @@
 <string name="update_all">Ажурирај све</string>
 <string name="username">Имејл</string>
 <string name="username_tip">Укуцајте ваш имејл</string>
-<string name="accept_terms">Пријављивањем се слажете са Аптоидовим Условима коришћења и Политиком о садржајима за програмере</string>
+<string name="accept_terms">Пријављивањем се слажете са %s Условима коришћења и Политиком о садржајима за програмере</string>
 <string name="register">Пријавите се</string>
 <string name="or">- Или -</string>
 <string name="dont_have_an_account">Немате налог? Пријавите се</string>
@@ -233,7 +233,7 @@
 <string name="cancel">Откажите</string>
 <string name="error_occured_paying">Дошло је до грешке. Плаћање није комплетирано.</string>
 <string name="failed_auth_code">Неуспешно потврђивање налога. Молимо покушајте поново.</string>
-<string name="error_occured_retry_later">Дошло је до грешке. Аптоид ће касније поново покушати аутоматски.</string>
+<string name="error_occured_retry_later">Дошло је до грешке. %s ће касније поново покушати аутоматски.</string>
 <string name="account">Налог</string>
 <string name="no_payments_available">Нема доступних исплата.</string>
 <string name="change_payment">Назад</string>
@@ -261,7 +261,7 @@
 
     <string name="error_SYS_Billing">Овај уређај не подржава Ин-Ап Билинг.</string>
 
-    <string name="aptoide_description">Аптоид званична Ап Радња</string>
+    <string name="aptoide_description">%s званична Ап Радња</string>
 
     <string name="error_410">Нажалост, тражена апликација није нађена на овом серверу.</string>
 
@@ -353,7 +353,7 @@
     <string name="billing_result">"Исход трансакције је: "</string>
 
     <string name="order_popup_title3">Садржај за одрасле</string>
-    <string name="friends_to_invite">Сви остали Фејсбук пријатељи са Аптоида</string>
+    <string name="friends_to_invite">Сви остали Фејсбук пријатељи са %s</string>
     <string name="invite_friends">Позовите пријатеље</string>
     <string name="timeline_is_empty_send_email">Послаћемо имејл свима које одаберете</string>
     <string name="facebook_timeline_friends_invited">Пријатељ позван!</string>
@@ -410,8 +410,8 @@
     <string name="store_privacy">Приватност радње</string>
     <string name="public_key">јавно</string>
     <string name="private_key">приватно</string>
-    <string name="upload_app_backup_apps_installed">Морате прво да учитате ову апликацију у своју радњу. Можете користити Аптоид Бекап Апс.</string>
-    <string name="upload_app_backup_apps_not_installed">Морате прво да учитате ову апликацију у своју радњу. Молимо инсталирајте и користите Аптоид Бекап Апс.</string>
+    <string name="upload_app_backup_apps_installed">Морате прво да учитате ову апликацију у своју радњу. Можете користити %s Бекап Апс.</string>
+    <string name="upload_app_backup_apps_not_installed">Морате прво да учитате ову апликацију у своју радњу. Молимо инсталирајте и користите %s Бекап Апс.</string>
     <string name="upload_app">Учитајте апликацију</string>
     <string name="create_review">Оцените</string>
 
@@ -420,8 +420,8 @@
     <string name="setting_mobile">Мобилна 3Г/4Г</string>
     <string name="setting_sum_general_download_rules">Преузмите апликације, изборе Уредника, најпопуларније апликације и радње преко дозвољених мобилних веза за пренос података</string>
     <string name="setting_general_download_rules">Општа правила преузимања</string>
-    <string name="setting_category_autoupdate">Аптоид аутоматско ажурирање</string>
-    <string name="setting_category_autoupdate_title">Омогући аутоматско ажурирање Аптоида</string>
+    <string name="setting_category_autoupdate">%s аутоматско ажурирање</string>
+    <string name="setting_category_autoupdate_title">Омогући аутоматско ажурирање %s</string>
     <string name="setting_dont_show_mature_content">Прикажи Садржај за одрасле</string>
     <string name="whats_new">Шта има ново?</string>
     <string name="disable_social_timeline">Искључите Друштвену сатницу</string>
@@ -467,9 +467,9 @@
     <string name="application_signature_analysis">Потпис апликације упоређен са потписом програмера:</string>
     <string name="application_signature_matched">Потпис апликације идентичан са потписом програмера апликације.</string>
     <string name="application_signature_not_matched">Потпис апликације не одговара потпису програмера апликације. Апликација је можда фалсификована.</string>
-    <string name="application_signature_blacklisted">Потпис апликације није Поуздан потпис на Аптоид Анти-Малвер платформи јер је коришћен за потпис друге апликације која не одговара потпису легитимног програмера.</string>
-    <string name="scanned_manually_by_aptoide_team">Лично проверио Аптоид Тим:</string>
-    <string name="scanned_verified_by_tester">Апликацију је лично проверио тестер из Аптоид Тима што гарантује безбедност апликације.</string>
+    <string name="application_signature_blacklisted">Потпис апликације није Поуздан потпис на %s Анти-Малвер платформи јер је коришћен за потпис друге апликације која не одговара потпису легитимног програмера.</string>
+    <string name="scanned_manually_by_aptoide_team">Лично проверио %s Тим:</string>
+    <string name="scanned_verified_by_tester">Апликацију је лично проверио тестер из %s Тима што гарантује безбедност апликације.</string>
     <string name="warning">Упозорење</string>
     <string name="trusted_app">Безбедна апликација</string>
     <string name="unknown">Непознато</string>
@@ -477,10 +477,10 @@
     <string name="reason_third_party">Проверили смо потпис апликације и он одговара Гугл Плеј Радњи, немојте да бринете и уживајте у апликацији.</string>
     <string name="reason_scanned">Скенирано са АптоидГардом и још 2 различита антивирусна програма (Зонер 1.8 и Софос 3.0).</string>
     <string name="reason_signature">Шифровани потпис гарантује да је фајл безбедан за инсталирање и да није фалсификован.</string>
-    <string name="reason_manual">Ову апликацију лично је прегледао стручни тим Аптоида и она је означена као Исправна.</string>
+    <string name="reason_manual">Ову апликацију лично је прегледао стручни тим %s и она је означена као Исправна.</string>
 
     <string name="reason_failed">Потпис апликације не одговара потпису програмера. Апликација је можда фалсификована.</string>
-    <string name="reason_unknown">О овој апликацији нема довољно информација на Аптоид Анти-Малвер платформи.</string>
+    <string name="reason_unknown">О овој апликацији нема довољно информација на %s Анти-Малвер платформи.</string>
 
 
 

@@ -20,6 +20,7 @@ import com.aptoide.amethyst.ui.callbacks.AddCommentCallback;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
+import com.aptoide.dataprovider.webservices.models.v7.Info;
 import com.aptoide.models.displayables.CommentItem;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
@@ -27,10 +28,14 @@ import com.aptoide.models.displayables.ProgressBarRow;
 import com.aptoide.models.displayables.NoCommentPlaceHolderRow;
 import com.bumptech.glide.Glide;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 
 import com.aptoide.amethyst.adapter.BaseAdapter;
@@ -48,6 +53,7 @@ import com.aptoide.amethyst.viewholders.store.CommentViewHolder;
 public class CommentsStoreAdapter extends BaseAdapter implements SpannableRecyclerAdapter {
 
     private final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
+
     private final int colorResId;
     private final Activity activity;
     private final boolean appView;
@@ -102,59 +108,60 @@ public class CommentsStoreAdapter extends BaseAdapter implements SpannableRecycl
                 }
             });
         } else if (viewHolder.viewType == R.layout.comment_row) {
-            CommentViewHolder item = (CommentViewHolder) viewHolder;
-            final CommentItem commentItem = (CommentItem) displayableList.get(position);
-            if (appView) {
-                item.appname.setVisibility(View.GONE);
-                item.replyComment.setVisibility(View.VISIBLE);
-                item.verticalSeparator.setVisibility(View.VISIBLE);
-                item.replyComment.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (AptoideUtils.AccountUtils.isLoggedInOrAsk(activity)) {
-                            ReplyCommentDialog replyDialog = AptoideDialog.replyCommentDialog(commentItem.id.intValue(), commentItem.username,
-                                    addCommentCallback);
-                            replyDialog.show(((AppCompatActivity) activity).getSupportFragmentManager(), "replyCommentDialog");
+                CommentViewHolder item = (CommentViewHolder) viewHolder;
+                final CommentItem commentItem = (CommentItem) displayableList.get(position);
+                if (appView) {
+                    item.appname.setVisibility(View.GONE);
+                    item.replyComment.setVisibility(View.VISIBLE);
+                    item.verticalSeparator.setVisibility(View.VISIBLE);
+                    item.replyComment.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (AptoideUtils.AccountUtils.isLoggedInOrAsk(activity)) {
+                                ReplyCommentDialog replyDialog = AptoideDialog.replyCommentDialog(commentItem.id.intValue(), commentItem.username,
+                                        addCommentCallback);
+                                replyDialog.show(((AppCompatActivity) activity).getSupportFragmentManager(), "replyCommentDialog");
+                            }
                         }
+                    });
+                } else {
+                    item.replyComment.setVisibility(View.GONE);
+                    item.appname.setText(commentItem.appname);
+                }
+                String dateString = "";
+                final Context context = viewHolder.itemView.getContext();
+                try {
+                    dateFormatter.setTimeZone(TimeZone.getTimeZone("London"));
+                    dateString = AptoideUtils.DateTimeUtils.getInstance(context).getTimeDiffString(context, dateFormatter.parse(commentItem.timestamp).getTime());
+                } catch (ParseException e) {
+                    Logger.printException(e);
+                }
+                item.timestamp.setText(dateString);
+                item.username.setText(commentItem.username);
+                item.text.setText(commentItem.text);
+                item.appname.setTextColor(colorResId);
+                item.overflow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showPopup(activity, view, commentItem.id.intValue(), commentItem.username, false);
                     }
                 });
-            } else {
-                item.replyComment.setVisibility(View.GONE);
-                item.appname.setText(commentItem.appname);
-            }
-            String dateString = "";
-            final Context context = viewHolder.itemView.getContext();
-            try {
-                dateString = AptoideUtils.DateTimeUtils.getInstance(context).getTimeDiffString(context, dateFormatter.parse(commentItem.timestamp).getTime());
-            } catch (ParseException e) {
-                Logger.printException(e);
-            }
-            item.timestamp.setText(dateString);
-            item.username.setText(commentItem.username);
-            item.text.setText(commentItem.text);
-            item.appname.setTextColor(colorResId);
-            item.overflow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    showPopup(activity, view, commentItem.id.intValue(), commentItem.username, false);
+                if (commentItem.votes != null && commentItem.votes.intValue() != 0) {
+                    item.votes.setVisibility(View.VISIBLE);
+                    item.votes.setText(AptoideUtils.StringUtils.getFormattedString(context, R.string.votes, commentItem.votes));
                 }
-            });
-            if (commentItem.votes != null && commentItem.votes.intValue() != 0) {
-                item.votes.setVisibility(View.VISIBLE);
-                item.votes.setText(AptoideUtils.StringUtils.getFormattedString(context, R.string.votes, commentItem.votes));
+                viewHolder.itemView.setOnClickListener(new CommentItemOnClickListener(commentItem));
+                Glide.with(context).load(commentItem.useravatar).transform(new CircleTransform(context)).into(item.useravatar);
+                if (position == displayableList.size() - 1) {
+                    item.verticalSeparator.setVisibility(View.GONE);
+                }
+                Resources r = item.itemView.getResources();
+                int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, commentItem.commentLevel * 30, r.getDisplayMetrics());
+                LinearLayout.LayoutParams relativeParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                relativeParams.setMargins(px, 0, 0, 0);
+                item.cardLayout.setLayoutParams(relativeParams);
+                item.cardLayout.requestLayout();
             }
-            viewHolder.itemView.setOnClickListener(new CommentItemOnClickListener(commentItem));
-            Glide.with(context).load(commentItem.useravatar).transform(new CircleTransform(context)).into(item.useravatar);
-            if (position == displayableList.size() - 1) {
-                item.verticalSeparator.setVisibility(View.GONE);
-            }
-            Resources r = item.itemView.getResources();
-            int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, commentItem.commentLevel * 30, r.getDisplayMetrics());
-            LinearLayout.LayoutParams relativeParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            relativeParams.setMargins(px, 0, 0, 0);
-            item.cardLayout.setLayoutParams(relativeParams);
-            item.cardLayout.requestLayout();
-        }
     }
 
     public void showPopup(final Activity activity, View view, final int commentId, String author, boolean showReply) {

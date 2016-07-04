@@ -80,9 +80,9 @@
 <string name="update_all">อัปเดตทั้งหมด</string>
 <string name="username">อีเมล</string>
 <string name="username_tip">พิมพ์อีเมลของคุณ</string>
-<string name="accept_terms">ในการลงทะเบียน คุณเห็นด้วยกับเงื่อนไขบริการและนโยบายเนื้อหาของ Aptoide สำหรับนักพัฒนา</string>
+<string name="accept_terms">ในการลงทะเบียน คุณเห็นด้วยกับเงื่อนไขบริการและนโยบายเนื้อหาของ %s สำหรับนักพัฒนา</string>
 <string name="register">ลงทะเบียน</string>
-<string name="or">-หรือ-</string>
+<string name="or">- หรือ -</string>
 <string name="dont_have_an_account">ยังไม่มีบัญชี? ลงทะเบียน</string>
 <string name="logged_as">คุณลงชื่อเข้าใช้ในนาม:</string>
 <string name="sign_out">ลงชื่อออกจากระบบ</string>
@@ -233,7 +233,7 @@
 <string name="cancel">ยกเลิก</string>
 <string name="error_occured_paying">เกิดข้อผิดพลาด การชำระเงินไม่สมบูรณ์</string>
 <string name="failed_auth_code">ล้มเหลวในการพิสูจน์ตัวตน โปรดลองอีกครั้ง</string>
-<string name="error_occured_retry_later">ข้อผิดพลาดเกิดขึ้น Aptoide จะลองพยายามอีกครั้งอัตโนมัติภายหลัง</string>
+<string name="error_occured_retry_later">ข้อผิดพลาดเกิดขึ้น %s จะลองพยายามอีกครั้งอัตโนมัติภายหลัง</string>
 <string name="account">บัญชี</string>
 <string name="no_payments_available">ไม่มีการชำระเงินที่ใช้ได้</string>
 <string name="change_payment">ย้อนกลับ</string>
@@ -261,7 +261,7 @@
 
     <string name="error_SYS_Billing">การเก็บเงินแอปนี้ไม่รองรับเครื่องนี</string>
 
-    <string name="aptoide_description">ร้าน Aptoide อย่างเป็นทางการในแอปสโตร์</string>
+    <string name="aptoide_description">ร้าน %s อย่างเป็นทางการในแอปสโตร์</string>
 
     <string name="community">สังคม</string>
     <string name="updates">อัพเดต</string>
@@ -337,7 +337,7 @@
 
     <string name="order_popup_title3">เนื้อหาสำหรับผู้ใหญ่</string>
     <string name="invite_friends">เชิญเพื่อน</string>
-    <string name="friends_to_invite">เพื่อนทั้งหมดใน Aptoide บนเฟสบุ๊ค</string>
+    <string name="friends_to_invite">เพื่อนทั้งหมดใน %s บนเฟสบุ๊ค</string>
     <string name="timeline_is_empty_send_email">เราจะส่งอีเมลไปให้กลุ่มที่ท่านเลือก</string>
     <string name="facebook_timeline_friends_invited">เพื่อนถูกเชิญแล้ว!</string>
     <string name="select_friends_to_invite">โปรดเลือกเพื่อนของคุณเพื่อที่จะเชิญพวกเขา!</string>
@@ -393,8 +393,8 @@
     <string name="store_privacy">เก็บความเป็นส่วนตัว</string>
     <string name="public_key">เผบแพร่</string>
     <string name="private_key">ส่วนตัว</string>
-    <string name="upload_app_backup_apps_installed">"คุณจำเป็นที่จะต้องอัพโหลดแอปนี้ในร้านค้าของคุณก่อน  คุณสามารถสำรองข้อมูลแอป Aptoide ได้"</string>
-    <string name="upload_app_backup_apps_not_installed">"คุณจำเป็นที่จะต้องอัพโหลดแอปนี้ในร้านค้าของคุณก่อน  โปรดติดตั้งและใช้การสำรองข้อมูลของแอป Aptoide"</string>
+    <string name="upload_app_backup_apps_installed">"คุณจำเป็นที่จะต้องอัพโหลดแอปนี้ในร้านค้าของคุณก่อน  คุณสามารถสำรองข้อมูลแอป %s ได้"</string>
+    <string name="upload_app_backup_apps_not_installed">"คุณจำเป็นที่จะต้องอัพโหลดแอปนี้ในร้านค้าของคุณก่อน  โปรดติดตั้งและใช้การสำรองข้อมูลของแอป %s"</string>
     <string name="upload_app">อัพโหลดแอป</string>
     <string name="create_review">เขียนรีวิว</string>
 
@@ -403,8 +403,8 @@
     <string name="setting_mobile">มือถือ 3จี/4จี</string>
     <string name="setting_sum_general_download_rules">ดาวน์โหลดแอป, แก้ไขทางเลือก, แอปยอดนิยมและร้านค้า ได้รับอนุญาตให้ดาวน์โหลดผ่านการเชื่อมต่อผ่านสัญญาณโทรศัพท์</string>
     <string name="setting_general_download_rules">กฎการดาวน์โหลดทั่วไป</string>
-    <string name="setting_category_autoupdate">อัพเดต Aptoide อัตโนมัติ</string>
-    <string name="setting_category_autoupdate_title">ใช้งานอัพเดต Aptoide อัตโนมัติ</string>
+    <string name="setting_category_autoupdate">อัพเดต %s อัตโนมัติ</string>
+    <string name="setting_category_autoupdate_title">ใช้งานอัพเดต %s อัตโนมัติ</string>
     <string name="setting_dont_show_mature_content">แสดงเนื้อหาพื้นฐาน</string>
     <string name="whats_new">มีอะไรใหม่?</string>
     <string name="drawer_social_media_title">เชื่อมต่อ</string>
@@ -485,15 +485,15 @@
     <string name="application_signature_analysis">ลายเซ็นต์แอปพลิเคชั่นเทียบกับลายเซ็นต์ผู้พัฒนา:</string>
     <string name="application_signature_matched">ลายเซ็นต์แอปพลิเคชั่นสอดคล้องกับลายเซ็นต์ผู้พัฒนา</string>
     <string name="application_signature_not_matched">ลายเซ็นต์แอปพลิเคชั่นไม่สอดคล้องกับลายเซ็นต์ผู้พัฒนา แอปพลิเคชั่นอาจมีเนื่อหาสำหรับผู้ใหญ่</string>
-    <string name="application_signature_blacklisted">ลายเซ็นต์แอปพลิเคชั่นไม่น่าเชื่อถือบน Aptoide แอนตี้ไวรัสมัลแวร์ เพราะมันถูกใช้เซ็นต์ในแอปพลิเคชั่นอื่นซึ่งไม่มีความสอดคล้องกับลายเซ็นต์จริง</string>
-    <string name="scanned_manually_by_aptoide_team">ค้นหาโดยทีม Aptoide:</string>
-    <string name="scanned_verified_by_tester">แอปพลีเคชั่นถูกตรวจสอบโดยผู้ทดสอบในทีม Aptoide ซึ่งมั่นใจได้ว่าแอปพลิเคชั่นมีความปลอดภัย</string>
+    <string name="application_signature_blacklisted">ลายเซ็นต์แอปพลิเคชั่นไม่น่าเชื่อถือบน %s แอนตี้ไวรัสมัลแวร์ เพราะมันถูกใช้เซ็นต์ในแอปพลิเคชั่นอื่นซึ่งไม่มีความสอดคล้องกับลายเซ็นต์จริง</string>
+    <string name="scanned_manually_by_aptoide_team">ค้นหาโดยทีม %s:</string>
+    <string name="scanned_verified_by_tester">แอปพลีเคชั่นถูกตรวจสอบโดยผู้ทดสอบในทีม %s ซึ่งมั่นใจได้ว่าแอปพลิเคชั่นมีความปลอดภัย</string>
     <string name="reason_scanned">สแกนด้วย AptoidGuard plus 2 ซึ่งแตกต่างจากแอนตี้ไวรัส (Zoner 1.8 and Sophos 3.0)</string>
     <string name="reason_signature">ลายเซ็นต์เข้ารหัสลับรับรองความปลอดภัยของการติดตั้งไฟล์และจะไม่มีทางหายไป</string>
-    <string name="reason_manual">แอปนี้ถูกตรวจสอบโดยทีมผู้เชี่ยวชาญของ Aptoide และอยู่ในระดับที่ดี</string>
+    <string name="reason_manual">แอปนี้ถูกตรวจสอบโดยทีมผู้เชี่ยวชาญของ %s และอยู่ในระดับที่ดี</string>
 
     <string name="reason_failed">ลายเซ็นต์แอปพลิเคชั่นไม่สอดคล้องกับลายเซ็นต์ผู้พัฒนา แอปพลิเคชั่นอาจสูยหายไป</string>
-    <string name="reason_unknown">ไม่มีข้อมูลเพียงพอเกี่ยวกับแอปพลิเคชั่นใน Aptoide แอนตี้ไวรัสมัลแวร์</string>
+    <string name="reason_unknown">ไม่มีข้อมูลเพียงพอเกี่ยวกับแอปพลิเคชั่นใน %s แอนตี้ไวรัสมัลแวร์</string>
 
 
 
@@ -562,4 +562,98 @@
     <string name="privacy_copied">คัดลอกลิงค์ส่วนตัวไปยังคลิปบอร์ด</string>
     <string name="subscribing_store_message">ยกเลิกการตอบรับ</string>
 
+<string name="updates_filter_setting_title">แสดงแอปเสถียรเวอร์ชั่นที่อัพเดตแล้ว</string>
+    <string name="balloon_security_google_play">แอปเข้าคู่กับ</string>
+    <string name="comics">การ์ตูน</string>
+    <string name="communication">การติดต่อสื่อสาร</string>
+    <string name="entertainment">ความบันเทิง</string>
+    <string name="finance">การเงิน</string>
+    <string name="health">สุขภาพ</string>
+    <string name="lifestyle">ไลฟ์สไตล์</string>
+    <string name="multimedia">มัลติมีเดีย</string>
+    <string name="news_weather">ข่าวสาร &amp; สภาพอากาศ</string>
+    <string name="productivity">ประสิทธิผล</string>
+    <string name="reference">อ้างอิง</string>
+    <string name="shopping">ช็อปปิ้ง</string>
+    <string name="social">โซเชียล</string>
+    <string name="sports">กีฬา</string>
+    <string name="themes">ธีม</string>
+    <string name="tools">เครื่องมือ</string>
+    <string name="travel">ท่องเที่ยว</string>
+    <string name="demo">ตัวอย่าง</string>
+    <string name="software_libraries">ห้องสมุดซอฟแวร์</string>
+    <string name="all">ทั้งหมด</string>
+    <string name="balloon_security_subtitle">ตอนนี้พกวเราตรวจสอบไวรัสในทุกแอป</string>
+    <string name="balloon_security_title">Aptoide ถูกเปลี่ยนแปลง</string>
+    <string name="balloon_security_subtitle_start_part">"พวกเราได้ตรวจสอบ %1$s "</string>
+    <string name="balloon_security_subtitle_final_part">" สำหรับไวรัส:"</string>
+    <string name="updates_filter_summary">การตรวจสอบสิ่งนี คุณไม่ต้องแจ้งเวอร์ชั่นเบต้า</string>
+
+    <string name="latest_reviews">การรีวิวล่าสุด</string>
+    <string name="latest_comments">ความคิดเห็นล่าสุด</string>
+    <string name="action">แอคชั่น</string>
+    <string name="adventure">ผจญภัย</string>
+    <string name="applications">แอปพลิเคชั่น</string>
+    <string name="arcade">อาร์เขต</string>
+    <string name="arcade_action">อาร์เขตและแอคชั่น</string>
+    <string name="auto_update">อัพเดตอัตโนมัติ</string>
+    <string name="board">บอร์ด</string>
+    <string name="books_reference">หนังสือและอ้างอิง</string>
+    <string name="brain_puzzle">ลับสมอง</string>
+    <string name="business">ธุรกิจ</string>
+    <string name="card">การ์ด</string>
+    <string name="cards_casino">การ์ดและคาสิโน</string>
+    <string name="casino">คาสิโน</string>
+    <string name="casual">ทางการ</string>
+    <string name="education">การศึกษา</string>
+    <string name="educational">การศึกษา</string>
+    <string name="enable">เปิดใช้งาน</string>
+    <string name="family">ครอบครัว</string>
+    <string name="games">เกมส์</string>
+    <string name="health_fitness">สุขภาพและฟิตเนส</string>
+    <string name="highlighted">ไฮไลท์</string>
+    <string name="local_top_apps">แอปยอดนิยมท้องถิ่น</string>
+    <string name="media_video">มีเดียและวีดีโอ</string>
+    <string name="medical">การแพทย์</string>
+    <string name="music">เพลง</string>
+    <string name="music_audio">เพลงและเสียง</string>
+    <string name="news_magazines">ข่าวและนิตยสาร</string>
+    <string name="personalization">รูปแบบเฉพาะ</string>
+    <string name="photography">รูปภาพ</string>
+    <string name="puzzle">เกมส์ลับสมอง</string>
+    <string name="quick_start">เริ่มใช้งานอย่างง่าย</string>
+    <string name="racing">การแข่งขัน</string>
+    <string name="role_playing">บบาทสมมติ</string>
+    <string name="simulation">สถานการณ์จำลอง</string>
+    <string name="sports_games">เกมส์กีฬา</string>
+    <string name="strategy">กลยุทธ์</string>
+    <string name="top_apps">แอปยอดนิยม</string>
+    <string name="top_games">เกมส์ยอดนิยม</string>
+    <string name="transport">การเดินทางขนส่ง</string>
+    <string name="transportation">การเดินทางขนส่ง</string>
+    <string name="travel_local">ท่องเที่ยวและท้องถิ่น</string>
+    <string name="trending">เทรนทันสมัย</string>
+    <string name="trivia">ไทเวีย</string>
+    <string name="word">คำ</string>
+    <string name="libraries_demo">ห้องสมุดและเดโม่</string>
+    <string name="weather">สภาพอากาศ</string>
+
+    <string name="latest_applications">แอปพลิเคชั่นล่าสุด</string>
+    <string name="top_apps_in_store">แอปยอดนิยมในร้านค้านี้</string>
+    <string name="apps_for_kids">แอปสำหรับเด็ก</string>
+    <string name="aptoide_publishers">ผู้เผยแพร่Aptoide</string>
+    <string name="music_video">เพลงและวีดีโอ</string>
+    <string name="essential_apps">แอปที่จำเป็น</string>
+    <string name="summer_apps">แอปฤดูร้อน</string>
+    <string name="play_it">เล่น!</string>
+    <string name="add_more_stores">เพิ่มร้านค้ามากกว่านี้</string>
+    <string name="unsubscribe">ยกเลิกการตอบรับ</string>
+
+    <string name="dialog_install_warning_proceed_button">ดำเนินการ</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">ค้นหา</string>
+    <string name="dialog_install_warning_trusted_app_button">แอปที่วางใจได้</string>
+    <string name="dialog_install_warning_careful_text">ระวังแอปที่คุณเลือกติดตั้ง มันอาจจะมีไวรัสหรือมัลแวร์</string>
+    <string name="dialog_install_warning_credibility_text">ก่อนการดำเนินการ ตรวจสอบร้านค้าที่น่าเชื่อถือและความคิดเห็นของผู้ใช้งานอื่น Aptoideแนะนำให้คุณติดตั้งแอป %1$s ที่มีความน่าเชื่อถือ</string>
+    <string name="dialog_install_warning_trusted_version_button">เวอร์ชั่นที่น่าเชื่อถือ</string>
+    <string name="dialog_install_warning_get_trusted_version_button">รับ</string>
 </resources>

@@ -80,7 +80,7 @@
 <string name="update_all">Actualitzar tot</string>
 <string name="username">Email</string>
 <string name="username_tip">Introdueix el teu email</string>
-<string name="accept_terms">Al registrar-te acceptes els Termes d\'Ús i Servei i la Política de Continguts per a Desenvolupadors d\'Aptoide</string>
+<string name="accept_terms">Al registrar-te acceptes els Termes d\'Ús i Servei i la Política de Continguts per a Desenvolupadors d\'%s</string>
 <string name="register">Registra\'t</string>
 <string name="or">O</string>
 <string name="dont_have_an_account">No tens un compte? Registra\'t</string>
@@ -233,7 +233,7 @@
 <string name="cancel">Cancel·lar</string>
 <string name="error_occured_paying">Ha succeït un error. El pagament no ha estat completat.</string>
 <string name="failed_auth_code">Error en l\'autorització del compte. Sisplau, intenta-ho de nou.</string>
-<string name="error_occured_retry_later">Ha succeït un error. Aptoide ho reintentarà més tard automàticament.</string>
+<string name="error_occured_retry_later">Ha succeït un error. %s ho reintentarà més tard automàticament.</string>
 <string name="account">Compte</string>
 <string name="no_payments_available">No hi ha pagaments disponibles.</string>
 <string name="change_payment">Enrere</string>

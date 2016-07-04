@@ -75,7 +75,7 @@
 <string name="see_top_stores">En iyi mağazaları gör</string>
 <string name="setcredentials">Giriş</string>
 <string name="rollback">Geri al</string>
-<string name="rollback_empty">Herhangi bir uygulamayı hızlı bir şekilde önceki sürüme geri alın ve uyumsuzluk sorunlarını çözün. ile kurduğunuz tüm uygulamaların kütüğünü tutun, ki bu sürüm ve kurulum tarihini de içerir.</string>
+<string name="rollback_empty">Herhangi bir uygulamayı hızlı bir şekilde önceki sürüme geri alın ve uyumsuzluk sorunlarını çözün. %s ile kurduğunuz tüm uygulamaların kütüğünü tutun, ki bu sürüm ve kurulum tarihini de içerir.</string>
 <string name="rollback_installed">Kuruldu</string>
 <string name="rollback_uninstalled">Kaldırılmış</string>
 <string name="rollback_updated">Güncellenmiş</string>
@@ -88,7 +88,7 @@
 <string name="username">E-posta</string>
 <string name="username_tip">E-postanızı yazın</string>
 <string name="subscribe_pvt_store">Özel mağazaya abone ol</string>
-<string name="accept_terms">Hesap açarak Aptoide kullanım koşulları ve geliştiriciler için içerik politikasını kabul etmiş olursunuz</string>
+<string name="accept_terms">Hesap açarak %s kullanım koşulları ve geliştiriciler için içerik politikasını kabul etmiş olursunuz</string>
 <string name="register">Hesap aç</string>
 <string name="or">Ya da</string>
 <string name="dont_have_an_account">Hesabınız yok mu? Kayıt olun</string>
@@ -244,7 +244,7 @@
 <string name="cancel">İptal et</string>
 <string name="error_occured_paying">Bir hata meydana geldi. Ödeme tamamlanamadı.</string>
 <string name="failed_auth_code">Hesabın izninin açılması başarısız oldu. Tekrar deneyiniz.</string>
-<string name="error_occured_retry_later">Bir hata meydana geldi. Aptoide daha sonra otomatik olarak tekrar deneyecektir.</string>
+<string name="error_occured_retry_later">Bir hata meydana geldi. %s daha sonra otomatik olarak tekrar deneyecektir.</string>
 <string name="account">Hesap</string>
 <string name="no_payments_available">Hiçbir ödeme bulunamadı.</string>
 <string name="change_payment">Geri</string>
@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Bu uygulama Facebook\'a mesaj göndermeyecektir</string>
 <string name="invite_friends">Arkadaş Davet Et</string>
 <string name="facebook_timeline_friends_invited">Arkadaşlar davet edildi!</string>
-<string name="friends_to_invite">Aptoide\'de diğer tüm Facebook arkadaşları</string>
+<string name="friends_to_invite">%s\'de diğer tüm Facebook arkadaşları</string>
 <string name="timeline_is_empty_no_friends">Zaman Çizelgeniz boştur. Bunun sebebi muhtemelen henüz Aptoide\'de arkadaşınızın olmaması veya onların mesaj atmamış olmasıdır.</string>
 <string name="timeline_is_empty_start_invite">Birkaç arkadaş davet etmekle başlayalım:</string>
 <string name="timeline_empty_no_friends_send_email">Arkadaşlarınız Aptoide\'e Facebook hesapları ile giriş yapmamış gibi görülüyor. Onlara Facebook hesaplarıyla giriş yapmaları için bir e-posta gönderin</string>
@@ -299,8 +299,8 @@
 <string name="friends_installs">Arkadaşlarının kurdukları</string>
 <string name="highlighted_apps">Vurgulanan</string>
 <string name="button_more">Dahası</string>
-<string name="setting_category_autoupdate">Aptoide otomatik güncelleme</string>
-<string name="setting_category_autoupdate_title">Aptoide otomatik güncellemesini etkinleştir</string>
+<string name="setting_category_autoupdate">%s otomatik güncelleme</string>
+<string name="setting_category_autoupdate_title">%s otomatik güncellemesini etkinleştir</string>
 <string name="review_speed">Hız</string>
 <string name="review_usability">Kullanılabilirlik</string>
 <string name="review_addictive">Bağımlılık yapan</string>
@@ -333,7 +333,7 @@
 
     <string name="error_SYS_Billing">Uygulama içi faturalandırma bu cihazda desteklenmiyor.</string>
 
-    <string name="aptoide_description">Aptoide Resmî Uygulama Mağazası</string>
+    <string name="aptoide_description">%s Resmî Uygulama Mağazası</string>
 
     <string name="community">Topluluk</string>
     <string name="updates">Güncellemeler</string>
@@ -410,8 +410,8 @@
     <string name="review_by">Yorum şu tarafından:\n%s</string>
     <string name="review_title">Yorumlar</string>
     <string name="review_good">İyi</string>
-    <string name="upload_app_backup_apps_installed">Bu uygulamayı önce mağazanıza yüklemeniz gerekiyor. Aptoide Backup Apps\'ı kullanabilirsiniz.</string>
-    <string name="upload_app_backup_apps_not_installed">Bu uygulamayı önce mağazanıza yüklemeniz gerekiyor. Lütfen Aptoide Backup Apps\'ı kurup kullanın.</string>
+    <string name="upload_app_backup_apps_installed">Bu uygulamayı önce mağazanıza yüklemeniz gerekiyor. %s Backup Apps\'ı kullanabilirsiniz.</string>
+    <string name="upload_app_backup_apps_not_installed">Bu uygulamayı önce mağazanıza yüklemeniz gerekiyor. Lütfen %s Backup Apps\'ı kurup kullanın.</string>
     <string name="upload_app">Uygulama yükle</string>
     <string name="create_review">Yorum oluştur</string>
 
@@ -457,9 +457,9 @@
     <string name="application_signature_analysis">Uygulama imzası geliştiricinin imzası ile karşılaştırılmıştır:</string>
     <string name="application_signature_matched">Uygulama imzası uygulama geliştiricisi ile ilişkili imza eşleşmektedir.</string>
     <string name="application_signature_not_matched">Uygulama imzası uygulama geliştiricisi ile ilişkili imza ile eşleşmemektedir. Uygulama değiştirilmiş olabilir.</string>
-    <string name="application_signature_blacklisted">Uygulama imzası Aptoide Kötücül Yazılımdan Korunma Platformunda Güvenilir bir imza değildir çünkü resmî geliştirici ile ilişkili imza ile eşleşmeyen başka bir uygulamayı imzalamak için kullanılmıştır.</string>
-    <string name="scanned_manually_by_aptoide_team">Aptoide Ekibi tarafından elle taranmıştır:</string>
-    <string name="scanned_verified_by_tester">Uygulama Aptoide Ekibinden bir deneyici tarafından elle gözden geçirilmiştir ki bu uygulamanın güvenli olduğunu teyit eder.</string>
+    <string name="application_signature_blacklisted">Uygulama imzası %s Kötücül Yazılımdan Korunma Platformunda Güvenilir bir imza değildir çünkü resmî geliştirici ile ilişkili imza ile eşleşmeyen başka bir uygulamayı imzalamak için kullanılmıştır.</string>
+    <string name="scanned_manually_by_aptoide_team">%s Ekibi tarafından elle taranmıştır:</string>
+    <string name="scanned_verified_by_tester">Uygulama %s Ekibinden bir deneyici tarafından elle gözden geçirilmiştir ki bu uygulamanın güvenli olduğunu teyit eder.</string>
     <string name="warning">İkaz</string>
     <string name="trusted_app">Güvenli Uygulama</string>
     <string name="unknown">Bilinmiyor</string>
@@ -467,10 +467,10 @@
     <string name="reason_third_party">Uygulamanın imzasını kontrol ettik ve Google Play Store ile eşleşiyor, böylece rahat edip uygulamanın tadını çıkarabilirsiniz.</string>
     <string name="reason_scanned">AptoideGuard ve 2 değişik antivirüs (Zoner 1.8 and Sophos 3.0) ile taranmıştır.</string>
     <string name="reason_signature">Şifreli imza dosyanın kurulumunun güvenli olduğunu ve onun hiçbir değişikliğe uğramadığını garantiler.</string>
-    <string name="reason_manual">Bu uygulama Aptoide\'in uzman ekibi tarafından elle gözden geçirilmiştir ve İyi olarak işaretlenmiştir.</string>
+    <string name="reason_manual">Bu uygulama %s\'in uzman ekibi tarafından elle gözden geçirilmiştir ve İyi olarak işaretlenmiştir.</string>
 
     <string name="reason_failed">Uygulamanın imzası geliştiricinin imzası ile eşleşmemektedir. Uygulama tahrif edilmiş olabilir.</string>
-    <string name="reason_unknown">Aptoide Kötücül Yazılımdan Korunma Platformunda bu uygulama ile ilgili kafi bilgi yoktur.</string>
+    <string name="reason_unknown">%s Kötücül Yazılımdan Korunma Platformunda bu uygulama ile ilgili kafi bilgi yoktur.</string>
 
 
 

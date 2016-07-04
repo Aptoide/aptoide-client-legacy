@@ -86,7 +86,7 @@
     <string name="sign_out">Tancar sessió</string>
     <string name="logged_as">Has iniciat sessió com a:</string>
 
-    <string name="aptoide_description">App Store Oficial Aptoide</string>
+    <string name="aptoide_description">App Store Oficial %s</string>
 
     <string name="error_410">Ho lamentem, l\'App solicitada no ha estat localitzada en aquest servidor.</string>
 
@@ -134,7 +134,7 @@
     <string name="password_validation_text">"La contrasenya ha de tenir almenys 8 caràcters i ha de comptar almenys amb una lletra i una xifra o caràcters especials (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">La plataforma Anti-Malware d\'Aptoide analitza aplicacions a temps real i inhabilita amenaces potencials a totes les botigues. Aquest sistema escaneja tots els arxius de les noves aplicacions de les botigues i els certifica comparant-los amb altres Mercats d\'Android.</string>
     <string name="username_tip">Introdueix el teu email</string>
-    <string name="accept_terms">Al registrar-te acceptes les Condicions de Servei i Polítiques de Continguts per Programadors d\'Aptoide</string>
+    <string name="accept_terms">Al registrar-te acceptes les Condicions de Servei i Polítiques de Continguts per Programadors d\'%s</string>
 
     <string name="start_loading">Carregant…</string>
     <string name="store_already_added">Botiga ja afegida!</string>
@@ -232,7 +232,7 @@
     <string name="downgrade">Degradar</string>
     <string name="reinstall">Reinstal·lar</string>
 
-    <string name="rollback_empty">Degrada ràpidament qualsevol app a una versió anterior i soluciona problemes d\'incompatibilitat. Conserva un registre de totes les apps instal·lades (via Aptoide) incloent-ne la versió i la data d\'instal·lació.</string>
+    <string name="rollback_empty">Degrada ràpidament qualsevol app a una versió anterior i soluciona problemes d\'incompatibilitat. Conserva un registre de totes les apps instal·lades (via %s) incloent-ne la versió i la data d\'instal·lació.</string>
 
     <string name="see_more">Veure més</string>
     <string name="see_less">Veure menys</string>
@@ -276,7 +276,7 @@
     <string name="no_payments_available">No hi ha pagaments disponibles.</string>
     <string name="failed_auth_code">No ha estat possible autoritzar el compte. Per favor, intenta-ho de nou.</string>
     <string name="error_occured_paying">Ha succeït un error. El pagament no ha estat completat.</string>
-    <string name="error_occured_retry_later">Ha succeït un error. Aptoide ho intentarà més tard automàticament.</string>
+    <string name="error_occured_retry_later">Ha succeït un error. %s ho intentarà més tard automàticament.</string>
     <string name="account">Compte</string>
     <string name="confirm_carrier_payment">"Vols comprar \'{title}\' per {value}? Se\'t cobrarà automàticament. "</string>
     <string name="buy">Comprar</string>
@@ -294,7 +294,7 @@
     <string name="downgrade_requires_uninstall">La degradació requereix la desinstal·lació de l\'Aplicació</string>
 
     <string name="order_popup_title3">Contingut adult</string>
-    <string name="friends_to_invite">Tots els altres amics de Facebook a Aptoide</string>
+    <string name="friends_to_invite">Tots els altres amics de Facebook a %s</string>
     <string name="invite_friends">Convidar Amics</string>
     <string name="timeline_is_empty_send_email">Enviarem un email a aquells que escullis</string>
     <string name="facebook_timeline_friends_invited">Amics convidats!</string>
@@ -358,8 +358,8 @@
     <string name="private_key">privada</string>
     <string name="store_username">Nom d\'usuari</string>
     <string name="store_password">Contrasenya</string>
-    <string name="upload_app_backup_apps_installed">Primer has d\'instal·lar aquesta app a la teva botiga. Pots utilitzar les Apps de Copia de Seguretat d\'Aptoide.</string>
-    <string name="upload_app_backup_apps_not_installed">Primer has de pujar aquesta app a la teva botiga. Sisplau, instal·la-la i utilitza les Apps de Copia de Seguretat d\'Aptoide.</string>
+    <string name="upload_app_backup_apps_installed">Primer has d\'instal·lar aquesta app a la teva botiga. Pots utilitzar les Apps de Copia de Seguretat d\'%s.</string>
+    <string name="upload_app_backup_apps_not_installed">Primer has de pujar aquesta app a la teva botiga. Sisplau, instal·la-la i utilitza les Apps de Copia de Seguretat d\'%s.</string>
     <string name="upload_app">Pujar app</string>
     <string name="create_review">Crear valoració</string>
 
@@ -384,8 +384,8 @@
     <string name="setting_hwspecssum">Informació del hardware del teu telèfon</string>
     <string name="setting_appfiltersum">No mostris aplicacions que no siguin compatibles amb aquest dispositiu</string>
     <string name="setting_appfiltertitle">Filtrar aplicacions</string>
-    <string name="setting_category_autoupdate">Auto actualització d\'Aptoide</string>
-    <string name="setting_category_autoupdate_title">Habilitar auto actualitzacions d\'Aptoide</string>
+    <string name="setting_category_autoupdate">Auto actualització d\'%s</string>
+    <string name="setting_category_autoupdate_title">Habilitar auto actualitzacions d\'%s</string>
     <string name="setting_dont_show_mature_content">Mostrar contingut per adults</string>
     <string name="setting_mature_filtering">Contingut per adults</string>
     <string name="setting_updates">Actualitzacions</string>
@@ -485,9 +485,9 @@
     <string name="application_signature_analysis">Firma de l\'aplicació en comparació amb firmes de programadors:</string>
     <string name="application_signature_matched">La firma de l\'aplicació es correspon amb la firma relacionada amb el programador de l\'aplicació.</string>
     <string name="application_signature_not_matched">La firma de l\'aplicació no es correspon amb la firma relacionada amb el programador de l\'aplicació. L\'aplicació podria haver estat adulterada.</string>
-    <string name="application_signature_blacklisted">La firma de l\'aplicació no és una firma de confiança de la plataforma Anti-Malware d\'Aptoide perquè ha estat utilitzada per firmar una altra aplicació que no es correspon amb la firma relacionada al programador autèntic.</string>
-    <string name="scanned_manually_by_aptoide_team">Escannejat manualment per l\'Equip d\'Aptoide:</string>
-    <string name="scanned_verified_by_tester">L\'aplicació va ser revisada manualment per personal de l\'Equip d\'Aptoide que garanteix la seguretat de l\'aplicació.</string>
+    <string name="application_signature_blacklisted">La firma de l\'aplicació no és una firma de confiança de la plataforma Anti-Malware d\'%s perquè ha estat utilitzada per firmar una altra aplicació que no es correspon amb la firma relacionada al programador autèntic.</string>
+    <string name="scanned_manually_by_aptoide_team">Escannejat manualment per l\'Equip d\'%s:</string>
+    <string name="scanned_verified_by_tester">L\'aplicació va ser revisada manualment per personal de l\'Equip d\'%s que garanteix la seguretat de l\'aplicació.</string>
     <string name="warning">Advertència</string>
     <string name="trusted_app">App de confiança</string>
     <string name="unknown">Desconegut</string>
@@ -495,10 +495,10 @@
     <string name="reason_third_party">Hem comprovat la firma de l\'app i es correspon amb la de la Botiga de Google Play, així que pots sentir-te segur i disfrutar de l\'app.</string>
     <string name="reason_scanned">Escannejat amb AptoideGuard i 2 anti-virus diferents (Zoner 1.8 i Sophos 3.0).</string>
     <string name="reason_signature">La firma criptogràfica garanteix que la instal·lació de l\'arxiu és segura i no ha estat modificada de forma alguna.</string>
-    <string name="reason_manual">Aquesta app va ser revisada manualment per l\'equip expert d\'Aptoide, i va ser marcada com a Bona.</string>
+    <string name="reason_manual">Aquesta app va ser revisada manualment per l\'equip expert d\'%s, i va ser marcada com a Bona.</string>
 
     <string name="reason_failed">La firma de l\'aplicació no es correspon amb la firma del desenvolupador. L\'app podria haver estat modificada.</string>
-    <string name="reason_unknown">No hi ha prou informació sobre aquesta app a la plataforma Anti-Malware d\'Aptoide.</string>
+    <string name="reason_unknown">No hi ha prou informació sobre aquesta app a la plataforma Anti-Malware d\'%s.</string>
 
 
 
@@ -539,4 +539,134 @@
     <string name="skip">Saltar</string>
     <string name="wizard_title_01">Benvingut a Aptoide</string>
     <string name="wizard_description_01">Crea un compte gratis i registra\'t per començar a construir la teva propia App Store personalitzada.\n\n Navega per botigues temàtiques i descobreix noves i excitants aplicacions.</string>
-    </resources>
+    <string name="wizard_title_02">Seguretat incrementada</string>
+    <string name="wizard_description_02">Busca insígnies de confiança i descarrega apps amb seguretat.\n\n Problemes d\'incompatibilitat? Busca versions anteriors de les aplicacions.</string>
+    <string name="wizard_title_03">Nous membres de la nostra família</string>
+    <string name="wizard_subtitle_03_1">Aptoide Lite</string>
+    <string name="wizard_description_03_1">per dispositius antics i connexions a internet lentes</string>
+    <string name="wizard_subtitle_03_2">Aptoide TV</string>
+    <string name="wizard_description_03_2">App Store optimitzada per caselles top establertes i smart TVs</string>
+    <string name="wizard_reviews_title">Valoracions</string>
+    <string name="wizard_reviews">Ara pots crear valoracions d\'apps amb Aptoide!</string>
+    <string name="wizard_new_and_improved">Rendiment millorat!</string>
+    <string name="wizard_new_and_improved_bullet_1">Estalvia bateria</string>
+    <string name="wizard_new_and_improved_bullet_2">Redueix CPU i ús d\'ample de banda</string>
+    <string name="wizard_new_and_improved_bullet_3">Carregar menys recursos</string>
+    <string name="wizard_new_and_improved_bullet_4">Eliminar interfície d\'usuari</string>
+    <string name="wizard_new_homepage">Nou disseny de pàgina d\'inici</string>
+    <string name="wizard_new_top">Nova pestanya Top</string>
+    <string name="subscribe_apps_official_store">Subscriu-te a \'apps\' de l\'App Store Oficial d\'Aptoide</string>
+    <string name="wizard_next">Següent</string>
+    <string name="wizard_prev">Anterior</string>
+    <string name="search_activity_title">\'%s\'</string>
+
+    <string name="share">Compartir</string>
+    <string name="share_on_timeline">Compartir al timeline</string>
+
+    <string name="search_for_apps">Buscar apps…</string>
+    <string name="empty_search">Cerca buida, escriu el nom d\'una aplicació</string>
+    <string name="manually_reviewed">Bona App garantida: aquesta aplicació ha superat les proves de seguretat per virus, malware i altres atacs maliciosos i no conté cap amenaça</string>
+
+    <string name="no_apps_found">No s\'han trobat apps amb els filtres actuals</string>
+    <string name="no_search_results_message">No hi ha resultats per la teva cerca.
+\nSisplau, prova altres paraules clau.</string>
+
+    <string name="developer">Programador</string>
+    <string name="website">Lloc web: %s</string>
+    <string name="email">Email: %s</string>
+    <string name="privacy_policy">Política de privacitat: %s</string>
+    <string name="dialog_version_size">Versió: %1$s | Tamany: %2$s</string>
+    <string name="na">N/D</string>
+    <string name="no_email_and_pass_error_message">Per favor, introdueix un email i contrasenya per registrar-te.</string>
+    <string name="no_pass_error_message">Per favor, introdueix una contrasenya per registrar-te.</string>
+    <string name="no_email_error_message">Per favor, introdueix un email per registrar-te.</string>
+    <string name="website_copied">Lloc web copiat al portarretalls</string>
+    <string name="email_copied">E-mail copiat al portarretalls</string>
+    <string name="privacy_copied">Enllaç de privacitat copiat al portarretalls</string>
+    <string name="subscribing_store_message">Donant-te de baixa de %s</string>
+
+    <string name="latest_reviews">Últimes valoracions</string>
+    <string name="latest_comments">Últims comentaris</string>
+    <string name="action">Acció</string>
+    <string name="adventure">Aventura</string>
+    <string name="all">Tots</string>
+    <string name="applications">Aplicacions</string>
+    <string name="arcade">Arcade</string>
+    <string name="arcade_action">Arcade i Acció</string>
+    <string name="auto_update">Auto Actualitzar</string>
+    <string name="board">Jocs de taula</string>
+    <string name="books_reference">Llibres i Referències</string>
+    <string name="brain_puzzle">Ment i Trencaclosques</string>
+    <string name="business">Negocis</string>
+    <string name="card">Cartes</string>
+    <string name="cards_casino">Cartes i Casino</string>
+    <string name="casino">Casino</string>
+    <string name="casual">Casual</string>
+    <string name="comics">Còmics</string>
+    <string name="communication">Comunicació</string>
+    <string name="demo">Demo</string>
+    <string name="education">Educació</string>
+    <string name="educational">Educatiu</string>
+    <string name="enable">Habilitar</string>
+    <string name="entertainment">Entreteniment</string>
+    <string name="family">Família</string>
+    <string name="finance">Finances</string>
+    <string name="games">Jocs</string>
+    <string name="health">Salut</string>
+    <string name="health_fitness">Salut i Fitness</string>
+    <string name="highlighted">Destacat</string>
+    <string name="local_top_apps">Top Apps Locals</string>
+    <string name="lifestyle">Estil de vida</string>
+    <string name="media_video">Media i Vídeo</string>
+    <string name="medical">Medicina</string>
+    <string name="multimedia">Multimèdia</string>
+    <string name="music">Música</string>
+    <string name="music_audio">Música i Audio</string>
+    <string name="news_magazines">Notícies i Revistes</string>
+    <string name="news_weather">Notícies i Temps</string>
+    <string name="personalization">Personalització</string>
+    <string name="photography">Fotografia</string>
+    <string name="productivity">Productivitat</string>
+    <string name="puzzle">Trencaclosques</string>
+    <string name="quick_start">Inici ràpid</string>
+    <string name="racing">Carreres</string>
+    <string name="reference">Referències</string>
+    <string name="role_playing">Joc de rols</string>
+    <string name="simulation">Simulació</string>
+    <string name="social">Social</string>
+    <string name="software_libraries">Biblioteques de software</string>
+    <string name="sports">Esports</string>
+    <string name="sports_games">Jocs d\'esports</string>
+    <string name="strategy">Estratègia</string>
+    <string name="themes">Temes</string>
+    <string name="tools">Eines</string>
+    <string name="top_apps">Top Apps</string>
+    <string name="top_games">Top Jocs</string>
+    <string name="transport">Transport</string>
+    <string name="transportation">Transports</string>
+    <string name="travel">Viatges</string>
+    <string name="travel_local">Viatges i Local</string>
+    <string name="trending">Tendència</string>
+    <string name="trivia">Miscelània</string>
+    <string name="word">Paraula</string>
+    <string name="libraries_demo">Biblioteques i Demo</string>
+    <string name="shopping">Compres</string>
+    <string name="weather">Meteorologia</string>
+
+    <string name="latest_applications">Últimes aplicacions</string>
+    <string name="top_apps_in_store">Top Apps en aquesta botiga</string>
+    <string name="apps_for_kids">Apps per nens</string>
+    <string name="aptoide_publishers">Editors Aptoide</string>
+    <string name="music_video">Música i Vídeo</string>
+    <string name="essential_apps">Apps essencials</string>
+    <string name="summer_apps">Apps d\'Estiu</string>
+    <string name="play_it">Juga-hi!</string>
+<string name="updates_filter_setting_title">Mostra\'m només les actualitzacions estables de la versió de l\'app</string>
+    <string name="balloon_security_information_google_play">App coincident amb</string>
+    <string name="balloon_security_information_subtitle">Ara comprovarem que totes les apps estiguin lliures de Virus.</string>
+    <string name="balloon_security_information_title">Aptoide ha canviat.\nAra comprovarem que totes les apps estiguin lliures de Virus.</string>
+    <string name="updates_filter_summary">Si marques aquesta opció, no se\'t notificarà de les versions beta.</string>
+
+    <string name="add_more_stores">Afegir més botigues</string>
+    <string name="unsubscribe">Donar-se de baixa</string>
+</resources>

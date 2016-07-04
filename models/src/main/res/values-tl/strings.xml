@@ -86,7 +86,7 @@
     <string name="sign_out">Pag-Sign Out</string>
     <string name="logged_as">Ikaw ay naka-log bilang:</string>
 
-    <string name="aptoide_description">Aptoide Opisyal na App Store</string>
+    <string name="aptoide_description">%s Opisyal na App Store</string>
 
     <string name="error_410">Paumanhin, ang hiniling na App ay hindi natagpuan sa server na ito.</string>
 
@@ -129,7 +129,7 @@
     <string name="password_validation_text">"Ang password ay dapat na 8 karakter man lamang at dapat man lamang na may isang letra at isang numero o mga espesyal na karakter (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">Ang Aptoide Anti-Malware na plataporma ay nag-aanalisa ng mga aplikasyon sa oras na ito ay tumatakbo at ginagawa nitong hindi paganahin ang mga potensyal na banta sa lahat ng mga store. Ang sistemang ito ay nag-iiskan ng lahat ng mga bagong file ng aplikasyon mula sa mga store at sinesertipikato ang mga ito laban sa mga ibang Android Marketplace.</string>
     <string name="username_tip">I-type ang iyong email</string>
-    <string name="accept_terms">Sa pag-sasign up, ikaw ay sumasang-ayon sa mga Tuntunin ng Serbisyo at Nilalaman ng Polisiya para sa mga Debeloper ng Aptoide</string>
+    <string name="accept_terms">Sa pag-sasign up, ikaw ay sumasang-ayon sa mga Tuntunin ng Serbisyo at Nilalaman ng Polisiya para sa mga Debeloper ng %s</string>
 
     <string name="start_loading">Nag-loload…</string>
     <string name="store_already_added">Ang store ay naidagdag na!</string>
@@ -269,9 +269,9 @@
     <string name="no_payments_available">Walang mga pagbabayad ang magagamit.</string>
     <string name="failed_auth_code">Nabigong i-otorisa ang account. Paki-subukan muli.</string>
     <string name="error_occured_paying">Isang pagkakamali ang naganap. Ang pagbabayad ay hindi nakumpleto.</string>
-    <string name="error_occured_retry_later">Isang pagkakamali ang naganap. Ang Aptoide ay otomatikong susubok muli mamaya.</string>
+    <string name="error_occured_retry_later">Isang pagkakamali ang naganap. Ang %s ay otomatikong susubok muli mamaya.</string>
     <string name="account">Account</string>
-    <string name="rollback_empty">Mabilis na ibaba ang anumang app sa nakaraang bersyon at lutasin ang mga isyu ng hindi pagkakabagay. Magpanatili ng isang log ng iyong lahat na nainstalang mga app kasama ang bersyon at petsa ng pagka-instala.</string>
+    <string name="rollback_empty">Mabilis na ibaba ang anumang app sa nakaraang bersyon at lutasin ang mga isyu ng hindi pagkakabagay. Magpanatili ng isang log ng iyong lahat na nainstalang mga app (Sa pamamagitan ng %s) kasama ang bersyon at petsa ng pagka-instala.</string>
 
     <string name="confirm_carrier_payment">"Gusto mo bang bumili \'{titulo}\' para sa {halaga}? Ikaw ay sisingilin mula sa iyong tagapagdala (carrier). "</string>
     <string name="buy">Bumili</string>
@@ -289,7 +289,7 @@
     <string name="downgrade_requires_uninstall">Ang pagbaba (downgrade) ay nangangailangan ng Aplikasyong pagka-tanggal sa pagka-instala</string>
 
     <string name="order_popup_title3">Hustong Gulang na Nilalaman</string>
-    <string name="friends_to_invite">Lahat ng iba pang Facebook na mga kaibigan sa Aptoide</string>
+    <string name="friends_to_invite">Lahat ng iba pang Facebook na mga kaibigan sa %s</string>
     <string name="invite_friends">Imbitahin ang mga Kaibigan</string>
     <string name="timeline_is_empty_send_email">Kami ay magpapadala ng email sa mga taong iyong mapipili</string>
     <string name="facebook_timeline_friends_invited">Mga Kaibigang naimbitahan!</string>
@@ -353,8 +353,8 @@
     <string name="private_key">pribado</string>
     <string name="store_username">Pangalang ginagamit</string>
     <string name="store_password">Password</string>
-    <string name="upload_app_backup_apps_installed">Kailangan mo munang i-upload ang app na ito sa iyong store. Puwede mong gamitin ang Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">Kailangan mo munang i-upload ang app na ito sa iyong store. Paki-instala at gamitin ang Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">Kailangan mo munang i-upload ang app na ito sa iyong store. Puwede mong gamitin ang %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">Kailangan mo munang i-upload ang app na ito sa iyong store. Paki-instala at gamitin ang %s Backup Apps.</string>
     <string name="upload_app">I-upload ang app</string>
     <string name="create_review">Lumikha ng rebyu</string>
 
@@ -379,8 +379,8 @@
     <string name="setting_hwspecssum">Hardware na impormasyon tungkol sa iyong telepono</string>
     <string name="setting_appfiltersum">Huwag ipakita ang mga aplikasyon na hindi bumabagay sa aparatong ito</string>
     <string name="setting_appfiltertitle">Salain ang mga Aplikasyon</string>
-    <string name="setting_category_autoupdate">Aptoide Otomatikong updeyt</string>
-    <string name="setting_category_autoupdate_title">Paganahin ang Aptoide otomatikong updeyt</string>
+    <string name="setting_category_autoupdate">%s Otomatikong updeyt</string>
+    <string name="setting_category_autoupdate_title">Paganahin ang %s otomatikong updeyt</string>
     <string name="setting_dont_show_mature_content">Ipakita ang pang-matandang nilalaman</string>
     <string name="setting_mature_filtering">Pang-matandang Nilalaman</string>
     <string name="setting_updates">Mga updeyt</string>
@@ -482,8 +482,8 @@
     <string name="application_signature_blacklisted">Ang lagda ng aplikasyon ay hindi Mapagkakatiwalaang lagda sa Aptoide Kontra-Malware na plataporma dahil ito ay nagamit na para lagdaan ang isa pang aplikasyon na hindi tumutugma sa lagda na inuugnay sa lehitimong debeloper.</string>
     <string name="reason_failed">Ang lagda ng aplikasyon ay hindi tumutugma sa lagda ng debeloper. Ang app ay maaaring napakialaman na.</string>
     <string name="developer">Debeloper</string>
-    <string name="scanned_manually_by_aptoide_team">Na-iskan ng manu-mano ng Koponan ng Aptoide:</string>
-    <string name="scanned_verified_by_tester">Ang aplikasyon ay na-rebyu ng manu-mano ng isang taga-test mula sa Koponan ng Aptoide na nagsisiguro ng kaligtasan ng aplikasyon.</string>
+    <string name="scanned_manually_by_aptoide_team">Na-iskan ng manu-mano ng Koponan ng %s:</string>
+    <string name="scanned_verified_by_tester">Ang aplikasyon ay na-rebyu ng manu-mano ng isang taga-test mula sa Koponan ng %s na nagsisiguro ng kaligtasan ng aplikasyon.</string>
     <string name="warning">Babala</string>
     <string name="trusted_app">Mapagkakatiwalaang App</string>
     <string name="unknown">Hindi kilala</string>
@@ -491,9 +491,9 @@
     <string name="reason_third_party">Na-tsek na namin ang lagda ng app at ito ay tumutugma sa Google Play Store, kaya manatiling kampante at masiyahan sa app.</string>
     <string name="reason_scanned">Na-iskan gamit ang AptoideGuard dagdag pa ang 2 magkaibang kontra-virus (Zoner 1.8 at Sophos 3.0).</string>
     <string name="reason_signature">Ang kriptograpikong lagda ay nag-gagarantiya na ang file ay ligtas para i-instala at hindi napakialaman sa anumang paraan.</string>
-    <string name="reason_manual">Ang app na ito ay manu-manong nirebyu ng ekspertong koponan ng Aptoide, at naibandera bilang Magaling.</string>
+    <string name="reason_manual">Ang app na ito ay manu-manong nirebyu ng ekspertong koponan ng %s, at naibandera bilang Magaling.</string>
 
-    <string name="reason_unknown">Walang sapat na impormasyon tungkol sa app na ito sa Aptoide Konta-Malware na plataporma.</string>
+    <string name="reason_unknown">Walang sapat na impormasyon tungkol sa app na ito sa %s Konta-Malware na plataporma.</string>
 
 
 

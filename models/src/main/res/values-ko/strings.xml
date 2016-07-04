@@ -637,4 +637,22 @@
     <string name="essential_apps">기본 앱</string>
     <string name="summer_apps">여름 앱</string>
     <string name="play_it">플레이하세요!</string>
+<string name="updates_filter_setting_title">안정된 앱 버전 업데이트만 보여주세요</string>
+    <string name="balloon_security_google_play">앱 매치</string>
+    <string name="balloon_security_subtitle">이제 모든 앱의 바이러스 검사를 시작합니다.</string>
+    <string name="balloon_security_title">앱토이드가 변했습니다.</string>
+    <string name="balloon_security_subtitle_start_part">"%1$s를 검사했습니다 "</string>
+    <string name="balloon_security_subtitle_final_part">" 바이러스:"</string>
+    <string name="updates_filter_summary">체크하시면 베타 버전에 대한 알림을 받지 않습니다.</string>
+
+    <string name="add_more_stores">스토어 추가하기</string>
+    <string name="unsubscribe">구독 취소하기</string>
+
+    <string name="dialog_install_warning_proceed_button">진행하기</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">검색하기</string>
+    <string name="dialog_install_warning_trusted_app_button">신용있는 앱</string>
+    <string name="dialog_install_warning_careful_text">이 앱을 설치하시고자 하면 주의하세요. 바이러스나 말웨어가 있도록 만들어졌을 수 있습니다.</string>
+    <string name="dialog_install_warning_credibility_text">진행하기 전에, 스토어의 신용성과 유저의 댓글들을 확인하세요. 앱토이드는 항상 %1$s의 신용있는 앱만 설치하기를 권장합니다.</string>
+    <string name="dialog_install_warning_trusted_version_button">신용있는 버전</string>
+    <string name="dialog_install_warning_get_trusted_version_button">갖기</string>
 </resources>

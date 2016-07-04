@@ -837,13 +837,14 @@ public class AptoideUtils {
                 String[] splittedUrl = avatar.split("\\.(?=[^\\.]+$)");
                 avatar = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
             }
+            String aptoide_description_Resource=context.getResources().getString(R.string.aptoide_description);
+            String  aptoide_description_Formatted= String.format(aptoide_description_Resource, Aptoide.getConfiguration().getMarketName());
 
             store.setAvatar(avatar);
-            store.setDescription(context.getResources().getString(R.string.aptoide_description));
+            store.setDescription( aptoide_description_Formatted);
             store.setTheme("default");
             store.setView("list");
             store.setBaseUrl("apps");
-
 
             try {
                 long l = database.insertStore(store);
@@ -1001,7 +1002,7 @@ public class AptoideUtils {
             if (login != null) {
                 request.user = login.getUsername();
                 request.password = login.getPasswordSha1();
-            } else if (credentials != null) {
+            } else if (credentials.size() > 0) {
                 request.user = credentials.get(0);
                 try {
                     request.password = AptoideUtils.Algorithms.computeSHA1sum(credentials.get(1));
@@ -1009,7 +1010,8 @@ public class AptoideUtils {
                     e.printStackTrace();
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
-                }            }
+                }
+            }
             return request;
         }
 
@@ -1025,7 +1027,7 @@ public class AptoideUtils {
             if (login != null) {
                 request.user = login.getUsername();
                 request.password = login.getPasswordSha1();
-            } else if (credentials != null) {
+            } else if (credentials.size() > 0) {
                 request.user = credentials.get(0);
                 try {
                     request.password = AptoideUtils.Algorithms.computeSHA1sum(credentials.get(1));

@@ -170,7 +170,7 @@
   <string name="username_tip">Upišite vaš email</string>
   <string name="password_tip">Odaberite šifru</string>
   <string name="subscribe_pvt_store">Dodaj privatno skladište</string>
-  <string name="accept_terms">Samom prijavom se slažete sa Aptoide uvjetima korištenja i policom sadržaja za programere</string>
+  <string name="accept_terms">Samom prijavom se slažete sa %s uvjetima korištenja i policom sadržaja za programere</string>
   <string name="accept_oem_terms">Prilikom prijave prihvaćate %s uvjete korištenja</string>
   <string name="register">Prijavi Se</string>
   <string name="or">Ili</string>
@@ -227,14 +227,15 @@
   <string name="scanned_with_av">Skenirano sa Anti-Virusom:</string>
   <string name="compared_with_another_marketplace">Uspoređeno s drugim Android marketima:</string>
   <string name="application_signature_analysis">Potpis aplikacije uspoređen s potpisom developera:</string>
-  <string name="scanned_manually_by_aptoide_team">Skenirano ručno od strane Aptoide Tima:</string>
+  <string name="scanned_manually_by_aptoide_team">Skenirano ručno od strane %s Tima:</string>
   <string name="about_aptoide_antimalware">Aptoide Anti-Malware platforma analizira aplikacije pri izvođenju i onemogućava potencijalne prijetnje u svim skladištima. Ovaj sistem skenira sve nove aplikacijske datoteke iz skladišta i certificira ih usporedbom sa drugim Android skladištima.</string>
   <string name="app_trusted">%s je pouzdan</string>
   <string name="app_warning">%s je upozoravajuće</string>
   <string name="application_signature_matched">"Potpis aplikacije podudara se s potpisom  developera aplikacije."</string>
   <string name="application_signature_not_matched">Potpis aplikacije se ne podudara sa potpisom developera aplikacije. Aplikacija je možda izmjenjena.</string>
-  <string name="application_signature_blacklisted">Potpis aplikacije nije Pouzdan potpis u Aptoide Anti-Malware platformi zbog toga jer je korišten za potpis drugih aplikacija koje se ne podudaraju potpisima povezanim s zakonitim developerom.</string>
-  <string name="scanned_verified_by_tester">Aplikacija je pregledana ručno od strane testera iz Aptoide Tima koji jamči sigurnost aplikacije.</string>
+  <string name="application_signature_blacklisted">Potpis aplikacije nije Pouzdan potpis u %s Anti-Malware platformi zbog toga jer je korišten za potpis drugih aplikacija koje se ne podudaraju potpisima povezanim s zakonitim developerom.</string>
+  <string name="scanned_verified_by_tester">Aplikacija je pregledana ručno od strane testera iz %s
+    Tima koji jamči sigurnost aplikacije.</string>
   <string name="schDown_nodownloadselect">Nema odabranih preuzimanja</string>
   <string name="addSchDown">Dodano u zakazana preuzimanja</string>
   <string name="added_to_scheduled">Dodano u meni &gt; Planirana preuzimanja</string>
@@ -489,7 +490,7 @@
   <string name="setting_hide_mature">Sakrij sadržaj za odrasle</string>
   <string name="error_occured_paying">Pojavila se greška. Uplaćivanje nije završeno.</string>
   <string name="failed_auth_code">Neusjpešno potvrđivanje računa. Molimo pokušajte ponovno.</string>
-  <string name="error_occured_retry_later">Desila se greška. Aptoide će ponovno pokušati kasnije.</string>
+  <string name="error_occured_retry_later">Desila se greška. %s će ponovno pokušati kasnije.</string>
   <string name="account">Račun</string>
   <string name="no_payments_available">Nema dostupnih uplaćivanja.</string>
   <string name="change_payment">Nazad</string>

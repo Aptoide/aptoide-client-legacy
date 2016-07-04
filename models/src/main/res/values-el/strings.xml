@@ -89,7 +89,7 @@
     <string name="sign_out">Έξοδος</string>
     <string name="logged_as">Συνδεθήκατε ως:</string>
 	
-    <string name="aptoide_description">Επίσημο κατάστημα Aptoide</string>
+    <string name="aptoide_description">Επίσημο κατάστημα %s</string>
 
     <string name="error_410">Συγγνώμη, το App δεν βρέθηκε στον server.</string>
 	
@@ -140,7 +140,7 @@
     </string>
     <string name="about_aptoide_antimalware">Η Aptoide Anti-Malware πλατφόρμα αναλύει τις εφαρμογές σε ζωντανό χρόνο και απενεργοποιεί τις πιθανές απειλές σε όλα τα καταστήματα. Το σύστημα ανιχνεύει όλα τα νέα αρχεία της εφαρμογής από τα καταστήματα και τα πιστοποιητικά τους από την σύγκριση με άλλες Android Αγορές.</string>
     <string name="username_tip">Πληκτρολογείστε το email σας</string>
-    <string name="accept_terms">Με την εγγραφή σας συμφωνείτε με τους Όρους Χρήσης της Aptoide Υπηρεσίας και την Πολιτική Περιεχομένου για Προγραμματιστές</string>
+    <string name="accept_terms">Με την εγγραφή σας συμφωνείτε με τους Όρους Χρήσης της %s Υπηρεσίας και την Πολιτική Περιεχομένου για Προγραμματιστές</string>
 	
     <string name="start_loading">Φόρτωση…</string>
     <string name="store_already_added">Το κατάστημα έχει ήδη προστεθεί!</string>
@@ -245,7 +245,7 @@
     <string name="downgrade">Υποβάθμιση</string>
     <string name="reinstall">Επανεγκατάσταση</string>
 	
-    <string name="rollback_empty">Κάντε γρήγορη υποβάθμιση μίας εφαρμογής στην προηγούμενη έκδοση για να λύσετε προβλήματα ασυμβατότητας. Κρατήστε ένα αρχείο καταγραφής όλων των εγκατεστημένων εφαρμογών σας συμπεριλαμβανομένης της έκδοσης και της ημερομηνίας εγκατάστασης.</string>
+    <string name="rollback_empty">Κάντε γρήγορη υποβάθμιση μίας εφαρμογής στην προηγούμενη έκδοση για να λύσετε προβλήματα ασυμβατότητας. Κρατήστε ένα αρχείο καταγραφής όλων των εγκατεστημένων εφαρμογών σας (μέσω %s) συμπεριλαμβανομένης της έκδοσης και της ημερομηνίας εγκατάστασης.</string>
 	
     <string name="see_more">Δείτε περισσότερα</string>
     <string name="see_less">Δείτε λιγότερα</string>
@@ -294,7 +294,7 @@
     <string name="no_payments_available">Καμία πληρωμή διαθέσιμη.</string>
     <string name="failed_auth_code">Αποτυχία πιστοποίησης λογαριασμού. Παρακαλώ προσπαθήστε πάλι.</string>
     <string name="error_occured_paying">Ένα σφάλμα παρουσιάστηκε. Η πληρωμή δεν ολοκληρώθηκε.</string>
-    <string name="error_occured_retry_later">Ένα σφάλμα παρουσιάστηκε. Το Aptoide θα προσπαθήσει αυτόματα αργότερα.</string>
+    <string name="error_occured_retry_later">Ένα σφάλμα παρουσιάστηκε. Το %s θα προσπαθήσει αυτόματα αργότερα.</string>
     <string name="account">Λογαριασμός</string>
     <string name="confirm_carrier_payment">Θέλετε να αγοράσετε \'{title}\' για {value}; Θα χρεωθείτε από
     το φορέα σας.
@@ -314,7 +314,7 @@
     <string name="downgrade_requires_uninstall">Η Υποβάθμιση απαιτεί απεγκατάσταση της Εφαρμογής</string>
 	
     <string name="order_popup_title3">Περιεχόμενο για ενήλικες</string>
-    <string name="friends_to_invite">Όλοι οι άλλοι Facebook φίλοι στο Aptoide</string>
+    <string name="friends_to_invite">Όλοι οι άλλοι Facebook φίλοι στο %s</string>
     <string name="invite_friends">Προσκαλέστε Φίλους</string>
     <string name="timeline_is_empty_send_email">Θα στείλουμε email σε αυτούς που επιλέξατε</string>
     <string name="facebook_timeline_friends_invited">Οι φίλοι προσκλήθηκαν!</string>
@@ -379,8 +379,8 @@
     <string name="private_key">ιδιωτικο</string>
     <string name="store_username">Όνομα Χρήστη</string>
     <string name="store_password">Κωδικός</string>
-    <string name="upload_app_backup_apps_installed">Χρειάζεται να ανεβάσεται την εφαρμογή στο κατάστημά σας. Μπορείτε να χρησιμοποιήσεται τις εφαρμογές Aptoide Backup.</string>
-    <string name="upload_app_backup_apps_not_installed">Χρειάζεται να ανεβάσεται την εφαρμογή στο κατάστημά σας. Παρακαλώ εγκατασήστε και χρησιμοποιήστε τις εφαρμογές Aptoide Backup.</string>
+    <string name="upload_app_backup_apps_installed">Χρειάζεται να ανεβάσεται την εφαρμογή στο κατάστημά σας. Μπορείτε να χρησιμοποιήσεται τις εφαρμογές %s Backup.</string>
+    <string name="upload_app_backup_apps_not_installed">Χρειάζεται να ανεβάσεται την εφαρμογή στο κατάστημά σας. Παρακαλώ εγκατασήστε και χρησιμοποιήστε τις εφαρμογές %s Backup.</string>
     <string name="upload_app">Ανεβάστε εφαρμογή</string>
     <string name="create_review">Γράψτε κριτική</string>
 
@@ -406,8 +406,8 @@
     <string name="setting_hwspecssum">Πληροφορίες Υλικού σχετικά με το τηλέφωνό σας</string>
     <string name="setting_appfiltersum">Να μην εμφανίζονται εφαρμογές που δεν είναι συμβατές με αυτή τη συσκευή</string>
     <string name="setting_appfiltertitle">Φίλτρο Εφαρμογών</string>
-    <string name="setting_category_autoupdate">Aptoide Αυτόματη αναβάθμιση</string>
-    <string name="setting_category_autoupdate_title">Ενεργοποίηση αυτόματης αναβάθμισης Aptoide</string>
+    <string name="setting_category_autoupdate">%s Αυτόματη αναβάθμιση</string>
+    <string name="setting_category_autoupdate_title">Ενεργοποίηση αυτόματης αναβάθμισης %s</string>
     <string name="setting_dont_show_mature_content"> Εμφάνιση περιεχομένου ενηλίκων</string>
     <string name="setting_mature_filtering">Περιεχόμενο για ενηλίκους</string>
     <string name="setting_updates">Ενημερώσεις</string>
@@ -508,9 +508,9 @@
     <string name="application_signature_analysis">Η υπογραφή της εφαρμογής σε σύγκριση με αυτή του προγραμματιστή:</string>
     <string name="application_signature_matched">Η υπογραφή της εφαρμογής ταυτίζεται με αυτή του προγραμματιστή.</string>
     <string name="application_signature_not_matched">Η υπογραφή της εφαρμογής δεν ταιριάζει με την υπογραφή του προγραμματιστή. Η εφαρμογή μπορεί να έχει αλλοιωθεί.</string>
-    <string name="application_signature_blacklisted">Η υπογραφή της εφαρμογής δεν είναι έμπιστη στη πλατφόρμα Aptoide Anti-Malware διότι έχει χρησιμοποιηθεί για να υπογράψει κάποια άλλη εφαρμογή που δεν ταιριάζει με την υπογραφή του προγραμματιστή.</string>
-    <string name="scanned_manually_by_aptoide_team">Σαρώθηκε χειροκίνητα από την ομάδα του Aptoide:</string>
-    <string name="scanned_verified_by_tester">Η εφαρμογή ελέγχθηκε χειροκίνητα από έναν δοκιμαστή της ομάδας του Aptoide ο οποίος εγγυάται την ασφάλεια της εφαρμογής.</string>
+    <string name="application_signature_blacklisted">Η υπογραφή της εφαρμογής δεν είναι έμπιστη στη πλατφόρμα %s Anti-Malware διότι έχει χρησιμοποιηθεί για να υπογράψει κάποια άλλη εφαρμογή που δεν ταιριάζει με την υπογραφή του προγραμματιστή.</string>
+    <string name="scanned_manually_by_aptoide_team">Σαρώθηκε χειροκίνητα από την ομάδα του %s:</string>
+    <string name="scanned_verified_by_tester">Η εφαρμογή ελέγχθηκε χειροκίνητα από έναν δοκιμαστή της ομάδας του %s ο οποίος εγγυάται την ασφάλεια της εφαρμογής.</string>
     <string name="warning">Προσοχή</string>
     <string name="trusted_app">Έμπιστη Εφαρμογή</string>
     <string name="unknown">Άγνωστο</string>
@@ -519,10 +519,10 @@
     <string name="reason_third_party">Ελέγξαμε την υπογραφή της εφαρμογής και ταιριάζει με αυτή του Google Play Store, έτσι ώστε να είστε σίγουροι και να απολαύσετε την εφαρμογή.</string>
     <string name="reason_scanned">Σαρώθηκε με το AptoideGuard και με 2 διαφορετικά anti-virus (Zoner 1.8 and Sophos 3.0).</string>
     <string name="reason_signature">Η κρυπτογραγημένη υπογραφή εγγυάται ότι το αρχείο είναι ασφαλές για εγκατάσταση και δεν έχει αλλοιωθεί με οποιονδήποτε τρόπο.</string>
-    <string name="reason_manual">Η εφαρμογή ελέχθηκε χειροκίνητα από την ομάδα ειδικών του Aptoide και κρίθηκε ως Καλή.</string>
+    <string name="reason_manual">Η εφαρμογή ελέχθηκε χειροκίνητα από την ομάδα ειδικών του %s και κρίθηκε ως Καλή.</string>
 
     <string name="reason_failed">Η υπογραφή της εφαρμογής δεν ταιριάζει με αυτή του προγραμματιστή. Η εφαρμογή μπορεί να έχει αλλοιωθεί.</string>
-    <string name="reason_unknown">Δεν υπάρχουν αρκετές πληροφορίες στη πλατφόρμα Aptoide Anti-Malware.</string>
+    <string name="reason_unknown">Δεν υπάρχουν αρκετές πληροφορίες στη πλατφόρμα %s Anti-Malware.</string>
 
 	
 	

@@ -107,7 +107,7 @@
     <string name="sign_out">Logga ut</string>
     <string name="logged_as">Du är inloggad som:</string>
 
-    <string name="aptoide_description">Aptoide\'s officiella app-butik</string>
+    <string name="aptoide_description">%s\'s officiella app-butik</string>
 
     <string name="error_410">Ledsen, men den begärda appen hittades inte på den här servern.</string>
 
@@ -181,7 +181,7 @@
 
     <string name="trusted_app">Pålitlig app</string>
     <string name="warning">Varning</string>
-    <string name="scanned_manually_by_aptoide_team">Manuellt skannad av Aptoide-teamet:</string>
+    <string name="scanned_manually_by_aptoide_team">Manuellt skannad av %s-teamet:</string>
     <string name="scanned_with_av">Skannad med Anti-Virus:</string>
     <string name="app_warning">Varning: %s</string>
     <string name="app_trusted">%s är pålitlig</string>
@@ -279,7 +279,7 @@
     <string name="timeline_is_empty_send_email">Vi kommer att skicka e-post till de du väljer</string>
     <string name="facebook_timeline_friends_invited">Vänner inbjudna!</string>
     <string name="invite_friends">Bjud in vänner</string>
-    <string name="friends_to_invite">Alla andra Facebook-vänner i Aptoide</string>
+    <string name="friends_to_invite">Alla andra Facebook-vänner i %s</string>
     <string name="order_popup_title3">Vuxet innehåll</string>
     <string name="root_access_dialog">Det ser ut som att du har root-behörighet. Vill du tillåta automatisk installation av appen efter nedladdningen?</string>
     <string name="at_time">vid %s</string>
@@ -291,7 +291,7 @@
     <string name="buy">Köp</string>
     <string name="confirm_carrier_payment">"Vill du köpa \'{title}\' för {value}? Du kommer att debiteras från din operatör. "</string>
     <string name="account">Konto</string>
-    <string name="error_occured_retry_later">Ett fel inträffade. Aptoide kommer att automatiskt försöka igen senare.</string>
+    <string name="error_occured_retry_later">Ett fel inträffade. %s kommer att automatiskt försöka igen senare.</string>
     <string name="error_occured_paying">Ett fel inträffade. Betalningen slutfördes inte.</string>
     <string name="failed_auth_code">Misslyckades med att autentisera kontot. Vänligen försök igen.</string>
     <string name="no_payments_available">Inga betalningar tillgängliga.</string>
@@ -430,7 +430,7 @@
     <string name="feedback_not_valid">Ange ett giltigt Ämne!</string>
     <string name="password_validation_text">"Lösenord måste vara minst 8 tecken och ha minst en bokstav och en siffra eller specialtecken (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">Aptoides Anti-Malware plattform analyserar program under körning och inaktiverar potentiella hot i alla butiker. Detta system skannar alla nya programfiler i butikerna och certifierar dom genom att jämföra mot andra Android Market-platser.</string>
-    <string name="accept_terms">Genom att registrera sig så samtycker du till Aptoides användarvillkor och innehållspolicy för utvecklare</string>
+    <string name="accept_terms">Genom att registrera sig så samtycker du till %s användarvillkor och innehållspolicy för utvecklare</string>
 
     <string name="subscribe_newrepo_alrt">Vill du prenumerera på denna butik?\n\n</string>
     <string name="subscribe_store">Prenumerera på butik</string>
@@ -445,7 +445,7 @@
     <string name="schDown_invertselection">Invertera val</string>
 
     <string name="hidden_adult">Vissa appar är dolda pga att vuxen-filter är aktivt. Vill du lista dessa appar?</string>
-    <string name="rollback_empty">Nedgradera en app snabbt till en föregående version och lös kompatibilitetsproblem. Håll en logg över alla dina installerade appar inklusive version och installationsdatum.</string>
+    <string name="rollback_empty">Nedgradera en app snabbt till en föregående version och lös kompatibilitetsproblem. Håll en logg över alla dina installerade appar (via %s) inklusive version och installationsdatum.</string>
 
     <string name="see_less">Se mindre</string>
     <string name="rollback">Återgång</string>
@@ -485,8 +485,8 @@
     <string name="write_your_final_verdict">Skriv ditt slutomdöme</string>
     <string name="review_success">Recensionen ivägskickad!</string>
     <string name="store_privacy">Butikssekretess</string>
-    <string name="upload_app_backup_apps_installed">Du måste ladda upp den här appen till din butik först. Du kan använda Aptoide Backup app.</string>
-    <string name="upload_app_backup_apps_not_installed">Du måste ladda upp den här appen till din butik först. Vänligen installera och använd Aptoide Backup app.</string>
+    <string name="upload_app_backup_apps_installed">Du måste ladda upp den här appen till din butik först. Du kan använda %s Backup app.</string>
+    <string name="upload_app_backup_apps_not_installed">Du måste ladda upp den här appen till din butik först. Vänligen installera och använd %s Backup app.</string>
     <string name="asksetadultpinmessage">Vill du ställa in en PIN-kod för att låsa upp barnförbjudet innehåll?</string>
     <string name="remove_mature_pin_title">Ta bort PIN för barnförbjudet innehåll</string>
     <string name="remove_mature_pin_summary">Ta bort PIN-koden som krävs för att låsa upp barnförbjudet innehåll</string>
@@ -496,8 +496,8 @@
     <string name="setting_sum_icon_download_rules">Tillåt ikoner att laddas ned via mobila dataanslutningar</string>
     <string name="setting_icon_download_rules">Ikon nedladdningsregler</string>
     <string name="setting_sum_general_download_rules">Ladda ner appar, redaktörens val, topp-program och butiker över tillåtna mobila dataanslutningar</string>
-    <string name="setting_category_autoupdate">Aptoide automatisk uppdatering</string>
-    <string name="setting_category_autoupdate_title">Aktivera Aptoide automatisk uppdatering</string>
+    <string name="setting_category_autoupdate">%s automatisk uppdatering</string>
+    <string name="setting_category_autoupdate_title">Aktivera %s automatisk uppdatering</string>
     <string name="setting_updates_notification_sum">Visa aviseringar om nya uppdateringar</string>
     <string name="setting_auto_update_sum">Aktivera automatiska uppdateringar för program</string>
     <string name="show_all_updates">Visa inte uppdateringar för program med olika signaturer</string>
@@ -519,15 +519,15 @@
     <string name="application_signature_analysis">Program-signatur jämförd med utvecklar-signatur:</string>
     <string name="application_signature_matched">Program-signatur matchar signatur relaterad till programutvecklaren.</string>
     <string name="application_signature_not_matched">Program-signatur matchar inte signaturen relaterad till program-utvecklaren. Programmet kan ha blivit förfalskat.</string>
-    <string name="application_signature_blacklisted">Program-signatur är inte en betrodd signatur på Aptiode Anti-Malware plattformen eftersom den har använts för att signera ett annat program som inte matchar signaturen som är relaterad till den legitima utvecklaren.</string>
-    <string name="scanned_verified_by_tester">Programmet har granskats manuellt av en testare från Aptoide-teamet vilket garanterar säkerheten av programmet.</string>
+    <string name="application_signature_blacklisted">Program-signatur är inte en betrodd signatur på %s Anti-Malware plattformen eftersom den har använts för att signera ett annat program som inte matchar signaturen som är relaterad till den legitima utvecklaren.</string>
+    <string name="scanned_verified_by_tester">Programmet har granskats manuellt av en testare från %s-teamet vilket garanterar säkerheten av programmet.</string>
     <string name="reason_third_party">Vi har kontrollerat appens signatur och den matchar den på Google Play-butiken, så du kan lita på och ha det så trevligt med appen.</string>
     <string name="reason_scanned">Skannad med AptoideGuard plus 2 olika anti-virus (Zoner 1.8 och Sophos 3.0).</string>
     <string name="reason_signature">Den kryptografiska signaturen garanterar att filen är säker att installera och inte manipulerats med på något sätt.</string>
-    <string name="reason_manual">Denna app var manuellt granskad av Aptoides expert-team, och flaggades som säker.</string>
+    <string name="reason_manual">Denna app var manuellt granskad av %s expert-team, och flaggades som säker.</string>
 
     <string name="reason_failed">Program-signaturen matchade inte utvecklarens signatur. Appen kan ha manipulerats.</string>
-    <string name="reason_unknown">Det finns inte tillräckligt med information om denna app i Aptoides Anti-Malware-plattform.</string>
+    <string name="reason_unknown">Det finns inte tillräckligt med information om denna app i %s Anti-Malware-plattform.</string>
 
 
 
