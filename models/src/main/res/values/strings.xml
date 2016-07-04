@@ -148,6 +148,13 @@
     <string name="store_already_added">Store already added!</string>
     <string name="subscribe_newrepo_alrt">Do you want to subscribe this store?\n\n</string>
     <string name="subscribe_store">Subscribe Store</string>
+    <string name="updates_filter_setting_title">Just show me stable app version updates</string>
+    <string name="balloon_security_google_play">App matched with</string>
+    <string name="balloon_security_subtitle">We now check all apps for Virus.</string>
+    <string name="balloon_security_title">Aptoide has changed.</string>
+    <string name="balloon_security_subtitle_start_part">We have checked %1$s\u0020</string>
+    <string name="balloon_security_subtitle_final_part"> for Virus:</string>
+    <string name="updates_filter_summary">Checking this, you won’t be notified of beta versions.</string>
     <string name="store_subscribed">Store %s subscribed</string>
     <string name="subscribing">Subscribing %s store…</string>
     <string name="create_store">Create store</string>
@@ -698,5 +705,14 @@
 
     <string name="unsubscribe">Unsubscribe</string>
     <string name="add_more_stores">Add more stores</string>
+
+    <string name="dialog_install_warning_proceed_button">Proceed</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">Search for</string>
+    <string name="dialog_install_warning_trusted_app_button">Trusted App</string>
+    <string name="dialog_install_warning_careful_text">Be careful if you choose to install this app. It may have been tampered with, have viruses or malware.</string>
+    <string name="dialog_install_warning_credibility_text">Before proceeding, check the Store\'s
+        credibility and other user comments. Aptoide always recommends that you only install %1$s Trusted apps.</string>
+    <string name="dialog_install_warning_trusted_version_button">Trusted Version</string>
+    <string name="dialog_install_warning_get_trusted_version_button">Get</string>
 </resources>
 

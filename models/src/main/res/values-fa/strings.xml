@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">امروز</string>
 <string name="WidgetProvider_timestamp_yesterday">دیروز</string>
-<string name="WidgetProvider_timestamp_hour_ago">%s ساعت پیش</string>
-<string name="WidgetProvider_timestamp_hours_ago">%s ساعت پیش</string>
-<string name="WidgetProvider_timestamp_minutes_ago">%s دقیقه پیش</string>
+<string name="WidgetProvider_timestamp_hour_ago">s% ساعت پیش</string>
+<string name="WidgetProvider_timestamp_hours_ago">s% ساعت پیش</string>
+<string name="WidgetProvider_timestamp_minutes_ago">s% دقیقه پیش</string>
 <string name="WidgetProvider_timestamp_just_now">همین الان</string>
-<string name="WidgetProvider_timestamp_weeks_ago">%s هفته قبل</string>
-<string name="WidgetProvider_timestamp_week_ago">%s هفته قبل</string>
+<string name="WidgetProvider_timestamp_weeks_ago">s% هفته قبل</string>
+<string name="WidgetProvider_timestamp_week_ago">s% هفته قبل</string>
 <string name="WidgetProvider_timestamp_this_week">این هفته</string>
 <string name="update">به‌روزرسانی</string>
 <string name="uninstall">حذف</string>
@@ -14,7 +14,7 @@
 <string name="write_your_comment">نظر خود را بنویسید</string>
 <string name="appview_rating_card_text">رده‌بندی</string>
 <string name="setting_mature_filtering">محتوای خاص بزرگسال</string>
-<string name="new_to_aptoide">در %s تازه وارد هستید؟ یک حساب رایگان ایجاد کنید</string>
+<string name="new_to_aptoide">در s% تازه وارد هستید؟ یک حساب رایگان ایجاد کنید</string>
 <string name="forgot_passwd">رمزتان را فراموش کرده‌اید؟</string>
 <string name="settings_title_bar">تنظیمات</string>
 <string name="settings_dwn_network_rules">تنظیمات شبکه موبایل</string>
@@ -96,9 +96,9 @@
 <string name="invalid_apk">APK نامعتبر است</string>
 <string name="server_error">خطای سرور</string>
 <string name="paidapp_not_found">خطا در دانلود اپلیکیشن. لطفا دوباره سعی کرده و یا با بخش پشتیبانی تماس بگیرید.</string>
-<string name="finished_install">%s نصب شده است.</string>
+<string name="finished_install">s% نصب شده است.</string>
 <string name="install">نصب کردن</string>
-<string name="aptoide_downloading">%s در حال دانلود است</string>
+<string name="aptoide_downloading">s% در حال دانلود است</string>
 <string name="error_occured">خطایی رخ داده است. لطفا دوباره سعی کنید</string>
 <string name="starting_download">شروع دانلود</string>
 <string name="downloads">دانلودها</string>
@@ -265,19 +265,19 @@
 
     <string name="download_retry">دوباره سعی کنید</string>
     <string name="WidgetProvider_timestamp_week_ago2">1 هفته قبل</string>
-    <string name="WidgetProvider_timestamp_days_ago">%s روز قبل</string>
+    <string name="WidgetProvider_timestamp_days_ago">s% روز قبل</string>
     <string name="WidgetProvider_timestamp_month_ago">یک ماه قبل</string>
-    <string name="WidgetProvider_timestamp_months_ago">%s ماه قبل</string>
+    <string name="WidgetProvider_timestamp_months_ago">s% ماه قبل</string>
     <string name="WidgetProvider_timestamp_year_ago">یک سال قبل</string>
-    <string name="WidgetProvider_timestamp_years_ago">%s سال قبل</string>
+    <string name="WidgetProvider_timestamp_years_ago">s% سال قبل</string>
 
     <string name="reply">پاسخ</string>
     <string name="casting_vote">ثبت رای…</string>
     <string name="vote_submitted">رای شما با موفقیت ثبت شد</string>
-    <string name="votes">%s رای</string>
+    <string name="votes">s% رای</string>
 
-    <string name="reviewed_by">بازبینی شده توسط - %s</string>
-    <string name="installed_this">%s این را نصب کرد.</string>
+    <string name="reviewed_by">بازبینی شده توسط - s%</string>
+    <string name="installed_this">s% این را نصب کرد.</string>
 
     <string name="adult_pin_wrong">PIN اشتباه است، دوباره تلاش کنید.</string>
     <string name="request_adult_pin">برای باز کردن قفل، PIN را وارد کنید</string>
@@ -289,9 +289,9 @@
     <string name="feedback_to_write2">نظر خود را در اینجا بنویسید و آن را برای ما ارسال کنید...\n لطفا تمام جزییاتی که می‌توانید را به ما بگویید:
 \nمراحلی که انجام داده‌اید
 \n خطاهایی که مشاهده کرده‌اید</string>
-    <string name="store_subscribed">حالا شما مشترک فروشگاه %s هستید</string>
-    <string name="subscribing">برای تکمیل فرایند اشتراک در فروشگاه %s کمی صبر کنید…</string>
-    <string name="installing">%s در حال نصب…</string>
+    <string name="store_subscribed">حالا شما مشترک فروشگاه s% هستید</string>
+    <string name="subscribing">برای تکمیل فرایند اشتراک در فروشگاه s% کمی صبر کنید…</string>
+    <string name="installing">s% در حال نصب…</string>
     <string name="vote_down">رای منفی</string>
     <string name="vote_up">رای مثبت</string>
     <string name="dont_show_again">این پیام را دیگر به من نشان نده</string>
@@ -337,7 +337,7 @@
 
     <string name="change_payment">بازگشت</string>
     <string name="cannot_uninstall_self">حذف نرم‌افزار نصب‌کننده ممکن نیست.</string>
-    <string name="at_time">در %s</string>
+    <string name="at_time">در s%</string>
     <string name="downgrade_requires_uninstall">بازگشت به نسخه قبلی احتیاج به حذف اپلیکیشن دارد</string>
 
     <string name="order_popup_title3">محتوای بزرگسال</string>
@@ -376,7 +376,7 @@
     <string name="review_addictive">اعتیاد آور</string>
     <string name="review_stability">پایداری</string>
     <string name="review_by">نقد و بررسی توسط:
-\n%s</string>
+\ns%</string>
     <string name="review_title">نقدها و بررسی‌ها</string>
     <string name="review_good">خوب</string>
     <string name="review_bad">بد</string>
@@ -432,10 +432,10 @@
     <string name="no_description">بدون شرح</string>
     <string name="description">توضیح</string>
     <string name="version">نسخه</string>
-    <string name="version_placeholder">نسخه: %s</string>
+    <string name="version_placeholder">نسخه: s%</string>
 
     <string name="results_subscribed">فروشگاه‌های مشترک شده</string>
-    <string name="results_in_store">نتایج جستجو در%s فروشگاه</string>
+    <string name="results_in_store">نتایج جستجو درs% فروشگاه</string>
     <string name="other_stores">فروشگاه‌های غیرمشترک شده</string>
     <string name="reviews">نقدها و بررسی‌ها</string>
     <string name="store">فروشگاه</string>
@@ -446,14 +446,14 @@
     <string name="error_occured_uploading">شما باید در ابتدا این برنامه را بارگذاری کنید.</string>
 
     <string name="update_self_title">به‌روزرسانی موجود است</string>
-    <string name="update_self_msg">نسخه جدیدی از %s در دسترس است؟\nآیا می خواهید آن را به روز رسانی کنید؟</string>
+    <string name="update_self_msg">نسخه جدیدی از s% در دسترس است؟\nآیا می خواهید آن را به روز رسانی کنید؟</string>
     <string name="retrieving_update">بازیابی فایل‌های به‌روزرسانی شده…</string>
 
     <string name="menu_search_item_go_to_store">به فروشگاه برو</string>
     <string name="srch_hint">جستجو میان صدها هزار اپ…</string>
 
-    <string name="app_trusted">%s قابل اعتماد است</string>
-    <string name="app_warning">هشدار: %s</string>
+    <string name="app_trusted">s% قابل اعتماد است</string>
+    <string name="app_warning">هشدار: s%</string>
     <string name="scanned_with_av">اسکن شده توسط آنتی ویروس:</string>
     <string name="compared_with_another_marketplace">در قیاس با یک فروشگاه اندرویدی دیگر:</string>
     <string name="scanned_manually_by_aptoide_team">بررسی شده توسط تیم کارشناسان اپ‌توید :</string>
@@ -469,12 +469,12 @@
 
 
 
-    <string name="reply_to">پاسخ به %s</string>
+    <string name="reply_to">پاسخ به s%</string>
     <string name="comment_submitted">نظر شما با موفقیت ارسال شد</string>
     <string name="write_a_comment">نظر خود را بنویسید</string>
     <string name="no_comment_be_the_first">اولین نفری باشید که نظر می‌دهد!</string>
 
-    <string name="installapp_alrt">آیا می‌خواهید نصب کنید:\n\n%s ؟</string>
+    <string name="installapp_alrt">آیا می‌خواهید نصب کنید:\n\ns% ؟</string>
 
     <string name="suggested_app">اپ پیشنهادی</string>
 
@@ -482,15 +482,15 @@
     <string name="abTest1_label_2">نصب</string>
     <string name="abTest1_label_3">نصب</string>
 
-    <string name="notification_timeline_new_likes">در صفحه فعالیت‌های اجتماعی %s لایک‌ جدید دارید!</string>
-    <string name="notification_timeline_new_comments">در صفحه فعالیت‌های اجتماعی %s نظر جدید دارید!</string>
-    <string name="notification_timeline_activity">شما %1$s نظر جدید و %2$s لایک جدید هستید. سری به صفحه فعالیت‌های اجتماعی بزنید!</string>
-    <string name="notification_social_timeline">همین الان صفحه فعالیت‌های اجتماعی را نگاه کنید!</string>
+    <string name="notification_timeline_new_likes">در صفحه فعالیت‌های اجتماعی s% لایک‌ جدید دارید!</string>
+    <string name="notification_timeline_new_comments">در صفحه فعالیت‌های اجتماعی s% نظر جدید دارید!</string>
+<!--    <string name="notification_timeline_activity">"شما $1%s  نظر جدید و $2%s لایک جدید هستید. سری به صفحه فعالیت‌های اجتماعی بزنید!"</string>
+-->    <string name="notification_social_timeline">همین الان صفحه فعالیت‌های اجتماعی را نگاه کنید!</string>
     <string name="notification_timeline_posts">دوستان شما اپ‌های جدید نصب کردند!</string>
 
-    <string name="has_updates">به‌روزرسانی جدید %s در دسترس است!</string>
-    <string name="new_updates">نسخه روزآمد %s اپ جدید آماده است!</string>
-    <string name="one_new_update">نسخه روزآمد %s اپ جدید آماده است!</string>
+    <string name="has_updates">به‌روزرسانی جدید s% در دسترس است!</string>
+    <string name="new_updates">نسخه روزآمد s% اپ جدید آماده است!</string>
+    <string name="one_new_update">نسخه روزآمد s% اپ جدید آماده است!</string>
     <string name="updates_tab_adapter_uninstalled">حذف شده</string>
     <string name="updatesTabAdapterUninstall">حذف</string>
     <string name="flag_good">خوب</string>
@@ -516,7 +516,7 @@
     <string name="wizard_new_homepage">طرح صفحه خانگی جدید</string>
     <string name="wizard_next">بعدی</string>
     <string name="wizard_prev">قبلی</string>
-    <string name="search_activity_title">\'%s\'</string>
+    <string name="search_activity_title">\'s%\'</string>
 
     <string name="share">به اشتراک گذاشتن</string>
     <string name="share_on_timeline">به اشتراک گذاشتن در تایم‌لاین</string>
@@ -527,15 +527,15 @@
     <string name="no_search_results_message">جستجوی شما بی‌نتیجه بود.\nلطفاً کلمات دیگری را امتحان کنید.</string>
 
     <string name="developer">توسعه‌دهنده</string>
-    <string name="website">وب سایت: %s</string>
-    <string name="email">ایمیل: %s</string>
-    <string name="privacy_policy">سیاست حفظ حریم خصوصی: %s</string>
-    <string name="dialog_version_size">نسخه:%1$s  سایز: %2$s  </string>
+    <string name="website">وب سایت: s%</string>
+    <string name="email">ایمیل: s%</string>
+    <string name="privacy_policy">سیاست حفظ حریم خصوصی: s%</string>
+    <!--<string name="dialog_version_size">نسخه: 1%$s | سایز: 2%$s</string>-->
     <string name="na">N/A</string>
     <string name="no_email_and_pass_error_message">لطفاً برای ثبت نام ایمیل و رمز خود را وارد کنید.</string>
     <string name="no_pass_error_message">لطفاً برای ثبت نام یک رمز عبور وارد نمایید.</string>
     <string name="no_email_error_message">لطفاً برای ثبت نام یک ایمیل وارد کنید.</string>
-    <string name="subscribing_store_message">لغو اشتراک %s</string>
+    <string name="subscribing_store_message">لغو اشتراک s%</string>
 
 <string name="flag_freeze">مسدود سازی</string>
     <string name="show_all_updates">به‌روز‌رسانی‌های اپ‌های با امضاهای دیجیتالی متفاوت را نشان نده</string>
@@ -556,7 +556,7 @@
     <string name="facebook_tos">" • اپلیکیشنی را که نصب می کنید را با دوستان فیسبوکی خود به اشتراک بگذارید\n\n • فعالیت‌های دوستان خود ببینید، لایک کنید و نظر دهید\n\n • ما هرگز، هرگز، هرگز بر روی صفحه فیسبوک شما پست نمی‌گذاریم. حریم شخصی شما برای ما محترم است. "</string>
     <string name="confirm_carrier_payment">"آیا می خواهید \'{title}\' را با قیمت {value} خریداری کنید؟ هزینه آن از اعتبار موبایلی شما کم خواهد شد یا روی قبض موبایل شما خواهد آمد. "</string>
     <string name="root_access_dialog">تنظیمات گوشی شما مناسب است. آیا می‌خواهید اپلیکیشن‌ها پس از دانلود به صورت خودکار نصب شوند؟</string>
-    <string name="X_download_number">%s دانلود شده.</string>
+    <string name="X_download_number">s% دانلود شده.</string>
     <string name="set_sliders">اسلایدرها را تنظیم کنید</string>
     <string name="setting_sum_general_download_rules">دانلود کردن اپ‌ها، پیشنهادها، اپ‌های برگریده و فروشگاه‌ها با اینترنت موبایلی</string>
     <string name="root">روت</string>
