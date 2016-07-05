@@ -540,7 +540,7 @@ public class DownloadService extends Service {
         ArrayList<Displayable> allNonActive = new ArrayList<>();
 
         ArrayList<DownloadInfoRunnable> allDownloads = new ArrayList<>();
-        allDownloads.addAll(manager.getmErrorList());
+        //allDownloads.addAll(manager.getmErrorList());
         allDownloads.addAll(manager.getmCompletedList());
 
         for (DownloadInfoRunnable info : allDownloads) {
@@ -548,6 +548,19 @@ public class DownloadService extends Service {
         }
 
         return allNonActive;
+    }
+
+    public ArrayList<Displayable> getAllErrorDownloads() {
+        ArrayList<Displayable> errorDownloadsList = new ArrayList<>();
+
+        ArrayList<DownloadInfoRunnable> allDownloads = new ArrayList<>();
+        allDownloads.addAll(manager.getmErrorList());
+
+        for (DownloadInfoRunnable info : allDownloads) {
+            errorDownloadsList.add(new NotOngoingDownloadRow(info.getDownload(),AptoideUtils.UI.getBucketSize()));
+        }
+
+        return errorDownloadsList;
     }
 
     public void stopDownload(long id) {
