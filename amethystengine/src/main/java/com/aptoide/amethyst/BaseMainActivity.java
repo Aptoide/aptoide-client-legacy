@@ -142,7 +142,7 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
         //spiceManager.start(this);
         //AccountManager.get(this).addOnAccountsUpdatedListener(onAccountsUpdateListener, new Handler(Looper.getMainLooper()), false);
 
-        handleIntentExtras(getIntent());
+        //handleIntentExtras(getIntent());
 
         startService(new Intent(this, UpdatesService.class));
         bindService(new Intent(this, DownloadService.class), downloadServiceConnection, BIND_AUTO_CREATE);
@@ -186,7 +186,7 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
         return null;
     }
 
-    private void handleIntentExtras(Intent intent) {
+    protected void handleIntentExtras(Intent intent) {
         if (intent.hasExtra(Constants.NEW_REPO_EXTRA) && intent.getFlags() == Constants.NEW_REPO_FLAG) {
             ArrayList<String> repos = intent.getExtras().getStringArrayList("newrepo");
             if (repos != null) {

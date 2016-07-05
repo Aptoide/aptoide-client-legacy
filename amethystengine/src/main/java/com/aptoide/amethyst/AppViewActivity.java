@@ -2269,6 +2269,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 packageName = intent.getStringExtra(Constants.PACKAGENAME_KEY);
                 storeName = intent.getStringExtra(Constants.STORENAME_KEY);
                 executeSpiceRequest();
+            } else if (intent.getStringExtra(Constants.DOWNLOAD_FROM_KEY).equals("downloadNotification")) {
+                packageName = intent.getStringExtra(Constants.PACKAGENAME_KEY);
+                appName = intent.getStringExtra(Constants.APPNAME_KEY);
+                executeSpiceRequestWithPackageName(packageName, appName);
             }
 
 
@@ -2444,7 +2448,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
      * @return An intent to open the appview with the wanted app
      */
     public static Intent getAppviewIntent(String packageName, String repo, Context context) {
-        Intent intent = new Intent(context, AppViewActivity.class);
+        Intent intent = new Intent(context, Aptoide.getConfiguration().getAppViewActivity());
         intent.putExtra(Constants.FROM_APTOIDE_INSTALL_INTENT, true);
         intent.putExtra(Constants.PACKAGENAME_KEY, packageName);
         intent.putExtra(Constants.STORENAME_KEY, repo);
