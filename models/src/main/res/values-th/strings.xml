@@ -68,7 +68,7 @@
 <string name="see_top_stores">ดูร้านค้ายอดนิยม</string>
 <string name="setcredentials">ลงชื่อเข้าใช้งาน</string>
 <string name="rollback">ย้อนกลับ</string>
-<string name="rollback_empty">"ปรับใช้แอปเวอร์ชั่นก่อนหน้านี้อย่างรวดเร็วและแก้ปัญหาที่ไม่สามารถเข้ากันได้  เก็บข้อมูลแอปทั้งหมดที่คุณติดตั้ง (ผ่าน Aptoide) รวมถึงเวอร์ชั่นและวันที่ติดตั้ง"</string>
+<string name="rollback_empty">"ปรับใช้แอปเวอร์ชั่นก่อนหน้านี้อย่างรวดเร็วและแก้ปัญหาที่ไม่สามารถเข้ากันได้  เก็บข้อมูลแอปทั้งหมดที่คุณติดตั้ง (ผ่าน %s) รวมถึงเวอร์ชั่นและวันที่ติดตั้ง"</string>
 <string name="rollback_installed">ติดตั้งแล้ว</string>
 <string name="rollback_uninstalled">ถอดการติดตั้งแล้ว</string>
 <string name="rollback_updated">อัปเดตแล้ว</string>

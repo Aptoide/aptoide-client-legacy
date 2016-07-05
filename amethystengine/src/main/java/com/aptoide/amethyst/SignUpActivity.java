@@ -65,9 +65,8 @@ public class SignUpActivity extends AptoideBaseActivity {
         setContentView(getViewLayout());
 
         acceptTermsText=(TextView) findViewById(R.id.accept_terms);
-        String accept_terms_Resource=getResources().getString(R.string.accept_terms);
-        String  accept_terms_Formatted= String.format(accept_terms_Resource, Aptoide.getConfiguration().getMarketName());
-        acceptTermsText.setText( accept_terms_Formatted);
+        String  acceptTermsFormatted= AptoideUtils.StringUtils.getFormattedString(Aptoide.getContext(), R.string.accept_terms, Aptoide.getConfiguration().getMarketName());
+        acceptTermsText.setText(acceptTermsFormatted);
 
 
 

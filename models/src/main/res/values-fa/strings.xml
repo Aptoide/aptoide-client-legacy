@@ -69,7 +69,7 @@
 <string name="see_top_stores">دیدن فروشگاه‌های برگزیده</string>
 <string name="setcredentials">ورود</string>
 <string name="rollback">بازگرداندن</string>
-<string name="rollback_empty">هر اپلیکیشنی را به سرعت به نسخه قبلی آن بازگردانید و مشکلات ناسازگاری آن را حل کنید. تاریخچه (log) همه اپلیکیشن های نصب شده (از طریق Aptoide) شامل نسخه و تاریخ نصب را نگهداری کنید.</string>
+<string name="rollback_empty">هر اپلیکیشنی را به سرعت به نسخه قبلی آن بازگردانید و مشکلات ناسازگاری آن را حل کنید. تاریخچه (log) همه اپلیکیشن های نصب شده (از طریق s%) شامل نسخه و تاریخ نصب را نگهداری کنید.</string>
 <string name="rollback_installed">نصب شده</string>
 <string name="rollback_uninstalled">حذف شده</string>
 <string name="rollback_updated">به‌روزرسانی شده</string>
@@ -80,7 +80,7 @@
 <string name="update_all">همه اپ‌ها را روز‌آمد کن</string>
 <string name="username">ایمیل</string>
 <string name="username_tip">ایمیل خود را وارد کنید</string>
-<string name="accept_terms">ثبت نام به منزله پذیرفتن شرایط استفاده از Aptoide و سیاست‌های محتوایی برای توسعه‌دهندگان است</string>
+<string name="accept_terms">ثبت نام به منزله پذیرفتن شرایط استفاده از s% و سیاست‌های محتوایی برای توسعه‌دهندگان است</string>
 <string name="register">ثبت نام</string>
 <string name="or">- یا -</string>
 <string name="logged_as">شما با این حساب کاربری وارد شده‌اید:</string>
@@ -219,7 +219,7 @@
     <string name="error_SYS_4">این تماس قابل پشتیبانی با این نسخه از API نیست</string>
     <string name="error_SYS_Billing">پرداخت درون‌برنامه‌ای دراین دستگاه پشتیبانی نمی‌شود.</string>
 
-    <string name="aptoide_description">فروشگاه رسمی اپلیکیشن Aptoide</string>
+    <string name="aptoide_description">فروشگاه رسمی اپلیکیشن s%</string>
 
     <string name="error_410">متاسفانه، برنامه درخواستی برروی این سرور پیدا نشد.</string>
 
@@ -330,7 +330,7 @@
     <string name="no_payments_available">هیچ روش پرداختی در دسترس نیست.</string>
     <string name="failed_auth_code">اعتبارسنجی حساب ممکن نیست. لطفاً دوباره تلاش کنید.</string>
     <string name="error_occured_paying">یک خطا اتفاق افتاده است. پرداخت کامل نشد.</string>
-    <string name="error_occured_retry_later">"خطایی اتفاق افتاده است. Aptoide  برای تکمیل فرایند پرداخت مجدداً تلاش خواهد کرد."</string>
+    <string name="error_occured_retry_later">"خطایی اتفاق افتاده است. s%  برای تکمیل فرایند پرداخت مجدداً تلاش خواهد کرد."</string>
     <string name="account">حساب کاربری</string>
     <string name="buy">خرید</string>
     <string name="billing_result">"نتیجه تراکنش : "</string>
@@ -456,8 +456,8 @@
     <string name="app_warning">هشدار: s%</string>
     <string name="scanned_with_av">اسکن شده توسط آنتی ویروس:</string>
     <string name="compared_with_another_marketplace">در قیاس با یک فروشگاه اندرویدی دیگر:</string>
-    <string name="scanned_manually_by_aptoide_team">بررسی شده توسط تیم کارشناسان اپ‌توید :</string>
-    <string name="scanned_verified_by_tester">تیم کارشناسی اپ‌توید امنیت این اپ را تضمین می‌کند.</string>
+    <string name="scanned_manually_by_aptoide_team">بررسی شده توسط تیم کارشناسان s% :</string>
+    <string name="scanned_verified_by_tester">تیم کارشناسی s% امنیت این اپ را تضمین می‌کند.</string>
     <string name="warning">هشدار</string>
     <string name="trusted_app">این اپ مورد اعتماد است</string>
     <string name="unknown">ناشناخته</string>

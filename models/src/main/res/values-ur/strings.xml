@@ -102,7 +102,7 @@
     <string name="sign_out">سائن آؤٹ</string>
     <string name="logged_as">آپ لاگڈ ہو رہے ہیں کی طرح:</string>
 
-    <string name="aptoide_description">Aptoide آفیشل ایپ اسٹور</string>
+    <string name="aptoide_description">%s آفیشل ایپ اسٹور</string>
 
     <string name="error_410">معذرت، درخواست کردہ ایپ اس سرور پر نہیں مل سکا۔</string>
 
@@ -147,7 +147,7 @@
     <string name="password_validation_text">"پاس ورڈ کم از کم 8 الفاظ پراور کم ازکم ایک لفظ اور ایک نمبر اور خاص الفاظ (!@#$%*) پرمشتمل ہونا چاہیے "</string>
     <string name="about_aptoide_antimalware">"Aptoide  اینٹی۔ مال ویئر پلیٹ فارم ایپلیکیشنز کا چلتے وقت تجزیہ کرتا ہے اور تمام تر اسٹوروں میں ممکنہ خطرات کو غیر فعال کردیتا ہے۔یہ نظام سب نئی ایپلیکیشن فائلوں کو اسٹوروں میں سے اسکین کرتا ہے اور دوسرے اینڈرائیڈ بازاروں کے مقابلے میں اسناد دیتا ہے۔"</string>
     <string name="username_tip">اپنا ای میل لکھیں</string>
-    <string name="accept_terms">سائن اپ ہوتے ہی آپ Aptoide کی استعمال کی شرائط اور ڈویلپرز کے لئے مواد کی پالیسی سے متفق ہورہے ہیں</string>
+    <string name="accept_terms">سائن اپ ہوتے ہی آپ %s کی استعمال کی شرائط اور ڈویلپرز کے لئے مواد کی پالیسی سے متفق ہورہے ہیں</string>
 
     <string name="start_loading">لوڈ کر رہا ہے…</string>
     <string name="store_already_added">اسٹور پہلے ہی شامل کردیا گیا ہے!</string>
@@ -234,7 +234,7 @@
     <string name="downgrade">ڈاؤن گریڈ</string>
     <string name="reinstall">دوبارہ انسٹال کریں</string>
 
-    <string name="rollback_empty">کسی بھی ایپ کو پرانے ورژن میں تیزی سے ڈاؤن گریڈ کریں تا کہ عدم مطابقت کے مسائل کو حل کر سکیں۔اپنے انسٹال کئے ہوئے تمام ایپس کا کھاتہ رکھیں (Aptoide کے ذریعے) بمعہ ورژن اور انسٹال کی تاریخ کے۔</string>
+    <string name="rollback_empty">کسی بھی ایپ کو پرانے ورژن میں تیزی سے ڈاؤن گریڈ کریں تا کہ عدم مطابقت کے مسائل کو حل کر سکیں۔اپنے انسٹال کئے ہوئے تمام ایپس کا کھاتہ رکھیں (%s کے ذریعے) بمعہ ورژن اور انسٹال کی تاریخ کے۔</string>
 
     <string name="see_more">مزید دیکھیں</string>
     <string name="see_less">کم دیکھیں</string>
@@ -278,7 +278,7 @@
     <string name="no_payments_available">کوئی ادائیگی دستیاب نہیں ہے ۔</string>
     <string name="failed_auth_code">اکاؤنٹ مجاز کرنے میں ناکامی ۔ برائے مہربانی دوبارہ کوشش کریں ۔</string>
     <string name="error_occured_paying">کوئی نقص واقع ہو گیا ۔ ادائیگی مکمل نہیں ہوسکی۔</string>
-    <string name="error_occured_retry_later">"کوئی نقص واقع  ہوگیا ۔Aptoide دوبارہ خودبخود کوشش کرے گا۔"</string>
+    <string name="error_occured_retry_later">"کوئی نقص واقع  ہوگیا ۔%s دوبارہ خودبخود کوشش کرے گا۔"</string>
     <string name="account">اکاؤنٹ</string>
     <string name="confirm_carrier_payment">"کیا آپ \'{عنوان}\'  کے لئے  {قدر}  خریداری کرنا چاہتے ہیں؟ آپ کو آپ کے باربردار کے ذریعے ادائیگی کرنا ہوگی۔ "</string>
     <string name="buy">خریدیں</string>
@@ -358,8 +358,8 @@
     <string name="private_key">نجی</string>
     <string name="store_username">صارف کا نام</string>
     <string name="store_password">پاس ورڈ</string>
-    <string name="upload_app_backup_apps_installed">"آپ کو یہ ایپ پہلے اپنے اسٹور میں اپ لوڈ کرنا پڑے گا۔آپ Aptoide  کا بیک اپ ایپ استعمال کر سکتے ہیں۔"</string>
-    <string name="upload_app_backup_apps_not_installed">"آپ کو یہ ایپ پہلے اپنے اسٹور میں اپ لوڈ کرنا پڑے گا۔برائے مہربانی Aptoide  کا بیک اپ ایپ  انسٹال ا وراستعمال کریں۔"</string>
+    <string name="upload_app_backup_apps_installed">"آپ کو یہ ایپ پہلے اپنے اسٹور میں اپ لوڈ کرنا پڑے گا۔آپ %s  کا بیک اپ ایپ استعمال کر سکتے ہیں۔"</string>
+    <string name="upload_app_backup_apps_not_installed">"آپ کو یہ ایپ پہلے اپنے اسٹور میں اپ لوڈ کرنا پڑے گا۔برائے مہربانی %s  کا بیک اپ ایپ  انسٹال ا وراستعمال کریں۔"</string>
     <string name="upload_app">ایپ اپ لوڈ کریں</string>
     <string name="create_review">جائزہ تخلیق کریں</string>
 
@@ -384,8 +384,8 @@
     <string name="setting_hwspecssum">آپ کے فون کے بارے میں ہارڈویئر معلومات</string>
     <string name="setting_appfiltersum">ایسی ایپلیکیشنز مت دکھائیں جو اس آلے سے مطابقت نہ رکھتی ہوں</string>
     <string name="setting_appfiltertitle">ایپلیکیشنز کو فلٹر کریں</string>
-    <string name="setting_category_autoupdate">"Aptoide  خودکار اپ ڈیٹس"</string>
-    <string name="setting_category_autoupdate_title">"Aptoide  کی خود کار اپ ڈیٹس فعال کریں"</string>
+    <string name="setting_category_autoupdate">"%s  خودکار اپ ڈیٹس"</string>
+    <string name="setting_category_autoupdate_title">"%s  کی خود کار اپ ڈیٹس فعال کریں"</string>
     <string name="setting_dont_show_mature_content">بالغ مواد دکھائیں</string>
     <string name="setting_mature_filtering">بالغ مواد</string>
     <string name="setting_updates">اپ ڈیٹس</string>
@@ -482,9 +482,9 @@
     <string name="application_signature_analysis">"ایپلیکیش دستخط  ڈویلپر کے دستخط کے ساتھ تقابل شدہ:"</string>
     <string name="application_signature_matched">ایپلیکیشن دستخط متعلقہ ایپلیکیشن ڈویلپرکے دستخط کے ساتھ ہم آہنگ ہیں۔</string>
     <string name="application_signature_not_matched">ایپلیکیشن دستخط متعلقہ ایپلیکیشن ڈویلپرکے دستخط کے ساتھ ہم آہنگ نہیں ہیں۔ شائد ایپلیکیش میں ملاوٹ کی گئی ہے۔</string>
-    <string name="application_signature_blacklisted">"ایپلیکیشن دستخط Aptoide  اینٹی مال ویئر پلیٹ فارم پر قابل بھروسہ دستخط نہیں ہیں کیونکہ یہی دستخط ایک اور ایپلیکیشن کے زیر استعمال رہے ہیں جو اس دستخط سے ہم آہنگ نہیں جو کسی جائز ڈویلپر سے متعلقہ ہوں۔"</string>
-    <string name="scanned_manually_by_aptoide_team">"Aptoide  ٹیم کی جانب سے دستی طور پر اسکین کیا گیا:"</string>
-    <string name="scanned_verified_by_tester">"ایپلیکیشن  کا Aptoide  کی ٹیم  کی طرف سے ایک جانچنے والے نے دستی طور پر جائزہ لیا ہے جو ایپلیکیشن کے محفوظ ہونے کی یقین دہانی کرتا ہے۔"</string>
+    <string name="application_signature_blacklisted">"ایپلیکیشن دستخط %s  اینٹی مال ویئر پلیٹ فارم پر قابل بھروسہ دستخط نہیں ہیں کیونکہ یہی دستخط ایک اور ایپلیکیشن کے زیر استعمال رہے ہیں جو اس دستخط سے ہم آہنگ نہیں جو کسی جائز ڈویلپر سے متعلقہ ہوں۔"</string>
+    <string name="scanned_manually_by_aptoide_team">"%s  ٹیم کی جانب سے دستی طور پر اسکین کیا گیا:"</string>
+    <string name="scanned_verified_by_tester">"ایپلیکیشن  کا %s  کی ٹیم  کی طرف سے ایک جانچنے والے نے دستی طور پر جائزہ لیا ہے جو ایپلیکیشن کے محفوظ ہونے کی یقین دہانی کرتا ہے۔"</string>
     <string name="warning">تنبیہ</string>
     <string name="trusted_app">قابل بھروسہ ایپ</string>
     <string name="unknown">نامعلوم</string>
@@ -492,10 +492,10 @@
     <string name="reason_third_party">ہم نے ایپ کے دستخط جانچ لئے ہیں اور یہ گوگل پلے اسٹور سے مشابہ ہیں،چناچہ مطمئن رہیں اورایپ کا لطف اٹھائیں۔</string>
     <string name="reason_scanned">"Aptoide گارڈ اور دو دوسرے اینٹی وائرس (زونر 1.8 اور سوفوس  3.0) کے ذریعے اسکین کیا گیا۔"</string>
     <string name="reason_signature">"رمزیہ دستخط اس بات کی ضمانت دیتے ہیں کہ فائل انسٹال کرنے کے لئے محفوظ ہے اوراس میں کسی  طرح کی کوئی گڑبڑ نہیں کی گئی۔"</string>
-    <string name="reason_manual">اس ایپ کا Aptoide کی ٹیم ایک ماہر کے ہاتھوں جائزہ لیا گیا ہے، اور اسے بہترین کے طور پر پرچم کیا گیا ہے۔</string>
+    <string name="reason_manual">اس ایپ کا %s کی ٹیم ایک ماہر کے ہاتھوں جائزہ لیا گیا ہے، اور اسے بہترین کے طور پر پرچم کیا گیا ہے۔</string>
 
     <string name="reason_failed">ایپلیکیشن کے دستخط ڈویلپر کے دستخط کے ساتھ ہم آہنگ نہیں ہیں۔شائد ایپ میں کوئی گڑبڑ کی گئ ہے۔</string>
-    <string name="reason_unknown">Aptoide کے اینٹی مال ویئر پلیٹ فارم پراس ایپ کے بارے میں زیادہ معلومات نہیں ہیں۔</string>
+    <string name="reason_unknown">%s کے اینٹی مال ویئر پلیٹ فارم پراس ایپ کے بارے میں زیادہ معلومات نہیں ہیں۔</string>
 
 
 

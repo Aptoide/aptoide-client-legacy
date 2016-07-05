@@ -27,6 +27,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.PaymentServices;
 import com.bumptech.glide.Glide;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -466,9 +467,9 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
             public void onRequestFailure(SpiceException spiceException) {
                 AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-                String error_occured_retry_later_resource=getResources().getString( R.string.error_occured_retry_later);
-                String error_occured_retry_later_formatted= String.format(error_occured_retry_later_resource,Aptoide.getConfiguration().getMarketName());
-                Toast.makeText(Aptoide.getContext(), error_occured_retry_later_formatted, Toast.LENGTH_LONG).show();
+
+                String errorOccuredRetryLaterFormatted = AptoideUtils.StringUtils.getFormattedString(getApplicationContext(), R.string.error_occured_retry_later, Aptoide.getConfiguration().getMarketName());
+                Toast.makeText(Aptoide.getContext(), errorOccuredRetryLaterFormatted, Toast.LENGTH_LONG).show();
 
                 Intent i = buildIntentForAlarm(confirmation, "iab");
                 i.putExtra("apiVersion", apiVersion);

@@ -65,7 +65,7 @@
 <string name="see_top_stores">Rodyti populiariausias parduotuves</string>
 <string name="setcredentials">Prisijungimas</string>
 <string name="rollback">Atšaukti keitimus</string>
-<string name="rollback_empty">Greitai grąžinkite ankstesnę programėlės versiją ir išspręskite nesuderinamumo problemas. Kaupkite savo per Aptoide įdiegtų programėlių registrą su jų versijomis ir įdiegimo datomis.</string>
+<string name="rollback_empty">Greitai grąžinkite ankstesnę programėlės versiją ir išspręskite nesuderinamumo problemas. Kaupkite savo per %s įdiegtų programėlių registrą su jų versijomis ir įdiegimo datomis.</string>
 <string name="rollback_installed">Įdiegta</string>
 <string name="rollback_uninstalled">Pašalinta</string>
 <string name="rollback_updated">Atnaujinta</string>
@@ -77,7 +77,7 @@
 <string name="update_all">Atnaujinti viską</string>
 <string name="username">El. paštas</string>
 <string name="username_tip">Įrašykite savo el. paštą</string>
-<string name="accept_terms">Užsiregistruodami jūs sutinkate su Aptoide paslaugų teikimo sąlygomis ir turinio politika kūrėjams</string>
+<string name="accept_terms">Užsiregistruodami jūs sutinkate su %s paslaugų teikimo sąlygomis ir turinio politika kūrėjams</string>
 <string name="register">Registruotis</string>
 <string name="or">- Arba -</string>
 <string name="dont_have_an_account">Neturite paskyros? Registruokitės</string>
@@ -221,7 +221,7 @@
 
     <string name="error_SYS_Billing">Šis prietaisas nepalaiko In-App Billing atsiskaitymo funkcijos.</string>
 
-    <string name="aptoide_description">Aptoide oficiali programėlių parduotuvė</string>
+    <string name="aptoide_description">%s oficiali programėlių parduotuvė</string>
 
     <string name="error_410">Apgailestaujame, bet šiame serveryje neradome pageidaujamos programėlės.</string>
 
@@ -328,7 +328,7 @@
     <string name="no_payments_available">Nėra galimų mokėjimų.</string>
     <string name="failed_auth_code">Sąskaitos autorizacija nepavyko. Bandykite dar kartą.</string>
     <string name="error_occured_paying">Įvyko klaida. Mokėjimas nebuvo baigtas.</string>
-    <string name="error_occured_retry_later">Įvyko klaida. Aptoide vėliau automatiškai pakartos.</string>
+    <string name="error_occured_retry_later">Įvyko klaida. %s vėliau automatiškai pakartos.</string>
     <string name="account">Sąskaita</string>
     <string name="confirm_carrier_payment">"Ar norite įsigyti \'{title}\' už {value}? Sąskaitą jums pateiks jūsų paslaugų teikėjas. "</string>
     <string name="buy">Pirkti</string>
@@ -396,8 +396,8 @@
     <string name="store_privacy">Parduotuvės privatumas</string>
     <string name="public_key">vieša</string>
     <string name="private_key">privati</string>
-    <string name="upload_app_backup_apps_installed">Pirmiausia turite patalpinti šią programėlę savo parduotuvėje. Galite naudotis Aptoide Backup Apps atsarginėmis programėlėmis.</string>
-    <string name="upload_app_backup_apps_not_installed">Pirmiausia turite patalpinti šią programėlę savo parduotuvėje. Įdiekite ir naudokitės Aptoide atsarginėmis programėlėmis.</string>
+    <string name="upload_app_backup_apps_installed">Pirmiausia turite patalpinti šią programėlę savo parduotuvėje. Galite naudotis %s Backup Apps atsarginėmis programėlėmis.</string>
+    <string name="upload_app_backup_apps_not_installed">Pirmiausia turite patalpinti šią programėlę savo parduotuvėje. Įdiekite ir naudokitės %s atsarginėmis programėlėmis.</string>
     <string name="upload_app">Įkelti programėlę</string>
     <string name="create_review">Sukurti atsiliepimą</string>
 
@@ -413,8 +413,8 @@
     <string name="setting_sum_general_download_rules">Programėlių atsisiuntimas, Redaktorių pasirinkimas, Top programėlės ir Parduotuvės prieinamos per mobilųjį internetą</string>
     <string name="setting_general_download_rules">Bendrosios atsisiuntimo taisyklės</string>
     <string name="setting_hwspecssum">Techninė informacija apie jūsų telefoną</string>
-    <string name="setting_category_autoupdate">Aptoide automatinis atnaujinimas</string>
-    <string name="setting_category_autoupdate_title">Įgalinti Aptoide automatinį atnaujinimą</string>
+    <string name="setting_category_autoupdate">%s automatinis atnaujinimas</string>
+    <string name="setting_category_autoupdate_title">Įgalinti %s automatinį atnaujinimą</string>
     <string name="setting_dont_show_mature_content">Rodyti turinį suaugusiesiems</string>
     <string name="whats_new">Kas naujo?</string>
     <string name="show_all_updates">Nerodyti atnaujinimų ir programėlių su skirtingais parašais</string>
@@ -471,9 +471,9 @@
     <string name="application_signature_analysis">Programėlės parašas palygintas su kūrėjo parašu:</string>
     <string name="application_signature_matched">Programėlės parašas sutampa su programėlės kūrėjo parašu.</string>
     <string name="application_signature_not_matched">Programėlės parašas nesutampa su programėlės kūrėjo parašu. Programėlė gali būti suklastota.</string>
-    <string name="application_signature_blacklisted">Programėlės parašo nėra Aptoide antikenkėjiškos platformos patikimų parašų sąraše, nes jis buvo naudojamas pasirašyti kitą programėlę, kuri nesutampa su teisėto kūrėjo parašu.</string>
-    <string name="scanned_manually_by_aptoide_team">Rankiniu būdu nuskenavo Aptoide komanda:</string>
-    <string name="scanned_verified_by_tester">Programėlę rankiniu būdu peržiūrėjo Aptoide komandos testuotojai, kurie užtikrina programėlės saugumą.</string>
+    <string name="application_signature_blacklisted">Programėlės parašo nėra %s antikenkėjiškos platformos patikimų parašų sąraše, nes jis buvo naudojamas pasirašyti kitą programėlę, kuri nesutampa su teisėto kūrėjo parašu.</string>
+    <string name="scanned_manually_by_aptoide_team">Rankiniu būdu nuskenavo %s komanda:</string>
+    <string name="scanned_verified_by_tester">Programėlę rankiniu būdu peržiūrėjo %s komandos testuotojai, kurie užtikrina programėlės saugumą.</string>
     <string name="warning">Įspėjimas</string>
     <string name="trusted_app">Patikima programėlė</string>
     <string name="unknown">Nežinomas</string>
@@ -481,10 +481,10 @@
     <string name="reason_third_party">Patikrinome programėlės parašą ir patvirtiname, jog jis sutampa su Google Play Store, taigi galite ramiai mėgautis programėle.</string>
     <string name="reason_scanned">Nuskenuota su AptoideGuard ir dar 2 skirtingomis antivirusinėmis programomis (Zoner 1.8 ir Sophos 3.0).</string>
     <string name="reason_signature">Kriptografinis parašas garantuoja, kad failas yra saugus ir nebuvo kokiu nors būtų sugadintas.</string>
-    <string name="reason_manual">Šią programėlę rankiniu būdu peržiūrėjo Aptoide ekspertai ir pažymėjo kaip gerą.</string>
+    <string name="reason_manual">Šią programėlę rankiniu būdu peržiūrėjo %s ekspertai ir pažymėjo kaip gerą.</string>
 
     <string name="reason_failed">Programėlės parašas nesutampa su kūrėjo parašu. Programėlė gali būti sugadinta.</string>
-    <string name="reason_unknown">Aptoide antivirusinėje platformoje nėra pakankamai informacijos apie šią programėlę.</string>
+    <string name="reason_unknown">%s antivirusinėje platformoje nėra pakankamai informacijos apie šią programėlę.</string>
 
 
 

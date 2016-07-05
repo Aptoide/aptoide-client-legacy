@@ -528,9 +528,9 @@
     <!-- New Badges V7 -->
     <string name="reason_third_party">We\'ve checked the app\'s signature and it matches with Google Play Store, so rest assured and enjoy the app.</string>
     <string name="reason_scanned">Scanned with AptoideGuard plus 2 different anti-virus (Zoner 1.8 and Sophos 3.0).</string>
-    <string name="reason_scanned_partners">Scanned with 6 different anti-virus including Zoner 1.8 and Sophos 3.0.</string>
+   <!-- <string name="reason_scanned_partners">Scanned with 6 different anti-virus including Zoner 1.8 and Sophos 3.0.</string> -->
     <string name="reason_signature">The cryptographic signature guarantees that the file is safe to install and wasn\'t tampered with in any way.</string>
-    <string name="reason_manual">This app was manually reviewed by Aptoide\'s expert team, and was flagged as Good.</string>
+    <string name="reason_manual">This app was manually reviewed by %s\'s expert team, and was flagged as Good.</string>
 
     <string name="reason_failed">Application signature doesn\'t match with developer\'s signature. App may have been tampered with.</string>
     <string name="reason_unknown">There isn\'t enough information about this app in %s Anti-Malware platform.</string>

@@ -68,7 +68,7 @@
 <string name="see_top_stores">Xem các cửa hàng hàng đầu</string>
 <string name="setcredentials">Đăng nhập</string>
 <string name="rollback">Ứng dụng gần đây</string>
-<string name="rollback_empty">Nhanh chóng hạ cấp bất kỳ ứng dụng nào xuống phiên bản trước đó và giải quyết các vấn đề tương thích. Giữ một bản ghi của tất cả các ứng dụng đã cài đặt của bạn (thông qua Aptoide) bao gồm cả phiên bản và ngày cài đặt.</string>
+<string name="rollback_empty">Nhanh chóng hạ cấp bất kỳ ứng dụng nào xuống phiên bản trước đó và giải quyết các vấn đề tương thích. Giữ một bản ghi của tất cả các ứng dụng đã cài đặt của bạn (thông qua %s) bao gồm cả phiên bản và ngày cài đặt.</string>
 <string name="rollback_installed">Đã Cài Đặt</string>
 <string name="rollback_uninstalled">Đã gỡ bỏ</string>
 <string name="rollback_updated">Đã cập nhật</string>
@@ -406,8 +406,8 @@
     <string name="store_privacy">Cửa hàng riêng tư</string>
     <string name="public_key">công khai</string>
     <string name="private_key">riêng tư</string>
-    <string name="upload_app_backup_apps_installed">Bạn cần đăng tải ứng dụng này lên cửa hàng của bạn trước tiên. Bạn có thể sử dụng Ứng dụng Hỗ trợ Aptoide.</string>
-    <string name="upload_app_backup_apps_not_installed">Bạn cần phải tải ứng dụng này lên cửa hàng của mình đầu tiên. Vui lòng cài đặt và sử dụng Ứng dụng hỗ trợ Aptoide.</string>
+    <string name="upload_app_backup_apps_installed">Bạn cần đăng tải ứng dụng này lên cửa hàng của bạn trước tiên. Bạn có thể sử dụng Ứng dụng Hỗ trợ %s.</string>
+    <string name="upload_app_backup_apps_not_installed">Bạn cần phải tải ứng dụng này lên cửa hàng của mình đầu tiên. Vui lòng cài đặt và sử dụng Ứng dụng hỗ trợ %s.</string>
     <string name="upload_app">Đăng tải ứng dụng</string>
     <string name="create_review">Viết nhận xét</string>
 
@@ -416,8 +416,8 @@
     <string name="setting_mobile">Điện thoại 3G/4G</string>
     <string name="setting_sum_general_download_rules">Tải Ứng dụng, Lựa chọn từ Ban biên tập, Ứng dựng hàng đầu và Cửa hàng qua kết nối dữ liệu di động cho phép</string>
     <string name="setting_general_download_rules">Nội quy tải về tổng quát</string>
-    <string name="setting_category_autoupdate">Cập nhật tự động Aptoide</string>
-    <string name="setting_category_autoupdate_title">Kích hoạt tính năng tự động cập nhật Aptoide</string>
+    <string name="setting_category_autoupdate">Cập nhật tự động %s</string>
+    <string name="setting_category_autoupdate_title">Kích hoạt tính năng tự động cập nhật %s</string>
     <string name="setting_dont_show_mature_content">Hiển thị nội dung dành cho người trưởng thành</string>
     <string name="whats_new">Cái mới là gì vậy?</string>
     <string name="disable_social_timeline">Vô hiệu hoá Dòng thời gian xã hội</string>
@@ -463,9 +463,9 @@
     <string name="application_signature_analysis">Chữ kí ứng dụng so sánh với chữ kí lập trình:</string>
     <string name="application_signature_matched">Chữ kí ứng dụng khớp với chữ kí liên quan tới lập trình viên ứng dụng.</string>
     <string name="application_signature_not_matched">Chữ kí ứng dụng không khớp với chữ kí liên quan tới lập trình viên ứng dụng. Ứng dụng có thể bị giả mạo.</string>
-    <string name="application_signature_blacklisted">Chữ kí ứng dụng không phải là chữ kí đáng tin cậy ở khu Chống phần mềm giả mạo Aptoide vì nó đã được dùng để kí ứng dụng khác mà không khớp với chữ kí liên quan tới lập trình viên hợp lệ.</string>
-    <string name="scanned_manually_by_aptoide_team">Nhóm Aptoide đã quét bằng tay:</string>
-    <string name="scanned_verified_by_tester">Ứng dụng này đã được một kiểm viên từ nhóm Aptoide xem xét đảm bảo an toàn của các ứng dụng.</string>
+    <string name="application_signature_blacklisted">Chữ kí ứng dụng không phải là chữ kí đáng tin cậy ở khu Chống phần mềm giả mạo %s vì nó đã được dùng để kí ứng dụng khác mà không khớp với chữ kí liên quan tới lập trình viên hợp lệ.</string>
+    <string name="scanned_manually_by_aptoide_team">Nhóm %s đã quét bằng tay:</string>
+    <string name="scanned_verified_by_tester">Ứng dụng này đã được một kiểm viên từ nhóm %s xem xét đảm bảo an toàn của các ứng dụng.</string>
     <string name="warning">Cảnh báo</string>
     <string name="trusted_app">Ứng dụng đáng tin cậy</string>
     <string name="unknown">Không được biết đến</string>
@@ -473,10 +473,10 @@
     <string name="reason_third_party">Chúng tôi vừa kiểm tra chữ kí của ứng dụng và nó khớp với Cửa hàng Google Play, vì thế hãy thoải mái và thưởng thức ứng dụng.</string>
     <string name="reason_scanned">Quét bằng AptoideGuard thêm 2 phần mềm diệt vi rút khác (Zoner 1.8 và Sophos 3.0).</string>
     <string name="reason_signature">Chữ ký mật mã đảm bảo rằng tập tin an toàn để cài đặt và không bị xâm nhập.</string>
-    <string name="reason_manual">Ứng dụng này đã được đánh giá thủ công bởi đội ngũ chuyên gia của Aptoide, và được đánh dấu Tốt.</string>
+    <string name="reason_manual">Ứng dụng này đã được đánh giá thủ công bởi đội ngũ chuyên gia của %s, và được đánh dấu Tốt.</string>
 
     <string name="reason_failed">Chữ ký ứng dụng không khớp với chữ ký của lập trình viên. Ứng dụng có thể đã bị giả mạo.</string>
-    <string name="reason_unknown">Không có đủ thông tin về ứng dụng này trong nền tảng chống mã độc Aptoide.</string>
+    <string name="reason_unknown">Không có đủ thông tin về ứng dụng này trong nền tảng chống mã độc %s.</string>
 
 
 

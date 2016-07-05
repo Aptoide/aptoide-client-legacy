@@ -285,13 +285,11 @@ public class UploadApkActivity extends AptoideBaseActivity implements Md5Calcula
             String message;
 
             if (backupappsAvailable) {
-                String upload_app_backup_apps_installed_Resource=Aptoide.getContext().getString(R.string.upload_app_backup_apps_installed);
-                String upload_app_backup_apps_installed_Formatted= String.format(upload_app_backup_apps_installed_Resource, Aptoide.getConfiguration().getMarketName());
-                message =  upload_app_backup_apps_installed_Formatted;
+                String uploadAppBackupAppsInstalledFormatted = AptoideUtils.StringUtils.getFormattedString(Aptoide.getContext(), R.string.upload_app_backup_apps_installed, Aptoide.getConfiguration().getMarketName());
+                message =  uploadAppBackupAppsInstalledFormatted;
             } else {
-                String upload_app_backup_apps_not_installed_Resource=Aptoide.getContext().getString(R.string.upload_app_backup_apps_not_installed);
-                String upload_app_backup_apps_not_installed_Formatted= String.format(upload_app_backup_apps_not_installed_Resource, Aptoide.getConfiguration().getMarketName());
-                message =upload_app_backup_apps_not_installed_Formatted;
+                String uploadAppBackupAppsNotInstalledFormatted = AptoideUtils.StringUtils.getFormattedString(Aptoide.getContext(), R.string.upload_app_backup_apps_not_installed, Aptoide.getConfiguration().getMarketName());
+                message = uploadAppBackupAppsNotInstalledFormatted;
             }
 
 
