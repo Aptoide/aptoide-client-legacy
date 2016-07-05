@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware;
 
@@ -33,6 +34,7 @@ public class DialogBadgeV7 extends DialogFragment {
     protected String status;
     private TextView trustedText;
     private TextView unknownText;
+    private TextView manualText;
 
 
     public static DialogBadgeV7 newInstance(Malware malware, String appName, String status) {
@@ -89,9 +91,8 @@ public class DialogBadgeV7 extends DialogFragment {
                     v.findViewById(R.id.unknown_header_layout).setVisibility(View.VISIBLE);
                     v.findViewById(R.id.tr_unknown).setVisibility(View.VISIBLE);
                     unknownText = (TextView) v.findViewById(R.id.tv_reason_unknown);
-                    String reason_unknown_resource= getResources().getString(R.string.reason_unknown);
-                    String reason_unknown_formatted=String.format(reason_unknown_resource,Aptoide.getConfiguration().getMarketName());
-                    unknownText.setText(reason_unknown_formatted);
+                    String reasonUnknownFormatted = AptoideUtils.StringUtils.getFormattedString(Aptoide.getContext(), R.string.reason_unknown, Aptoide.getConfiguration().getMarketName());
+                    unknownText.setText(reasonUnknownFormatted);
 
                     // Doesn't need to do more logic, exit.
                     return builder;
@@ -104,9 +105,6 @@ public class DialogBadgeV7 extends DialogFragment {
                 if (malware.reason.scanned.avInfo != null) {
                     v.findViewById(R.id.tr_scanned).setVisibility(View.VISIBLE);
                     trustedText = (TextView) v.findViewById(R.id.tv_reason_scanned_passed);
-                    if (!Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
-                       trustedText.setText(R.string.reason_scanned_partners);
-                    }
                 }
             }
 
@@ -137,6 +135,10 @@ public class DialogBadgeV7 extends DialogFragment {
 
             if (malware.reason.manualQA != null && malware.reason.manualQA.status != null && PASSED.equals(malware.reason.manualQA.status)) {
                 v.findViewById(R.id.tr_manual).setVisibility(View.VISIBLE);
+                manualText = (TextView) v.findViewById(R.id.tv_reason_manual_qa);
+                String reasonManualFormatted = AptoideUtils.StringUtils.getFormattedString(Aptoide.getContext(), R.string.reason_manual, Aptoide.getConfiguration().getMarketName());
+                manualText.setText(reasonManualFormatted);
+
             }
         }
 

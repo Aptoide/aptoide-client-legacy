@@ -17,6 +17,7 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.database.SimpleCursorLoader;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.squareup.otto.Subscribe;
 
 
@@ -50,9 +51,9 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
         setContentView(getContentView());
         bindViews();
 
-        String rollbackStringResource=getResources().getString(R.string.rollback_empty);
-        String rollbackStringFormatted= String.format(rollbackStringResource, Aptoide.getConfiguration().getMarketName());
-        mRollbackText.setText(rollbackStringFormatted);
+        /*String rollbackStringResource=getResources().getString(R.string.rollback_empty);
+        String rollbackStringFormatted= String.format(rollbackStringResource, Aptoide.getConfiguration().getMarketName());*/
+        mRollbackText.setText(AptoideUtils.StringUtils.getFormattedString(getApplicationContext(), R.string.rollback_empty, Aptoide.getConfiguration().getMarketName()));
 
         rollBackAdapter = new RollBackAdapter(this);
 

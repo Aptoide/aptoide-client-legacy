@@ -55,12 +55,12 @@ public class SearchAppViewHolder extends BaseViewHolder {
     @Override
     public void populateView(Displayable displayable) {
         final SearchApk appItem = (SearchApk) displayable;
-
-
-        overflow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (Aptoide.getConfiguration().isMultipleStores()) {
+        overflow.setVisibility(View.INVISIBLE);
+        if (Aptoide.getConfiguration().isMultipleStores()) {
+            overflow.setVisibility(View.VISIBLE);
+            overflow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
                     final PopupMenu popup = new PopupMenu(view.getContext(), view);
                     MenuInflater inflater = popup.getMenuInflater();
@@ -96,8 +96,8 @@ public class SearchAppViewHolder extends BaseViewHolder {
                     });
                     popup.show();
                 }
-            }
-        });
+            });
+        }
 
         name.setText(appItem.name);
         String downloadNumber = AptoideUtils.StringUtils.withSuffix(appItem.downloads)+" "+bottomView.getContext().getString(R.string.downloads);

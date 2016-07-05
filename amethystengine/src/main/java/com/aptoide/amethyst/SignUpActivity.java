@@ -62,12 +62,11 @@ public class SignUpActivity extends AptoideBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         //Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.form_create_user);
+        setContentView(getViewLayout());
 
         acceptTermsText=(TextView) findViewById(R.id.accept_terms);
-        String accept_terms_Resource=getResources().getString(R.string.accept_terms);
-        String  accept_terms_Formatted= String.format(accept_terms_Resource, Aptoide.getConfiguration().getMarketName());
-        acceptTermsText.setText( accept_terms_Formatted);
+        String  acceptTermsFormatted= AptoideUtils.StringUtils.getFormattedString(Aptoide.getContext(), R.string.accept_terms, Aptoide.getConfiguration().getMarketName());
+        acceptTermsText.setText(acceptTermsFormatted);
 
 
 
@@ -173,7 +172,7 @@ public class SignUpActivity extends AptoideBaseActivity {
         }
 
         String pass = password_box.getText().toString();
-        if (pass.length() < 8 || !hasValidChars(pass)) {
+        if (pass.length() < 8 || !hasValidChars(pass) && Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
             Toast.makeText(getApplicationContext(), R.string.password_validation_text, Toast.LENGTH_LONG).show();
             return;
         }
@@ -425,5 +424,9 @@ public class SignUpActivity extends AptoideBaseActivity {
     @Override
     protected String getScreenName() {
         return "Sign Up";
+    }
+
+    protected int getViewLayout() {
+        return R.layout.form_create_user;
     }
 }

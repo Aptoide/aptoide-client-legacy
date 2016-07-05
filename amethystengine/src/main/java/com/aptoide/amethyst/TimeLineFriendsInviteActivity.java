@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
 import com.bumptech.glide.Glide;
@@ -57,9 +58,7 @@ public class TimeLineFriendsInviteActivity extends AptoideBaseActivity {
 
 
         friends_to_invite = (TextView) findViewById(R.id.friends_to_invite);
-        String friends_to_invite_resource = getResources().getString(R.string.rollback_empty);
-        String firends_to_invite_Formatted = String.format(friends_to_invite_resource, Aptoide.getConfiguration().getMarketName());
-        friends_to_invite.setText(firends_to_invite_Formatted);
+        friends_to_invite.setText(AptoideUtils.StringUtils.getFormattedString(getApplicationContext(), R.string.friends_to_invite, Aptoide.getConfiguration().getMarketName()));
 
 
         View footer_friends_to_invite = LayoutInflater.from(this).inflate(R.layout.footer_invite_friends, null);

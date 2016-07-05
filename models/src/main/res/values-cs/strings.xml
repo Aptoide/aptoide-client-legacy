@@ -543,7 +543,7 @@
     <string name="setting_mobile">Mobilní 3G/4G</string>
     <string name="appview_other_versions_in_others_stores">Jiné verze v ostatních obchodech</string>
     <string name="results_subscribed">Odebírané obchody</string>
-    <string name="results_in_store">Výsledky vyhledávání v % obchodů</string>
+    <string name="results_in_store">Výsledky vyhledávání v %s obchodů</string>
     <string name="unknown">Neznámý</string>
 
     <string name="reason_unknown">Na platformě %s Anti-Malware není dost informací o této aplikaci.</string>

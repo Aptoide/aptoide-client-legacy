@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.Reason;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta.File.Malware.Reason.Scanned.AvInfo;
 
@@ -99,9 +100,8 @@ public class DialogBadge extends DialogFragment {
                         break;
                     case "blacklisted":
                         v.findViewById(R.id.reason_signature_not_validated).setVisibility(View.VISIBLE);
-                        String application_signature_blacklisted_resource=getString(R.string.application_signature_blacklisted);
-                        String application_signature_blacklisted_formatted= String.format(application_signature_blacklisted_resource, Aptoide.getConfiguration().getMarketName());
-                        ((TextView) v.findViewById(R.id.reason_signature_not_validated)).setText( application_signature_blacklisted_formatted);
+                        String applicationSignatureBlacklistedFormatted = AptoideUtils.StringUtils.getFormattedString(Aptoide.getContext(), R.string.application_signature_blacklisted, Aptoide.getConfiguration().getMarketName());
+                        ((TextView) v.findViewById(R.id.reason_signature_not_validated)).setText( applicationSignatureBlacklistedFormatted);
 
                         break;
                 }
@@ -110,13 +110,11 @@ public class DialogBadge extends DialogFragment {
             if (reason.manualQA != null && reason.manualQA.status != null && reason.manualQA.status.equals("passed")) {
                 v.findViewById(R.id.reason_manual_qa_description).setVisibility(View.VISIBLE);
                 v.findViewById(R.id.reason_manual_qa).setVisibility(View.VISIBLE);
-                String                                                              scanned_manually_by_aptoide_team_Resource=getResources().getString(R.string.scanned_manually_by_aptoide_team);
-                String scanned_manually_by_aptoide_team_Formatted= String.format(scanned_manually_by_aptoide_team_Resource, Aptoide.getConfiguration().getMarketName());
-                ((TextView) v.findViewById(R.id.reason_manual_qa_description)).setText( scanned_manually_by_aptoide_team_Formatted);
+                String scannedManuallyByAptoideTeamFormatted = AptoideUtils.StringUtils.getFormattedString(Aptoide.getContext(), R.string.scanned_manually_by_aptoide_team, Aptoide.getConfiguration().getMarketName());
+                ((TextView) v.findViewById(R.id.reason_manual_qa_description)).setText(scannedManuallyByAptoideTeamFormatted);
 
-                String scanned_verified_by_tester_Resource=getResources().getString(R.string.scanned_verified_by_tester);
-                String scanned_verified_by_tester_Formatted= String.format( scanned_verified_by_tester_Resource, Aptoide.getConfiguration().getMarketName());
-                ((TextView) v.findViewById(R.id.reason_manual_qa)).setText(scanned_verified_by_tester_Formatted);
+                String scannedVerifiedByTesterFormatted = AptoideUtils.StringUtils.getFormattedString(Aptoide.getContext(), R.string.scanned_verified_by_tester, Aptoide.getConfiguration().getMarketName());
+                ((TextView) v.findViewById(R.id.reason_manual_qa)).setText(scannedVerifiedByTesterFormatted);
             }
 
         }

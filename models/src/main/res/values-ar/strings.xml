@@ -75,7 +75,7 @@
 <string name="see_top_stores">مشاهدة المتاجر الافضل</string>
 <string name="setcredentials">تسجيل الدخول</string>
 <string name="rollback">التراجع</string>
-<string name="rollback_empty">يمكنك إرجاع أي تطبيق إلى الإصدار السابق بسرعة وحل مشاكل عدم التوافق. كما يمكنك الاحتفاظ بسجل لجميع التطبيقات المثبتة (عن طريق Aptoide) بما في ذلك الإصدار وتاريخ التثبيت.</string>
+    <string name="rollback_empty">يمكنك إرجاع أي تطبيق إلى الإصدار السابق بسرعة وحل مشاكل عدم التوافق. كما يمكنك الاحتفاظ بسجل لجميع التطبيقات المثبتة (عن طريق s%) بما في ذلك الإصدار وتاريخ التثبيت.</string>
 <string name="rollback_installed">مثبت</string>
 <string name="rollback_uninstalled">غير مثبتة</string>
 <string name="rollback_updated">مُحدّث</string>
@@ -89,7 +89,7 @@
 <string name="username">البريد الإلكتروني</string>
 <string name="username_tip">أكتب بريدك الإلكتروني</string>
 <string name="subscribe_pvt_store">الاشتراك في متجر خاص</string>
-<string name="accept_terms">من خلال قيامك بعملية التسجيل فأنت توافق على شروط Aptoide للخدمة وسياسة المحتوى للمطورين</string>
+    <string name="accept_terms">من خلال قيامك بعملية التسجيل فأنت توافق على شروط s%للخدمة وسياسة المحتوى للمطورين</string>
 <string name="register">التسجيل</string>
 <string name="or">- أو -</string>
 <string name="dont_have_an_account">ليس لديك حساب؟ قم بإنشاء حساب الان</string>
@@ -244,7 +244,7 @@
 <string name="cancel">إلغاء الأمر</string>
 <string name="error_occured_paying">حدث خطأ. لم يتم إكمال الدفع.</string>
 <string name="failed_auth_code">فشل ترخيص الحساب. يرجى المحاولة مرة أخرى.</string>
-<string name="error_occured_retry_later">حدث خطأ. Aptoide سيعيد المحاولة تلقائياً في وقت لاحق.</string>
+<string name="error_occured_retry_later">حدث خطأ. s% سيعيد المحاولة تلقائياً في وقت لاحق.</string>
 <string name="account">الحساب</string>
 <string name="no_payments_available">لا توجد مدفوعات متاحة.</string>
 <string name="change_payment">الرجوع</string>
@@ -299,8 +299,8 @@
 <string name="friends_installs">تثبيتات اصدقائك</string>
 <string name="highlighted_apps">البارزة</string>
 <string name="button_more">المزيد</string>
-<string name="setting_category_autoupdate">التحديث التلقائي لتطبيق Aptoide</string>
-<string name="setting_category_autoupdate_title">تمكين التحديث التلقائي لتطبيق Aptoide</string>
+<string name="setting_category_autoupdate">التحديث التلقائي لتطبيق s%</string>
+<string name="setting_category_autoupdate_title">تمكين التحديث التلقائي لتطبيق s%</string>
 <string name="review_speed">السرعة</string>
 <string name="review_usability">سهولة الاستخدام</string>
 <string name="review_addictive">إدماني</string>
@@ -333,7 +333,7 @@
 
     <string name="error_SYS_Billing">الدفع داخل التطبيق غير مدعوم في هذا الجهاز.</string>
 
-    <string name="aptoide_description">متجر تطبيقات Aptoide الرسمي</string>
+    <string name="aptoide_description">متجر تطبيقات s% الرسمي</string>
 
     <string name="community">المجتمع</string>
     <string name="updates">التحديثات</string>
@@ -400,7 +400,7 @@
     <string name="review_title">المراجعات</string>
     <string name="review_good">جيد</string>
     <string name="unsubscribe_yes_no">هل أنت متأكد من رغبتك في إلغاء الإشتراك؟</string>
-    <string name="upload_app_backup_apps_installed">انت بحاجة إلى تحميل هذا التطبيق لمتجرك أولاً. يمكنك استخدام تطبيقات النسخ الاحتياطي لAptoide.</string>
+    <string name="upload_app_backup_apps_installed">انت بحاجة إلى تحميل هذا التطبيق لمتجرك أولاً. يمكنك استخدام تطبيقات النسخ الاحتياطي لs%.</string>
     <string name="unsubscribed_">"تم إلغاء الإشتراك "</string>
     <string name="error_occured_uploading">عليك تحميل هذا التطبيق أولاً.</string>
 
@@ -408,7 +408,7 @@
     <string name="srch_hint">البحث عن التطبيقات…</string>
     <string name="suggested_app">التطبيق المقترح</string>
 
-    <string name="upload_app_backup_apps_not_installed">أنت بحاجة إلى تحميل هذا التطبيق لمتجرك أولاً. الرجاء تثبيت وإستخدام تطبيقات النسخ الاحتياطي لAptoide.</string>
+    <string name="upload_app_backup_apps_not_installed">أنت بحاجة إلى تحميل هذا التطبيق لمتجرك أولاً. الرجاء تثبيت وإستخدام تطبيقات النسخ الاحتياطي لs%.</string>
     <string name="abTest1_label_1">احصل على التطبيق</string>
     <string name="upload_app">تحميل التطبيق</string>
     <string name="abTest1_label_2">تثبيت</string>
@@ -470,16 +470,16 @@
     <string name="application_signature_analysis">مقارنة توقيع التطبيق مع توقيع المطور:</string>
     <string name="application_signature_matched">تطابق توقيع التطبيق مع توقيع المطور.</string>
     <string name="application_signature_not_matched">لم يتطابق توقيع التطبيق مع توقيع المطور. قد يكون التطبيق مغشوشا.</string>
-    <string name="application_signature_blacklisted">توقيع التطبيق ليس موثوقا في منصة Aptoide لمكافحة الفيروسات لأنه تم استخدامه لتوقيع تطبيق آخر لا يتطابق مع توقيع المطور المتعلق به.</string>
-    <string name="scanned_manually_by_aptoide_team">تم الفحص يدويا بواسطة فريق Aptoide:</string>
-    <string name="scanned_verified_by_tester">تمت مراجعة التطبيق يدويا بواسطة فاحص من فريق Aptoide والذي يؤكد سلامة التطبيق.</string>
+    <string name="application_signature_blacklisted">توقيع التطبيق ليس موثوقا في منصة s% لمكافحة الفيروسات لأنه تم استخدامه لتوقيع تطبيق آخر لا يتطابق مع توقيع المطور المتعلق به.</string>
+    <string name="scanned_manually_by_aptoide_team">تم الفحص يدويا بواسطة فريق s%:</string>
+    <string name="scanned_verified_by_tester">تمت مراجعة التطبيق يدويا بواسطة فاحص من فريق s% والذي يؤكد سلامة التطبيق.</string>
     <string name="warning">تحذير</string>
     <string name="trusted_app">تطبيق موثوق</string>
 
     <string name="reason_third_party">تم فحص توقيع التطبيق والتأكد من مطابقته لمتجر Google Play، لذا اطمئن واستمتع بالتطبيق.</string>
     <string name="reason_scanned">"تم الفحص بواسطة بواسطة AptoideGuard بالإضافة الى اثنين من برامج مكافحة الفيروسات (Zoner 1.8  و Sophos 3.0)."</string>
     <string name="reason_signature">توقيع التشفير يضمن أمان التطبيق للتثبيت وعدم التلاعب به بأي حال من الأحوال.</string>
-    <string name="reason_manual">تمت مراجعة هذا التطبيق يدوياً بواسطة فريق Aptoide المحترف، وتم وصفه بأنه جيد.</string>
+    <string name="reason_manual">تمت مراجعة هذا التطبيق يدوياً بواسطة فريق s% المحترف، وتم وصفه بأنه جيد.</string>
 
     <string name="reason_failed">لا يتطابق توقيع التطبيق مع توقيع المطور. ربما تم التلاعب بالتطبيق.</string>
 
@@ -534,7 +534,7 @@
     <string name="results_in_store">البحث عن النتائج في متجر s%</string>
     <string name="unknown">غير معلوم</string>
 
-    <string name="reason_unknown">ليست هناك معلومات كافية حول هذا التطبيق في منصة Aptoide لمكافحة البرامج الضارة.</string>
+    <string name="reason_unknown">ليست هناك معلومات كافية حول هذا التطبيق في منصة s% لمكافحة البرامج الضارة.</string>
 
 
 
