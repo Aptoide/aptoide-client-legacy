@@ -205,7 +205,7 @@ public class UpdatesService extends Service {
                     do {
                         if (i == 2) {
                             api.access_token = null;
-                        } else {
+                        } else if (i > 0) {
                             OauthErrorHandler.refreshAcessToken();
                             initUpdatesApi(api);
                         }
