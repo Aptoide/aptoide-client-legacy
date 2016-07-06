@@ -1,23 +1,11 @@
 package com.aptoide.amethyst.services;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.Service;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.os.IBinder;
-import android.preference.PreferenceManager;
-import android.support.v7.app.NotificationCompat;
-import android.text.TextUtils;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.MainActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
@@ -35,9 +23,23 @@ import com.aptoide.dataprovider.webservices.models.UpdatesResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.os.IBinder;
+import android.preference.PreferenceManager;
+import android.support.v7.app.NotificationCompat;
+import android.text.TextUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,8 +48,6 @@ import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import com.aptoide.amethyst.MainActivity;
 
 import retrofit.RestAdapter;
 import retrofit.converter.JacksonConverter;
@@ -200,13 +200,19 @@ public class UpdatesService extends Service {
                     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
                     RestAdapter adapter = new RestAdapter.Builder().setLogLevel(RestAdapter.LogLevel.FULL).setConverter(new JacksonConverter(mapper)).setEndpoint("http://").build();
                     Logger.d("AptoideUpdates", "Getting updates");
-                    UpdatesResponse webUpdates = adapter.create(Webservices.class).getUpdates(api);
-
-                    if (webUpdates != null && webUpdates.info != null && TextUtils.equals(webUpdates.info.status,"FAIL")) {
-                        OauthErrorHandler.refreshAcessToken();
-                        initUpdatesApi(api);
+                    int i = 0;
+                    UpdatesResponse webUpdates;
+                    do {
+                        if (i == 2) {
+                            api.access_token = null;
+                        } else {
+                            OauthErrorHandler.refreshAcessToken();
+                            initUpdatesApi(api);
+                        }
                         webUpdates = adapter.create(Webservices.class).getUpdates(api);
-                    }
+                        i++;
+                    } while (i < 3 && webUpdates != null && webUpdates.info != null && TextUtils.equals(webUpdates.info.status, "FAIL"));
+
 
                     if (webUpdates != null && webUpdates.data != null && webUpdates.data.list != null) {
                         Logger.d("AptoideUpdates", "Got updates: " + webUpdates.data.list.size());
