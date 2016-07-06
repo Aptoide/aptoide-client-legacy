@@ -27,6 +27,7 @@ import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
 import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.webservices.OauthErrorHandler;
 import com.aptoide.dataprovider.webservices.Webservices;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.UpdatesApi;
@@ -200,6 +201,12 @@ public class UpdatesService extends Service {
                     RestAdapter adapter = new RestAdapter.Builder().setLogLevel(RestAdapter.LogLevel.FULL).setConverter(new JacksonConverter(mapper)).setEndpoint("http://").build();
                     Logger.d("AptoideUpdates", "Getting updates");
                     UpdatesResponse webUpdates = adapter.create(Webservices.class).getUpdates(api);
+
+                    if (webUpdates != null && webUpdates.info != null && TextUtils.equals(webUpdates.info.status,"FAIL")) {
+                        OauthErrorHandler.refreshAcessToken();
+                        initUpdatesApi(api);
+                        webUpdates = adapter.create(Webservices.class).getUpdates(api);
+                    }
 
                     if (webUpdates != null && webUpdates.data != null && webUpdates.data.list != null) {
                         Logger.d("AptoideUpdates", "Got updates: " + webUpdates.data.list.size());

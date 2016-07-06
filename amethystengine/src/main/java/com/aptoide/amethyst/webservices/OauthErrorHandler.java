@@ -49,35 +49,7 @@ public class OauthErrorHandler {
             case HTTP:
                 try {
                     if (error.getResponse().getStatus() == 401 && timeStamp + 10000 <= System.currentTimeMillis()) {
-                        AccountManager accountManager = AccountManager.get(Aptoide.getContext());
-                        SharedPreferences preferences = SecurePreferences.getInstance();
-
-                        if (accountManager.getAccountsByType(Aptoide.getConfiguration().getAccountType()).length > 0) {
-
-
-                            Account account = accountManager.getAccountsByType(Aptoide.getConfiguration().getAccountType())[0];
-                            String refreshToken = "";
-                            try {
-                                refreshToken = accountManager.blockingGetAuthToken(account, AptoideConfiguration.AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS, false);
-                            } catch (OperationCanceledException | IOException | AuthenticatorException e) {
-                                Logger.printException(e);
-                            }
-
-                            HashMap<String, String> parameters = new HashMap<String, String>();
-                            parameters.put("grant_type", "refresh_token");
-                            parameters.put("client_id", "Aptoide");
-                            parameters.put("refresh_token", refreshToken);
-
-                            OAuth oAuth = new RestAdapter.Builder().setConverter(createConverter()).setEndpoint("http://webservices.aptoide.com/webservices").build().create(OauthService.class).authenticate(parameters);
-
-                            preferences.edit().putString("access_token", oAuth.getAccess_token()).apply();
-
-                        } else {
-
-//                            Crashlytics.logException(new Throwable("No account to authenticate, resolving", new Exception(error.getUrl())));
-
-                            preferences.edit().remove(Constants.ACCESS_TOKEN).apply();
-                        }
+                        refreshAcessToken();
                         timeStamp = System.currentTimeMillis();
                     } else {
 //                        Crashlytics.logException(new Throwable("Non 401 error", error));
@@ -92,6 +64,38 @@ public class OauthErrorHandler {
         }
 
         throw error;
+    }
+
+    public static void refreshAcessToken() {
+        AccountManager accountManager = AccountManager.get(Aptoide.getContext());
+        SharedPreferences preferences = SecurePreferences.getInstance();
+
+        if (accountManager.getAccountsByType(Aptoide.getConfiguration().getAccountType()).length > 0) {
+
+
+            Account account = accountManager.getAccountsByType(Aptoide.getConfiguration().getAccountType())[0];
+            String refreshToken = "";
+            try {
+                refreshToken = accountManager.blockingGetAuthToken(account, AptoideConfiguration.AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS, false);
+            } catch (OperationCanceledException | IOException | AuthenticatorException e) {
+                Logger.printException(e);
+            }
+
+            HashMap<String, String> parameters = new HashMap<String, String>();
+            parameters.put("grant_type", "refresh_token");
+            parameters.put("client_id", "Aptoide");
+            parameters.put("refresh_token", refreshToken);
+
+            OAuth oAuth = new RestAdapter.Builder().setConverter(createConverter()).setEndpoint("https://webservices.aptoide.com/webservices").build().create(OauthService.class).authenticate(parameters);
+
+            preferences.edit().putString("access_token", oAuth.getAccess_token()).apply();
+
+        } else {
+
+//                            Crashlytics.logException(new Throwable("No account to authenticate, resolving", new Exception(error.getUrl())));
+
+            preferences.edit().remove(Constants.ACCESS_TOKEN).apply();
+        }
     }
 
 
