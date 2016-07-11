@@ -2257,7 +2257,7 @@ public class AptoideUtils {
         }
 
         public static String getInstallationSource() {
-            return mEventActions.size() >= 0 ? mEventActions.get(mEventActions.size() - 1) : "";
+            return mEventActions.size() > 0 ? mEventActions.get(mEventActions.size() - 1) : "";
         }
     }
 }
