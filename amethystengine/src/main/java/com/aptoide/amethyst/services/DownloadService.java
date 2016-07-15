@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.downloadmanager.DownloadExecutor;
 import com.aptoide.amethyst.downloadmanager.DownloadInfoRunnable;
@@ -781,6 +782,7 @@ public class DownloadService extends Service {
                     onClick.putExtra("fromDownloadNotification", true);
                     onClick.putExtra(Constants.PACKAGENAME_KEY, info.getDownload().getPackageName());
                     onClick.putExtra(Constants.APPNAME_KEY, info.getDownload().getName());
+                    onClick.putExtra(Constants.STORENAME_KEY, Aptoide.getConfiguration().getDefaultStore());
 
                     // The PendingIntent to launch our activity if the user selects this notification
                     PendingIntent onClickAction = PendingIntent.getActivity(getApplicationContext(),  0, onClick, PendingIntent.FLAG_UPDATE_CURRENT);

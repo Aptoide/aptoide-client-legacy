@@ -697,5 +697,7 @@
 
     <string name="unsubscribe">Unsubscribe</string>
     <string name="add_more_stores">Add more stores</string>
+
+    <string name="failed">Failed</string>
 </resources>
 
