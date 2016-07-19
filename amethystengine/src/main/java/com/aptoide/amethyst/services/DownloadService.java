@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.downloadmanager.DownloadExecutor;
 import com.aptoide.amethyst.downloadmanager.DownloadInfoRunnable;
@@ -698,7 +699,7 @@ public class DownloadService extends Service {
         onClick.putExtra(Constants.APPNAME_KEY, getDownload(id).getDownload().getName());
 
         // The PendingIntent to launch our activity if the user selects this notification
-        PendingIntent onClickAction = PendingIntent.getActivity(getApplicationContext(), 0, onClick, PendingIntent.FLAG_UPDATE_CURRENT);
+         PendingIntent onClickAction = PendingIntent.getActivity(getApplicationContext(), 0, onClick, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
         mBuilder.setOngoing(true);
@@ -774,7 +775,20 @@ public class DownloadService extends Service {
                         info.getmBuilder().setContentInfo("ETA: " + (!remaining.equals("") ? remaining : "0s"));
                     }
 
+                    Intent onClick = new Intent();
+                    onClick.setClassName(getPackageName(), /*Aptoide.getConfiguration().*/getStartActivityClass().getName()); //TODO dependency injection
+                    onClick.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    onClick.setAction(Intent.ACTION_VIEW);
+                    onClick.putExtra("fromDownloadNotification", true);
+                    onClick.putExtra(Constants.PACKAGENAME_KEY, info.getDownload().getPackageName());
+                    onClick.putExtra(Constants.APPNAME_KEY, info.getDownload().getName());
+                    onClick.putExtra(Constants.STORENAME_KEY, Aptoide.getConfiguration().getDefaultStore());
+
+                    // The PendingIntent to launch our activity if the user selects this notification
+                    PendingIntent onClickAction = PendingIntent.getActivity(getApplicationContext(),  0, onClick, PendingIntent.FLAG_UPDATE_CURRENT);
+
                     mBuilder = info.getmBuilder();
+                    mBuilder.setContentIntent(onClickAction);
                     ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).notify(-3, mBuilder.build());
                 } catch (Exception e) {
                     Logger.printException(e);

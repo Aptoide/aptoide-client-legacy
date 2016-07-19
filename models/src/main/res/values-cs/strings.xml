@@ -664,4 +664,5 @@
     <string name="essential_apps">Nezbytné aplikace</string>
     <string name="summer_apps">Aplikace na léto</string>
     <string name="play_it">Hraj!</string>
+    <string name="failed">Neúspěšný</string>
 </resources>
