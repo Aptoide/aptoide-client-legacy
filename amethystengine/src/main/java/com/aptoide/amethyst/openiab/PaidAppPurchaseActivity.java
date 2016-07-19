@@ -158,10 +158,10 @@ public class PaidAppPurchaseActivity extends BasePurchaseActivity {
                         break;
                     case UNITEL_CODE:
                         caseUNITEL(service,paymentMethodsLayout);
-                        break;
+                        break;/*
                     case FORTUMO_CODE:
                         caseFortumo(aptoideProductId,service,paymentMethodsLayout);
-                        break;
+                        break;*/
 
                 }
             }

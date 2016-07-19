@@ -44,15 +44,13 @@ import java.util.HashMap;
 
 
 import com.aptoide.amethyst.openiab.webservices.BasePurchaseStatusRequest;
-import com.aptoide.amethyst.openiab.webservices.IabPurchaseStatusRequest;
-import com.aptoide.amethyst.openiab.webservices.PaidAppPurchaseStatusRequest;
 import com.aptoide.amethyst.openiab.webservices.PayProductRequestBase;
 import com.aptoide.amethyst.openiab.webservices.PayProductRequestPayPal;
 import com.aptoide.amethyst.openiab.webservices.PayProductRequestUnitel;
 import com.aptoide.amethyst.openiab.webservices.PaypalPurchaseAuthorizationRequest;
 import com.aptoide.amethyst.openiab.webservices.json.IabPurchaseStatusJson;
 import com.aptoide.amethyst.openiab.webservices.json.IabSimpleResponseJson;
-import fortumo.FortumoPaymentActivity;
+
 
 public abstract class BasePurchaseActivity extends ActionBarActivity implements Callback {
 
@@ -405,7 +403,7 @@ public abstract class BasePurchaseActivity extends ActionBarActivity implements 
                 } else {
                     Toast.makeText(BasePurchaseActivity.this, R.string.error_occured, Toast.LENGTH_LONG).show();
                 }
-                break;
+                break;/*
             case FORTUMO_CODE:
                 Log.d("pois","Request Code FORTUMO_CODE");
                 if (resultCode == RESULT_OK) {
@@ -452,7 +450,7 @@ public abstract class BasePurchaseActivity extends ActionBarActivity implements 
 //                        }
 //                    });
 
-                }
+                }*/
                 //else{
                   //  Toast.makeText(BasePurchaseActivity.this, R.string.error_occured, Toast.LENGTH_LONG).show();
                 //}
@@ -649,7 +647,7 @@ public abstract class BasePurchaseActivity extends ActionBarActivity implements 
                             service.getId(), telephonyManager.getSubscriberId(),
                             service.getCurrency(),
                             df.format(service.getPrice())));
-    }
+    }/*
     protected void caseFortumo(final int id,final PaymentServices service,LinearLayout paymentMethodsLayout){
         telephonyPayment(service,paymentMethodsLayout,R.layout.button_fortumo,new View.OnClickListener() {
             @Override
@@ -662,7 +660,7 @@ public abstract class BasePurchaseActivity extends ActionBarActivity implements 
                 startActivityForResult(i,FORTUMO_CODE);
             }
         });
-    }
+    }*/
 
     private double parsePaypalPayment(String str) {
         int start = str.indexOf('$') + 1;
