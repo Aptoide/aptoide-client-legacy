@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Bu uygulama Facebook\'a mesaj göndermeyecektir</string>
 <string name="invite_friends">Arkadaş Davet Et</string>
 <string name="facebook_timeline_friends_invited">Arkadaşlar davet edildi!</string>
-<string name="friends_to_invite">%s\'de diğer tüm Facebook arkadaşları</string>
+<string name="friends_to_invite">Aptoide\'de diğer tüm Facebook arkadaşları</string>
 <string name="timeline_is_empty_no_friends">Zaman Çizelgeniz boştur. Bunun sebebi muhtemelen henüz Aptoide\'de arkadaşınızın olmaması veya onların mesaj atmamış olmasıdır.</string>
 <string name="timeline_is_empty_start_invite">Birkaç arkadaş davet etmekle başlayalım:</string>
 <string name="timeline_empty_no_friends_send_email">Arkadaşlarınız Aptoide\'e Facebook hesapları ile giriş yapmamış gibi görülüyor. Onlara Facebook hesaplarıyla giriş yapmaları için bir e-posta gönderin</string>

@@ -353,7 +353,7 @@
     <string name="billing_result">"Исход трансакције је: "</string>
 
     <string name="order_popup_title3">Садржај за одрасле</string>
-    <string name="friends_to_invite">Сви остали Фејсбук пријатељи са %s</string>
+    <string name="friends_to_invite">Сви остали Фејсбук пријатељи са Аптоида</string>
     <string name="invite_friends">Позовите пријатеље</string>
     <string name="timeline_is_empty_send_email">Послаћемо имејл свима које одаберете</string>
     <string name="facebook_timeline_friends_invited">Пријатељ позван!</string>

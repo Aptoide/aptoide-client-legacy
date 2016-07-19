@@ -348,7 +348,7 @@
     <string name="billing_result">"Результат транзакції: "</string>
 
     <string name="order_popup_title3">Контент для дорослих</string>
-    <string name="friends_to_invite">Усі друзі з Facebook в %s</string>
+    <string name="friends_to_invite">Усі друзі з Facebook в Aptoide</string>
     <string name="invite_friends">Запросити друзів</string>
     <string name="timeline_is_empty_send_email">Ми відправимо email обраним користувачам</string>
     <string name="facebook_timeline_friends_invited">Друзі запрошені!</string>

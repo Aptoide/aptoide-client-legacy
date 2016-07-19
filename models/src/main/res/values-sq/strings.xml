@@ -84,7 +84,7 @@
 <string name="update_all">Azhorno të gjithë</string>
 <string name="username">Email</string>
 <string name="username_tip">Shkruani email tuaj</string>
-<string name="accept_terms">Duke u regjistruar ju jeni duke rënë dakord me Termat e Shërbimit të Aptoide dhe Politika e Përmbajtjes për Zhvilluesit</string>
+<string name="accept_terms">Duke u regjistruar ju jeni duke rënë dakord me Termat e Shërbimit të %s dhe Politika e Përmbajtjes për Zhvilluesit</string>
 <string name="register">Regjistrohu</string>
 <string name="or">Ose</string>
 <string name="dont_have_an_account">Nuk ke llogari? Regjistrohu</string>

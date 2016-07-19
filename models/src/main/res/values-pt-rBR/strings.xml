@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Este app não vai postar no Facebook</string>
 <string name="invite_friends">Convidar Amigos</string>
 <string name="facebook_timeline_friends_invited">Amigos convidados!</string>
-<string name="friends_to_invite">Todos os outros amigos do Facebook no %s</string>
+<string name="friends_to_invite">Todos os outros amigos do Facebook no Aptoide</string>
 <string name="timeline_is_empty_no_friends">Sua Linha do Tempo está vazia. Isso é provavelmente porque você não tem amigos no Aptoide ainda ou eles não têm nenhum post.</string>
 <string name="timeline_is_empty_start_invite">Vamos começar por convidar alguns amigos:</string>
 <string name="timeline_empty_no_friends_send_email">Parece que seus amigos não fizeram login no Aptoide com suas contas do Facebook. Envie um e-mail para eles fazerem login com suas Contas do Facebook</string>
@@ -537,7 +537,7 @@
     <string name="results_subscribed">Lojas Assinadas</string>
     <string name="unknown">Desconhecido</string>
 
-    <string name="reason_unknown">Não há informações suficientes sobre este app na plataforma Anti-Malware do Aptoide.</string>
+    <string name="reason_unknown">Não há informações suficientes sobre este app na plataforma Anti-Malware do %s.</string>
 
 
 

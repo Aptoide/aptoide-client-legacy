@@ -293,7 +293,7 @@
     <string name="downgrade_requires_uninstall">Povrnitev prejšnje različice zahteva odstranitev aplikacije</string>
 
     <string name="order_popup_title3">Vsebina za odrasle</string>
-    <string name="friends_to_invite">Ostali Facebook prijatelji v %s</string>
+    <string name="friends_to_invite">Ostali Facebook prijatelji v Aptoide</string>
     <string name="invite_friends">Povabite prijatelje</string>
     <string name="timeline_is_empty_send_email">Tistim, ki jih izberete, bomo poslali email sporočila</string>
     <string name="facebook_timeline_friends_invited">Prijatelji povabljeni!</string>

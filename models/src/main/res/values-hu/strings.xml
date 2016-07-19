@@ -352,7 +352,7 @@
     <string name="billing_result">"A tranzakció végeredménye: "</string>
 
     <string name="order_popup_title3">Felnőtt tartalom</string>
-    <string name="friends_to_invite">A többi, %s-on lévő Facebook-barát</string>
+    <string name="friends_to_invite">A többi, Aptoide-on lévő Facebook-barát</string>
     <string name="invite_friends">Barátok meghívása</string>
     <string name="timeline_is_empty_send_email">Emailt küldünk azoknak, akiket kiválaszt</string>
     <string name="facebook_timeline_friends_invited">Barátok meghívva!</string>

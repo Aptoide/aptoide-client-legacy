@@ -18,7 +18,7 @@
     <string name="error_MARG_105">Iruzkina falta da</string>
     <string name="error_MARG_106">Botoa falta da</string>
     <string name="error_MARG_107">Testua falta da</string>
-    <string name="error_MARG_108">Like parametroa falta da</string>
+    <string name="error_MARG_108">Gustatzen Zait parametroa falta da</string>
     <string name="error_MARG_109">Email parametroa falta da</string>
     <string name="error_MARG_110">Passhash parametroa falta da</string>
     <string name="error_MARG_111">Izen parametroa falta da</string>
@@ -117,7 +117,7 @@
     <string name="dont_have_an_account">Ez daukazu konturik? Erregistratu</string>
     <string name="facebook_timeline_feature">Ooohhh… Ezaugarri hau Facebook sarbidearekin baino ez du funtzionatzen eta zuk beste sarbide modu bat aukeratu duzu</string>
     <string name="facebook_tos">" • Konpartitu itzazu zure laguneekin zure Facebook-aren bidez instalatzen dituzun aplikazioak Aptoideren barruan dagoen Denbora-lerro batean
-\n\n• Ikusi, like eman eta komentatu Denbora-lerroan
+\n\n• Ikusi, Gustatzen Zait klikatu eta komentatu Denbora-lerroan
 \n\n• Ez dugu inoiz ere ez zure Facebook horman idatziko "</string>
     <string name="facebook_private_actions">Aplikazio honek ez du zure Facebook-ean idatziko</string>
     <string name="facebook_timeline_login">" Facebook-ekin sartu eta Denbora-lerroa probatu nahi duzu?"</string>
@@ -195,7 +195,7 @@
     <string name="reply_to">%s-(r)i erantzun</string>
     <string name="installapp_alrt">Hurrengoa instalatu nahi duzu:\n\n%s?</string>
 
-    <string name="notification_timeline_new_likes">%s like dauzkazu. Ikusi Denbora-lerro Soziala!</string>
+    <string name="notification_timeline_new_likes">%s Gustatzen Zait dauzkazu. Ikusi Denbora-lerro Soziala!</string>
     <string name="notification_timeline_new_comments">%s iruzkin berri dauzkazu. Ikusi Denbora-lerro Soziala!</string>
     <string name="has_updates">%s eguneratze berriak dauzka eskuragarri!</string>
     <string name="new_updates">%s eguneratze berri daude eskuragarri!</string>
@@ -225,8 +225,8 @@
     <string name="vote_up">Boto Positiboa</string>
     <string name="casting_vote">Casting botoa…</string>
     <string name="vote_submitted">Zure botoa bidali egin da</string>
-    <string name="adult_pin_wrong">Pin-a ez da zuzena, saiatu berriro.</string>
-    <string name="request_adult_pin">Sartu pin-a desblokeatzeko</string>
+    <string name="adult_pin_wrong">Kodea ez da zuzena, saiatu berriro.</string>
+    <string name="request_adult_pin">Sartu kodea desblokeatzeko</string>
     <string name="are_you_adult">21 urte edo gehiago dauzkazu?</string>
     <string name="facebook_logout_and_login">Irten eta sartu Facebook-en bidez</string>
 
@@ -316,7 +316,7 @@
     <string name="downgrade_requires_uninstall">Degradatzeko Aplikazioa desinstalatu behar da</string>
 
     <string name="order_popup_title3">Nagusientzako Edukia</string>
-    <string name="friends_to_invite">Facebook-eko beste lagunak %s-n</string>
+    <string name="friends_to_invite">Facebook-eko beste lagunak Aptoide-n</string>
     <string name="invite_friends">Lagunak Gonbidatu</string>
     <string name="timeline_is_empty_send_email">Email bat bidaliko diegu aukeratzen dituzun horiei</string>
     <string name="facebook_timeline_friends_invited">Zure lagunak gonbidatuak izan dira!</string>
@@ -336,12 +336,12 @@
     <string name="button_more">Gehiago</string>
     <string name="unhide_post">UNHIDE</string>
     <string name="hide_post">EZKUTATU</string>
-    <string name="like">Like</string>
+    <string name="like">Gustatzen Zait</string>
     <string name="comment">Iruzkina</string>
     <string name="hide_post_info">Zure lagunek ez dute mezu hau ikusiko</string>
-    <string name="timeline_like">Like</string>
-    <string name="likes">Like-ak</string>
-    <string name="unlike">Like-a kendu</string>
+    <string name="timeline_like">Gustatzen Zait</string>
+    <string name="likes">Gustatzen Zait</string>
+    <string name="unlike">Ez zait gustatzen</string>
     <string name="timeline_empty_no_friends_send_email">Ematen du zure lagunak ez direla Aptoide-n Facebook-en bidez sartu. Bidali iezaiezu email bat Facebook kontuaren bidez sartu daitezen</string>
     <string name="timeline_empty_send_email_to_friends">Zure lagunei emaila bidali</string>
     <string name="aptoide_timeline">Aptoide Denbora-lerroa</string>
@@ -383,12 +383,12 @@
     <string name="upload_app">Aplikazioa igo</string>
     <string name="create_review">Kritika idatzi</string>
 
-    <string name="asksetadultpinmessage">Pin bat sortu nahi duzu Nagusientzako edukia blokeatzeko?</string>
-    <string name="setpin">Pin-a ezarri</string>
-    <string name="remove_mature_pin_title">Nagusientzako Edukirako pin-a kendu</string>
-    <string name="remove_mature_pin_summary">nagusientzako Edukia blokeatzeko Pin-a kendu</string>
-    <string name="set_mature_pin_title">Nagusientzako Edukirako pin-a ezarri</string>
-    <string name="set_mature_pin_summary">Ezarri ezazu nagusientzako Edukia desblokeatzeko erabili beharko den pin-a</string>
+    <string name="asksetadultpinmessage">Kode bat sortu nahi duzu Nagusientzako edukia blokeatzeko?</string>
+    <string name="setpin">Kodea ezarri</string>
+    <string name="remove_mature_pin_title">Nagusientzako Edukirako kodea kendu</string>
+    <string name="remove_mature_pin_summary">Nagusientzako Edukia blokeatzeko kodea kendu</string>
+    <string name="set_mature_pin_title">Nagusientzako Edukirako kodea ezarri</string>
+    <string name="set_mature_pin_summary">Ezarri ezazu nagusientzako Edukia desblokeatzeko erabili beharko den kodea</string>
     <string name="settings_title_bar">Ezarpenak</string>
     <string name="settings_dwn_network_rules">Mobil Sarearen Aukerak</string>
     <string name="setting_sum_icon_download_rules">Baimendu ezazu ikonoak mugikor datuekin deskargatzea</string>
@@ -497,7 +497,7 @@
     <string name="application_signature_analysis">Aplikazioaren sinadura web garatzailearen sinadurarekin konparatu da:</string>
     <string name="application_signature_matched">Aplikazioaren sinadurak eta harremanduta dagoen aplikazio garatzailearen sinadurak bat egiten dute.</string>
     <string name="application_signature_not_matched">Aplikazioaren sinadurak eta harremanduta dagoen aplikazio garatzailearen sinadurak ez dute bat egiten. Aplikazioa faltsutua egon daiteke.</string>
-    <string name="application_signature_blacklisted">Aplikazioaren sinadura ez da fidagarria Aptoide Anti-Malware plataforman beste plataforma batean sartzeko erabili delako eta ez duelako harramandutako benetako garatzailearen sinadurarekin bat egiten.</string>
+    <string name="application_signature_blacklisted">Aplikazioaren sinadura ez da fidagarria %s Anti-Malware plataforman beste plataforma batean sartzeko erabili delako eta ez duelako harramandutako benetako garatzailearen sinadurarekin bat egiten.</string>
     <string name="scanned_manually_by_aptoide_team">%s Taldeak eskuz eskaneatu du:</string>
     <string name="scanned_verified_by_tester">Aplikazioa eskuz kritikatua izan da %s Taldearen bidez eta honek aplikazioa segurua dela ziurtatzen du.</string>
     <string name="warning">Jakinarazpena</string>
@@ -526,7 +526,7 @@
     <string name="abTest1_label_3">Instalatu</string>
 
 
-    <string name="notification_timeline_activity">%1$s komentario berri eta %2$s like dauzkatu. Ikusi ezazu Denbora-lerro Soziala!</string>
+    <string name="notification_timeline_activity">%1$s komentario berri eta %2$s Gustatzen Zait dauzkatu. Ikusi ezazu Denbora-lerro Soziala!</string>
     <string name="notification_social_timeline">Aptoide Denbora-lerro Soziala. Ikusi ezazu orain!</string>
     <string name="notification_timeline_posts">Zure lagunek aplikazio berriak instalatu dituzte!</string>
 
@@ -647,7 +647,7 @@
     <string name="transportation">Garraioak</string>
     <string name="travel">Bidaiak</string>
     <string name="travel_local">Bidaiak eta Tokikoak</string>
-    <string name="trending">Trending</string>
+    <string name="trending">Joera</string>
     <string name="trivia">Bitxikeriak</string>
     <string name="word">Hitza</string>
     <string name="libraries_demo">Liburutegi eta Demoak</string>

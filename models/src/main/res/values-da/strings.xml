@@ -294,7 +294,7 @@
     <string name="downgrade_requires_uninstall">Nedgradering kræver afinstallation af Applikation</string>
 
     <string name="order_popup_title3">Voksen Indhold</string>
-    <string name="friends_to_invite">Alle andre Facebook venner i %s</string>
+    <string name="friends_to_invite">Alle andre Facebook venner i Aptoide</string>
     <string name="invite_friends">Inviter Venner</string>
     <string name="timeline_is_empty_send_email">Vi sender en email til dem du vælger</string>
     <string name="facebook_timeline_friends_invited">Venner inviteret!</string>

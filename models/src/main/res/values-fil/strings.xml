@@ -459,7 +459,7 @@
     <string name="application_signature_analysis">Lagda sa aplikasyon ay naikumpara sa lagda ng tagagawa:</string>
     <string name="application_signature_matched">Ang lagda sa aplikasyon ay tumugma sa lagda ng may kaugnayan sa bumuo ng aplikasyon.</string>
     <string name="application_signature_not_matched">Ang lagda sa aplikasyon ay hindi tumugma sa lagda ng may kaugnayan sa bumuo ng aplikasyon. Ang aplikasyon ay pwedeng na adulterado.</string>
-    <string name="application_signature_blacklisted">Ang lagda sa aplikasyon ay hindi Pinagkakatiwalaang lagda sa plataporma ng Aptoide Anti-Malware dahil ito ay nagamit na para lagdaan ang ibang aplikasyon na hindi tumutugma sa may kaugnayang lagda ng tunay na gumawa.</string>
+    <string name="application_signature_blacklisted">Ang lagda sa aplikasyon ay hindi Pinagkakatiwalaang lagda sa plataporma ng %s Anti-Malware dahil ito ay nagamit na para lagdaan ang ibang aplikasyon na hindi tumutugma sa may kaugnayang lagda ng tunay na gumawa.</string>
     <string name="scanned_manually_by_aptoide_team">Nasuri ng mano-mano ng Koponan ng %s:</string>
     <string name="scanned_verified_by_tester">Ang aplikasyon ay sinuri ng mano-mano ng tagasiyasat mula sa Koponan ng %s na sumisigurado sa kaligtasan ng aplikasyon.</string>
     <string name="warning">Babala</string>

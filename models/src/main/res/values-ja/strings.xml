@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">このアプリはFacebookに投稿を行いません</string>
 <string name="invite_friends">友人を招待</string>
 <string name="facebook_timeline_friends_invited">友人が招待されました！</string>
-<string name="friends_to_invite">%s内その他のFacebookの友達</string>
+<string name="friends_to_invite">Aptoide内その他のFacebookの友達</string>
 <string name="timeline_is_empty_no_friends">タイムラインが空です。Aptoideに友人がいないか、投稿がまだ何もありません。</string>
 <string name="timeline_is_empty_start_invite">友人を招待してみましょう:</string>
 <string name="timeline_empty_no_friends_send_email">友人がFacebookアカウントでAptoideにログインしていないようです。FacebookアカウントでログインするためのEメールを送信しましょう</string>

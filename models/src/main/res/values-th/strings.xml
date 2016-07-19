@@ -337,7 +337,7 @@
 
     <string name="order_popup_title3">เนื้อหาสำหรับผู้ใหญ่</string>
     <string name="invite_friends">เชิญเพื่อน</string>
-    <string name="friends_to_invite">เพื่อนทั้งหมดใน %s บนเฟสบุ๊ค</string>
+    <string name="friends_to_invite">เพื่อนทั้งหมดใน Aptoide บนเฟสบุ๊ค</string>
     <string name="timeline_is_empty_send_email">เราจะส่งอีเมลไปให้กลุ่มที่ท่านเลือก</string>
     <string name="facebook_timeline_friends_invited">เพื่อนถูกเชิญแล้ว!</string>
     <string name="select_friends_to_invite">โปรดเลือกเพื่อนของคุณเพื่อที่จะเชิญพวกเขา!</string>

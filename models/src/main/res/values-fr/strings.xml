@@ -101,7 +101,7 @@
 <string name="restore_updates">Restaurer les mises à jour</string>
 <string name="start_loading">Chargement…</string>
 <string name="one_account_allowed">Seul un compte est autorisé</string>
-<string name="ip_blacklisted">IP blacklistée</string>
+<string name="ip_blacklisted">IP sur liste noire</string>
 <string name="apk_not_found">Apk introuvable</string>
 <string name="invalid_apk">Apk non valide</string>
 <string name="remote_in_nospace">pas assez de mémoire sur votre appareil.</string>
@@ -112,7 +112,7 @@
 <string name="no_permissions_required">Aucune autorisation requise pour cette application.</string>
 <string name="connection_error">Pas de connexion réseau</string>
 <string name="install">Installer</string>
-<string name="aptoide_downloading">%s effectue un téléchargement</string>
+<string name="aptoide_downloading">%s : téléchargement en cours</string>
 <string name="error_occured">Une erreur est survenue. Veuillez réessayer</string>
 <string name="starting_download">Démarrage du téléchargement</string>
 <string name="subscribe_newrepo_alrt">Voulez-vous vous abonner à cette boutique ?\n\n</string>
@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Cette application ne publiera rien sur Facebook</string>
 <string name="invite_friends">Inviter des amis</string>
 <string name="facebook_timeline_friends_invited">Amis invités !</string>
-<string name="friends_to_invite">Tous les autres amis Facebook sur %s</string>
+<string name="friends_to_invite">Tous les autres amis Facebook sur Aptoide</string>
 <string name="timeline_is_empty_no_friends">Votre flux est vide. La cause probable est que vous n\'avez pas encore d\'amis sur Aptoide ou qu\'ils n\'ont pas encore posté de messages.</string>
 <string name="timeline_is_empty_start_invite">Commençons par inviter quelques amis :</string>
 <string name="timeline_empty_no_friends_send_email">Il semble que vos amis n\'aient pas ouvert une session avec leur compte Facebook. Envoyez-leur un e-mail pour qu\'ils se connectent avec leur compte Facebook</string>
@@ -526,7 +526,7 @@
 
     <string name="upload_app_backup_apps_installed">Vous devez mettre cette application en ligne dans votre boutique en premier. Vous pouvez utiliser les Applications de sauvegarde %s.</string>
     <string name="upload_app_backup_apps_not_installed">Vous devez mettre cette application en ligne dans votre boutique en premier. Merci d\'installer et d\'utiliser les applications de sauvegarde %s.</string>
-    <string name="results_subscribed">Boutiques souscrites</string>
+    <string name="results_subscribed">Abonné aux boutiques</string>
     <string name="app_trusted">%s est Approuvé</string>
     <string name="compared_with_another_marketplace">Comparé à une autre Place de Marché Android :</string>
     <string name="application_signature_analysis">Signature de l\'application comparée à la signature du développeur :</string>

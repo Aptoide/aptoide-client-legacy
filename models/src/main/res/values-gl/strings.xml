@@ -383,7 +383,7 @@
     <string name="rollback_downgraded">Regresado a unha versión anterior</string>
     <string name="downgrade_requires_uninstall">Para regresar a unha versión anterior tes que desinstalar a aplicación</string>
 
-    <string name="friends_to_invite">O resto dos teus amigos en %s</string>
+    <string name="friends_to_invite">O resto dos teus amigos en Aptoide</string>
     <string name="timeline_is_empty_send_email">Mandarémoslle un email a aqueles que elixas</string>
     <string name="facebook_timeline_friends_invited">Amigos convidados!</string>
     <string name="select_friends_to_invite">Selecciona que amigos convidar!</string>

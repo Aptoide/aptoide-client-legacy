@@ -115,7 +115,7 @@
 <string name="error_occured">დაფიქსირდა შეცდომა.სცადეთ თავიდან</string>
 <string name="starting_download">იწყება გადმოწერა</string>
 <string name="subscribe_newrepo_alrt">გსურთ ამ მარკეტის გამოწერა?\n\n</string>
-<string name="downloads">გადმოწერების რაოდენობის მიხედვით</string>
+<string name="downloads">გადმოწერები</string>
 <string name="size">ზომის მიხედვით</string>
 <string name="likes">მოწონებები</string>
 <string name="change_theme">თემის შეცვლა</string>
@@ -607,4 +607,17 @@
     <string name="arcade_action">მოქმედებითი არკადა</string>
     <string name="empty_search">ძებნის ველი ცარიელია</string>
     <string name="wizard_new_and_improved_bullet_4">მარტივი დიზაინი</string>
+    <string name="dialog_install_warning_trusted_version_button">სანდო ვერსია</string>
+    <string name="dialog_install_warning_trusted_app_button">სანდო აპლიკაცია</string>
+    <string name="dialog_install_warning_proceed_button">გაგრძელება</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">მოძებნე</string>
+    <string name="dialog_install_warning_careful_text">ფრთხილად იყავით! ამ აპლიკაციას შესაძლოა ვირუსი ჰქონდეს.</string>
+    <string name="error_REPO_7">Cet utilisateur possède déjà une boutique.</string>
+
+    <string name="libraries_demo">დამხმარე პროგრამები</string>
+    <string name="balloon_security_subtitle">ახლა ჩვენ ყველა აპლიკაციას ვამოწმებთ ვირუსებზე.</string>
+    <string name="more_editors_choice">მეტი რედაქტორებისგან</string>
+    <string name="flag_freeze">იჭედება</string>
+    <string name="balloon_security_title">Aptoide-ში ცვლილებებია.</string>
+    <string name="balloon_security_subtitle_final_part">" ვირუსებზე:"</string>
     </resources>

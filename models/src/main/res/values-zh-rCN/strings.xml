@@ -293,7 +293,7 @@
     <string name="downgrade_requires_uninstall">降级需要卸载应用</string>
 
     <string name="order_popup_title3">成人内容</string>
-    <string name="friends_to_invite">%s中的所有其他Facebook好友</string>
+    <string name="friends_to_invite">Aptoide中的所有其他Facebook好友</string>
     <string name="invite_friends">邀请好友</string>
     <string name="timeline_is_empty_send_email">我们将向您选择的好友发送电子邮件</string>
     <string name="facebook_timeline_friends_invited">已邀请好友！</string>
@@ -469,7 +469,7 @@
     <string name="unsubscribed_">"已取消订阅 "</string>
     <string name="error_occured_uploading">您需要先上传此应用。</string>
 
-    <string name="update_self_title">可用更新</string>
+    <string name="update_self_title">有可用更新</string>
     <string name="update_self_msg">%s有新版本\n是否需要更新？</string>
     <string name="retrieving_update">正在检索更新…</string>
 

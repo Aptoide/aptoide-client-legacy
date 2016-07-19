@@ -3,7 +3,7 @@
 <string name="WidgetProvider_timestamp_yesterday">Hôm qua</string>
 <string name="WidgetProvider_timestamp_hour_ago">%s giờ trước</string>
 <string name="WidgetProvider_timestamp_hours_ago">%s giờ trước</string>
-<string name="WidgetProvider_timestamp_minutes_ago">%s phút trước</string>
+<string name="WidgetProvider_timestamp_minutes_ago">%s phút trước</string>q
 <string name="WidgetProvider_timestamp_just_now">Ngay bây giờ</string>
 <string name="WidgetProvider_timestamp_weeks_ago">%s tuần trước</string>
 <string name="WidgetProvider_timestamp_week_ago">%s tuần trước</string>

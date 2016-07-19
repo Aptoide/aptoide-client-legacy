@@ -290,7 +290,7 @@
     <string name="downgrade_requires_uninstall">Nedgradering krever avinstallasjon av applikasjon</string>
 
     <string name="order_popup_title3">Seksuelt innhold</string>
-    <string name="friends_to_invite">Alle andre Facebook-venner i %s</string>
+    <string name="friends_to_invite">Alle andre Facebook-venner i Aptoide</string>
     <string name="invite_friends">Inviter venner</string>
     <string name="timeline_is_empty_send_email">Vi vil sende en e-post til de du velger</string>
     <string name="facebook_timeline_friends_invited">Venner invitert!</string>

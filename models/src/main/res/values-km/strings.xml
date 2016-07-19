@@ -290,7 +290,7 @@
     <string name="downgrade_requires_uninstall">ទម្លាក់ចំណាត់ថ្នាក់តម្រូវ​ឱ្យកម្មវិធី​ទម្លាក់ការដំឡើងចុះ</string>
 
     <string name="order_popup_title3">មាតិកាមនុស្សពេញវ័យ</string>
-    <string name="friends_to_invite">មិត្តភ័ក្តិក្នុងហ្វេសបុកផ្សេងទៀតទាំងក្នុង %s</string>
+    <string name="friends_to_invite">មិត្តភ័ក្តិក្នុងហ្វេសបុកផ្សេងទៀតទាំងក្នុង Aptoide</string>
     <string name="invite_friends">អញ្ជើញមិត្តភ័ក្តិ</string>
     <string name="timeline_is_empty_send_email">យើងនឹង​ផ្ញើអ៊ីម៉ែលទៅ​អាសយដ្ឋានទាំងអស់​ដែលអ្នកបានជ្រើស</string>
     <string name="facebook_timeline_friends_invited">មិត្តភ័ក្តិត្រូវបានអញ្ជើញ!</string>

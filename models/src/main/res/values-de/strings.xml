@@ -8,7 +8,7 @@
 <string name="WidgetProvider_timestamp_weeks_ago">vor %s Wochen</string>
 <string name="WidgetProvider_timestamp_week_ago">vor %s Woche</string>
 <string name="WidgetProvider_timestamp_this_week">Diese Woche</string>
-<string name="update">Update</string>
+<string name="update">Aktualisieren</string>
 <string name="uninstall">Deinstallieren</string>
 <string name="comments">Kommentare</string>
 <string name="write_your_comment">Schreibe deinen Kommentar</string>
@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Die App wird keine Facebook Posts machen</string>
 <string name="invite_friends">Freunde einladen</string>
 <string name="facebook_timeline_friends_invited">Freunde eingeladen!</string>
-<string name="friends_to_invite">Alle anderen Facebook Freunde in %s</string>
+<string name="friends_to_invite">Alle anderen Facebook Freunde in Aptoide</string>
 <string name="timeline_is_empty_no_friends">Ihre Timeline ist leer. Sie haben wahrscheinlich noch keine Freunde bei Aptoide, oder sie haben noch nichts geschrieben.</string>
 <string name="timeline_is_empty_start_invite">Beginnen wir mit ein paar Freunde ein zuladen:</string>
 <string name="timeline_empty_no_friends_send_email">Es scheint das sich Ihre Freunde nicht mit Facebook in Aptoide angemeldet haben. Schreibe ihnen eine E-Mail, um zu sagen, dass sie sich mit Facebook anmelden können</string>
@@ -322,7 +322,7 @@
 <string name="private_key">privat</string>
 <string name="store_username">Benutzername</string>
 <string name="store_password">Passwort</string>
-<string name="update_self_title">Update verfügbar</string>
+<string name="update_self_title">Aktualisierung verfügbar</string>
 <string name="update_self_msg">Es gibt eine neue Version von %s,\nmöchten Sie aktualisieren?</string>
 <string name="retrieving_update">Aktualisierung wird empfangen…</string>
 <string name="error_IARG_103">Ungültige Kategorie</string>
@@ -473,7 +473,7 @@
     <string name="application_signature_analysis">Applikations-Signatur verglichen mit Entwickler-Signatur:</string>
     <string name="application_signature_matched">Übereinstimmung der Anwendungs-Signatur mit der Signatur, die mit dem Anwendungsentwickler verbunden ist.</string>
     <string name="application_signature_not_matched">Die Signatur der Applikation stimmt nicht mit der Signatur überein, die mit dem Anwendungsentwickler verbunden ist. Die Applikation könnte manipuliert sein.</string>
-    <string name="application_signature_blacklisted">Die Aptoide-Signatur ist keine vertrauenswürdige Signatur auf der Anti-Malware-Plattform von Aptoide, denn sie wurde genutzt, um eine andere Applikation zu signieren, die nicht mit der Signatur übereinstimmt, welche mit dem eigentlichen Entwickler verbunden ist.</string>
+    <string name="application_signature_blacklisted">Die Anwendung-Signatur ist keine vertrauenswürdige Signatur auf der Anti-Malware-Plattform, denn sie wurde genutzt, um eine andere Applikation zu signieren, die nicht mit der Signatur übereinstimmt, welche mit dem eigentlichen Entwickler verbunden ist.</string>
     <string name="scanned_manually_by_aptoide_team">Manuell gescannt durch %s-Team:</string>
     <string name="scanned_verified_by_tester">Die Applikation wurde manuell durch einen Tester aus dem %s-Team getestet, was die Sicherheit der Applikation gewährleistet.</string>
     <string name="warning">Warnung</string>

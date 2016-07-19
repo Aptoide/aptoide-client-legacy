@@ -256,7 +256,7 @@
 <string name="error_IARG_103">유효하지 않은 카테고리</string>
     <string name="error_REPO_4_no_store">계정에 생성된 스토어가 없습니다. 리뷰를 작성하기 위해 하나를 만들어야 합니다.</string>
 
-    <string name="aptoide_description">Aptoide 공식 앱스토어</string>
+    <string name="aptoide_description">%s 공식 앱스토어</string>
 
     <string name="password">비밀번호</string>
     <string name="error_APK_Description">설명이 불가능합니다.</string>

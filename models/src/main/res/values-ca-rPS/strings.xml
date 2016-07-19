@@ -294,7 +294,7 @@
     <string name="downgrade_requires_uninstall">La degradació requereix la desinstal·lació de l\'Aplicació</string>
 
     <string name="order_popup_title3">Contingut adult</string>
-    <string name="friends_to_invite">Tots els altres amics de Facebook a %s</string>
+    <string name="friends_to_invite">Tots els altres amics de Facebook a Aptoide</string>
     <string name="invite_friends">Convidar Amics</string>
     <string name="timeline_is_empty_send_email">Enviarem un email a aquells que escullis</string>
     <string name="facebook_timeline_friends_invited">Amics convidats!</string>

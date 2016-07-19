@@ -289,7 +289,7 @@
     <string name="downgrade_requires_uninstall">Penurunan gred memerlukan Aplikasi dinyahpasang</string>
 
     <string name="order_popup_title3">Kandungan Dewasa</string>
-    <string name="friends_to_invite">Semua rakan-rakan Facebook lain di %s</string>
+    <string name="friends_to_invite">Semua rakan-rakan Facebook lain di Aptoide</string>
     <string name="invite_friends">Jemput Kawan-kawan</string>
     <string name="timeline_is_empty_send_email">Kami akan menghantar e-mel kepada mereka yang anda pilih</string>
     <string name="facebook_timeline_friends_invited">Rakan-rakan dijemput!</string>
@@ -480,7 +480,7 @@
     <string name="application_signature_analysis">Tandatangan aplikasi berbanding dengan tandatangan pemaju:</string>
     <string name="application_signature_matched">Tandatangan aplikasi sepadan dengan tandatangan yang berkaitan dengan pemaju aplikasi.</string>
     <string name="application_signature_not_matched">Tandatangan aplikasi tidak sepadan dengan tandatangan yang berkaitan dengan pemaju aplikasi. Aplikasi mungkin telah dicemari.</string>
-    <string name="application_signature_blacklisted">Tandatangan Aplikasi bukanlah tandatangan Dipercayai di platform Anti-Perisian Hasad Aptoide kerana ia telah digunakan untuk menandatangani satu lagi aplikasi yang tidak sepadan dengan tandatangan yang berkaitan dengan pemaju legit.</string>
+    <string name="application_signature_blacklisted">Tandatangan Aplikasi bukanlah tandatangan Dipercayai di platform Anti-Perisian Hasad %s kerana ia telah digunakan untuk menandatangani satu lagi aplikasi yang tidak sepadan dengan tandatangan yang berkaitan dengan pemaju legit.</string>
     <string name="scanned_manually_by_aptoide_team">Diimbas secara manual oleh Pasukan %s:</string>
     <string name="scanned_verified_by_tester">Aplikasi ini telah dikaji semula secara manual oleh penguji dari Pasukan %s yang memastikan keselamatan aplikasi.</string>
     <string name="warning">Amaran</string>
