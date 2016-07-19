@@ -270,7 +270,7 @@ public class UpdatesService extends Service {
                     contentText = AptoideUtils.StringUtils.getFormattedString(context, R.string.one_new_update, updates);
                 }
                 Intent notificationIntent = new Intent();
-                notificationIntent.setClassName(getPackageName(), MainActivity.class.getName());
+                notificationIntent.setClassName(getPackageName(), Aptoide.getConfiguration().getMainActivity().getName());
                 notificationIntent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
                 notificationIntent.setAction("");
                 notificationIntent.putExtra("new_updates", true);
