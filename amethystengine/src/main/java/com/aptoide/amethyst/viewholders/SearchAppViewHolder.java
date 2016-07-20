@@ -126,22 +126,24 @@ public class SearchAppViewHolder extends BaseViewHolder {
 
         final EnumStoreTheme theme = EnumStoreTheme.get(appItem.repo_theme);
 
-        Drawable background = bottomView.getBackground();
-        if (background instanceof ShapeDrawable) {
-            ((ShapeDrawable)background).getPaint().setColor(itemView.getContext().getResources().getColor(theme.getStoreHeader()));
-        } else if (background instanceof GradientDrawable) {
-            ((GradientDrawable)background).setColor(itemView.getContext().getResources().getColor(theme.getStoreHeader()));
+        if(!Aptoide.getConfiguration().getDefaultStore().contains("leagoo")) {
+            Drawable background = bottomView.getBackground();
+            if (background instanceof ShapeDrawable) {
+                ((ShapeDrawable) background).getPaint().setColor(itemView.getContext().getResources().getColor(theme.getStoreHeader()));
+            } else if (background instanceof GradientDrawable) {
+                ((GradientDrawable) background).setColor(itemView.getContext().getResources().getColor(theme.getStoreHeader()));
+            }
+
+            background = store.getBackground();
+            if (background instanceof ShapeDrawable) {
+                ((ShapeDrawable) background).getPaint().setColor(itemView.getContext().getResources().getColor(theme.getStoreHeader()));
+            } else if (background instanceof GradientDrawable) {
+                ((GradientDrawable) background).setColor(itemView.getContext().getResources().getColor(theme.getStoreHeader()));
+            }
+
+
+            store.setText(appItem.repo);
         }
-
-        background = store.getBackground();
-        if (background instanceof ShapeDrawable) {
-            ((ShapeDrawable)background).getPaint().setColor(itemView.getContext().getResources().getColor(theme.getStoreHeader()));
-        } else if (background instanceof GradientDrawable) {
-            ((GradientDrawable)background).setColor(itemView.getContext().getResources().getColor(theme.getStoreHeader()));
-        }
-
-
-        store.setText(appItem.repo);
         Glide.with(itemView.getContext()).load(appItem.iconHd != null ? appItem.iconHd : appItem.icon).into(icon);
 
         if (appItem.malrank == 2) {
