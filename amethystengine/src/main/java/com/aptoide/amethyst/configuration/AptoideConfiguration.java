@@ -245,4 +245,8 @@ public class AptoideConfiguration {
         return null;
     }
 
+    public int getNumberOfHighlightedRows() {
+        return 1;
+    }
+
 }

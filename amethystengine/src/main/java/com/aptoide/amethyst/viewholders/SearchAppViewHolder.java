@@ -143,6 +143,8 @@ public class SearchAppViewHolder extends BaseViewHolder {
 
 
             store.setText(appItem.repo);
+        } else {
+            store.setVisibility(View.INVISIBLE);
         }
         Glide.with(itemView.getContext()).load(appItem.iconHd != null ? appItem.iconHd : appItem.icon).into(icon);
 
