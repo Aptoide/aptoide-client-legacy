@@ -35,9 +35,15 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
         more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, null));
         int i = 0;
         for (; i < images.length && i < row.appItemList.size(); i++) {
-            final AppItem appItem = row.appItemList.get(i);
-            Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(images[i]);
-            images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
+            if (images[i] != null) {
+                final AppItem appItem = row.appItemList.get(i);
+                Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(images[i]);
+                images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
+            } else {
+                //[MARTELADA]Forcing i=3 and force leaving the loop so that the 4th editors is placed correctly.
+                i = 3;
+                break;
+            }
         }
 
         //when it's a tablet, we have to fill the extra image
