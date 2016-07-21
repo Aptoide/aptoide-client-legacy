@@ -716,6 +716,5 @@
         credibility and other user comments. Aptoide always recommends that you only install %1$s Trusted apps.</string>
     <string name="dialog_install_warning_trusted_version_button">Trusted Version</string>
     <string name="dialog_install_warning_get_trusted_version_button">Get</string>
-    <string name="failed">Failed</string>
 </resources>
 

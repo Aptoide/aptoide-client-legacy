@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -17,6 +18,7 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.downloadmanager.DownloadUtils;
 import com.aptoide.amethyst.downloadmanager.model.FinishedApk;
 import com.aptoide.amethyst.utils.GlideUtils;
+import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.models.ApkPermission;
 
 import java.util.ArrayList;
@@ -49,7 +51,7 @@ public class PermissionsActivity extends Activity {
         apk = getIntent().getParcelableExtra("apk");
 
         ArrayList<String> permissionsList = getIntent().getStringArrayListExtra("permissions");
-
+        Logger.i("Silent-Install: ", "in permissions activity");
         try {
 
             List<String> list = Arrays.asList(getPackageManager().getPackageInfo(apk.getApkid(), PackageManager.GET_PERMISSIONS).requestedPermissions);
@@ -134,7 +136,7 @@ public class PermissionsActivity extends Activity {
             if (!permissions.isEmpty()) {
                 for (int i = 0; i < permissions.size(); i++) {
                     ApkPermission permission = permissions.get(i);
-
+                    Logger.i("Silent-Install: ", "Permission name" + permission.getName());
                     View permissionView = LayoutInflater.from(context).inflate(R.layout.row_permission, null);
                     if (i == 0 || !permissions.get(i - 1).getName().equals(permission.getName())) {
                         ((TextView) permissionView.findViewById(R.id.permission_name)).setText(permission.getName());
@@ -145,6 +147,7 @@ public class PermissionsActivity extends Activity {
                     layout.addView(permissionView);
                 }
             } else {
+                Logger.i("Silent-Install: ", "Permissions size = " + permissions.size());
                 TextView tv = new TextView(context);
                 tv.setPadding(10, 10, 10, 10);
                 tv.setText(context.getString(R.string.no_permissions_required));
@@ -155,7 +158,7 @@ public class PermissionsActivity extends Activity {
         final AlertDialog dialog = new AlertDialog.Builder(context).setView(v).create();
         dialog.setTitle(context.getString(R.string.restore) + " " + viewApk.getName() + "?");
         //dialog.setIcon(BitmapDrawable.createFromPath(ImageLoader.getInstance().getDiscCache().get(path).getAbsolutePath()));
-
+        Logger.i("Silent-Install: ", "Creating dialog");
         dialog.setButton(DialogInterface.BUTTON_POSITIVE, context.getString(android.R.string.yes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
