@@ -41,8 +41,10 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
                 images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
             } else {
                 //[MARTELADA]Forcing i=3 and force leaving the loop so that the 4th editors is placed correctly.
-                i = 3;
-                break;
+                if(images.length < 4) {
+                    i = 3;
+                    break;
+                }
             }
         }
 
