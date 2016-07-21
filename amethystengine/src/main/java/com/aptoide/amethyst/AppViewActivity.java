@@ -409,6 +409,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         TextView mPrivacyLabel;
         TextView mPermissionsLabel;
         RecyclerView mScreenshotsList;
+        LinearLayout mGuaranteedMessage;
 
         RecyclerView mMoreVersionsList;
 
@@ -851,7 +852,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             mPermissionsLabel = (TextView) view.findViewById(R.id.permissions_label);
             mScreenshotsList = (RecyclerView) view.findViewById(R.id.screenshots_list);
             mMoreVersionsList = (RecyclerView) view.findViewById(R.id.more_versions_recycler);
-
+            mGuaranteedMessage = (LinearLayout) view.findViewById(R.id.guaranteed_message);
             descriptionLines = view.getContext().getResources().getInteger(R.integer.minimum_description_lines);
         }
 
@@ -1297,9 +1298,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             GetAppMeta.File.Flags flags = getApp.nodes.meta.data.file.flags;
 
             if (GetAppMeta.File.Flags.GOOD.equals(flags.review)) {
-                mFlagsLayout.setVisibility(View.GONE);
-                mButtonFlagThisApp.setVisibility(View.GONE);
-                manualReviewLayout.setVisibility(View.VISIBLE);
+                manualReviewLayout.setVisibility(View.GONE);
+                mGuaranteedMessage.setVisibility(View.VISIBLE);
+                mButtonFlagThisApp.setClickable(false);
+                mButtonFlagThisApp.setAlpha(0.5f);
+                mFlagsLayout.setAlpha(0.5f);
 
             } else  {
                 manualReviewLayout.setVisibility(View.GONE);

@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.models.displayables.AppItem;
 import com.aptoide.models.displayables.Displayable;
@@ -34,9 +35,15 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
         more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, null));
         int i = 0;
         for (; i < images.length && i < row.appItemList.size(); i++) {
-            final AppItem appItem = row.appItemList.get(i);
-            Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(images[i]);
-            images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
+            if (images[i] != null) {
+                final AppItem appItem = row.appItemList.get(i);
+                Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(images[i]);
+                images[i].setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
+            } else {
+                //[MARTELADA]Forcing i=3 and force leaving the loop so that the 4th editors is placed correctly.
+                i = 3;
+                break;
+            }
         }
 
         //when it's a tablet, we have to fill the extra image
@@ -52,21 +59,19 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
     @Override
     protected void bindViews(View itemView) {
 
-        images = new ImageView[3];
-        images[0] = (ImageView)itemView.findViewById(R.id.main_image);
-        images[1] = (ImageView)itemView.findViewById(R.id.left_image);
-        images[2] = (ImageView) itemView.findViewById(R.id.right_image);
-
-
-        //For Leagoo:
-        /*
-        images = new ImageView[5];
-        images[0] = (ImageView)itemView.findViewById(R.id.main_image);
-        images[1] = (ImageView)itemView.findViewById(R.id.left_image);
-        images[2] = (ImageView) itemView.findViewById(R.id.right_image);
-        images[3] = (ImageView)itemView.findViewById(R.id.left_image2);
-        images[4] = (ImageView) itemView.findViewById(R.id.right_image2);*/
-
+        if (!Aptoide.getConfiguration().getDefaultStore().contains("leagoo")) {
+            images = new ImageView[3];
+            images[0] = (ImageView) itemView.findViewById(R.id.main_image);
+            images[1] = (ImageView) itemView.findViewById(R.id.left_image);
+            images[2] = (ImageView) itemView.findViewById(R.id.right_image);
+        } else {
+            images = new ImageView[5];
+            images[0] = (ImageView) itemView.findViewById(R.id.main_image);
+            images[1] = (ImageView) itemView.findViewById(R.id.left_image);
+            images[2] = (ImageView) itemView.findViewById(R.id.right_image);
+            images[3] = (ImageView) itemView.findViewById(R.id.left_image2);
+            images[4] = (ImageView) itemView.findViewById(R.id.right_image2);
+        }
 
 
         more = (TextView) itemView.findViewById(R.id.more);

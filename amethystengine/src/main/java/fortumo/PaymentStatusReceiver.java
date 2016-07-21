@@ -1,4 +1,4 @@
-package fortumo;
+/*package fortumo;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -11,7 +11,15 @@ import mp.MpUtils;
 /**
  * Created by asantos on 04-02-2015.
  */
+/*
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+import mp.MpUtils;
 
 public abstract class PaymentStatusReceiver extends BroadcastReceiver {
     private static String TAG = "pois";
@@ -46,4 +54,4 @@ public abstract class PaymentStatusReceiver extends BroadcastReceiver {
 
 
 
-}
+}*/

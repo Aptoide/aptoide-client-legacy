@@ -1,4 +1,4 @@
-package fortumo;
+/*package fortumo;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -132,3 +132,4 @@ public class FortumoPaymentActivity extends PaymentActivity {
         }
     }
 }
+*/
