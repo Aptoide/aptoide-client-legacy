@@ -66,12 +66,12 @@ public class DownloadFragment extends LinearRecyclerFragment {
             ArrayList<Displayable> notOnGoing = service.getAllNonActiveDownloads();
 
             if (onGoing != null && onGoing.size() > 0) {
-                displayableList.add(new HeaderRow(getString(R.string.active), false, BUCKET_SIZE));
+                displayableList.add(new HeaderRow(getString(com.aptoide.amethyst.R.string.active), false, BUCKET_SIZE));
                 displayableList.addAll(onGoing);
             }
 
             if (notOnGoing != null && notOnGoing.size() > 0) {
-                displayableList.add(new HeaderRow(getString(R.string.completed), false, BUCKET_SIZE));
+                displayableList.add(new HeaderRow(getString(com.aptoide.amethyst.R.string.completed), false, BUCKET_SIZE));
                 displayableList.addAll(notOnGoing);
             }
 

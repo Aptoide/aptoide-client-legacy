@@ -141,7 +141,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
             total = tab.total;
 
             // check for hidden items
-            if (tab.hidden > 0 && AptoideUtils.getSharedPreferences().getBoolean(Constants.SHOW_ADULT_HIDDEN, true) && getFragmentManager().findFragmentByTag(Constants.HIDDEN_ADULT_DIALOG) == null) {
+            if (tab.hidden > 0 && !AptoideUtils.getSharedPreferences().getBoolean(Constants.SHOW_ADULT_HIDDEN, true) && getFragmentManager().findFragmentByTag(Constants.HIDDEN_ADULT_DIALOG) == null) {
                 new AdultHiddenDialog().show(getFragmentManager(), Constants.HIDDEN_ADULT_DIALOG);
             }
         }
@@ -292,7 +292,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         }
 
         final GetAdsRequest request = new GetAdsRequest();
-        request.setLimit(BUCKET_SIZE*2);
+        request.setLimit(BUCKET_SIZE*Aptoide.getConfiguration().getNumberOfHighlightedRows());
         request.setLocation("homepage");
         request.setKeyword("__NULL__");
 

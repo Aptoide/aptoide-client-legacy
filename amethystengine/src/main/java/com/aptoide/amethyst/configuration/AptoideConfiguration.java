@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LoginActivity;
+import com.aptoide.amethyst.MainActivity;
 import com.aptoide.amethyst.MoreSearchActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SearchActivity;
@@ -230,6 +231,8 @@ public class AptoideConfiguration {
 
     public Class getPushNotificationsReceiver() { return PushNotificationReceiver.class; }
 
+    public Class getMainActivity() { return MainActivity.class; }
+
     public Class getLoginActivity() {
         return LoginActivity.class;
     }
@@ -238,6 +241,12 @@ public class AptoideConfiguration {
         return true;
     }
 
-    public ArrayList<String> getStoreCredentials () { return null; }
+    public ArrayList<String> getStoreCredentials () {
+        return null;
+    }
+
+    public int getNumberOfHighlightedRows() {
+        return 1;
+    }
 
 }

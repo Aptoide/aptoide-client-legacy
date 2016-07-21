@@ -1001,7 +1001,7 @@ public class AptoideUtils {
             if (login != null) {
                 request.user = login.getUsername();
                 request.password = login.getPasswordSha1();
-            } else if (credentials != null) {
+            } else if (credentials.size() > 0) {
                 request.user = credentials.get(0);
                 try {
                     request.password = AptoideUtils.Algorithms.computeSHA1sum(credentials.get(1));
@@ -1009,7 +1009,8 @@ public class AptoideUtils {
                     e.printStackTrace();
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
-                }            }
+                }
+            }
             return request;
         }
 
@@ -1025,7 +1026,7 @@ public class AptoideUtils {
             if (login != null) {
                 request.user = login.getUsername();
                 request.password = login.getPasswordSha1();
-            } else if (credentials != null) {
+            } else if (credentials.size() > 0) {
                 request.user = credentials.get(0);
                 try {
                     request.password = AptoideUtils.Algorithms.computeSHA1sum(credentials.get(1));

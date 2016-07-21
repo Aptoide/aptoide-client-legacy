@@ -308,8 +308,10 @@
             </intent-filter>
         </receiver>
 
-        <!-- Declare these objects, this is part of Fortumo SDK, and should not be called directly -->
-        <receiver android:name="mp.MpSMSReceiver">
+        <!-- Declare these objects, this is part of Fortumo SDK, and should not be called directly
+             Commented when fortumo was taken out of the project.
+        -->
+<!--        <receiver android:name="mp.MpSMSReceiver">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
@@ -319,7 +321,7 @@
         <activity android:name="mp.MpActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden|screenSize" />
-
+-->
     </application>
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />

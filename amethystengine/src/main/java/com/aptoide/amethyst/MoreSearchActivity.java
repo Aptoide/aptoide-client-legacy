@@ -87,14 +87,14 @@ public class MoreSearchActivity extends MoreActivity {
     static public class MoreSearchFragment extends BaseWebserviceFragment {
         ImageView searchButton;
         EditText searchQuery;
-        ScrollView noSearchResultLayout;
+        public ScrollView noSearchResultLayout;
 
         @Override
         public void setLayoutManager(RecyclerView recyclerView) {
             recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         }
 
-        private String query;
+        protected String query;
         protected String storeName;
         private boolean mLoading = false;
 

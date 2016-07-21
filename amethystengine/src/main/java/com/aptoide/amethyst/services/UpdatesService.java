@@ -246,6 +246,7 @@ public class UpdatesService extends Service {
     private void showUpdatesNotification() {
         int updates = 0;
         Cursor data = null;
+        int icon = R.mipmap.ic_launcher;
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         try {
             data = new AptoideDatabase(Aptoide.getDb()).getUpdates();
@@ -258,7 +259,8 @@ public class UpdatesService extends Service {
             NotificationManager managerNotification = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
             if(Aptoide.getConfiguration().getMarketName().equals("Aptoide")) {
-                int icon = R.drawable.ic_stat_aptoide_notification;
+                icon = R.drawable.ic_stat_aptoide_notification;
+            }
                 //}
                 Context context = getApplicationContext();
                 CharSequence tickerText = AptoideUtils.StringUtils.getFormattedString(context, R.string.has_updates, Aptoide.getConfiguration().getMarketName());
@@ -268,7 +270,7 @@ public class UpdatesService extends Service {
                     contentText = AptoideUtils.StringUtils.getFormattedString(context, R.string.one_new_update, updates);
                 }
                 Intent notificationIntent = new Intent();
-                notificationIntent.setClassName(getPackageName(), MainActivity.class.getName());
+                notificationIntent.setClassName(getPackageName(), Aptoide.getConfiguration().getMainActivity().getName());
                 notificationIntent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
                 notificationIntent.setAction("");
                 notificationIntent.putExtra("new_updates", true);
@@ -283,7 +285,6 @@ public class UpdatesService extends Service {
                 notification.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_AUTO_CANCEL;
                 managerNotification.notify(546, notification);
                 defaultSharedPreferences.edit().putInt("updates", data.getCount()).apply();
-            }
         }
     }
 

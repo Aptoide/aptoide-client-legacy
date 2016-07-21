@@ -62,10 +62,8 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
-    protected ViewPager mViewPager;
     protected DrawerLayout mDrawerLayout;
     protected NavigationView mNavigationView;
-    protected PagerSlidingTabStrip tabs;
 
     private SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
     protected DownloadService downloadService;
@@ -88,7 +86,7 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
 //            refrebootsh = true;
         }
     };
-
+/*
     private ServiceConnection downloadServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder binder) {
@@ -106,7 +104,7 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
             Logger.d(TAG, "onServiceDisconnected");
         }
     };
-
+*/
     /**
      * Callback to be provided to a Dialog in order to add a store
      */
@@ -142,10 +140,9 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
         //spiceManager.start(this);
         //AccountManager.get(this).addOnAccountsUpdatedListener(onAccountsUpdateListener, new Handler(Looper.getMainLooper()), false);
 
-        handleIntentExtras(getIntent());
+        //handleIntentExtras(getIntent());
 
-        startService(new Intent(this, UpdatesService.class));
-        bindService(new Intent(this, DownloadService.class), downloadServiceConnection, BIND_AUTO_CREATE);
+        //bindService(new Intent(this, DownloadService.class), downloadServiceConnection, BIND_AUTO_CREATE);
 
         if (AptoideUtils.getSharedPreferences().getBoolean("checkautoupdate", true)) {
             new AutoUpdate(this).execute();
@@ -172,11 +169,11 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
         AptoideUtils.UI.unbindDrawables(mDrawerLayout);
 
         BusProvider.getInstance().unregister(this);
-
+/*
         if (downloadService != null) {
             unbindService(downloadServiceConnection);
         }
-
+*/
         AccountManager.get(this).removeOnAccountsUpdatedListener(onAccountsUpdateListener);
 //        if(isFinishing()) stopService(new Intent(this, RabbitMqService.class));
     }
@@ -185,8 +182,8 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
     protected String getScreenName() {
         return null;
     }
-
-    private void handleIntentExtras(Intent intent) {
+/*
+    protected void handleIntentExtras(Intent intent) {
         if (intent.hasExtra(Constants.NEW_REPO_EXTRA) && intent.getFlags() == Constants.NEW_REPO_FLAG) {
             ArrayList<String> repos = intent.getExtras().getStringArrayList("newrepo");
             if (repos != null) {
@@ -224,7 +221,7 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
 
         }
     }
-
+*/
 
     public DownloadService getDownloadService() {
         return downloadService;
