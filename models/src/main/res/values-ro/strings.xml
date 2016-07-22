@@ -72,7 +72,7 @@
 <string name="see_top_stores">Vedeți magazinele populare</string>
 <string name="setcredentials">Autentificare</string>
 <string name="rollback">Revenire la versiunea anterioară</string>
-<string name="rollback_empty">Retrogradați rapid orice aplicație la o versiune anterioară și rezolvați problemele de incompatibiliate. Păstrați un jurnal al tuturor aplicațiilor instalate inclusiv versiunea și data instalării.</string>
+<string name="rollback_empty">Retrogradați rapid orice aplicație la o versiune anterioară și rezolvați problemele de incompatibiliate. Păstrați un jurnal al tuturor aplicațiilor instalate (prin %s) inclusiv versiunea și data instalării.</string>
 <string name="rollback_installed">Instalat</string>
 <string name="rollback_uninstalled">Dezinstalat</string>
 <string name="rollback_updated">Actualizat</string>
@@ -84,7 +84,7 @@
 <string name="update_all">Actualizează toate</string>
 <string name="username">E-mail</string>
 <string name="username_tip">Tastați e-mailul</string>
-<string name="accept_terms">Prin înregistrare arătați că sunteți de acord cu Termenii de utilizare a Aptoide și Politica de conținut pentru Dezvoltatori</string>
+<string name="accept_terms">Prin înregistrare arătați că sunteți de acord cu Termenii de utilizare a %s și Politica de conținut pentru Dezvoltatori</string>
 <string name="register">Înregistrare</string>
 <string name="or">Sau</string>
 <string name="dont_have_an_account">Nu aveți un cont? Înregistrați-vă</string>
@@ -237,7 +237,7 @@
 <string name="cancel">Anulare</string>
 <string name="error_occured_paying">A apărut o eroare. Nu s-a finalizat plata.</string>
 <string name="failed_auth_code">Autorizarea contului a eșuat. Vă rugăm încercați din nou.</string>
-<string name="error_occured_retry_later">A apărut o eroare. Aptoide va încerca automat mai târziu.</string>
+<string name="error_occured_retry_later">A apărut o eroare. %s va încerca automat mai târziu.</string>
 <string name="account">Cont</string>
 <string name="no_payments_available">Nu există plăți disponibile.</string>
 <string name="change_payment">Înapoi</string>
@@ -275,7 +275,7 @@
 
     <string name="error_SYS_Billing">Sistemul de facturare In-App nu este compatibil cu acest dispozitiv.</string>
 
-    <string name="aptoide_description">Magazin de Aplicații Oficial Aptoide</string>
+    <string name="aptoide_description">Magazin de Aplicații Oficial %s</string>
 
     <string name="community">Comunitate</string>
     <string name="updates">Actualizări</string>
@@ -407,14 +407,14 @@
     <string name="store_privacy">Confidențialitatea magazinului</string>
     <string name="public_key">public</string>
     <string name="private_key">privat</string>
-    <string name="upload_app_backup_apps_installed">Mai întâi trebuie să încărcați această aplicație la magazinul dvs. Puteți folosi Aplicațiile Aptoide de backup.</string>
-    <string name="upload_app_backup_apps_not_installed">Mai întâi trebuie să încărcați această aplicație la magazinul Dvs. Vă rugăm instalați și folosiți Aplicațiile Aptoide de backup.</string>
+    <string name="upload_app_backup_apps_installed">Mai întâi trebuie să încărcați această aplicație la magazinul dvs. Puteți folosi Aplicațiile %s de backup.</string>
+    <string name="upload_app_backup_apps_not_installed">Mai întâi trebuie să încărcați această aplicație la magazinul Dvs. Vă rugăm instalați și folosiți Aplicațiile %s de backup.</string>
     <string name="upload_app">Încarcare aplicație</string>
     <string name="create_review">Creare recenzie</string>
 
     <string name="setting_mobile">Mobil 3G/4G</string>
-    <string name="setting_category_autoupdate">Actualizare Aptoide automată</string>
-    <string name="setting_category_autoupdate_title">Activează actualizare Aptoide automată</string>
+    <string name="setting_category_autoupdate">Actualizare %s automată</string>
+    <string name="setting_category_autoupdate_title">Activează actualizare %s automată</string>
     <string name="setting_dont_show_mature_content">Afișează conținut pentru adulți</string>
     <string name="whats_new">Ce noutăți există?</string>
     <string name="disable_social_timeline">Dezactivare Perete social</string>
@@ -460,9 +460,9 @@
     <string name="application_signature_analysis">Semnătura aplicației comparată cu semnătura dezvoltatorului:</string>
     <string name="application_signature_matched">Semnătura aplicației se potrivește cu semnătura dezvoltatorului.</string>
     <string name="application_signature_not_matched">Semnătura aplicației nu se potrivește cu semnătura dezvoltatorului. Se poate ca aplicația să fi fost falsificată.</string>
-    <string name="application_signature_blacklisted">Semnătura aplicației nu este o semnătură de încredere pe platforma Aptoide contra software-urilor rău intenționate pentru că a fost folosită pentru a semna o altă aplicație care nu se potrivește cu semnătura dezvoltatorului legitim.</string>
-    <string name="scanned_manually_by_aptoide_team">Scanat manual de echipa Aptoide:</string>
-    <string name="scanned_verified_by_tester">Această aplicație a fost examinată manual de un tester din echipa Aptoide care asigură siguranța aplicației.</string>
+    <string name="application_signature_blacklisted">Semnătura aplicației nu este o semnătură de încredere pe platforma %s contra software-urilor rău intenționate pentru că a fost folosită pentru a semna o altă aplicație care nu se potrivește cu semnătura dezvoltatorului legitim.</string>
+    <string name="scanned_manually_by_aptoide_team">Scanat manual de echipa %s:</string>
+    <string name="scanned_verified_by_tester">Această aplicație a fost examinată manual de un tester din echipa %s care asigură siguranța aplicației.</string>
     <string name="warning">Avertizare</string>
     <string name="trusted_app">Aplicație de încredere</string>
     <string name="unknown">Necunoscut</string>
@@ -470,10 +470,10 @@
     <string name="reason_third_party">Am verificat semnătura aplicației și se potrivește cu Google Play Store, astfel că siguranța este garantată și vă puteți bucura de aplicație.</string>
     <string name="reason_scanned">Scanat cu AptoideGuard și cu 2 antiviruși diferiți (Zoner 1,8 și Sophos 3.0).</string>
     <string name="reason_signature">Semnătura criptografică garantează că puteți instala fisierul în siguranță și că nu a fost falsificat în niciun fel.</string>
-    <string name="reason_manual">Această aplicație a fost examinată de echipa de experți Aptoide și a fost semnalizată ca bună.</string>
+    <string name="reason_manual">Această aplicație a fost examinată de echipa de experți %s și a fost semnalizată ca bună.</string>
 
     <string name="reason_failed">Semnătura aplicației nu se potrivește cu semnătura dezvoltatorului. Se poate ca aplicația să fi fost alterată.</string>
-    <string name="reason_unknown">Nu există suficiente informații despre această aplicație pe platforma Aptoide contra software-urilor rău intenționate.</string>
+    <string name="reason_unknown">Nu există suficiente informații despre această aplicație pe platforma %s contra software-urilor rău intenționate.</string>
 
 
 

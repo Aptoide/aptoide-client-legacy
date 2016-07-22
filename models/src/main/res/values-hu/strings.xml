@@ -68,7 +68,7 @@
 <string name="see_top_stores">Legjobb áruházak megtekintése</string>
 <string name="setcredentials">Bejelentkezés</string>
 <string name="rollback">Visszaállítás</string>
-<string name="rollback_empty">Bárnely alkalmazást visszaállíthat régebbi verzióra a kompabilitási problémák megoldásához. Naplózza az összes telepített alkalmazást, azok verziószámát és telepítési dátumát.</string>
+<string name="rollback_empty">Bárnely alkalmazást visszaállíthat régebbi verzióra a kompabilitási problémák megoldásához. Naplózza az összes (%s-on keresztül) telepített alkalmazást, azok verziószámát és telepítési dátumát.</string>
 <string name="rollback_installed">Telepített</string>
 <string name="rollback_uninstalled">Eltávolított</string>
 <string name="rollback_updated">Frissített</string>
@@ -80,7 +80,7 @@
 <string name="update_all">Minden frissítése</string>
 <string name="username">E-mail cím</string>
 <string name="username_tip">Adja meg az e-mail címét</string>
-<string name="accept_terms">A feliratkozással Ön automatikusan elfogadja az Aptoide fejlesztőkre vonatkozó felhasználási és tartalmi feltételeit</string>
+<string name="accept_terms">A feliratkozással Ön automatikusan elfogadja az %s fejlesztőkre vonatkozó felhasználási és tartalmi feltételeit</string>
 <string name="register">Feliratkozás</string>
 <string name="or">- Vagy -</string>
 <string name="dont_have_an_account">Nincs felhasználóneve? Iratkozzon fel</string>
@@ -233,7 +233,7 @@
 <string name="cancel">Mégse</string>
 <string name="error_occured_paying">Hiba merült fel. A tranzakció nem ment végbe.</string>
 <string name="failed_auth_code">Sikertelen azonosítás. Kérjük próbálja ismét.</string>
-<string name="error_occured_retry_later">Hiba merült fel. Az Aptoide később automatikusan újra próbálkozik.</string>
+<string name="error_occured_retry_later">Hiba merült fel. Az %s később automatikusan újra próbálkozik.</string>
 <string name="account">Felhasználói fiók</string>
 <string name="no_payments_available">Nincs elérhető fizetési mód.</string>
 <string name="change_payment">Vissza</string>
@@ -261,7 +261,7 @@
 
     <string name="error_SYS_Billing">Alkalmazáson belüli vásárlás nem támogatott az eszközön.</string>
 
-    <string name="aptoide_description">Aptoide hivatalos alkalmazásbolt</string>
+    <string name="aptoide_description">%s hivatalos alkalmazásbolt</string>
 
     <string name="error_410">Sajnáljuk, nem található a szerveren a kívánt Alkalmazás.</string>
 
@@ -409,8 +409,8 @@
     <string name="store_privacy">Áruház nyilvánossága</string>
     <string name="public_key">nyilvános</string>
     <string name="private_key">privát</string>
-    <string name="upload_app_backup_apps_installed">Először fel kell töltenie ezt az alkalmazást az áruházába. Használhatja az Aptoide Alkalmazásmentőt.</string>
-    <string name="upload_app_backup_apps_not_installed">Először fel kell töltenie ezt az alkalmazást az áruházába. Kérjük telepítse és használja az Aptoide Alkalmazásmentőt.</string>
+    <string name="upload_app_backup_apps_installed">Először fel kell töltenie ezt az alkalmazást az áruházába. Használhatja az %s Alkalmazásmentőt.</string>
+    <string name="upload_app_backup_apps_not_installed">Először fel kell töltenie ezt az alkalmazást az áruházába. Kérjük telepítse és használja az %s Alkalmazásmentőt.</string>
     <string name="upload_app">Alkalmazás feltöltése</string>
     <string name="create_review">Értékelés írása</string>
 
@@ -419,8 +419,8 @@
     <string name="setting_mobile">Mobil 3G/4G</string>
     <string name="setting_sum_general_download_rules">Alkalmazások, Szerkesztőségi Javaslatok, Legjobb Alkalmazások és Áruházak letöltése engedélyezett mobilinternet-kapcsolatokon</string>
     <string name="setting_general_download_rules">Általános letöltési szabályok</string>
-    <string name="setting_category_autoupdate">Aptoide automatikus frissítés</string>
-    <string name="setting_category_autoupdate_title">Aptoide automatikus frissítés engedélyezése</string>
+    <string name="setting_category_autoupdate">%s automatikus frissítés</string>
+    <string name="setting_category_autoupdate_title">%s automatikus frissítés engedélyezése</string>
     <string name="setting_dont_show_mature_content">Felnőtt tartalom megjelenítése</string>
     <string name="whats_new">Mi újság?</string>
     <string name="disable_social_timeline">Közösségi idővonal kikapcsolása</string>
@@ -466,9 +466,9 @@
     <string name="application_signature_analysis">Alkalmazás aláírása összehasonlítva a fejlesztői aláírással:</string>
     <string name="application_signature_matched">Alkalmazás aláírása egyezik az alkalmazás fejlesztőjének aláírásával.</string>
     <string name="application_signature_not_matched">Az alkalmazás aláírása nem egyezik meg az alkalmazásfejlesztő aláírásával. Lehet, hogy az alkalmazást meghamisították.</string>
-    <string name="application_signature_blacklisted">Az alkalmazás aláírását nem megbízhatónak ítélte az Aptoide Anti-Malware platform, mivel azt felhasználták más, az eredeti fejlesztővel nem megegyező aláírású alkalmazás aláírásához.</string>
-    <string name="scanned_manually_by_aptoide_team">Az Aptoide csapata által manuálisan ellenőrizve:</string>
-    <string name="scanned_verified_by_tester">Az alkalmazást személyesen ellenőrizte egy tesztelő az Aptoide csapatból, így biztosítva annak biztonságosságát.</string>
+    <string name="application_signature_blacklisted">Az alkalmazás aláírását nem megbízhatónak ítélte az %s Anti-Malware platform, mivel azt felhasználták más, az eredeti fejlesztővel nem megegyező aláírású alkalmazás aláírásához.</string>
+    <string name="scanned_manually_by_aptoide_team">Az %s csapata által manuálisan ellenőrizve:</string>
+    <string name="scanned_verified_by_tester">Az alkalmazást személyesen ellenőrizte egy tesztelő az %s csapatból, így biztosítva annak biztonságosságát.</string>
     <string name="warning">Figyelmeztetés</string>
     <string name="trusted_app">Megbízható app</string>
     <string name="unknown">Ismeretlen</string>
@@ -476,10 +476,10 @@
     <string name="reason_third_party">Ellenőriztük az alkalmazás aláírását, és nyugodtan használhatja, mivel az megegyezik a Google Play Áruházban lévőével.</string>
     <string name="reason_scanned">Ellenőrizve AptoideGuard-dal és két másik antivírussal (Zoner 1.8 és Sophos 3.0).</string>
     <string name="reason_signature">A kriptográfiai aláírás garantálja, hogy a fájlt semmilyen módon nem piszkálták meg, így telepítése biztonságos.</string>
-    <string name="reason_manual">Ezt az alkalmazást személyesen az Aptoide szakértői csapata vizsgálta, és Jó értékeléssel lett megjelölve.</string>
+    <string name="reason_manual">Ezt az alkalmazást személyesen az %s szakértői csapata vizsgálta, és Jó értékeléssel lett megjelölve.</string>
 
     <string name="reason_failed">Az alkalmazás aláírása nem egyezik meg a fejlesztőével, így lehet, hogy megpiszkálták.</string>
-    <string name="reason_unknown">Nincs elég információ erről az alkalmazásról az Aptoide Anti-Malware platformban.</string>
+    <string name="reason_unknown">Nincs elég információ erről az alkalmazásról az %s Anti-Malware platformban.</string>
 
 
 

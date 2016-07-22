@@ -88,7 +88,7 @@
 <string name="username">ელ.ფოსტა</string>
 <string name="username_tip">შეიყვანეთ თქვენი ელ.ფოსტის მისამართი</string>
 <string name="subscribe_pvt_store">გამოიწერე პირადი მარკეტი</string>
-<string name="accept_terms">რეგისტრაციით თქვენ ეთანხმებით Aptoide-ს მომსახურების პირობებს და პოლიტიკას</string>
+<string name="accept_terms">რეგისტრაციით თქვენ ეთანხმებით %s-ს მომსახურების პირობებს და პოლიტიკას</string>
 <string name="register">რეგისტრაცია</string>
 <string name="or">- ან -</string>
 <string name="dont_have_an_account">არ გაქვთ ანგარიში? დარეგისტრირდით</string>
@@ -115,7 +115,7 @@
 <string name="error_occured">დაფიქსირდა შეცდომა.სცადეთ თავიდან</string>
 <string name="starting_download">იწყება გადმოწერა</string>
 <string name="subscribe_newrepo_alrt">გსურთ ამ მარკეტის გამოწერა?\n\n</string>
-<string name="downloads">გადმოწერების რაოდენობის მიხედვით</string>
+<string name="downloads">გადმოწერები</string>
 <string name="size">ზომის მიხედვით</string>
 <string name="likes">მოწონებები</string>
 <string name="change_theme">თემის შეცვლა</string>
@@ -240,7 +240,7 @@
 <string name="cancel">გაუქმება</string>
 <string name="error_occured_paying">აღმოჩენილია ჩეცდომა. გადახდა ვერ მოხერხდა.</string>
 <string name="failed_auth_code">ავტორიცაზიის დროს დაფიქსირდა შეცდომა. სცადეთ ახლიდან.</string>
-<string name="error_occured_retry_later">დაფიქსირდა შეცდომა. Aptoide მოგვიანებით ხელახლა ცდის.</string>
+<string name="error_occured_retry_later">დაფიქსირდა შეცდომა. %s მოგვიანებით ხელახლა ცდის.</string>
 <string name="account">ანგარიში</string>
 <string name="no_payments_available">გადახდის ფორმები ხელმიუწვდომელია.</string>
 <string name="change_payment">უკან</string>
@@ -435,8 +435,8 @@
     <string name="billing_result">"გადარიცხვა დასრულდა: "</string>
 
     <string name="timeline_is_empty_send_email">ჩვენ გავუგზავნით წერილს მათ, ვისაც აირჩევთ</string>
-    <string name="upload_app_backup_apps_installed">ჯერ თქვენ უნდა ატვირთოთ ეს აპლიკაცია თქვენ მარკეტზე. შეგიძლიათ გამოიყენოთ Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">ჯერ თქვენ უნდა ატვირთოთ ეს აპლიკაცია თქვენ მარკეტზე. გთხოვთ დააყენოთ და გამოიყენოთ Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">ჯერ თქვენ უნდა ატვირთოთ ეს აპლიკაცია თქვენ მარკეტზე. შეგიძლიათ გამოიყენოთ %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">ჯერ თქვენ უნდა ატვირთოთ ეს აპლიკაცია თქვენ მარკეტზე. გთხოვთ დააყენოთ და გამოიყენოთ %s Backup Apps.</string>
     <string name="appview_subscribe_store_button_text">გსურთ გამოწერა?</string>
     <string name="appview_rate_Success">თქვენი შეფასება მიღებულია</string>
     <string name="error_IARG_200"/>
@@ -444,11 +444,11 @@
     <string name="read_less">ნაკლების ჩვენება</string>
     <string name="srch_hint">მოძებნეთ აპლიკაციები…</string>
 
-    <string name="scanned_manually_by_aptoide_team">შემოწმდა პირადად Aptoide-ს გუნდის მიერ:</string>
-    <string name="scanned_verified_by_tester">შემოწმდა პირადად Aptoide-ს გუნდის მიერ, რაც იძლევა გარანტიას, რომ ეს აპლიკაცია უსაფრთხოა.</string>
+    <string name="scanned_manually_by_aptoide_team">შემოწმდა პირადად %s-ს გუნდის მიერ:</string>
+    <string name="scanned_verified_by_tester">შემოწმდა პირადად %s-ს გუნდის მიერ, რაც იძლევა გარანტიას, რომ ეს აპლიკაცია უსაფრთხოა.</string>
     <string name="setting_category_autoupdate">ავტომატური განახლება</string>
     <string name="reason_scanned">შემოწმდა AptoideGuard-ით და კიდევ 2 ანტივირუსით(Zoner 1.8 და Sophos 3.0).</string>
-    <string name="reason_manual">ეს აპლიკაცია პირადად შეამოწმა Aptiode-ს გუნდმა და მოინიშნა, როგორც \"კარგი\".</string>
+    <string name="reason_manual">ეს აპლიკაცია პირადად შეამოწმა %s-ს გუნდმა და მოინიშნა, როგორც \"კარგი\".</string>
 
     <string name="no_comment_be_the_first">იყავი პირველი ვინც დატოვებს კომენტარს!</string>
 
@@ -562,4 +562,62 @@
 
     <string name="summer_apps">ზაფხულისთვის</string>
     <string name="apps_for_kids">საბავშვო</string>
+    <string name="unsubscribe">გამოწერის გაუქმება</string>
+<string name="music_video">მუსიკა &amp; ვიდეო</string>
+    <string name="top_apps_in_store">ტოპ აპლიკაციები ამ მარკეტში</string>
+    <string name="latest_applications">უახლესი აპლიკაციები</string>
+    <string name="shopping">საყიდლები</string>
+    <string name="travel">მოგზაურობა</string>
+    <string name="travel_local">მოგზაურობა &amp; ადგილობრივი</string>
+    <string name="app_warning">ფრთხილად</string>
+    <string name="warning">ფრთხილად</string>
+    <string name="updates_filter_setting_title">მაჩვენე მხოლოდ სტაბილურ ვერსიაზე განახლებები</string>
+    <string name="balloon_security_information_subtitle">ჩვენ ყველა აპლიკაციას ვამოწმებთ ვირუსებზე.</string>
+    <string name="balloon_security_information_title">ჩვენ ყველა აპლიკაციას ვამოწმებთ ვირუსებზე.</string>
+    <string name="updates_filter_summary">ამის მონიშვნის შემდეგ, თქვენ აღარ მოგივათ შეტყობინებები აპლიკაციების ბეტა ვერსიების შესახებ.</string>
+
+    <string name="brain_puzzle">სააზროვნო</string>
+    <string name="card">ბანქო</string>
+    <string name="comics">კომიქსები</string>
+    <string name="communication">კომუნიკაცია</string>
+    <string name="education">განათლება</string>
+    <string name="enable">ჩართვა</string>
+    <string name="local_top_apps">ტოპ აპლიკაციები</string>
+    <string name="lifestyle">ყოველდღიური</string>
+    <string name="news_magazines">ახალი ამბები</string>
+    <string name="news_weather">ამინდი</string>
+    <string name="puzzle">თავსატეხები</string>
+    <string name="themes">თემები</string>
+    <string name="transport">ტრანსპორტი</string>
+    <string name="transportation">ტრანსპორტირება</string>
+    <string name="trending">პოპულარული</string>
+    <string name="word">სიტყვები</string>
+    <string name="play_it">ითამაშე!</string>
+    <string name="action">მოქმედებითი</string>
+    <string name="software_libraries">პროგრამების კრებულები</string>
+    <string name="role_playing">როლური თამაშები</string>
+    <string name="add_more_stores">დაამატე მარკეტი</string>
+    <string name="reference">ცნობარები</string>
+    <string name="productivity">პროდუქტიულობა</string>
+    <string name="personalization">პერსონალიზაცია</string>
+    <string name="casual">ყოველდღიური</string>
+    <string name="na">N/A</string>
+    <string name="books_reference">წიგნები</string>
+    <string name="arcade">არკადა</string>
+    <string name="arcade_action">მოქმედებითი არკადა</string>
+    <string name="empty_search">ძებნის ველი ცარიელია</string>
+    <string name="wizard_new_and_improved_bullet_4">მარტივი დიზაინი</string>
+    <string name="dialog_install_warning_trusted_version_button">სანდო ვერსია</string>
+    <string name="dialog_install_warning_trusted_app_button">სანდო აპლიკაცია</string>
+    <string name="dialog_install_warning_proceed_button">გაგრძელება</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">მოძებნე</string>
+    <string name="dialog_install_warning_careful_text">ფრთხილად იყავით! ამ აპლიკაციას შესაძლოა ვირუსი ჰქონდეს.</string>
+    <string name="error_REPO_7">Cet utilisateur possède déjà une boutique.</string>
+
+    <string name="libraries_demo">დამხმარე პროგრამები</string>
+    <string name="balloon_security_subtitle">ახლა ჩვენ ყველა აპლიკაციას ვამოწმებთ ვირუსებზე.</string>
+    <string name="more_editors_choice">მეტი რედაქტორებისგან</string>
+    <string name="flag_freeze">იჭედება</string>
+    <string name="balloon_security_title">Aptoide-ში ცვლილებებია.</string>
+    <string name="balloon_security_subtitle_final_part">" ვირუსებზე:"</string>
     </resources>

@@ -8,19 +8,19 @@
     <string name="error_MARG_7">缺少程序包参数</string>
     <string name="error_MARG_8">缺少hmac参数</string>
     <string name="error_MARG_9">缺少限制参数</string>
-    <string name="error_MARG_10">缺少偏置参数</string>
+    <string name="error_MARG_10">缺少偏移参数</string>
     <string name="error_MARG_11">缺少lang参数</string>
     <string name="error_MARG_100">缺少应用名称</string>
     <string name="error_MARG_101">缺少说明</string>
     <string name="error_MARG_102">缺少类别</string>
     <string name="error_MARG_103">缺少评分</string>
-    <string name="error_MARG_104">缺少旗标</string>
+    <string name="error_MARG_104">缺少标记</string>
     <string name="error_MARG_105">缺少评论</string>
     <string name="error_MARG_106">缺少投票</string>
     <string name="error_MARG_107">缺少文本</string>
     <string name="error_MARG_108">缺少点赞参数</string>
     <string name="error_MARG_109">缺少电子邮件参数</string>
-    <string name="error_MARG_110">缺少密码哈希参数</string>
+    <string name="error_MARG_110">缺少passhash参数</string>
     <string name="error_MARG_111">缺少名称参数</string>
     <string name="error_MARG_112">缺少用户代理参数</string>
     <string name="error_MARG_113">缺少哈希参数</string>
@@ -28,31 +28,31 @@
     <string name="error_MARG_201">无效的用户名/密码组合</string>
     <string name="error_MARG_202">无效的令牌或用户名/密码</string>
 
-    <string name="error_IARG_1">无效的商店</string>
-    <string name="error_IARG_2">无效的登录</string>
-    <string name="error_IARG_3">无效的标识符</string>
+    <string name="error_IARG_1">无效商店</string>
+    <string name="error_IARG_2">无效登录</string>
+    <string name="error_IARG_3">无效标识符</string>
     <string name="error_IARG_4">无效的MD5数据</string>
     <string name="error_IARG_5">无效的hmac格式</string>
-    <string name="error_IARG_6">无效的语言</string>
+    <string name="error_IARG_6">无效语言</string>
     <string name="error_IARG_100">注释中允许的最少字符数为10</string>
-    <string name="error_IARG_101">回复注释中允许的最少字符数为10</string>
-    <string name="error_IARG_102">无效的参数</string>
-    <string name="error_IARG_103">无效的类别</string>
-    <string name="error_IARG_104">无效的评分</string>
+    <string name="error_IARG_101">回复注释最少需10个字符</string>
+    <string name="error_IARG_102">无效参数</string>
+    <string name="error_IARG_103">无效类别</string>
+    <string name="error_IARG_104">无效评分</string>
     <string name="error_IARG_105">网站为无效的URL</string>
     <string name="error_IARG_106">电子邮件地址无效</string>
-    <string name="error_IARG_107">无效的标志</string>
-    <string name="error_IARG_108">无效的注释</string>
-    <string name="error_IARG_109">无效的投票</string>
-    <string name="error_IARG_110">无效的回复注释</string>
-    <string name="error_IARG_200">无效的登录符号</string>
+    <string name="error_IARG_107">无效的标记</string>
+    <string name="error_IARG_108">无效评论</string>
+    <string name="error_IARG_109">无效投票</string>
+    <string name="error_IARG_110">无效的评论回复</string>
+    <string name="error_IARG_200">无效的登录令牌</string>
     <string name="error_IARG_201">无效的登录模式</string>
     <string name="error_IARG_300">无效的自定义类别</string>
-    <string name="error_IARG_301">无效的类别</string>
-    <string name="error_IARG_302">提供的应用程序已存在于此类别中</string>
+    <string name="error_IARG_301">无效类别</string>
+    <string name="error_IARG_302">该类别已存在提供的应用程序</string>
 
     <string name="error_AUTH_1">无效的登录凭据！</string>
-    <string name="error_AUTH_2">无效的凭据！</string>
+    <string name="error_AUTH_2">无效凭据！</string>
     <string name="error_AUTH_3">您的帐户已被取消。如有任何疑问，请联系Aptoide支持团队。</string>
     <string name="error_AUTH_4">HMAC验证失败</string>
     <string name="error_AUTH_100">无法使用Google登录。请检查您的Google帐户（您可能需要验证您的电子邮件地址）。</string>
@@ -60,11 +60,11 @@
     <string name="error_AUTH_102">无法使用Facebook登录。请检查您的Facebook帐户（您可能需要验证您的电子邮件地址）。</string>
     <string name="error_AUTH_103">无法使用Facebook登录。请重试。</string>
 
-    <string name="error_WOP_6">要添加注释，您需要插入您的姓名（它将可见）</string>
-    <string name="error_WOP_7">注释错误</string>
-    <string name="error_WOP_8">注释投票错误</string>
-    <string name="error_WOP_9">提供的电子邮件已存在于本系统</string>
-    <string name="error_WOP_10">提供的电子邮件不存在于本系统</string>
+    <string name="error_WOP_6">您需要输入您的姓名（将可见）以添加评论</string>
+    <string name="error_WOP_7">评论出错</string>
+    <string name="error_WOP_8">评论投票出错</string>
+    <string name="error_WOP_9">本系统已存在提供的电子邮件</string>
+    <string name="error_WOP_10">本系统没有提供的电子邮件</string>
     <string name="error_WOP_11">无法创建商店。请重试。</string>
 
     <string name="error_REPO_1">商店不存在。</string>
@@ -80,13 +80,13 @@
     <string name="error_SYS_1">发生未知错误，请重试</string>
     <string name="error_SYS_2">未找到数据，请稍后重试</string>
     <string name="error_SYS_3">系统正在维护，请稍后重试</string>
-    <string name="error_SYS_4">当前的API版本不支持此调用</string>
-    <string name="error_SYS_Billing">此设备不支持应用内帐单。</string>
+    <string name="error_SYS_4">当前API版本不支持此调用</string>
+    <string name="error_SYS_Billing">该设备不支持应用程序付费服务。</string>
 
-    <string name="sign_out">注销</string>
+    <string name="sign_out">退出</string>
     <string name="logged_as">您的登录身份为：</string>
 
-    <string name="aptoide_description">Aptoide官方应用商店</string>
+    <string name="aptoide_description">%s官方应用商店</string>
 
     <string name="error_410">抱歉，本服务器未找到请求的应用。</string>
 
@@ -115,26 +115,25 @@
     <string name="link_device_webinstall">将帐户与Webinstall链接</string>
     <string name="setcredentials">登录</string>
     <string name="dont_have_an_account">没有帐户？注册</string>
-    <string name="facebook_timeline_feature">噢…此功能只适用于使用Facebook登录，您使用了其他验证方式进行登录</string>
-    <string name="facebook_tos">" • 在时间轴上与您的Facebook好友分享您在Aptoide内安装的应用
-\n\n• 在时间轴查看、点赞和评论
-\n\n• 我们从不在您的Facebook墙上发文。我们尊重您的隐私 "</string>
+    <string name="facebook_timeline_feature">噢…此功能只适用于Facebook登录，而您是通过其他验证方式登录的</string>
+    <string name="facebook_tos">" • 在Aptoide时间轴上与您的Facebook好友分享您安装的应用\n\n• 通过时间轴查看、点赞及评论
+\n\n• 我们不会在您的Facebook留言板上留言。我们尊重您的隐私 "</string>
     <string name="facebook_private_actions">此应用将不会发布到Facebook</string>
     <string name="facebook_timeline_login">" 您想使用Facebook登录，然后使用社交时间轴吗？"</string>
     <string name="facebook_timeline_preview">时间轴预览：</string>
     <string name="whats_timeline">Aptoide社交时间轴是什么？</string>
     <string name="feedback_subject">主题</string>
-    <string name="feedback_to_write2">在此写下您的反馈并发送给我们…\n\n 请向我们提供您的所有详细信息：
+    <string name="feedback_to_write2">在此记录您的反馈并发送给我们…\n\n 请向我们提供您的所有详细信息：
 \n 您采取的步骤
-\n 您遇到的错误</string>
+\n 您看到的错误</string>
     <string name="feedback_include_logs">包括屏幕截图和日志</string>
     <string name="feedback_not_valid">请输入有效主题！</string>
     <string name="feedback_no_email">未安装电子邮件客户端！</string>
     <string name="register">注册</string>
-    <string name="password_validation_text">"密码必须至少为8个字符且至少包括一个字母和一个数字或特殊字符(!@#$%*) "</string>
-    <string name="about_aptoide_antimalware">Aptoide的反恶意软件平台在所有商店实时分析应用并且禁止潜在风险。该系统扫描所有新的来自商店的应用文件，并且通过与其它Android市场上的相应文件做比较来认证它们。</string>
-    <string name="username_tip">键入您的电子邮件</string>
-    <string name="accept_terms">注册即表明您同意 Aptoide 的开发人员服务条款和内容政策</string>
+    <string name="password_validation_text">"密码必须至少包含8个字符，且至少包括一个字母和一个数字或特殊字符(!@#$%*) "</string>
+    <string name="about_aptoide_antimalware">Aptoide的反恶意软件平台在所有商店实时分析应用并且禁止潜在风险。该系统会扫描所有来自商店的新应用文件，并且通过与其它Android市场上的相应文件做比较来认证它们。</string>
+    <string name="username_tip">输入您的电子邮件</string>
+    <string name="accept_terms">注册即表明您同意 %s 的开发人员服务条款和内容政策</string>
 
     <string name="start_loading">正在加载…</string>
     <string name="store_already_added">已添加商店！</string>
@@ -149,32 +148,32 @@
 
 
     <string name="permissions">参见权限</string>
-    <string name="permissions_na">权限：无</string>
+    <string name="permissions_na">权限：不适用</string>
     <string name="additional_permissions">其他权限</string>
     <string name="no_permissions_required">此应用无需权限。</string>
     <string name="restore">安装</string>
 
     <string name="timeout">网络连接超时</string>
-    <string name="ip_blacklisted">黑名单上的IP</string>
+    <string name="ip_blacklisted">列入黑名单的IP</string>
     <string name="connection_error">无网络连接</string>
     <string name="apk_not_found">未找到apk</string>
-    <string name="invalid_apk">无效的apk</string>
+    <string name="invalid_apk">无效apk</string>
     <string name="remote_in_nospace">您的设备空间不足。</string>
     <string name="server_error">服务器错误</string>
     <string name="paidapp_not_found">下载应用时发生错误。请重试或联系支持团队。</string>
     <string name="sd_error">无法写入SD卡。</string>
     <string name="sd_error_jolla">无法正确下载</string>
-    <string name="starting_download">正在开始下载</string>
-    <string name="installing">%s正在安装…</string>
+    <string name="starting_download">开始下载</string>
+    <string name="installing">%s安装中…</string>
     <string name="finished_install">已安装%s。</string>
-    <string name="aptoide_downloading">%s正在下载</string>
+    <string name="aptoide_downloading">%s下载中</string>
     <string name="remaining_time">剩余</string>
     <string name="data_usage_constraint">设置 &gt; 通用下载规则中不允许下载</string>
-    <string name="download_pending">正在等待</string>
+    <string name="download_pending">等待中</string>
 
     <string name="download_retry">重试</string>
     <string name="error503">呃…只有我还是大家都在同时安装应用？</string>
-    <string name="having_some_trouble">遇到了问题。稍后重试？</string>
+    <string name="having_some_trouble">遇到问题。稍后重试？</string>
 
     <string name="WidgetProvider_timestamp_today">今天</string>
     <string name="WidgetProvider_timestamp_yesterday">昨天</string>
@@ -193,9 +192,9 @@
     <string name="WidgetProvider_timestamp_years_ago">%s年前</string>
 
     <string name="reply">回复</string>
-    <string name="vote_down">投票反对</string>
-    <string name="vote_up">投票赞成</string>
-    <string name="casting_vote">投票…</string>
+    <string name="vote_down">投票差评</string>
+    <string name="vote_up">投票好评</string>
+    <string name="casting_vote">投票中…</string>
     <string name="vote_submitted">您的投票已成功提交</string>
     <string name="votes">%s票</string>
 
@@ -205,18 +204,18 @@
     <string name="adult_pin_wrong">错误的pin，请重试。</string>
     <string name="request_adult_pin">插入pin以解锁</string>
     <string name="are_you_adult">您是否年满21岁？</string>
-    <string name="facebook_logout_and_login">注销然后使用Facebook登录</string>
+    <string name="facebook_logout_and_login">退出然后使用Facebook登录</string>
 
     <string name="schDown_nodownloadselect">未选择下载内容</string>
-    <string name="no_sch_downloads">您是否希望使用移动数据浏览应用，然后在处于wifi连接的情况下下载？使用计划下载并将设置 -&gt; 通用下载规则的首选项更改成WiFi。</string>
+    <string name="no_sch_downloads">您是否希望使用移动数据浏览应用，然后用WiFi下载？使用下载计划，并将设置 -&gt; 通用下载规则的首选项更改成WiFi。</string>
     <string name="schDown_installselected">已选择安装</string>
     <string name="schDown_removeselected">已选择删除</string>
     <string name="schDown_invertselection">反向选择</string>
 
-    <string name="schDwnBtn">进度下载</string>
-    <string name="added_to_scheduled">已添加到菜单 &gt; 计划下载</string>
-    <string name="schDown_install">是否要安装所有计划下载？</string>
-    <string name="hidden_adult">已隐藏部分应用，因为成人内容过滤器已激活。需要列出此类应用？</string>
+    <string name="schDwnBtn">下载计划</string>
+    <string name="added_to_scheduled">已添加至菜单 &gt; 下载计划</string>
+    <string name="schDown_install">是否要安装所有计划中的下载项？</string>
+    <string name="hidden_adult">已隐藏部分应用，因为已激活成人内容过滤器。需要列出这些应用吗？</string>
     <string name="dont_show_again">不再显示此对话</string>
 
     <string name="app_name">Aptoide</string>
@@ -232,7 +231,7 @@
     <string name="downgrade">降级</string>
     <string name="reinstall">重新安装</string>
 
-    <string name="rollback_empty">快速将所有应用降级至以前的版本并解决不兼容的问题。保留所有 已安装应用的日志，包括版本和安装日期。</string>
+    <string name="rollback_empty">快速将所有应用降级至以前的版本并解决不兼容的问题。保留所有（通过%s）已安装应用的日志，包括版本和安装日期。</string>
 
     <string name="see_more">查看更多</string>
     <string name="see_less">查看更少</string>
@@ -246,7 +245,7 @@
 
     <string name="my_account">我的帐户</string>
     <string name="rollback">回滚</string>
-    <string name="setting_schdwntitle">计划下载</string>
+    <string name="setting_schdwntitle">下载计划</string>
     <string name="excluded_updates">排除的更新</string>
     <string name="settings">设置</string>
     <string name="facebook">Facebook</string>
@@ -274,9 +273,9 @@
     <string name="payment_methods">支付方式：</string>
     <string name="cancel">取消</string>
     <string name="no_payments_available">无可用付款。</string>
-    <string name="failed_auth_code">授权帐户失败。请重试。</string>
+    <string name="failed_auth_code">帐户授权失败。请重试。</string>
     <string name="error_occured_paying">发生了错误。付款未完成。</string>
-    <string name="error_occured_retry_later">发生了错误。Aptoide稍后将自动重试。</string>
+    <string name="error_occured_retry_later">发生了错误。%s稍后将自动重试。</string>
     <string name="account">帐户</string>
     <string name="confirm_carrier_payment">"是否要为{value}购买“{title}”？将由运营商向您扣费。 "</string>
     <string name="buy">购买</string>
@@ -290,7 +289,7 @@
     <string name="install">安装</string>
     <string name="cannot_uninstall_self">无法卸载安装程序。</string>
     <string name="at_time">在%s</string>
-    <string name="root_access_dialog">似乎您已有根。是否允许下载后自动安装应用？</string>
+    <string name="root_access_dialog">您已具有根用户权限。是否允许下载后自动安装应用？</string>
     <string name="downgrade_requires_uninstall">降级需要卸载应用</string>
 
     <string name="order_popup_title3">成人内容</string>
@@ -306,11 +305,11 @@
     <string name="more_editors_choice">更多编辑精选</string>
     <string name="more_versions">更多版本</string>
     <string name="facebook_friends_list_using_timeline_empty">社交时间轴允许您与您的Facebook好友分享应用。是否要加入网络？</string>
-    <string name="X_download_number">%s次下载。</string>
+    <string name="X_download_number">%s停止运行。</string>
     <string name="timeline_not_compatible">喔…此功能与您的Android版本不兼容</string>
     <string name="sponsored">赞助的</string>
     <string name="friends_installs">您好友安装的应用</string>
-    <string name="recommended_for_you">推荐给您</string>
+    <string name="recommended_for_you">为您推荐</string>
     <string name="highlighted_apps">突出显示的</string>
     <string name="button_more">更多</string>
     <string name="unhide_post">取消隐藏</string>
@@ -348,27 +347,27 @@
     <string name="review_final_score">得分</string>
     <string name="make_review_title">审核</string>
     <string name="size">大小</string>
-    <string name="set_sliders">设置滑块</string>
+    <string name="set_sliders">设置滑动条</string>
     <string name="write_one_pro">至少写一个赞成的原因</string>
     <string name="write_one_con">至少写一个反对的原因</string>
     <string name="write_your_final_verdict">写下您的最终结论</string>
     <string name="review_success">成功提交审核！</string>
     <string name="store_privacy">商店隐私</string>
     <string name="public_key">公开</string>
-    <string name="private_key">非公开</string>
+    <string name="private_key">私有</string>
     <string name="store_username">用户名</string>
     <string name="store_password">密码</string>
-    <string name="upload_app_backup_apps_installed">您需要先将此应用上载到您的商店。您可以使用Aptoide备份应用。</string>
-    <string name="upload_app_backup_apps_not_installed">您需要先将此应用上载到您的商店。请安装并使用Aptoide备份应用。</string>
-    <string name="upload_app">上载应用</string>
+    <string name="upload_app_backup_apps_installed">您需要先将此应用上传到您的商店。您可以使用%s备份应用。</string>
+    <string name="upload_app_backup_apps_not_installed">您需要先将此应用上传到您的商店。请安装并使用%s备份应用。</string>
+    <string name="upload_app">上传应用</string>
     <string name="create_review">创建审核</string>
 
     <string name="asksetadultpinmessage">是否要设置pin来锁定成人内容？</string>
-    <string name="setpin">设置pin</string>
+    <string name="setpin">设置Pin</string>
     <string name="remove_mature_pin_title">删除成人内容的pin</string>
-    <string name="remove_mature_pin_summary">删除解锁成人内容所需的pin</string>
+    <string name="remove_mature_pin_summary">删除解锁成人内容所的Pin</string>
     <string name="set_mature_pin_title">设置成人内容的pin</string>
-    <string name="set_mature_pin_summary">设置解锁成人内容所需的pin</string>
+    <string name="set_mature_pin_summary">设置解锁成人内容所需的Pin</string>
     <string name="settings_title_bar">设置</string>
     <string name="settings_dwn_network_rules">移动网络选项</string>
     <string name="setting_sum_icon_download_rules">允许通过移动数据连接下载图标</string>
@@ -378,14 +377,14 @@
     <string name="setting_3g">3G</string>
     <string name="setting_4g">4G</string>
     <string name="setting_ethernet">以太网</string>
-    <string name="setting_sum_general_download_rules">通过移动数据连接下载应用、编辑精选、热门应用和商店</string>
+    <string name="setting_sum_general_download_rules">允许通过移动数据连接下载应用、编辑精选、热门应用和商店</string>
     <string name="setting_general_download_rules">通用下载规则</string>
     <string name="setting_hwspecstitle">硬件规格</string>
     <string name="setting_hwspecssum">关于您手机的硬件信息</string>
     <string name="setting_appfiltersum">不显示与本设备不兼容的应用</string>
     <string name="setting_appfiltertitle">过滤器应用</string>
-    <string name="setting_category_autoupdate">Aptoide自动更新</string>
-    <string name="setting_category_autoupdate_title">启用Aptoide自动更新</string>
+    <string name="setting_category_autoupdate">%s自动更新</string>
+    <string name="setting_category_autoupdate_title">启用%s自动更新</string>
     <string name="setting_dont_show_mature_content">显示成人内容</string>
     <string name="setting_mature_filtering">成人内容</string>
     <string name="setting_updates">更新</string>
@@ -397,17 +396,17 @@
     <string name="setting_auto_update_title">启用自动更新</string>
     <string name="show_all_updates">不显示具有不同签名的应用更新</string>
     <string name="setting_allUpdates_filtering">过滤器更新</string>
-    <string name="setting_schdwninstallsum">在有WiFi连接的环境下自动安装计划下载</string>
+    <string name="setting_schdwninstallsum">在WiFi连接可用的情况下，自动安装计划中的下载项</string>
     <string name="setting_schdwninstalltitle">自动安装</string>
     <string name="setting_clear_memory">清空内存</string>
     <string name="clearcontent_title">删除数据和配置</string>
     <string name="clearcache_title">清空缓存</string>
-    <string name="settings_maxFileCache_sum">设置保存您的apk文件的最大空间</string>
+    <string name="settings_maxFileCache_sum">设置您的apk文件的最大存储空间</string>
     <string name="settings_maxFileCache_title">下载文件缓存(MB)</string>
     <string name="change_theme">更改主题</string>
     <string name="theme">主题</string>
     <string name="root">根</string>
-    <string name="allow_root">允许安装根</string>
+    <string name="allow_root">授权根用户安装</string>
     <string name="disable_social_timeline">禁用社交时间轴</string>
     <string name="social_timeline_notifications_sum2">启用Aptoide社交时间轴通知。您将在通知栏收到最新新闻。</string>
     <string name="social_timeline_notifications">时间轴通知</string>
@@ -436,7 +435,7 @@
     <string name="flag_this_app_fake">假</string>
     <string name="flag_this_app_freeze">冻结</string>
     <string name="flag_this_app_virus">病毒</string>
-    <string name="appview_recommended_for_you_title">为您推荐的内容</string>
+    <string name="appview_recommended_for_you_title">为您推荐</string>
     <string name="appview_additional_information_title">其他信息</string>
     <string name="appview_comment_reply_button_text">回复</string>
     <string name="appview_header_trusted_text">受信任</string>
@@ -444,13 +443,13 @@
     <string name="appview_subscribe_store_button_text">订阅？</string>
     <string name="appview_subscribed_store_button_text">已订阅</string>
     <string name="appview_rate_this_app_text">评价本应用</string>
-    <string name="appview_other_versions_in_others_stores">其他商店的其他应用</string>
-    <string name="appview_rate_Success">已评价</string>
+    <string name="appview_other_versions_in_others_stores">其他商店的其他版本</string>
+    <string name="appview_rate_Success">App评分</string>
     <string name="ignoreUpdateText">忽略更新</string>
     <string name="noIgnoreUpdateText">新版本的应用无法在您的设备上使用或者缺少部分功能？阻止应用更新。前往“更新”选项卡，然后长按您想停止更新的应用。</string>
     <string name="createReviewButtonText">创建\n审核</string>
     <string name="navigation_drawer_signup_login">注册或登录</string>
-    <string name="active">活跃</string>
+    <string name="active">激活</string>
     <string name="completed">已完成</string>
     <string name="_downloads"> 下载</string>
     <string name="no_description">无说明</string>
@@ -466,12 +465,12 @@
     <string name="store">商店</string>
     <string name="title_caps">标题</string>
 
-    <string name="unsubscribe_yes_no">确实要取消订阅？</string>
+    <string name="unsubscribe_yes_no">确定取消订阅？</string>
     <string name="unsubscribed_">"已取消订阅 "</string>
-    <string name="error_occured_uploading">您需要先上载此应用。</string>
+    <string name="error_occured_uploading">您需要先上传此应用。</string>
 
-    <string name="update_self_title">可用更新</string>
-    <string name="update_self_msg">有新版本的%s\n是否需要更新？</string>
+    <string name="update_self_title">有可用更新</string>
+    <string name="update_self_msg">%s有新版本\n是否需要更新？</string>
     <string name="retrieving_update">正在检索更新…</string>
 
     <string name="menu_search_item_go_to_store">前往商店</string>
@@ -479,25 +478,25 @@
 
     <string name="app_trusted">%s是受信任的应用</string>
     <string name="app_warning">警告：%s</string>
-    <string name="scanned_with_av">已经过杀毒软件扫描：</string>
+    <string name="scanned_with_av">已用反病毒软件扫描：</string>
     <string name="compared_with_another_marketplace">与其他Android市场比较：</string>
-    <string name="application_signature_analysis">应用的签名已与开发人员的签名比较了：</string>
+    <string name="application_signature_analysis">已比较应用和开发人员的签名：</string>
     <string name="application_signature_matched">应用的签名与该应用的开发人员的签名相匹配。</string>
     <string name="application_signature_not_matched">应用的签名与该应用的开发人员的签名不匹配。应用可能已被篡改。</string>
-    <string name="application_signature_blacklisted">应用的签名不是Aptoide的反恶意软件平台中受信任的签名，因为它被用于签名另一个应用，且与该应用的正版开发者的签名不一致。</string>
-    <string name="scanned_manually_by_aptoide_team">由Aptoide的团队手动扫描：</string>
-    <string name="scanned_verified_by_tester">应用已由来自Aptoide团队的测试员手工验证，以确保其安全性。</string>
+    <string name="application_signature_blacklisted">应用签名不被%s反恶意软件平台信任，因为它已用于另一个应用的签名，且与本应用的正版开发者签名不一致。</string>
+    <string name="scanned_manually_by_aptoide_team">由%s的团队手动扫描：</string>
+    <string name="scanned_verified_by_tester">应用已由%s团队的测试员手动审查，以确保其安全性。</string>
     <string name="warning">警告</string>
     <string name="trusted_app">受信任的应用</string>
     <string name="unknown">未知</string>
 
-    <string name="reason_third_party">我们检查了应用的签名后发现其与Google Play商店匹配，所以请放心使用应用。</string>
-    <string name="reason_scanned">已经过AptoideGuard plus的2种不同杀毒软件（Zoner 1.8和Sophos 3.0）扫描。</string>
-    <string name="reason_signature">加密签名确保文件能安全地安装且不受到任何损坏。</string>
-    <string name="reason_manual">此应用由Aptoide的专家团队手动审核并被标记为“好”。</string>
+    <string name="reason_third_party">我们已检查此应用的签名，并发现与Google Play商店一致，请放心使用。</string>
+    <string name="reason_scanned">已使用AptoideGuard plus的2种不同反病毒软件（Zoner 1.8和Sophos 3.0）扫描。</string>
+    <string name="reason_signature">加密后的签名可确保文件能被顺利安装且不被篡改。</string>
+    <string name="reason_manual">此应用由%s专家团队手动审核并被标记为“好”。</string>
 
-    <string name="reason_failed">应用签名与开发人员的签名不匹配。应用可能已被损坏。</string>
-    <string name="reason_unknown">在Aptoide的反恶意软件平台中没有足够的关于本应用的信息。</string>
+    <string name="reason_failed">应用签名与开发人员签名不匹配。应用可能已被篡改。</string>
+    <string name="reason_unknown">在%s的反恶意软件平台中没有足够的关于本应用的信息。</string>
 
 
 
@@ -505,7 +504,7 @@
     <string name="comment_submitted">您的评论已成功提交</string>
     <string name="write_your_comment">写下您的评论</string>
     <string name="write_a_comment">写评论</string>
-    <string name="no_comment_be_the_first">还没有评论。我来评论！</string>
+    <string name="no_comment_be_the_first">暂无任何评论。抢占沙发！</string>
 
     <string name="installapp_alrt">是否要安装：\n\n%s？</string>
 
@@ -516,15 +515,15 @@
     <string name="abTest1_label_3">安装</string>
 
 
-    <string name="notification_timeline_new_likes">您有%s新的点赞。查看社交时间轴！</string>
-    <string name="notification_timeline_new_comments">您有%s新的评论。查看社交时间轴！</string>
-    <string name="notification_timeline_activity">您有%1$s新的评论和%2$s点赞。查看社交时间轴！</string>
+    <string name="notification_timeline_new_likes">您有%s个新的点赞。查看社交时间轴！</string>
+    <string name="notification_timeline_new_comments">您有%s个新评论。查看社交时间轴！</string>
+    <string name="notification_timeline_activity">您有%1$s个新评论和%2$s个点赞。查看社交时间轴！</string>
     <string name="notification_social_timeline">Aptoide社交时间轴。立即查看！</string>
-    <string name="notification_timeline_posts">您的好友安装了新的应用！</string>
+    <string name="notification_timeline_posts">您的好友安装了新应用！</string>
 
     <string name="has_updates">%s有新的可用更新！</string>
-    <string name="new_updates">有%s新的可用更新！</string>
-    <string name="one_new_update">有%s新的可用更新！</string>
+    <string name="new_updates">有%s个新的可用更新！</string>
+    <string name="one_new_update">有%s个新的可用更新！</string>
     <string name="updates_tab_adapter_uninstalled">已卸载</string>
     <string name="updatesTabAdapterUninstall">卸载</string>
     <string name="flag_good">好</string>
@@ -538,7 +537,7 @@
     <string name="wizard_title_01">欢迎使用Aptoide</string>
     <string name="wizard_description_01">创建免费帐户并注册，开启构建您的个性化应用商店之旅。\n\n按主题浏览商店，发现新颖而有趣的应用。</string>
     <string name="wizard_title_02">已提高安全性</string>
-    <string name="wizard_description_02">搜索受信任的徽章并安全地下载应用。\n\n不兼容的问题？搜索以前版本的应用。</string>
+    <string name="wizard_description_02">搜索受信任的徽章并安全地下载应用。\n\n不兼容？搜索之前的应用版本。</string>
     <string name="wizard_title_03">我们家庭的新成员</string>
     <string name="wizard_subtitle_03_1">Aptoide Lite</string>
     <string name="wizard_description_03_1">适用于老旧设备和缓慢的互联网连接</string>
@@ -548,12 +547,12 @@
     <string name="wizard_reviews">现在，您可以使用Aptoide创建您的应用审核！</string>
     <string name="wizard_new_and_improved">已改善性能！</string>
     <string name="wizard_new_and_improved_bullet_1">节约电池寿命</string>
-    <string name="wizard_new_and_improved_bullet_2">减少使用CPU和带宽</string>
+    <string name="wizard_new_and_improved_bullet_2">降低CPU及带宽使用率</string>
     <string name="wizard_new_and_improved_bullet_3">加载更少的资源</string>
     <string name="wizard_new_and_improved_bullet_4">清理用户界面</string>
     <string name="wizard_new_homepage">新的主页布局</string>
-    <string name="wizard_new_top">新的顶部选项卡</string>
-    <string name="subscribe_apps_official_store">订阅“应用”Aptoide官方应用商店</string>
+    <string name="wizard_new_top">新的顶部标签页</string>
+    <string name="subscribe_apps_official_store">订阅Aptoide官方应用商店</string>
     <string name="wizard_next">下一步</string>
     <string name="wizard_prev">上一步</string>
     <string name="search_activity_title">“%s”</string>
@@ -563,9 +562,9 @@
 
     <string name="search_for_apps">搜索应用…</string>
     <string name="empty_search">搜索为空，请写下应用名称</string>
-    <string name="manually_reviewed">优秀应用保证：本应用已经过病毒、恶意软件和其他恶意攻击等安全测试，不存在任何威胁</string>
+    <string name="manually_reviewed">优秀应用保证声明：本应用已通过病毒、恶意软件和其他恶意攻击等的安全测试，不存在任何威胁</string>
 
-    <string name="no_apps_found">使用当前的过滤器未找到应用</string>
+    <string name="no_apps_found">在当前过滤条件下未找到合适应用</string>
     <string name="no_search_results_message">没有您要的搜索结果。\n请尝试其他关键词。</string>
 
     <string name="developer">开发人员</string>
@@ -573,31 +572,31 @@
     <string name="email">电子邮件：%s</string>
     <string name="privacy_policy">隐私政策：%s</string>
     <string name="dialog_version_size">版本：%1$s | 大小：%2$s</string>
-    <string name="na">无</string>
-    <string name="no_email_and_pass_error_message">请插入注册的电子邮件和密码。</string>
-    <string name="no_pass_error_message">请插入注册的密码。</string>
-    <string name="no_email_error_message">请插入注册的电子邮件。</string>
+    <string name="na">不适用</string>
+    <string name="no_email_and_pass_error_message">请输入注册所用的电子邮件和密码。</string>
+    <string name="no_pass_error_message">请输入注册所需的密码。</string>
+    <string name="no_email_error_message">请输入注册所需的电子邮件。</string>
     <string name="website_copied">网站已复制到剪贴板</string>
     <string name="email_copied">电子邮件已复制到剪贴板</string>
     <string name="privacy_copied">隐私链接已复制到剪贴板</string>
     <string name="subscribing_store_message">正在取消订阅%s</string>
 
-<string name="latest_reviews">最新评价</string>
+<string name="latest_reviews">最新评论</string>
     <string name="latest_comments">最新评论</string>
-    <string name="action">操作</string>
+    <string name="action">动作</string>
     <string name="all">所有</string>
     <string name="applications">应用程序</string>
     <string name="auto_update">自动更新</string>
     <string name="board">板块</string>
     <string name="books_reference">书籍和参考资料</string>
-    <string name="brain_puzzle">益智和拼图</string>
+    <string name="brain_puzzle">益智解谜</string>
     <string name="business">商务</string>
-    <string name="adventure">冒险游戏</string>
-    <string name="arcade">游乐</string>
-    <string name="arcade_action">游乐和活动</string>
+    <string name="adventure">冒险</string>
+    <string name="arcade">街机</string>
+    <string name="arcade_action">街机和动作</string>
     <string name="card">纸牌</string>
-    <string name="cards_casino">纸牌和赌局</string>
-    <string name="casino">赌局</string>
+    <string name="cards_casino">纸牌和博彩</string>
+    <string name="casino">博彩</string>
     <string name="comics">漫画</string>
     <string name="communication">通信</string>
     <string name="demo">演示</string>
@@ -615,8 +614,8 @@
     <string name="news_weather">新闻和天气</string>
     <string name="personalization">个性</string>
     <string name="photography">摄影</string>
-    <string name="productivity">生产力</string>
-    <string name="puzzle">拼图</string>
+    <string name="productivity">效率</string>
+    <string name="puzzle">解谜</string>
     <string name="quick_start">快速开始</string>
     <string name="Reference">参考资料</string>
     <string name="role_playing">角色扮演</string>
@@ -625,7 +624,7 @@
     <string name="software_libraries">软件库</string>
     <string name="sports">体育</string>
     <string name="sports_games">体育游戏</string>
-    <string name="strategy">战略</string>
+    <string name="strategy">策略</string>
     <string name="themes">主题</string>
     <string name="tools">工具</string>
     <string name="top_apps">热门应用</string>
@@ -633,7 +632,7 @@
     <string name="transport">交通</string>
     <string name="transportation">交通</string>
     <string name="trending">趋势</string>
-    <string name="trivia">琐碎</string>
+    <string name="trivia">琐事</string>
     <string name="word">字词</string>
 <string name="casual">休闲</string>
     <string name="health">健康</string>
@@ -645,18 +644,38 @@
     <string name="music_audio">音乐和音频</string>
     <string name="racing">竞速</string>
     <string name="reference">参考资料</string>
-    <string name="travel">旅行</string>
-    <string name="travel_local">旅游和本地</string>
-    <string name="libraries_demo">软件库和样品</string>
+    <string name="travel">旅游</string>
+    <string name="travel_local">旅游和本地出行</string>
+    <string name="libraries_demo">资源库及演示</string>
     <string name="shopping">购物</string>
     <string name="weather">天气</string>
-<string name="highlighted">亮点</string>
-    <string name="latest_applications">最新应用</string>
-    <string name="top_apps_in_store">此商店中的热门应用</string>
-    <string name="apps_for_kids">儿童应用</string>
-    <string name="aptoide_publishers">Aptoide 发布者</string>
+<string name="highlighted">高亮</string>
+    <string name="latest_applications">最新应用程序</string>
+    <string name="top_apps_in_store">商店热门App</string>
+    <string name="apps_for_kids">适合儿童的App</string>
+    <string name="aptoide_publishers">Aptoide发布方</string>
     <string name="music_video">音乐和视频</string>
     <string name="essential_apps">必备应用</string>
     <string name="summer_apps">夏季应用</string>
-    <string name="play_it">玩这个游戏！</string>
+    <string name="play_it">畅玩应用！</string>
+<string name="updates_filter_setting_title">只显示稳定版应用更新</string>
+    <string name="balloon_security_information_google_play">应用匹配</string>
+    <string name="balloon_security_information_subtitle">我们现在为所有应用执行病毒扫描。</string>
+    <string name="balloon_security_information_title">Aptoide 已更改。\n我们现在为所有应用执行病毒扫描。</string>
+    <string name="updates_filter_summary">选中此项后，将不会看到测试版本。</string>
+
+    <string name="add_more_stores">添加更多商店</string>
+    <string name="unsubscribe">退订</string>
+<string name="balloon_security_google_play">应用匹配</string>
+    <string name="balloon_security_subtitle">我们现在检查所有应用的病毒。</string>
+    <string name="balloon_security_title">Aptoide 已经发生了变化。</string>
+    <string name="balloon_security_subtitle_start_part">"我们检查了 %1$s "</string>
+    <string name="balloon_security_subtitle_final_part">" 病毒："</string>
+    <string name="dialog_install_warning_proceed_button">继续</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">搜索</string>
+    <string name="dialog_install_warning_trusted_app_button">可信应用</string>
+    <string name="dialog_install_warning_careful_text">选择安装此应用时请格外小心。它可能已损坏、携带病毒或恶意软件。</string>
+    <string name="dialog_install_warning_credibility_text">继续之前，请检查商店的可信度和其他用户评论。Aptoide 始终建议您只安装 %1$s 的可信应用。</string>
+    <string name="dialog_install_warning_trusted_version_button">可信版本</string>
+    <string name="dialog_install_warning_get_trusted_version_button">获取</string>
 </resources>

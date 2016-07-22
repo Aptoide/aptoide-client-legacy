@@ -86,7 +86,7 @@
     <string name="sign_out">Logg ut</string>
     <string name="logged_as">Du er logget inn som:</string>
 
-    <string name="aptoide_description">Aptoide Offisielle App Store</string>
+    <string name="aptoide_description">%s Offisielle App Store</string>
 
     <string name="error_410">Beklager, den forespurte appen ble ikke funnet på serveren.</string>
 
@@ -130,7 +130,7 @@
     <string name="password_validation_text">"Passordet må være minst 8 tegn og burde inneholde minst en bokstav og et tall eller spesielt tegn (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">Aptoide Anti-Malware plattform analyserer applikasjoner i run-time og fjerner potensielle trusler over alle butikker. Dette systemet skanner alle nye applikasjonsfiler fra alle butikkene og sertifiserer dem ved å sammenligne dem mot andre Android Markedsplasser.</string>
     <string name="username_tip">Skriv inn din e-post</string>
-    <string name="accept_terms">Ved å registrere aksepterer du Aptoide Vilkår og Betingelser og Innholdspolicy for utviklere</string>
+    <string name="accept_terms">Ved å registrere aksepterer du %s Vilkår og Betingelser og Innholdspolicy for utviklere</string>
 
     <string name="start_loading">Laster…</string>
     <string name="store_already_added">Butikk allerede lagt til!</string>
@@ -228,7 +228,7 @@
     <string name="downgrade">Nedgrader</string>
     <string name="reinstall">Reinstaller</string>
 
-    <string name="rollback_empty">Nedgrader raskt enhver app til en eldre versjon og løs kompatibilitetsproblemer. Hold en logg over alle installerte apper, inkludert versjon og installasjonsdato.</string>
+    <string name="rollback_empty">Nedgrader raskt enhver app til en eldre versjon og løs kompatibilitetsproblemer. Hold en logg over alle installerte apper (via %s), inkludert versjon og installasjonsdato.</string>
 
     <string name="see_more">Se mer</string>
     <string name="see_less">Se mindre</string>
@@ -272,7 +272,7 @@
     <string name="no_payments_available">Ingen betalinger tilgjengelig.</string>
     <string name="failed_auth_code">Kunne ikke autorisere konto. Vennligst prøv igjen.</string>
     <string name="error_occured_paying">En feil oppstod. Betalingen ble ikke fullført.</string>
-    <string name="error_occured_retry_later">En feil oppstod. Aptoide vil automatisk prøve igjen senere.</string>
+    <string name="error_occured_retry_later">En feil oppstod. %s vil automatisk prøve igjen senere.</string>
     <string name="account">Konto</string>
     <string name="confirm_carrier_payment">"Vil du kjøpe \'{title}\' for {value}? Du vil bli belastet fra operatøren din. "</string>
     <string name="buy">Kjøp</string>
@@ -354,8 +354,8 @@
     <string name="private_key">privat</string>
     <string name="store_username">Brukernavn</string>
     <string name="store_password">Passord</string>
-    <string name="upload_app_backup_apps_installed">Du må laste opp denne appen til din butikk først. Du kan bruke Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">Du må laste opp denne appen til din butikk først. Vennligst installer og bruk Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">Du må laste opp denne appen til din butikk først. Du kan bruke %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">Du må laste opp denne appen til din butikk først. Vennligst installer og bruk %s Backup Apps.</string>
     <string name="upload_app">Last opp app</string>
     <string name="create_review">Skriv anmeldelse</string>
 
@@ -380,8 +380,8 @@
     <string name="setting_hwspecssum">Hardware info om din telefon</string>
     <string name="setting_appfiltersum">Ikke vis applikasjoner som ikke er kompatible med denne enheten</string>
     <string name="setting_appfiltertitle">Filtrer applikasjoner</string>
-    <string name="setting_category_autoupdate">Aptoide automatisk oppdatering</string>
-    <string name="setting_category_autoupdate_title">Tillat automatisk oppdatering av Aptoide</string>
+    <string name="setting_category_autoupdate">%s automatisk oppdatering</string>
+    <string name="setting_category_autoupdate_title">Tillat automatisk oppdatering av %s</string>
     <string name="setting_dont_show_mature_content">Vis vokseninnhold</string>
     <string name="setting_mature_filtering">Seksuelt innhold</string>
     <string name="setting_updates">Oppdateringer</string>
@@ -480,9 +480,9 @@
     <string name="application_signature_analysis">Applikasjonssignatur sammenlignet med utviklersignatur:</string>
     <string name="application_signature_matched">Applikasjonssignatur matcher med signatur knyttet til applikasjonsutvikler.</string>
     <string name="application_signature_not_matched">Applikasjonssignatur matcher ikke med signatur knyttet til applikasjonsutvikler. Applikasjon kan ha blitt forfalsket.</string>
-    <string name="application_signature_blacklisted">Applikasjonssignatur er ikke en stolt på signatur på Aptoide Anti-Malware plattformen fordi den har blitt brukt til å signere en annen applikasjon som ikke matcher signaturen relatert til den rette utvikleren.</string>
-    <string name="scanned_manually_by_aptoide_team">Manuelt skannet av Aptoide Team:</string>
-    <string name="scanned_verified_by_tester">Applikasjonen ble anmeldt manuelt av en tester fra Aptoide Team som sikrer at applikasjonen er trygg.</string>
+    <string name="application_signature_blacklisted">Applikasjonssignatur er ikke en stolt på signatur på %s Anti-Malware plattformen fordi den har blitt brukt til å signere en annen applikasjon som ikke matcher signaturen relatert til den rette utvikleren.</string>
+    <string name="scanned_manually_by_aptoide_team">Manuelt skannet av %s Team:</string>
+    <string name="scanned_verified_by_tester">Applikasjonen ble anmeldt manuelt av en tester fra %s Team som sikrer at applikasjonen er trygg.</string>
     <string name="warning">Advarsel</string>
     <string name="trusted_app">Stolt på app</string>
     <string name="unknown">Ukjent</string>
@@ -490,10 +490,10 @@
     <string name="reason_third_party">Vi har sjekke appens signatur og den matcher med Google Play Store, så bare nyt den.</string>
     <string name="reason_scanned">Skannet med AptoideGuard plus 2 forskjellige anti-virus (Zoner 1.8 og Sophos 3.0).</string>
     <string name="reason_signature">Den kryptografiske signaturen garanterer at filen er trygg å installere og at den ikke ble tuklet med på noen måte.</string>
-    <string name="reason_manual">Denne appen ble manuelt anmeldt av Aptoide sitt ekspert-team, og ble markert som Bra.</string>
+    <string name="reason_manual">Denne appen ble manuelt anmeldt av %s sitt ekspert-team, og ble markert som Bra.</string>
 
     <string name="reason_failed">Applikasjonssignatur matcher ikke med utvilkersignaturen. Appen kan ha blitt tuklet med.</string>
-    <string name="reason_unknown">Det finnes ikke nok informasjon om denne appen i Aptoide Anti-Malware plattformen.</string>
+    <string name="reason_unknown">Det finnes ikke nok informasjon om denne appen i %s Anti-Malware plattformen.</string>
 
 
 

@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Sinalizar este app</string>
 <string name="search">Pesquisar</string>
 <string name="my_account">Minha Conta</string>
-<string name="no_sch_downloads">Os aplicativos de navegação estão utilizando dados móveis. Deseja realizar o download mais tarde, quando estiver em uma conexão WiFi? Use o agendamento de downloads e altere suas preferências em Configuração -&gt; Regras gerais de Download - para WiFi.</string>
+<string name="no_sch_downloads">Os aplicativos de navegação estão utilizando dados móveis. Deseja realizar o download mais tarde, quando estiver em uma conexão WiFi? Use o agendamento de downloads e altere suas preferências em Configuração -&gt; Regras Gerais de Download - para WiFi.</string>
 <string name="schDown_installselected">Instalar Selecionado</string>
 <string name="stores">Lojas</string>
 <string name="insert_store_name">Inserir nome da loja:</string>
@@ -75,7 +75,7 @@
 <string name="see_top_stores">Ver Top Lojas</string>
 <string name="setcredentials">Login</string>
 <string name="rollback">Restaurar</string>
-<string name="rollback_empty">Voltar rapidamente qualquer aplicativo para uma versão anterior e resolver problemas de incompatibilidade. Mantenha um registro de todos os seus aplicativos instalados incluindo a versão e data de instalação.</string>
+<string name="rollback_empty">Voltar rapidamente qualquer aplicativo para uma versão anterior e resolver problemas de incompatibilidade. Mantenha um registro de todos os seus aplicativos instalados (via %s), incluindo a versão e data de instalação.</string>
 <string name="rollback_installed">Instalado</string>
 <string name="rollback_uninstalled">Desinstalado</string>
 <string name="rollback_updated">Atualizado</string>
@@ -88,7 +88,7 @@
 <string name="username">E-mail</string>
 <string name="username_tip">Digite seu e-mail</string>
 <string name="subscribe_pvt_store">Assinar loja privada</string>
-<string name="accept_terms">Ao registrar-se, você estará concordando com os Termos de Serviço do Aptoide e Política de Conteúdo para Desenvolvedores</string>
+<string name="accept_terms">Ao registrar-se, você estará concordando com os Termos de Serviço do %s e Política de Conteúdo para Desenvolvedores</string>
 <string name="register">Registrar-se</string>
 <string name="or">- Ou -</string>
 <string name="dont_have_an_account">Não tem uma conta? Registre-se</string>
@@ -136,7 +136,7 @@
 <string name="downgrade_requires_uninstall">Fazer downgrade requer desinstalação do Aplicativo</string>
 <string name="signing_in">Entrando…</string>
 <string name="reinstall">Reinstalar</string>
-<string name="at_time">às %s</string>
+<string name="at_time">em %s</string>
 <string name="error_MARG_1">Loja em falta</string>
 <string name="error_MARG_2">Informações do app em falta</string>
 <string name="error_MARG_3">Versão do app em falta</string>
@@ -159,7 +159,7 @@
 <string name="error_MARG_108">Parâmetro like em falta</string>
 <string name="error_MARG_109">Parâmetro email em falta</string>
 <string name="error_MARG_110">Parâmetro passhash em falta</string>
-<string name="error_MARG_111">Parâmetro name em falta</string>
+<string name="error_MARG_111">Faltando nome do parâmetro</string>
 <string name="error_MARG_112">Parâmetro user-agent em falta</string>
 <string name="error_MARG_113">Parâmetro hash em falta</string>
 <string name="error_MARG_200">Erro de autenticação</string>
@@ -219,7 +219,7 @@
 <string name="sd_error">Não foi possível gravar para o SDCard.</string>
 <string name="sd_error_jolla">Não foi possível baixar corretamente</string>
 <string name="download_retry">Tentar novamente</string>
-<string name="root_access_dialog">Parece que você tem root. Você gostaria de permitir instalar automaticamente o app após o download?</string>
+<string name="root_access_dialog">Parece que você tem uma raiz. Gostaria de permitir a auto instalação do aplicativo após o download?</string>
 <string name="cannot_uninstall_self">Não foi possível desinstalar o instalador.</string>
 <string name="are_you_adult">Você tem pelo menos 18 anos de idade?</string>
 <string name="buy">Comprar</string>
@@ -244,7 +244,7 @@
 <string name="cancel">Cancelar</string>
 <string name="error_occured_paying">Ocorreu um erro. O pagamento não foi concluído.</string>
 <string name="failed_auth_code">Falha ao autorizar conta. Por favor, tente novamente.</string>
-<string name="error_occured_retry_later">Ocorreu um erro. O Aptoide vai tentar novamente mais tarde automaticamente.</string>
+<string name="error_occured_retry_later">Ocorreu um erro. O %s vai tentar novamente mais tarde automaticamente.</string>
 <string name="account">Conta</string>
 <string name="no_payments_available">Sem pagamentos disponíveis.</string>
 <string name="change_payment">Voltar</string>
@@ -258,16 +258,16 @@
 <string name="feedback_not_valid">Por favor, digite algum Assunto válido!</string>
 <string name="feedback_no_email">Nenhum cliente de e-mail instalado!</string>
 <string name="sponsored">Patrocinado</string>
-<string name="social_timeline">Linha do Tempo Social</string>
-<string name="disable_social_timeline">Desativar Linha do Tempo Social</string>
-<string name="whats_timeline">O que é a Linha do Tempo Social do Aptoide?</string>
+<string name="social_timeline">Linha de Tempo Social</string>
+<string name="disable_social_timeline">Desativar Linha de Tempo Social</string>
+<string name="whats_timeline">O que é a Linha de Tempo Social do Aptoide?</string>
 <string name="facebook_logout_and_login">Sair e Entrar com Facebook</string>
 <string name="facebook_timeline_feature">Aaahhh... Este recurso só funciona com o login do Facebook e você está logado com outra autenticação</string>
 <string name="facebook_timeline_preview">Pré-visualização da Linha do Tempo:</string>
-<string name="facebook_start_timeline">Junte-se à Linha do Tempo Social</string>
-<string name="facebook_join_friends">Você deseja juntar-se à eles na Linha do Tempo Social?</string>
-<string name="facebook_friends_list_using_timeline">já estão usando a Linha do Tempo Social do Aptoide</string>
-<string name="facebook_friends_list_using_timeline_empty">A Linha do Tempo Social permite que você compartilhe seus aplicativos com seus amigos do Facebook. Você quer se juntar à rede?</string>
+<string name="facebook_start_timeline">Junte-se à Linha de Tempo Social</string>
+<string name="facebook_join_friends">Você deseja juntar-se à eles na Linha de Tempo Social?</string>
+<string name="facebook_friends_list_using_timeline">já estão usando a Linha de Tempo Social do Aptoide</string>
+<string name="facebook_friends_list_using_timeline_empty">A Linha de Tempo Social permite que você compartilhe seus aplicativos com seus amigos do Facebook. Você quer se juntar à rede?</string>
 <string name="timeline_ad">App Sugerido pelo Facebook</string>
 <string name="and">e</string>
 <string name="more_friends">mais</string>
@@ -287,20 +287,20 @@
 <string name="timeline_empty_send_email_to_friends">Enviar E-mail à Amigos</string>
 <string name="select_friends_to_invite">Por favor, selecione seus amigos para convidá-los!</string>
 <string name="aptoide_timeline">Linha do Tempo do Aptoide</string>
-<string name="timeline_email_invitation">Convidou você para juntar-se à sua Linha do Tempo Social do Aptoide. Esteja conectado!</string>
-<string name="timeline_email_how_to_join">Como você pode juntar-se à Linha do Tempo Social?</string>
+<string name="timeline_email_invitation">Convidou você para juntar-se à sua Linha do Tempo Social de Aptoide. Esteja conectado!</string>
+<string name="timeline_email_how_to_join">Como você pode juntar-se à Linha de Tempo Social?</string>
 <string name="timeline_email_step1">1- Baixe a última versão do Aptoide:</string>
-<string name="timeline_email_step2">2- Vá para a aba “Linha do Tempo Social” e junte-se à rede</string>
+<string name="timeline_email_step2">2- Vá para a aba “Linha de Tempo Social” e junte-se à rede</string>
 <string name="timeline_not_compatible">Aaahhh… Este recurso não é compatível com sua versão do Android</string>
 <string name="social_timeline_notifications">Notificações da Linha do Tempo</string>
-<string name="social_timeline_notifications_sum2">Ativa as Notificações da Linha do Tempo Social do Aptoide. Você vai receber as últimas notícias na barra de notificações.</string>
+<string name="social_timeline_notifications_sum2">Ativa as Notificações da Linha de Tempo Social do Aptoide. Você vai receber as últimas notícias na barra de notificações.</string>
 <string name="error503">Ufff… Só sou eu ou todo mundo que está instalando apps ao mesmo tempo?</string>
 <string name="having_some_trouble">Tendo alguns problemas. Você pode tentar novamente mais tarde?</string>
 <string name="friends_installs">Instalações dos seus amigos</string>
 <string name="highlighted_apps">Destacados</string>
 <string name="button_more">Mais</string>
-<string name="setting_category_autoupdate">Atualização automática do Aptoide</string>
-<string name="setting_category_autoupdate_title">Ativar atualização automática do Aptoide</string>
+<string name="setting_category_autoupdate">Atualização automática do %s</string>
+<string name="setting_category_autoupdate_title">Ativar atualização automática do %s</string>
 <string name="review_speed">Velocidade</string>
 <string name="review_usability">Usabilidade</string>
 <string name="review_addictive">Viciante</string>
@@ -330,17 +330,17 @@
 
     <string name="error_SYS_Billing">Compras In-App não suportadas neste dispositivo.</string>
 
-    <string name="aptoide_description">App Store Oficial do Aptoide</string>
+    <string name="aptoide_description">App Store Oficial do %s</string>
 
     <string name="community">Comunidade</string>
     <string name="updates">Atualizações</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="password">Senha</string>
-    <string name="facebook_tos">" • Compartilhe os apps que você instala com seus amigos do Facebook em uma Linha do Tempo dentro do Aptoide
+    <string name="facebook_tos">" • Compartilhe os apps que você instala com seus amigos do Facebook cronologicamente dentro do Aptoide
 \n\n• Veja, curta e comente na Linha do Tempo
 \n\n• Nós nunca, nunca, nunca postaremos no seu mural do Facebook. Nós respeitamos sua privacidade "</string>
-    <string name="facebook_timeline_login">" Você deseja Entrar com Facebook e tentar a Linha do Tempo Social?"</string>
+    <string name="facebook_timeline_login">" Você deseja Entrar com Facebook e experimentar a Linha de Tempo Social?"</string>
     <string name="feedback_to_write2">Escreva aqui para nos enviar seu feedback…\n\n Por favor, nos dê todos os detalhes que você puder conseguir:
 \n Passos que você tem feito
 \n Erros que você está vendo</string>
@@ -404,8 +404,8 @@
     <string name="more_versions">Mais Versões</string>
     <string name="menu_select_none">Selecionar Nenhuma</string>
 
-    <string name="upload_app_backup_apps_installed">Você precisa enviar este app para a sua loja primeiro. Você pode usar o Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">Você precisa enviar este app para a sua loja primeiro. Por favor, instale e use o Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">Você precisa enviar este app para a sua loja primeiro. Você pode usar o %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">Você precisa enviar este app para a sua loja primeiro. Por favor, instale e use o %s Backup Apps.</string>
     <string name="upload_app">Enviar app</string>
     <string name="create_review">Criar avaliação</string>
 
@@ -443,10 +443,10 @@
     <string name="abTest1_label_3">Instalar</string>
 
 
-    <string name="notification_timeline_new_likes">Você tem %s novas curtidas. Confira na Linha do Tempo Social!</string>
-    <string name="notification_timeline_new_comments">Você tem %s novos comentários. Confira na Linha do Tempo Social!</string>
-    <string name="notification_timeline_activity">Você tem %1$s novos comentários e %2$s curtidas. Confira na Linha do Tempo Social!</string>
-    <string name="notification_social_timeline">Linha do Tempo Social do Aptoide. Confira agora!</string>
+    <string name="notification_timeline_new_likes">Você tem %s novas curtidas. Confira na Linha de Tempo Social!</string>
+    <string name="notification_timeline_new_comments">Você tem %s novos comentários. Confira na Linha de Tempo Social!</string>
+    <string name="notification_timeline_activity">Você tem %1$s novos comentários e %2$s curtidas. Confira na Linha de Tempo Social!</string>
+    <string name="notification_social_timeline">Linha de Tempo Social do Aptoide. Confira agora!</string>
     <string name="notification_timeline_posts">Seus amigos instalaram novos apps!</string>
 
     <string name="has_updates">%s tem novas atualizações disponíveis!</string>
@@ -475,16 +475,16 @@
     <string name="application_signature_analysis">Assinatura do aplicativo comparada com a assinatura do desenvolvedor:</string>
     <string name="application_signature_matched">A assinatura do aplicativo combinou com a assinatura relacionada ao desenvolvedor do aplicativo.</string>
     <string name="application_signature_not_matched">A assinatura do aplicativo não combina com a assinatura relacionada ao desenvolvedor do aplicativo. O Aplicativo pode ter sido adulterado.</string>
-    <string name="application_signature_blacklisted">A assinatura do aplicativo não é uma assinatura Confiável dentro da plataforma Anti-Malware do Aptoide pois foi usada para inserir outros aplicativos que não combinam com a assinatura relacionada ao desenvolvedor legítimo.</string>
-    <string name="scanned_manually_by_aptoide_team">Escaneado manualmente pela Equipe do Aptoide:</string>
-    <string name="scanned_verified_by_tester">O aplicativo foi revisado manualmente por um testador da Equipe do Aptoide o que garante a segurança do aplicativo.</string>
+    <string name="application_signature_blacklisted">A assinatura do aplicativo não é uma assinatura Confiável dentro da plataforma Anti-Malware do %s pois foi usada para inserir outros aplicativos que não combinam com a assinatura relacionada ao desenvolvedor legítimo.</string>
+    <string name="scanned_manually_by_aptoide_team">Escaneado manualmente pela Equipe do %s:</string>
+    <string name="scanned_verified_by_tester">O aplicativo foi revisado manualmente por um testador da Equipe do %s o que garante a segurança do aplicativo.</string>
     <string name="warning">Aviso</string>
     <string name="trusted_app">App Confiável</string>
 
     <string name="reason_third_party">Nós verificamos a assinatura do app e ela combina com a Google Play Store, então pode confiar e desfrutar deste app.</string>
     <string name="reason_scanned">Escaneado com AptoideGuard mais 2 anti-vírus diferentes (Zoner 1.8 e Sophos 3.0).</string>
     <string name="reason_signature">A assinatura criptográfica garante que o arquivo é seguro para instalar e não foi adulterado de nenhuma forma.</string>
-    <string name="reason_manual">Este app foi revisado manualmente pela equipe experiente do Aptoide, e foi marcado como Bom.</string>
+    <string name="reason_manual">Este app foi revisado manualmente pela equipe experiente do %s, e foi marcado como Bom.</string>
 
     <string name="reason_failed">A assinatura do aplicativo não combina com a assinatura do desenvolvedor. O app pode ter sido adulterado.</string>
 
@@ -523,11 +523,11 @@
     <string name="wizard_new_and_improved_bullet_4">Limpa a Interface de Usuário</string>
     <string name="wizard_new_homepage">Novo layout de página principal</string>
     <string name="wizard_new_top">Nova aba Top</string>
-    <string name="subscribe_apps_official_store">Assinar App Store Oficial \'apps\' do Aptoide</string>
+    <string name="subscribe_apps_official_store">Inscrever-se na Lojas de Aplicativos \'apps\' Oficial do Aptoide</string>
     <string name="wizard_next">Próximo</string>
     <string name="wizard_prev">Anterior</string>
 
-<string name="error_REPO_7">Este usuário já tem um repo válido.</string>
+<string name="error_REPO_7">Este usuário já possui um repositor válido.</string>
 
     <string name="permissions_na">Permissões: N/A</string>
     <string name="download_pending">Aguardando</string>
@@ -537,7 +537,7 @@
     <string name="results_subscribed">Lojas Assinadas</string>
     <string name="unknown">Desconhecido</string>
 
-    <string name="reason_unknown">Não há informações suficientes sobre este app na plataforma Anti-Malware do Aptoide.</string>
+    <string name="reason_unknown">Não há informações suficientes sobre este app na plataforma Anti-Malware do %s.</string>
 
 
 
@@ -583,11 +583,17 @@
     <string name="email_copied">E-mail copiado para a área de transferência</string>
     <string name="privacy_copied">Link de privacidade copiado para a área de transferência</string>
     <string name="subscribing_store_message">Cancelar inscrição %s</string>
+    <string name="balloon_security_google_play">Aplicativo combinado com</string>
+    <string name="balloon_security_subtitle">Agora nós analisamos todos os aplicativos para Vírus.</string>
+    <string name="balloon_security_title">A Aptoide mudou.</string>
+    <string name="balloon_security_subtitle_start_part">Nós analisamos %1$s\u0020</string>
+    <string name="balloon_security_subtitle_final_part"> para Vírus:</string>
 
-<string name="auto_update">Auto Atualização</string>
-    <string name="board">Painél</string>
+
+<string name="auto_update">Atualização Automática</string>
+    <string name="board">Jogos de Tabuleiro</string>
     <string name="transportation">Transportes</string>
-    <string name="word">Palavra</string>
+    <string name="word">Palavras</string>
     <string name="play_it">Jogue!</string>
 <string name="latest_reviews">Últimas Avaliações</string>
     <string name="latest_comments">Últimos Comentários</string>
@@ -600,7 +606,7 @@
     <string name="books_reference">Livros &amp; Referências</string>
     <string name="brain_puzzle">Inteligência &amp; Quebra-Cabeças</string>
     <string name="business">Negócios</string>
-    <string name="card">Cartas</string>
+    <string name="card">Carta</string>
     <string name="cards_casino">Cartas &amp; Cassino</string>
     <string name="casino">Cassino</string>
     <string name="casual">Casual</string>
@@ -629,7 +635,7 @@
     <string name="personalization">Personalização</string>
     <string name="photography">Fotografia</string>
     <string name="productivity">Produtividade</string>
-    <string name="puzzle">Quebra-cabeças</string>
+    <string name="puzzle">Quebra-cabeça</string>
     <string name="quick_start">Início Rápido</string>
     <string name="racing">Corrida</string>
     <string name="reference">Referência</string>
@@ -650,7 +656,7 @@
     <string name="trending">Tendência</string>
     <string name="trivia">Trivialidades</string>
     <string name="libraries_demo">Bibliotecas &amp; Demonstrações</string>
-    <string name="shopping">Shopping</string>
+    <string name="shopping">Compras</string>
     <string name="weather">Clima</string>
 
     <string name="latest_applications">Últimos Aplicativos</string>
@@ -660,4 +666,19 @@
     <string name="music_video">Música &amp; Vídeo</string>
     <string name="essential_apps">Apps Essênciais</string>
     <string name="summer_apps">Apps de Verão</string>
+
+    <string name="dialog_install_warning_proceed_button">Continuar</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">Procurar por</string>
+    <string name="dialog_install_warning_trusted_app_button">App Confiável</string>
+    <string name="dialog_install_warning_careful_text">Tenha cuidado antes se decidir instalar esse app. Ele pode ter sido adulterado, ter vírus ou malware.</string>
+    <string name="dialog_install_warning_credibility_text">Antes de continuar, verifique a credibilidade da loja e os comentários do usuários. A Aptoide recomenda que você instale apenas apps %1$s Confiáveis.</string>
+    <string name="dialog_install_warning_trusted_version_button">Versão Confiável</string>
+    <string name="dialog_install_warning_get_trusted_version_button">Ir para</string>
+
+    <string name="updates_filter_setting_title">Apenas mostre atualizações de versões de aplicativos estáveis</string>
+    <string name="updates_filter_summary">Ao marcar esta opção, você não será informado de versões beta.</string>
+
+    <string name="add_more_stores">Adicionar mais lojas</string>
+    <string name="unsubscribe">Cancelar Inscrição</string>
+
     </resources>

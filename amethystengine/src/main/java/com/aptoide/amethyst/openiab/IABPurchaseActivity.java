@@ -27,6 +27,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.PaymentServices;
 import com.bumptech.glide.Glide;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -425,7 +426,8 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
 
                             //if(detailsJson != null) {
                             try {
-                                findViewById(R.id.progress).setVisibility(View.GONE);
+                                findViewById(R.id.progress).setVisibility(View
+                                        .GONE);
                                 findViewById(R.id.content).setVisibility(View.VISIBLE);
 
                                 JSONObject sku_details = new JSONObject(detailsList.get(0));
@@ -464,7 +466,10 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
                 AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                Toast.makeText(Aptoide.getContext(), R.string.error_occured_retry_later, Toast.LENGTH_LONG).show();
+
+
+                String errorOccuredRetryLaterFormatted = AptoideUtils.StringUtils.getFormattedString(getApplicationContext(), R.string.error_occured_retry_later, Aptoide.getConfiguration().getMarketName());
+                Toast.makeText(Aptoide.getContext(), errorOccuredRetryLaterFormatted, Toast.LENGTH_LONG).show();
 
                 Intent i = buildIntentForAlarm(confirmation, "iab");
                 i.putExtra("apiVersion", apiVersion);

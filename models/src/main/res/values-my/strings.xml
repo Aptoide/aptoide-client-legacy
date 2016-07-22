@@ -126,7 +126,7 @@
     <string name="compared_with_another_marketplace">အျခား Android ေစ်းကြက္ေနရာမ်ားျဖင့္ႏႈိင္းယွဥ္ျခင္း :</string>
     <string name="logged_as">: အေနျဖင့္ အေကာင့္ဝင္ထားသည္</string>
 
-    <string name="aptoide_description">Aptoide တရား၀င္ App စတိုး</string>
+    <string name="aptoide_description">%s တရား၀င္ App စတိုး</string>
 
     <string name="home_title">မူလစာမ်က္ႏွာ</string>
     <string name="community">လူမႈအသိုင္းအ၀ိုင္း</string>
@@ -147,14 +147,14 @@
     <string name="new_to_aptoide">%s တြင္အသစ္ျဖစ္ပါသလား...? အေကာင့္တစ္ခု အခမဲ့ ဖန္တီးပါ</string>
     <string name="application_signature_blacklisted">Aptoid Anti-Malware platform တြင္ application လက္မွတ္သည္ အစစ္အမွန္လက္မွတ္မဟုတ္ပါ အဘယ္ေၾကာင့္ဆုိေသာ္ တရားဝင္ေရးသားထားသူ၏လက္မွတ္ ႏွင့္ကုိက္ညီမႈမရွိပဲ အျခား application တြင္အသုံးျပဳထားျခင္းေၾကာင့္ျဖစ္သည္.</string>
     <string name="forgot_passwd">လွ်ဳိ႕၀ွက္စကားလံုး ေမ့ေနပါသလား?</string>
-    <string name="scanned_manually_by_aptoide_team">Aptoide အဖြဲ႔မွ စစ္ေဆးျခင္း :</string>
+    <string name="scanned_manually_by_aptoide_team">%s အဖြဲ႔မွ စစ္ေဆးျခင္း :</string>
     <string name="error_occured">မွားယြင္းမႈရွိေနပါသျဖင့္ ျပန္လည္ၾကိဳးစားေပးပါ</string>
     <string name="simple_error_occured">မွားယြင္းေနပါသည္ </string>
-    <string name="or">သို႔မဟုတ္</string>
+    <string name="or">- သို႕မဟုတ္ -</string>
     <string name="yes">ဟုတ္ပါသည္</string>
     <string name="no">မဟုတ္ပါ</string>
     <string name="username">Email</string>
-    <string name="scanned_verified_by_tester">ဤ application သည္ Aptoide အဖြဲ႔မွ application ၏လုံၿခံဳမႈကုိဆန္းစစ္ေပးေသာ စစ္ေဆးသူမ်ားမွ သုံးသပ္ၿပီးပါၿပီ.</string>
+    <string name="scanned_verified_by_tester">ဤ application သည္ %s အဖြဲ႔မွ application ၏လုံၿခံဳမႈကုိဆန္းစစ္ေပးေသာ စစ္ေဆးသူမ်ားမွ သုံးသပ္ၿပီးပါၿပီ.</string>
     <string name="warning">ႀကိဳတင္သတိေပးခ်က္</string>
     <string name="trusted_app">စိတ္ခ်ရေသာ App</string>
     <string name="unknown">မသိေသာ</string>
@@ -166,10 +166,10 @@
     <string name="reason_scanned">AptoideGuard plus 2 different anti-virus (Zoner 1.8 and Sophos 3.0) ျဖင့္စစ္ေဆးၿပီးျပီ.</string>
     <string name="dont_have_an_account">အေကာင့္မရွိပါသလား? စာရင္းေပးသြင္းမည္</string>
     <string name="reason_signature">လွ်ိဳ႕ဝွက္လက္မွတ္ ျဖင့္ေထာက္ခံေပးထားသူမ်ားေၾကာင့္ ယခုဖုိင္သည္ install လုပ္ရန္ ယုံၾကည္စိတ္ခ်ရၿပီး မည့္သုိ႔မ်ွအေႏွာက္အယွက္မေပးႏုိင္ေတာ့ပါ.</string>
-    <string name="reason_manual">ယခု app သည္ Aptoide ၏အေကာင္းဆုံးအဖြဲ႔ မွေလ့လာသုံးသပ္ထားၿပီး ေကာင္းမြန္သည္ဟုေထာက္ခံထားပါသည္.</string>
+    <string name="reason_manual">ယခု app သည္ %s ၏အေကာင္းဆုံးအဖြဲ႔ မွေလ့လာသုံးသပ္ထားၿပီး ေကာင္းမြန္သည္ဟုေထာက္ခံထားပါသည္.</string>
 
     <string name="reason_failed">Application လက္မွတ္သည္ ေရးသားသူ လက္မွတ္ႏွင့္ကုိက္ညီမႈမရွိပါ။ App တြင္အေႏွာက္အယွက္မ်ားရွိႏုိင္ပါသည္.</string>
-    <string name="reason_unknown">Aptoide Anti-Malware platform တြင္ ယခု app ၏ အခ်က္အလက္မ်ား မလုံေလာက္ပါ.</string>
+    <string name="reason_unknown">%s Anti-Malware platform တြင္ ယခု app ၏ အခ်က္အလက္မ်ား မလုံေလာက္ပါ.</string>
 
 
 
@@ -259,7 +259,7 @@
     <string name="privacy_policy">အခ်က္အလက္လုံၿခဳံမႈ စည္းမ်ဥ္းစည္းကမ္း : %s</string>
     <string name="dialog_version_size">ဗာရွင္း : %1$s | Size: %2$s</string>
     <string name="username_tip">သင့္ emailလိပ္စာ ႐ိုက္ပါ</string>
-    <string name="accept_terms">စာရင္းေပးသြင္းျခင္းျဖင့္ သင္သည္ Aptoide ၏စည္းမ်ဥ္းစည္းကမ္းမ်ားကို သေဘာတူျပီးျဖစ္သည္</string>
+    <string name="accept_terms">စာရင္းေပးသြင္းျခင္းျဖင့္ သင္သည္ %s ၏စည္းမ်ဥ္းစည္းကမ္းမ်ားကို သေဘာတူျပီးျဖစ္သည္</string>
 
     <string name="start_loading">လုပ္ေဆာင္ေနသည္…</string>
     <string name="store_already_added">စတိုး အားထည့္ေပးၿပီးပါျပီ!</string>
@@ -371,14 +371,14 @@
     <string name="update">အဆင့္ျမွင့္တင္ျခင္း</string>
     <string name="uninstall">Install လုပ္ထားသည္ကို ဖ်က္မည္</string>
     <string name="downgrade">အဆင့္ေလ်ာ့ခ်ျခင္း</string>
-    <string name="upload_app_backup_apps_installed">မိမိကုိယ္ပုိင္စတုိး တြင္ယခု app ကုိပထမဆုံး တင္သြင္းရန္လုိအပ္ပါသည္။ Aptoide Backup App မ်ားအသုံးျပဳႏုိင္ပါၿပီ.</string>
+    <string name="upload_app_backup_apps_installed">မိမိကုိယ္ပုိင္စတုိး တြင္ယခု app ကုိပထမဆုံး တင္သြင္းရန္လုိအပ္ပါသည္။ %s Backup App မ်ားအသုံးျပဳႏုိင္ပါၿပီ.</string>
     <string name="reinstall">ျပန္လည္ install လုပ္မည္</string>
 
-    <string name="rollback_empty">မိမိဖုန္းတြင္သဟဇာတမျဖစ္ေသာအမွားမ်ားကုိေျဖရွင္းရန္အတြက္ မည္သည့္app ကုိမဆုိ ဗားရွင္းအေဟာင္းသုိ႔ အဆင့္ေလ်ာ့ခ်ျခင္းျပဳလုပ္ႏုိင္သည္။ မိမိ install လုပ္ခဲ့ၿပီးေသာ apps မွတ္တမ္းအား ဗားရွင္းနံပါတ္ ႏွင့္ install လုပ္ခဲ့ေသာအခ်ိန္ကုိပါပူးတြဲ သိမ္းေပးထားသည္.</string>
+    <string name="rollback_empty">မိမိဖုန္းတြင္သဟဇာတမျဖစ္ေသာအမွားမ်ားကုိေျဖရွင္းရန္အတြက္ မည္သည့္app ကုိမဆုိ ဗားရွင္းအေဟာင္းသုိ႔ အဆင့္ေလ်ာ့ခ်ျခင္းျပဳလုပ္ႏုိင္သည္။ မိမိ install လုပ္ခဲ့ၿပီးေသာ apps (%s ျဖင့္) မွတ္တမ္းအား ဗားရွင္းနံပါတ္ ႏွင့္ install လုပ္ခဲ့ေသာအခ်ိန္ကုိပါပူးတြဲ သိမ္းေပးထားသည္.</string>
 
     <string name="see_more">ေနာက္ထပ္ ၾကည့္မည္</string>
     <string name="see_less">အနည္းငယ္သာ ၾကည့္မည္</string>
-    <string name="upload_app_backup_apps_not_installed">မိမိကုိယ္ပုိင္စတုိး တြင္ယခု app ကုိပထမဆုံး တင္သြင္းရန္လုိအပ္ပါသည္။ Aptoide Backup App ကုိ install လုပ္ၿပီးအသုံးျပဳႏုိင္ပါၿပီ.</string>
+    <string name="upload_app_backup_apps_not_installed">မိမိကုိယ္ပုိင္စတုိး တြင္ယခု app ကုိပထမဆုံး တင္သြင္းရန္လုိအပ္ပါသည္။ %s Backup App ကုိ install လုပ္ၿပီးအသုံးျပဳႏုိင္ပါၿပီ.</string>
     <string name="get_latest">ေနာက္ဆံုး ဗားရွင္း ရယူသည္</string>
 
     <string name="installed_tab">Install ျပီးစီးျခင္း</string>
@@ -450,7 +450,7 @@
     <string name="appview_latest_version_text">ေနာက္ဆုံးထြက္ဗားရွင္း ျဖစ္သည္!</string>
     <string name="appview_subscribe_store_button_text">ပံုမွန္ၾကည့္႐ႈမလား?</string>
     <string name="appview_recommended_for_you_title">သင့္အတြက္အႀကံျပဳထားသည္</string>
-    <string name="error_occured_retry_later">မွားေနပါသည္. မၾကာမီ Aptoide မွ အလိုအေလ်ာက္ လုပ္ေဆာင္သြားပါမည္.</string>
+    <string name="error_occured_retry_later">မွားေနပါသည္. မၾကာမီ %s မွ အလိုအေလ်ာက္ လုပ္ေဆာင္သြားပါမည္.</string>
     <string name="account">အေကာင့္</string>
     <string name="about_aptoide_antimalware">Aptoide Anti-Malware platformသည္ application မ်ားကုိအသုံးျပဳေနသည့္အခ်ိန္အတြင္းမွာပင္ စတုိးအားလုံးမွာရွိတဲ့ potential threat မ်ားကုိမရွိေအာင္ျပဳလုပ္ေပးထားပါတယ္။ စတုိးတြင္ရွိေသာ application အသစ္မ်ားအားလုံးကုိစစ္ေဆးေပးၿပီး တျခား Android Marketplace ႏွင့္ႏႈိင္းယွဥ္ၿပီး အသိအမွတ္ျပဳေပးထားပါသည္.</string>
     <string name="confirm_carrier_payment">"\'{title}\' အတြက္ {value} ၀ယ္ခ်င္ပါသလား? ေငြေကာက္ခံမည္ျဖစ္သည္. "</string>
@@ -477,8 +477,8 @@
     <string name="review_by">သုံးသပ္သူ :\n%s</string>
     <string name="review_title">သုံးသပ္ခ်က္မ်ား</string>
     <string name="rollback_uninstalled">Uninstall လုပ္ၿပီးၿပီ</string>
-    <string name="setting_category_autoupdate">Aptoide ၏အလုိအေလ်ာက္ျမွင့္တင္ျခင္း</string>
-    <string name="setting_category_autoupdate_title">Aptoide ၏အလုိအေလ်ာက္ျမွင့္တင္ျခင္းကုိ အသုံးျပဳမည္</string>
+    <string name="setting_category_autoupdate">%s ၏အလုိအေလ်ာက္ျမွင့္တင္ျခင္း</string>
+    <string name="setting_category_autoupdate_title">%s ၏အလုိအေလ်ာက္ျမွင့္တင္ျခင္းကုိ အသုံးျပဳမည္</string>
     <string name="setting_dont_show_mature_content">အရြယ္ေရာက္ၿပီးသူမ်ားဖတ္ေသာ content ျပပါ</string>
     <string name="setting_mature_filtering">အရြယ္ေရာက္ၿပီးသူမ်ားအတြက္ content</string>
     <string name="setting_updates">ျမွင့္တင္ျခင္းမ်ား</string>
@@ -631,8 +631,47 @@
     <string name="top_games">ထိပ်တန်းဂိမ်းများ</string>
     <string name="transport">သယ်ယူပို့ဆောင်သည်</string>
     <string name="transportation">သယ်ယူပို့ဆောင်ခြင်းများ</string>
-    <string name="travel_local">ခရီးသွားခြင်းနှင့် ဒေသဆိုင်ရာ</string>
+    <string name="travel_local">ခရီးသွားခြင်း &amp; ဒေသဆိုင်ရာ</string>
     <string name="trending">လတ်တလော လူကြိုက်များသော</string>
     <string name="trivia">ဥာဏ်စမ်း</string>
     <string name="word">စကားလုံး</string>
+<string name="updates_filter_setting_title">ကျွန်ုပ်အား တည်ငြိမ်သော app အဆင့်မြှင့်တင်မှု ဗားရှင်းများကိုသာ ပြပါ</string>
+    <string name="balloon_security_google_play">App နှင့် ကိုက်ညီသည်မှာ</string>
+    <string name="balloon_security_subtitle">ကျွန်ုပ်တို့သည် ယခုအခါ apps များအားလုံးကို ဗိုင်းရပ်စ် စစ်ဆေးပါသည်.</string>
+    <string name="balloon_security_title">Aptoide အား ပြောင်းလဲလိုက်သည်.</string>
+    <string name="balloon_security_subtitle_start_part">"ကျွန်ုပ်တို့သည် %1$s အား စစ်ဆေးခဲ့သည် "</string>
+    <string name="balloon_security_subtitle_final_part">ဗိုင်းရပ်စ် ရှိမရှိ:</string>
+    <string name="updates_filter_summary">ယင်းကို ရွေးထားခြင်းဖြင့် သင့်အား စမ်းသပ်ဗားရှင်းများကို သတင်းပို့မည် မဟုတ်ပါ.</string>
+
+    <string name="health">ကျန်းမာရေး</string>
+    <string name="highlighted">ထင်ရှားအောင် ပြုလုပ်ထားသော</string>
+    <string name="local_top_apps">ဒေသဆိုင်ရာ ထိပ်တန်း Apps များ</string>
+    <string name="medical">ဆေးဖက်ဆိုင်ရာ</string>
+    <string name="multimedia">မီဒီယာပေါင်းစုံ</string>
+    <string name="music">ဂီတ</string>
+    <string name="music_audio">ဂီတ &amp; အသံ</string>
+    <string name="reference">ရည်ညွှန်းချက်</string>
+    <string name="travel">ခရီးသွားခြင်း</string>
+    <string name="libraries_demo">စာကြည့်တိုက်များ &amp; အစမ်း</string>
+    <string name="shopping">ဈေး၀ယ်ခြင်း</string>
+    <string name="weather">ရာသီဥတု</string>
+
+    <string name="latest_applications">နောက်ဆုံး Applications များ</string>
+    <string name="top_apps_in_store">ဤစတိုးရှိ ထိပ်တန်း Apps များ</string>
+    <string name="apps_for_kids">ကလေးများအတွက် Apps များ</string>
+    <string name="aptoide_publishers">Aptoide ထုတ်ဝေသူများ</string>
+    <string name="music_video">ဂီတ &amp; ဗြီဒီယို</string>
+    <string name="essential_apps">မရှိမဖြစ် Apps များ</string>
+    <string name="summer_apps">နွေရာသီ Apps များ</string>
+    <string name="play_it">ကစား-လိုက္!</string>
+    <string name="add_more_stores">နောက်ထပ်စတိုးများ ထည့်သွင်းပါ</string>
+    <string name="unsubscribe">ပုံမှန်ကြည့်ရှုမှု ဖျက်ပါ</string>
+
+    <string name="dialog_install_warning_proceed_button">ဆက်လက်လုပ်ဆောင်ပါ</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">ရှာဖွေရန်အတွက်</string>
+    <string name="dialog_install_warning_trusted_app_button">ယုံကြည်ရသော App</string>
+    <string name="dialog_install_warning_careful_text">"အကယ်၍ သင်သည် ဤ app  အား ထည့်သွင်းရန် ရွေးချယ်ပါက သတိပြုပါ. ယင်းအား  ပြင်ဆင်ထားခြင်း၊ ဗိုင်းရပ်စ် သို့မဟုတ် မေးလ်ဝဲ ရှိခြင်းများ ဖြစ်နိုင်ပါသည်."</string>
+    <string name="dialog_install_warning_credibility_text">ဆက်လက်မလုပ်ဆောင်မီ စတိုး၏ အများလက်ခံနိုင်မှုနှင့် အခြား အသုံးပြုသူ မှတ်ချက်များအား စစ်ဆေးပါ. Aptoide သည် သင့်အား %1$s ယုံကြည်ရသော apps များကိုသာ ထည့်သွင်းရန် အမြဲတမ်း ညွှန်းပါသည်.</string>
+    <string name="dialog_install_warning_trusted_version_button">ယုံကြည်ရသော ဗားရှင်း</string>
+    <string name="dialog_install_warning_get_trusted_version_button">ရယူပါ</string>
 </resources>

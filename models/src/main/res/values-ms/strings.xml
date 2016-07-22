@@ -86,7 +86,7 @@
     <string name="sign_out">Daftar keluar</string>
     <string name="logged_as">Anda dilog sebagai:</string>
 
-    <string name="aptoide_description">Kedai Aplikasi Rasmi Aptoide</string>
+    <string name="aptoide_description">Kedai Aplikasi Rasmi %s</string>
 
     <string name="error_410">Maaf, Aplikasi yang diminta tidak dijumpai pada pelayan ini.</string>
 
@@ -107,7 +107,7 @@
     <string name="forgot_passwd">Lupa kata laluan?</string>
     <string name="error_occured">Ralat berlaku. Sila cuba lagi</string>
     <string name="simple_error_occured">Ralat berlaku. </string>
-    <string name="or">-Atau-</string>
+    <string name="or">- Atau -</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="username">E-mel</string>
@@ -130,7 +130,7 @@
     <string name="password_validation_text">"Kata laluan mestilah sekurang-kurangnya 8 aksara dan harus mempunyai sekurang-kurangnya satu huruf dan satu nombor atau aksara khas (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">Platform Anti-Malware Aptoide menganalisis aplikasi-aplikasi dalam masa jalanan dan melumpuhkan ancaman yang berpotensi di semua kedai-kedai. Sistem ini mengimbas semua fail aplikasi baru di kedai-kedai dan sijilkan mereka melalui perbandingan terhadap Marketplaces Android lain.</string>
     <string name="username_tip">Taip e-mel anda</string>
-    <string name="accept_terms">Dengan mendaftar, anda bersetuju dengan Syarat Perkhidmatan Aptoide dan Dasar Kandungan untuk Pemaju</string>
+    <string name="accept_terms">Dengan mendaftar, anda bersetuju dengan Syarat Perkhidmatan %s dan Dasar Kandungan untuk Pemaju</string>
 
     <string name="start_loading">Pemuatan…</string>
     <string name="store_already_added">Kedai telah ditambah!</string>
@@ -227,7 +227,7 @@
     <string name="downgrade">Turun taraf</string>
     <string name="reinstall">Pasang semula</string>
 
-    <string name="rollback_empty">Cepat menuruntarafkan sebarang aplikasi ke versi sebelumnya dan selesaikan isu-isu ketidakserasian. Simpan log semua aplikasi anda yang dipasang termasuk versi dan tarikh pemasangan.</string>
+    <string name="rollback_empty">Cepat menuruntarafkan sebarang aplikasi ke versi sebelumnya dan selesaikan isu-isu ketidakserasian. Simpan log semua aplikasi anda yang dipasang (melalui %s) termasuk versi dan tarikh pemasangan.</string>
 
     <string name="see_more">Lihat Lagi</string>
     <string name="see_less">Lihat Kurang</string>
@@ -271,7 +271,7 @@
     <string name="no_payments_available">Tiada bayaran boleh didapati.</string>
     <string name="failed_auth_code">Gagal memberi kuasa kepada akaun. Sila cuba lagi.</string>
     <string name="error_occured_paying">Ralat berlaku. Pembayaran itu tidak selesai.</string>
-    <string name="error_occured_retry_later">Ralat berlaku. Aptoide akan cuba semula kemudian secara automatik.</string>
+    <string name="error_occured_retry_later">Ralat berlaku. %s akan cuba semula kemudian secara automatik.</string>
     <string name="account">Akaun</string>
     <string name="confirm_carrier_payment">"Adakah anda ingin membeli \'{tajuk}\' untuk {nilai}? Anda akan dikenakan caj daripada pembawa anda. "</string>
     <string name="buy">Beli</string>
@@ -354,8 +354,8 @@
     <string name="update">Kemaskini</string>
     <string name="store_username">Nama pengguna</string>
     <string name="store_password">Kata Laluan</string>
-    <string name="upload_app_backup_apps_installed">Anda perlu memuat naik aplikasi ini ke kedai anda dahulu. Anda boleh menggunakan Aplikasi Backup Aptoide.</string>
-    <string name="upload_app_backup_apps_not_installed">Anda perlu memuat naik aplikasi ini untuk kedai anda dahulu. Sila pasang dan gunakan Aplikasi Backup Aptoide.</string>
+    <string name="upload_app_backup_apps_installed">Anda perlu memuat naik aplikasi ini ke kedai anda dahulu. Anda boleh menggunakan Aplikasi Backup %s.</string>
+    <string name="upload_app_backup_apps_not_installed">Anda perlu memuat naik aplikasi ini untuk kedai anda dahulu. Sila pasang dan gunakan Aplikasi Backup %s.</string>
     <string name="upload_app">Muat naik aplikasi</string>
     <string name="create_review">Buat ulasan</string>
 
@@ -380,8 +380,8 @@
     <string name="setting_hwspecssum">Maklumat Perkakasan mengenai telefon anda</string>
     <string name="setting_appfiltersum">Jangan tunjukkan aplikasi yang tidak serasi dengan peranti ini</string>
     <string name="setting_appfiltertitle">Tapis Aplikasi</string>
-    <string name="setting_category_autoupdate">Kemas Kini Auto Aptoide</string>
-    <string name="setting_category_autoupdate_title">Membolehkan kemas kini auto Aptoide</string>
+    <string name="setting_category_autoupdate">Kemas Kini Auto %s</string>
+    <string name="setting_category_autoupdate_title">Membolehkan kemas kini auto %s</string>
     <string name="setting_dont_show_mature_content">Menunjukkan kandungan matang</string>
     <string name="setting_mature_filtering">Kandungan Dewasa</string>
     <string name="setting_updates">Kemas kini</string>
@@ -480,9 +480,9 @@
     <string name="application_signature_analysis">Tandatangan aplikasi berbanding dengan tandatangan pemaju:</string>
     <string name="application_signature_matched">Tandatangan aplikasi sepadan dengan tandatangan yang berkaitan dengan pemaju aplikasi.</string>
     <string name="application_signature_not_matched">Tandatangan aplikasi tidak sepadan dengan tandatangan yang berkaitan dengan pemaju aplikasi. Aplikasi mungkin telah dicemari.</string>
-    <string name="application_signature_blacklisted">Tandatangan Aplikasi bukanlah tandatangan Dipercayai di platform Anti-Perisian Hasad Aptoide kerana ia telah digunakan untuk menandatangani satu lagi aplikasi yang tidak sepadan dengan tandatangan yang berkaitan dengan pemaju legit.</string>
-    <string name="scanned_manually_by_aptoide_team">Diimbas secara manual oleh Pasukan Aptoide:</string>
-    <string name="scanned_verified_by_tester">Aplikasi ini telah dikaji semula secara manual oleh penguji dari Pasukan Aptoide yang memastikan keselamatan aplikasi.</string>
+    <string name="application_signature_blacklisted">Tandatangan Aplikasi bukanlah tandatangan Dipercayai di platform Anti-Perisian Hasad %s kerana ia telah digunakan untuk menandatangani satu lagi aplikasi yang tidak sepadan dengan tandatangan yang berkaitan dengan pemaju legit.</string>
+    <string name="scanned_manually_by_aptoide_team">Diimbas secara manual oleh Pasukan %s:</string>
+    <string name="scanned_verified_by_tester">Aplikasi ini telah dikaji semula secara manual oleh penguji dari Pasukan %s yang memastikan keselamatan aplikasi.</string>
     <string name="warning">Amaran</string>
     <string name="trusted_app">Aplikasi Dipercayai</string>
     <string name="unknown">Tidak diketahui</string>
@@ -490,10 +490,10 @@
     <string name="reason_third_party">Kami telah memeriksa tandatangan aplikasi tersebut dan ia sepadan dengan Google Play Store, maka yakinlah dan menikmati app.</string>
     <string name="reason_scanned">Diimbas dengan Pengawal Aptoide dan 2 antivirus yang berbeza (Zoner 1.8 dan Sophos 3.0).</string>
     <string name="reason_signature">Tandatangan kriptografi menjamin bahawa fail adalah selamat untuk dipasang dan tidak diganggu dengan cara apapun.</string>
-    <string name="reason_manual">Aplikasi ini telah dikaji semula secara manual oleh pasukan pakar Aptoide, dan telah ditandakan sebagai baik.</string>
+    <string name="reason_manual">Aplikasi ini telah dikaji semula secara manual oleh pasukan pakar %s, dan telah ditandakan sebagai baik.</string>
 
     <string name="reason_failed">Permohonan aplikasi tidak sepadan dengan tandatangan pemaju. Aplikasi mungkin telah diusik.</string>
-    <string name="reason_unknown">Tidak ada maklumat yang cukup tentang aplikasi ini di dalam platform Aptoide Anti-Perisian Hasad.</string>
+    <string name="reason_unknown">Tidak ada maklumat yang cukup tentang aplikasi ini di dalam platform %s Anti-Perisian Hasad.</string>
 
 
 
@@ -579,4 +579,98 @@
     <string name="privacy_copied">pautan privasi disalin ke papan keratan</string>
     <string name="subscribing_store_message">Berhenti melanggan %s</string>
 
-</resources>
+<string name="updates_filter_setting_title">Hanya tunjukkan saya versi kemaskini aplikasi yang stabil</string>
+    <string name="balloon_security_google_play">App dipadankan dengan</string>
+    <string name="balloon_security_subtitle">Kami kini menyemak semua aplikasi untuk Virus.</string>
+    <string name="balloon_security_title">Aptoide telah ditukar.</string>
+    <string name="balloon_security_subtitle_start_part">"Kami telah menyemak %1$s "</string>
+    <string name="balloon_security_subtitle_final_part">" untuk Virus:"</string>
+    <string name="updates_filter_summary">Semakan ini, anda tidak akan diberitahu versi beta.</string>
+
+    <string name="latest_reviews">Ulasan Terbaru</string>
+    <string name="latest_comments">Ulasan Terbaru</string>
+    <string name="action">Aksi</string>
+    <string name="adventure">Pegembaraan</string>
+    <string name="all">Semua</string>
+    <string name="applications">Aplikasi</string>
+    <string name="arcade">Arked</string>
+    <string name="arcade_action">Arked &amp; Aksi</string>
+    <string name="auto_update">Kemaskini Automatik</string>
+    <string name="board">Papan</string>
+    <string name="books_reference">Buku &amp; Rujukan</string>
+    <string name="brain_puzzle">Minda &amp; Teka-teki</string>
+    <string name="business">Bisnes</string>
+    <string name="card">Kad</string>
+    <string name="cards_casino">Kad &amp; Kasino</string>
+    <string name="casino">Kasino</string>
+    <string name="casual">Kasual</string>
+    <string name="comics">Komik</string>
+    <string name="communication">Komunikasi</string>
+    <string name="demo">Demo</string>
+    <string name="education">Pendidikan</string>
+    <string name="finance">Kewangan</string>
+    <string name="educational">Pendidikan</string>
+    <string name="games">Permainan</string>
+    <string name="enable">Boleh</string>
+    <string name="health">Kesihatan</string>
+    <string name="entertainment">Hiburan</string>
+    <string name="health_fitness">Kesihatan &amp; Kecergasan</string>
+    <string name="highlighted">Diserlahkan</string>
+    <string name="family">Keluarga</string>
+    <string name="local_top_apps">App Tempatan Terbaik</string>
+    <string name="lifestyle">Gaya Hidup</string>
+    <string name="media_video">Media &amp; Video</string>
+    <string name="medical">Perubatan</string>
+    <string name="multimedia">Multimedia</string>
+    <string name="music">Muzik</string>
+    <string name="music_audio">Muzik &amp; Audio</string>
+    <string name="news_magazines">Berita &amp; Majalah</string>
+    <string name="news_weather">Berita &amp; Cuaca</string>
+    <string name="personalization">Pemeribadian</string>
+    <string name="photography">Fotografi</string>
+    <string name="productivity">Produktiviti</string>
+    <string name="puzzle">Teka-teki</string>
+    <string name="quick_start">Mula Cepat</string>
+    <string name="racing">Perlumbaan</string>
+    <string name="reference">Rujukan</string>
+    <string name="role_playing">Main Peranan</string>
+    <string name="simulation">Simulasi</string>
+    <string name="social">Sosial</string>
+    <string name="software_libraries">Perpustakaan Perisian</string>
+    <string name="sports">Sukan</string>
+    <string name="sports_games">Permainan Sukan</string>
+    <string name="strategy">Strategi</string>
+    <string name="themes">Tema</string>
+    <string name="tools">Alat</string>
+    <string name="top_apps">App Terbaik</string>
+    <string name="transportation">Pengangkutan</string>
+    <string name="travel">Pelancongan</string>
+    <string name="top_games">Permainan Terbaik</string>
+    <string name="transport">Pengangkutan</string>
+    <string name="travel_local">Pelancongan &amp; Tempatan</string>
+    <string name="trending">Tren</string>
+    <string name="trivia">Trivia</string>
+    <string name="word">Perkataan</string>
+    <string name="top_apps_in_store">App Terbaik di Kedai Ini</string>
+    <string name="libraries_demo">Perpustakaan &amp; Demo</string>
+    <string name="apps_for_kids">App untuk Kanak-kanak</string>
+    <string name="aptoide_publishers">Penerbit Aptoide</string>
+    <string name="shopping">Beli-belah</string>
+    <string name="music_video">Muzik &amp; Video</string>
+    <string name="weather">Cuaca</string>
+
+    <string name="essential_apps">App Penting</string>
+    <string name="latest_applications">App Terbaru</string>
+    <string name="summer_apps">App Musim Panas</string>
+    <string name="play_it">Main ia!</string>
+    <string name="add_more_stores">Tambah lebih banyak kedai</string>
+    <string name="dialog_install_warning_credibility_text">Sebelum meneruskan, periksa kredibiliti kedai dan komen pengguna lain. Aptoide sentiasa mengesyorkan bahawa anda hanya memasang %1$s aplikasi yang dipercayai.</string>
+    <string name="unsubscribe">Berhenti melanggan</string>
+
+    <string name="dialog_install_warning_trusted_version_button">Versi Dipercayai</string>
+    <string name="dialog_install_warning_proceed_button">Teruskan</string>
+    <string name="dialog_install_warning_get_trusted_version_button">Dapat</string>
+<string name="dialog_install_warning_search_for_trusted_app_button">Cari untuk</string>
+    <string name="dialog_install_warning_trusted_app_button">App Dipercayai</string>
+    <string name="dialog_install_warning_careful_text">Berhati-hati jika anda memilih untuk memasang aplikasi ini. Ia mungkin telah diusik, mempunyai virus atau malware.</string>
+    </resources>

@@ -107,7 +107,7 @@
     <string name="updatesTabAdapterUninstall">Деинсталирај</string>
     <string name="logged_as">Најавени сте како:</string>
 
-    <string name="aptoide_description">Aptoide официјална продавница за апликации</string>
+    <string name="aptoide_description">%s официјална продавница за апликации</string>
 
     <string name="error_410">Извинете, бараната апликација не беше пронајдена на овој сервер.</string>
 
@@ -168,7 +168,7 @@
     <string name="username_tip">Внесете го Вашиот емаил</string>
     <string name="wizard_description_03_1">за постари уреди и бавна интернет конекција</string>
     <string name="wizard_subtitle_03_2">Aptoide ТВ</string>
-    <string name="accept_terms">Со регистрирањето Вие се согласувате со условите за користење на Aptoide и полисата за приватност за програмери</string>
+    <string name="accept_terms">Со регистрирањето Вие се согласувате со условите за користење на %s и полисата за приватност за програмери</string>
 
     <string name="start_loading">Се вчитува…</string>
     <string name="store_already_added">Продавницата е веќе додадена!</string>
@@ -285,7 +285,7 @@
     <string name="cancel">Откажи</string>
     <string name="failed_auth_code">Неуспешна авторизација на профил. Ве молиме обидете се повторно.</string>
     <string name="error_occured_paying">Се случи грешка. Исплатата не е извршена.</string>
-    <string name="error_occured_retry_later">Се случи грешка. Aptoide подоцна автоматски ќе се обиде повторно.</string>
+    <string name="error_occured_retry_later">Се случи грешка. %s подоцна автоматски ќе се обиде повторно.</string>
     <string name="account">Профил</string>
     <string name="confirm_carrier_payment">"Дали сакате да купите \'{title}\' за {value}? Ќе Ви биде наплатено од Вашиот оператор. "</string>
     <string name="buy">Купете</string>
@@ -371,8 +371,8 @@
     <string name="setting_hwspecssum">Хардверски информации за Вашиот телефон</string>
     <string name="setting_appfiltersum">Не ги прикажувај апликациите кои не се компатибилни со овој уред</string>
     <string name="setting_appfiltertitle">Филтрирајте ги апликациите</string>
-    <string name="setting_category_autoupdate">Aptoide автоматска надградба</string>
-    <string name="setting_category_autoupdate_title">Овозможете автоматска надградба на Aptoide</string>
+    <string name="setting_category_autoupdate">%s автоматска надградба</string>
+    <string name="setting_category_autoupdate_title">Овозможете автоматска надградба на %s</string>
     <string name="setting_dont_show_mature_content">Прикажи содржина за возрасни</string>
     <string name="setting_mature_filtering">Содржина за возрасни</string>
     <string name="setting_updates">Надградби</string>
@@ -451,20 +451,20 @@
     <string name="compared_with_another_marketplace">Споредено со друг Android пазар:</string>
     <string name="application_signature_analysis">Потпис на апликација спореден со програмерски потпис:</string>
     <string name="application_signature_matched">Потписот на апликацијата се совпаѓа со потписот на програмерот на апликацијата.</string>
-    <string name="scanned_manually_by_aptoide_team">Рачно скенирано од Aptoide тимот:</string>
-    <string name="scanned_verified_by_tester">Апликацијата беше прегледана рачно од страна на тестер од Aptoide тимот кој гарантира за безбедноста на апликацијата.</string>
+    <string name="scanned_manually_by_aptoide_team">Рачно скенирано од %s тимот:</string>
+    <string name="scanned_verified_by_tester">Апликацијата беше прегледана рачно од страна на тестер од %s тимот кој гарантира за безбедноста на апликацијата.</string>
     <string name="warning">Предупредување</string>
     <string name="trusted_app">Доверлива апликација</string>
     <string name="unknown">Непознат</string>
 
     <string name="reason_third_party">Проверивме дека потписот на апликацијата се совпаѓа со потписот на Google Play Store, затоа бидете сигурни и уживајте во апликацијата.</string>
-    <string name="reason_manual">Оваа апликација беше рачно прегледана од тим на експерти од Aptoide и е оценета како добра.</string>
+    <string name="reason_manual">Оваа апликација беше рачно прегледана од тим на експерти од %s и е оценета како добра.</string>
 
     <string name="wizard_new_and_improved_bullet_3">Користи помалку ресурси</string>
     <string name="wizard_new_and_improved_bullet_4">Едноставен кориснички интерфејс</string>
     <string name="wizard_new_homepage">Нов изглед на почетната страна</string>
     <string name="wizard_new_top">Ново јазиче за најдобрите</string>
-    <string name="reason_unknown">Не постојат доволно информации за оваа апликација на платформата на Aptoide Anti-Malware.</string>
+    <string name="reason_unknown">Не постојат доволно информации за оваа апликација на платформата на %s Anti-Malware.</string>
 
 
 
@@ -520,7 +520,7 @@
     <string name="downgrade">Преминување на постара верзија</string>
     <string name="reinstall">Преинсталирај</string>
 
-    <string name="rollback_empty">Брзо вратете ја претходната верзија на било која апликација и решете ги проблемите со некомпатибилност. Чувајте записник за сите Ваши инсталирани апликации вклучувајќи верзија и датум на инсталирање.</string>
+    <string name="rollback_empty">Брзо вратете ја претходната верзија на било која апликација и решете ги проблемите со некомпатибилност. Чувајте записник за сите Ваши инсталирани апликации (преку %s) вклучувајќи верзија и датум на инсталирање.</string>
 
     <string name="rollback">Вратете се назад</string>
     <string name="backup_apps">Backup апликации</string>
@@ -537,8 +537,8 @@
     <string name="review_title">Оцени</string>
     <string name="write_your_final_verdict">Напишете ја Вашата конечна одлука</string>
     <string name="review_success">Оцената е успешно доставена!</string>
-    <string name="upload_app_backup_apps_installed">Мора прво да ја прикачите оваа апликација на Вашата продавница. Можете да ги користите Aptoide Backup апликациите.</string>
-    <string name="upload_app_backup_apps_not_installed">Мора прво да ја прикачите оваа апликација на Вашата продавница. Ве молиме инсталирајте и користете ги Aptoide Backup апликациите.</string>
+    <string name="upload_app_backup_apps_installed">Мора прво да ја прикачите оваа апликација на Вашата продавница. Можете да ги користите %s Backup апликациите.</string>
+    <string name="upload_app_backup_apps_not_installed">Мора прво да ја прикачите оваа апликација на Вашата продавница. Ве молиме инсталирајте и користете ги %s Backup апликациите.</string>
     <string name="update_all">Надградете сѐ</string>
     <string name="show_all_updates">Не ги прикажувајте надградбите за апликациите со различни потписи</string>
     <string name="social_timeline_notifications">Известувања за времепловот</string>
@@ -548,7 +548,7 @@
     <string name="completed">Завршено</string>
     <string name="unsubscribe_yes_no">Дали сте сигурни дека сакате да се отпишете од претплатата?</string>
     <string name="unsubscribed_">"Отпишување од претплата "</string>
-    <string name="application_signature_blacklisted">Потписот на апликацијата не е доверлив потпис на Aptoide Anti-Malware платформата затоа што е искористен за потпис на друга апликација која не се совпаѓа со потписот на вистинскиот програмер.</string>
+    <string name="application_signature_blacklisted">Потписот на апликацијата не е доверлив потпис на %s Anti-Malware платформата затоа што е искористен за потпис на друга апликација која не се совпаѓа со потписот на вистинскиот програмер.</string>
     <string name="privacy_copied">Линкот за приватност е копиран во clipboard</string>
     <string name="subscribing_store_message">Откажување на претплата %s</string>
 

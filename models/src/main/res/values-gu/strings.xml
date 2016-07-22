@@ -88,7 +88,7 @@
 <string name="username">email</string>
 <string name="username_tip">tamaró email type karo</string>
 <string name="subscribe_pvt_store">private stor subscribe karo</string>
-<string name="accept_terms">"á sign karva thi tamo Aptoide ni sharto anésrvice ni  terms  ané content policy develpor maté ni this sahmat cho"</string>
+<string name="accept_terms">"á sign karva thi tamo %s ni sharto anésrvice ni  terms  ané content policy develpor maté ni this sahmat cho"</string>
 <string name="register">sign up</string>
 <string name="or">athva (or)</string>
 <string name="dont_have_an_account">apno koi account nathi? sign up</string>
@@ -244,7 +244,7 @@
 <string name="cancel">cancel</string>
 <string name="error_occured_paying">erro thai che. payment thayu nathi</string>
 <string name="failed_auth_code">account authorize fail thaiyu che. Mehrbani kari farithi koshish karo</string>
-<string name="error_occured_retry_later">"error thai che thodi var pachi  Aptoide automatically farithi koshish karse"</string>
+<string name="error_occured_retry_later">"error thai che thodi var pachi  %s automatically farithi koshish karse"</string>
 <string name="account">account (khatu)</string>
 <string name="no_payments_available">koi pan payment sulabh nathi</string>
 <string name="change_payment">back (pachad)</string>
@@ -299,7 +299,7 @@
 <string name="friends_installs">apna mitro install kario</string>
 <string name="highlighted_apps">highlited</string>
 <string name="button_more">vadhare</string>
-<string name="setting_category_autoupdate">Aptoide auto update</string>
+<string name="setting_category_autoupdate">%s auto update</string>
 <string name="setting_category_autoupdate_title">Aptoride auto update ne enable karo</string>
 <string name="review_speed">jadap (speed)</string>
 <string name="review_usability">usability (vaprash)</string>

@@ -73,7 +73,7 @@
 <string name="see_top_stores">Prohlédněte nejlepší obchody</string>
 <string name="setcredentials">Přihlášení</string>
 <string name="rollback">Vrátit zpět</string>
-<string name="rollback_empty">Proveďte downgrade na předchozí verzi aplikace a vyřešte problém s kompatibilitou. Udržujeme záznamy o všech vašich nainstalovaných aplikacích včetně jejich verzí a data instalace.</string>
+<string name="rollback_empty">Proveďte downgrade na předchozí verzi aplikace a vyřešte problém s kompatibilitou. Udržujeme záznamy o všech vašich nainstalovaných aplikacích (přes %s) včetně jejich verzí a data instalace.</string>
 <string name="rollback_installed">Nainstalováno</string>
 <string name="rollback_uninstalled">Odinstalováno</string>
 <string name="rollback_updated">Aktualizováno</string>
@@ -85,7 +85,7 @@
 <string name="update_all">Aktualizovat vše</string>
 <string name="username">E-mail</string>
 <string name="username_tip">Zadejte Váš e-mail</string>
-<string name="accept_terms">Přihlášením souhlasíte s Obchodními podmínkami služby Aptoide a Podmínkami používání pro vývojáře</string>
+<string name="accept_terms">Přihlášením souhlasíte s Obchodními podmínkami služby %s a Podmínkami používání pro vývojáře</string>
 <string name="register">Zaregistrovat se</string>
 <string name="or">- Nebo -</string>
 <string name="dont_have_an_account">Ještě nemáte svůj účet? Zaregistrujte se</string>
@@ -240,7 +240,7 @@
 <string name="cancel">Zrušit</string>
 <string name="error_occured_paying">Došlo k chybě. Platba nebyla dokončena.</string>
 <string name="failed_auth_code">Nepodařilo se autorizovat účet. Zkuste to prosím znovu.</string>
-<string name="error_occured_retry_later">Došlo k chybě. Aptoide to automaticky zkusí později.</string>
+<string name="error_occured_retry_later">Došlo k chybě. %s to automaticky zkusí později.</string>
 <string name="account">Účet</string>
 <string name="no_payments_available">Žádné platby nejsou k dispozici.</string>
 <string name="change_payment">Zpět</string>
@@ -256,8 +256,8 @@
 <string name="sponsored">Sponzorováno</string>
 <string name="timeline_like">Líbí se</string>
 <string name="comment">Komentář</string>
-<string name="setting_category_autoupdate">Automatická aktualizace Aptoide</string>
-<string name="setting_category_autoupdate_title">Povolit automatickou aktualizaci Aptoide</string>
+<string name="setting_category_autoupdate">Automatická aktualizace %s</string>
+<string name="setting_category_autoupdate_title">Povolit automatickou aktualizaci %s</string>
 <string name="review_speed">Rychlost</string>
 <string name="review_usability">Použitelnost</string>
 <string name="review_addictive">Návykové</string>
@@ -290,7 +290,7 @@
 
     <string name="error_SYS_Billing">Toto zařízení nepodporuje In-App Billing.</string>
 
-    <string name="aptoide_description">Oficiální Aptoide App Store</string>
+    <string name="aptoide_description">Oficiální %s App Store</string>
 
     <string name="community">Komunita</string>
     <string name="updates">Aktualizace</string>
@@ -418,8 +418,8 @@
 \n%s</string>
     <string name="review_title">Recenze</string>
     <string name="review_good">Dobré</string>
-    <string name="upload_app_backup_apps_installed">Nejdříve musíte nahrát tuto aplikaci do Vašeho obchodu. Můžete použít Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">Nejdříve musíte nahrát tuto aplikaci do Vašeho obchodu. Prosíme, nainstalujte si a použijte Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">Nejdříve musíte nahrát tuto aplikaci do Vašeho obchodu. Můžete použít %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">Nejdříve musíte nahrát tuto aplikaci do Vašeho obchodu. Prosíme, nainstalujte si a použijte %s Backup Apps.</string>
     <string name="upload_app">Nahrát aplikaci</string>
     <string name="create_review">Napsat recenzi</string>
 
@@ -467,7 +467,7 @@
     <string name="reason_third_party">Zkontrolovali jsme podpis aplikace a shoduje se s Google Play Store. Nemějte tedy strach a užijte si aplikaci.</string>
     <string name="reason_scanned">Skenováno pomocí AptoideGuard a dvěma dalšími antivirovými programy.</string>
     <string name="reason_signature">Kryptografický podpis garantuje, že soubor je bezpečný pro instalaci a nebyla nijak porušen.</string>
-    <string name="reason_manual">Tato aplikace byla prověřena expertním týmem Aptoide a byla označena jako dobrá.</string>
+    <string name="reason_manual">Tato aplikace byla prověřena expertním týmem %s a byla označena jako dobrá.</string>
 
     <string name="reply_to">Odpovědět %s</string>
     <string name="comment_submitted">Váš komentář byl úspěšně přidán</string>
@@ -526,9 +526,9 @@
 
 
 
-    <string name="scanned_verified_by_tester">Aplikace byla prověřena testerem týmu Aptoide, který zaručuje její bezpečnost.</string>
-    <string name="scanned_manually_by_aptoide_team">Skenováno týmem Aptoide:</string>
-    <string name="application_signature_blacklisted">Aptoide Anti-Malware nepovažuje podpis aplikace za důvěryhodný, protože byl použit k podpisu jiné aplikace a nesouhlasí s podpisem vývojáře.</string>
+    <string name="scanned_verified_by_tester">Aplikace byla prověřena testerem týmu %s, který zaručuje její bezpečnost.</string>
+    <string name="scanned_manually_by_aptoide_team">Skenováno týmem %s:</string>
+    <string name="application_signature_blacklisted">%s Anti-Malware nepovažuje podpis aplikace za důvěryhodný, protože byl použit k podpisu jiné aplikace a nesouhlasí s podpisem vývojáře.</string>
     <string name="application_signature_not_matched">Podpis aplikace nesouhlasí s podpisem vývojáře. Aplikace mohla být někým pozměněna.</string>
     <string name="application_signature_matched">Podpis aplikace souhlasí s podpisem vývojáře.</string>
     <string name="application_signature_analysis">Podpis aplikace byl srovnán s podpisem vývojáře:</string>
@@ -546,7 +546,7 @@
     <string name="results_in_store">Výsledky vyhledávání v %s obchodů</string>
     <string name="unknown">Neznámý</string>
 
-    <string name="reason_unknown">Na platformě Aptoide Anti-Malware není dost informací o této aplikaci.</string>
+    <string name="reason_unknown">Na platformě %s Anti-Malware není dost informací o této aplikaci.</string>
 
 
 

@@ -72,7 +72,7 @@
 <string name="see_top_stores">הצגת החנויות המובילות</string>
 <string name="setcredentials">כניסה</string>
 <string name="rollback">חזרה למצב קודם</string>
-<string name="rollback_empty">ניתן לשנמך כל יישומון לגרסה קודמת כדי לפתור בעיות תאימות. ניתן לשמור רישום של כל היישומונים המותקנים שלך (דרך אפטויד) לרבות גרסה ותאריך התקנה.</string>
+<string name="rollback_empty">ניתן לשנמך כל יישומון לגרסה קודמת כדי לפתור בעיות תאימות. ניתן לשמור רישום של כל היישומונים המותקנים שלך (דרך %s) לרבות גרסה ותאריך התקנה.</string>
 <string name="rollback_installed">מותקן</string>
 <string name="rollback_uninstalled">לא מותקן</string>
 <string name="rollback_updated">עודכן</string>
@@ -84,7 +84,7 @@
 <string name="update_all">עדכון הכול</string>
 <string name="username">דוא״ל</string>
 <string name="username_tip">נא להזין את הדוא״ל שלך</string>
-<string name="accept_terms">עצם פעולת ההרשמה מהווה הסכם לתנאי השירות ולמדיניות הפרטיות של אפטויד</string>
+<string name="accept_terms">עצם פעולת ההרשמה מהווה הסכם לתנאי השירות ולמדיניות הפרטיות של %s</string>
 <string name="register">הרשמה</string>
 <string name="or">- או -</string>
 <string name="dont_have_an_account">אין לך חשבון? ניתן להירשם</string>
@@ -237,7 +237,7 @@
 <string name="cancel">ביטול</string>
 <string name="error_occured_paying">אירעה שגיאה. התשלום לא בוצע.</string>
 <string name="failed_auth_code">אימות החשבון נכשל. נא לנסות שוב.</string>
-<string name="error_occured_retry_later">אירעה שגיאה. אפטויד תנסה מאוחר יותר אוטומטית.</string>
+<string name="error_occured_retry_later">אירעה שגיאה. %s תנסה מאוחר יותר אוטומטית.</string>
 <string name="account">חשבון</string>
 <string name="no_payments_available">אין תשלומים זמינים.</string>
 <string name="change_payment">חזרה</string>
@@ -304,7 +304,7 @@
 
     <string name="error_SYS_Billing">חיוב מתוך היישומון אינו נתמך בהתקן זה.</string>
 
-    <string name="aptoide_description">חנות היישומונים הרשמית של אפטויד</string>
+    <string name="aptoide_description">חנות היישומונים הרשמית של %s</string>
 
     <string name="error_410">היישומון הנבחר לא נמצא בשרת זה.</string>
 
@@ -412,14 +412,14 @@
     <string name="store_privacy">פרטיות החנות</string>
     <string name="public_key">ציבורית</string>
     <string name="private_key">פרטית</string>
-    <string name="upload_app_backup_apps_installed">עליך להעלות יישומון זה לחנות שלך תחילה. ניתן להשתמש בגיבוי היישומונים באפטויד.</string>
-    <string name="upload_app_backup_apps_not_installed">עליך להעלות את היישומון הזה לחנות שלך תחילה. נא להתקין ולהשתמש בגיבוי היישומונים באפטויד.</string>
+    <string name="upload_app_backup_apps_installed">עליך להעלות יישומון זה לחנות שלך תחילה. ניתן להשתמש בגיבוי היישומונים %s.</string>
+    <string name="upload_app_backup_apps_not_installed">עליך להעלות את היישומון הזה לחנות שלך תחילה. נא להתקין ולהשתמש בגיבוי היישומונים %s.</string>
     <string name="upload_app">העלאת יישומון</string>
     <string name="create_review">כתיבת סקירה</string>
 
     <string name="setting_mobile">דור 3/4 סלולרי</string>
-    <string name="setting_category_autoupdate">עדכון אוטומטי של אפטויד</string>
-    <string name="setting_category_autoupdate_title">הפעלת עדכון אוטומטי של אפטויד</string>
+    <string name="setting_category_autoupdate">עדכון אוטומטי של %s</string>
+    <string name="setting_category_autoupdate_title">הפעלת עדכון אוטומטי של %s</string>
     <string name="setting_dont_show_mature_content">הצגת תוכן למבוגרים</string>
     <string name="whats_new">מה חדש?</string>
     <string name="drawer_social_media_title">בואו נישאר בקשר</string>
@@ -528,14 +528,14 @@
 
 <string name="confirm_carrier_payment">"ברצונך לרכוש את \'{title}\' תמורת {value}? החיוב יתבצע דרך הספקית שלך. "</string>
     <string name="application_signature_not_matched">חתימת היישומון אינה תואמת לחתימת מפתח היישומון. כנראה היישומון הושחת.</string>
-    <string name="scanned_manually_by_aptoide_team">נסרק ידנית ע״י הצוות של אפטויד:</string>
-    <string name="scanned_verified_by_tester">היישומון נסקר ידנית ע״י בוחן מצוות אפטויד, צעד שמבטיח את בטיחות היישומון.</string>
+    <string name="scanned_manually_by_aptoide_team">נסרק ידנית ע״י הצוות של %s:</string>
+    <string name="scanned_verified_by_tester">היישומון נסקר ידנית ע״י בוחן מצוות %s, צעד שמבטיח את בטיחות היישומון.</string>
     <string name="reason_scanned">נסרק ע״י AptoideGuard יחד עם עוד 2 אנטיוירוסים (Zoner 1.8 ו־Sophos 3.0).</string>
     <string name="reason_signature">החתימה הקריפטוגרפית מבטיחה שהקובץ בטוח להתקנה ושלא בוצעה בו חבלה בכל דרך שהיא.</string>
-    <string name="reason_manual">יישומון זה נסקר ידנית על ידי מומחה מצוות אפטויד וסומן כטוב.</string>
+    <string name="reason_manual">יישומון זה נסקר ידנית על ידי מומחה מצוות %s וסומן כטוב.</string>
 
     <string name="reason_failed">חתימת היישומון אינה תואמת חתימת המפתח. ייתכן שבוצעה חבלה בחבילה.</string>
-    <string name="reason_unknown">אין די פרטים על יישומון זה בפלטפורמה למניעת נוזקות של אפטויד.</string>
+    <string name="reason_unknown">אין די פרטים על יישומון זה בפלטפורמה למניעת נוזקות של %s.</string>
 
 
 
@@ -559,5 +559,5 @@
     <string name="no_pass_error_message">נא להזין ססמה כדי להירשם.</string>
     <string name="no_email_error_message">נא להזין כתובת דוא״ל כדי להירשם.</string>
     <string name="website_copied">אתר האינטרנט הועתק ללוח הגזירים</string>
-    <string name="application_signature_blacklisted">חתימת היישום אינה מהימה לפי פלטפורמת מניעת הנוזקות של אפטויד כיוון שנעשה בה שימוש כדי לחתום על יישום אחר שאינו תואם לחתימה הקשורה במפתח החוקי.</string>
+    <string name="application_signature_blacklisted">חתימת היישום אינה מהימה לפי פלטפורמת מניעת הנוזקות של %s כיוון שנעשה בה שימוש כדי לחתום על יישום אחר שאינו תואם לחתימה הקשורה במפתח החוקי.</string>
     </resources>

@@ -88,7 +88,7 @@
 <string name="username">Email</string>
 <string name="username_tip">Введите email</string>
 <string name="subscribe_pvt_store">Подпишитесь нa частный магазин</string>
-<string name="accept_terms">Зарегистрировавшись, вы соглашаетесь с Условиями Предоставления Услуг Aptoide и Политикой Содержимого для разработчиков</string>
+<string name="accept_terms">Зарегистрировавшись, вы соглашаетесь с Условиями Предоставления Услуг %s и Политикой Содержимого для разработчиков</string>
 <string name="register">Зарегистрироваться</string>
 <string name="or">Или</string>
 <string name="dont_have_an_account">Нет учетной записи? Зарегистрируйтесь</string>
@@ -244,7 +244,7 @@
 <string name="cancel">Отмена</string>
 <string name="error_occured_paying">Произошла ошибка. Оплата не была завершена.</string>
 <string name="failed_auth_code">Не удалось авторизироваться. Пожалуйста, попробуйте еще раз.</string>
-<string name="error_occured_retry_later">Произошла ошибка. Aptoide повторит позже автоматически.</string>
+<string name="error_occured_retry_later">Произошла ошибка. %s повторит позже автоматически.</string>
 <string name="account">Аккаунт</string>
 <string name="no_payments_available">Нет доступных платежей.</string>
 <string name="change_payment">Назад</string>
@@ -330,7 +330,7 @@
 
     <string name="error_SYS_Billing">Покупки внутри приложения не поддерживаются на этом устройстве.</string>
 
-    <string name="aptoide_description">Официальный магазин приложений Aptoide</string>
+    <string name="aptoide_description">Официальный магазин приложений %s</string>
 
     <string name="community">Сообщество</string>
     <string name="updates">Обновления</string>
@@ -388,8 +388,8 @@
 \n%s</string>
     <string name="review_title">Отзывы</string>
     <string name="review_good">Хорошо</string>
-    <string name="upload_app_backup_apps_installed">Вам нужно сначала загрузить это приложение в ваш магазин.\nВы можете использовать Aptoide Backup Apps.</string>
-    <string name="upload_app_backup_apps_not_installed">Вам нужно сначала загрузить это приложение в ваш магазин. Пожалуйста, установите и воспользуйтесь Aptoide Backup Apps.</string>
+    <string name="upload_app_backup_apps_installed">Вам нужно сначала загрузить это приложение в ваш магазин.\nВы можете использовать %s Backup Apps.</string>
+    <string name="upload_app_backup_apps_not_installed">Вам нужно сначала загрузить это приложение в ваш магазин. Пожалуйста, установите и воспользуйтесь %s Backup Apps.</string>
     <string name="upload_app">Загрузить приложение</string>
     <string name="create_review">Создать отзыв</string>
 
@@ -462,8 +462,8 @@
     <string name="application_signature_analysis">Подпись приложения, в сравнении с подписью разработчика:</string>
     <string name="application_signature_matched">Подпись приложения совпадает с подписью разработчика данного приложения.</string>
     <string name="application_signature_not_matched">Подпись приложения не совпадает с подписью разработчика данного приложения. Возможно, что приложение не подлинное.</string>
-    <string name="application_signature_blacklisted">Подпись приложения не является проверенной подписью на платформе безопасности Aptoide потому что она уже использовалась для подтверждения одного неподлинного приложения.</string>
-    <string name="scanned_manually_by_aptoide_team">Сканировано вручную командой Aptoide:</string>
+    <string name="application_signature_blacklisted">Подпись приложения не является проверенной подписью на платформе безопасности %s потому что она уже использовалась для подтверждения одного неподлинного приложения.</string>
+    <string name="scanned_manually_by_aptoide_team">Сканировано вручную командой %s:</string>
     <string name="scanned_verified_by_tester">Приложение было проверено вручную тестером из нашей команды, это гарантирует безопасность приложения.</string>
     <string name="warning">Осторожно</string>
     <string name="trusted_app">Проверенное приложение</string>
@@ -472,10 +472,10 @@
     <string name="reason_third_party">Мы проверили подпись, и она совпадает с Google Play Store, так что наслаждайтесь приложением.</string>
     <string name="reason_scanned">Просканировать с помощью AptoideGuard и двух других антивирусов (Zoner 1.8 и Sophos 3.0).</string>
     <string name="reason_signature">Это криптографическая подпись гарантирует, что файл безопасен для установки и не подвергался внешним вмешательствам.</string>
-    <string name="reason_manual">Это приложение было вручную проверено командой специалистов Aptoide и помечено как \"Хорошее\".</string>
+    <string name="reason_manual">Это приложение было вручную проверено командой специалистов %s и помечено как \"Хорошее\".</string>
 
     <string name="reason_failed">Подпись приложения не совпадает с подписью разработчика. Приложение может быть поддельным.</string>
-    <string name="reason_unknown">Нет достаточной информации об этом приложении в Антифирусной платформе Aptoide.</string>
+    <string name="reason_unknown">Нет достаточной информации об этом приложении в Антифирусной платформе %s.</string>
 
 
 

@@ -86,7 +86,7 @@
     <string name="sign_out">ចាកចេញ</string>
     <string name="logged_as">អ្នកត្រូវបានចុះឈ្មោះប្រើជា៖</string>
 
-    <string name="aptoide_description">ហាងលក់ទំនិញកម្មវិធីផ្លូវការរបស់ Aptoide</string>
+    <string name="aptoide_description">ហាងលក់ទំនិញកម្មវិធីផ្លូវការរបស់ %s</string>
 
     <string name="error_410">សូមអភ័យទេស កម្មវិធីដែលបានស្នើសុំរកពុំឃើញ​នៅក្នុង​ម៉ាស៊ីនផ្ទុកនេះទេ។</string>
 
@@ -130,7 +130,7 @@
     <string name="password_validation_text">"ពាក្យសម្ងាត់ត្រូវមាន​តួអក្សរយ៉ាងតិច 8 តួ និងយ៉ាងហោចណាស់​ត្រូវមាន​ព្យញ្ជនមួយនិង​លេខមួយ ឬតួអក្សរពិសេស (!@#$%*) "</string>
     <string name="about_aptoide_antimalware">ទម្រង់ Aptoide Anti-Malware វិភាគ​កម្មវិធី​ដំណើរការក្នុងពេលនិងផ្តាច់​ការគម្រាមកំហែងនៅក្នុង​ហាងលក់ទំនិញ។ ប្រព័ន្ធនេះ​ស្កែនឯកសារកម្មវិធីថ្មី​ទាំងអស់ពីក្នុងហាងលក់ទំនិញ​និង​បញ្ជាក់​ដោយធ្វើការប្រៀបធៀបទល់​នឹង​កន្លែងទីផ្សារអែនដ្រយផ្សេងទៀត។</string>
     <string name="username_tip">វាយបញ្ចូលអ៊ីម៉ែលរបស់អ្នក</string>
-    <string name="accept_terms">ដោយការបង្កើតឈ្មោះ​ប្រើ អ្នកយល់ព្រម​ជាមួយលក្ខខណ្ឌនៃសេវានិងគោលនយោបាយមាតិកាសម្រាប់អ្នកអភិវឌ្ឍរបស់ Aptoide</string>
+    <string name="accept_terms">ដោយការបង្កើតឈ្មោះ​ប្រើ អ្នកយល់ព្រម​ជាមួយលក្ខខណ្ឌនៃសេវានិងគោលនយោបាយមាតិកាសម្រាប់អ្នកអភិវឌ្ឍរបស់ %s</string>
 
     <string name="start_loading">កំពុងផ្ទុក…</string>
     <string name="store_already_added">ហាងលក់ទំនិញ​ត្រូវបានបន្ថែមរួចហើយ!</string>
@@ -212,7 +212,7 @@
     <string name="schDwnBtn">កាលវិភាគទាញយក</string>
     <string name="added_to_scheduled">ត្រូវបានបន្ថែម​ទៅកាន់ម៉ឺនុយ &gt; កាលវិភាគទាញយក</string>
     <string name="schDown_install">តើអ្នកចង់ដំឡើងកាលវិភាគទាញយកទាំងអស់ឬ?</string>
-    <string name="hidden_adult">កម្មវិធីខ្លះត្រូវបានលាក់ដោយ​ហេតុថាការប្រមូលមាតិកាមនុស្សពេញវ័យ​មានសកម្មភាព។ តើអ្នកចង់រាយបញ្ជីកម្មវិធី​ទាំងនេះឬទេ?</string>
+    <string name="hidden_adult">កម្មវិធីខ្លះត្រូវបានលាក់ដោយ​ហេតុថាការប្រមូលមាតិកាមនុស្សពេញវ័យ​មានសកម្មភាព។ តើអ្នកចង់រាយបញ្ជីកម្មវិធី​នេះឬទេ?</string>
     <string name="dont_show_again">កុំបង្ហាញ​ប្រអប់នេះម្តងទៀតឡើយ</string>
 
     <string name="app_name">Aptoide</string>
@@ -228,7 +228,7 @@
     <string name="downgrade">ទម្លាក់ចំណាត់ថ្នាក់</string>
     <string name="reinstall">ដំឡើងម្តងទៀត</string>
 
-    <string name="rollback_empty">ទម្លាក់ចំណាត់ថ្នាក់កម្មវិធីណាមួយភ្លាមៗទៅកាន់សំណៅពីមុន​និងដោះស្រាយ​បញ្ហាមិនស្របគ្នា។ បន្តរក្សា​ការបិទកម្មវិធីដែលបានដំឡើងរបស់អ្នកទាំងអស់  រួមទាំងកាលបរិច្ឆេទដំឡើងនិងកំណែ។</string>
+    <string name="rollback_empty">ទម្លាក់ចំណាត់ថ្នាក់កម្មវិធីណាមួយភ្លាមៗទៅកាន់សំណៅពីមុន​និងដោះស្រាយ​បញ្ហាមិនស្របគ្នា។ បន្តរក្សា​ការបិទកម្មវិធីដែលបានដំឡើងរបស់អ្នកទាំងអស់ (តាមរយៈ %s) រួមទាំងកាលបរិច្ឆេទដំឡើងនិងកំណែ។</string>
 
     <string name="see_more">បង្ហាញថែមទៀត</string>
     <string name="see_less">បង្ហាញមកតិច</string>
@@ -272,7 +272,7 @@
     <string name="no_payments_available">គ្មានការទូទាត់នៅមានឡើយ។</string>
     <string name="failed_auth_code">បរាជ័យក្នុងការផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវគណនេយ្យ។ សូមព្យាយាមម្តងទៀត។</string>
     <string name="error_occured_paying">កំហុសបានកើតមាន។ ការទូទាត់មិនត្រូវបញ្ចប់ពេញលេញ។</string>
-    <string name="error_occured_retry_later">កំហុសកើតមាន។ Aptoide នឹងព្យាយាមម្តងទៀតដោយស្វ័យប្រវត្តិ។</string>
+    <string name="error_occured_retry_later">កំហុសកើតមាន។ %s នឹងព្យាយាមម្តងទៀតដោយស្វ័យប្រវត្តិ។</string>
     <string name="account">គណនេយ្យ</string>
     <string name="confirm_carrier_payment">"តើអ្នកចង់ទិញ \'{ចំណងជើង}\' សម្រាប់ {តម្លៃ}ឬ? អ្នកនឹងត្រូវឱ្យទទួលបន្ទុកពីក្រុមហ៊ុនរបស់អ្នក។ "</string>
     <string name="buy">ទិញ</string>
@@ -354,8 +354,8 @@
     <string name="private_key">ឯកជន</string>
     <string name="store_username">ឈ្មោះអ្នកប្រើ</string>
     <string name="store_password">ពាក្យសម្ងាត់</string>
-    <string name="upload_app_backup_apps_installed">អ្នកត្រូវផ្ទុកកម្មវិធីនេះក្នុងហាងលក់ទំនិញទីមួយរបស់អ្នក។ អ្នកអាច​ប្រើកម្មវិធីរក្សាទុកទិន្នន័យ Aptoide។</string>
-    <string name="upload_app_backup_apps_not_installed">អ្នកត្រូវផ្ទុក​កម្មវិធីនេះ​ទៅ​ហាងលក់ទំនិញទីមួយរបស់អ្នក។ សូម​ដំឡើងនិងប្រើប្រាស់​កម្មវិធីរក្សាទុកទិន្នន័យ Aptoide។</string>
+    <string name="upload_app_backup_apps_installed">អ្នកត្រូវផ្ទុកកម្មវិធីនេះក្នុងហាងលក់ទំនិញទីមួយរបស់អ្នក។ អ្នកអាច​ប្រើកម្មវិធីរក្សាទុកទិន្នន័យ %s។</string>
+    <string name="upload_app_backup_apps_not_installed">អ្នកត្រូវផ្ទុក​កម្មវិធីនេះ​ទៅ​ហាងលក់ទំនិញទីមួយរបស់អ្នក។ សូម​ដំឡើងនិងប្រើប្រាស់​កម្មវិធីរក្សាទុកទិន្នន័យ %s។</string>
     <string name="upload_app">ផ្ទុកកម្មវិធី</string>
     <string name="create_review">បង្កើតការពិនិត្យឡើងវិញ</string>
 
@@ -380,8 +380,8 @@
     <string name="setting_hwspecssum">ព័ត៌មានហាដវែរអំពីទូរស័ព្ទរបស់អ្នក</string>
     <string name="setting_appfiltersum">កុំបង្ហាញកម្មវិធីដែលមិនដំណើរការជាមួយឧបករណ៍នេះ</string>
     <string name="setting_appfiltertitle">កម្មវិធីចម្រាញ់</string>
-    <string name="setting_category_autoupdate">កម្មវិធីធ្វើបច្ចុប្បភាពស្វ័យប្រវត្តិ Aptoide</string>
-    <string name="setting_category_autoupdate_title">ភ្ជាប់កម្មវិធីធ្វើបច្ចុប្បភាពស្វ័យប្រវត្តិ Aptoide</string>
+    <string name="setting_category_autoupdate">កម្មវិធីធ្វើបច្ចុប្បភាពស្វ័យប្រវត្តិ %s</string>
+    <string name="setting_category_autoupdate_title">ភ្ជាប់កម្មវិធីធ្វើបច្ចុប្បភាពស្វ័យប្រវត្តិ %s</string>
     <string name="setting_dont_show_mature_content">បង្ហាញមាតិកាចាស់ទុំ</string>
     <string name="setting_mature_filtering">មាតិកាមនុស្សពេញវ័យ</string>
     <string name="setting_updates">បច្ចុប្បន្នភាព</string>
@@ -481,9 +481,9 @@
     <string name="application_signature_analysis">កម្មវិធីហត្ថលេខាត្រូវបានប្រៀបធៀបជាមួយហត្ថលេខាអ្នកអភិវឌ្ឍ៖</string>
     <string name="application_signature_matched">ហត្ថលេខាកម្មវិធីត្រូវគ្នានឹងហត្ថលេខាទាក់ទងនឹងកម្មវិធីអ្នកអភិវឌ្ឍ។</string>
     <string name="application_signature_not_matched">ហត្ថលេខាកម្មវិធីមិនត្រូវគ្នាជាមួយហត្ថលេខាទាក់ទងនឹងកម្មវិធីអ្នកអភិវឌ្ឍ។ កម្មវិធីអាចត្រូវបានផ្តល់ភាពពេញលក្ខណៈ។</string>
-    <string name="application_signature_blacklisted">ហត្ថលេខាកម្មវិធីមិនមែនហត្ថលេខាបានទំនុកចិត្តនៅ​ទម្រង់ប្រឆំាភាពខូចរបស់ Aptoide ពីព្រោះវាត្រូវបានប្រើប្រាស់ដើម្បីចុះហត្ថលេខាកម្មវិធីមួយផ្សេង​ដែល​មិន​ត្រូវគ្នាជាមួយហត្ថលេខាទាក់ទងនឹង​អ្នកអភិវឌ្ឍ។</string>
-    <string name="scanned_manually_by_aptoide_team">ត្រូវបានស្កែនដោយដៃដោយក្រុម Aptoide៖</string>
-    <string name="scanned_verified_by_tester">កម្មវិធីនេះត្រូវបានពិនិត្យមើលដោយដៃដោយអ្នកសាកល្បងពីក្រុម Aptoide ដែលធានានូវសុវត្ថិភាពនៃកម្មវិធី។</string>
+    <string name="application_signature_blacklisted">ហត្ថលេខាកម្មវិធីមិនមែនហត្ថលេខាបានទំនុកចិត្តនៅ​ទម្រង់ប្រឆំាភាពខូចរបស់ %s ពីព្រោះវាត្រូវបានប្រើប្រាស់ដើម្បីចុះហត្ថលេខាកម្មវិធីមួយផ្សេង​ដែល​មិន​ត្រូវគ្នាជាមួយហត្ថលេខាទាក់ទងនឹង​អ្នកអភិវឌ្ឍ។</string>
+    <string name="scanned_manually_by_aptoide_team">ត្រូវបានស្កែនដោយដៃដោយក្រុម %s៖</string>
+    <string name="scanned_verified_by_tester">កម្មវិធីនេះត្រូវបានពិនិត្យមើលដោយដៃដោយអ្នកសាកល្បងពីក្រុម %s ដែលធានានូវសុវត្ថិភាពនៃកម្មវិធី។</string>
     <string name="warning">ការព្រមាន</string>
     <string name="trusted_app">កម្មវិធីផ្តល់ទំនុកចិត្ត</string>
     <string name="unknown">មិនស្គាល់</string>
@@ -491,10 +491,10 @@
     <string name="reason_third_party">យើងបានត្រួតពិនិត្យមើលហត្ថលេខារបស់កម្មវិធីហើយវាត្រូវគ្នាជាមួយ​នឹង​ហាងលក់ទំនិញហ្គូហ្គលផ្លេ ដូច្នេះចូរមានអារម្មណ៍សុវត្ថិភាព​និង​រីករាយ​ជាមួយកម្មវិធី។</string>
     <string name="reason_scanned">ត្រូវបានស្កែន​ជាមួយ AptoideGuard បូកកម្មវិធីកម្ចាត់មេរោគ២ផ្សេងគ្នា (Zoner 1.8 និង Sophos 3.0)។</string>
     <string name="reason_signature">ហត្ថលេខាគ្រីបធានាថាឯកសារមានសុវត្ថិភាពក្នុងការដំឡើងនិងមិនត្រូវបានជ្រៀតជ្រែកតាមវិធីណាមួយនោះទេ។</string>
-    <string name="reason_manual">កម្មវិធីនេះត្រូវបានពិនិត្យមើលឡើងវិញដោយដៃដោយ​ក្រុមជំនាញការរបស់ Aptoide និងត្រូវបាន​ផ្តល់ទង់ថាល្អ។</string>
+    <string name="reason_manual">កម្មវិធីនេះត្រូវបានពិនិត្យមើលឡើងវិញដោយដៃដោយ​ក្រុមជំនាញការរបស់ %s និងត្រូវបាន​ផ្តល់ទង់ថាល្អ។</string>
 
     <string name="reason_failed">ហត្ថលេខាកម្មវិធីមិនត្រូវគ្នាជាមួយហត្ថលេខារបស់អ្នកអភិវឌ្ឍ។ កម្មវិធីអាចត្រូវបានជ្រៀតជ្រែក។</string>
-    <string name="reason_unknown">វាមិនមានព័ត៌មានគ្រប់គ្រាន់អំពីកម្មវិធីនេះនៅក្នុងទម្រង់ប្រឆាំងមេរោគ Aptoide។</string>
+    <string name="reason_unknown">វាមិនមានព័ត៌មានគ្រប់គ្រាន់អំពីកម្មវិធីនេះនៅក្នុងទម្រង់ប្រឆាំងមេរោគ %s។</string>
 
 
 
@@ -635,4 +635,43 @@
     <string name="trending">និន្នាការ</string>
     <string name="trivia">រឿងតូចតាច</string>
     <string name="word">ពាក្យ</string>
+<string name="updates_filter_setting_title">គ្រាន់តែបង្ហាញខ្ញុំអំពីកំណែកម្មវិធីធ្វើឱ្យទាន់សម័យដែលមានស្ថេរភាព</string>
+    <string name="balloon_security_google_play">កម្មវិធីត្រូវជាមួយ</string>
+    <string name="balloon_security_subtitle">នៅពេលនេះ យើងត្រួតពិនិត្យមើលមេរោគលើកម្មវិធីទាំងអស់.</string>
+    <string name="balloon_security_title">Aptoide បានផ្លាស់ប្តូរ.</string>
+    <string name="balloon_security_subtitle_start_part">"យើងបានពិនិត្យមើល %1$s "</string>
+    <string name="balloon_security_subtitle_final_part">" សម្រាប់មេរោគ:"</string>
+    <string name="updates_filter_summary">សូមពិនិត្យមើលត្រង់នេះ, អ្នកនឹងមិនត្រូវបានជូនដំណឹងអំពីកំណែសាកល្បងឡើយ.</string>
+
+    <string name="health">សុខភាព</string>
+    <string name="highlighted">បានចាក់ពណ៌</string>
+    <string name="local_top_apps">កម្មវិធីពេញនិយមមូលដ្ឋាន</string>
+    <string name="medical">វេជ្ជសាស្ត្រ</string>
+    <string name="multimedia">ពហុមេឌៀ</string>
+    <string name="music">តន្ត្រី</string>
+    <string name="music_audio">តន្ត្រី &amp; សំឡេងអូឌីយូ</string>
+    <string name="reference">ការយោង</string>
+    <string name="travel">ធ្វើដំណើរ</string>
+    <string name="libraries_demo">បណ្ណាល័យ &amp; សាកល្បង</string>
+    <string name="shopping">ការដើរផ្សារ</string>
+    <string name="weather">អាកាសធាតុ</string>
+
+    <string name="latest_applications">កម្មវិធីចុងក្រោយបង្អស់</string>
+    <string name="top_apps_in_store">កម្មវិធីពេញនិយមនៅក្នុងហាងលក់ទំនិញនេះ</string>
+    <string name="apps_for_kids">កម្មវិធីសម្រាប់ក្មេង</string>
+    <string name="aptoide_publishers">កម្មវិធីបោះពុម្ពផ្សាយ Aptoide</string>
+    <string name="music_video">តន្ត្រី &amp; វីដេអូ</string>
+    <string name="essential_apps">កម្មវិធីពិសេស</string>
+    <string name="summer_apps">កម្មវិធីរដូវក្តៅ</string>
+    <string name="play_it">ចាក់លេង-វា!</string>
+    <string name="add_more_stores">បន្ថែមហាងលក់ទំនិញច្រើនទៀត</string>
+    <string name="unsubscribe">ឈប់ជាវ</string>
+
+    <string name="dialog_install_warning_proceed_button">ដំណើរការបន្ត</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">ស្វែងរកសម្រាប់</string>
+    <string name="dialog_install_warning_trusted_app_button">កម្មវិធីផ្តល់ទំនុកចិត្ត</string>
+    <string name="dialog_install_warning_careful_text">ចូរប្រយ័ត្នប្រសិនបើអ្នកជ្រើសដំឡើងកម្មវិធីនេះ. វាអាចមានបន្លំមេរោគនិងកម្មវិធីមិនល្អ.</string>
+    <string name="dialog_install_warning_credibility_text">មុនពេលដំណើរការបន្ត, ត្រួតពិនិត្យមើលលទ្ធភាពរបស់ហាងលក់ទំនិញនិងមតិរបស់អ្នកប្រើផ្សេងទៀត. Aptoide តែងតែផ្តល់អនុសាសន៍ថាអ្នកដំឡើងតែកម្មវិធីផ្តល់ទំនុកចិត្្ត %1$s ប៉ុណ្ណោះ.</string>
+    <string name="dialog_install_warning_trusted_version_button">កំណែត្រូវបានទុកចិត្ត</string>
+    <string name="dialog_install_warning_get_trusted_version_button">ទទួល</string>
 </resources>

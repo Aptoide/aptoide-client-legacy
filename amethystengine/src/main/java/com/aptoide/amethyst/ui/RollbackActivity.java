@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
@@ -16,6 +17,7 @@ import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.database.SimpleCursorLoader;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.squareup.otto.Subscribe;
 
 
@@ -29,7 +31,7 @@ import com.aptoide.amethyst.events.OttoEvents;
 public class RollbackActivity extends AptoideBaseActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     Toolbar mToolbar;
-
+    TextView mRollbackText;
     private RollBackAdapter rollBackAdapter;
 
     @Subscribe
@@ -48,6 +50,10 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
         bindViews();
+
+        /*String rollbackStringResource=getResources().getString(R.string.rollback_empty);
+        String rollbackStringFormatted= String.format(rollbackStringResource, Aptoide.getConfiguration().getMarketName());*/
+        mRollbackText.setText(AptoideUtils.StringUtils.getFormattedString(getApplicationContext(), R.string.rollback_empty, Aptoide.getConfiguration().getMarketName()));
 
         rollBackAdapter = new RollBackAdapter(this);
 
@@ -74,6 +80,7 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
 
     protected void bindViews() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mRollbackText=(TextView) findViewById(R.id.empty);
     }
 
     @Override

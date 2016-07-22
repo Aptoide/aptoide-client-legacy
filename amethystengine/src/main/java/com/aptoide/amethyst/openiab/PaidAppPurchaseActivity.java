@@ -209,7 +209,9 @@ public class PaidAppPurchaseActivity extends BasePurchaseActivity {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
                 AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                Toast.makeText(Aptoide.getContext(), R.string.error_occured_retry_later, Toast.LENGTH_LONG).show();
+                String error_occured_retry_later_resource=getResources().getString( R.string.error_occured_retry_later);
+                String error_occured_retry_later_formatted= String.format(error_occured_retry_later_resource,Aptoide.getConfiguration().getMarketName());
+                Toast.makeText(Aptoide.getContext(), error_occured_retry_later_formatted, Toast.LENGTH_LONG).show();
 
                 PendingIntent intent = PendingIntent.getBroadcast(getApplicationContext(), 1,
                         buildIntentForAlarm(confirmation, "paidapk"), PendingIntent.FLAG_UPDATE_CURRENT);

@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.IPackageInstallObserver;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,6 +28,8 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Locale;
 
 
@@ -91,6 +94,19 @@ public class DownloadUtils {
     public static int dpToPixels(Context context, int dpi) {
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         return (int) (dpi * dm.density);
+    }
+
+    public static final int INSTALL_REPLACE_EXISTING = 0x00000002;
+
+    public static void installWithSystem(String path) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        File file = new File(path);
+        Uri packageUri = Uri.fromFile(file);
+
+        PackageManager pkgManager = Aptoide.getContext().getPackageManager();
+        Method installPackage;
+        installPackage = pkgManager.getClass().getMethod("installPackage", Uri.class, IPackageInstallObserver.class, int.class, String.class);
+        Object[] params = new Object[] { packageUri, null, INSTALL_REPLACE_EXISTING, "" };
+        installPackage.invoke(pkgManager, params);
     }
 
     public static void installWithRoot(final FinishedApk apk) {

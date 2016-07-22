@@ -68,7 +68,7 @@
 <string name="see_top_stores">Xem các cửa hàng hàng đầu</string>
 <string name="setcredentials">Đăng nhập</string>
 <string name="rollback">Ứng dụng gần đây</string>
-<string name="rollback_empty">Nhanh chóng hạ cấp bất kỳ ứng dụng nào xuống phiên bản trước đó và giải quyết các vấn đề tương thích. Giữ một bản ghi của tất cả các ứng dụng đã cài đặt của bạn bao gồm cả phiên bản và ngày cài đặt.</string>
+<string name="rollback_empty">Nhanh chóng hạ cấp bất kỳ ứng dụng nào xuống phiên bản trước đó và giải quyết các vấn đề tương thích. Giữ một bản ghi của tất cả các ứng dụng đã cài đặt của bạn (thông qua %s) bao gồm cả phiên bản và ngày cài đặt.</string>
 <string name="rollback_installed">Đã Cài Đặt</string>
 <string name="rollback_uninstalled">Đã gỡ bỏ</string>
 <string name="rollback_updated">Đã cập nhật</string>
@@ -80,7 +80,7 @@
 <string name="update_all">Cập nhật tất cả</string>
 <string name="username">Email</string>
 <string name="username_tip">Nhập email của bạn</string>
-<string name="accept_terms">Bằng việc đăng ký bạn đã đồng ý với các Quy Định Dịch Vụ và Chính Sách Nội Dung của Aptoide dành cho Lập trinh viên</string>
+<string name="accept_terms">Bằng việc đăng ký bạn đã đồng ý với các Quy Định Dịch Vụ và Chính Sách Nội Dung của %s dành cho Lập trinh viên</string>
 <string name="register">Đăng Ký</string>
 <string name="or">- Hoặc -</string>
 <string name="dont_have_an_account">Chưa có tài khoản? Đăng ký</string>
@@ -140,7 +140,7 @@
 <string name="error_MARG_100">Thiếu tên ứng dụng</string>
 <string name="error_MARG_101">Thiếu chú thích</string>
 <string name="error_MARG_102">Thiếu danh mục</string>
-<string name="error_MARG_103">Thiếu rating</string>
+<string name="error_MARG_103">Thiếu đánh giá</string>
 <string name="error_MARG_104">Thiếu đánh dấu</string>
 <string name="error_MARG_105">Thiếu nhận xét</string>
 <string name="error_MARG_106">Thiếu bình chọn</string>
@@ -233,7 +233,7 @@
 <string name="cancel">Hủy</string>
 <string name="error_occured_paying">Một lỗi đã xảy ra. Thanh toán không thể hoàn tất.</string>
 <string name="failed_auth_code">Cấp phép tài khoản thất bại. Xin thử lại.</string>
-<string name="error_occured_retry_later">Một lỗi đã xảy ra. Aptoide sẽ tự động thử lại sau.</string>
+<string name="error_occured_retry_later">Một lỗi đã xảy ra. %s sẽ tự động thử lại sau.</string>
 <string name="account">Tài khoản</string>
 <string name="no_payments_available">Không có sẵn thanh toán.</string>
 <string name="change_payment">Trở lại</string>
@@ -261,7 +261,7 @@
 
     <string name="error_SYS_Billing">In-App Billing không được hỗ trợ trong thiết bị này.</string>
 
-    <string name="aptoide_description">Cửa hàng ứng dụng Aptoide chính thức</string>
+    <string name="aptoide_description">Cửa hàng ứng dụng %s chính thức</string>
 
     <string name="community">Cộng đồng</string>
     <string name="updates">Cập nhật</string>
@@ -358,7 +358,7 @@
     <string name="and">và</string>
     <string name="more_friends">Xem thêm</string>
     <string name="more_reviews">Lượt xem</string>
-    <string name="more_editors_choice">Lựa chọn nhiều chỉnh sửa hơn</string>
+    <string name="more_editors_choice">Thêm lựa chọn từ Ban biên tập</string>
     <string name="more_versions">Nhiều phiên bản hơn</string>
     <string name="facebook_friends_list_using_timeline_empty">"Dòng thời gian xã hội cho phép bạn chia sẻ ứng dụng với bạn bè Facebook  của mình. Bạn có muốn tham gia vào mạng lưới không?"</string>
     <string name="timeline_not_compatible">Ooohhh… Tính năng này không tương thích với phiên bản Android của bạn</string>
@@ -406,18 +406,18 @@
     <string name="store_privacy">Cửa hàng riêng tư</string>
     <string name="public_key">công khai</string>
     <string name="private_key">riêng tư</string>
-    <string name="upload_app_backup_apps_installed">Bạn cần đăng tải ứng dụng này lên cửa hàng của bạn trước tiên. Bạn có thể sử dụng Ứng dụng Hỗ trợ Aptoide.</string>
-    <string name="upload_app_backup_apps_not_installed">Bạn cần phải tải ứng dụng này lên cửa hàng của mình đầu tiên. Vui lòng cài đặt và sử dụng Ứng dụng hỗ trợ Aptoide.</string>
+    <string name="upload_app_backup_apps_installed">Bạn cần đăng tải ứng dụng này lên cửa hàng của bạn trước tiên. Bạn có thể sử dụng Ứng dụng Hỗ trợ %s.</string>
+    <string name="upload_app_backup_apps_not_installed">Bạn cần phải tải ứng dụng này lên cửa hàng của mình đầu tiên. Vui lòng cài đặt và sử dụng Ứng dụng hỗ trợ %s.</string>
     <string name="upload_app">Đăng tải ứng dụng</string>
     <string name="create_review">Viết nhận xét</string>
 
     <string name="settings_dwn_network_rules">Tùy chọn mạng di động</string>
     <string name="setting_sum_icon_download_rules">Cho phép tải biểu tượng qua kết nối dữ liệu di động</string>
     <string name="setting_mobile">Điện thoại 3G/4G</string>
-    <string name="setting_sum_general_download_rules">Tải Ứng dụng, Lựa chọn chỉnh sửa, Ứng dựng hàng đầu và cửa hàng qua kết nối dữ liệu di động cho phép</string>
+    <string name="setting_sum_general_download_rules">Tải Ứng dụng, Lựa chọn từ Ban biên tập, Ứng dựng hàng đầu và Cửa hàng qua kết nối dữ liệu di động cho phép</string>
     <string name="setting_general_download_rules">Nội quy tải về tổng quát</string>
-    <string name="setting_category_autoupdate">Cập nhật tự động Aptoide</string>
-    <string name="setting_category_autoupdate_title">Kích hoạt tính năng tự động cập nhật Aptoide</string>
+    <string name="setting_category_autoupdate">Cập nhật tự động %s</string>
+    <string name="setting_category_autoupdate_title">Kích hoạt tính năng tự động cập nhật %s</string>
     <string name="setting_dont_show_mature_content">Hiển thị nội dung dành cho người trưởng thành</string>
     <string name="whats_new">Cái mới là gì vậy?</string>
     <string name="disable_social_timeline">Vô hiệu hoá Dòng thời gian xã hội</string>
@@ -463,9 +463,9 @@
     <string name="application_signature_analysis">Chữ kí ứng dụng so sánh với chữ kí lập trình:</string>
     <string name="application_signature_matched">Chữ kí ứng dụng khớp với chữ kí liên quan tới lập trình viên ứng dụng.</string>
     <string name="application_signature_not_matched">Chữ kí ứng dụng không khớp với chữ kí liên quan tới lập trình viên ứng dụng. Ứng dụng có thể bị giả mạo.</string>
-    <string name="application_signature_blacklisted">Chữ kí ứng dụng không phải là chữ kí đáng tin cậy ở khu Chống phần mềm giả mạo Aptoide vì nó đã được dùng để kí ứng dụng khác mà không khớp với chữ kí liên quan tới lập trình viên hợp lệ.</string>
-    <string name="scanned_manually_by_aptoide_team">Nhóm Aptoide đã quét bằng tay:</string>
-    <string name="scanned_verified_by_tester">Ứng dụng này đã được một kiểm viên từ nhóm Aptoide xem xét đảm bảo an toàn của các ứng dụng.</string>
+    <string name="application_signature_blacklisted">Chữ kí ứng dụng không phải là chữ kí đáng tin cậy ở khu Chống phần mềm giả mạo %s vì nó đã được dùng để kí ứng dụng khác mà không khớp với chữ kí liên quan tới lập trình viên hợp lệ.</string>
+    <string name="scanned_manually_by_aptoide_team">Nhóm %s đã quét bằng tay:</string>
+    <string name="scanned_verified_by_tester">Ứng dụng này đã được một kiểm viên từ nhóm %s xem xét đảm bảo an toàn của các ứng dụng.</string>
     <string name="warning">Cảnh báo</string>
     <string name="trusted_app">Ứng dụng đáng tin cậy</string>
     <string name="unknown">Không được biết đến</string>
@@ -473,10 +473,10 @@
     <string name="reason_third_party">Chúng tôi vừa kiểm tra chữ kí của ứng dụng và nó khớp với Cửa hàng Google Play, vì thế hãy thoải mái và thưởng thức ứng dụng.</string>
     <string name="reason_scanned">Quét bằng AptoideGuard thêm 2 phần mềm diệt vi rút khác (Zoner 1.8 và Sophos 3.0).</string>
     <string name="reason_signature">Chữ ký mật mã đảm bảo rằng tập tin an toàn để cài đặt và không bị xâm nhập.</string>
-    <string name="reason_manual">Ứng dụng này đã được đánh giá thủ công bởi đội ngũ chuyên gia của Aptoide, và được đánh dấu Tốt.</string>
+    <string name="reason_manual">Ứng dụng này đã được đánh giá thủ công bởi đội ngũ chuyên gia của %s, và được đánh dấu Tốt.</string>
 
     <string name="reason_failed">Chữ ký ứng dụng không khớp với chữ ký của lập trình viên. Ứng dụng có thể đã bị giả mạo.</string>
-    <string name="reason_unknown">Không có đủ thông tin về ứng dụng này trong nền tảng chống mã độc Aptoide.</string>
+    <string name="reason_unknown">Không có đủ thông tin về ứng dụng này trong nền tảng chống mã độc %s.</string>
 
 
 
@@ -638,4 +638,21 @@
     <string name="libraries_demo">Các thư viện và Demo</string>
     <string name="arcade_action">Hành động và giải trí</string>
     <string name="arcade">Trò chơi trên một loại máy sử dụng đồng xu</string>
+    <string name="unsubscribe">Bỏ theo dõi</string>
+<string name="balloon_security_google_play">Ứng dụng trùng với</string>
+    <string name="balloon_security_subtitle">Chúng tôi đang kiểm tra virus cho tất cả các ứng dụng.</string>
+    <string name="balloon_security_title">Aptoide đã thay đổi.</string>
+    <string name="balloon_security_subtitle_start_part">"Chúng tôi đã kiểm tra %1$s "</string>
+    <string name="add_more_stores">Thêm nhiều cửa hàng nữa</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">Tìm kiếm</string>
+    <string name="dialog_install_warning_trusted_app_button">App tin cậy</string>
+    <string name="dialog_install_warning_careful_text">Hãy cẩn thận khi cài đặt ứng dụng này. Nó có thể bị giả mạo, có virus hoặc phần mềm độc hại.</string>
+    <string name="dialog_install_warning_trusted_version_button">Phiên bản tin cậy</string>
+    <string name="balloon_security_subtitle_final_part">" đối với virus:"</string>
+    <string name="updates_filter_summary">Đang kiểm tra điều này, bạn sẽ không được thông báo về phiên bản beta.</string>
+
+    <string name="dialog_install_warning_credibility_text">Trước khi tiến hành, hãy kiểm tra sự tín nhiệm và các bình luận của những người dùng khác của Cửa hàng. Aptoide luôn khuyến cáo bạn chỉ nên cài đặt các ứng dụng tin cậy %1$.</string>
+    <string name="dialog_install_warning_get_trusted_version_button">Nhận được</string>
+<string name="dialog_install_warning_proceed_button">Tiến hành</string>
+    <string name="updates_filter_setting_title">Chỉ hiện thị những phiên bản ứng dụng ổn định</string>
     </resources>
