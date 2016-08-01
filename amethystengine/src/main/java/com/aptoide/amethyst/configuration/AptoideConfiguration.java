@@ -249,4 +249,8 @@ public class AptoideConfiguration {
         return 1;
     }
 
+    public String getSupportEmail() {
+        return "support@aptoide.com";
+    }
+
 }
