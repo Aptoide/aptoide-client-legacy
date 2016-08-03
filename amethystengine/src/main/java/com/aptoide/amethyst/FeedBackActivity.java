@@ -131,8 +131,7 @@ public class FeedBackActivity extends AptoideBaseActivity {
         Intent emailIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
         emailIntent.setType("message/rfc822");
 
-        //emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{Aptoide.getConfiguration().getSupportEmail()});
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"pedro.ribeiro@aptoide.com"});
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{Aptoide.getConfiguration().getSupportEmail()});
 
         String versionName = "";
 
