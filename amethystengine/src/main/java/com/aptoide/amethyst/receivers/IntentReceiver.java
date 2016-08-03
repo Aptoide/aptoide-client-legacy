@@ -70,7 +70,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
     
 //    private Class startClass = Aptoide.getConfiguration().getStartActivityClass();
 //    private Class appViewClass = Aptoide.getConfiguration().getAppViewActivityClass();
-    private Class startClass = MainActivity.class;
+    private Class startClass = Aptoide.getConfiguration().getMainActivity();
     private Class appViewClass = AppViewActivity.class;
     private Class searchManagerClass = SearchManager.class;
 
