@@ -17,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.SearchUtils;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
@@ -164,6 +165,9 @@ public class MoreSearchActivity extends MoreActivity {
                         displayableList.add(new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                     }
                     displayableList.addAll(apkList);
+                    if(SearchUtils.contains(query) && Aptoide.getConfiguration().getDefaultStore().contains("aban")){
+                        displayableList.clear();
+                    }
                 }
                 offset += apkList.size();
                 getAdapter().notifyDataSetChanged();
