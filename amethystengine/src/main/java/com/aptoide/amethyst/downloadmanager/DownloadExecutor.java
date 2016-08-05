@@ -178,7 +178,9 @@ public class DownloadExecutor implements Serializable {
         }
         if (Aptoide.IS_SYSTEM) {
             try {
-                DownloadUtils.installWithSystem(apk.getPath().toString());
+                if (sPref.getBoolean("allowRoot", true)) {
+                    DownloadUtils.installWithSystem(apk.getPath().toString());
+                }
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
