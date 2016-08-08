@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheWrapper;
@@ -18,6 +19,8 @@ import java.io.File;
  */
 public class AptoideGlideModule implements GlideModule {
 
+    private static final int REDUCER = 4;
+
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {
         builder.setDiskCache(new DiskCache.Factory() {
@@ -30,10 +33,14 @@ public class AptoideGlideModule implements GlideModule {
         });
 
         final MemorySizeCalculator calculator = new MemorySizeCalculator(context);
+
         final int defaultMemoryCacheSize = calculator.getMemoryCacheSize();
-        builder.setMemoryCache(new LruResourceCache(defaultMemoryCacheSize / 2));
+        builder.setMemoryCache(new LruResourceCache(defaultMemoryCacheSize / REDUCER));
+
         final int defaultBitmapPoolSize = calculator.getBitmapPoolSize();
-        builder.setBitmapPool(new LruBitmapPool(defaultBitmapPoolSize / 2));
+        builder.setBitmapPool(new LruBitmapPool(defaultBitmapPoolSize / REDUCER));
+
+        builder.setDecodeFormat(DecodeFormat.PREFER_RGB_565);
     }
 
     @Override

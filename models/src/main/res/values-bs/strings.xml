@@ -234,8 +234,7 @@
   <string name="application_signature_matched">"Potpis aplikacije podudara se s potpisom  developera aplikacije."</string>
   <string name="application_signature_not_matched">Potpis aplikacije se ne podudara sa potpisom developera aplikacije. Aplikacija je možda izmjenjena.</string>
   <string name="application_signature_blacklisted">Potpis aplikacije nije Pouzdan potpis u %s Anti-Malware platformi zbog toga jer je korišten za potpis drugih aplikacija koje se ne podudaraju potpisima povezanim s zakonitim developerom.</string>
-  <string name="scanned_verified_by_tester">Aplikacija je pregledana ručno od strane testera iz %s
-    Tima koji jamči sigurnost aplikacije.</string>
+  <string name="scanned_verified_by_tester">Aplikacija je pregledana ručno od strane testera iz %s Tima koji jamči sigurnost aplikacije.</string>
   <string name="schDown_nodownloadselect">Nema odabranih preuzimanja</string>
   <string name="addSchDown">Dodano u zakazana preuzimanja</string>
   <string name="added_to_scheduled">Dodano u meni &gt; Planirana preuzimanja</string>

@@ -276,7 +276,7 @@
 <string name="facebook_private_actions">Ta appka nie będzie zamieszczona na Facebooku</string>
 <string name="invite_friends">Zaproś znajomych</string>
 <string name="facebook_timeline_friends_invited">Znajomi zaproszeni!</string>
-<string name="friends_to_invite">Wszyscy pozostali znajomi z Facebooka w %s</string>
+<string name="friends_to_invite">Wszyscy pozostali znajomi z Facebooka w Aptoide</string>
 <string name="timeline_is_empty_no_friends">"Twoja Linia czasu jest pusta. Prawdopodobnie  nie masz jeszcze znajomych w Aptoide lub nie zamieścili żadnych wiadomości."</string>
 <string name="timeline_is_empty_start_invite">Zacznij od zaproszenia znajomych:</string>
 <string name="timeline_empty_no_friends_send_email">Wygląda na to, że Twoi znajomi nie zalogowali się do Aptoide kontem Facebooka. Wyślij im emaila aby zalogowali się danymi konta Facebook</string>

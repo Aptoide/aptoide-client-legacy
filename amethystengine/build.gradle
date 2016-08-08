@@ -15,7 +15,7 @@ android {
     useLibrary 'org.apache.http.legacy'
 
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.1"
 
     def TRUE = "true"
     def FALSE = "false"
@@ -145,7 +145,6 @@ dependencies {
     compile files('lib/AmazonInsights-android-sdk-2.1.26.jar')
     compile files('lib/localytics.jar')
     compile files('lib/FlurryAnalytics-4.2.0.jar')
-    compile files('lib/fortumo-in-app-android-sdk.jar')
 
     compile files('lib/AudienceNetwork.jar')
     compile files('lib/PayPalAndroidSDK-2.8.4.jar')

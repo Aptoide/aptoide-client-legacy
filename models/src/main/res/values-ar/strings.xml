@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="WidgetProvider_timestamp_today">اليوم</string>
 <string name="WidgetProvider_timestamp_yesterday">أمس</string>
-<string name="WidgetProvider_timestamp_hour_ago">منذ s% ساعة</string>
-<string name="WidgetProvider_timestamp_hours_ago">منذ s% ساعات</string>
-<string name="WidgetProvider_timestamp_minutes_ago">منذ s% دقائق</string>
+<string name="WidgetProvider_timestamp_hour_ago">منذ %s ساعة</string>
+<string name="WidgetProvider_timestamp_hours_ago">منذ %s ساعات</string>
+<string name="WidgetProvider_timestamp_minutes_ago">منذ %s دقائق</string>
 <string name="WidgetProvider_timestamp_just_now">الآن</string>
-<string name="WidgetProvider_timestamp_weeks_ago">منذ s% اسابيع</string>
-<string name="WidgetProvider_timestamp_week_ago">منذ s% اسبوع</string>
+<string name="WidgetProvider_timestamp_weeks_ago">منذ %s اسابيع</string>
+<string name="WidgetProvider_timestamp_week_ago">منذ %s اسبوع</string>
 <string name="WidgetProvider_timestamp_this_week">هذا الأسبوع</string>
 <string name="update">تحديث</string>
 <string name="uninstall">إلغاء التثبيت</string>
@@ -14,7 +14,7 @@
 <string name="write_your_comment">أكتب تعليقك</string>
 <string name="appview_rating_card_text">التقييم</string>
 <string name="setting_mature_filtering">محتوى الكبار</string>
-<string name="new_to_aptoide">هل انت جديد في s%؟ قم بإنشاء حساب مجاني</string>
+<string name="new_to_aptoide">هل انت جديد في %s؟ قم بإنشاء حساب مجاني</string>
 <string name="forgot_passwd">هل نسيت كلمة المرور؟</string>
 <string name="settings_title_bar">الإعدادات</string>
 <string name="settings_dwn_network_rules">خيارات شبكة الجوال</string>
@@ -51,7 +51,7 @@
 <string name="about_us">من نحن</string>
 <string name="settings_maxFileCache_sum">تعيين الحجم الأقصى للحفاظ على ملفات apk الخاصة بك</string>
 <string name="settings_maxFileCache_title">تحميل ملف ذاكرة التخزين المؤقت (ميغابايت)</string>
-<string name="cache_using_X_mb">يستخدم s% ميغابايت</string>
+<string name="cache_using_X_mb">يستخدم %s ميغابايت</string>
 <string name="store_already_added">المتجر مضاف من قبل!</string>
 <string name="setting_auto_update_sum">تمكين التحديث التلقائي للتطبيقات</string>
 <string name="setting_auto_update_title">تمكين التحديث التلقائي</string>
@@ -75,7 +75,7 @@
 <string name="see_top_stores">مشاهدة المتاجر الافضل</string>
 <string name="setcredentials">تسجيل الدخول</string>
 <string name="rollback">التراجع</string>
-    <string name="rollback_empty">يمكنك إرجاع أي تطبيق إلى الإصدار السابق بسرعة وحل مشاكل عدم التوافق. كما يمكنك الاحتفاظ بسجل لجميع التطبيقات المثبتة (عن طريق s%) بما في ذلك الإصدار وتاريخ التثبيت.</string>
+<string name="rollback_empty">يمكنك إرجاع أي تطبيق إلى الإصدار السابق بسرعة وحل مشاكل عدم التوافق. كما يمكنك الاحتفاظ بسجل لجميع التطبيقات المثبتة (عن طريق %s) بما في ذلك الإصدار وتاريخ التثبيت.</string>
 <string name="rollback_installed">مثبت</string>
 <string name="rollback_uninstalled">غير مثبتة</string>
 <string name="rollback_updated">مُحدّث</string>
@@ -89,7 +89,7 @@
 <string name="username">البريد الإلكتروني</string>
 <string name="username_tip">أكتب بريدك الإلكتروني</string>
 <string name="subscribe_pvt_store">الاشتراك في متجر خاص</string>
-    <string name="accept_terms">من خلال قيامك بعملية التسجيل فأنت توافق على شروط s%للخدمة وسياسة المحتوى للمطورين</string>
+<string name="accept_terms">من خلال قيامك بعملية التسجيل فأنت توافق على شروط %s للخدمة وسياسة المحتوى للمطورين</string>
 <string name="register">التسجيل</string>
 <string name="or">- أو -</string>
 <string name="dont_have_an_account">ليس لديك حساب؟ قم بإنشاء حساب الان</string>
@@ -108,11 +108,11 @@
 <string name="remote_in_nospace">لا توجد مساحة ذاكرة كافية في جهازك.</string>
 <string name="server_error">خطأ بالخادم</string>
 <string name="paidapp_not_found">خطأ في تحميل التطبيق.الرجاء إعادة المحاولة أو الإتصال بفريق الدعم.</string>
-<string name="finished_install">تم تثبيت s%.</string>
-<string name="installing">يتم تثبيت s%…</string>
+<string name="finished_install">تم تثبيت %s.</string>
+<string name="installing">يتم تثبيت %s…</string>
 <string name="no_permissions_required">لا أذونات مطلوبة لهذا التطبيق.</string>
 <string name="connection_error">لا يوجد اتصال بالشبكة</string>
-<string name="aptoide_downloading">s% قيد التحميل</string>
+<string name="aptoide_downloading">%s قيد التحميل</string>
 <string name="error_occured">حدث خطأ. يرجى المحاولة مرة أخرى</string>
 <string name="starting_download">بدء التحميل</string>
 <string name="subscribe_newrepo_alrt">هل تريد الإشتراك بهذا المتجر؟\n\n</string>
@@ -136,7 +136,7 @@
 <string name="downgrade_requires_uninstall">التخفيض يتطلب إلغاء تثبيت التطبيق</string>
 <string name="signing_in">جارِ تسجيل الدخول…</string>
 <string name="reinstall">إعادة التثبيت</string>
-<string name="at_time">في s%</string>
+<string name="at_time">في %s</string>
 <string name="error_MARG_1">المتجر مفقود</string>
 <string name="error_MARG_2">معلومات التطبيق مفقودة</string>
 <string name="error_MARG_3">اصدار التطبيق مفقود</string>
@@ -209,7 +209,7 @@
 <string name="error_SYS_2">لم يتم العثور على أية بيانات، يرجى المحاولة مرة أخرى في وقت لاحق</string>
 <string name="error_SYS_3">النظام قيد الصيانة الآن، يرجى المحاولة مرة أخرى في وقت لاحق</string>
 <string name="error_SYS_4">هذه الاتصال غير مدعومة بواسطة اصدار API الحالي</string>
-<string name="X_download_number">s% معطل.</string>
+<string name="X_download_number">%s معطل.</string>
 <string name="not_found">غير موجود</string>
 <string name="active">فعال</string>
 <string name="completed">مكتمل</string>
@@ -234,7 +234,7 @@
 <string name="appview_comment_reply_button_text">رد</string>
 <string name="vote_down">التصويت ضد</string>
 <string name="vote_up">التصويت مع</string>
-<string name="votes">s% صوت</string>
+<string name="votes">%s صوت</string>
 <string name="show_all_updates">لا تظهر تحديثات للتطبيقات مع تواقيع مختلفة</string>
 <string name="setting_allUpdates_filtering">تصفية التحديثات</string>
 <string name="setpin">وضع رمز pin</string>
@@ -244,7 +244,7 @@
 <string name="cancel">إلغاء الأمر</string>
 <string name="error_occured_paying">حدث خطأ. لم يتم إكمال الدفع.</string>
 <string name="failed_auth_code">فشل ترخيص الحساب. يرجى المحاولة مرة أخرى.</string>
-<string name="error_occured_retry_later">حدث خطأ. s% سيعيد المحاولة تلقائياً في وقت لاحق.</string>
+<string name="error_occured_retry_later">حدث خطأ. %s سيعيد المحاولة تلقائياً في وقت لاحق.</string>
 <string name="account">الحساب</string>
 <string name="no_payments_available">لا توجد مدفوعات متاحة.</string>
 <string name="change_payment">الرجوع</string>
@@ -299,8 +299,8 @@
 <string name="friends_installs">تثبيتات اصدقائك</string>
 <string name="highlighted_apps">البارزة</string>
 <string name="button_more">المزيد</string>
-<string name="setting_category_autoupdate">التحديث التلقائي لتطبيق s%</string>
-<string name="setting_category_autoupdate_title">تمكين التحديث التلقائي لتطبيق s%</string>
+<string name="setting_category_autoupdate">التحديث التلقائي لتطبيق %s</string>
+<string name="setting_category_autoupdate_title">تمكين التحديث التلقائي لتطبيق %s</string>
 <string name="review_speed">السرعة</string>
 <string name="review_usability">سهولة الاستخدام</string>
 <string name="review_addictive">إدماني</string>
@@ -323,7 +323,7 @@
 <string name="store_username">اسم المستخدم</string>
 <string name="store_password">كلمة المرور</string>
 <string name="update_self_title">تحديث متوفر</string>
-<string name="update_self_msg">هناك نسخة جديدة من s% متاحة
+<string name="update_self_msg">هناك نسخة جديدة من %s متاحة
 \n هل ترغب في تحديثه؟</string>
 <string name="retrieving_update">يتم جلب التحديث…</string>
 <string name="error_IARG_103">فئة غير صالحة</string>
@@ -333,7 +333,7 @@
 
     <string name="error_SYS_Billing">الدفع داخل التطبيق غير مدعوم في هذا الجهاز.</string>
 
-    <string name="aptoide_description">متجر تطبيقات s% الرسمي</string>
+    <string name="aptoide_description">متجر تطبيقات %s الرسمي</string>
 
     <string name="community">المجتمع</string>
     <string name="updates">التحديثات</string>
@@ -344,8 +344,8 @@
     <string name="facebook_timeline_login">" هل ترغب في تسجيل الدخول إلى فيسبوك وتجربة صفحة اليوميات الإجتماعية؟"</string>
     <string name="feedback_to_write2">اكتب لنا ملاحظاتك هنا...\n\n من فضلك زودنا بكافة التفاصيل الممكنة:\n الخطوات التي اجريتها\n الأخطاء التي تراها</string>
     <string name="password_validation_text">"كلمة المرور يجب أن تكون مؤلفة من 8 أحرف على الأقل ويجب أن تتضمن حرفاً واحداً على الأقل ورقماً واحداً أو الأحرف الخاصة (! @# $% *) "</string>
-    <string name="store_subscribed">تم الاشتراك في المتجر s%</string>
-    <string name="subscribing">جار الاشتراك في المتجر s%…</string>
+    <string name="store_subscribed">تم الاشتراك في المتجر %s</string>
+    <string name="subscribing">جار الاشتراك في المتجر %s…</string>
     <string name="create_store">إنشاء متجر</string>
     <string name="section">القسم</string>
 
@@ -353,17 +353,17 @@
 
     <string name="timeout">انتهت وقت الاتصال بالشبكة</string>
     <string name="WidgetProvider_timestamp_week_ago2">منذ أسبوع</string>
-    <string name="WidgetProvider_timestamp_days_ago">منذ s% يوما</string>
+    <string name="WidgetProvider_timestamp_days_ago">منذ %s يوما</string>
     <string name="WidgetProvider_timestamp_month_ago">منذ شهر</string>
-    <string name="WidgetProvider_timestamp_months_ago">منذ s% شهرا</string>
+    <string name="WidgetProvider_timestamp_months_ago">منذ %s شهرا</string>
     <string name="WidgetProvider_timestamp_year_ago">منذ عام</string>
-    <string name="WidgetProvider_timestamp_years_ago">منذ s% عاما</string>
+    <string name="WidgetProvider_timestamp_years_ago">منذ %s عاما</string>
 
     <string name="reply">الرد</string>
     <string name="casting_vote">جار تسجيل التصويت…</string>
     <string name="vote_submitted">تم تسجيل تصويتك بنجاح</string>
-    <string name="reviewed_by">تمت مراجعتها من قبل - s%</string>
-    <string name="installed_this">s% قام بتثبيت هذا.</string>
+    <string name="reviewed_by">تمت مراجعتها من قبل - %s</string>
+    <string name="installed_this">%s قام بتثبيت هذا.</string>
 
     <string name="app_name">Aptoide</string>
 
@@ -396,11 +396,11 @@
     <string name="more_versions">المزيد من الإصدارات</string>
     <string name="recommended_for_you">الموصي لك</string>
     <string name="like">إعجاب</string>
-    <string name="review_by">المراجعة من:\ns%</string>
+    <string name="review_by">المراجعة من:\n%s</string>
     <string name="review_title">المراجعات</string>
     <string name="review_good">جيد</string>
     <string name="unsubscribe_yes_no">هل أنت متأكد من رغبتك في إلغاء الإشتراك؟</string>
-    <string name="upload_app_backup_apps_installed">انت بحاجة إلى تحميل هذا التطبيق لمتجرك أولاً. يمكنك استخدام تطبيقات النسخ الاحتياطي لs%.</string>
+    <string name="upload_app_backup_apps_installed">انت بحاجة إلى تحميل هذا التطبيق لمتجرك أولاً. يمكنك استخدام تطبيقات النسخ الاحتياطي ل%s.</string>
     <string name="unsubscribed_">"تم إلغاء الإشتراك "</string>
     <string name="error_occured_uploading">عليك تحميل هذا التطبيق أولاً.</string>
 
@@ -408,7 +408,7 @@
     <string name="srch_hint">البحث عن التطبيقات…</string>
     <string name="suggested_app">التطبيق المقترح</string>
 
-    <string name="upload_app_backup_apps_not_installed">أنت بحاجة إلى تحميل هذا التطبيق لمتجرك أولاً. الرجاء تثبيت وإستخدام تطبيقات النسخ الاحتياطي لs%.</string>
+    <string name="upload_app_backup_apps_not_installed">أنت بحاجة إلى تحميل هذا التطبيق لمتجرك أولاً. الرجاء تثبيت وإستخدام تطبيقات النسخ الاحتياطي ل%s.</string>
     <string name="abTest1_label_1">احصل على التطبيق</string>
     <string name="upload_app">تحميل التطبيق</string>
     <string name="abTest1_label_2">تثبيت</string>
@@ -418,28 +418,27 @@
 
 
     <string name="setting_dont_show_mature_content">عرض محتوى الكبار</string>
-    <string name="notification_timeline_new_likes">لديك s% إعجاب جديد. اطلع عليه في صفحة اليوميات الإجتماعية!</string>
+    <string name="notification_timeline_new_likes">لديك %s إعجاب جديد. اطلع عليه في صفحة اليوميات الإجتماعية!</string>
     <string name="drawer_social_media_title">دعونا نظل على تواصل</string>
     <string name="read_more">اقرأ المزيد</string>
     <string name="read_less">رؤية اقل</string>
-    <string name="notification_timeline_new_comments">لديك s% تعليق جديد. اطلع عليه في صفحة اليوميات الإجتماعية!</string>
+    <string name="notification_timeline_new_comments">لديك %s تعليق جديد. اطلع عليه في صفحة اليوميات الإجتماعية!</string>
     <string name="flag_this_app_need_licence">تحتاج ترخيص</string>
     <string name="appview_additional_information_title">معلومات إضافية</string>
     <string name="appview_latest_version_text">هذا هو أحدث إصدار!</string>
-<!--    <string name="notification_timeline_activity">لديك 1%$s تعليق جديد و 2%$s إعجاب. اطلع عليهم في صفحة اليوميات الإجتماعية!</string>
--->    <string name="appview_subscribe_store_button_text">الاشتراك؟</string>
+    <string name="notification_timeline_activity">لديك %1$s تعليق جديد و %2$s إعجاب. اطلع عليهم في صفحة اليوميات الإجتماعية!</string>    <string name="appview_subscribe_store_button_text">الاشتراك؟</string>
     <string name="notification_social_timeline">صفحة Aptoide لليوميات الإجتماعية. اطلع عليها الآن!</string>
     <string name="noIgnoreUpdateText">هل الإصدار الجديد من التطبيق لا يعمل على جهازك أو بعض ميزاته مفقودة؟ قم بإيقاف تحديث التطبيقات. اذهب إلى علامة تبويب التحديثات واضغط لفترة طويلة على التطبيق الذي تريد إيقاف تحديثه.</string>
     <string name="notification_timeline_posts">قام اصدقائك بتثبيت تطبيقات جديدة!</string>
 
     <string name="createReviewButtonText">إنشاء\nمراجعة</string>
-    <string name="has_updates">لدى s% تحديثات جديدة متاحة!</string>
+    <string name="has_updates">لدى %s تحديثات جديدة متاحة!</string>
     <string name="navigation_drawer_signup_login">قم بالتسجيل أو سجل الدخول</string>
     <string name="_downloads"> التحميلات</string>
-    <string name="new_updates">يوجد s% تحديث جديد متاح!</string>
+    <string name="new_updates">يوجد %s تحديث جديد متاح!</string>
     <string name="no_description">لا يوجد وصف</string>
     <string name="description">الوصف</string>
-    <string name="one_new_update">يوجد s% تحديث جديد متاح!</string>
+    <string name="one_new_update">يوجد %s تحديث جديد متاح!</string>
 <string name="version">الإصدار</string>
 
     <string name="other_stores">المتاجر غير المشترك بها</string>
@@ -461,33 +460,33 @@
     <string name="appview_subscribed_store_button_text">تم الإشتراك</string>
     <string name="appview_this_app_in_others_stores">هذا التطبيق في المتاجر الأخرى</string>
     <string name="appview_rate_Success">تم تقييم التطبيق</string>
-    <string name="version_placeholder">الإصدار: s%</string>
+    <string name="version_placeholder">الإصدار: %s</string>
 
-    <string name="app_trusted">s% موثوق به</string>
-    <string name="app_warning">تحذير: s%</string>
+    <string name="app_trusted">%s موثوق به</string>
+    <string name="app_warning">تحذير: %s</string>
     <string name="scanned_with_av">تم الفحص بمضاد الفيروسات:</string>
     <string name="compared_with_another_marketplace">تم المقارنة بمتجر أندرويد آخر:</string>
     <string name="application_signature_analysis">مقارنة توقيع التطبيق مع توقيع المطور:</string>
     <string name="application_signature_matched">تطابق توقيع التطبيق مع توقيع المطور.</string>
     <string name="application_signature_not_matched">لم يتطابق توقيع التطبيق مع توقيع المطور. قد يكون التطبيق مغشوشا.</string>
-    <string name="application_signature_blacklisted">توقيع التطبيق ليس موثوقا في منصة s% لمكافحة الفيروسات لأنه تم استخدامه لتوقيع تطبيق آخر لا يتطابق مع توقيع المطور المتعلق به.</string>
-    <string name="scanned_manually_by_aptoide_team">تم الفحص يدويا بواسطة فريق s%:</string>
-    <string name="scanned_verified_by_tester">تمت مراجعة التطبيق يدويا بواسطة فاحص من فريق s% والذي يؤكد سلامة التطبيق.</string>
+    <string name="application_signature_blacklisted">توقيع التطبيق ليس موثوقا في منصة %s لمكافحة الفيروسات لأنه تم استخدامه لتوقيع تطبيق آخر لا يتطابق مع توقيع المطور المتعلق به.</string>
+    <string name="scanned_manually_by_aptoide_team">تم الفحص يدويا بواسطة فريق %s:</string>
+    <string name="scanned_verified_by_tester">تمت مراجعة التطبيق يدويا بواسطة فاحص من فريق %s والذي يؤكد سلامة التطبيق.</string>
     <string name="warning">تحذير</string>
     <string name="trusted_app">تطبيق موثوق</string>
 
     <string name="reason_third_party">تم فحص توقيع التطبيق والتأكد من مطابقته لمتجر Google Play، لذا اطمئن واستمتع بالتطبيق.</string>
     <string name="reason_scanned">"تم الفحص بواسطة بواسطة AptoideGuard بالإضافة الى اثنين من برامج مكافحة الفيروسات (Zoner 1.8  و Sophos 3.0)."</string>
     <string name="reason_signature">توقيع التشفير يضمن أمان التطبيق للتثبيت وعدم التلاعب به بأي حال من الأحوال.</string>
-    <string name="reason_manual">تمت مراجعة هذا التطبيق يدوياً بواسطة فريق s% المحترف، وتم وصفه بأنه جيد.</string>
+    <string name="reason_manual">تمت مراجعة هذا التطبيق يدوياً بواسطة فريق %s المحترف، وتم وصفه بأنه جيد.</string>
 
     <string name="reason_failed">لا يتطابق توقيع التطبيق مع توقيع المطور. ربما تم التلاعب بالتطبيق.</string>
 
 
 
-    <string name="reply_to">الرد على s%</string>
+    <string name="reply_to">الرد على %s</string>
     <string name="comment_submitted">تم إرسال تعليقك بنجاح</string>
-    <string name="installapp_alrt">هل ترغب في تحميل:\n\n s%؟</string>
+    <string name="installapp_alrt">هل ترغب في تحميل:\n\n %s؟</string>
 
     <string name="updates_tab_adapter_uninstalled">تم إلغاء التثبيت</string>
     <string name="updatesTabAdapterUninstall">إلغاء التثبيت</string>
@@ -531,10 +530,10 @@
     <string name="setting_mobile">شبكات 3G/4G للجوال</string>
     <string name="appview_other_versions_in_others_stores">إصدارات أخرى في متاجر أخرى</string>
     <string name="results_subscribed">المتاجر المشترك بها</string>
-    <string name="results_in_store">البحث عن النتائج في متجر s%</string>
+    <string name="results_in_store">البحث عن النتائج في متجر %s</string>
     <string name="unknown">غير معلوم</string>
 
-    <string name="reason_unknown">ليست هناك معلومات كافية حول هذا التطبيق في منصة s% لمكافحة البرامج الضارة.</string>
+    <string name="reason_unknown">ليست هناك معلومات كافية حول هذا التطبيق في منصة %s لمكافحة البرامج الضارة.</string>
 
 
 
@@ -550,7 +549,7 @@
     <string name="wizard_description_03_1">للأجهزة القديمة والانترنت البطيء</string>
     <string name="wizard_subtitle_03_2">Aptoide TV (تلفزيون Aptoide)</string>
     <string name="wizard_description_03_2">متجر التطبيقات الأمثل لأجهزة الاستقبال والتلفزيونات الذكية</string>
-    <string name="search_activity_title">\'s%\'</string>
+    <string name="search_activity_title">\'%s\'</string>
 
     <string name="share">شارك</string>
     <string name="share_on_timeline">المشاركة على صفحة اليوميات</string>
@@ -563,10 +562,10 @@
     <string name="no_search_results_message">ليست هناك نتائج لبحثك.\nيرجى إعادة المحاولة مع إدخال كلمات دلالية أخرى.</string>
 
     <string name="developer">المطور</string>
-    <string name="website">الموقع الإلكتروني: s%</string>
-    <string name="email">البريد الإلكتروني: s%</string>
-    <string name="privacy_policy">سياسة الخصوصية: s%</string>
-    <!--<string name="dialog_version_size">الإصدار: 1%$s | الحجم: 2%$s</string>-->
+    <string name="website">الموقع الإلكتروني: %s</string>
+    <string name="email">البريد الإلكتروني: %s</string>
+    <string name="privacy_policy">سياسة الخصوصية: %s</string>
+    <string name="dialog_version_size">االإصدار: %1$s | الحجم: %2$s</string>
     <string name="na">غير متاح</string>
 
 <string name="no_email_and_pass_error_message">يرجى إدخال بريد إلكتروني وكلمة مرور للتسجيل.</string>
@@ -575,7 +574,7 @@
     <string name="website_copied">تم نسخ الموقع في الحافظة</string>
     <string name="email_copied">تم نسخ البريد الإلكتروني في الحافظة</string>
     <string name="privacy_copied">تم نسخ رابط الخصوصية في الحافظة</string>
-    <string name="subscribing_store_message">إلغاء اشتراك s%</string>
+    <string name="subscribing_store_message">إلغاء اشتراك %s</string>
 
 <string name="latest_reviews">أحدث المراجعات</string>
     <string name="latest_comments">أحدث التعليقات</string>

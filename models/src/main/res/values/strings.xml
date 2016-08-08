@@ -528,7 +528,7 @@
     <!-- New Badges V7 -->
     <string name="reason_third_party">We\'ve checked the app\'s signature and it matches with Google Play Store, so rest assured and enjoy the app.</string>
     <string name="reason_scanned">Scanned with AptoideGuard plus 2 different anti-virus (Zoner 1.8 and Sophos 3.0).</string>
-   <!-- <string name="reason_scanned_partners">Scanned with 6 different anti-virus including Zoner 1.8 and Sophos 3.0.</string> -->
+    <string name="reason_scanned_partners">Scanned with 6 different anti-virus including Zoner 1.8 and Sophos 3.0.</string>
     <string name="reason_signature">The cryptographic signature guarantees that the file is safe to install and wasn\'t tampered with in any way.</string>
     <string name="reason_manual">This app was manually reviewed by %s\'s expert team, and was flagged as Good.</string>
 
@@ -706,6 +706,8 @@
     <string name="unsubscribe">Unsubscribe</string>
     <string name="add_more_stores">Add more stores</string>
 
+    <string name="failed">Failed</string>
+
     <string name="dialog_install_warning_proceed_button">Proceed</string>
     <string name="dialog_install_warning_search_for_trusted_app_button">Search for</string>
     <string name="dialog_install_warning_trusted_app_button">Trusted App</string>
@@ -714,5 +716,8 @@
         credibility and other user comments. Aptoide always recommends that you only install %1$s Trusted apps.</string>
     <string name="dialog_install_warning_trusted_version_button">Trusted Version</string>
     <string name="dialog_install_warning_get_trusted_version_button">Get</string>
+
+    <string name="allow_auto_installation">Allow Auto Installation</string>
+    <string name="auto_installation">Auto Installation</string>
 </resources>
 

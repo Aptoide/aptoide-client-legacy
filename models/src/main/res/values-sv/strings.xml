@@ -279,7 +279,7 @@
     <string name="timeline_is_empty_send_email">Vi kommer att skicka e-post till de du väljer</string>
     <string name="facebook_timeline_friends_invited">Vänner inbjudna!</string>
     <string name="invite_friends">Bjud in vänner</string>
-    <string name="friends_to_invite">Alla andra Facebook-vänner i %s</string>
+    <string name="friends_to_invite">Alla andra Facebook-vänner i Aptoide</string>
     <string name="order_popup_title3">Vuxet innehåll</string>
     <string name="root_access_dialog">Det ser ut som att du har root-behörighet. Vill du tillåta automatisk installation av appen efter nedladdningen?</string>
     <string name="at_time">vid %s</string>
@@ -658,4 +658,5 @@
     <string name="essential_apps">Essentiella appar</string>
     <string name="summer_apps">Sommar-appar</string>
     <string name="play_it">Spela-den!</string>
-</resources>
+<string name="balloon_security_title">Aptoide har förändrats.</string>
+    </resources>

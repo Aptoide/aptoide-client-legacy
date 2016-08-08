@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Deze app zal geen berichten versturen via Facebook</string>
 <string name="invite_friends">Vrienden uitnodigen</string>
 <string name="facebook_timeline_friends_invited">Vrienden uitgenodigd!</string>
-<string name="friends_to_invite">Alle andere Facebookvrienden in %s</string>
+<string name="friends_to_invite">Alle andere Facebookvrienden in Aptoide</string>
 <string name="timeline_is_empty_no_friends">Je tijdlijn is leeg. Dat is waarschijnlijk omdat je nog geen vrienden op Aptoide hebt, of omdat ze geen berichten hebben.</string>
 <string name="timeline_is_empty_start_invite">Laten we beginnen met wat vrienden uit te nodigen:</string>
 <string name="timeline_empty_no_friends_send_email">Het lijkt erop dat je vrienden niet zijn ingelogd op Aptoide met hun Facebook-account. Stuur ze een e-mail om ze te laten inloggen met hun Facebook-account</string>

@@ -103,7 +103,7 @@
 <string name="one_account_allowed">Solo se permite una cuenta</string>
 <string name="ip_blacklisted">IP en la lista negra</string>
 <string name="apk_not_found">Apk no encontrada</string>
-<string name="invalid_apk">Apk inválida</string>
+<string name="invalid_apk">Apk no válida</string>
 <string name="remote_in_nospace">No queda espacio suficiente en tu dispositivo.</string>
 <string name="server_error">Error de servidor</string>
 <string name="paidapp_not_found">Error al descargar la app. Por favor, inténtalo de nuevo o contacta con el soporte técnico.</string>
@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Esta aplicación no va a publicar en Facebook</string>
 <string name="invite_friends">Invitar amigos</string>
 <string name="facebook_timeline_friends_invited">¡Amigos invitados!</string>
-<string name="friends_to_invite">Todos los amigos de Facebook en %s</string>
+<string name="friends_to_invite">Todos los amigos de Facebook en Aptoide</string>
 <string name="timeline_is_empty_no_friends">Tu Timeline está vacío. Esto es probablemente porque no tienes amigos en Aptoide o porque no tienen ninguna publicación.</string>
 <string name="timeline_is_empty_start_invite">Empecemos invitando a algunos amigos:</string>
 <string name="timeline_empty_no_friends_send_email">Parece que tus amigos no han entrado aún en Aptoide con sus cuentas de Facebook. Envíales un email para que accedan con su cuenta de Facebook</string>

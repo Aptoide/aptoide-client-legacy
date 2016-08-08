@@ -289,7 +289,7 @@
     <string name="downgrade_requires_uninstall">Ang pagbaba (downgrade) ay nangangailangan ng Aplikasyong pagka-tanggal sa pagka-instala</string>
 
     <string name="order_popup_title3">Hustong Gulang na Nilalaman</string>
-    <string name="friends_to_invite">Lahat ng iba pang Facebook na mga kaibigan sa %s</string>
+    <string name="friends_to_invite">Lahat ng iba pang Facebook na mga kaibigan sa Aptoide</string>
     <string name="invite_friends">Imbitahin ang mga Kaibigan</string>
     <string name="timeline_is_empty_send_email">Kami ay magpapadala ng email sa mga taong iyong mapipili</string>
     <string name="facebook_timeline_friends_invited">Mga Kaibigang naimbitahan!</string>
@@ -479,7 +479,7 @@
     <string name="application_signature_analysis">Lagda ng aplikasyon kumpara sa lagda ng debeloper:</string>
     <string name="application_signature_matched">Ang lagda ng aplikasyon ay tugma sa lagda na nauugnay sa debeloper ng aplikasyon.</string>
     <string name="application_signature_not_matched">Ang lagda ng aplikasyon ay hindi tugma sa lagda na nauugnay sa debeloper ng aplikasyon. Ang aplikasyon ay maaaring na-adulterado.</string>
-    <string name="application_signature_blacklisted">Ang lagda ng aplikasyon ay hindi Mapagkakatiwalaang lagda sa Aptoide Kontra-Malware na plataporma dahil ito ay nagamit na para lagdaan ang isa pang aplikasyon na hindi tumutugma sa lagda na inuugnay sa lehitimong debeloper.</string>
+    <string name="application_signature_blacklisted">Ang lagda ng aplikasyon ay hindi Mapagkakatiwalaang lagda sa %s Kontra-Malware na plataporma dahil ito ay nagamit na para lagdaan ang isa pang aplikasyon na hindi tumutugma sa lagda na inuugnay sa lehitimong debeloper.</string>
     <string name="reason_failed">Ang lagda ng aplikasyon ay hindi tumutugma sa lagda ng debeloper. Ang app ay maaaring napakialaman na.</string>
     <string name="developer">Debeloper</string>
     <string name="scanned_manually_by_aptoide_team">Na-iskan ng manu-mano ng Koponan ng %s:</string>

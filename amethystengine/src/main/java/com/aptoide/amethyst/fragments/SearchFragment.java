@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LinearRecyclerFragment;
 import com.aptoide.amethyst.R;
-import com.aptoide.models.displayables.DummyDisplayable;
+import com.aptoide.amethyst.utils.SearchUtils;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
@@ -112,20 +112,24 @@ public class SearchFragment extends LinearRecyclerFragment {
                 displayables.add(results);
                 displayables.addAll(apkList);
                 displayables.add(new SearchMoreHeader(BUCKET_SIZE));
+                //Next line is a query filter for Iran aks.
+                if (SearchUtils.contains(query) && Aptoide.getConfiguration().getDefaultStore().contains("aban")){
+                    displayables.clear();
+                }
             }
-
             if (Aptoide.getConfiguration().isSearchStores()) {
-                if (!uApkList.isEmpty()) {
+                if (!uApkList.isEmpty()){
                     displayables.add(new HeaderRow(getString(R.string.other_stores), false, BUCKET_SIZE));
                     displayables.addAll(uApkList);
                 } else {
                     displayables.addAll(uApkList);
                 }
-                u_offset += uApkList.size();
+                //Next line is a query filter for Iran aks.
+                if(SearchUtils.contains(query) && Aptoide.getConfiguration().getDefaultStore().contains("aban"))
+                    displayables.clear();
             }
-            if(displayables.size() > 0) {
-                displayables.add(0, new DummyDisplayable(BUCKET_SIZE));
-            }
+            u_offset += uApkList.size();
+
             adapter.notifyDataSetChanged();
             swipeContainer.setEnabled(false);
             progressBar.setVisibility(View.GONE);
@@ -233,6 +237,7 @@ public class SearchFragment extends LinearRecyclerFragment {
             displayables.add(0, suggestedAppHeader);
             SuggestedAppDisplayable suggestedAppDisplayable = new SuggestedAppDisplayable(apkSuggestionJson);
             displayables.add(1, suggestedAppDisplayable);
+
             adapter.notifyDataSetChanged();
 //            swipeContainer.setEnabled(false);
 //            progressBar.setVisibility(View.GONE);

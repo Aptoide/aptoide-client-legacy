@@ -294,7 +294,7 @@
     <string name="downgrade_requires_uninstall">ການດາວເກຣດຈຳຕ້ອງຖອນຕິດຕັ້ງແອັບພລິເຄຊັນ</string>
 
     <string name="order_popup_title3">ເນື້ອຫາຜູ້ໃຫຍ່</string>
-    <string name="friends_to_invite">ໝູ່ອື່ນໆທັງໝົດໃນ Facebook ທີ່ຢູ່ໃນ %s</string>
+    <string name="friends_to_invite">ໝູ່ອື່ນໆທັງໝົດໃນ Facebook ທີ່ຢູ່ໃນ Aptoide</string>
     <string name="invite_friends">ຊວນໝູ່</string>
     <string name="timeline_is_empty_send_email">ພວກເຮົາຈະສົ່ງອີເມວໄປຫາພວກເຂົາທີ່ທ່ານເລືອກ</string>
     <string name="facebook_timeline_friends_invited">ໝູ່ຖືກຊວນແລ້ວ!</string>

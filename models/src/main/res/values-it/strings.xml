@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Questa app non posterà su Facebook</string>
 <string name="invite_friends">Invita Amici</string>
 <string name="facebook_timeline_friends_invited">Amici invitati!</string>
-<string name="friends_to_invite">Tutti gli altri amici di Facebook su %s</string>
+<string name="friends_to_invite">Tutti gli altri amici di Facebook su Aptoide</string>
 <string name="timeline_is_empty_no_friends">Il tuo Diario è vuoto. Probabilmente non hai ancora amici su Aptoide o non hanno nessun post.</string>
 <string name="timeline_is_empty_start_invite">Inizia invitando alcuni amici:</string>
 <string name="timeline_empty_no_friends_send_email">Sembra che i tuoi amici non abbiano effettuato l\'accesso ad Aptoide con i loro account Facebook. Invia loro un\'e-mail per farli loggare con l\'Account Facebook</string>

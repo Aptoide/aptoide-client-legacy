@@ -314,7 +314,7 @@
     <string name="downgrade_requires_uninstall">Η Υποβάθμιση απαιτεί απεγκατάσταση της Εφαρμογής</string>
 	
     <string name="order_popup_title3">Περιεχόμενο για ενήλικες</string>
-    <string name="friends_to_invite">Όλοι οι άλλοι Facebook φίλοι στο %s</string>
+    <string name="friends_to_invite">Όλοι οι άλλοι Facebook φίλοι στο Aptoide</string>
     <string name="invite_friends">Προσκαλέστε Φίλους</string>
     <string name="timeline_is_empty_send_email">Θα στείλουμε email σε αυτούς που επιλέξατε</string>
     <string name="facebook_timeline_friends_invited">Οι φίλοι προσκλήθηκαν!</string>

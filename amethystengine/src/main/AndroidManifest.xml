@@ -50,8 +50,6 @@
             android:name="com.aptoide.amethyst.SignUpActivity"
             android:theme="@style/AptoideThemeDefault"/>
 
-        <activity android:name="fortumo.FortumoPaymentActivity"/>
-
         <service
             android:name="com.aptoide.amethyst.services.RabbitMqService"
             android:exported="false"/>

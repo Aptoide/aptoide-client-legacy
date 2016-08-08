@@ -58,7 +58,9 @@
     </PreferenceCategory>
 
 
-    <PreferenceCategory android:title="@string/setting_hwspecstitle">
+    <PreferenceCategory
+        android:key="hardwarespecs"
+        android:title="@string/setting_hwspecstitle">
         <Preference
             android:key="hwspecs"
             android:summary="@string/setting_hwspecssum"
@@ -171,7 +173,9 @@
             android:title="@string/theme" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/root">
+    <PreferenceCategory
+        android:key="root"
+        android:title="@string/auto_installation">
         <CheckBoxPreference
             android:key="allowRoot"
             android:title="@string/allow_root" />

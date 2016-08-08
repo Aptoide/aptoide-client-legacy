@@ -15,6 +15,7 @@ import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.utils.AptoideUtils;
 
 import com.aptoide.amethyst.fragments.SearchFragment;
+import com.aptoide.amethyst.utils.SearchUtils;
 
 /**
  * Created by rmateus on 12/06/15.

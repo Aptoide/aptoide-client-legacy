@@ -294,7 +294,7 @@
     <string name="downgrade_requires_uninstall">降級需要解除安裝應用</string>
 
     <string name="order_popup_title3">成人內容</string>
-    <string name="friends_to_invite">%s中的所有其他Facebook好友</string>
+    <string name="friends_to_invite">Aptoide中的所有其他Facebook好友</string>
     <string name="invite_friends">邀請好友</string>
     <string name="timeline_is_empty_send_email">我們將向您選擇的好友傳送電子郵件</string>
     <string name="facebook_timeline_friends_invited">已邀請好友！</string>

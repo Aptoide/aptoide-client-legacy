@@ -354,7 +354,7 @@
     <string name="billing_result">"Výsledek transakce je: "</string>
 
     <string name="order_popup_title3">Obsah pro plnoleté</string>
-    <string name="friends_to_invite">Všichni Vaši přátelé z Facebooku, kteří používají %s</string>
+    <string name="friends_to_invite">Všichni Vaši přátelé z Facebooku, kteří používají Aptoide</string>
     <string name="invite_friends">Pozvat přátele</string>
     <string name="timeline_is_empty_send_email">Pošleme e-mail všem, které vyberete</string>
     <string name="facebook_timeline_friends_invited">Přátelé byli pozváni!</string>
@@ -664,4 +664,5 @@
     <string name="essential_apps">Nezbytné aplikace</string>
     <string name="summer_apps">Aplikace na léto</string>
     <string name="play_it">Hraj!</string>
+    <string name="failed">Neúspěšný</string>
 </resources>

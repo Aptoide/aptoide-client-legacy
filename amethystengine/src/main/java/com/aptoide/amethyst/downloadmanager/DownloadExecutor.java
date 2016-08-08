@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.downloadmanager.model.FinishedApk;
 import com.aptoide.amethyst.preferences.AptoidePreferences;
 import com.aptoide.amethyst.preferences.SecurePreferences;
@@ -30,6 +31,7 @@ import com.squareup.okhttp.Response;
 
 import java.io.File;
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 import retrofit.RestAdapter;
@@ -174,17 +176,25 @@ public class DownloadExecutor implements Serializable {
             }
 
         }
-
-        if (Aptoide.IS_SYSTEM || (sPref.getBoolean("allowRoot", true) && DownloadUtils.canRunRootCommands() && !apk.getApkid().equals(context.getPackageName()))) {
-
-            Intent i = new Intent(context, PermissionsActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-            i.putExtra("apk", (Parcelable) apk);
-            i.putStringArrayListExtra("permissions", apk.getPermissionsList());
-            context.startActivity(i);
-
-        } else {
-
+        if (Aptoide.IS_SYSTEM) {
+            try {
+                DownloadUtils.installWithSystem(apk.getPath().toString());
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        else if ((sPref.getBoolean("allowRoot", true) && DownloadUtils.canRunRootCommands() && !apk.getApkid().equals(context.getPackageName()))) {
+                Intent i = new Intent(context, PermissionsActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                i.putExtra("apk", (Parcelable) apk);
+                i.putStringArrayListExtra("permissions", apk.getPermissionsList());
+                context.startActivity(i);
+        }
+        else {
             File file = new File(path);
             if (path.contains(Aptoide.getContext().getFilesDir().getPath())) {
                 file.setReadable(true, false);

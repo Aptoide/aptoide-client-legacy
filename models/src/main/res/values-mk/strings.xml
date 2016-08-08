@@ -299,7 +299,7 @@
     <string name="at_time">во %s</string>
     <string name="root_access_dialog">Се чини дека имате патека. Дали би сакале да дозволите автоматско инсталирање на апликацијата веднаш по нејзиното симнување?</string>
     <string name="order_popup_title3">Содржина за возрасни</string>
-    <string name="friends_to_invite">Сите други Facebook пријатели на %s</string>
+    <string name="friends_to_invite">Сите други Facebook пријатели на Aptoide</string>
     <string name="invite_friends">Поканете ги пријателите</string>
     <string name="timeline_is_empty_send_email">Ние ќе испратиме емаил на оние кои Вие ќе ги изберете</string>
     <string name="facebook_timeline_friends_invited">Пријателите се поканети!</string>

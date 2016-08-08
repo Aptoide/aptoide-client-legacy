@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Esta aplicação não publica no Facebook</string>
 <string name="invite_friends">Convidar Amigos</string>
 <string name="facebook_timeline_friends_invited">Convite enviado aos seus Amigos!</string>
-<string name="friends_to_invite">Todos os outros amigos do Facebook no %s</string>
+<string name="friends_to_invite">Todos os outros amigos do Facebook no Aptoide</string>
 <string name="timeline_is_empty_no_friends">A sua Cronologia está vazia. Provavelmente ainda não tem amigos registados no Aptoide ou ainda não fizeram nenhuma publicação.</string>
 <string name="timeline_is_empty_start_invite">Vamos começar por convidar alguns amigos:</string>
 <string name="timeline_empty_no_friends_send_email">Parece que os seus amigos não iniciaram sessão Facebook com o Aptoide. Envie-lhes um email para iniciarem a sessão com a conta Facebook</string>

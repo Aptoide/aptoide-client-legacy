@@ -280,7 +280,7 @@
 <string name="facebook_private_actions">Это приложение не будет размещать посты в Facebook</string>
 <string name="invite_friends">Пригласить друзей</string>
 <string name="facebook_timeline_friends_invited">Друзья приглашены!</string>
-<string name="friends_to_invite">Все остальные друзья Facebook в %s</string>
+<string name="friends_to_invite">Все остальные друзья Facebook в Aptoide</string>
 <string name="timeline_is_empty_no_friends">Ваша лента пуста. Это, наверное, потому, что у вас еще нет друзей в Aptoide, или у них нет постов.</string>
 <string name="timeline_is_empty_start_invite">Давайте начнем с приглашения друзей:</string>
 <string name="timeline_empty_no_friends_send_email">Похоже, что ваши друзья не зашли в Aptoide через Facebook. Отправьте им email, чтобы предложить им сделать это</string>

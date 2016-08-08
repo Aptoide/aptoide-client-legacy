@@ -46,7 +46,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import com.aptoide.amethyst.AppViewActivity;
-import com.aptoide.amethyst.MainActivity;
 
 import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.ui.SearchManager;
@@ -70,8 +69,8 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
     
 //    private Class startClass = Aptoide.getConfiguration().getStartActivityClass();
 //    private Class appViewClass = Aptoide.getConfiguration().getAppViewActivityClass();
-    private Class startClass = MainActivity.class;
-    private Class appViewClass = AppViewActivity.class;
+    private Class startClass = Aptoide.getConfiguration().getMainActivity();
+    private Class appViewClass = Aptoide.getConfiguration().getAppViewActivity();
     private Class searchManagerClass = SearchManager.class;
 
 //    private ServiceConnection downloadConnection = new ServiceConnection() {

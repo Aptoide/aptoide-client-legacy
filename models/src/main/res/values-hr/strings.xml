@@ -272,7 +272,7 @@
 <string name="facebook_private_actions">Ova aplikacija neće objavljivati postove na Facebook-u</string>
 <string name="invite_friends">Pozovi prijatelje</string>
 <string name="facebook_timeline_friends_invited">Prijatelji pozvani!</string>
-<string name="friends_to_invite">Svi Facebook prijatelji koji koriste %s</string>
+<string name="friends_to_invite">Svi Facebook prijatelji koji koriste Aptoide</string>
 <string name="timeline_is_empty_no_friends">Vaša Vremenska crta je prazna. Vjerojatno jer još nemate nijednog prijatelja koji koriste Aptoide ili oni nemaju objava.</string>
 <string name="timeline_is_empty_start_invite">Započnimo pozivanjem nekoliko prijatelja:</string>
 <string name="timeline_empty_no_friends_send_email">Čini se da se Vaši prijatelji nisu prijavili u Aptoide sa svojim Facebook računom. Pošaljite im e-mail da se prijave sa svojim Facebook računom</string>

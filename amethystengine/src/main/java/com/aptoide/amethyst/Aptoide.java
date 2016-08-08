@@ -132,7 +132,7 @@ public class Aptoide extends Application {
 
         setConfiguration(getAptoideConfiguration());
         initImageLoader();
-        setDebugMode();
+        //setDebugMode();
         checkIsSystem();
         setThemePicker(getNewThemePicker());
         Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());

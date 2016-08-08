@@ -245,4 +245,12 @@ public class AptoideConfiguration {
         return null;
     }
 
+    public int getNumberOfHighlightedRows() {
+        return 1;
+    }
+
+    public String getSupportEmail() {
+        return "support@aptoide.com";
+    }
+
 }

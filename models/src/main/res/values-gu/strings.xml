@@ -300,7 +300,7 @@
 <string name="highlighted_apps">highlited</string>
 <string name="button_more">vadhare</string>
 <string name="setting_category_autoupdate">%s auto update</string>
-<string name="setting_category_autoupdate_title">%s auto update ne enable karo</string>
+<string name="setting_category_autoupdate_title">Aptoride auto update ne enable karo</string>
 <string name="review_speed">jadap (speed)</string>
 <string name="review_usability">usability (vaprash)</string>
 <string name="review_addictive">addictive</string>
