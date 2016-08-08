@@ -46,7 +46,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import com.aptoide.amethyst.AppViewActivity;
-import com.aptoide.amethyst.MainActivity;
 
 import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.ui.SearchManager;
@@ -71,7 +70,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 //    private Class startClass = Aptoide.getConfiguration().getStartActivityClass();
 //    private Class appViewClass = Aptoide.getConfiguration().getAppViewActivityClass();
     private Class startClass = Aptoide.getConfiguration().getMainActivity();
-    private Class appViewClass = AppViewActivity.class;
+    private Class appViewClass = Aptoide.getConfiguration().getAppViewActivity();
     private Class searchManagerClass = SearchManager.class;
 
 //    private ServiceConnection downloadConnection = new ServiceConnection() {
@@ -314,7 +313,6 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
         String[] split = substring.split("&");
         String repo = null;
         String packageName = null;
-        String referrer = null;
         boolean showPopup = false;
         for (String property : split) {
             if (property.toLowerCase().contains("package")) {
@@ -323,8 +321,6 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
                 repo = property.split("=")[1];
             } else if (property.toLowerCase().contains("show_install_popup")) {
                 showPopup = property.split("=")[1].equals("true");
-            } else if (substring.contains("referrer")) {
-                referrer = property.split("=")[1];
             } else {
                 //old version only with app id
                 try {
@@ -337,7 +333,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
             }
         }
         if (packageName != null && !packageName.isEmpty()) {
-            startActivity(AppViewActivity.getAppviewIntent(packageName, repo, showPopup, referrer, this));
+            startActivity(AppViewActivity.getAppviewIntent(packageName, repo, showPopup, this));
         } else {
             Log.e(TAG, "Package name is mandatory, it should be in uri. Ex: aptoideinstall://package=cm.aptoide.pt&store=apps&show_install_popup=true");
         }

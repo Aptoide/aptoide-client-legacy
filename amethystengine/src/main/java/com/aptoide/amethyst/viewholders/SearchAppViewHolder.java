@@ -143,6 +143,11 @@ public class SearchAppViewHolder extends BaseViewHolder {
 
 
             store.setText(appItem.repo);
+            if(appItem.repo.equals("qmobile-store")) {
+                store.setText(Aptoide.getConfiguration().getMarketName());
+            }
+
+
         } else {
             store.setVisibility(View.INVISIBLE);
         }

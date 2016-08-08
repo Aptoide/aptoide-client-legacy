@@ -187,6 +187,10 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             }
 
             item.store.setText(appItem.repo);
+            if(appItem.repo.equals("qmobile-store")) {
+                item.store.setText(Aptoide.getConfiguration().getMarketName());
+            }
+
             Glide.with(viewHolder.itemView.getContext()).load(appItem.iconHd != null ? appItem.iconHd : appItem.icon).into(item.icon);
 
             if (appItem.malrank == 2) {
