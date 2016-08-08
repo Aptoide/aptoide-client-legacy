@@ -46,6 +46,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -226,7 +227,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             this.data = data;
         }
     }
-    
+
     enum BtnInstallState {
         INSTALL(0), DOWNGRADE(1), UPDATE(2), OPEN(3), BUY(4);
         int state;
@@ -747,7 +748,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
             lifecycleController = getArguments().getBoolean("lifecycleController");
 
+
+            //Log.d("lou","oncreate "+savedInstanceState.isEmpty());
             if (savedInstanceState != null) {
+                Log.d("lou", "instance not null");
                 appId = savedInstanceState.getLong(Constants.APP_ID_KEY);
                 appName = savedInstanceState.getString(Constants.APPNAME_KEY);
                 fileSize = savedInstanceState.getLong(Constants.FILESIZE_KEY);
@@ -876,8 +880,22 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         }
 
         @Override
+        public void onPause(){
+            super.onPause();
+
+            //save download id
+            if(((int) downloadId)!=0)
+                DownloadService.addDownloadId(appId, downloadId);
+        }
+
+
+        @Override
         public void onResume() {
             super.onResume();
+
+            //get download id
+            downloadId = DownloadService.getDownloadId(appId);
+
             if (pay != null && pay.price != null) {
                 setupInstallButton();
             }
@@ -919,6 +937,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 //            Aptoide.getRefWatcher(getContext()).watch(this);
             System.gc();
         }
+
 
         @Override
         public void onSaveInstanceState(Bundle outState) {
@@ -1847,6 +1866,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         }
 
         protected void onDownloadUpdate(Download download) {
+            Logger.d("lou",download.getId()+"");
             if (download != null && download.getId() == downloadId) {
                 mInstallAndLatestVersionLayout.setVisibility(View.GONE);
                 mDownloadProgressLayout.setVisibility(View.VISIBLE);

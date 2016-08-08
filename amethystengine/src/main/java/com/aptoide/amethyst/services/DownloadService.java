@@ -17,6 +17,7 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.util.LongSparseArray;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
@@ -33,6 +34,7 @@ import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.downloadmanager.model.DownloadModel;
 import com.aptoide.amethyst.downloadmanager.model.FinishedApk;
 import com.aptoide.amethyst.downloadmanager.state.ActiveState;
+import com.aptoide.amethyst.downloadmanager.state.EnumState;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
 import com.aptoide.amethyst.utils.Logger;
@@ -61,6 +63,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -526,12 +529,21 @@ public class DownloadService extends Service {
         return ongoingDownloads;
     }
 
+    public ArrayList<DownloadInfoRunnable> getPendingDownload() {
+
+        ArrayList<DownloadInfoRunnable> pendingDownloads = new ArrayList<>();
+         pendingDownloads.addAll(manager.getmPendingList());
+
+        return  pendingDownloads;
+    }
+
 
     public ArrayList<Displayable> getAllActiveDownloads() {
         ArrayList<Displayable> allDownloads = new ArrayList<>();
 
         for (DownloadInfoRunnable info : getOngoingDownloads()) {
-            allDownloads.add(new OngoingDownloadRow(info.getDownload(), AptoideUtils.UI.getBucketSize()));
+            OngoingDownloadRow odr= new OngoingDownloadRow(info.getDownload(), AptoideUtils.UI.getBucketSize());
+            allDownloads.add(odr);
         }
 
         return allDownloads;
@@ -862,5 +874,40 @@ public class DownloadService extends Service {
 
         return apk;
     }
+
+
+    /**
+     * hashtable with the downloaded appid and respective downloadid
+     */
+    private static Hashtable<Long, Long> downloadsActiveAppView = new Hashtable<Long, Long>();
+
+    /**
+     *
+     * @param appId id from downloaded app
+     * @param downloadId id from the download
+     */
+    public static void addDownloadId(Long appId,Long downloadId){
+
+        if(!downloadsActiveAppView.contains(downloadId)) {
+            downloadsActiveAppView.put(appId, downloadId);
+            Log.d("lou",appId+" "+downloadId+" added");
+        }
+    }
+
+    /**
+     *
+     * @param appId id from the app opened in the appview
+     * @return  id from the download opened in the appview
+     */
+    public static Long getDownloadId(Long appId){
+        if(downloadsActiveAppView.get(appId) != null) {
+            Log.d("lou"," get");
+            return downloadsActiveAppView.get(appId);
+        }
+        else {
+            return Long.valueOf(0);
+        }
+    }
+
 
 }

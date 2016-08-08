@@ -83,7 +83,6 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     private static final String TAG_PROGRESS = "progressDialog";
     private static final int REQUEST_CODE_RESOLVE_ERR = 9000;
 
-    private CheckBox registerDevice;
     private boolean hasQueue;
     private CheckUserCredentialsRequest request;
     private boolean fromPreviousAptoideVersion;
@@ -284,8 +283,6 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
             }
         });
 
-        registerDevice = (CheckBox) findViewById(R.id.link_my_device);
-
         TextView forgot_password = (TextView) findViewById(R.id.forgot_password);
         SpannableString forgetString = new SpannableString(getString(R.string.forgot_passwd));
         forgetString.setSpan(new UnderlineSpan(), 0, forgetString.length(), 0);
@@ -479,7 +476,6 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     private void getUserInfo(final OAuth oAuth, final String userName, final Mode mode, final String accountType, final String passwordOrToken) {
         Log.d(TAG, "Loading user info.");
         request = CheckUserCredentialsRequest.buildDefaultRequest(this, oAuth.getAccess_token());
-        request.setRegisterDevice(registerDevice != null && registerDevice.isChecked());
         setShowProgress(true);
         spiceManager.execute(request, new RequestListener<CheckUserCredentialsJson>() {
             @Override
@@ -562,7 +558,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
             PreferenceManager.getDefaultSharedPreferences(this).edit().remove(Constants.LOGIN_USER_LOGIN).commit();
         }
         finish();
-        if (registerDevice != null && registerDevice.isChecked() && hasQueue)
+        if (hasQueue)
             startService(new Intent(this, RabbitMqService.class));
         ContentResolver.setSyncAutomatically(account, Aptoide.getConfiguration().getUpdatesSyncAdapterAuthority(), true);
         if (Build.VERSION.SDK_INT >= 8)
