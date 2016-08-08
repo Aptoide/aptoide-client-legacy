@@ -7,12 +7,15 @@ import android.accounts.OperationCanceledException;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.openiab.webservices.IabAvailableRequest;
+import com.aptoide.amethyst.openiab.webservices.json.IabAvailableJson;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.octo.android.robospice.SpiceManager;
@@ -82,13 +85,51 @@ public class BillingBinder extends IOpenInAppBillingService.Stub {
     public int isBillingSupported(int apiVersion, String packageName, String type) throws RemoteException {
         Log.d("AptoideBillingService", "[isBillingSupported]: " + packageName);
 
+        int result = RESULT_BILLING_UNAVAILABLE;
 
-        if (apiVersion >= 3 &&
-                (type.equals(BillingBinder.ITEM_TYPE_INAPP) || type.equals(BillingBinder.ITEM_TYPE_SUBS))) {
-            return RESULT_OK;
-        } else {
-            return RESULT_BILLING_UNAVAILABLE;
+        if(Build.VERSION.SDK_INT<Build.VERSION_CODES.FROYO){
+            return result;
         }
+
+        if (apiVersion >= 3 && apiVersion < 5
+                && (type.equals(BillingBinder.ITEM_TYPE_INAPP) || type.equals(BillingBinder.ITEM_TYPE_SUBS))) {
+            Log.d("AptoideStore", "[isBillingAvailable]");
+
+            try {
+
+                final CountDownLatch latch = new CountDownLatch(1);
+                IabAvailableRequest request = new IabAvailableRequest();
+                request.setApiVersion(Integer.toString(3));
+
+                request.setPackageName(packageName);
+                final boolean[] webServiceResult = { false };
+                manager.execute(request, packageName + "-iabavalaible", DurationInMillis.ONE_MINUTE,new RequestListener<IabAvailableJson>() {
+                    @Override
+                    public void onRequestFailure(SpiceException spiceException) {
+                        latch.countDown();
+                    }
+
+                    @Override
+                    public void onRequestSuccess(IabAvailableJson response) {
+                        if("OK".equals(response.getStatus())) {
+                            if("OK".equals(response.getResponse().getIabavailable())) {
+                                Log.d("AptoideStore", "billing is available");
+                                webServiceResult[0] = true;
+                            }
+                        }
+                        latch.countDown();
+                    }
+                });
+                latch.await();
+
+                if (webServiceResult[0]) {
+                    result = RESULT_OK;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
 
     private String getMccCode(String networkOperator) {
@@ -111,7 +152,7 @@ public class BillingBinder extends IOpenInAppBillingService.Stub {
 
         final Bundle result = new Bundle();
 
-        if (!skusBundle.containsKey(ITEM_ID_LIST) || apiVersion < 3) {
+        if (!skusBundle.containsKey(ITEM_ID_LIST) || apiVersion < 3 || apiVersion > 4) {
             result.putInt(RESPONSE_CODE, RESULT_DEVELOPER_ERROR);
             return result;
         }
@@ -216,7 +257,7 @@ public class BillingBinder extends IOpenInAppBillingService.Stub {
         PendingIntent pendingIntent;
         Intent purchaseIntent = new Intent(context, /*Aptoide.getConfiguration().*/getIABPurchaseActivityClass());
 
-        if (apiVersion < 3 || !(type.equals(ITEM_TYPE_INAPP) || type.equals(ITEM_TYPE_SUBS))) {
+        if (apiVersion < 3 || apiVersion > 4 || !(type.equals(ITEM_TYPE_INAPP) || type.equals(ITEM_TYPE_SUBS))) {
             result.putInt(RESPONSE_CODE, RESULT_DEVELOPER_ERROR);
         } else {
             AccountManager accountManager = AccountManager.get(context);
@@ -268,7 +309,7 @@ public class BillingBinder extends IOpenInAppBillingService.Stub {
 
         final Bundle result = new Bundle();
 
-        if (apiVersion < 3 || !(type.equals(ITEM_TYPE_INAPP) || type.equals(ITEM_TYPE_SUBS))) {
+        if (apiVersion < 3 || apiVersion > 4 || !(type.equals(ITEM_TYPE_INAPP) || type.equals(ITEM_TYPE_SUBS))) {
             result.putInt(RESPONSE_CODE, RESULT_DEVELOPER_ERROR);
             return result;
         }
@@ -348,7 +389,7 @@ public class BillingBinder extends IOpenInAppBillingService.Stub {
     public int consumePurchase(int apiVersion, String packageName, String purchaseToken) throws RemoteException {
         Log.d("AptoideBillingService", "[consumePurchase]: " + packageName + " " + purchaseToken);
 
-        if(apiVersion < 3) {
+        if(apiVersion < 3 || apiVersion > 4) {
             return RESULT_DEVELOPER_ERROR;
         }
 
