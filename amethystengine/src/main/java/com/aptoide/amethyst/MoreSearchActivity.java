@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.utils.SearchUtils;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.DummyDisplayable;
 import com.aptoide.models.displayables.SearchApk;
 import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
@@ -170,6 +172,9 @@ public class MoreSearchActivity extends MoreActivity {
                     }
                 }
                 offset += apkList.size();
+                if(displayableList.size() > 0) {
+                    displayableList.add(0, new DummyDisplayable(AptoideUtils.UI.getBucketSize()));
+                }
                 getAdapter().notifyDataSetChanged();
                 swipeContainer.setEnabled(false);
                 mLoading = false;
