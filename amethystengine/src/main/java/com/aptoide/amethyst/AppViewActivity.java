@@ -1900,7 +1900,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
         }
 
-        private void setShareTimeLineButton() {
+        /*private void setShareTimeLineButton() {
             final CheckBox btinstallshare = (CheckBox) getView().findViewById(R.id.btinstallshare);
             if (Preferences.getBoolean(Preferences.TIMELINE_ACEPTED_BOOL, false)) {
                 btinstallshare.setVisibility(View.VISIBLE);
@@ -1917,10 +1917,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             } else {
                 btinstallshare.setVisibility(View.INVISIBLE);
             }
-        }
+        }*/
 
         private void populateDownloadUI() {
-            setShareTimeLineButton();
+            //setShareTimeLineButton();
 
             getView().findViewById(R.id.ic_action_cancel).setOnClickListener(new View.OnClickListener() {
                 @Override
