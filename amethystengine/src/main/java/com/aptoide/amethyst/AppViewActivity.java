@@ -1900,6 +1900,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             }
         }
 
+
         /*private void setShareTimeLineButton() {
             final CheckBox btinstallshare = (CheckBox) getView().findViewById(R.id.btinstallshare);
             if (Preferences.getBoolean(Preferences.TIMELINE_ACEPTED_BOOL, false)) {
