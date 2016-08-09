@@ -411,11 +411,7 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
                                             break;
                                         case UNITEL_CODE:
                                             caseUNITEL(service,paymentMethodsLayout);
-                                            break;/*
-                                        case FORTUMO_CODE:
-                                            aptoideProductId = response.getMetadata().getId();
-                                            caseFortumo(aptoideProductId,service,paymentMethodsLayout);
-                                            break;*/
+                                            break;
                                     }
 
 
@@ -426,15 +422,14 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
 
                             //if(detailsJson != null) {
                             try {
-                                findViewById(R.id.progress).setVisibility(View
-                                        .GONE);
+                                findViewById(R.id.progress).setVisibility(View.GONE);
                                 findViewById(R.id.content).setVisibility(View.VISIBLE);
 
                                 JSONObject sku_details = new JSONObject(detailsList.get(0));
                                 aptoideProductId = response.getMetadata().getId();
                                 ((TextView) findViewById(R.id.title)).setText(sku_details.getString("title"));
                                 ((TextView) findViewById(R.id.price)).setText(sku_details.getString("price"));
-                                Glide.with(IABPurchaseActivity.this).load(response.getMetadata().getIcon()).into((ImageView) findViewById(R.id.icon));
+                                Glide.with(IABPurchaseActivity.this).load(AptoideUtils.UI.parseIcon(response.getMetadata().getIcon())).into((ImageView) findViewById(R.id.icon));
                                 ((TextView) findViewById(R.id.app_purchase_description)).setText(sku_details.getString("description"));
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -466,10 +461,7 @@ public class IABPurchaseActivity extends BasePurchaseActivity {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
                 AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
-
-                String errorOccuredRetryLaterFormatted = AptoideUtils.StringUtils.getFormattedString(getApplicationContext(), R.string.error_occured_retry_later, Aptoide.getConfiguration().getMarketName());
-                Toast.makeText(Aptoide.getContext(), errorOccuredRetryLaterFormatted, Toast.LENGTH_LONG).show();
+                Toast.makeText(Aptoide.getContext(), R.string.error_occured_retry_later, Toast.LENGTH_LONG).show();
 
                 Intent i = buildIntentForAlarm(confirmation, "iab");
                 i.putExtra("apiVersion", apiVersion);

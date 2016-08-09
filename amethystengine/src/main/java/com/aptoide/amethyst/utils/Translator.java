@@ -9,6 +9,9 @@ import com.aptoide.amethyst.R;
 public class Translator {
 
     public static String translate(String string) {
+        if (string == null) {
+            return string;
+        }
         String translated = null;
         switch (string) {
             case "Home":

@@ -1,5 +1,8 @@
 package com.aptoide.models.stores;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: rmateus
@@ -7,9 +10,44 @@ package com.aptoide.models.stores;
  * Time: 11:49
  * To change this template use File | Settings | File Templates.
  */
-public class Login {
+public class Login implements Parcelable {
+
+    public static final Creator<Login> CREATOR = new Creator<Login>() {
+        @Override
+        public Login createFromParcel(Parcel in) {
+            return new Login(in);
+        }
+
+        @Override
+        public Login[] newArray(int size) {
+            return new Login[size];
+        }
+    };
 
     private String passwordSha1;
+    private String username;
+    private String password;
+
+    public Login() {
+    }
+
+    protected Login(Parcel in) {
+        passwordSha1 = in.readString();
+        username = in.readString();
+        password = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(passwordSha1);
+        dest.writeString(username);
+        dest.writeString(password);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
     public String getUsername() {
         return username;
@@ -19,8 +57,6 @@ public class Login {
         this.username = username;
     }
 
-    private String username;
-
     public String getPassword() {
         return password;
     }
@@ -28,9 +64,6 @@ public class Login {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    private String password;
-
 
     public String getPasswordSha1() {
         return passwordSha1;

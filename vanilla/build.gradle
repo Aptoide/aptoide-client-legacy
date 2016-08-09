@@ -25,13 +25,20 @@ if(project.file("google-services.json").exists()) {
 
 android {
 
+    def BOOLEAN = "boolean"
+    def LOCALYTICS_CONFIGURED = "LOCALYTICS_CONFIGURED"
+
     compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId "cm.aptoide.pt.dev"
         targetSdkVersion 23
-        versionCode 479
-        versionName "7.1.1.2"
+        versionCode 488
+        versionName "7.2.1.5"
+
+        def optimizelyProjectId = localProperties.OPTIMIZELY_PROJECT_ID
+        def optimizelyProjectIdExists = optimizelyProjectId != null
+        manifestPlaceholders = [OPTIMIZELY_PROJECT_ID: optimizelyProjectIdExists ? optimizelyProjectId : ""]
     }
 
     dexOptions {
@@ -77,11 +84,21 @@ android {
                     output.outputFile = new File(output.outputFile.parent, newName)
                 }
             }
+
+            def localyticsKey = localProperties.LOCALYTICS_RELEASE_KEY
+            def localyticsKeyExists = localyticsKey != null
+            buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
+            manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
         }
 
         debug {
-            zipAlignEnabled false
-            minifyEnabled false
+            def localyticsKey = localProperties.LOCALYTICS_DEBUG_KEY
+            def localyticsKeyExists = localyticsKey != null
+            buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
+            manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
+
+            zipAlignEnabled true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

@@ -1,9 +1,12 @@
 package com.aptoide.models.stores;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by rmateus on 17/06/15.
  */
-public class Store {
+public class Store implements Parcelable {
 
     private String name;
     private String downloads;
@@ -16,6 +19,60 @@ public class Store {
     private long id;
     private Login login;
     private long topTimestamp = 0;
+
+    public Store() {
+
+    }
+
+    protected Store(Parcel in) {
+        name = in.readString();
+        downloads = in.readString();
+        avatar = in.readString();
+        description = in.readString();
+        theme = in.readString();
+        view = in.readString();
+        items = in.readString();
+        baseUrl = in.readString();
+        id = in.readLong();
+        login = in.readParcelable(Login.class.getClassLoader());
+        topTimestamp = in.readLong();
+        latestTimestamp = in.readLong();
+        delta = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(downloads);
+        dest.writeString(avatar);
+        dest.writeString(description);
+        dest.writeString(theme);
+        dest.writeString(view);
+        dest.writeString(items);
+        dest.writeString(baseUrl);
+        dest.writeLong(id);
+        dest.writeParcelable(login, flags);
+        dest.writeLong(topTimestamp);
+        dest.writeLong(latestTimestamp);
+        dest.writeString(delta);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Store> CREATOR = new Creator<Store>() {
+        @Override
+        public Store createFromParcel(Parcel in) {
+            return new Store(in);
+        }
+
+        @Override
+        public Store[] newArray(int size) {
+            return new Store[size];
+        }
+    };
 
     public long getTopTimestamp() {
         return topTimestamp;

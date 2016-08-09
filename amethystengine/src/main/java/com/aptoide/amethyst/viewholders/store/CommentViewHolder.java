@@ -1,5 +1,19 @@
 package com.aptoide.amethyst.viewholders.store;
 
+import com.aptoide.amethyst.MainActivity;
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
+import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
+import com.aptoide.amethyst.ui.MoreCommentsActivity;
+import com.aptoide.amethyst.ui.widget.CircleTransform;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.viewholders.BaseViewHolder;
+import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
+import com.aptoide.models.displayables.CommentItem;
+import com.aptoide.models.displayables.Displayable;
+import com.bumptech.glide.Glide;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -13,23 +27,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
-import com.aptoide.models.displayables.CommentItem;
-import com.aptoide.models.displayables.Displayable;
-import com.bumptech.glide.Glide;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-
-
-import com.aptoide.amethyst.adapter.BaseAdapter;
-import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
-import com.aptoide.amethyst.ui.widget.CircleTransform;
-import com.aptoide.amethyst.viewholders.BaseViewHolder;
 
 /**
  * Created by hsousa on 21/07/15.
@@ -38,6 +38,7 @@ public class CommentViewHolder extends BaseViewHolder {
 
     private final Activity activity;
     private final int colorResId;
+    public final boolean isCommunity;
     public ImageView useravatar;
     public TextView username;
     public TextView timestamp;
@@ -55,6 +56,14 @@ public class CommentViewHolder extends BaseViewHolder {
         super(itemView, viewType);
         this.activity = activity;
         this.colorResId = colorResId;
+        isCommunity = activity instanceof MoreCommentsActivity && ((MoreCommentsActivity) activity).isFromCommunity();
+    }
+
+    public CommentViewHolder(View itemView, int viewType, Activity activity, int colorResId, boolean isCommunity) {
+        super(itemView, viewType);
+        this.activity = activity;
+        this.colorResId = colorResId;
+        this.isCommunity = isCommunity;
     }
 
     @Override
@@ -69,7 +78,7 @@ public class CommentViewHolder extends BaseViewHolder {
             Logger.printException(e);
         }
 
-        itemView.setOnClickListener(new BaseAdapter.CommentItemOnClickListener(commentItem));
+        itemView.setOnClickListener(new BaseAdapter.CommentItemOnClickListener(commentItem, isCommunity, !(activity instanceof MainActivity)));
         timestamp.setText(dateString);
         replyComment.setVisibility(View.GONE);
         username.setText(commentItem.username);

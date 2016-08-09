@@ -19,10 +19,10 @@ public class CommunityGetstoreRequest extends GetStoreRequestv7 {
     }
 
     @Override
-    protected HeaderRow createHeaderRow(String name, String tag, boolean hasMore, List<GetStoreWidgets.Datalist.WidgetList.Action> actions, long storeId, String layout) {
+    protected HeaderRow createHeaderRow(String name, String tag, boolean hasMore, List<GetStoreWidgets.WidgetDatalist.WidgetList.Action> actions, long storeId, String layout) {
 
         if (actions != null && !actions.isEmpty()) {
-            for (GetStoreWidgets.Datalist.WidgetList.Action action : actions) {
+            for (GetStoreWidgets.WidgetDatalist.WidgetList.Action action : actions) {
                 if (action != null && action.event != null && action.event.action != null && action.type.equals("button")) {
                     return createHeaderRow(name, tag, hasMore, action, storeId, layout);
                 }
@@ -34,7 +34,7 @@ public class CommunityGetstoreRequest extends GetStoreRequestv7 {
 
     }
 
-    private HeaderRow createHeaderRow(String name, String tag, boolean hasMore, GetStoreWidgets.Datalist.WidgetList.Action action, long storeId, String layout) {
+    private HeaderRow createHeaderRow(String name, String tag, boolean hasMore, GetStoreWidgets.WidgetDatalist.WidgetList.Action action, long storeId, String layout) {
 
         HeaderRow header = new HeaderRow(name, tag, hasMore, action.event.action, action.event.type, action.event.name, layout, numColumns, storeId == Defaults.DEFAULT_STORE_ID, storeId);
         header.FULL_ROW= fullRow;

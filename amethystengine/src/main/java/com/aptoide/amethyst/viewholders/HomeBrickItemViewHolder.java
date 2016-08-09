@@ -1,17 +1,15 @@
 package com.aptoide.amethyst.viewholders;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
-
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.models.displayables.BrickAppItem;
 import com.aptoide.models.displayables.Displayable;
 import com.bumptech.glide.Glide;
 
-
-import com.aptoide.amethyst.adapter.BaseAdapter;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 /**
  * Created by hsousa on 20/10/15.
@@ -36,7 +34,7 @@ public class HomeBrickItemViewHolder extends BaseViewHolder {
 //                downloads.setText(withSuffix(appItem.downloads) + " downloads");
 //                ratingBar.setVisibility(View.VISIBLE);
         ratingBar.setRating(appItem.rating);
-        itemView.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
+        itemView.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem, getAdapterPosition(), true));
         Glide.with(itemView.getContext()).load(appItem.featuredGraphic).placeholder(R.drawable.placeholder_705x345).into(graphic);
 
     }

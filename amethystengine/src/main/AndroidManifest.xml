@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <permission android:label="Make internal payments" android:name="${applicationId}.org.onepf.openiab.permission.BILLING" android:protectionLevel="normal"/>
 
@@ -50,6 +51,19 @@
             android:name="com.aptoide.amethyst.SignUpActivity"
             android:theme="@style/AptoideThemeDefault"/>
 
+        <activity android:name=".tutorial.TutorialActivity" />
+
+        <service android:name="com.aptoide.amethyst.services.AccountAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator"/>
+        </service>
+        <provider android:name="com.aptoide.amethyst.webservices.StubProvider"
+            android:authorities="cm.aptoide.pt.StubProvider"
+            android:exported="true"/>
         <service
             android:name="com.aptoide.amethyst.services.RabbitMqService"
             android:exported="false"/>

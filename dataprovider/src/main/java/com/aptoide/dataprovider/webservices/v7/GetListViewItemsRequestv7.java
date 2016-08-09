@@ -11,14 +11,15 @@ import com.aptoide.dataprovider.exceptions.MalformedActionUrlException;
 import com.aptoide.dataprovider.exceptions.TicketException;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.StoreHomeTab;
-import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.ListViewItems;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
+import com.aptoide.dataprovider.webservices.models.v7.ViewItemDataList;
 import com.aptoide.models.displayables.AppItem;
 import com.aptoide.models.displayables.BrickAppItem;
 
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_APPS;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.EVENT_LIST_STORES;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.EVENT_LIST_APPS;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.EVENT_LIST_STORES;
 
 /**
  * This request is used for the retrieving Apps and Stores, and can be reused with listStores and listApps
@@ -47,7 +48,7 @@ public class GetListViewItemsRequestv7 extends BaseStoreRequest<ListViewItems> {
 
 
     @Override
-    protected ListViewItems getResponse(Apiv7 api) throws TicketException {
+    protected ListViewItems getResponse(Apiv7GetStore api) throws TicketException {
         return getService().postViewItems(actionUrl, api);
     }
 
@@ -55,7 +56,7 @@ public class GetListViewItemsRequestv7 extends BaseStoreRequest<ListViewItems> {
     @Override
     public StoreHomeTab bind(ListViewItems response) {
         StoreHomeTab tab = new StoreHomeTab();
-        ListViewItems.DataList dataList;
+        ViewItemDataList dataList;
         try {
             dataList = response.datalist;
         } catch (Exception e) {
@@ -63,7 +64,7 @@ public class GetListViewItemsRequestv7 extends BaseStoreRequest<ListViewItems> {
         }
 
         if (actionUrl.contains(EVENT_LIST_APPS)) {
-            for (ViewItem itemList : dataList.itemView) {
+            for (ViewItem itemList : dataList.list) {
                 if (Constants.LAYOUT_BRICK.equals(layout)) {
                     BrickAppItem brick = createBrickItem(itemList);
                     tab.list.add(brick);
@@ -74,7 +75,7 @@ public class GetListViewItemsRequestv7 extends BaseStoreRequest<ListViewItems> {
             }
 
         } else if (actionUrl.contains(EVENT_LIST_STORES)) {
-            for (ViewItem itemList : dataList.itemView) {
+            for (ViewItem itemList : dataList.list) {
                 tab.list.add(createStoreItem(itemList));
             }
 
@@ -92,8 +93,8 @@ public class GetListViewItemsRequestv7 extends BaseStoreRequest<ListViewItems> {
     }
 
     @Override
-    public Apiv7 getApi() {
-        Apiv7 api = super.getApi();
+    public Apiv7GetStore getApi() {
+        Apiv7GetStore api = super.getApi();
         api.limit = numColumns * 10;
         if (offset > 0) {
             api.offset = offset;

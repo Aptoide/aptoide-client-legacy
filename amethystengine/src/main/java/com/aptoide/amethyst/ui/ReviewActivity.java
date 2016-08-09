@@ -1,24 +1,11 @@
 package com.aptoide.amethyst.ui;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.ui.widget.CircleTransform;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Configs;
 import com.aptoide.amethyst.utils.Logger;
@@ -35,6 +22,21 @@ import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,9 +44,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import com.aptoide.amethyst.AppViewActivity;
-
-import com.aptoide.amethyst.ui.widget.CircleTransform;
 import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
@@ -214,8 +213,8 @@ public class ReviewActivity extends AptoideBaseActivity {
                     }
                 }
 
-                Glide.with(context).load(reviewListJson.getReview().getApk().getIcon()).transform(new CircleTransform(context)).crossFade().into(appIcon);
-                Glide.with(context).load(reviewListJson.getReview().getUser().getAvatar()).transform(new CircleTransform(context)).into(avatar);
+                Glide.with(context).load(AptoideUtils.UI.parseIcon(reviewListJson.getReview().getApk().getIcon())).transform(new CircleTransform(context)).crossFade().into(appIcon);
+                Glide.with(context).load(AptoideUtils.UI.parseIcon(reviewListJson.getReview().getUser().getAvatar())).transform(new CircleTransform(context)).into(avatar);
 
                 reviewer.setText(AptoideUtils.StringUtils.getFormattedString(context, R.string.review_by, reviewListJson.getReview().getUser().getName()));
 
@@ -236,6 +235,7 @@ public class ReviewActivity extends AptoideBaseActivity {
                 usabilityChart.startDataAnimation();
                 addictiveChart.startDataAnimation();
                 stabilityChart.startDataAnimation();
+                AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Reviews");
             }
         });
 

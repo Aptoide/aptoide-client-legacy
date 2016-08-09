@@ -3,7 +3,7 @@ package com.aptoide.dataprovider.webservices.v7;
 import com.aptoide.dataprovider.exceptions.MalformedActionUrlException;
 import com.aptoide.dataprovider.exceptions.TicketException;
 import com.aptoide.dataprovider.webservices.models.StoreHomeTab;
-import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class GetStoreWidgetRequestv7 extends BaseStoreRequest<GetStoreWidgets> {
 
 
     @Override
-    protected GetStoreWidgets getResponse(Apiv7 api) throws TicketException {
+    protected GetStoreWidgets getResponse(Apiv7GetStore api) throws TicketException {
         return getService().postStoreWidget(actionUrl, api);
     }
 
@@ -41,7 +41,7 @@ public class GetStoreWidgetRequestv7 extends BaseStoreRequest<GetStoreWidgets> {
     @Override
     public StoreHomeTab bind(GetStoreWidgets response) {
         StoreHomeTab tab = new StoreHomeTab();
-        List<GetStoreWidgets.Datalist.WidgetList> list;
+        List<GetStoreWidgets.WidgetDatalist.WidgetList> list;
         try {
             list = response.datalist.widgetList;
         } catch (Exception e) {
@@ -54,8 +54,8 @@ public class GetStoreWidgetRequestv7 extends BaseStoreRequest<GetStoreWidgets> {
     }
 
     @Override
-    public Apiv7 getApi() {
-        Apiv7 api = super.getApi();
+    public Apiv7GetStore getApi() {
+        Apiv7GetStore api = super.getApi();
 
 
         api.store_user = user;

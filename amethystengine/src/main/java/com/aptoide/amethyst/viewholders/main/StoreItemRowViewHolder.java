@@ -79,7 +79,7 @@ public class StoreItemRowViewHolder extends BaseViewHolder {
             Glide.with(context).fromResource().load(R.drawable.ic_avatar_apps)
                     .transform(new CircleTransform(context)).into(storeAvatar);
         } else {
-            Glide.with(context).load(storeItem.avatar).transform(new CircleTransform(context))
+            Glide.with(context).load(AptoideUtils.UI.parseStoreIcon(storeItem.avatar)).transform(new CircleTransform(context))
                     .into(storeAvatar);
         }
 
