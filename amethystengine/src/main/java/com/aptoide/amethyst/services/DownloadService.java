@@ -890,7 +890,6 @@ public class DownloadService extends Service {
 
         if(!downloadsActiveAppView.contains(downloadId)) {
             downloadsActiveAppView.put(appId, downloadId);
-            Log.d("lou",appId+" "+downloadId+" added");
         }
     }
 
@@ -899,13 +898,12 @@ public class DownloadService extends Service {
      * @param appId id from the app opened in the appview
      * @return  id from the download opened in the appview
      */
-    public static Long getDownloadId(Long appId){
-        if(downloadsActiveAppView.get(appId) != null) {
-            Log.d("lou"," get");
+    public static Long getDownloadId(Long appId, Long downloadId){
+        if(downloadsActiveAppView.get(appId) != null && downloadId.longValue() == Long.valueOf(0)) {
             return downloadsActiveAppView.get(appId);
         }
         else {
-            return Long.valueOf(0);
+            return downloadId;
         }
     }
 

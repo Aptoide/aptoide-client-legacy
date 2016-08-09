@@ -894,7 +894,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
             super.onResume();
 
             //get download id
-            downloadId = DownloadService.getDownloadId(appId);
+            downloadId = DownloadService.getDownloadId(appId, downloadId);
 
             if (pay != null && pay.price != null) {
                 setupInstallButton();
