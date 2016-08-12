@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.fragments.store;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.GridRecyclerFragment;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapter.BaseAdapter;
@@ -33,8 +34,10 @@ import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;

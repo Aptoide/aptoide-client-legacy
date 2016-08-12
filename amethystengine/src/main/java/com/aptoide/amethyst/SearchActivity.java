@@ -70,10 +70,12 @@ public class SearchActivity extends AptoideBaseActivity {
         if (supportActBar != null) {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setLogo(R.drawable.ic_aptoide_toolbar);
+            if (Aptoide.getConfiguration().getDefaultStore().contains("apps")) {
+                getSupportActionBar().setLogo(R.drawable.ic_aptoide_toolbar);
+            }
         }
 
-        setTitle(AptoideUtils.StringUtils.getFormattedString(this, R.string.search_activity_title, query));
+        getSupportActionBar().setTitle(AptoideUtils.StringUtils.getFormattedString(this, R.string.search_activity_title, query));
 
         if(savedInstanceState==null) {
             getSupportFragmentManager().beginTransaction().add(R.id.content, SearchFragment

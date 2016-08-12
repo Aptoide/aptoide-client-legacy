@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.MoreSearchActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SearchActivity;

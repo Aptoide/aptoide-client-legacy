@@ -8,6 +8,7 @@
 package com.aptoide.amethyst.adapter;
 
 import com.aptoide.amethyst.AppViewActivity;
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.analytics.Analytics;

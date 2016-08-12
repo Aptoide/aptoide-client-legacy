@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.ui;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SearchActivity;
@@ -10,8 +11,10 @@ import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.octo.android.robospice.SpiceManager;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
@@ -73,6 +76,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
         } else {
             args = getIntent().getExtras();
         }
+        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext());
 
         mToolbar.setCollapsible(false);
         setSupportActionBar(mToolbar);

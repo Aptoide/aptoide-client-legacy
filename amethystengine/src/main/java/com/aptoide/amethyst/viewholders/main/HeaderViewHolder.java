@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.viewholders.main;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.models.EnumStoreTheme;
@@ -57,6 +58,18 @@ public class HeaderViewHolder extends BaseViewHolder {
         this.localyticsTag = localyticsTag;
         this.isFromHomeBundle = isFromHomeBundle;
     }
+
+
+    public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme, String storeName, long storeId) {
+        super(itemView, viewType);
+        this.theme = theme;
+        this.storeName = storeName;
+        this.storeId = storeId;
+        isCommunity = false;
+    }
+
+
+
     @Override
     public void populateView(Displayable displayable) {
         HeaderRow row = (HeaderRow) displayable;

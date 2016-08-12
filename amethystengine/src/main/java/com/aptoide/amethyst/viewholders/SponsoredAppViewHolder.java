@@ -1,6 +1,7 @@
 package com.aptoide.amethyst.viewholders;
 
 import com.aptoide.amethyst.AppViewActivity;
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.displayables.Displayable;
@@ -61,7 +62,7 @@ public class SponsoredAppViewHolder extends BaseViewHolder {
 
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(itemView.getContext(), AppViewActivity.class);
+                Intent i = new Intent(itemView.getContext(), Aptoide.getConfiguration().getAppViewActivity());
                 long id = appItem.getId().longValue();
                 long adId = appItem.getAdId();
                 i.putExtra(APP_ID_KEY, id);

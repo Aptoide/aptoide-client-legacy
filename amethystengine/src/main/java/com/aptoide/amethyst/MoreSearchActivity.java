@@ -24,9 +24,6 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.models.search.SearchAppConverter;
 import com.aptoide.amethyst.ui.MoreActivity;
-import com.aptoide.amethyst.utils.SearchUtils;
-import com.aptoide.models.displayables.SearchApk;
-import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
@@ -52,7 +49,7 @@ import java.util.List;
  */
 public class MoreSearchActivity extends MoreActivity {
 
-    private EnumStoreTheme storeTheme = null;
+    protected static EnumStoreTheme storeTheme = null;
     private AppBarLayout mAppBar;
 
     @Override
@@ -116,8 +113,8 @@ public class MoreSearchActivity extends MoreActivity {
         private TextView retryError;
         private TextView retryNoNetwork;
 
-        private SearchAdapter adapter;
-        private String storeName;
+        protected SearchAdapter adapter;
+        protected String storeName;
         private SearchAppConverter searchAppConverter;
 
         private String query;
@@ -258,7 +255,7 @@ public class MoreSearchActivity extends MoreActivity {
             searchForApps(stores);
         }
 
-        private void startSearch() {
+        protected void startSearch() {
             Intent intent = new Intent(getActivity(), MoreSearchActivity.class);
             intent.putExtra(SearchActivity.SEARCH_QUERY, query);
             intent.putExtra(SearchActivity.SEARCH_STORE_NAME, storeName);
@@ -368,7 +365,7 @@ public class MoreSearchActivity extends MoreActivity {
             }
         }
 
-        private void bindViews(View view) {
+        protected void bindViews(View view) {
             swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
             noSearchResultLayout = (ScrollView) view.findViewById(R.id.no_search_results_layout);
             searchButton = (ImageView) view.findViewById(R.id.ic_search_button);
@@ -380,7 +377,7 @@ public class MoreSearchActivity extends MoreActivity {
             retryNoNetwork = (TextView) view.findViewById(R.id.retry_no_network);
         }
 
-        private void unbindViews() {
+        protected void unbindViews() {
             swipeContainer = null;
             noSearchResultLayout = null;
             searchButton = null;

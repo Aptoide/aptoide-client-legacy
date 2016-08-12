@@ -318,7 +318,9 @@ public class SearchFragment extends LinearRecyclerFragment {
         if (!isErrorViewShown()) {
             searchForSuggestedApp();
             searchForSubscribedApps(subscribedStores);
-            searchForUnsubscribedApps();
+            if (Aptoide.getConfiguration().isSearchStores()) {
+                searchForUnsubscribedApps();
+            }
         }
     }
 

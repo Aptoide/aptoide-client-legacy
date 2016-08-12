@@ -380,9 +380,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		ImageView mFeaturedGraphic;
 		ImageView mAppIcon;
 		View mStoreView;
-		ImageView mStoreAvatar;
-		TextView mStoreName;
-		TextView mStoreUsers;
+		protected ImageView mStoreAvatar;
+		protected TextView mStoreName;
+		protected TextView mStoreUsers;
 		CollapsingToolbarLayout mCollapsingToolbarLayout;
 		TextView mVersionName;
 		TextView mDownloadsNumber;
@@ -482,41 +482,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		 */
 		int scrollPosition = 0;
 
-		/**
-		 * v7 json attributes
-		 */
-		@Getter private long appId;
-		private long adId;
-		private String signature;
-		private String path;
-		private long fileSize; //this is just the fileSize of the apk
-		private String altPath;
-		private String appName;
-		private String versionName;
-		private int versionCode;
-		private long downloads;
-		private String packageName;
-		private String developer;
-		private String storeName;
-		private String storeAvatar;
-		private EnumStoreTheme storeTheme;
-		private long storeSubscribers;
-		private String screen;
-		private int minSdk;
-		private GetAppMeta.Pay pay;
-		private String md5sum;
-		private String iconUrl;
-		private float rating;
-		private long storeId;
-		private String description;
-		private String graphic;
-		private String wUrl;
-		private String userVote;
-		private GetAppMeta.Obb obb;
-		private List<String> permissions;
-		private GetAppMeta.File.Malware malware;
-		private String website;
-		private String email;
         /**
          * v7 json attributes
          */
@@ -558,7 +523,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		/**
 		 * In v6 is the hashCode of the md5sum. Used as an Id for the downloadService
 		 */
-		private long downloadId;
+		protected long downloadId;
 		private List<GetAppMeta.Media.Screenshot> screenshots;
 		private List<GetAppMeta.Media.Video> videos;
 		/**
@@ -568,7 +533,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		/**
 		 * flag to control when the secondary requests should use cache or not
 		 */
-		boolean forceReload;
+		protected boolean forceReload;
 		/**
 		 * Flag to inform if there is a more recent version
 		 */
@@ -929,85 +894,94 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			return view;
 		}
 
-        protected void bindViews(View view) {
-            mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
-            mFeaturedGraphic = (ImageView) view.findViewById(R.id.featured_graphic);
-            mAppIcon = (ImageView) view.findViewById(R.id.app_icon);
-            mStoreView = (View) view.findViewById(R.id.store);
-            mStoreAvatar = (ImageView) view.findViewById(R.id.store_avatar);
-            mStoreName = (TextView) view.findViewById(R.id.store_name);
-            mStoreUsers = (TextView) view.findViewById(R.id.store_number_users);
-            mCollapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.collapsing_toolbar);
-            mVersionName = (TextView) view.findViewById(R.id.versionName);
-            mDownloadsNumber = (TextView) view.findViewById(R.id.downloads_number);
-            mFileSize = (TextView) view.findViewById(R.id.file_size);
-            mRatingBarTop = (RatingBar) view.findViewById(R.id.rating_bar_top);
-            mRatingBar = (RatingBar) view.findViewById(R.id.ratingbar_appview);
-            mDescription = (TextView) view.findViewById(R.id.description);
-            mSeeMore = (TextView) view.findViewById(R.id.see_more_button);
-            mSeeMoreLayout = (LinearLayout) view.findViewById(R.id.see_more_layout);
-            mButtonInstall = (Button) view.findViewById(R.id.btn_install);
-            mContentView = (NestedScrollView) view.findViewById(R.id.scrollview_content);
-            mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
-            mAppBarLayout = (AppBarLayout) view.findViewById(R.id.appbar);
-            layoutNoNetwork = (ScrollView) view.findViewById(R.id.no_network_connection);
-            layoutError = (ScrollView) view.findViewById(R.id.error);
-            layoutError410 = (ScrollView) view.findViewById(R.id.error410);
-            retryError = (TextView) view.findViewById(R.id.retry_error);
-            retryNoNetwork = (TextView) view.findViewById(R.id.retry_no_network);
-            recyclerComments = (RecyclerView) view.findViewById(R.id.appview_comments_list);
-            mSeeMoreComments = (TextView) view.findViewById(R.id.see_more_comments);
-            mLatestVersionLayout = (LinearLayout) view.findViewById(R.id.latestversion_layout);
-            mButtonGetLatest = (Button) view.findViewById(R.id.btn_get_latest);
-            mButtonUninstall = (Button) view.findViewById(R.id.btn_uninstall);
-            mButtonSubscribe = (Button) view.findViewById(R.id.btn_subscribe);
-            mTrustedLayout = (RelativeLayout) view.findViewById(R.id.trusted_layout);
-            mWarningLayout = (RelativeLayout) view.findViewById(R.id.warning_layout);
-            mUnknownLayoutt = (RelativeLayout) view.findViewById(R.id.unknown_layout);
-            badgeLayout = (RelativeLayout) view.findViewById(R.id.badge_layout);
-            mBadgeMarket = (ImageView) view.findViewById(R.id.iv_market_badge);
-            mBadgeSignature = (ImageView) view.findViewById(R.id.iv_signature_badge);
-            mBadgeFlag = (ImageView) view.findViewById(R.id.iv_flag_badge);
-            mBadgeAntiVirus = (ImageView) view.findViewById(R.id.iv_antivirus_badge);
-            mFlagsLayout = (LinearLayout) view.findViewById(R.id.flags_layout);
-            mButtonFlagThisApp = (Button) view.findViewById(R.id.btn_flag_this_app);
-            mArrow = (ImageView) view.findViewById(R.id.iv_arrow);
-            tvAgvRating = (TextView) view.findViewById(R.id.appview_avg_rating);
-            tvNumberRates = (TextView) view.findViewById(R.id.tv_number_of_rates);
-            progressBarRating5 = (ProgressBar) view.findViewById(R.id.appview_rating_bar5);
-            progressBarRating4 = (ProgressBar) view.findViewById(R.id.appview_rating_bar4);
-            progressBarRating3 = (ProgressBar) view.findViewById(R.id.appview_rating_bar3);
-            progressBarRating2 = (ProgressBar) view.findViewById(R.id.appview_rating_bar2);
-            progressBarRating1 = (ProgressBar) view.findViewById(R.id.appview_rating_bar1);
-            avgRatingBar = (RatingBar) view.findViewById(R.id.appview_rating_bar_avg);
-            tvNumberOfStarts5 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number5);
-            tvNumberOfStarts4 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number4);
-            tvNumberOfStarts3 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number3);
-            tvNumberOfStarts2 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number2);
-            tvNumberOfStarts1 = (TextView) view.findViewById(R.id.appview_rating_bar_rating_number1);
-            tvNumberGoodFlags = (TextView) view.findViewById(R.id.number_good_flags);
-            tvNumberFakeFlags = (TextView) view.findViewById(R.id.number_fake_flags);
-            tvNumberFreezeFlags = (TextView) view.findViewById(R.id.number_freeze_flags);
-            tvNumberLicenceFlags = (TextView) view.findViewById(R.id.number_licence_flags);
-            tvNumberVirusFlags = (TextView) view.findViewById(R.id.number_virus_flags);
-            manualReviewLayout = (View) view.findViewById(R.id.manual_reviewed_message_layout);
-            mInstallAndLatestVersionLayout = (LinearLayout) view.findViewById(R.id.install_and_latest_version_layout);
-            mDownloadProgressLayout = (RelativeLayout) view.findViewById(R.id.download_progress_layout);
-            mActionResume = (ImageView) view.findViewById(R.id.ic_action_resume);
-            mProgressText = (TextView) view.findViewById(R.id.text_progress);
-            mDownloadingProgress = (ProgressBar) view.findViewById(R.id.downloading_progress);
-            mMoreVersionsLayoutHeader = (RelativeLayout) view.findViewById(R.id.more_layout);
-            mMoreVersionsLayoutButton = (Button) view.findViewById(R.id.more);
-            mMoreVersionsTitle = (TextView) view.findViewById(R.id.title);
-            mWebsiteLabel = (TextView) view.findViewById(R.id.website_label);
-            mEmailLabel = (TextView) view.findViewById(R.id.email_label);
-            mPrivacyLabel = (TextView) view.findViewById(R.id.privacy_policy_label);
-            mPermissionsLabel = (TextView) view.findViewById(R.id.permissions_label);
-            mScreenshotsList = (RecyclerView) view.findViewById(R.id.screenshots_list);
-            mMoreVersionsList = (RecyclerView) view.findViewById(R.id.more_versions_recycler);
-            mGuaranteedMessage = (LinearLayout) view.findViewById(R.id.guaranteed_message);
-            descriptionLines = view.getContext().getResources().getInteger(R.integer.minimum_description_lines);
-        }
+		protected void bindViews(View view) {
+			mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
+			mFeaturedGraphic = (ImageView) view.findViewById(R.id.featured_graphic);
+			mAppIcon = (ImageView) view.findViewById(R.id.app_icon);
+			mStoreView = (View) view.findViewById(R.id.store);
+			mStoreAvatar = (ImageView) view.findViewById(R.id.store_avatar);
+			mStoreName = (TextView) view.findViewById(R.id.store_name);
+			mStoreUsers = (TextView) view.findViewById(R.id.store_number_users);
+			mCollapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id
+					.collapsing_toolbar);
+			mVersionName = (TextView) view.findViewById(R.id.versionName);
+			mDownloadsNumber = (TextView) view.findViewById(R.id.downloads_number);
+			mFileSize = (TextView) view.findViewById(R.id.file_size);
+			mRatingBarTop = (RatingBar) view.findViewById(R.id.rating_bar_top);
+			mRatingBar = (RatingBar) view.findViewById(R.id.ratingbar_appview);
+			mDescription = (TextView) view.findViewById(R.id.description);
+			mSeeMore = (TextView) view.findViewById(R.id.see_more_button);
+			mSeeMoreLayout = (LinearLayout) view.findViewById(R.id.see_more_layout);
+			mButtonInstall = (Button) view.findViewById(R.id.btn_install);
+			mContentView = (NestedScrollView) view.findViewById(R.id.scrollview_content);
+			mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
+			mAppBarLayout = (AppBarLayout) view.findViewById(R.id.appbar);
+			layoutNoNetwork = (ScrollView) view.findViewById(R.id.no_network_connection);
+			layoutError = (ScrollView) view.findViewById(R.id.error);
+			layoutError410 = (ScrollView) view.findViewById(R.id.error410);
+			retryError = (TextView) view.findViewById(R.id.retry_error);
+			retryNoNetwork = (TextView) view.findViewById(R.id.retry_no_network);
+			recyclerComments = (RecyclerView) view.findViewById(R.id.appview_comments_list);
+			mSeeMoreComments = (TextView) view.findViewById(R.id.see_more_comments);
+			mLatestVersionLayout = (LinearLayout) view.findViewById(R.id.latestversion_layout);
+			mButtonGetLatest = (Button) view.findViewById(R.id.btn_get_latest);
+			mButtonUninstall = (Button) view.findViewById(R.id.btn_uninstall);
+			mButtonSubscribe = (Button) view.findViewById(R.id.btn_subscribe);
+			rankText = (TextView) view.findViewById(R.id.fragment_app_view_malware_rank_text);
+			badgeLayout = (RelativeLayout) view.findViewById(R.id.badge_layout);
+			mBadgeMarket = (ImageView) view.findViewById(R.id.iv_market_badge);
+			mBadgeSignature = (ImageView) view.findViewById(R.id.iv_signature_badge);
+			mBadgeFlag = (ImageView) view.findViewById(R.id.iv_flag_badge);
+			mBadgeAntiVirus = (ImageView) view.findViewById(R.id.iv_antivirus_badge);
+			mFlagsLayout = (LinearLayout) view.findViewById(R.id.flags_layout);
+			mButtonFlagThisApp = (Button) view.findViewById(R.id.btn_flag_this_app);
+			mArrow = (ImageView) view.findViewById(R.id.iv_arrow);
+			tvAgvRating = (TextView) view.findViewById(R.id.appview_avg_rating);
+			tvNumberRates = (TextView) view.findViewById(R.id.tv_number_of_rates);
+			progressBarRating5 = (ProgressBar) view.findViewById(R.id.appview_rating_bar5);
+			progressBarRating4 = (ProgressBar) view.findViewById(R.id.appview_rating_bar4);
+			progressBarRating3 = (ProgressBar) view.findViewById(R.id.appview_rating_bar3);
+			progressBarRating2 = (ProgressBar) view.findViewById(R.id.appview_rating_bar2);
+			progressBarRating1 = (ProgressBar) view.findViewById(R.id.appview_rating_bar1);
+			avgRatingBar = (RatingBar) view.findViewById(R.id.appview_rating_bar_avg);
+			tvNumberOfStarts5 = (TextView) view.findViewById(R.id
+					.appview_rating_bar_rating_number5);
+			tvNumberOfStarts4 = (TextView) view.findViewById(R.id
+					.appview_rating_bar_rating_number4);
+			tvNumberOfStarts3 = (TextView) view.findViewById(R.id
+					.appview_rating_bar_rating_number3);
+			tvNumberOfStarts2 = (TextView) view.findViewById(R.id
+					.appview_rating_bar_rating_number2);
+			tvNumberOfStarts1 = (TextView) view.findViewById(R.id
+					.appview_rating_bar_rating_number1);
+			tvNumberGoodFlags = (TextView) view.findViewById(R.id.number_good_flags);
+			tvNumberFakeFlags = (TextView) view.findViewById(R.id.number_fake_flags);
+			tvNumberFreezeFlags = (TextView) view.findViewById(R.id.number_freeze_flags);
+			tvNumberLicenceFlags = (TextView) view.findViewById(R.id.number_licence_flags);
+			tvNumberVirusFlags = (TextView) view.findViewById(R.id.number_virus_flags);
+			manualReviewLayout = (View) view.findViewById(R.id.manual_reviewed_message_layout);
+			mInstallAndLatestVersionLayout = (LinearLayout) view.findViewById(R.id
+					.install_and_latest_version_layout);
+			mDownloadProgressLayout = (RelativeLayout) view.findViewById(R.id
+					.download_progress_layout);
+			mActionResume = (ImageView) view.findViewById(R.id.ic_action_resume);
+			mProgressText = (TextView) view.findViewById(R.id.text_progress);
+			mDownloadingProgress = (ProgressBar) view.findViewById(R.id.downloading_progress);
+			mMoreVersionsLayoutHeader = (RelativeLayout) view.findViewById(R.id.more_layout);
+			mMoreVersionsLayoutButton = (Button) view.findViewById(R.id.more);
+			mMoreVersionsTitle = (TextView) view.findViewById(R.id.title);
+			mWebsiteLabel = (TextView) view.findViewById(R.id.website_label);
+			mEmailLabel = (TextView) view.findViewById(R.id.email_label);
+			mPrivacyLabel = (TextView) view.findViewById(R.id.privacy_policy_label);
+			mPermissionsLabel = (TextView) view.findViewById(R.id.permissions_label);
+			mScreenshotsList = (RecyclerView) view.findViewById(R.id.screenshots_list);
+			mMoreVersionsList = (RecyclerView) view.findViewById(R.id.more_versions_recycler);
+			securitydBalloonLayout = view.findViewById(R.id.fragment_app_view_security_balloon);
+
+			descriptionLines = view.getContext()
+					.getResources()
+					.getInteger(R.integer.minimum_description_lines);
+		}
 
 		@Override
 		public void onViewCreated(final View view, @Nullable final Bundle savedInstanceState) {
@@ -1320,7 +1294,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 		}
 
-		RequestListener<GetComments> requestCommentListener = new RequestListener<GetComments>() {
+		protected RequestListener<GetComments> requestCommentListener = new RequestListener<GetComments>() {
 			@Override
 			public void onRequestFailure(SpiceException spiceException) {
 				Logger.printException(spiceException);
@@ -1600,7 +1574,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
             if (GetAppMeta.File.Flags.GOOD.equals(flags.review)) {
                 manualReviewLayout.setVisibility(View.GONE);
-                mGuaranteedMessage.setVisibility(View.VISIBLE);
+				mFlagsLayout.setVisibility(View.VISIBLE);
                 mButtonFlagThisApp.setClickable(false);
                 mButtonFlagThisApp.setAlpha(0.5f);
                 mFlagsLayout.setAlpha(0.5f);
@@ -2424,7 +2398,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				mButtonGetLatest.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						Intent i = new Intent(getActivity(), AppViewActivity.class);
+						Intent i = new Intent(getActivity(), Aptoide.getConfiguration().getAppViewActivity());
 						i.putExtra(Constants.FROM_RELATED_KEY, true);
 						i.putExtra(Constants.APP_ID_KEY, latestAppId);
 						i.putExtra(Constants.APPNAME_KEY, appName);
@@ -2896,7 +2870,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 		public void openTrustedVersionAppView() {
 			if (hasTrustedVersion()) {
-				final Intent appViewIntent = new Intent(getActivity(), AppViewActivity.class);
+				final Intent appViewIntent = new Intent(getActivity(), Aptoide.getConfiguration().getAppViewActivity());
 				appViewIntent.putExtra(Constants.FROM_RELATED_KEY, true);
 				appViewIntent.putExtra(Constants.APP_ID_KEY, trustedVersion.id.longValue());
 				appViewIntent.putExtra(Constants.APPNAME_KEY, trustedVersion.name);
