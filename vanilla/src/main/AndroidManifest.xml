@@ -119,6 +119,7 @@
         <activity android:name="com.aptoide.amethyst.MakeReviewActivity"/>
         <activity android:name="com.aptoide.amethyst.ui.MoreVersionsActivity"/>
         <activity android:name="com.aptoide.amethyst.MoreSearchActivity"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="YOUR_API_KEY"/>
 
 
         <activity
