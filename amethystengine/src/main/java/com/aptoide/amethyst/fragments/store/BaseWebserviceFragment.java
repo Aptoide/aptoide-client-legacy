@@ -1,6 +1,7 @@
 package com.aptoide.amethyst.fragments.store;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.Configuration;
 import com.aptoide.amethyst.GridRecyclerFragment;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapter.BaseAdapter;
@@ -36,6 +37,7 @@ import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -117,23 +119,32 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
 
 
             if(isHomePage() && storeName.equals("red-aula-store")) {
-                //16 17 25 26
                 DisplayableList t = new DisplayableList();
                 t.addAll(tab.list);
                 tab.list.clear();
-                Log.d("lou",tab.list.size()+" tablist antes");
+
+                if(getResources().getConfiguration().orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT){ //16 17 25 26
                 tab.list.add(t.get(0));
                 tab.list.add(t.get(16));
                 tab.list.add(t.get(17));
                 tab.list.add(t.get(25));
                 tab.list.add(t.get(26));
-
-                Log.d("lou",t.size()+" t");
-                Log.d("lou",tab.list.size()+" tablist depois");
-
                 for(Displayable row : t){
                     if(row != t.get(0) && row != t.get(16) && row != t.get(17) && row != t.get(25) && row != t.get(26)){
                         tab.list.add(row);
+                    }
+                }
+                }
+                else{ //20 21 31 32
+                    tab.list.add(t.get(0));
+                    tab.list.add(t.get(20));
+                    tab.list.add(t.get(21));
+                    tab.list.add(t.get(31));
+                    tab.list.add(t.get(32));
+                    for(Displayable row : t){
+                        if(row != t.get(0) && row != t.get(20) && row != t.get(21) && row != t.get(31) && row != t.get(32)){
+                            tab.list.add(row);
+                        }
                     }
                 }
             }
