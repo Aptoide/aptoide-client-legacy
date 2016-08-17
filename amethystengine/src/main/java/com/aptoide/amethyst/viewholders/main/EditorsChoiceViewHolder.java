@@ -65,7 +65,7 @@ public class EditorsChoiceViewHolder extends BaseViewHolder {
 
         boolean hasExtraImage = itemView.findViewById(R.id.extra_image) != null;
         if (!Aptoide.getConfiguration().getDefaultStore().contains("leagoo")) {
-            images = new ImageView[3];
+            images = new ImageView[4];
             images[0] = (ImageView) itemView.findViewById(R.id.main_image);
             images[1] = (ImageView) itemView.findViewById(R.id.left_image);
             images[2] = (ImageView) itemView.findViewById(R.id.right_image);
