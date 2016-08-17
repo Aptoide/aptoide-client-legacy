@@ -117,34 +117,29 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                 displayableList.add(getStoreHeaderRow(tab));
             }
 
-
+//red-aula-store change category location
             if(isHomePage() && storeName.equals("red-aula-store")) {
+
                 DisplayableList t = new DisplayableList();
+                DisplayableList categories = new DisplayableList();
                 t.addAll(tab.list);
                 tab.list.clear();
 
-                if(getResources().getConfiguration().orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT){ //16 17 25 26
-                tab.list.add(t.get(0));
-                tab.list.add(t.get(16));
-                tab.list.add(t.get(17));
-                tab.list.add(t.get(25));
-                tab.list.add(t.get(26));
-                for(Displayable row : t){
-                    if(row != t.get(0) && row != t.get(16) && row != t.get(17) && row != t.get(25) && row != t.get(26)){
-                        tab.list.add(row);
+                for (Displayable row : t) {
+                    if (row.toString().contains("Category")) {
+                        categories.add(row);
                     }
                 }
+
+                tab.list.add(t.get(0));
+
+                for (Displayable row : categories) {
+                    tab.list.add(row);
                 }
-                else{ //20 21 31 32
-                    tab.list.add(t.get(0));
-                    tab.list.add(t.get(20));
-                    tab.list.add(t.get(21));
-                    tab.list.add(t.get(31));
-                    tab.list.add(t.get(32));
-                    for(Displayable row : t){
-                        if(row != t.get(0) && row != t.get(20) && row != t.get(21) && row != t.get(31) && row != t.get(32)){
-                            tab.list.add(row);
-                        }
+
+                for (Displayable row : t) {
+                    if (!categories.contains(row) && row != t.get(0)) {
+                        tab.list.add(row);
                     }
                 }
             }
@@ -163,7 +158,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
             }
 
             for (Displayable row : tab.list) {
-                    if (row instanceof ReviewPlaceHolderRow) {
+                if (row instanceof ReviewPlaceHolderRow) {
                         executeReviewsSpiceRequest();
                     } else if (row instanceof AdPlaceHolderRow) {
                         executeAdsSpiceRequest();

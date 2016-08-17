@@ -119,7 +119,6 @@
         <activity android:name="com.aptoide.amethyst.MakeReviewActivity"/>
         <activity android:name="com.aptoide.amethyst.ui.MoreVersionsActivity"/>
         <activity android:name="com.aptoide.amethyst.MoreSearchActivity"/>
-        <meta-data android:name="io.fabric.ApiKey" android:value="YOUR_API_KEY"/>
 
 
         <activity
@@ -382,7 +381,5 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-    <meta-data android:name="io.fabric.ApiKey" android:value="YOUR_API_KEY"/>
 
 </manifest>
