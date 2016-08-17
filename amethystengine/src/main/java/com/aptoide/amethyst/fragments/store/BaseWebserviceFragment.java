@@ -23,6 +23,7 @@ import com.aptoide.models.displayables.AdItem;
 import com.aptoide.models.displayables.AdPlaceHolderRow;
 import com.aptoide.models.displayables.AdultItem;
 import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.DisplayableList;
 import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.displayables.ReviewPlaceHolderRow;
 import com.aptoide.models.displayables.ReviewRowItem;
@@ -41,6 +42,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -113,6 +115,29 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                 displayableList.add(getStoreHeaderRow(tab));
             }
 
+
+            if(isHomePage() && storeName.equals("red-aula-store")) {
+                //16 17 25 26
+                DisplayableList t = new DisplayableList();
+                t.addAll(tab.list);
+                tab.list.clear();
+                Log.d("lou",tab.list.size()+" tablist antes");
+                tab.list.add(t.get(0));
+                tab.list.add(t.get(16));
+                tab.list.add(t.get(17));
+                tab.list.add(t.get(25));
+                tab.list.add(t.get(26));
+
+                Log.d("lou",t.size()+" t");
+                Log.d("lou",tab.list.size()+" tablist depois");
+
+                for(Displayable row : t){
+                    if(row != t.get(0) && row != t.get(16) && row != t.get(17) && row != t.get(25) && row != t.get(26)){
+                        tab.list.add(row);
+                    }
+                }
+            }
+
             displayableList.addAll(tab.list);
 
             if (isHomePage() && Aptoide.getConfiguration().isMature()) {
@@ -125,15 +150,15 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
-            for (Displayable row : tab.list) {
 
-                if (row instanceof ReviewPlaceHolderRow) {
-                    executeReviewsSpiceRequest();
-                } else if (row instanceof AdPlaceHolderRow) {
-                    executeAdsSpiceRequest();
-                } else if (row instanceof TimeLinePlaceHolderRow && Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
-                    executeTimelineRequest();
-                }
+            for (Displayable row : tab.list) {
+                    if (row instanceof ReviewPlaceHolderRow) {
+                        executeReviewsSpiceRequest();
+                    } else if (row instanceof AdPlaceHolderRow) {
+                        executeAdsSpiceRequest();
+                    } else if (row instanceof TimeLinePlaceHolderRow && Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
+                        executeTimelineRequest();
+                    }
             }
 
             // total and new offset is red here
