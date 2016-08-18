@@ -54,32 +54,10 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/guaranteed_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="?appManualReviewedMessageBackground"
-            android:padding="5dp"
-            android:visibility="gone">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="3dp"
-                android:src="@drawable/good_flag" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="10dp"
-                android:text="@string/manually_reviewed" />
-        </LinearLayout>
-
+        <include
+            android:id="@+id/manual_reviewed_message_layout"
+            layout="@layout/app_manual_reviewed_message_layout"
+            />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

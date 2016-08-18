@@ -1573,8 +1573,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			GetAppMeta.File.Flags flags = getApp.nodes.meta.data.file.flags;
 
             if (GetAppMeta.File.Flags.GOOD.equals(flags.review)) {
-                manualReviewLayout.setVisibility(View.GONE);
-				mFlagsLayout.setVisibility(View.VISIBLE);
+                manualReviewLayout.setVisibility(View.VISIBLE);
+				mFlagsLayout.setVisibility(View.GONE);
+				mButtonFlagThisApp.setVisibility(View.GONE);
                 mButtonFlagThisApp.setClickable(false);
                 mButtonFlagThisApp.setAlpha(0.5f);
                 mFlagsLayout.setAlpha(0.5f);
