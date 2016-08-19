@@ -1,8 +1,5 @@
 package com.aptoide.dataprovider.webservices.aban;
 
-import com.aptoide.dataprovider.webservices.models.Api;
-import com.aptoide.dataprovider.webservices.models.BulkResponse;
-
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.Header;

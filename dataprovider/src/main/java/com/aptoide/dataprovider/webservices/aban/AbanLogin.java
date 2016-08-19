@@ -18,8 +18,7 @@ public class AbanLogin extends RetrofitSpiceRequest<AbanLogin.Respose, IAbanServ
 
     @Override
     public Respose loadDataFromNetwork() throws Exception {
-        Request loginBody = new Request(phoneNr,password);
-        return getService().verifyLogin(loginBody);
+        return getService().verifyLogin(new Request(phoneNr,password));
     }
 
     public static class Respose {
@@ -35,13 +34,29 @@ public class AbanLogin extends RetrofitSpiceRequest<AbanLogin.Respose, IAbanServ
         }
     }
 
-    public static class Request {
+    public class Request {
         String username;
         String password;
 
-        public Request(String username, String password){
+        Request(String username, String password){
             this.username=username;
             this.password=password;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
         }
     }
 }
