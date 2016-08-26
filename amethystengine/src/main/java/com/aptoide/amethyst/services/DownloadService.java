@@ -463,8 +463,8 @@ public class DownloadService extends Service {
     private void download(long id, Download download, FinishedApk apk, ArrayList<DownloadModel> filesToDownload) {
         final Context context = getApplicationContext();
         if (!AptoideUtils.NetworkUtils.isGeneralDownloadPermitted(context)) {
-            if(Aptoide.getConfiguration().getDefaultStore().equals("storename")){
-                Toast.makeText(context, "Please turn on Wi-fi to Download", Toast.LENGTH_LONG).show();
+            if(Aptoide.getConfiguration().getDefaultStore().equals("obchod-eet-store")){
+                Toast.makeText(context, "Downloads are only available with Wi-Fi connection. Please turn Wi-Fi on", Toast.LENGTH_LONG).show();
             }
             else {
                 Toast.makeText(context, context.getString(R.string.data_usage_constraint), Toast.LENGTH_LONG).show();
