@@ -51,6 +51,7 @@ import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.LifeCycleMonitor;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
+import com.aptoide.amethyst.webservices.json.GetUserSettingsJson;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
 import com.aptoide.dataprovider.webservices.models.Constants;
@@ -60,9 +61,6 @@ import com.octo.android.robospice.request.listener.RequestListener;
 
 import java.io.File;
 import java.text.DecimalFormat;
-
-
-import com.aptoide.amethyst.webservices.json.GetUserSettingsJson;
 
 /**
  * Created by fabio on 26-10-2015.
@@ -516,6 +514,8 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
 
                 ((EditTextPreference) preference).getEditText().setText(PreferenceManager.getDefaultSharedPreferences(mctx).getString
                         ("maxFileCache", "200"));
+                final EditText editText = ((EditTextPreference) preference).getEditText();
+                editText.setSelection(editText.getText() != null ? editText.getText().length() : 0);
 //                FlurryAgent.logEvent("Setting_Added_Max_File_Cache");
                 return false;
             }
