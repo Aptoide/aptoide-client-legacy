@@ -14,13 +14,17 @@ import com.localytics.android.Localytics;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.zip.ZipFile;
 
 
 /**
@@ -126,8 +130,69 @@ public class Analytics {
 
                 // Integrate Localytics
                 Localytics.integrate(context);
+                setupDimensions();
                 Logger.d(TAG, "Localytics session configured");
 
+            }
+
+            private static void setupDimensions() {
+                if(!checkForUTMFileInMetaINF()){
+                    Dimenstions.setUTMDimensionsToUnknown();
+                }
+            }
+
+            private static boolean checkForUTMFileInMetaINF() {
+                ZipFile myZipFile = null;
+                try {
+                    final String sourceDir = Aptoide.getContext().getPackageManager().getPackageInfo(Aptoide.getContext().getPackageName(), 0).applicationInfo
+                            .sourceDir;
+                    myZipFile = new ZipFile(sourceDir);
+                    final InputStream utmInputStream = myZipFile.getInputStream(myZipFile.getEntry("META-INF/utm"));
+
+                    UTMFileParser utmFileParser = new UTMFileParser(utmInputStream);
+                    myZipFile.close();
+
+                    String utmSource = utmFileParser.valueExtracter(UTMFileParser.UTM_SOURCE);
+                    String utmMedium = utmFileParser.valueExtracter(UTMFileParser.UTM_MEDIUM);
+                    String utmCampaign = utmFileParser.valueExtracter(UTMFileParser.UTM_CAMPAIGN);
+                    String utmContent = utmFileParser.valueExtracter(UTMFileParser.UTM_CONTENT);
+
+                    if (!utmSource.isEmpty()) {
+                        Analytics.Dimenstions.setUTMSource(utmSource);
+                    }
+
+                    if (!utmMedium.isEmpty()) {
+                        Analytics.Dimenstions.setUTMMedium(utmMedium);
+                    }
+
+                    if (!utmCampaign.isEmpty()) {
+                        Analytics.Dimenstions.setUTMCampaign(utmCampaign);
+                    }
+
+                    if (!utmContent.isEmpty()) {
+                        Analytics.Dimenstions.setUTMContent(utmContent);
+                    }
+
+                    utmInputStream.close();
+                } catch (IOException e) {
+                    Logger.d(TAG, "problem parsing utm/no utm file");
+                    return false;
+                } catch (PackageManager.NameNotFoundException e) {
+                    Logger.d(TAG, "No package name utm file.");
+                    return false;
+                } catch (NullPointerException e){
+                    if(myZipFile != null) {
+                        try {
+                            myZipFile.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                            return false;
+                        }
+                        return false;
+                    }
+                    Logger.d(TAG, "No utm file.");
+                }
+                return true;
             }
         }
 
@@ -827,6 +892,8 @@ public class Analytics {
 
     public static class Dimenstions {
 
+        private static final String UNKNOWN = "unknown";
+
         private static void setDimension(int i, String s) {
             if (!ACTIVATE && !isFirstSession) {
                 return;
@@ -851,6 +918,29 @@ public class Analytics {
             } else {
                 setDimension(3, "GMS Not Present");
             }
+        }
+
+        public static void setUTMSource(String utmSource){
+            setDimension(4, utmSource);
+        }
+
+        public static void setUTMMedium(String utmMedium) {
+            setDimension(5, utmMedium);
+        }
+
+        public static void setUTMCampaign(String utmCampaign) {
+            setDimension(6, utmCampaign);
+        }
+
+        public static void setUTMContent(String utmContent) {
+            setDimension(7, utmContent);
+        }
+
+        public static void setUTMDimensionsToUnknown() {
+                setDimension(4, UNKNOWN);
+                setDimension(5, UNKNOWN);
+                setDimension(6, UNKNOWN);
+                setDimension(7, UNKNOWN);
         }
 
         public static class Vertical {
