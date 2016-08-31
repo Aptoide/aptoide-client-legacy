@@ -124,4 +124,7 @@ public class SearchActivity extends AptoideBaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public class SEARCH_STORE_THEME {
+    }
 }

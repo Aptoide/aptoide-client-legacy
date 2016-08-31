@@ -16,10 +16,12 @@ import com.aptoide.models.displayables.SearchApp;
 import com.bumptech.glide.Glide;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.support.v7.widget.PopupMenu;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -128,20 +130,25 @@ public class SearchAppViewHolder extends BaseViewHolder {
         }
 
         final EnumStoreTheme theme = EnumStoreTheme.get(appItem.getRepoTheme());
+        int themeColor = theme.getColor700tint();
+
+        if(Aptoide.getConfiguration().getDefaultStore().contains("zain-market")){
+            themeColor = R.color.deeppurple;
+        }
 
         if(!Aptoide.getConfiguration().getDefaultStore().contains("leagoo")) {
             Drawable background = bottomView.getBackground();
             if (background instanceof ShapeDrawable) {
-                ((ShapeDrawable) background).getPaint().setColor(itemView.getContext().getResources().getColor(theme.getColor700tint()));
+                ((ShapeDrawable) background).getPaint().setColor(itemView.getContext().getResources().getColor(themeColor));
             } else if (background instanceof GradientDrawable) {
-                ((GradientDrawable) background).setColor(itemView.getContext().getResources().getColor(theme.getColor700tint()));
+                ((GradientDrawable) background).setColor(itemView.getContext().getResources().getColor(themeColor));
             }
 
         background = store.getBackground();
         if (background instanceof ShapeDrawable) {
-            ((ShapeDrawable) background).getPaint().setColor(itemView.getContext().getResources().getColor(theme.getColor700tint()));
+            ((ShapeDrawable) background).getPaint().setColor(itemView.getContext().getResources().getColor(themeColor));
         } else if (background instanceof GradientDrawable) {
-            ((GradientDrawable) background).setColor(itemView.getContext().getResources().getColor(theme.getColor700tint()));
+            ((GradientDrawable) background).setColor(itemView.getContext().getResources().getColor(themeColor));
         }
 
         store.setText(appItem.getRepo());

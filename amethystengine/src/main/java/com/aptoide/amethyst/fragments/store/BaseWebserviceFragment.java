@@ -1,6 +1,7 @@
 package com.aptoide.amethyst.fragments.store;
 
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.Configuration;
 import com.aptoide.amethyst.GridRecyclerFragment;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapter.BaseAdapter;
@@ -23,6 +24,7 @@ import com.aptoide.models.displayables.AdItem;
 import com.aptoide.models.displayables.AdPlaceHolderRow;
 import com.aptoide.models.displayables.AdultItem;
 import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.DisplayableList;
 import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.displayables.ReviewPlaceHolderRow;
 import com.aptoide.models.displayables.ReviewRowItem;
@@ -35,12 +37,14 @@ import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -113,6 +117,33 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                 displayableList.add(getStoreHeaderRow(tab));
             }
 
+//red-aula-store change category location
+            if(isHomePage() && storeName.equals("red-aula-store")) {
+
+                DisplayableList t = new DisplayableList();
+                DisplayableList categories = new DisplayableList();
+                t.addAll(tab.list);
+                tab.list.clear();
+
+                for (Displayable row : t) {
+                    if (row.toString().contains("Category")) {
+                        categories.add(row);
+                    }
+                }
+
+                tab.list.add(t.get(0));
+
+                for (Displayable row : categories) {
+                    tab.list.add(row);
+                }
+
+                for (Displayable row : t) {
+                    if (!categories.contains(row) && row != t.get(0)) {
+                        tab.list.add(row);
+                    }
+                }
+            }
+
             displayableList.addAll(tab.list);
 
             if (isHomePage() && Aptoide.getConfiguration().isMature()) {
@@ -125,15 +156,15 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
-            for (Displayable row : tab.list) {
 
+            for (Displayable row : tab.list) {
                 if (row instanceof ReviewPlaceHolderRow) {
-                    executeReviewsSpiceRequest();
-                } else if (row instanceof AdPlaceHolderRow) {
-                    executeAdsSpiceRequest();
-                } else if (row instanceof TimeLinePlaceHolderRow && Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
-                    executeTimelineRequest();
-                }
+                        executeReviewsSpiceRequest();
+                    } else if (row instanceof AdPlaceHolderRow) {
+                        executeAdsSpiceRequest();
+                    } else if (row instanceof TimeLinePlaceHolderRow && Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
+                        executeTimelineRequest();
+                    }
             }
 
             // total and new offset is red here

@@ -665,4 +665,17 @@
     <string name="dialog_install_warning_credibility_text">"قبل تایید انجام لطفا بررسی اعتبار فروشگاه و نظریات سایر کاربران را بررسی نمایید. Aptoide همواره پیشنهاد می نماید که تنها 1%$s  از برنامه های مورد اعتماد را نصب نمایید."</string>
     <string name="dialog_install_warning_trusted_version_button">نسخه مورد اعتماد</string>
     <string name="dialog_install_warning_get_trusted_version_button">دریافت</string>
+
+    <!--aban Strings-->
+    <string name="aban_textview_description_phonenumber">با وارد کردن شماره موبایل خود، ثبت نام کنید و صاحب یک کیف پول هف‌هشتادی شوید!</string>
+    <string name="aban_edittext_hint_phonenumber">شماره تلفن همراه شما</string>
+    <string name="aban_button_register">ثبت نام</string>
+    <string name="aban_textview_description_aptoide">با اعتبار اپ‌توید میتوانید از هف‌هشتاد شارژ اینترنت رایگان بگیرید.</string>
+    <string name="aban_textview_description_passcode">کد فعال سازی برای شما به صورت پیامک ارسال گردید</string>
+    <string name="aban_edittext_hint_passcode">کد فعال سازی</string>
+    <string name="aban_button_verification"> فعال سازی</string>
+    <string name="aban_repeat_sms">ارسال مجدد</string>
+    <!--aban Strings end-->
+
+
 </resources>

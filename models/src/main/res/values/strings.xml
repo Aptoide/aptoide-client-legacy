@@ -719,5 +719,21 @@
 
     <string name="allow_auto_installation">Allow Auto Installation</string>
     <string name="auto_installation">Auto Installation</string>
+
+
+    <!--aban Strings start-->
+    <string name="aban_textview_description_phonenumber">Please insert your Phone Number</string>
+    <string name="aban_edittext_hint_phonenumber">Your Cell Phone Number</string>
+    <string name="aban_button_register">Register</string>
+    <string name="aban_textview_description_aptoide">Aptoide Store</string>
+    <string name="aban_textview_description_passcode">Wait "+"<b>"+"60"+"</b>"+" seconds for recieving the verification Code Enter that Below</string>
+    <string name="aban_edittext_hint_passcode">Verification Code</string>
+    <string name="aban_button_verification">Verification</string>
+    <string name="aban_repeat_sms">Resend SMS</string>
+    <string name="aban_failure_internet_Connection">Failure, please check you connection or try again later</string>
+    <string name="aban_invalid_phone_number">Invalid Phone Number</string>
+    <string name="aban_to_many_requests">To many requests, please try again later</string>
+    <string name="aban_register_success">Register completed</string>
+    <!--aban Strings end-->
 </resources>
 

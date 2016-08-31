@@ -4,7 +4,9 @@
     android:title="@string/settings_title_bar">
 
 
-    <PreferenceCategory android:title="@string/setting_general_download_rules">
+    <PreferenceCategory android:title="@string/setting_general_download_rules"
+        android:key="general_download_rules"
+        >
         <!--<PreferenceScreen-->
             <!--android:key="iconDownloadRules"-->
             <!--android:summary="@string/setting_sum_icon_download_rules"-->
