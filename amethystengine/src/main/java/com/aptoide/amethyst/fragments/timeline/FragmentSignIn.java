@@ -6,6 +6,7 @@ import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.os.Looper;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,13 +78,18 @@ public class FragmentSignIn extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        submit(mode, username, password, "");
+        submit(mode, username, password, "", getActivity());
     }
 
     @Override
     public void onStart() {
         super.onStart();
         spiceManager.start(getActivity());
+    }
+
+    public void startSpice(SpiceManager sm, Context c){
+        spiceManager = sm;
+        //spiceManager.start(c);
     }
 
     @Override
@@ -96,7 +103,7 @@ public class FragmentSignIn extends Fragment {
         return inflater.inflate(R.layout.page_signing_in, container, false);
     }
 
-    public void submit(final LoginActivity.Mode mode, final String username, final String passwordOrToken, final String nameForGoogle) {
+    public void submit(final LoginActivity.Mode mode, final String username, final String passwordOrToken, final String nameForGoogle, final Context ctx) {
 
         //final String userName = ((EditText) findViewById(R.id.username)).getAvatar().toString();
         //final String userPass = ((EditText) findViewById(R.id.password)).getAvatar().toString();
@@ -142,6 +149,7 @@ public class FragmentSignIn extends Fragment {
             @Override
             public void onRequestSuccess(final OAuth oAuth) {
 
+                Log.d("lou","ok");
 
                 if(oAuth.getStatus() != null && oAuth.getStatus().equals("FAIL")){
 
@@ -155,7 +163,7 @@ public class FragmentSignIn extends Fragment {
                     onError();
 
                 }else{
-                    getUserInfo(oAuth, username, mode, accountType, passwordOrToken);
+                    getUserInfo(oAuth, username, mode, accountType, passwordOrToken, ctx);
                     Analytics.Login.login(username, mode);
                 }
 
@@ -164,21 +172,21 @@ public class FragmentSignIn extends Fragment {
 
     }
 
-    private void getUserInfo(final OAuth oAuth, final String username, final LoginActivity.Mode mode, final String accountType, final String passwordOrToken) {
+    private void getUserInfo(final OAuth oAuth, final String username, final LoginActivity.Mode mode, final String accountType, final String passwordOrToken, final Context c) {
         request = new CheckUserCredentialsRequest();
 
 
-        String deviceId = Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID);
+        String deviceId = Settings.Secure.getString(c.getContentResolver(), Settings.Secure.ANDROID_ID);
 
         request.setRegisterDevice(true);
 
         request.setSdk(String.valueOf(AptoideUtils.HWSpecifications.getSdkVer()));
         request.setDeviceId(deviceId);
         request.setCpu(AptoideUtils.HWSpecifications.getAbis());
-        request.setDensity(String.valueOf(AptoideUtils.HWSpecifications.getNumericScreenSize(getActivity())));
-        request.setOpenGl(String.valueOf(AptoideUtils.HWSpecifications.getGlEsVer(getActivity())));
+        request.setDensity(String.valueOf(AptoideUtils.HWSpecifications.getNumericScreenSize(c)));
+        request.setOpenGl(String.valueOf(AptoideUtils.HWSpecifications.getGlEsVer(c)));
         request.setModel(Build.MODEL);
-        request.setScreenSize(Filters.Screen.values()[AptoideUtils.HWSpecifications.getScreenSize(getActivity())].name().toLowerCase(Locale.ENGLISH));
+        request.setScreenSize(Filters.Screen.values()[AptoideUtils.HWSpecifications.getScreenSize(c)].name().toLowerCase(Locale.ENGLISH));
 
         request.setToken(oAuth.getAccess_token());
 
@@ -205,11 +213,11 @@ public class FragmentSignIn extends Fragment {
             @Override
             public void onRequestSuccess(CheckUserCredentialsJson checkUserCredentialsJson) {
 
-                android.support.v4.app.DialogFragment pd = (android.support.v4.app.DialogFragment) getFragmentManager().findFragmentByTag("pleaseWaitDialog");
+                /*android.support.v4.app.DialogFragment pd = (android.support.v4.app.DialogFragment) getFragmentManager().findFragmentByTag("pleaseWaitDialog");
 
                 if (pd != null) {
                     pd.dismissAllowingStateLoss();
-                }
+                }*/
 
 
                 if ("OK".equals(checkUserCredentialsJson.getStatus())) {
@@ -222,7 +230,7 @@ public class FragmentSignIn extends Fragment {
 
                     final Intent res = new Intent();
                     res.putExtras(data);
-                    finishLogin(res);
+                    finishLogin(res, c);
                 } else {
                     final HashMap<String, Integer> errorsMapConversion = Errors.getErrorsMap();
                     Integer stringId;
@@ -249,7 +257,7 @@ public class FragmentSignIn extends Fragment {
     }
 
 
-    private void finishLogin(Intent intent) {
+    private void finishLogin(Intent intent, final Context c) {
 
         String accountName = intent.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
         String accountPassword = intent.getStringExtra(AccountManager.KEY_PASSWORD);
@@ -259,12 +267,12 @@ public class FragmentSignIn extends Fragment {
 
         String accountType = Aptoide.getConfiguration().getAccountType();
         String authTokenType = AptoideConfiguration.AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS;
-        final Activity activity = getActivity();
-        AccountManager.get(getActivity()).addAccount(accountType, authTokenType, new String[]{"timelineLogin"}, intent.getExtras(), getActivity(), new AccountManagerCallback<Bundle>() {
+        //final Activity activity = getActivity();
+        AccountManager.get(c).addAccount(accountType, authTokenType, new String[]{"timelineLogin"}, intent.getExtras(), getActivity(), new AccountManagerCallback<Bundle>() {
             @Override
             public void run(AccountManagerFuture<Bundle> future) {
-                if (activity != null) {
-                    activity.startService(new Intent(activity, RabbitMqService.class));
+                if (c != null) {
+                    c.startService(new Intent(c, RabbitMqService.class));
                 }
 
                 ContentResolver.setSyncAutomatically(account, Aptoide.getConfiguration().getUpdatesSyncAdapterAuthority(), true);

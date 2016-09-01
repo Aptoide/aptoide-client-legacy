@@ -420,7 +420,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
         if (progress == null && showProgress) {
             try {
                 AptoideDialog.pleaseWaitDialog().show(getSupportFragmentManager(), TAG_PROGRESS);
-            // https://code.google.com/p/android/issues/detail?id=23761
+                // https://code.google.com/p/android/issues/detail?id=23761
             } catch (IllegalStateException ignore) { }
         } else if (progress != null && !showProgress) {
             progress.dismissAllowingStateLoss();
@@ -572,7 +572,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
 
 
     public static void updatePreferences(CheckUserCredentialsJson checkUserCredentialsJson,
-                                            String username, String modeName, String token) {
+                                         String username, String modeName, String token) {
         SharedPreferences.Editor preferences = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).edit();
         if (null != (checkUserCredentialsJson.getQueue())) {
             //hasQueue = true;
@@ -611,6 +611,4 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
         BusProvider.getInstance().post(new OttoEvents.RedrawNavigationDrawer());
     }
 }
-
-
 
