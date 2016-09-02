@@ -30,6 +30,7 @@
     <string name="error_MARG_200">Authentication error</string>
     <string name="error_MARG_201">Invalid username/password combination</string>
     <string name="error_MARG_202">Invalid token or user/pass</string>
+    <string name="error_MARG_203">Missing client id</string>
 
     <string name="error_IARG_1">Invalid store</string>
     <string name="error_IARG_2">Invalid login</string>
@@ -62,6 +63,7 @@
     <string name="error_AUTH_101">Could not login with Google. Please try again.</string>
     <string name="error_AUTH_102">Could not login with Facebook. Please check your Facebook account (you may need to validate your email address).</string>
     <string name="error_AUTH_103">Could not login with Facebook. Please try again.</string>
+    <string name="error_AUTH_104">Could not login with Aban. Please try again.</string>
 
     <string name="error_WOP_6">To add a comment you need to insert your name (it will be visible)</string>
     <string name="error_WOP_7">Comment error</string>
@@ -734,6 +736,7 @@
     <string name="aban_invalid_phone_number">Invalid Phone Number</string>
     <string name="aban_to_many_requests">To many requests, please try again later</string>
     <string name="aban_register_success">Register completed</string>
+    <string name="aban_register_failed">Register failed</string>
     <!--aban Strings end-->
 </resources>
 

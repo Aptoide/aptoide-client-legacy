@@ -101,7 +101,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
     private ConnectionResult mConnectionResult;
     private EditText emailBox;
 
-    public enum Mode {APTOIDE, GOOGLE, FACEBOOK}
+    public enum Mode {APTOIDE, GOOGLE, FACEBOOK, ABAN}
 
     protected LoginButton fbButton;
     protected View googleSignIn;

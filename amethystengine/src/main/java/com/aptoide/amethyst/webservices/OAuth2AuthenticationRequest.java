@@ -59,6 +59,11 @@ public class OAuth2AuthenticationRequest extends RetrofitSpiceRequest<OAuth, OAu
                 parameters.put("authMode", "facebook");
                 parameters.put("oauthToken", password);
                 break;
+            case ABAN:
+                parameters.put("oauthUserName",username);
+                parameters.put("oauthToken",password);
+                parameters.put("authMode","aban");
+                break;
         }
 
         if(Aptoide.getConfiguration().getExtraId().length()>0){

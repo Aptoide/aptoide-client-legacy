@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -65,6 +66,10 @@ public class FragmentSignIn extends Fragment {
     private CheckUserCredentialsRequest request;
     private SignInCallback callback;
 
+    public void setCallback(SignInCallback callback) {
+        this.callback = callback;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,6 +110,7 @@ public class FragmentSignIn extends Fragment {
 
     public void submit(final LoginActivity.Mode mode, final String username, final String passwordOrToken, final String nameForGoogle, final Context ctx) {
 
+        this.mode=mode;
         //final String userName = ((EditText) findViewById(R.id.username)).getAvatar().toString();
         //final String userPass = ((EditText) findViewById(R.id.password)).getAvatar().toString();
 
@@ -122,7 +128,7 @@ public class FragmentSignIn extends Fragment {
         spiceManager.execute(oAuth2AuthenticationRequest, new RequestListener<OAuth>() {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
-
+                Log.d("abanpartner","-0ok");
                 String error;
 
                 if(spiceException.getCause() instanceof InvalidGrantSpiceException && spiceException.getCause().getMessage().equals("Invalid username and password combination")){
@@ -148,9 +154,7 @@ public class FragmentSignIn extends Fragment {
 
             @Override
             public void onRequestSuccess(final OAuth oAuth) {
-
-                Log.d("lou","ok");
-
+                Log.d("abanpartner","-1ok");
                 if(oAuth.getStatus() != null && oAuth.getStatus().equals("FAIL")){
 
                     AptoideUtils.UI.toastError(oAuth.getError());
@@ -194,7 +198,7 @@ public class FragmentSignIn extends Fragment {
 
             @Override
             public void onRequestFailure(SpiceException e) {
-
+                Log.d("abanpartner","0ok");
                 Session session = Session.getActiveSession();
 
                 if (session != null && session.isOpened()) {
@@ -212,7 +216,7 @@ public class FragmentSignIn extends Fragment {
 
             @Override
             public void onRequestSuccess(CheckUserCredentialsJson checkUserCredentialsJson) {
-
+                Log.d("abanpartner","1ok");
                 /*android.support.v4.app.DialogFragment pd = (android.support.v4.app.DialogFragment) getFragmentManager().findFragmentByTag("pleaseWaitDialog");
 
                 if (pd != null) {
@@ -227,7 +231,6 @@ public class FragmentSignIn extends Fragment {
                     data.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType);
                     data.putString(AccountManager.KEY_AUTHTOKEN, oAuth.getRefreshToken());
                     data.putString(AccountManager.KEY_PASSWORD, passwordOrToken);
-
                     final Intent res = new Intent();
                     res.putExtras(data);
                     finishLogin(res, c);
@@ -252,8 +255,13 @@ public class FragmentSignIn extends Fragment {
     }
 
     private void onError() {
-        callback = (SignInCallback) getParentFragment();
-        callback.loginError();
+        if(callback == null) {
+            callback = (SignInCallback) getParentFragment();
+        }
+
+        if (callback != null) {
+            callback.loginError();
+        }
     }
 
 
@@ -278,7 +286,9 @@ public class FragmentSignIn extends Fragment {
                 ContentResolver.setSyncAutomatically(account, Aptoide.getConfiguration().getUpdatesSyncAdapterAuthority(), true);
                 ContentResolver.addPeriodicSync(account, Aptoide.getConfiguration().getUpdatesSyncAdapterAuthority(), new Bundle(), 43200);
                 ContentResolver.setSyncAutomatically(account, Aptoide.getConfiguration(). getAutoUpdatesSyncAdapterAuthority(), true);
-                callback = (SignInCallback) getParentFragment();
+                if(callback == null)
+                    callback = (SignInCallback) getParentFragment();
+
                 if (callback != null) callback.loginEnded();
 
             }
