@@ -7,9 +7,14 @@ import com.aptoide.amethyst.utils.LifeCycleMonitor;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import java.util.List;
 
 import lombok.Getter;
 
@@ -52,16 +57,20 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(Aptoide.getConfiguration().getDefaultStore().equals("storeNameZain")){
+        if(Aptoide.getConfiguration().getDefaultStore().equals("zain-market")){
             TelephonyManager manager = (TelephonyManager)this.getSystemService(this.TELEPHONY_SERVICE);
-            String carrierName = manager.getNetworkOperatorName();
-            if(carrierName.equals("zainNetworkProvider")){
-                Log.d("zain","zain: you can enter the store");
+            String carrierID = manager.getNetworkOperator();
+            /*if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {
+                    //TODO SubscriptionManager
             }
-            else{
-                //TODO ir para a mensagem deles/activity
-                Log.d("zain","zain: you can't enter the store");
-            }
+            else {*/
+                if (carrierID.equals("41820") || carrierID.equals("41830") || carrierID.equalsIgnoreCase("ZAIN IQ")) {
+                    Log.d("zain", "zain: you can enter the store");
+                }
+                else {
+                    //TODO ir para a mensagem deles/activity
+                }
+            //}
         }
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.RESUME);
         _resumed = true;
