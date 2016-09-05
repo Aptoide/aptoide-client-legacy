@@ -8,6 +8,8 @@ import com.aptoide.amethyst.utils.LifeCycleMonitor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import lombok.Getter;
 
@@ -50,6 +52,17 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        if(Aptoide.getConfiguration().getDefaultStore().equals("storeNameZain")){
+            TelephonyManager manager = (TelephonyManager)this.getSystemService(this.TELEPHONY_SERVICE);
+            String carrierName = manager.getNetworkOperatorName();
+            if(carrierName.equals("zainNetworkProvider")){
+                Log.d("zain","zain: you can enter the store");
+            }
+            else{
+                //TODO ir para a mensagem deles/activity
+                Log.d("zain","zain: you can't enter the store");
+            }
+        }
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.RESUME);
         _resumed = true;
         Analytics.Lifecycle.Activity.onResume(this, getScreenName());

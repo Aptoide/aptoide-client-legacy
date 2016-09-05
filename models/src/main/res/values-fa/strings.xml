@@ -675,6 +675,12 @@
     <string name="aban_edittext_hint_passcode">کد فعال سازی</string>
     <string name="aban_button_verification"> فعال سازی</string>
     <string name="aban_repeat_sms">ارسال مجدد</string>
+    <string name="aban_invalid_phone_number"> شمار تلفن اشتباه است!</string>
+    <string name="aban_to_many_requests">خطا! درخواست قبلی شما هنوز فعال است</string>
+    <string name="aban_register_failed_passcode">رمز وارد شده اشتباه است</string>
+    <string name="aban_register_failed">خطا! ثبت نام انجام نشد</string>
+    <string name="aban_register_success">ثبت‌ نام با موفقیت انجام شد</string>
+    <string name="aban_failure_internet_Connection">خطا در برقراری ارتباط!</string>
     <!--aban Strings end-->
 
 

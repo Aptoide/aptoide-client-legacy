@@ -736,6 +736,7 @@
     <string name="aban_invalid_phone_number">Invalid Phone Number</string>
     <string name="aban_to_many_requests">To many requests, please try again later</string>
     <string name="aban_register_success">Register completed</string>
+    <string name="aban_register_failed_passcode">Wrong passcode</string>
     <string name="aban_register_failed">Register failed</string>
     <!--aban Strings end-->
 </resources>
