@@ -16,4 +16,8 @@
     <item android:id="@+id/menu_schedule"
         app:showAsAction="never"
         android:title="@string/schDwnBtn"/>
+    <item
+        android:id="@+id/menu_remote_install"
+        android:title="@string/remote_install_menu_title"
+        app:showAsAction="never"/>
 </menu>

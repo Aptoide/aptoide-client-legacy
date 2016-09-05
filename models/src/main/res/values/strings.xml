@@ -233,6 +233,20 @@
     <string name="hidden_adult">Some apps are hidden because adult content filter is active. Do you want to list this apps?</string>
     <string name="dont_show_again">Don\'t show this dialog again</string>
 
+    <string name="remote_install_menu_title">Install on TV</string>
+    <string name="remote_install_title">Choose target device</string>
+    <string name="remote_install_success">The app is now being installed</string>
+    <string name="remote_install_fail">The remote installation has failed</string>
+    <string name="remote_install_nodevices">No devices found</string>
+    <string name="remote_install_notinstallated">Do you have Aptoide TV installed on your Android TV? \n http://aptoi.de/tv</string>
+    <string name="remote_install_nowifi">No Wi-Fi connection</string>
+    <string name="remote_install_nowifi_tip">Please enable and connect to a Wi-Fi network</string>
+    <string name="remote_install_empty_list">Searching…</string>
+    <string name="remote_install_tip">Please make sure you have an AndroidTV connected to the network</string>
+    <string name="remote_install_retry">Retry</string>
+    <string name="remote_install_help">Help</string>
+    <string name="remote_install_help_url">http://blog.aptoide.com/remote-tv-install</string>
+
     <!-- App View -->
     <string name="app_name">Aptoide</string>
 

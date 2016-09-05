@@ -2,6 +2,7 @@
 <resources>
     <color name="white">#fff</color>
     <color name="default_color">#e17117</color>
+    <color name="default_color2">#eb7319</color>
     <color name="default_color_700">#bf6113</color>
     <color name="aptoide_orange">@color/default_color</color>
     <color name="aptoide_orange_700">@color/default_color_700</color>
