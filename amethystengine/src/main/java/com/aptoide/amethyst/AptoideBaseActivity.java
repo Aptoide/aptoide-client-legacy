@@ -60,17 +60,20 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         if(Aptoide.getConfiguration().getDefaultStore().equals("zain-market")){
             TelephonyManager manager = (TelephonyManager)this.getSystemService(this.TELEPHONY_SERVICE);
             String carrierID = manager.getNetworkOperator();
-            /*if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {
-                    //TODO SubscriptionManager
+            String carrierName = manager.getNetworkOperatorName();
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {
+                //TODO SubscriptionManager
+                //Log.d("lou",SubscriptionManager.from(this).getActiveSubscriptionInfoList().toString());
+                //android.permission.READ_PHONE_STATE
             }
-            else {*/
-                if (carrierID.equals("41820") || carrierID.equals("41830") || carrierID.equalsIgnoreCase("ZAIN IQ")) {
+            else {
+                if (carrierID.equals("41820") || carrierID.equals("41830") || carrierName.equalsIgnoreCase("ZAIN IQ")) {
                     Log.d("zain", "zain: you can enter the store");
                 }
                 else {
                     //TODO ir para a mensagem deles/activity
                 }
-            //}
+            }
         }
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.RESUME);
         _resumed = true;
