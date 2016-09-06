@@ -73,6 +73,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
 
     String aptoide_path = Aptoide.getConfiguration().getPathCache();
     String icon_path = aptoide_path + "icons/";
+    String apk_path = aptoide_path + "apks/";
     ManagerPreferences preferences;
     Context mctx;
     private boolean unlocked = false;
@@ -341,7 +342,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         addPreferencesFromResource(R.xml.preferences);
 
         mctx = this;
-        new GetDirSize().execute(new File(aptoide_path), new File(icon_path));
+        new GetDirSize().execute(new File(aptoide_path), new File(icon_path), new File(apk_path));
 //        preferences = new ManagerPreferences(mctx);
 //        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(new OnSharedPreferenceChangeListener() {
 //
@@ -677,7 +678,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
             pd.dismiss();
             Toast toast = Toast.makeText(mctx, mctx.getString(R.string.clear_cache_sucess), Toast.LENGTH_SHORT);
             toast.show();
-            new GetDirSize().execute(new File(aptoide_path), new File(icon_path));
+            new GetDirSize().execute(new File(aptoide_path), new File(icon_path), new File(apk_path));
         }
 
     }
@@ -708,7 +709,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
 
         @Override
         protected Double[] doInBackground(File... dir) {
-            Double[] sizes = new Double[2];
+            Double[] sizes = new Double[3];
 
             for (int i = 0; i != sizes.length; i++) {
                 sizes[i] = this.getDirSize(dir[i]) / 1024 / 1024;
@@ -729,9 +730,12 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         if (!Build.DEVICE.equals("alien_jolla_bionic")) {
             findPreference("clearapk").setSummary(getString(R.string.clearcontent_sum) + " (" + AptoideUtils.StringUtils.getFormattedString(this, R.string.cache_using_X_mb, new DecimalFormat("#.##").format(size[0])) + ")");
             findPreference("clearcache").setSummary(getString(R.string.clearcache_sum) + " (" + AptoideUtils.StringUtils.getFormattedString(this, R.string.cache_using_X_mb, new DecimalFormat("#.##").format(size[1])) + ")");
+            findPreference("maxFileCache").setSummary(getString(R.string.settings_maxFileCache_sum) + " (" + AptoideUtils.StringUtils.getFormattedString(this, R.string.cache_using_X_mb, new DecimalFormat("#.##").format(size[2])) + ")");
         } else {
             findPreference("clearapk").setSummary(getString(R.string.clearcontent_sum_jolla) + " (" + AptoideUtils.StringUtils.getFormattedString(this, R.string.cache_using_X_mb, new DecimalFormat("#.##").format(size[0])) + ")");
             findPreference("clearcache").setSummary(getString(R.string.clearcache_sum_jolla) + " (" + AptoideUtils.StringUtils.getFormattedString(this, R.string.cache_using_X_mb, new DecimalFormat("#.##").format(size[1])) + ")");
+            //findPreference("maxFileCache").setSummary(AptoideUtils.StringUtils.getFormattedString(this, R.string.settings_maxFileCache_sum, new DecimalFormat("#.##").format(size[2])));
+
         }
 
     }
