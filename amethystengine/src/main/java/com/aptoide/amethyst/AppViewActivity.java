@@ -2650,6 +2650,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 packageName = intent.getStringExtra(Constants.PACKAGENAME_KEY);
                 storeName = intent.getStringExtra(Constants.STORENAME_KEY);
                 executeSpiceRequest();
+            }  else if (intent.getBooleanExtra(Constants.FROM_FIRSTINSTALL, false)) {
+                packageName = intent.getStringExtra(Constants.PACKAGENAME_KEY);
+                executeSpiceRequestWithPackageName(packageName, null);
             } else if (intent.getStringExtra(Constants.DOWNLOAD_FROM_KEY).equals("downloadNotification")) {
                 packageName = intent.getStringExtra(Constants.PACKAGENAME_KEY);
                 appName = intent.getStringExtra(Constants.APPNAME_KEY);

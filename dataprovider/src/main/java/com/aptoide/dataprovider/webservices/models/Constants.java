@@ -18,6 +18,7 @@ public class Constants {
     public static final String FROM_TIMELINE_KEY = "fromTimeline";
     public static final String FROM_APKFY_KEY = "Started_From_Apkfy";
     public static final String FROM_NOTIFICATION = "fromNotification";
+    public static final String FROM_FIRSTINSTALL = "fromFirstInstall";
 
     public static final String STORE_SUBSCRIBED_KEY = "storeSubscribed";
 
