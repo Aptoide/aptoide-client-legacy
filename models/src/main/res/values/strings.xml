@@ -743,6 +743,7 @@
     <!--zain Strings start-->
     <string name="zain_not_zain_carrier_name_message">Sorry, this application is exclusive for Zain IQ customers.
 If you were using Dual SIM device, please put Zain SIM as primary SIM so you can enjoy the service</string>
+    <string name="zain_not_zain_carrier_name_message_api22">Sorry, this application is exclusive for Zain IQ customers.</string>
     <!--zain Strings end-->
 
 

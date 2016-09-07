@@ -100,7 +100,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
                                 if (pd != null) pd.dismiss();
                                 return false;
                             }
-                    getSupportFragmentManager().beginTransaction().add(new ZainSimDialogFragment(), zainDialogTag).commit();
+                    getSupportFragmentManager().beginTransaction().add(new ZainSimDialogFragment(true), zainDialogTag).commit();
                     getSupportFragmentManager().executePendingTransactions();
                     return true;
                 }
@@ -108,7 +108,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
                     String carrierID = manager.getNetworkOperator();
                     String carrierName = manager.getNetworkOperatorName();
                     if (!carrierID.equals(zaincarrierID[0]) && !carrierID.equals(zaincarrierID[1]) && !carrierName.equalsIgnoreCase(zainCarrierName)) {
-                        getSupportFragmentManager().beginTransaction().add(new ZainSimDialogFragment(), zainDialogTag).commit();
+                        getSupportFragmentManager().beginTransaction().add(new ZainSimDialogFragment(false), zainDialogTag).commit();
                         getSupportFragmentManager().executePendingTransactions();
                         return true;
                     } else {
@@ -150,13 +150,23 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
      * @author diogoloureiro
      */
     private class ZainSimDialogFragment extends DialogFragment {
+
+        private boolean isApi22;
+
+        ZainSimDialogFragment(boolean isApi22){
+                this.isApi22=isApi22;
+        }
+
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Dialog dialog = new Dialog(getActivity());
             dialog.setCanceledOnTouchOutside(false);
             dialog.setCancelable(false);
             dialog.setTitle(Aptoide.getConfiguration().getMarketName());
-            dialog.setContentView(R.layout.zain_sim_card_dialog);
+            if(!isApi22)
+                dialog.setContentView(R.layout.zain_sim_card_dialog);
+            else
+                dialog.setContentView(R.layout.zain_sim_card_dialog_api22);
 
             dialog.setOnKeyListener(new Dialog.OnKeyListener() {
                 @Override
