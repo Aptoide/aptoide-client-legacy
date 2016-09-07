@@ -435,7 +435,7 @@
     <string name="setting_clear_memory">Clear Memory</string>
     <string name="clearcontent_title">Remove data and configurations</string>
     <string name="clearcache_title">Clear cache</string>
-    <string name="settings_maxFileCache_sum">Set a maximum size to keep your apk files. </string>
+    <string name="settings_maxFileCache_sum">Set a maximum size to keep your apk files</string>
     <string name="settings_maxFileCache_title">Download File Cache (MB)</string>
     <string name="change_theme">Change theme</string>
     <string name="theme">Themes</string>
@@ -745,5 +745,7 @@
 If you were using Dual SIM device, please put Zain SIM as primary SIM so you can enjoy the service</string>
     <!--zain Strings end-->
 
+
+    <string name="first_install">App Essencials</string>
 </resources>
 
