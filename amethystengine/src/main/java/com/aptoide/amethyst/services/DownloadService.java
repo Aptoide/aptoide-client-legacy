@@ -61,6 +61,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -870,5 +871,38 @@ public class DownloadService extends Service {
 
         return apk;
     }
+
+
+    /**
+     * hashtable with the downloaded appid and respective downloadid
+     */
+    private static Hashtable<Long, Long> downloadsActiveAppView = new Hashtable<Long, Long>();
+
+    /**
+     *
+     * @param appId id from downloaded app
+     * @param downloadId id from the download
+     */
+    public static void addDownloadId(Long appId,Long downloadId){
+
+        if(!downloadsActiveAppView.contains(downloadId)) {
+            downloadsActiveAppView.put(appId, downloadId);
+        }
+    }
+
+    /**
+     *
+     * @param appId id from the app opened in the appview
+     * @return  id from the download opened in the appview
+     */
+    public static Long getDownloadId(Long appId, Long downloadId){
+        if(downloadsActiveAppView.get(appId) != null) {
+            return downloadsActiveAppView.get(appId);
+        }
+        else {
+            return Long.valueOf(0);
+        }
+    }
+
 
 }

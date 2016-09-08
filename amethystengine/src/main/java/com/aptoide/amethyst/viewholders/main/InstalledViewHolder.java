@@ -24,7 +24,7 @@ public class InstalledViewHolder extends BaseViewHolder {
 
     public InstalledViewHolder(View itemView, int viewType) {
         super(itemView, viewType);
-
+        createReviewLayout.setVisibility(View.GONE);
     }
 
     @Override

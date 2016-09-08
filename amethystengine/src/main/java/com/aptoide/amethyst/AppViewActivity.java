@@ -1,7 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2015 Aptoide. All rights reserved. This program and the accompanying materials are
- * made available under the terms of the GNU Public License v2.0 which accompanies this
- * distribution, and is available at http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * Copyright (c) 2015 Aptoide.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Public License v2.0
+ * which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  ******************************************************************************/
 package com.aptoide.amethyst;
 
@@ -1006,7 +1008,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		@Override
 		public void onResume() {
 			super.onResume();
-
+			downloadId = DownloadService.getDownloadId(appId, downloadId);
 			setSecurityBalloonAnimationListeners();
 			if (pay != null && pay.price != null) {
 				setupInstallButton();
@@ -1025,6 +1027,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		@Override
 		public void onPause() {
 			super.onPause();
+			if( ((int) downloadId) != 0) {
+				DownloadService.addDownloadId(appId, downloadId);
+			}
 			removeSecurityBalloonAnimationListeners();
 		}
 
@@ -2226,7 +2231,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				}
 			}
 		}
-
+/*
 		private void setShareTimeLineButton() {
 			final CheckBox btinstallshare = (CheckBox) getView().findViewById(R.id.btinstallshare);
 			if (Preferences.getBoolean(Preferences.TIMELINE_ACEPTED_BOOL, false)) {
@@ -2250,9 +2255,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				btinstallshare.setVisibility(View.INVISIBLE);
 			}
 		}
-
+*/
 		private void populateDownloadUI() {
-			setShareTimeLineButton();
+			//setShareTimeLineButton();
 
 			getView().findViewById(R.id.ic_action_cancel)
 					.setOnClickListener(new View.OnClickListener() {

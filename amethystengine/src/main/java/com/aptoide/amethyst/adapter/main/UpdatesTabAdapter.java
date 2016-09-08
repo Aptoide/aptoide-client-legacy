@@ -212,7 +212,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
 
             installedViewHolder.name.setText(installRow.appName);
             installedViewHolder.tvAppVersion.setText(installRow.versionName);
-            installedViewHolder.createReviewLayout.setOnClickListener(new View.OnClickListener() {
+            /*installedViewHolder.createReviewLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), UploadApkActivity.class);
@@ -224,7 +224,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
 
                     Analytics.Updates.createReview();
                 }
-            });
+            });*/
             installedViewHolder.installedItemFrame.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
