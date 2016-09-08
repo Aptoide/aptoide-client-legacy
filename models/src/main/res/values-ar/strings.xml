@@ -677,5 +677,6 @@
     <!--zain Strings start-->
     <string name="zain_not_zain_carrier_name_message">نأسف,هذا التطبيق خاص بمشتركي زين العراق فقط.
 اذا كنت من مستخدمين الهواتف ثنائية الشريحة الرجاء وضع شريحة زين كشريحة رئيسية للتمتع بالخدمة</string>
+    <string name="zain_not_zain_carrier_name_message_api22">نأسف,هذا التطبيق خاص بمشتركي زين العراق فقط.</string>
     <!--zain Strings end-->
 </resources>
