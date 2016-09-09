@@ -3,7 +3,7 @@ package com.aptoide.amethyst.ui;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.models.displayables.AdItem;
 import com.aptoide.models.ApkSuggestionJson;
@@ -28,7 +28,7 @@ public class MoreHighlightedActivity extends MoreActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Analytics.Home.clickOnHighlighted();
+        //Analytics.Home.clickOnHighlighted();
     }
 
     public static class MoreHighlightedFragment extends BaseWebserviceFragment {

@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.CursorLoaderLinearRecyclerFragment;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.database.schema.Schema;
 import com.aptoide.models.displayables.ExcludedUpdate;
@@ -81,7 +81,7 @@ public class ExcludedUpdatesFragment extends CursorLoaderLinearRecyclerFragment 
         } else if (i == R.id.menu_remove) {
             if (isAnyChecked(excludedUpdates)) {
 
-                Analytics.ExcludedUpdates.restoreUpdates();
+                //Analytics.ExcludedUpdates.restoreUpdates();
 
                 final List<String[]> excludedStrings = new ArrayList<>();
                 for (ExcludedUpdate excludedUpdate : excludedUpdates) {

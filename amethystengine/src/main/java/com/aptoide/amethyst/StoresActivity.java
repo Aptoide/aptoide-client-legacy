@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.adapter.StorePagerAdapter;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
@@ -172,7 +172,7 @@ public class StoresActivity extends AptoideBaseActivity implements AddCommentVot
 
         executeSpiceRequest(true);
 
-        Analytics.Stores.enter(storeName);
+        //Analytics.Stores.enter(storeName);
     }
 
     protected int getContentView() {

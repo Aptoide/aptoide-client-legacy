@@ -13,7 +13,7 @@ import com.aptoide.amethyst.MoreSearchActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.SignUpActivity;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
 import com.aptoide.dataprovider.webservices.models.Defaults;
 
@@ -200,7 +200,7 @@ public class AptoideConfiguration {
     }
 
     public String getVertical() {
-        return Analytics.Dimenstions.Vertical.SMARTPHONE;
+        return /*Analytics.Dimenstions.Vertical.SMARTPHONE*/ "smartphone";
     }
 
     public String getStoreType() {

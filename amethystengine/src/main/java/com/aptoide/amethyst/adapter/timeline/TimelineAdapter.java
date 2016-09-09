@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
 import com.aptoide.amethyst.webservices.json.TimelineListAPKsJson;
@@ -331,13 +331,13 @@ public class TimelineAdapter extends ArrayAdapter<TimelineListAPKsJson.UserApk> 
                     selfIsLiked =false;
                     entry.info.userliked = "nolike";
                     entry.info.likes = --selfLikes;
-                    Analytics.SocialTimeline.dislike(entry.apk.name);
+                    //Analytics.SocialTimeline.dislike(entry.apk.name);
                 }else{
                     mTimeLineManager.likePost(id);
                     selfIsLiked =true;
                     entry.info.userliked = "like";
                     entry.info.likes = ++selfLikes;
-                    Analytics.SocialTimeline.like(entry.apk.name);
+                    //Analytics.SocialTimeline.like(entry.apk.name);
                 }
                 getView(position,myCv,parent);
             }
@@ -346,7 +346,7 @@ public class TimelineAdapter extends ArrayAdapter<TimelineListAPKsJson.UserApk> 
             @Override
             public void onClick(View v) {
                 mTimeLineManager.openCommentsDialog(id, position);
-                Analytics.SocialTimeline.comment(entry.apk.name);
+                //Analytics.SocialTimeline.comment(entry.apk.name);
             }
         });
         return v;

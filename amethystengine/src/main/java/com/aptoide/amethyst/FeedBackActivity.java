@@ -17,7 +17,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -166,7 +166,7 @@ public class FeedBackActivity extends AptoideBaseActivity {
             startActivity(emailIntent);
             finish();
 //            FlurryAgent.logEvent("Feedback_Sended_Clicked_On_Send_Feedback_Button");
-            Analytics.SendFeedback.sendFeedback();
+            //Analytics.SendFeedback.sendFeedback();
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(this, R.string.feedback_no_email, Toast.LENGTH_LONG).show();
         }

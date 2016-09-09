@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.database.SimpleCursorLoader;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -93,7 +93,7 @@ public class RollbackActivity extends AptoideBaseActivity implements LoaderManag
         } else if (i == R.id.home) {
             finish();
         } else if (i == R.id.menu_clear_rollback) {
-            Analytics.Rollback.clear();
+            //Analytics.Rollback.clear();
 //            FlurryAgent.logEvent("Rollback_Cleared_Rollback_List");
             new AptoideDatabase(Aptoide.getDb()).deleteRollbackItems();
             getSupportLoaderManager().restartLoader(17, null, this);

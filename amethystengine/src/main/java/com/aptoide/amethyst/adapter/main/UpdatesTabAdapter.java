@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
@@ -97,7 +97,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
                             UpdateRow row = (UpdateRow) displayable;
                             updateRows.add(row);
                         }
-                        Analytics.Updates.updateAll();
+                        //Analytics.Updates.updateAll();
                     }
                     BusProvider.getInstance().post(new OttoEvents.StartDownload(updateRows));
                 }
@@ -120,7 +120,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
                         updateRows.add(row);
                         BusProvider.getInstance().post(new OttoEvents.StartDownload(updateRows));
                     }
-                    Analytics.Updates.update();
+                    //Analytics.Updates.update();
                 }
             });
 

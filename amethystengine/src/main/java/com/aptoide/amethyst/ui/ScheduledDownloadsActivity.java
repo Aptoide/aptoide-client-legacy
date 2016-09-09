@@ -35,7 +35,7 @@ import android.widget.Toast;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.database.SimpleCursorLoader;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
@@ -268,7 +268,7 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
             finish();
         } else if (i == R.id.menu_install) {
 
-            Analytics.ScheduledDownloads.clickOnInstallSelected();
+            //Analytics.ScheduledDownloads.clickOnInstallSelected();
 
             if (isAllChecked()) {
                 for (ScheduledDownload scheduledDownload : scheduledDownloadsMap.values()) {
@@ -281,7 +281,7 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
                 toast.show();
             }
         } else if (i == R.id.menu_remove) {
-            Analytics.ScheduledDownloads.clickOnRemoveSelected();
+            //Analytics.ScheduledDownloads.clickOnRemoveSelected();
             Log.d("ScheduledDownloadsActivity-onOptionsItemSelected", "remove");
             if (isAllChecked()) {
                 for (ScheduledDownload scheduledDownload : scheduledDownloadsMap.values()) {
@@ -296,7 +296,7 @@ public class ScheduledDownloadsActivity extends AptoideBaseActivity implements L
                 toast.show();
             }
         } else if (i == R.id.menu_invert) {
-            Analytics.ScheduledDownloads.clickOnInvertSelection();
+            //Analytics.ScheduledDownloads.clickOnInvertSelection();
 //            FlurryAgent.logEvent("Scheduled_Downloads_Inverted_Apps");
             for (ScheduledDownload scheduledDownload : scheduledDownloadsMap.values()) {
                 scheduledDownload.toggleChecked();

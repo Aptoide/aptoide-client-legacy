@@ -30,7 +30,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.events.BusProvider;
@@ -470,7 +470,7 @@ public class LoginActivity extends AccountAuthenticatorActivity implements Googl
                     setShowProgress(false);
                 } else {
                     getUserInfo(oAuth, userName, mode, accountType, passwordOrToken);
-                    Analytics.Login.login(userName, mode);
+                    //Analytics.Login.login(userName, mode);
                 }
             }
         });

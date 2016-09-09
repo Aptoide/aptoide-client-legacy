@@ -11,7 +11,7 @@ import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SearchActivity;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.downloadmanager.adapter.NotOngoingDownloadRow;
 import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
 import com.aptoide.amethyst.models.EnumStoreTheme;
@@ -178,7 +178,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             i.putExtra(Constants.VERSIONNAME_KEY, appItem.versionName);
             AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin(appItem.category);
             if ((position >= 0)) {
-                Analytics.HomePageEditorsChoice.sendHomePageEdiorsChoiceEvent(position, appItem.packageName, isHome);
+                //Analytics.HomePageEditorsChoice.sendHomePageEdiorsChoiceEvent(position, appItem.packageName, isHome);
             }
             view.getContext().startActivity(i);
         }
@@ -338,7 +338,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                                 i.putExtra(SearchActivity.SEARCH_STORE_NAME, storeName);
                             }
                             if (bundleCategory != null && !TextUtils.isEmpty(bundleCategory) && isFromHomeBundle) {
-                                Analytics.HomePageBundles.sendHomePageBundleEvent(bundleCategory, row.getTag());
+                                //Analytics.HomePageBundles.sendHomePageBundleEvent(bundleCategory, row.getTag());
                             }
                         }
                         break;
@@ -348,7 +348,7 @@ public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     case EVENT_GETSTOREWIDGETS:
                         i = new Intent(view.getContext(), MoreStoreWidgetActivity.class);
                         if (storeName == null /*&& theme == null */&& storeId == 0) {
-                            Analytics.HomePageBundles.sendHomePageBundleEvent(row.getTag());
+                            //Analytics.HomePageBundles.sendHomePageBundleEvent(row.getTag());
                             i.putExtra(Constants.HOME_BUNDLES_KEY, true);
                         }
                         i.putExtra(CATEGORY_TAG, row.getTag());

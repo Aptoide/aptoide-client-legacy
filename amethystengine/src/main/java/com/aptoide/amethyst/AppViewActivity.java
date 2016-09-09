@@ -10,10 +10,11 @@ package com.aptoide.amethyst;
 import com.aptoide.amethyst.adapter.DividerItemDecoration;
 import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
 import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
-import com.aptoide.amethyst.adapter.store.CommentsStoreAdapter;
+import com.aptoide.amethyst.adapter.store.CommentsStoreAdapter;/*
 import com.aptoide.amethyst.analytics.ABTest;
 import com.aptoide.amethyst.analytics.ABTestManager;
-import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.analytics.Analytics;*/
+import com.aptoide.amethyst.analytics.ABTest;
 import com.aptoide.amethyst.analytics.SecurityOption;
 import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
@@ -78,7 +79,7 @@ import com.aptoide.models.stores.Store;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.crashlytics.android.Crashlytics;
-import com.flurry.android.FlurryAgent;
+//import com.flurry.android.FlurryAgent;
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.exception.NoNetworkException;
 import com.octo.android.robospice.persistence.DurationInMillis;
@@ -663,7 +664,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					setTrustedVersion(model.getApp.nodes.meta.data, model.getApp.nodes.versions.list);
 
 					boolean displayedSecurityBalloon = false;
-					if (securityABTest.alternative().showSecurityOverlay()) {
+					/*if (securityABTest.alternative().showSecurityOverlay()) {
 						final String thirdPartyValidatedStore = malware.reason != null && malware.reason.thirdpartyValidated != null ? malware.reason.thirdpartyValidated.store : null;
 						setSecurityBalloon(new AppSecurityBalloon(appName, malware.rank,
 								thirdPartyValidatedStore, 5));
@@ -677,11 +678,12 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 							} 						}
 					} else {
 						showBadges();
-					}
+					}*/
+					showBadges();
 					if (!isRotated) {
-						Analytics.ViewedApplication.view(packageName, developer, download_from, malware.rank, securityABTest
+						/*Analytics.ViewedApplication.view(packageName, developer, download_from, malware.rank, securityABTest
 								.alternative()
-								.showSecurityOverlay() ? "Antivirus" : Boolean.toString(displayedSecurityBalloon));
+								.showSecurityOverlay() ? "Antivirus" : Boolean.toString(displayedSecurityBalloon));*/
 					}
 					if (!fromSponsored) {
 						new AppViewMiddleSuggested((AppViewActivity) getActivity(), getView()
@@ -699,7 +701,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 								resultBundle.data);
 						resultBundle = null;
 					}
-					Analytics.AppViewViewedFrom.appviewViewedFrom(AptoideUtils.FlurryAppviewOrigin.getAppviewOrigin(), model.getApp.nodes.meta.data.file.malware.rank, packageName);
+					//Analytics.AppViewViewedFrom.appviewViewedFrom(AptoideUtils.FlurryAppviewOrigin.getAppviewOrigin(), model.getApp.nodes.meta.data.file.malware.rank, packageName);
 				}
 			}
 		};
@@ -805,7 +807,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					mButtonInstall.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View v) {
-							FlurryAgent.logEvent("App_View_Clicked_On_Buy_Button");
+							//FlurryAgent.logEvent("App_View_Clicked_On_Buy_Button");
 							final AccountManager accountManager = AccountManager.get(thisActivity);
 							final Account[] accounts = accountManager.getAccountsByType(Aptoide
 									.getConfiguration()
@@ -853,8 +855,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			setHasOptionsMenu(true);
 			glide = Glide.with(this);
 
-			securityABTest = ABTestManager.getInstance().get(ABTestManager.APP_VIEW_SECURITY);
-			securityABTest.participate();
+			//securityABTest = ABTestManager.getInstance().get(ABTestManager.APP_VIEW_SECURITY);
+			//securityABTest.participate();
 			securityBalloonStartUpAnimation = loadAnimation(R.anim.security_information_overlay_fade_in_fade_out);
 			securityBalloonFadeInAnimation = loadAnimation(android.R.anim.fade_in);
 			securityBalloonFadeOutAnimation = loadAnimation(android.R.anim.fade_out);
@@ -1093,7 +1095,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				getActivity().onBackPressed();
 				return true;
 			} else if (i == R.id.menu_share) {
-				FlurryAgent.logEvent("App_View_Clicked_On_Share_Button");
+				//FlurryAgent.logEvent("App_View_Clicked_On_Share_Button");
 
 				Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 				sharingIntent.setType("text/plain");
@@ -1512,7 +1514,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 
 			final String applicationName = securityBalloon.getApplicationName();
-			final String balloonTitle = getActivity().getString(R.string.balloon_security_subtitle_start_part, applicationName);
+			/*final String balloonTitle = getActivity().getString(R.string.balloon_security_subtitle_start_part, applicationName);
 			final Spannable boldApplicationNameTitle = new SpannableString(balloonTitle);
 			boldApplicationNameTitle.setSpan(new StyleSpan(Typeface.BOLD),
 					(balloonTitle.length() - applicationName.length() - 1), // 0-based index start
@@ -1521,7 +1523,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 			((TextView)getActivity().findViewById(R.id.balloon_security_subtitle_start_part))
 					.setText(boldApplicationNameTitle);
-			this.mSecurityBalloon = securityBalloon;
+			this.mSecurityBalloon = securityBalloon;*/
 		}
 
 		private View.OnClickListener extendListener = new View.OnClickListener() {
@@ -1742,7 +1744,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					@Override
 					public void onClick(View v) {
 						AptoideUtils.RepoUtils.startParse(storeName, getActivity(), spiceManager);
-						Analytics.OpenSubscribeStoreFromAppviewEvent.sendOpenSubscribeStoreFromAppviewEvent("Subscribe");
+						//Analytics.OpenSubscribeStoreFromAppviewEvent.sendOpenSubscribeStoreFromAppviewEvent("Subscribe");
 					}
 				});
 			}
@@ -2265,7 +2267,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 						public void onClick(View v) {
 
 							if (downloadService != null) {
-								FlurryAgent.logEvent("App_View_Canceled_Download");
+								//FlurryAgent.logEvent("App_View_Canceled_Download");
 								downloadService.stopDownload(downloadId);
 							}
 						}
@@ -2464,7 +2466,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 						BusProvider.getInstance().post(new OttoEvents.AppViewRefresh());
 						Toast.makeText(getActivity(), R.string.flag_added, Toast.LENGTH_SHORT)
 								.show();
-						Analytics.AppFlaggedEvent.sendSwitchPressedEvent(flag);
+						//Analytics.AppFlaggedEvent.sendSwitchPressedEvent(flag);
 					} else {
 						Toast.makeText(getActivity(), R.string.error_occured, Toast.LENGTH_SHORT)
 								.show();
@@ -2826,15 +2828,15 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					AptoideUtils.AdNetworks.knock(cpd);
 				}
 
-				boolean alternative = securityABTest.alternative().showWarningPopUp()
-						&& !GetAppMeta.File.Malware.TRUSTED.equals(rank);
+				boolean alternative = /*securityABTest.alternative().showWarningPopUp()
+						&&*/ !GetAppMeta.File.Malware.TRUSTED.equals(rank);
 				if (alternative) {
 					InstallWarningDialog.newInstance(rank, hasTrustedVersion())
 							.show(getFragmentManager(), "InstallWarningDialog");
 				} else {
 					installApp();
 				}
-				Analytics.ClickedOnInstallButton.clicked(package_name, developer, alternative);
+				//Analytics.ClickedOnInstallButton.clicked(package_name, developer, alternative);
 			}
 
 			@Override
@@ -2845,7 +2847,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		}
 
 		public void installApp() {
-			securityABTest.convert();
+			//securityABTest.convert();
 			download();
 		}
 

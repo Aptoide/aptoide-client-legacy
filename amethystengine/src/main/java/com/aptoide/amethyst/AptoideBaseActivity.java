@@ -1,6 +1,6 @@
 package com.aptoide.amethyst;
 
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.LifeCycleMonitor;
@@ -35,12 +35,12 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.CREATE);
-        Analytics.Lifecycle.Activity.onCreate(this);
+        //Analytics.Lifecycle.Activity.onCreate(this);
     }
 
     @Override
     protected void onDestroy() {
-        Analytics.Lifecycle.Activity.onDestroy(this);
+        //Analytics.Lifecycle.Activity.onDestroy(this);
         super.onDestroy();
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.DESTROY);
     }
@@ -49,12 +49,12 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.START);
-        Analytics.Lifecycle.Activity.onStart(this);
+       // Analytics.Lifecycle.Activity.onStart(this);
     }
 
     @Override
     protected void onStop() {
-        Analytics.Lifecycle.Activity.onStop(this);
+        //Analytics.Lifecycle.Activity.onStop(this);
         super.onStop();
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.STOP);
     }
@@ -64,7 +64,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         super.onResume();
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.RESUME);
         _resumed = true;
-        Analytics.Lifecycle.Activity.onResume(this, getScreenName());
+        //Analytics.Lifecycle.Activity.onResume(this, getScreenName());
         AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
         zainSimCardRuleApplies();
     }
@@ -124,13 +124,13 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Analytics.Lifecycle.Activity.onNewIntent(this, intent);
+        //Analytics.Lifecycle.Activity.onNewIntent(this, intent);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Analytics.Lifecycle.Activity.onPause(this);
+        //Analytics.Lifecycle.Activity.onPause(this);
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.PAUSE);
         _resumed = false;
 

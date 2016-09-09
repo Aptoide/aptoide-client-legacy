@@ -4,7 +4,7 @@ import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.StoresActivity;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.ui.MoreVersionsActivity;
@@ -176,7 +176,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
                 intent.putExtra(Constants.PACKAGENAME_KEY, appItem.getPackageName());
                 intent.putExtra(Constants.STORENAME_KEY, appItem.getRepo());
 
-                Analytics.Search.searchPosition(appItem.getPosition(), appItem.isFromSubscribedStore(), appItem.getRepo());
+                //Analytics.Search.searchPosition(appItem.getPosition(), appItem.isFromSubscribedStore(), appItem.getRepo());
                 AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Search Result");
 
                 v.getContext().startActivity(intent);

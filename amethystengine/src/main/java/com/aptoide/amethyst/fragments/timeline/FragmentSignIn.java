@@ -25,7 +25,7 @@ import android.widget.Toast;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LoginActivity;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.model.json.CheckUserCredentialsJson;
 import com.aptoide.amethyst.model.json.OAuth;
@@ -168,7 +168,7 @@ public class FragmentSignIn extends Fragment {
 
                 }else{
                     getUserInfo(oAuth, username, mode, accountType, passwordOrToken, ctx);
-                    Analytics.Login.login(username, mode);
+                    //Analytics.Login.login(username, mode);
                 }
 
             }

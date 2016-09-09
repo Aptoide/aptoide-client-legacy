@@ -85,7 +85,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/wizard_preview_post" />
+            android:adjustViewBounds="true" />
     </LinearLayout>
 </ScrollView>

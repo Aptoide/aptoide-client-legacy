@@ -78,8 +78,7 @@
                 android:layout_centerInParent="true"
                 android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
-                android:background="?attr/icDialogDrawable"
-                android:src="@drawable/wizard_optimized_cut" />
+                android:background="?attr/icDialogDrawable"/>
 
         </RelativeLayout>
 

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.ui.SearchManager;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -53,7 +53,7 @@ public class SearchActivity extends AptoideBaseActivity {
 		String query = getIntent().getExtras().getString(SearchActivity.SEARCH_QUERY);
         boolean trustedAppsOnly = getIntent().getExtras().getBoolean(SEARCH_ONLY_TRUSTED_APPS, false);
 
-		Analytics.Search.searchTerm(query, storeName);
+		//Analytics.Search.searchTerm(query, storeName);
 
 		if (storeName != null && !TextUtils.isEmpty(storeName)) {
             Intent intent = new Intent(SearchActivity.this, Aptoide.getConfiguration().getMoreSearchActivity());

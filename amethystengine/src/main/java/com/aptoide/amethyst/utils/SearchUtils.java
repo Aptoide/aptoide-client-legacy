@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.MainActivity;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 
 import java.util.HashSet;
 import java.util.Iterator;

@@ -30,7 +30,7 @@ import android.widget.Toast;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.LoginActivity;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.preferences.Preferences;
@@ -236,7 +236,7 @@ public class FragmentSocialTimeline extends Fragment implements FragmentSignIn.S
             fragment.setArguments(args);
             getChildFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment, "tag").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
 
-            Analytics.SocialTimeline.login();
+            //Analytics.SocialTimeline.login();
         } catch (Exception e) {
             e.printStackTrace();
         }

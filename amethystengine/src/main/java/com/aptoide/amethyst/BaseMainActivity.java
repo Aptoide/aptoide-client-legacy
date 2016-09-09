@@ -30,7 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
@@ -148,9 +148,9 @@ public abstract class BaseMainActivity extends AptoideBaseActivity {
             new AutoUpdate(this).execute();
         }
 
-        Analytics.Dimenstions.setPartnerDimension(Aptoide.getConfiguration().getStoreType());
+        /*Analytics.Dimenstions.setPartnerDimension(Aptoide.getConfiguration().getStoreType());
         Analytics.Dimenstions.setVerticalDimension(Aptoide.getConfiguration().getVertical());
-        Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
+        Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));*/
     }
 
     @Override

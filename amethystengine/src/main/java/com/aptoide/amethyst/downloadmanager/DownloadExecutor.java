@@ -12,9 +12,9 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
 import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
-import com.aptoide.amethyst.downloadmanager.model.Download;
+//import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.downloadmanager.model.FinishedApk;
 import com.aptoide.amethyst.preferences.AptoidePreferences;
 import com.aptoide.amethyst.preferences.SecurePreferences;
@@ -128,7 +128,7 @@ public class DownloadExecutor implements Serializable {
 
                         CpiAptwordsResponse cpiAptwordsResponse = new Gson().fromJson(response, CpiAptwordsResponse.class);
 
-                        Analytics.LTV.cpi(apk.getApkid(), cpiAptwordsResponse.getRevenue());
+                        //Analytics.LTV.cpi(apk.getApkid(), cpiAptwordsResponse.getRevenue());
 
                         //registerAdRequest.loadDataFromNetwork();
                     } catch (Exception e) {

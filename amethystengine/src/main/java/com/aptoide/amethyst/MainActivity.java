@@ -1,7 +1,7 @@
 package com.aptoide.amethyst;
 
 import com.aptoide.amethyst.adapter.MainPagerAdapter;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.AptoideDatabase;
@@ -14,7 +14,7 @@ import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
 import com.aptoide.amethyst.services.DownloadService;
 import com.aptoide.amethyst.services.UpdatesService;
-import com.aptoide.amethyst.tutorial.TutorialActivity;
+//import com.aptoide.amethyst.tutorial.TutorialActivity;
 import com.aptoide.amethyst.ui.BadgeView;
 import com.aptoide.amethyst.ui.ExcludedUpdatesActivity;
 import com.aptoide.amethyst.ui.MyAccountActivity;
@@ -42,9 +42,9 @@ import com.aptoide.models.stores.Store;
 import com.astuetz.PagerSlidingTabStrip;
 import com.bumptech.glide.Glide;
 import com.crashlytics.android.Crashlytics;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;/*
 import com.flurry.android.FlurryAgent;
-import com.localytics.android.Localytics;
+import com.localytics.android.Localytics;*/
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
@@ -210,7 +210,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         setContentView(getContentView());
         bindViews();
 
-        Analytics.MainActivityOncreate();
+        //Analytics.MainActivityOncreate();
         if(!checkIfInstalled()) {
             createShortCut();
         }
@@ -249,18 +249,18 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
                     getIntent().removeExtra(Constants.NEW_REPO_EXTRA);
                 }
             } else if (getIntent().hasExtra("fromDownloadNotification")) {
-                Analytics.ApplicationLaunch.downloadingUpdates();
+                //Analytics.ApplicationLaunch.downloadingUpdates();
                 mViewPager.setCurrentItem(5);
             } else if (getIntent().hasExtra("fromTimeline")) {
-                Analytics.ApplicationLaunch.timelineNotification();
+                //Analytics.ApplicationLaunch.timelineNotification();
                 mViewPager.setCurrentItem(4);
             } else if (getIntent().hasExtra("new_updates")) {
-                Analytics.ApplicationLaunch.newUpdatesNotification();
+                //Analytics.ApplicationLaunch.newUpdatesNotification();
                 mViewPager.setCurrentItem(3);
             } else if (getIntent().hasExtra("openAppView")) {
                 openAppView(getIntent().getStringExtra("openAppView"));
             } else {
-                Analytics.ApplicationLaunch.launcher();
+                //Analytics.ApplicationLaunch.launcher();
 
             }
 
@@ -323,7 +323,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
                     return true;
                 } else if (i == R.id.navigation_item_backup_apps) {
                     showBackupApps();
-                    Analytics.BackupApps.open();
+                    //Analytics.BackupApps.open();
                     return true;
                 } else if (i == R.id.send_feedback) {
                     FeedBackActivity.screenshot(MainActivity.this);
@@ -345,9 +345,9 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             new AutoUpdate(this).execute();
         }
 
-        Analytics.Dimenstions.setPartnerDimension(getPartnerName());
+        /*Analytics.Dimenstions.setPartnerDimension(getPartnerName());
         Analytics.Dimenstions.setVerticalDimension(getVertical());
-        Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
+        Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));*/
     }
 
     private void openAppView(String appId) {
@@ -407,7 +407,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
                         intent.putExtra(Constants.CPI_KEY, cpi);
                     }
 
-                    FlurryAgent.logEvent("Started_From_Apkfy");
+                    //FlurryAgent.logEvent("Started_From_Apkfy");
                     startActivityForResult(intent, WIZARD_REQ_CODE);
 
                     return true;
@@ -515,8 +515,8 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
 
         if (sPref.getBoolean("firstrun", true)) {
 
-            Intent newToAptoideTutorial = new Intent(this, TutorialActivity.class);
-            startActivityForResult(newToAptoideTutorial, WIZARD_REQ_CODE);
+            /*Intent newToAptoideTutorial = new Intent(this, TutorialActivity.class);
+            startActivityForResult(newToAptoideTutorial, WIZARD_REQ_CODE);*/
             sPref.edit().putBoolean("firstrun", false).apply();
             try {
                 PreferenceManager.getDefaultSharedPreferences(this).edit().putInt("version", getPackageManager().getPackageInfo(getPackageName(), 0).versionCode).apply();
@@ -534,9 +534,9 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
 
                     if (previousVersion < 467) {
 
-                        Intent whatsNewTutorial = new Intent(this, TutorialActivity.class);
+                        /*Intent whatsNewTutorial = new Intent(this, TutorialActivity.class);
                         whatsNewTutorial.putExtra("isUpdate", true);
-                        startActivityForResult(whatsNewTutorial, WIZARD_REQ_CODE);
+                        startActivityForResult(whatsNewTutorial, WIZARD_REQ_CODE);*/
 
                     }
 
@@ -735,7 +735,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             Logger.i(this, "OttoEvents.StartDownload event was null");
         } else {
             matureLock(event.isMature());
-            Analytics.ClickOnAdultSwitch.sendSwitchPressedEvent(event.isMature());
+            //Analytics.ClickOnAdultSwitch.sendSwitchPressedEvent(event.isMature());
         }
     }
 
@@ -826,22 +826,22 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
 
                 switch (position) {
                     case 0:
-                        Analytics.Screens.tagScreen("List Apps (Start)");
+                        //Analytics.Screens.tagScreen("List Apps (Start)");
                         break;
                     case 1:
-                        Analytics.Screens.tagScreen("Community");
+                        //Analytics.Screens.tagScreen("Community");
                         break;
                     case 2:
-                        Analytics.Screens.tagScreen("Stores");
+                        //Analytics.Screens.tagScreen("Stores");
                         break;
                     case 3:
-                        Analytics.Screens.tagScreen("Updates");
+                        //Analytics.Screens.tagScreen("Updates");
                         break;
                     case 4:
-                        Analytics.Screens.tagScreen("Social Timeline");
+                        //Analytics.Screens.tagScreen("Social Timeline");
                         break;
                     case 5:
-                        Analytics.Screens.tagScreen("Downloads");
+                        //Analytics.Screens.tagScreen("Downloads");
                         break;
                 }
 
@@ -859,7 +859,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
     }
 
     public String getVertical() {
-        return Analytics.Dimenstions.Vertical.SMARTPHONE;
+        return /*Analytics.Dimenstions.Vertical.SMARTPHONE*/ "smartphone";
     }
 
     @Override
@@ -867,13 +867,13 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         super.onNewIntent(intent);
 
         if (intent.hasExtra("new_updates")) {
-            Analytics.ApplicationLaunch.newUpdatesNotification();
+            //Analytics.ApplicationLaunch.newUpdatesNotification();
         } else if (intent.hasExtra("fromDownloadNotification")) {
-            Analytics.ApplicationLaunch.downloadingUpdates();
+            //Analytics.ApplicationLaunch.downloadingUpdates();
         } else if (intent.hasExtra("fromTimeline")) {
-            Analytics.ApplicationLaunch.timelineNotification();
+            //Analytics.ApplicationLaunch.timelineNotification();
         } else {
-            Analytics.ApplicationLaunch.launcher();
+            //Analytics.ApplicationLaunch.launcher();
         }
 
     }

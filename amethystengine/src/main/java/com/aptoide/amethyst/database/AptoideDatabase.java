@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.provider.DatabaseProvider;
 import com.aptoide.amethyst.database.schema.Schema;
 import com.aptoide.amethyst.utils.Logger;

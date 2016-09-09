@@ -15,7 +15,7 @@ import com.amazon.insights.InsightsCredentials;
 import com.aptoide.amethyst.AppViewMiddleSuggested;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.BuildConfig;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.data_provider.getAds.GetAdsRequestListener;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
@@ -105,7 +105,7 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
             db.insertInstalled(aPackage);
             Logger.d("AptoideUpdates", "Inserting " + aPackage.packageName);
 
-            Analytics.ApplicationInstall.replaced(pkg.packageName);
+            //Analytics.ApplicationInstall.replaced(pkg.packageName);
 
         } catch (Exception e) {
             Logger.printException(e);
@@ -158,10 +158,10 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
                             ReferrerUtils.broadcastReferrer(context, installEvent, referrer);
 
-                            Analytics.ApplicationInstall.installed(pkg.packageName, true, isTrusted);
+                            //Analytics.ApplicationInstall.installed(pkg.packageName, true, isTrusted);
                             control = true;
                         } else {
-                            Analytics.ApplicationInstall.installed(pkg.packageName, false, isTrusted);
+                           //Analytics.ApplicationInstall.installed(pkg.packageName, false, isTrusted);
                         }
 
                         processAbTesting(context, mPm, installEvent, db);
@@ -169,8 +169,8 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
                         db.confirmRollBackAction(pkg.packageName, action, RollBackItem.Action.DOWNGRADED.toString());
                         Logger.d("InstalledBroadcastReceiver", "Downgraded rollback action");
 
-                        Analytics.ApplicationInstall.downgraded(pkg.packageName);
-                        Analytics.Rollback.downgraded();
+                        //Analytics.ApplicationInstall.downgraded(pkg.packageName);
+                        //Analytics.Rollback.downgraded();
                     }
                 }
             }

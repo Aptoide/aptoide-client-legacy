@@ -21,7 +21,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
@@ -282,7 +282,7 @@ public class SignUpActivity extends AptoideBaseActivity {
                             final Intent res = new Intent();
                             res.putExtras(data);
                             setResult(RESULT_OK, res);
-                            Analytics.UserRegister.registered();
+                            //Analytics.UserRegister.registered();
                             finish();
                         } else {
                             final HashMap<String, Integer> errorsMapConversion = Errors.getErrorsMap();

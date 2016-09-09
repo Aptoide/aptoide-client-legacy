@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.preferences.SecurePreferences;
@@ -98,14 +98,14 @@ public class AdultDialog extends DialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
 //                        FlurryAgent.logEvent("Dialog_Adult_Content_Confirmed_More_Than_21_Years_Old");
                         positiveButtonlistener.onClick(dialog, which);
-                        Analytics.AdultContent.unlock();
+                        //Analytics.AdultContent.unlock();
                     }
                 })
                 .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        Analytics.AdultContent.lock();
+                        //Analytics.AdultContent.lock();
                     }
                 })
                 .create();

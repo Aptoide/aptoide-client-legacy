@@ -6,7 +6,7 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.downloadmanager.state.CompletedState;
 
@@ -143,8 +143,8 @@ public class DownloadInfoRunnable implements Runnable, Serializable {
             if (mStatusState instanceof ActiveState) {
                 changeStatusState(new CompletedState(this));
                 autoExecute();
-                Analytics.DownloadComplete.downloadComplete(download);
-                Analytics.SourceDownloadCompleted.downloadCompleteWithSource(download);
+                //Analytics.DownloadComplete.downloadComplete(download);
+                //Analytics.SourceDownloadCompleted.downloadCompleteWithSource(download);
             }
 
         } catch (Exception e) {

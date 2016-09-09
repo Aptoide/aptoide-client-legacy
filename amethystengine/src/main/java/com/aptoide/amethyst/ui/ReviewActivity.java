@@ -4,7 +4,7 @@ import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.ui.widget.CircleTransform;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Configs;
@@ -239,7 +239,7 @@ public class ReviewActivity extends AptoideBaseActivity {
             }
         });
 
-        Analytics.Home.clickOnReviewsMore();
+        //Analytics.Home.clickOnReviewsMore();
     }
 
     protected int getContentView() {

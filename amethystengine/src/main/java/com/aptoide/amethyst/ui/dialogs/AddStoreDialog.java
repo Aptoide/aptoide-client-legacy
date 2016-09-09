@@ -2,7 +2,7 @@ package com.aptoide.amethyst.ui.dialogs;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.dialogs.ProgressDialogFragment;
 import com.aptoide.amethyst.events.BusProvider;
@@ -175,7 +175,7 @@ public class AddStoreDialog extends DialogFragment {
                     addStoreOnCloud(store);
 
                     try {
-                        Analytics.Stores.subscribe(response.datasets.meta.data.name);
+                        //Analytics.Stores.subscribe(response.datasets.meta.data.name);
                     } catch (NullPointerException e) {
                         e.printStackTrace();
                     }

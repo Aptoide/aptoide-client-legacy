@@ -21,7 +21,7 @@ import com.aptoide.amethyst.LinearRecyclerFragment;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.adapter.SearchAdapter;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.search.SearchAppConverter;
 import com.aptoide.amethyst.models.search.SearchItemSubscriptionFilter;
@@ -435,7 +435,7 @@ public class SearchFragment extends LinearRecyclerFragment {
     private void treatEmptyList() {
         if (!isLoading() && isListEmpty()) {
             showEmptyResultView();
-            Analytics.Search.noSearchResultEvent(query);
+            //Analytics.Search.noSearchResultEvent(query);
         }
     }
 

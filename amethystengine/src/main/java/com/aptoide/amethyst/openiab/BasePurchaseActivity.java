@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.dialogs.ProgressDialogFragment;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
 import com.aptoide.models.PaymentServices;
@@ -366,7 +366,7 @@ public abstract class BasePurchaseActivity extends ActionBarActivity implements 
                              */
                             processPaymentConfirmation(confirm.getProofOfPayment());
 
-                            Analytics.LTV.purchasedApp(packageName, parsePaypalPayment(confirm.getPayment().toString()));
+                            //Analytics.LTV.purchasedApp(packageName, parsePaypalPayment(confirm.getPayment().toString()));
 
 
                         } catch (JSONException e) {

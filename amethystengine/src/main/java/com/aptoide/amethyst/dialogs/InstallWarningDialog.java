@@ -6,7 +6,7 @@
 package com.aptoide.amethyst.dialogs;
 
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
 
 import android.annotation.SuppressLint;
@@ -157,7 +157,7 @@ public class InstallWarningDialog extends DialogFragment {
 					public void onClick(View v) {
 						if (listener != null) {
 							listener.installApp();
-							Analytics.ClickonWarningPopupButtons.sendClickonWarningPopupButtons("Proceed");
+							//Analytics.ClickonWarningPopupButtons.sendClickonWarningPopupButtons("Proceed");
 						}
 						dismiss();
 					}
@@ -187,7 +187,7 @@ public class InstallWarningDialog extends DialogFragment {
 			@Override
 			public void onClick(View v) {
 				if (listener != null) {
-					Analytics.ClickonWarningPopupButtons.sendClickonWarningPopupButtons("Search for trusted Apps");
+					//Analytics.ClickonWarningPopupButtons.sendClickonWarningPopupButtons("Search for trusted Apps");
 					if (trustedVersionAvailable) {
 						listener.getTrustedAppVersion();
 					} else {

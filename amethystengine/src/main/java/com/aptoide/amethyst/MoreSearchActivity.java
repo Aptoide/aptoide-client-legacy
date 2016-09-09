@@ -19,7 +19,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.aptoide.amethyst.adapter.SearchAdapter;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.amethyst.models.search.SearchAppConverter;
@@ -299,7 +299,7 @@ public class MoreSearchActivity extends MoreActivity {
         private void treatEmptyList() {
             if (isListEmpty()) {
                 showEmptyResultView();
-                Analytics.Search.noSearchResultEvent(query);
+                //Analytics.Search.noSearchResultEvent(query);
             }
         }
 

@@ -6,7 +6,7 @@ import com.aptoide.amethyst.AptoideBaseActivity;
 import com.aptoide.amethyst.MainActivity;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.SearchActivity;
-import com.aptoide.amethyst.analytics.Analytics;
+//import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.ui.SearchManager;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -133,7 +133,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 
         TMP_MYAPP_FILE = getCacheDir() + "/myapp.myapp";
         String uri = getIntent().getDataString();
-        Analytics.ApplicationLaunch.website(uri);
+        //Analytics.ApplicationLaunch.website(uri);
 
         if (uri.startsWith("aptoiderepo")) {
 
@@ -357,7 +357,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
         i.putExtra("newrepo", repo);
         i.addFlags(Constants.NEW_REPO_FLAG);
         startActivity(i);
-        Analytics.ApplicationLaunch.newRepo();
+        //Analytics.ApplicationLaunch.newRepo();
 
         finish();
     }

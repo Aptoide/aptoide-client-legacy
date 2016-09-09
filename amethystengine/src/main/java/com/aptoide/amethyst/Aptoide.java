@@ -12,8 +12,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.aptoide.amethyst.analytics.ABTestManager;
-import com.aptoide.amethyst.analytics.Analytics;
+/*import com.aptoide.amethyst.analytics.ABTestManager;
+import com.aptoide.amethyst.analytics.Analytics;*/
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.SQLiteDatabaseHelper;
 import com.aptoide.amethyst.preferences.ManagerPreferences;
@@ -94,7 +94,7 @@ public class Aptoide extends Application {
                 }
 
                 AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", aaid).apply();
-                ABTestManager.getInstance().initialize(aaid);
+                //ABTestManager.getInstance().initialize(aaid);
             }
         }).start();
     }
@@ -139,9 +139,9 @@ public class Aptoide extends Application {
         Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());
         AptoideUtils.CrashlyticsUtils.subsctibeActivityLiveCycleEvent();
         SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this);
-        Analytics.LocalyticsSessionControl.firstSession(sPref);
+        //Analytics.LocalyticsSessionControl.firstSession(sPref);
 
-        Analytics.Lifecycle.Application.onCreate(this);
+        //Analytics.Lifecycle.Application.onCreate(this);
     }
 
     /**
