@@ -35,7 +35,8 @@ public class Analytics {
     // Constantes globais a todos os eventos.
     public static final String ACTION = "Action";
     private static final String TAG = Analytics.class.getSimpleName();
-    private static boolean ACTIVATE = BuildConfig.LOCALYTICS_CONFIGURED;
+  private static boolean ACTIVATE_LOCALYTICS = BuildConfig.LOCALYTICS_CONFIGURED;
+  private static final boolean ACTIVATE_FLURRY = BuildConfig.FLURRY_CONFIGURED;
     private static final int ALL = Integer.MAX_VALUE;
     private static final int LOCALYTICS = 1 << 0;
     private static final int FLURRY = 1 << 1;
@@ -49,9 +50,12 @@ public class Analytics {
      * @return true caso as flags fornecidas constem em accepted.
      */
     private static boolean checkAcceptability(int flag, int accepted) {
-        if (accepted == LOCALYTICS && !ACTIVATE) {
-            Logger.d(TAG, "Locallytics Disabled ");
+      if (accepted == LOCALYTICS && !ACTIVATE_LOCALYTICS) {
+        Logger.d(TAG, "Localytics Disabled ");
             return false;
+      } else if (accepted == FLURRY && !ACTIVATE_FLURRY) {
+        Logger.d(TAG, "Flurry Disabled");
+        return false;
         } else {
             return (flag & accepted) == accepted;
         }
@@ -60,7 +64,7 @@ public class Analytics {
     private static void track(String event, String key, String attr, int flags) {
 
         try {
-            if (!ACTIVATE)
+          if (!ACTIVATE_LOCALYTICS && !ACTIVATE_FLURRY)
                 return;
 
             HashMap stringObjectHashMap = new HashMap<>();
@@ -112,7 +116,7 @@ public class Analytics {
     }
 
     public static void MainActivityOncreate() {
-        if (!ACTIVATE) {
+      if (!ACTIVATE_LOCALYTICS) {
             return;
         }
         Localytics.registerPush(BuildConfig.GOOGLE_SENDER_ID);
@@ -123,9 +127,11 @@ public class Analytics {
         public static class Application {
             public static void onCreate(Context context) {
                 SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext());
-                ACTIVATE = ACTIVATE && (sPref.getBoolean(Constants.IS_LOCALYTICS_ENABLE_KEY, false));
+              ACTIVATE_LOCALYTICS =
+                  ACTIVATE_LOCALYTICS && (sPref.getBoolean(Constants.IS_LOCALYTICS_ENABLE_KEY,
+                      false));
                 isFirstSession = sPref.getBoolean(Constants.IS_LOCALYTICS_FIRST_SESSION, false);
-                if (!ACTIVATE && !isFirstSession)
+              if (!ACTIVATE_LOCALYTICS && !isFirstSession)
                     return;
 
                 // Integrate Localytics
@@ -200,21 +206,21 @@ public class Analytics {
 
             public static void onCreate(android.app.Activity activity) {
 
-                if (!ACTIVATE)
+              if (!ACTIVATE_LOCALYTICS)
                     return;
 
             }
 
             public static void onDestroy(android.app.Activity activity) {
 
-                if (!ACTIVATE)
+              if (!ACTIVATE_LOCALYTICS)
                     return;
 
             }
 
             public static void onResume(android.app.Activity activity, @Nullable String screenName) {
 
-                if (!ACTIVATE)
+              if (!ACTIVATE_LOCALYTICS)
                     return;
 
                 // Localytics
@@ -244,7 +250,7 @@ public class Analytics {
 
             public static void onPause(android.app.Activity activity) {
 
-                if (!ACTIVATE && !isFirstSession)
+              if (!ACTIVATE_LOCALYTICS && !isFirstSession)
                     return;
 
                 // Localytics
@@ -254,7 +260,7 @@ public class Analytics {
 
             public static void onStart(android.app.Activity activity) {
 
-                if (!ACTIVATE && !isFirstSession)
+              if (!ACTIVATE_FLURRY)
                     return;
 
                 FlurryAgent.onStartSession(activity, BuildConfig.FLURRY_KEY);
@@ -263,7 +269,7 @@ public class Analytics {
 
             public static void onStop(android.app.Activity activity) {
 
-                if (!ACTIVATE && !isFirstSession)
+              if (!ACTIVATE_FLURRY)
                     return;
 
                 FlurryAgent.onEndSession(activity);
@@ -271,7 +277,7 @@ public class Analytics {
             }
 
             public static void onNewIntent(android.app.Activity activity, Intent intent) {
-                if (!ACTIVATE && !isFirstSession) {
+              if (!ACTIVATE_LOCALYTICS && !isFirstSession) {
                     return;
                 }
                 Localytics.onNewIntent(activity, intent);
@@ -284,7 +290,7 @@ public class Analytics {
 
         public static void tagScreen(String screenName) {
 
-            if (!ACTIVATE)
+          if (!ACTIVATE_LOCALYTICS)
                 return;
 
             Logger.d("Analytics", "Localytics: Screens: " + screenName);
@@ -313,7 +319,7 @@ public class Analytics {
 
         public static void login(String username, LoginActivity.Mode mode) {
 
-            if (!ACTIVATE)
+          if (!ACTIVATE_LOCALYTICS)
                 return;
 
             try {
@@ -895,7 +901,7 @@ public class Analytics {
         private static final String UNKNOWN = "unknown";
 
         private static void setDimension(int i, String s) {
-            if (!ACTIVATE && !isFirstSession) {
+          if (!ACTIVATE_LOCALYTICS && !isFirstSession) {
                 return;
             }
 
@@ -958,7 +964,7 @@ public class Analytics {
         }
 
         private static void ltv(String eventName, String packageName, double revenue) {
-            if (!ACTIVATE) {
+          if (!ACTIVATE_LOCALYTICS) {
                 return;
             }
 
