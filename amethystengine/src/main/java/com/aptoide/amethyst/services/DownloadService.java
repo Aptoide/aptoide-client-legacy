@@ -349,6 +349,7 @@ public class DownloadService extends Service {
         download.setPaid(paid);
         download.setIcon(apk.icon);
         download.setSize(apk.size.longValue());
+        download.setInstallationSource(AptoideUtils.FlurryAppviewOrigin.getInstallationSource());
 
         startDownload(download, apk, null, new ArrayList<String>());
     }
