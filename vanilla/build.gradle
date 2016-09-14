@@ -34,7 +34,7 @@ android {
         applicationId "cm.aptoide.pt.dev"
         targetSdkVersion 23
         versionCode 488
-        versionName "7.2.1.5"
+        versionName "7.2.1.6"
 
         def optimizelyProjectId = localProperties.OPTIMIZELY_PROJECT_ID
         def optimizelyProjectIdExists = optimizelyProjectId != null
@@ -57,7 +57,7 @@ android {
 
             // Enabling multidex support.
             multiDexEnabled true
-            versionName "7.1.0"
+            versionName "7.2.1.6"
         }
         prod {
             // The actual minSdkVersion for the application.
@@ -147,7 +147,6 @@ dependencies {
     releaseCompile project(path: ':amethystengine', configuration: 'release')
     compile 'com.commonsware.cwac:endless:1.2.3'
     provided 'org.projectlombok:lombok:1.16.6'
-
 }
 
 def File propFile = new File('signing.properties')
