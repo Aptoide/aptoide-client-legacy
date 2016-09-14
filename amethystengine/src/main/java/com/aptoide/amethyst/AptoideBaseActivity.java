@@ -9,17 +9,20 @@ import com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.*;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import lombok.Getter;
 
@@ -32,6 +35,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(Aptoide.getConfiguration().getDefaultStore().equals("aban-app-store")){setLocale("fa");}
         Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.CREATE);
@@ -144,6 +148,19 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
      * @return o nome so monitor associado a esta activity, para efeitos de Analytics.
      */
     protected abstract String getScreenName();
+
+    /**
+     * Force language on app
+     * @param lang language the app should embebed
+     */
+    private void setLocale(String lang) {
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+    }
 
     /**
      * Zain Dialog
