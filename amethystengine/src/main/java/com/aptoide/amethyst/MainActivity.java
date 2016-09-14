@@ -16,10 +16,10 @@ import com.aptoide.amethyst.services.DownloadService;
 import com.aptoide.amethyst.services.UpdatesService;
 //import com.aptoide.amethyst.tutorial.TutorialActivity;
 import com.aptoide.amethyst.ui.BadgeView;
-import com.aptoide.amethyst.ui.ExcludedUpdatesActivity;
-import com.aptoide.amethyst.ui.MyAccountActivity;
-import com.aptoide.amethyst.ui.RollbackActivity;
-import com.aptoide.amethyst.ui.ScheduledDownloadsActivity;
+//import com.aptoide.amethyst.ui.ExcludedUpdatesActivity;
+//import com.aptoide.amethyst.ui.MyAccountActivity;
+//import com.aptoide.amethyst.ui.RollbackActivity;
+//import com.aptoide.amethyst.ui.ScheduledDownloadsActivity;
 import com.aptoide.amethyst.ui.SearchManager;
 import com.aptoide.amethyst.ui.SettingsActivity;
 import com.aptoide.amethyst.ui.dialogs.AddStoreDialog;
@@ -280,7 +280,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             edit.remove(AptoideConfiguration.PREF_PATH_CACHE_APK).apply();
         }
         mNavigationView.setItemIconTintList(null);
-        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+/*        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 //                mDrawerLayout.closeDrawers();
@@ -334,7 +334,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
                     return true;
                 }
             }
-        });
+        });*/
 
         AccountManager.get(this).addOnAccountsUpdatedListener(onAccountsUpdateListener, new Handler(Looper.getMainLooper()), false);
 

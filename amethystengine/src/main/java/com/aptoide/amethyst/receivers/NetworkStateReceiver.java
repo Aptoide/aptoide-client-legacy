@@ -12,7 +12,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.utils.AptoideUtils;
 
-import com.aptoide.amethyst.ui.ScheduledDownloadsActivity;
+//import com.aptoide.amethyst.ui.ScheduledDownloadsActivity;
 
 import static android.net.ConnectivityManager.TYPE_WIFI;
 
@@ -36,10 +36,10 @@ public class NetworkStateReceiver extends BroadcastReceiver {
             return;
         }
 
-        if (new AptoideDatabase(Aptoide.getDb()).hasScheduledDownloads()) {
-            final Intent i = ScheduledDownloadsActivity.newIntent(context, true);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(i);
-        }
+//        if (new AptoideDatabase(Aptoide.getDb()).hasScheduledDownloads()) {
+//            final Intent i = ScheduledDownloadsActivity.newIntent(context, true);
+//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(i);
+//        }
     }
 }
