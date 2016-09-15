@@ -657,7 +657,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					checkInstallation();
 					handleLatestVersionLogic();
 					populateMoreVersions(model);
-					requestComments(false);
+					//requestComments(false);
 					showDialogIfComingFromBrowser();
 					showDialogIfComingFromAPKFY();
 					populateRatings(model.getApp);

@@ -152,9 +152,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
         }
 
         store.setText(appItem.getRepo());
-        Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.getIcon())).into(icon);
 
-            store.setText(appItem.getRepo());
         } else {
             store.setVisibility(View.INVISIBLE);
         }
