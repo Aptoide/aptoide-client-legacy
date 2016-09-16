@@ -17,6 +17,7 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.util.LongSparseArray;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
@@ -33,6 +34,7 @@ import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.downloadmanager.model.DownloadModel;
 import com.aptoide.amethyst.downloadmanager.model.FinishedApk;
 import com.aptoide.amethyst.downloadmanager.state.ActiveState;
+import com.aptoide.amethyst.downloadmanager.state.EnumState;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
 import com.aptoide.amethyst.utils.Logger;
@@ -465,12 +467,7 @@ public class DownloadService extends Service {
     private void download(long id, Download download, FinishedApk apk, ArrayList<DownloadModel> filesToDownload) {
         final Context context = getApplicationContext();
         if (!AptoideUtils.NetworkUtils.isGeneralDownloadPermitted(context)) {
-            if(Aptoide.getConfiguration().getDefaultStore().equals("obchod-eet-store")){
-                Toast.makeText(context, "Downloads are only available with Wi-Fi connection. Please turn Wi-Fi on", Toast.LENGTH_LONG).show();
-            }
-            else {
-                Toast.makeText(context, context.getString(R.string.data_usage_constraint), Toast.LENGTH_LONG).show();
-            }
+            Toast.makeText(context, context.getString(R.string.data_usage_constraint), Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -536,12 +533,21 @@ public class DownloadService extends Service {
         return ongoingDownloads;
     }
 
+    public ArrayList<DownloadInfoRunnable> getPendingDownload() {
+
+        ArrayList<DownloadInfoRunnable> pendingDownloads = new ArrayList<>();
+         pendingDownloads.addAll(manager.getmPendingList());
+
+        return  pendingDownloads;
+    }
+
 
     public ArrayList<Displayable> getAllActiveDownloads() {
         ArrayList<Displayable> allDownloads = new ArrayList<>();
 
         for (DownloadInfoRunnable info : getOngoingDownloads()) {
-            allDownloads.add(new OngoingDownloadRow(info.getDownload(), AptoideUtils.UI.getBucketSize()));
+            OngoingDownloadRow odr= new OngoingDownloadRow(info.getDownload(), AptoideUtils.UI.getBucketSize());
+            allDownloads.add(odr);
         }
 
         return allDownloads;
@@ -897,11 +903,11 @@ public class DownloadService extends Service {
      * @return  id from the download opened in the appview
      */
     public static Long getDownloadId(Long appId, Long downloadId){
-        if(downloadsActiveAppView.get(appId) != null) {
+        if(downloadsActiveAppView.get(appId) != null && downloadId.longValue() == Long.valueOf(0)) {
             return downloadsActiveAppView.get(appId);
         }
         else {
-            return Long.valueOf(0);
+            return downloadId;
         }
     }
 

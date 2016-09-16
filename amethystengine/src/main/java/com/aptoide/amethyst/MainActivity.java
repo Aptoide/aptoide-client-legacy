@@ -105,7 +105,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
 
     private BadgeView badgeUpdates;
 
-    /* Usado para guardar o estado da seleccao dos items */
+    /* Usado  para guardar o estado da seleccao dos items */
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
     private static final int WIZARD_REQ_CODE = 50;
     private int mCurrentSelectedPosition;

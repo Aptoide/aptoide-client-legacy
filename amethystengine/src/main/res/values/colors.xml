@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#fff</color>
+    <color name="white">#ffffff</color>
     <color name="default_color">#e17117</color>
     <color name="default_color_700">#bf6113</color>
     <color name="aptoide_orange">@color/default_color</color>
@@ -20,7 +20,7 @@
     <color name="teal">#009688</color>
     <color name="red">#F44336</color>
     <color name="indigo">#3F51B5</color>
-    <color name="pink">#E91E63</color>
+    <color name="pink">#e91e63</color>
     <color name="orange">#FF9800</color>
     <color name="brown">#795548</color>
     <color name="bluegrey">#607D8B</color>
