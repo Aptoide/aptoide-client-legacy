@@ -11,22 +11,12 @@
         android:padding="7dp"
         android:weightSum="2">
 
-        <CheckBox
-            android:id="@+id/btinstallshare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:checked="true"
-            android:text="@string/share_on_timeline"
-            android:textColor="@color/separators_grey" />
-
-
         <ProgressBar
             android:id="@+id/downloading_progress"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:layout_below="@+id/btinstallshare"
             android:layout_toLeftOf="@+id/actionContainer"
             android:indeterminate="true" />

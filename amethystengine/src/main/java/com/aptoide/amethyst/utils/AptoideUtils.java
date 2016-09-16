@@ -7,6 +7,66 @@
  ******************************************************************************/
 package com.aptoide.amethyst.utils;
 
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.BuildConfig;
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.configuration.AptoideConfiguration;
+import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.events.BusProvider;
+import com.aptoide.amethyst.events.OttoEvents;
+import com.aptoide.amethyst.preferences.AptoidePreferences;
+import com.aptoide.amethyst.preferences.EnumPreferences;
+import com.aptoide.amethyst.preferences.ManagerPreferences;
+import com.aptoide.amethyst.preferences.Preferences;
+import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.social.WebViewFacebook;
+import com.aptoide.amethyst.social.WebViewTwitter;
+import com.aptoide.amethyst.webservices.AddApkFlagRequest;
+import com.aptoide.amethyst.webservices.ChangeUserRepoSubscription;
+import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
+import com.aptoide.amethyst.webservices.Errors;
+import com.aptoide.amethyst.webservices.GetAppRequest;
+import com.aptoide.amethyst.webservices.GetListSearchAppsv7;
+import com.aptoide.amethyst.webservices.GetUserRepoSubscriptions;
+import com.aptoide.amethyst.webservices.json.GetUserRepoSubscriptionJson;
+import com.aptoide.amethyst.webservices.listeners.CheckSimpleStoreListener;
+import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
+import com.aptoide.amethyst.webservices.v3.RateAppRequest;
+import com.aptoide.dataprovider.webservices.GetSimpleStoreRequest;
+import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.dataprovider.webservices.models.Defaults;
+import com.aptoide.dataprovider.webservices.models.ErrorResponse;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7ListSearchApps;
+import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
+import com.aptoide.dataprovider.webservices.v7.CommunityGetstoreRequest;
+import com.aptoide.dataprovider.webservices.v7.GetListViewItemsRequestv7;
+import com.aptoide.dataprovider.webservices.v7.GetMoreVersionsAppRequest;
+import com.aptoide.dataprovider.webservices.v7.GetStoreRequestv7;
+import com.aptoide.dataprovider.webservices.v7.GetStoreWidgetRequestv7;
+import com.aptoide.models.ApkPermission;
+import com.aptoide.models.ApkPermissionGroup;
+import com.aptoide.models.stores.Login;
+import com.aptoide.models.stores.Store;
+import com.crashlytics.android.Crashlytics;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.text.WordUtils;
+
 import android.accounts.AccountManager;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -23,7 +83,6 @@ import android.content.pm.PermissionInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
@@ -58,64 +117,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.BuildConfig;
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
-import com.aptoide.amethyst.configuration.AptoideConfiguration;
-import com.aptoide.amethyst.database.AptoideDatabase;
-import com.aptoide.amethyst.events.BusProvider;
-import com.aptoide.amethyst.events.OttoEvents;
-import com.aptoide.amethyst.preferences.AptoidePreferences;
-import com.aptoide.amethyst.preferences.EnumPreferences;
-import com.aptoide.amethyst.preferences.ManagerPreferences;
-import com.aptoide.amethyst.preferences.Preferences;
-import com.aptoide.amethyst.preferences.SecurePreferences;
-import com.aptoide.amethyst.social.WebViewFacebook;
-import com.aptoide.amethyst.social.WebViewTwitter;
-import com.aptoide.amethyst.webservices.AddApkFlagRequest;
-import com.aptoide.amethyst.webservices.ChangeUserRepoSubscription;
-import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
-import com.aptoide.amethyst.webservices.Errors;
-import com.aptoide.amethyst.webservices.GetAppRequest;
-import com.aptoide.amethyst.webservices.GetUserRepoSubscriptions;
-import com.aptoide.amethyst.webservices.SearchRequest;
-import com.aptoide.amethyst.webservices.json.GetUserRepoSubscriptionJson;
-import com.aptoide.amethyst.webservices.listeners.CheckSimpleStoreListener;
-import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
-import com.aptoide.amethyst.webservices.v3.RateAppRequest;
-import com.aptoide.dataprovider.webservices.GetSimpleStoreRequest;
-import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.dataprovider.webservices.models.Defaults;
-import com.aptoide.dataprovider.webservices.models.ErrorResponse;
-import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
-import com.aptoide.dataprovider.webservices.v7.CommunityGetstoreRequest;
-import com.aptoide.dataprovider.webservices.v7.GetListViewItemsRequestv7;
-import com.aptoide.dataprovider.webservices.v7.GetMoreVersionsAppRequest;
-import com.aptoide.dataprovider.webservices.v7.GetStoreRequestv7;
-import com.aptoide.dataprovider.webservices.v7.GetStoreWidgetRequestv7;
-import com.aptoide.models.ApkPermission;
-import com.aptoide.models.ApkPermissionGroup;
-import com.aptoide.models.stores.Login;
-import com.aptoide.models.stores.Store;
-import com.crashlytics.android.Crashlytics;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.octo.android.robospice.SpiceManager;
-import com.octo.android.robospice.persistence.exception.SpiceException;
-import com.octo.android.robospice.request.listener.RequestListener;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.text.WordUtils;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -133,10 +134,13 @@ import java.security.SecureRandom;
 import java.text.DateFormatSymbols;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.FormatFlagsConversionMismatchException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -235,7 +239,7 @@ public class AptoideUtils {
             return Looper.getMainLooper().getThread() == Thread.currentThread();
         }
 
-        public static String screenshotToThumb(Context context, String imageUrl, String orientation) {
+        public static String screenshotToThumb(String imageUrl, String orientation) {
 
             String screen = null;
 
@@ -243,7 +247,7 @@ public class AptoideUtils {
 
                 if (imageUrl.contains("_screen")) {
 
-                    String sizeString = IconSizeUtils.generateSizeStringScreenshots(context, orientation);
+                    String sizeString = IconSizeUtils.generateSizeStringScreenshots(orientation);
 
                     String[] splitUrl = imageUrl.split("\\.(?=[^\\.]+$)");
                     screen = splitUrl[0] + "_" + sizeString + "." + splitUrl[1];
@@ -400,16 +404,38 @@ public class AptoideUtils {
          * On v7 webservices there is no attribute of HD icon. <br />Instead,
          * the logic is that if the filename ends with <b>_icon</b> it is an HD icon.
          *
-         * @param context Context of the app
          * @param iconUrl The String with the URL of the icon
          * @return A String with
          */
-        public static String parseIcon(Context context, String iconUrl) {
+        public static String parseIcon(String iconUrl) {
             try {
                 if (iconUrl.contains("_icon")) {
-                    String sizeString = IconSizeUtils.generateSizeString(context);
-                    String[] splittedUrl = iconUrl.split("\\.(?=[^\\.]+$)");
-                    iconUrl = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
+                    String sizeString = IconSizeUtils.generateSizeString();
+                    if (sizeString != null && !sizeString.isEmpty()) {
+                        String[] splittedUrl = iconUrl.split("\\.(?=[^\\.]+$)");
+                        iconUrl = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
+                    }
+                }
+            } catch (Exception e) {
+                Logger.printException(e);
+            }
+            return iconUrl;
+        }
+        /**
+         * On v7 webservices there is no attribute of HD icon. <br />Instead,
+         * the logic is that if the filename ends with <b>_icon</b> it is an HD icon.
+         *
+         * @param iconUrl The String with the URL of the icon
+         * @return A String with
+         */
+        public static String parseStoreIcon(String iconUrl) {
+            try {
+                if (iconUrl.contains("_ravatar")) {
+                    String sizeString = IconSizeUtils.generateSizeStoreString();
+                    if (sizeString != null && !sizeString.isEmpty()) {
+                        String[] splittedUrl = iconUrl.split("\\.(?=[^\\.]+$)");
+                        iconUrl = splittedUrl[0] + "_" + sizeString + "." + splittedUrl[1];
+                    }
                 }
             } catch (Exception e) {
                 Logger.printException(e);
@@ -828,7 +854,7 @@ public class AptoideUtils {
             store.setDownloads("");
 
 
-            String sizeString = IconSizeUtils.generateSizeStringAvatar(Aptoide.getContext());
+            String sizeString = IconSizeUtils.generateSizeStringAvatar();
 
             String avatar = "http://pool.img.aptoide.com/apps/b62b1c9459964d3a876b04c70036b10a_ravatar.png";
 
@@ -889,7 +915,7 @@ public class AptoideUtils {
                                         store.setName(subscription.getName());
                                         store.setDownloads(subscription.getDownloads());
 
-                                        String sizeString = IconSizeUtils.generateSizeStringAvatar(Aptoide.getContext());
+                                        String sizeString = IconSizeUtils.generateSizeStringAvatar();
                                         String avatar = subscription.getAvatar();
 
                                         if (avatar != null) {
@@ -958,6 +984,7 @@ public class AptoideUtils {
 
         public static GetMoreVersionsAppRequest GetMoreAppVersionsRequest(String packageName, int limit, int offset) {
             GetMoreVersionsAppRequest request = new GetMoreVersionsAppRequest(AptoideUtils.UI.getBucketSize());
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.filters = Aptoide.filters;
             request.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
             request.aptoideVercode = AptoideUtils.UI.getVerCode(Aptoide.getContext());
@@ -985,6 +1012,7 @@ public class AptoideUtils {
         public static GetStoreRequestv7 buildStoreRequest(long storeId, String context, int bucketSize) {
 
             CommunityGetstoreRequest request = new CommunityGetstoreRequest(bucketSize, UI.getEditorChoiceBucketSize());
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             ArrayList<String> credentials = new ArrayList<String>();
             if(!Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
                 credentials = Aptoide.getConfiguration().getStoreCredentials();
@@ -1049,17 +1077,29 @@ public class AptoideUtils {
 
         private static GetStoreRequestv7 buildGenericStoreRequest(int bucketSize) {
             GetStoreRequestv7 request = new GetStoreRequestv7(bucketSize);
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
             request.filters = Aptoide.filters;
             request.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
             request.aptoideVercode = AptoideUtils.UI.getVerCode(Aptoide.getContext());
             request.lang = AptoideUtils.StringUtils.getMyCountryCode(Aptoide.getContext());
+            if(Aptoide.DEBUG_MODE){
+                request.country = AptoideUtils.getSharedPreferences()
+                        .getString("forcecountry", null);
+            }
             return request;
+        }
+
+        public static GetStoreWidgetRequestv7 buildStoreWidgetRequest(long storeId, String actionUrl, String bundleTitle) {
+            GetStoreWidgetRequestv7 getStoreWidgetRequestv7 = buildStoreWidgetRequest(storeId, actionUrl);
+            getStoreWidgetRequestv7.bundleTitle = bundleTitle;
+            return getStoreWidgetRequestv7;
         }
 
         public static GetStoreWidgetRequestv7 buildStoreWidgetRequest(long storeId, String actionUrl) {
             GetStoreWidgetRequestv7 request = new GetStoreWidgetRequestv7(actionUrl, AptoideUtils.UI.getBucketSize());
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
             request.filters = Aptoide.filters;
@@ -1076,8 +1116,13 @@ public class AptoideUtils {
 
         public static GetListViewItemsRequestv7 buildViewItemsRequest(String storeName, String actionUrl, String layout, int offset) {
             GetListViewItemsRequestv7 request = new GetListViewItemsRequestv7(actionUrl, layout, UI.getBucketSize(), offset);
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.loggedIn = AccountUtils.isLoggedIn(Aptoide.getContext());
             request.nview = "response";
+            if(Aptoide.DEBUG_MODE){
+                request.country = AptoideUtils.getSharedPreferences()
+                        .getString("forcecountry", null);
+            }
             request.filters = Aptoide.filters;
             request.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
             request.aptoideVercode = AptoideUtils.UI.getVerCode(Aptoide.getContext());
@@ -1092,6 +1137,7 @@ public class AptoideUtils {
 
         public static GetAppRequest buildGetAppRequest(String storeName) {
             GetAppRequest request = new GetAppRequest(UI.getBucketSize());
+            request.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
             request.token = SecurePreferences.getInstance().getString("access_token", null);
             request.filters = Aptoide.filters;
             request.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
@@ -1138,37 +1184,55 @@ public class AptoideUtils {
             return request;
         }
 
-        public static SearchRequest buildSearchRequest(String query, int limit, int otherReposLimit, int offset, int otherReposOffset) {
-            SearchRequest request = new SearchRequest();
-            request.setSearchQuery(query);
-            ArrayList<String> strings = new ArrayList<>();
-            AptoideDatabase db = new AptoideDatabase(Aptoide.getDb());
-            Cursor servers = db.getStoresCursor();
-            for (servers.moveToFirst(); !servers.isAfterLast(); servers.moveToNext()) {
-                String name = servers.getString(servers.getColumnIndex("name"));
-                strings.add(name);
-            }
-            String[] arraysStrings = new String[strings.size()];
-            strings.toArray(arraysStrings);
-            request.setRepos(arraysStrings);
-            request.setLimit(limit);
-            request.setOtherReposLimit(otherReposLimit);
-            request.setU_offset(otherReposOffset);
-            request.setOffset(offset);
-            return request;
+        public static GetListSearchAppsv7 buildSearchAppsRequest(String query, boolean trusted, int limit, int offset) {
+            return new GetListSearchAppsv7(getApiv7ListSearchApps(query, trusted, limit, offset));
         }
 
-        public static SearchRequest buildSearchRequest(String query, int searchLimit, int otherReposSearchLimit, int offset, String storeName) {
-            SearchRequest request = buildSearchRequest(query,searchLimit,otherReposSearchLimit,offset,0);
-            if (storeName!=null && !TextUtils.isEmpty(storeName)) {
-                String[] arraysStrings = new String[1];
-                arraysStrings[0] = storeName;
-                request.setRepos(arraysStrings);
+        public static GetListSearchAppsv7 buildSearchAppsRequest(String query, boolean trusted, int limit, int offset, List<Store> stores) {
+            return new GetListSearchAppsv7(getApiv7ListSearchApps(query, trusted, limit, offset, stores));
+        }
+
+        @NonNull
+        private static Apiv7ListSearchApps getApiv7ListSearchApps(String query, boolean trusted, int limit, int offset, List<Store> stores) {
+            final Apiv7ListSearchApps arguments = getApiv7ListSearchApps(query, trusted, limit, offset);
+            final Map<String, List<String>> storeAuthMap = new HashMap<>();
+            final List<String> storeNames = new ArrayList<>();
+
+            if (stores != null) {
+                for (Store store : stores) {
+                    if (store.getLogin() != null) {
+                        storeAuthMap.put(store.getName(), Arrays.asList(store.getLogin().getUsername(), store.getLogin().getPassword()));
+                    }
+                    storeNames.add(store.getName());
+                }
             }
-            return request;
+
+            if (!storeNames.isEmpty()) {
+                arguments.storeNames = storeNames;
+            }
+
+            if (!storeAuthMap.isEmpty()) {
+                arguments.storeAuthMap = storeAuthMap;
+            }
+
+            return arguments;
+        }
+
+        @NonNull
+        private static Apiv7ListSearchApps getApiv7ListSearchApps(String query, boolean trusted, int limit, int offset) {
+            final Apiv7ListSearchApps arguments = new Apiv7ListSearchApps();
+            arguments.aptoideId =  ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
+            arguments.aptoide_vercode = UI.getVerCode(Aptoide.getContext());
+            arguments.lang = StringUtils.getMyCountry(Aptoide.getContext());
+            arguments.limit = limit;
+            arguments.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
+            arguments.offset = offset;
+            arguments.q = HWSpecifications.filters(Aptoide.getContext());
+            arguments.query = query;
+            arguments.trusted = trusted;
+            return arguments;
         }
     }
-
 
     public static class HWSpecifications {
 
@@ -1188,11 +1252,6 @@ public class AptoideUtils {
         }
 
 //        private static String cpuAbi2;
-//
-//        public static String getDeviceId(Context context) {
-//            return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-//        }
-//
 
         /**
          * @return the sdkVer
@@ -1222,7 +1281,11 @@ public class AptoideUtils {
             return ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getDeviceConfigurationInfo().getGlEsVersion();
         }
 
-        public static int getDensityDpi(Context context) {
+        public static int getDensityDpi() {
+            Context context = Aptoide.getContext();
+            if (context == null) {
+                return 0;
+            }
 
             DisplayMetrics metrics = new DisplayMetrics();
             WindowManager manager = (WindowManager) context.getSystemService(Service.WINDOW_SERVICE);
@@ -1319,7 +1382,7 @@ public class AptoideUtils {
             String minGlEs = AptoideUtils.HWSpecifications.getGlEsVer(context);
 
 
-            final int density = AptoideUtils.HWSpecifications.getDensityDpi(context);
+            final int density = AptoideUtils.HWSpecifications.getDensityDpi();
 
             String cpuAbi = AptoideUtils.HWSpecifications.getAbis();
 
@@ -1514,7 +1577,7 @@ public class AptoideUtils {
             final Resources resources = context.getResources();
             try {
                 result = resources.getString(resId, formatArgs);
-            }catch (UnknownFormatConversionException ex){
+            }catch (UnknownFormatConversionException | FormatFlagsConversionMismatchException ex){
                 final String resourceEntryName = resources.getResourceEntryName(resId);
                 final String displayLanguage = Locale.getDefault().getDisplayLanguage();
                 Logger.e("UnknownFormatConversion", "String: " + resourceEntryName + " Locale: " + displayLanguage);
@@ -1590,6 +1653,21 @@ public class AptoideUtils {
                 context.startActivity(intent);
 //            FlurryAgent.logEvent("Opened_Twitter_Webview");
             }
+        }
+
+
+        public static @Nullable String getFacebookPageURL(@NonNull Context context, String facebookUrl) {
+            PackageManager packageManager = context.getPackageManager();
+            String toReturn = facebookUrl;
+            try {
+                int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
+                if (versionCode >= 3002850) { //newer versions of fb app
+                    toReturn = "fb://facewebmodal/f?href=" + facebookUrl;
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                toReturn = facebookUrl; //normal web url
+            }
+            return toReturn;
         }
 
         public static void showFacebook(Context context) {
@@ -2178,6 +2256,42 @@ public class AptoideUtils {
             if (history != null) {
                 history.clear();
             }
+        }
+    }
+
+    public static class FlurryAppviewOrigin {
+
+        public static final int MAX_ARRAY_SIZE = 5;
+
+        private static ArrayList<String> mEventActions = new ArrayList<>();
+
+        public static void addAppviewOrigin(String category) {
+            if (category != null && !TextUtils.isEmpty(category)) {
+                int indexOf = mEventActions.indexOf(category);
+                if (indexOf >= 0) {
+                    mEventActions.remove(category);
+                } else if (mEventActions.size() > MAX_ARRAY_SIZE) {
+                    mEventActions.remove(0);
+                }
+                mEventActions.add(category.replace("_","-"));
+            }
+        }
+
+        public static String getAppviewOrigin() {
+            List<String> aux = new ArrayList<>();
+            for (int i = mEventActions.size() - 1; i >= 0; i--) {
+                aux.add(mEventActions.get(i));
+            }
+            return TextUtils.join("_", aux);
+        }
+
+        public static void resetAppviewOrigins() {
+            mEventActions.clear();
+            mEventActions.add("home");
+        }
+
+        public static String getInstallationSource() {
+            return mEventActions.size() > 0 ? mEventActions.get(mEventActions.size() - 1) : "";
         }
     }
 }

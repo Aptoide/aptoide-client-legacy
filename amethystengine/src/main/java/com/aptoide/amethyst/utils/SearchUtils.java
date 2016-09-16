@@ -65,12 +65,97 @@ public class SearchUtils {
         string.add("squirt");
         string.add("shemale");
         string.add("orgasm");
+        //Persian (fa)
+        string.add("آب کیر");
+        string.add("ارگاسم");
+        string.add("برهنه");
+        string.add("پورن");
+        string.add("پورنو");
+        string.add("تجاوز");
+        string.add("تخمی");
+        string.add("جق");
+        string.add("جقی");
+        string.add("جلق");
+        string.add("جنده");
+        string.add("چوچول");
+        string.add("حشر");
+        string.add("حشری");
+        string.add("داف");
+        string.add("دودول");
+        string.add("ساک زدن");
+        string.add("سکس");
+        string.add("سکس کردن");
+        string.add("سکسی");
+        string.add("سوپر");
+        string.add("شق کردن");
+        string.add("شهوت");
+        string.add("شهوتی");
+        string.add("شونبول");
+        string.add("فیلم سوپر");
+        string.add("کس");
+        string.add("کس دادن");
+        string.add("کس کردن");
+        string.add("کسکش");
+        string.add("کوس");
+        string.add("کون");
+        string.add("کون دادن");
+        string.add("کون کردن");
+        string.add("کونکش");
+        string.add("کونی");
+        string.add("کیر");
+        string.add("کیری");
+        string.add("لاپا");
+        string.add("لاپایی");
+        string.add("لاشی");
+        string.add("لخت");
+        string.add("لش");
+        string.add("منی");
+        string.add("هرزه");
+        //Arabic (ar)
+        string.add("سكس");
+        string.add("طيز");
+        string.add("شرج");
+        string.add("لعق");
+        string.add("لحس");
+        string.add("مص");
+        string.add("تمص");
+        string.add("بيضان");
+        string.add("ثدي");
+        string.add("بز");
+        string.add("بزاز");
+        string.add("حلمة");
+        string.add("مفلقسة");
+        string.add("بظر");
+        string.add("كس");
+        string.add("فرج");
+        string.add("شهوة");
+        string.add("شاذ");
+        string.add("مبادل");
+        string.add("عاهرة");
+        string.add("جماع");
+        string.add("قضيب");
+        string.add("زب");
+        string.add("لوطي");
+        string.add("لواط");
+        string.add("سحاق");
+        string.add("سحاقية");
+        string.add("اغتصاب");
+        string.add("خنثي");
+        string.add("احتلام");
+        string.add("نيك");
+        string.add("متناك");
+        string.add("متناكة");
+        string.add("شرموطة");
+        string.add("عرص");
+        string.add("خول");
+        string.add("قحبة");
+        string.add("لبوة");
         return string;
     }
 
-    public static boolean contains(String storeName) {
+    public static boolean contains(String s) {
         for (String str : setString()) {
-            if (storeName.equals(str)) {
+            if (s.equals(str)) {
                 Log.d(TAG,"Error");
                 return true;
             }

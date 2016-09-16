@@ -296,7 +296,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 
     private String getSize(String banner_url) {
         String[] splittedUrl = banner_url.split("\\.(?=[^\\.]+$)");
-        banner_url = splittedUrl[0] + "_" + IconSizeUtils.generateSizeStringNotification(Aptoide.getContext()) + "."+ splittedUrl[1];
+        banner_url = splittedUrl[0] + "_" + IconSizeUtils.generateSizeStringNotification() + "."+ splittedUrl[1];
         return banner_url;
     }
 

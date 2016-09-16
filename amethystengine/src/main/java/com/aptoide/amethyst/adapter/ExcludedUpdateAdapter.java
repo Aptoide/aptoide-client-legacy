@@ -30,7 +30,7 @@ public class ExcludedUpdateAdapter extends RecyclerView.Adapter<BaseViewHolder> 
 
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        sizeString = IconSizeUtils.generateSizeString(parent.getContext());
+        sizeString = IconSizeUtils.generateSizeString();
         return new ExcludedUpdateViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_excluded_update, null), viewType);
     }
 

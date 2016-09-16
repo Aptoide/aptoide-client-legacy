@@ -44,6 +44,5 @@ public class AptoideGlideModule implements GlideModule {
     }
 
     @Override
-    public void registerComponents(Context context, Glide glide) {
-    }
+    public void registerComponents(Context context, Glide glide) { }
 }

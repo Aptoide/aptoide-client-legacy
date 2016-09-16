@@ -1,5 +1,14 @@
 package com.aptoide.amethyst;
 
+import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.ui.widget.CircleTransform;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.viewholders.appview.MoreAppViewVersionsHolder;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.models.displayables.MoreVersionsAppViewItem;
+import com.bumptech.glide.Glide;
+
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.widget.RecyclerView;
@@ -8,16 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
-import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.models.displayables.MoreVersionsAppViewItem;
-import com.bumptech.glide.Glide;
-
 import java.util.List;
-
-import com.aptoide.amethyst.ui.widget.CircleTransform;
-import com.aptoide.amethyst.viewholders.appview.MoreAppViewVersionsHolder;
 
 /**
  * Created by hsousa on 03/12/15.
@@ -63,6 +63,7 @@ public class MoreAppViewVersionsAdapter extends RecyclerView.Adapter<MoreAppView
                 i.putExtra(Constants.STOREAVATAR_KEY, item.storeAvatar);
                 i.putExtra(Constants.PACKAGENAME_KEY, item.packageName);
                 i.putExtra(Constants.DOWNLOAD_FROM_KEY, "app_view_more_multiversion");
+                AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Other Versions_App View");
                 holder.itemView.getContext().startActivity(i);
             }
         });

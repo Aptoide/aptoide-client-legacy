@@ -14,12 +14,13 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.adapters.SpannableRecyclerAdapter;
+import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
@@ -200,9 +201,10 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
                     i.putExtra(Constants.ICON_KEY, appItem.icon);
                     i.putExtra(Constants.DOWNLOAD_FROM_KEY, "updates"); // renamed from: recommended_apps
                     v.getContext().startActivity(i);
+                    AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("updates");
                 }
             });
-            Glide.with(updateViewHolder.itemView.getContext()).load(appItem.icon).asBitmap().into(updateViewHolder.icon);
+            Glide.with(updateViewHolder.itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.icon)).asBitmap().into(updateViewHolder.icon);
         } else if (holder.viewType == R.layout.installed_row) {
             final InstalledViewHolder installedViewHolder = (InstalledViewHolder) holder;
 
@@ -210,7 +212,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
 
             installedViewHolder.name.setText(installRow.appName);
             installedViewHolder.tvAppVersion.setText(installRow.versionName);
-            installedViewHolder.createReviewLayout.setOnClickListener(new View.OnClickListener() {
+            /*installedViewHolder.createReviewLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), UploadApkActivity.class);
@@ -222,7 +224,7 @@ public class UpdatesTabAdapter extends RecyclerView.Adapter<BaseViewHolder> impl
 
                     Analytics.Updates.createReview();
                 }
-            });
+            });*/
             installedViewHolder.installedItemFrame.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {

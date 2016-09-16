@@ -1,5 +1,16 @@
 package com.aptoide.amethyst.ui;
 
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.AptoideBaseActivity;
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.SearchActivity;
+import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Translator;
+import com.aptoide.dataprovider.AptoideSpiceHttpService;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.octo.android.robospice.SpiceManager;
+
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,18 +20,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
-
-import com.aptoide.amethyst.AptoideBaseActivity;
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.Translator;
-import com.aptoide.dataprovider.AptoideSpiceHttpService;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.octo.android.robospice.SpiceManager;
-
-
-import com.aptoide.amethyst.SearchActivity;
 
 /**
  * Created by hsousa on 05-10-2015.
@@ -68,7 +67,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
 
         setContentView(getContentView());
         bindViews();
-        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
         Bundle args;
         if (savedInstanceState != null) {
             // Fragment is being recreated by itself on Rotation, so we shouldn't add the fragment again.
@@ -77,6 +76,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
         } else {
             args = getIntent().getExtras();
         }
+        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext());
 
         mToolbar.setCollapsible(false);
         setSupportActionBar(mToolbar);
@@ -84,7 +84,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
-            if (args.getString(SearchActivity.SEARCH_SOURCE) != null) {
+            if (args.getString(SearchActivity.SEARCH_STORE_NAME) != null) {
                 mToolbar.setLogo(R.drawable.ic_store);
             } else {
                 //mToolbar.setLogo(R.drawable.ic_aptoide_toolbar);
@@ -106,13 +106,7 @@ public abstract class MoreActivity extends AptoideBaseActivity {
             }
             String title = "";
             packageName = args.getString(Constants.PACKAGENAME_KEY);
-            if (label != null) {
-                title = Translator.translate(label);
-                if (title == null) {
-                    title = label;
-                }
-            }
-            getSupportActionBar().setTitle(title);
+            getSupportActionBar().setTitle(Translator.translate(label));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().setStatusBarColor(getResources().getColor(storeTheme.getColor700tint()));
             }

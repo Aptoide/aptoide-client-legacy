@@ -1,5 +1,15 @@
 package com.aptoide.amethyst.viewholders.main;
 
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.ui.ReviewActivity;
+import com.aptoide.amethyst.ui.widget.CircleTransform;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.viewholders.BaseViewHolder;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.ReviewRowItem;
+import com.bumptech.glide.Glide;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -9,24 +19,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.models.displayables.Displayable;
-import com.aptoide.models.displayables.ReviewRowItem;
-import com.bumptech.glide.Glide;
-
-
-import com.aptoide.amethyst.ui.ReviewActivity;
-import com.aptoide.amethyst.ui.widget.CircleTransform;
-import com.aptoide.amethyst.viewholders.BaseViewHolder;
-
 /**
  * Created by hsousa on 24/09/15.
  */
 public class ReviewViewHolder extends BaseViewHolder {
 
     private final EnumStoreTheme theme;
+    private final boolean isCommunity;
     public ImageView appIcon;
     public TextView rating;
     public TextView appName;
@@ -38,6 +37,13 @@ public class ReviewViewHolder extends BaseViewHolder {
     public ReviewViewHolder(View itemView, int viewType, EnumStoreTheme theme) {
         super(itemView, viewType);
         this.theme = theme;
+        isCommunity = false;
+    }
+
+    public ReviewViewHolder(View itemView, int viewType, EnumStoreTheme theme, boolean isCommunity) {
+        super(itemView, viewType);
+        this.theme = theme;
+        this.isCommunity = isCommunity;
     }
 
     @Override
@@ -50,7 +56,7 @@ public class ReviewViewHolder extends BaseViewHolder {
         description.setText(appItem.description);
         reviewer.setText(AptoideUtils.StringUtils.getFormattedString(context, R.string.reviewed_by, appItem.reviewer));
         rating.setText(AptoideUtils.StringUtils.getRoundedValueFromDouble(appItem.rating));
-        Glide.with(context).load(appItem.appIcon).into(appIcon);
+        Glide.with(context).load(AptoideUtils.UI.parseIcon(appItem.appIcon)).into(appIcon);
         Glide.with(context).load(appItem.avatar).transform(new CircleTransform(context)).into(avatar);
 
         if(theme != null) {
@@ -63,6 +69,9 @@ public class ReviewViewHolder extends BaseViewHolder {
             public void onClick(View v) {
                 Intent intent = new Intent(context, ReviewActivity.class);
                 intent.putExtra("review_id", appItem.reviewId);
+                if (isCommunity) {
+                    AptoideUtils.FlurryAppviewOrigin.addAppviewOrigin("Community");
+                }
                 context.startActivity(intent);
             }
         });

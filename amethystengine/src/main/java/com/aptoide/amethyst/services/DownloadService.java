@@ -61,6 +61,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -264,7 +265,7 @@ public class DownloadService extends Service {
                 download.getVersion(), id,
                 download.getIcon(),
                 path + md5 + ".apk",
-                new ArrayList<String>());
+                new ArrayList<String>(),download.getTrusted());
         apk.setRepoName(repoName);
 
         download(id, download, apk, filesToDownload);
@@ -308,6 +309,8 @@ public class DownloadService extends Service {
         download.setIcon(apk.icon);
         download.setSize(fileSize);
         download.setCpiUrl(downloadOld.getCpiUrl());
+        download.setTrusted(downloadOld.getTrusted());
+        download.setInstallationSource(downloadOld.getInstallationSource());
 
         startDownload(download, apk, obb, permissions);
     }
@@ -349,6 +352,7 @@ public class DownloadService extends Service {
         download.setPaid(paid);
         download.setIcon(apk.icon);
         download.setSize(apk.size.longValue());
+        download.setInstallationSource(AptoideUtils.FlurryAppviewOrigin.getInstallationSource());
 
         startDownload(download, apk, null, new ArrayList<String>());
     }
@@ -381,7 +385,7 @@ public class DownloadService extends Service {
                 download.getVersion(), id,
                 download.getIcon(),
                 path + json.apk.md5sum + ".apk",
-                new ArrayList<>(json.apk.permissions));
+                new ArrayList<>(json.apk.permissions),download.getTrusted());
         apk.setId(json.apk.id.longValue());
 
         download(download.getId(), download, apk, filesToDownload);
@@ -425,7 +429,8 @@ public class DownloadService extends Service {
                 download.getMd5().hashCode(),
                 download.getIcon(),
                 path + download.getMd5() + ".apk",
-                permissions);
+                permissions,download.getTrusted());
+
 
         apk.setId(updateApk.id.longValue());
 
@@ -460,7 +465,12 @@ public class DownloadService extends Service {
     private void download(long id, Download download, FinishedApk apk, ArrayList<DownloadModel> filesToDownload) {
         final Context context = getApplicationContext();
         if (!AptoideUtils.NetworkUtils.isGeneralDownloadPermitted(context)) {
-            Toast.makeText(context, context.getString(R.string.data_usage_constraint), Toast.LENGTH_LONG).show();
+            if(Aptoide.getConfiguration().getDefaultStore().equals("obchod-eet-store")){
+                Toast.makeText(context, "Downloads are only available with Wi-Fi connection. Please turn Wi-Fi on", Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(context, context.getString(R.string.data_usage_constraint), Toast.LENGTH_LONG).show();
+            }
             return;
         }
 
@@ -638,7 +648,7 @@ public class DownloadService extends Service {
 
         final SpiceManager manager = new SpiceManager(AptoideSpiceHttpService.class);
         if (!manager.isStarted()) manager.start(getApplicationContext());
-        final String sizeString = IconSizeUtils.generateSizeString(getApplicationContext());
+        final String sizeString = IconSizeUtils.generateSizeString();
 
         new Thread(new Runnable() {
             @Override
@@ -862,5 +872,38 @@ public class DownloadService extends Service {
 
         return apk;
     }
+
+
+    /**
+     * hashtable with the downloaded appid and respective downloadid
+     */
+    private static Hashtable<Long, Long> downloadsActiveAppView = new Hashtable<Long, Long>();
+
+    /**
+     *
+     * @param appId id from downloaded app
+     * @param downloadId id from the download
+     */
+    public static void addDownloadId(Long appId,Long downloadId){
+
+        if(!downloadsActiveAppView.contains(downloadId)) {
+            downloadsActiveAppView.put(appId, downloadId);
+        }
+    }
+
+    /**
+     *
+     * @param appId id from the app opened in the appview
+     * @return  id from the download opened in the appview
+     */
+    public static Long getDownloadId(Long appId, Long downloadId){
+        if(downloadsActiveAppView.get(appId) != null) {
+            return downloadsActiveAppView.get(appId);
+        }
+        else {
+            return Long.valueOf(0);
+        }
+    }
+
 
 }

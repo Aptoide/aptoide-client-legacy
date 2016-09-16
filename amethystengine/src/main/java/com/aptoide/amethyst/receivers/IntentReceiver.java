@@ -1,19 +1,14 @@
 package com.aptoide.amethyst.receivers;
 
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
-
+import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
+import com.aptoide.amethyst.MainActivity;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.ui.SearchManager;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Base64;
 import com.aptoide.amethyst.utils.Logger;
@@ -25,6 +20,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
+
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -46,7 +50,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import com.aptoide.amethyst.AppViewActivity;
-import com.aptoide.amethyst.MainActivity;
 
 import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.ui.SearchManager;
@@ -71,7 +74,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 //    private Class startClass = Aptoide.getConfiguration().getStartActivityClass();
 //    private Class appViewClass = Aptoide.getConfiguration().getAppViewActivityClass();
     private Class startClass = Aptoide.getConfiguration().getMainActivity();
-    private Class appViewClass = AppViewActivity.class;
+    private Class appViewClass = Aptoide.getConfiguration().getAppViewActivity();
     private Class searchManagerClass = SearchManager.class;
 
 //    private ServiceConnection downloadConnection = new ServiceConnection() {
@@ -485,7 +488,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 
         } else {
             i = new Intent(this, SearchActivity.class);
-            i.putExtra(android.app.SearchManager.QUERY, packageName);
+            i.putExtra(SearchActivity.SEARCH_QUERY, packageName);
 //            i.putExtra("search", packageName);
         }
 

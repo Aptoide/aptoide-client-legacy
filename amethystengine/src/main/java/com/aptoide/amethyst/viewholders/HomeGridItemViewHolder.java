@@ -53,7 +53,7 @@ public class HomeGridItemViewHolder extends BaseViewHolder {
             downloads.setText(Aptoide.getContext().getString(R.string.sponsored));
             ratingBar.setVisibility(View.GONE);
             itemView.setOnClickListener(new BaseAdapter.AdAppItemOnClickListener(adItem));
-            Glide.with(itemView.getContext()).load(adItem.icon).into(icon);
+            Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(adItem.icon)).into(icon);
 
         } else if (displayable instanceof MoreVersionsItem) {
             AppItem appItem = (AppItem) displayable;
@@ -81,7 +81,7 @@ public class HomeGridItemViewHolder extends BaseViewHolder {
             tvAddedTime.setVisibility(View.VISIBLE);
             downloads.setVisibility(View.VISIBLE);
             itemView.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
-            Glide.with(itemView.getContext()).load(appItem.icon).into(icon);
+            Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.icon)).into(icon);
         } else {
             AppItem appItem = (AppItem) displayable;
             name.setText(appItem.appName);
@@ -89,7 +89,7 @@ public class HomeGridItemViewHolder extends BaseViewHolder {
             ratingBar.setVisibility(View.VISIBLE);
             ratingBar.setRating(appItem.rating);
             itemView.setOnClickListener(new BaseAdapter.AppItemOnClickListener(appItem));
-            Glide.with(itemView.getContext()).load(appItem.icon).into(icon);
+            Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.icon)).into(icon);
         }
 
     }

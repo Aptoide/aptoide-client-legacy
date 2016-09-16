@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
@@ -13,12 +14,10 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.data_provider.getAds.GetAdsRequestListener;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.webservices.RegisterAdRefererRequest;
-import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.amethyst.webservices.v2.GetAdsRequest;
 import com.aptoide.models.ApkSuggestionJson;
 import com.crashlytics.android.Crashlytics;
@@ -26,13 +25,7 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.octo.android.robospice.SpiceManager;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URLEncodedUtils;
-
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -204,7 +197,7 @@ public class ReferrerUtils {
                 }
             });
 
-            wv.loadUrl(click_url);
+            wv.loadUrl(internalClickUrl[0]);
 
             windowManager.addView(view, params);
         } catch (Exception e) {
@@ -213,16 +206,7 @@ public class ReferrerUtils {
     }
 
     public static String getReferrer(String uri) {
-        List<NameValuePair> params = URLEncodedUtils.parse(URI.create(uri), "UTF-8");
-
-        String referrer = null;
-        for (NameValuePair param : params) {
-
-            if (param.getName().equals("referrer")) {
-                referrer = param.getValue();
-            }
-        }
-        return referrer;
+        return Uri.parse(uri).getQueryParameter("referrer");
     }
 
     public static void broadcastReferrer(Context context, String packageName, String referrer) {

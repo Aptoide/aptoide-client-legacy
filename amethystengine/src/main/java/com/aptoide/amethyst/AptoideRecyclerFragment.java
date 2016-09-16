@@ -36,6 +36,7 @@ public abstract class AptoideRecyclerFragment extends AptoideSpicedBaseFragment 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BUCKET_SIZE = AptoideUtils.UI.getBucketSize();
         recyclerViewOffset = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getActivity().getResources().getDisplayMetrics());
     }
 
@@ -50,7 +51,6 @@ public abstract class AptoideRecyclerFragment extends AptoideSpicedBaseFragment 
         super.onViewCreated(view, savedInstanceState);
         final RecyclerView recycler = (RecyclerView) view.findViewById(R.id.recycler);
         this.recyclerView = recycler;
-        BUCKET_SIZE = AptoideUtils.UI.getBucketSize();
 
         setLayoutManager(recycler);
 

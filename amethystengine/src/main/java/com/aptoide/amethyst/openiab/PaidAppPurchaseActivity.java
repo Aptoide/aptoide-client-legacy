@@ -24,6 +24,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.dialogs.ProgressDialogFragment;
+import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.models.PaymentServices;
 import com.bumptech.glide.Glide;
 import com.octo.android.robospice.persistence.exception.SpiceException;
@@ -158,15 +159,12 @@ public class PaidAppPurchaseActivity extends BasePurchaseActivity {
                         break;
                     case UNITEL_CODE:
                         caseUNITEL(service,paymentMethodsLayout);
-                        break;/*
-                    case FORTUMO_CODE:
-                        caseFortumo(aptoideProductId,service,paymentMethodsLayout);
-                        break;*/
+                        break;
 
                 }
             }
 
-            Glide.with(this).load(icon).into((ImageView) findViewById(R.id.icon));
+            Glide.with(this).load(AptoideUtils.UI.parseIcon(icon)).into((ImageView) findViewById(R.id.icon));
             ((TextView) findViewById(R.id.title)).setText(label);
             ((TextView) findViewById(R.id.price)).setText(Float.toString(price) + " " + symbol);
         }
@@ -209,9 +207,7 @@ public class PaidAppPurchaseActivity extends BasePurchaseActivity {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
                 AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                String error_occured_retry_later_resource=getResources().getString( R.string.error_occured_retry_later);
-                String error_occured_retry_later_formatted= String.format(error_occured_retry_later_resource,Aptoide.getConfiguration().getMarketName());
-                Toast.makeText(Aptoide.getContext(), error_occured_retry_later_formatted, Toast.LENGTH_LONG).show();
+                Toast.makeText(Aptoide.getContext(), R.string.error_occured_retry_later, Toast.LENGTH_LONG).show();
 
                 PendingIntent intent = PendingIntent.getBroadcast(getApplicationContext(), 1,
                         buildIntentForAlarm(confirmation, "paidapk"), PendingIntent.FLAG_UPDATE_CURRENT);

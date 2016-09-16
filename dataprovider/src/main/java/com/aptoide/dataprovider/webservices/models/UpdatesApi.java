@@ -20,7 +20,9 @@ public class UpdatesApi {
     public boolean mature;
     public String aaid = null;
     public String access_token = null;
+    @JsonProperty("aptoide_uid")
     public String cpuid = DEFAULT_CPUID;
+    public String not_apk_tags;    //review the var name
 
     public static class StoreAuth {
 

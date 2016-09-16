@@ -1,6 +1,5 @@
 package com.aptoide.amethyst;
 
-import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,28 +11,31 @@ import android.view.MenuItem;
 
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.ui.SearchManager;
 import com.aptoide.amethyst.utils.AptoideUtils;
 
 import com.aptoide.amethyst.fragments.SearchFragment;
+import com.aptoide.amethyst.utils.SearchUtils;
 
 /**
  * Created by rmateus on 12/06/15.
  */
 public class SearchActivity extends AptoideBaseActivity {
 
-    Toolbar mToolbar;
     public static final String CONTEXT = "Search";
-    public static final String SEARCH_SOURCE = "search_source";
-    public static final String SEARCH_THEME = "search_theme";
-
+    public static final String SEARCH_QUERY = "query";
+    public static final String SEARCH_STORE_NAME = "search_source";
+    public static final String SEARCH_STORE_THEME = "search_theme";
+    public static final String SEARCH_ONLY_TRUSTED_APPS = "trusted";
+    public static final int SEARCH_LIMIT = 7;
     private static final String ARG_SECONDARY = "arg_secondary";
-
 
     /**
      * Indicates whether this search activity is secondary. If it is, it should be replaced with
      * the next search takes place.
      */
     private boolean secondary;
+    private Toolbar mToolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,23 +45,28 @@ public class SearchActivity extends AptoideBaseActivity {
         bindViews();
         EnumStoreTheme storeTheme = null;
         try {
-            storeTheme = (EnumStoreTheme) getIntent().getExtras().get(SEARCH_THEME);
+            storeTheme = (EnumStoreTheme) getIntent().getExtras().get(SEARCH_STORE_THEME);
         } catch (ClassCastException e) {
             e.printStackTrace();
         }
-        String storeName = getIntent().getStringExtra(SEARCH_SOURCE);
+        String storeName = getIntent().getStringExtra(SEARCH_STORE_NAME);
         if (storeName == null) {
             storeName = Aptoide.getConfiguration().getDefaultStore();
         }
-		String query = getIntent().getExtras().getString(SearchManager.QUERY);
+		String query = getIntent().getExtras().getString(SearchActivity.SEARCH_QUERY);
+        String storeName = getIntent().getStringExtra(SEARCH_STORE_NAME);
+		String query = getIntent().getExtras().getString(SearchActivity.SEARCH_QUERY);
+        boolean trustedAppsOnly = getIntent().getExtras().getBoolean(SEARCH_ONLY_TRUSTED_APPS, false);
+        boolean trustedAppsOnly = getIntent().getExtras().getBoolean(SEARCH_ONLY_TRUSTED_APPS, false);
 
-		Analytics.Search.searchTerm(query, storeName);
+        Analytics.Search.searchTerm(query, storeName);
 
 		if (storeName != null && !TextUtils.isEmpty(storeName)) {
-			Intent intent = new Intent(SearchActivity.this, Aptoide.getConfiguration().getMoreSearchActivity());
-			intent.putExtra(MoreSearchActivity.QUERY_BUNDLE_KEY, query);
-			intent.putExtra(SEARCH_SOURCE, storeName);
-			intent.putExtra(SEARCH_THEME, storeTheme);
+            Intent intent = new Intent(SearchActivity.this, Aptoide.getConfiguration().getMoreSearchActivity());
+			intent.putExtra(SEARCH_QUERY, query);
+			intent.putExtra(SEARCH_STORE_NAME, storeName);
+			intent.putExtra(SEARCH_STORE_THEME, storeTheme);
+            intent.putExtra(SEARCH_ONLY_TRUSTED_APPS, trustedAppsOnly);
 			startActivity(intent);
 			finish();
 			return;
@@ -69,13 +76,16 @@ public class SearchActivity extends AptoideBaseActivity {
         if (supportActBar != null) {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setLogo(R.drawable.ic_aptoide_toolbar);
+            if (Aptoide.getConfiguration().getDefaultStore().contains("apps")) {
+                getSupportActionBar().setLogo(R.drawable.ic_aptoide_toolbar);
+            }
         }
 
-        setTitle(AptoideUtils.StringUtils.getFormattedString(this, R.string.search_activity_title, query));
+        getSupportActionBar().setTitle(AptoideUtils.StringUtils.getFormattedString(this, R.string.search_activity_title, query));
 
         if(savedInstanceState==null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.content, SearchFragment.newInstance(getIntent().getStringExtra(SearchManager.QUERY)), "").commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.content, SearchFragment
+                    .newInstance(getIntent().getStringExtra(SearchActivity.SEARCH_QUERY), trustedAppsOnly), "").commit();
         }
 
 		secondary = getIntent().getBooleanExtra(ARG_SECONDARY, false);
@@ -109,21 +119,18 @@ public class SearchActivity extends AptoideBaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.simple_search_menu, menu);
-        com.aptoide.amethyst.ui.SearchManager.setupSearch(menu, this);
-//        setupSearch(menu);
-
+        SearchManager.setupSearch(menu, this);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-
         if(item.getItemId() == R.id.home || item.getItemId() == android.R.id.home){
             finish();
         }
-
-
         return super.onOptionsItemSelected(item);
+    }
+
+    public class SEARCH_STORE_THEME {
     }
 }

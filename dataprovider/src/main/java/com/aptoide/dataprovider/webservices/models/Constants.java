@@ -17,6 +17,8 @@ public class Constants {
     public static final String FROM_MY_APP_KEY = "fromMyapp";
     public static final String FROM_TIMELINE_KEY = "fromTimeline";
     public static final String FROM_APKFY_KEY = "Started_From_Apkfy";
+    public static final String FROM_NOTIFICATION = "fromNotification";
+    public static final String FROM_FIRSTINSTALL = "fromFirstInstall";
 
     public static final String STORE_SUBSCRIBED_KEY = "storeSubscribed";
 
@@ -41,6 +43,7 @@ public class Constants {
     public static final String CPI_KEY = "cpi";
     public static final String CPD_KEY = "cpd";
     public static final String ACCESS_TOKEN = "access_token";
+    public static final String APTOIDEID = "aptoide_uid";
     public static final String MARKET_INTENT = "market_intent";
     public static final String FROM_APTOIDE_INSTALL_INTENT = "from_aptoide_install_intent";
     public static final String SHOW_AUTO_INSTALL_POPUP = "show_auto_install_popup";
@@ -159,6 +162,7 @@ public class Constants {
      * Tag for Localytics Screens.
      */
     public static final String LOCALYTICS_TAG = "LOCALYTICS_TAG";
+    public static final String HOME_BUNDLES_KEY = "HOME_BUNDLES_KEY";
 
     /**
      * Ads Stuff
@@ -186,6 +190,7 @@ public class Constants {
      */
     public static final String MATURE_CHECK_BOX = "matureChkBox";
 
+    public static final String UPDATES_FILTER_KEY = "updatesFilterKey";
 
     /**
      * This class (will)contain all SharedPreferences keys
@@ -196,4 +201,8 @@ public class Constants {
 
     }
 
+    public static final String SECURITY_BALLOON_TOGGLED = "securityBalloonToggled";
+
+    public static final String IS_LOCALYTICS_ENABLE_KEY = "IS_LOCALYTICS_ENABLE_KEY";
+    public static final String IS_LOCALYTICS_FIRST_SESSION = "IS_LOCALYTICS_FIRST_SESSION";
 }

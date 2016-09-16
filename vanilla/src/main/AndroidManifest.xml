@@ -5,11 +5,44 @@
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
 
+    <uses-permission
+            android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission
+            android:name="cm.aptoide.pt.permission.C2D_MESSAGE"
+            android:protectionLevel="signature" />
+    <uses-permission
+            android:name="cm.aptoide.pt.permission.C2D_MESSAGE" />
+
     <application
-        android:name="com.aptoide.amethyst.Aptoide"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name">
+
+        <receiver
+                android:name="com.google.android.gms.gcm.GcmReceiver"
+                android:exported="true"
+                android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="cm.aptoide.pt" />
+            </intent-filter>
+        </receiver>
+
+        <service
+                android:name="com.localytics.android.GcmListenerService"
+                android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <service
+                android:name="com.localytics.android.InstanceIDListenerService"
+                android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
 
         <activity
             android:name="com.aptoide.amethyst.MainActivity"
@@ -22,7 +55,25 @@
             <meta-data
                 android:name="android.app.default_searchable"
                 android:value="com.aptoide.amethyst.SearchActivity" />
+            <intent-filter>
+                <data android:scheme="amp${LOCALYTICS_APP_KEY}" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
         </activity>
+
+
+
+        <receiver
+                android:name="com.localytics.android.ReferralReceiver"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.localytics.android.PushTrackingActivity"/>
 
         <activity
             android:name="com.aptoide.amethyst.StoresActivity"
@@ -119,7 +170,7 @@
         <receiver android:name="com.aptoide.amethyst.appwidget.SearchWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>gi
+            </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
@@ -330,11 +381,5 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-
-    <!-- If your app doesn't need to make phone calls, you can add this, so the app
-    could be installed on tablets. -->
-    <uses-feature android:name="android.hardware.telephony" android:required="false" />
 
 </manifest>

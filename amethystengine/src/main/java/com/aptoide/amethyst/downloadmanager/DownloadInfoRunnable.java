@@ -144,6 +144,7 @@ public class DownloadInfoRunnable implements Runnable, Serializable {
                 changeStatusState(new CompletedState(this));
                 autoExecute();
                 Analytics.DownloadComplete.downloadComplete(download);
+                Analytics.SourceDownloadCompleted.downloadCompleteWithSource(download);
             }
 
         } catch (Exception e) {

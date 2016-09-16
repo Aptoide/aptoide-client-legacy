@@ -1,5 +1,16 @@
 package com.aptoide.amethyst.database;
 
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.database.schema.Schema;
+import com.aptoide.amethyst.database.schema.annotations.ColumnDefinition;
+import com.aptoide.amethyst.database.schema.annotations.OnConflict;
+import com.aptoide.amethyst.database.schema.annotations.SQLType;
+import com.aptoide.amethyst.database.schema.annotations.TableDefinition;
+import com.aptoide.models.ScheduledDownloadItem;
+import com.aptoide.models.StoreItemDB;
+import com.aptoide.models.displayables.ExcludedUpdate;
+import com.aptoide.models.stores.Login;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,19 +20,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.database.schema.annotations.OnConflict;
-import com.aptoide.amethyst.database.schema.annotations.SQLType;
-import com.aptoide.amethyst.database.schema.Schema;
-import com.aptoide.amethyst.database.schema.annotations.ColumnDefinition;
-import com.aptoide.amethyst.database.schema.annotations.TableDefinition;
-import com.aptoide.models.ScheduledDownloadItem;
-import com.aptoide.models.StoreItemDB;
-import com.aptoide.models.stores.Login;
-import com.aptoide.models.displayables.ExcludedUpdate;
-
 import java.lang.reflect.Field;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -41,7 +40,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
     private static SQLiteDatabaseHelper sInstance;
     private boolean primaryKeyDefined;
 
-    private static final int DATABASE_VERSION = 31;
+    private static final int DATABASE_VERSION = 33;
 
     public static SQLiteDatabaseHelper getInstance(Context context) {
 
@@ -327,7 +326,7 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if (oldVersion >= 28 && oldVersion < 31 ){
+        } else if (oldVersion >= 28 && oldVersion < 31 ){
             try {
                 Cursor c = db.query("repo", null, Schema.Repo.COLUMN_IS_USER +"=?", new String[]{"1"}, null, null, null);
 
@@ -393,8 +392,10 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
 
         }
 
-        dropIndexes(db, oldVersion);
-        dropTables(db, oldVersion);
+        if (oldVersion < 31) {
+            dropIndexes(db, oldVersion);
+            dropTables(db, oldVersion);
+        }
 
         try {
             createDb(db);
@@ -452,6 +453,14 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
                 values.put(Schema.Excluded.COLUMN_ICONPATH, excludedUpdate.getIcon());
 
                 db.insert(Schema.Excluded.getName(), null, values);
+            }
+        }
+
+        if (oldVersion >= 13 && oldVersion < 33) {
+            int columnIndex = db.rawQuery("select * from rollbacktbl LIMIT 0", null)
+                    .getColumnIndex(Schema.RollbackTbl.COLUMN_IS_TRUSTED);
+            if (columnIndex < 0) {
+                db.execSQL("ALTER TABLE rollbacktbl ADD COLUMN " + Schema.RollbackTbl.COLUMN_IS_TRUSTED + " TEXT DEFAULT 'UNKNOWN'");
             }
         }
 

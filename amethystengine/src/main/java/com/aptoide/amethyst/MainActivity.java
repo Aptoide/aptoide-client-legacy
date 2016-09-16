@@ -1,5 +1,55 @@
 package com.aptoide.amethyst;
 
+import com.aptoide.amethyst.adapter.MainPagerAdapter;
+import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
+import com.aptoide.amethyst.configuration.AptoideConfiguration;
+import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.dialogs.AptoideDialog;
+import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
+import com.aptoide.amethyst.events.BusProvider;
+import com.aptoide.amethyst.events.OttoEvents;
+import com.aptoide.amethyst.model.json.OAuth;
+import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
+import com.aptoide.amethyst.services.DownloadService;
+import com.aptoide.amethyst.services.UpdatesService;
+import com.aptoide.amethyst.tutorial.TutorialActivity;
+import com.aptoide.amethyst.ui.BadgeView;
+import com.aptoide.amethyst.ui.ExcludedUpdatesActivity;
+import com.aptoide.amethyst.ui.MyAccountActivity;
+import com.aptoide.amethyst.ui.RollbackActivity;
+import com.aptoide.amethyst.ui.ScheduledDownloadsActivity;
+import com.aptoide.amethyst.ui.SearchManager;
+import com.aptoide.amethyst.ui.SettingsActivity;
+import com.aptoide.amethyst.ui.dialogs.AddStoreDialog;
+import com.aptoide.amethyst.ui.widget.CircleTransform;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Base64;
+import com.aptoide.amethyst.utils.Configs;
+import com.aptoide.amethyst.utils.InstalledAppsHelper;
+import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
+import com.aptoide.amethyst.webservices.OAuth2AuthenticationRequest;
+import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
+import com.aptoide.amethyst.webservices.v2.AlmostGenericResponseV2RequestListener;
+import com.aptoide.dataprovider.AptoideSpiceHttpService;
+import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.dataprovider.webservices.models.Defaults;
+import com.aptoide.models.ApkSuggestionJson;
+import com.aptoide.models.stores.Store;
+import com.astuetz.PagerSlidingTabStrip;
+import com.bumptech.glide.Glide;
+import com.crashlytics.android.Crashlytics;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.flurry.android.FlurryAgent;
+import com.localytics.android.Localytics;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
+import com.squareup.otto.Subscribe;
+
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.OnAccountsUpdateListener;
@@ -32,42 +82,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aptoide.amethyst.analytics.Analytics;
-import com.aptoide.amethyst.configuration.AptoideConfiguration;
-import com.aptoide.amethyst.database.AptoideDatabase;
-import com.aptoide.amethyst.dialogs.AptoideDialog;
-import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
-import com.aptoide.amethyst.events.BusProvider;
-import com.aptoide.amethyst.events.OttoEvents;
-import com.aptoide.amethyst.model.json.OAuth;
-import com.aptoide.amethyst.preferences.SecurePreferences;
-import com.aptoide.amethyst.tutorial.TutorialActivity;
-import com.aptoide.amethyst.ui.MyAccountActivity;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.Base64;
-import com.aptoide.amethyst.utils.Configs;
-import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
-import com.aptoide.amethyst.webservices.OAuth2AuthenticationRequest;
-import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
-import com.aptoide.amethyst.webservices.v2.AlmostGenericResponseV2RequestListener;
-import com.aptoide.dataprovider.AptoideSpiceHttpService;
-import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.dataprovider.webservices.models.Defaults;
-import com.aptoide.models.ApkSuggestionJson;
-import com.aptoide.models.stores.Store;
-import com.astuetz.PagerSlidingTabStrip;
-import com.bumptech.glide.Glide;
-import com.crashlytics.android.Crashlytics;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.flurry.android.FlurryAgent;
-import com.octo.android.robospice.SpiceManager;
-import com.octo.android.robospice.persistence.exception.SpiceException;
-import com.octo.android.robospice.request.listener.RequestListener;
-import com.squareup.otto.Subscribe;
-
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -75,23 +89,9 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.zip.ZipFile;
 
-import com.aptoide.amethyst.adapter.MainPagerAdapter;
-import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
-import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
-import com.aptoide.amethyst.services.DownloadService;
-import com.aptoide.amethyst.services.UpdatesService;
-import com.aptoide.amethyst.ui.BadgeView;
-import com.aptoide.amethyst.ui.ExcludedUpdatesActivity;
-import com.aptoide.amethyst.ui.RollbackActivity;
-import com.aptoide.amethyst.ui.ScheduledDownloadsActivity;
-import com.aptoide.amethyst.ui.SearchManager;
-import com.aptoide.amethyst.ui.SettingsActivity;
-import com.aptoide.amethyst.ui.dialogs.AddStoreDialog;
-import com.aptoide.amethyst.ui.widget.CircleTransform;
-import com.aptoide.amethyst.utils.InstalledAppsHelper;
-
-public class MainActivity extends BaseMainActivity implements AddCommentVoteCallback {
+public class MainActivity extends AptoideBaseActivity implements AddCommentVoteCallback {
 
     public static final String TAG = MainActivity.class.getSimpleName();
     /**
@@ -103,6 +103,7 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
     NavigationView mNavigationView;
     PagerSlidingTabStrip tabs;
 
+    private BadgeView badgeUpdates;
 
     /* Usado para guardar o estado da seleccao dos items */
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
@@ -110,12 +111,26 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
     private int mCurrentSelectedPosition;
     private boolean mAccountBoxExpanded, isLoggedin;
 
-    private int badgePosition = 3;
-
     private SpiceManager spiceManager = new SpiceManager(AptoideSpiceHttpService.class);
+    private DownloadService downloadService;
+    private ServiceConnection downloadServiceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder binder) {
+            Logger.d(TAG, "onServiceConnected");
+            downloadService = ((DownloadService.LocalBinder) binder).getService();
+            BusProvider.getInstance().post(new OttoEvents.DownloadServiceConnected());
 
+            if (getIntent().hasExtra("new_updates") && mViewPager != null) {
+                mViewPager.setCurrentItem(3);
+            }
+        }
 
-    //private boolean wizardWasExecuted = false;
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            Logger.d(TAG, "onServiceDisconnected");
+        }
+    };
+    private boolean wizardWasExecuted = false;
 
     private SharedPreferences sharedPreferences = AptoideUtils.getSharedPreferences();
 
@@ -123,6 +138,69 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
     protected void onResume() {
         super.onResume();
         setupUserInfoNavigationDrawer();
+        AptoideUtils.FlurryAppviewOrigin.resetAppviewOrigins();
+        if (wizardWasExecuted) {
+            wizardWasExecuted = false;
+            final int OPEN_DELAY = 200;
+            AptoideUtils.Concurrency.post(this, new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        // Fix for AN-359: if the openDrawer line crashes, it wont execute the runnable.
+                        mDrawerLayout.openDrawer(GravityCompat.START);
+                        AptoideUtils.Concurrency.post(MainActivity.this, new Runnable() {
+                            @Override
+                            public void run() {
+                                if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                                }
+                            }
+                        }, OPEN_DELAY + 2000);
+                    } catch (Exception e) {
+                        Logger.printException(e);
+                    }
+                }
+            }, OPEN_DELAY);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+            mDrawerLayout.closeDrawers();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected String getScreenName() {
+        return null;
+    }
+
+    private void setupUserInfoNavigationDrawer() {
+        // https://code.google.com/p/android/issues/detail?id=190226
+        View header = mNavigationView.getHeaderView(0);
+
+        ((TextView) header.findViewById(R.id.profile_email_text)).setText(AptoideUtils.getSharedPreferences().getString(Configs.LOGIN_USER_LOGIN, ""));
+        ((TextView) header.findViewById(R.id.profile_name_text)).setText(AptoideUtils.getSharedPreferences().getString(Constants.USER_NAME, ""));
+
+        ImageView profileImage = (ImageView) header.findViewById(R.id.profile_image);
+        String userProfilePicPath = AptoideUtils.getSharedPreferences().getString(Constants.USER_AVATAR, "");
+        if (AptoideUtils.AccountUtils.isLoggedIn(MainActivity.this)) {
+            Glide.with(this).load(userProfilePicPath).transform(new CircleTransform(this)).into(profileImage);
+        } else {
+            profileImage.setImageResource(R.drawable.user_account_white);
+        }
+
+        MenuItem item = mNavigationView.getMenu().getItem(0);
+        if (AptoideUtils.AccountUtils.isLoggedIn(MainActivity.this)) {
+            item.setTitle(R.string.my_account);
+            item.setIcon(R.drawable.ic_action_accounts);
+        } else {
+            item.setIcon(R.drawable.user_account_grey);
+            item.setTitle(R.string.navigation_drawer_signup_login);
+        }
     }
 
     @Override
@@ -132,20 +210,59 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
         setContentView(getContentView());
         bindViews();
 
+        Analytics.MainActivityOncreate();
         if(!checkIfInstalled()) {
-            createShortCut(R.mipmap.ic_launcher);
+            createShortCut();
         }
-
-
 
         setUpToolbar();
         setupPager();
-        setupBadge(badgePosition);
-        //setupUserInfoNavigationDrawer(); Passou para a BaseMainActivity
+        setupBadge();
+        setupUserInfoNavigationDrawer();
 
-
+        BusProvider.getInstance().register(this);
+        spiceManager.start(this);
 
         if (savedInstanceState == null) {
+
+            if (getIntent().hasExtra(Constants.NEW_REPO_EXTRA) && getIntent().getFlags() == Constants.NEW_REPO_FLAG) {
+                ArrayList<String> repos = getIntent().getExtras().getStringArrayList("newrepo");
+                if (repos != null) {
+
+                    for (final String repoUrl : repos) {
+
+                        if (new AptoideDatabase(Aptoide.getDb()).existsRepo(AptoideUtils.RepoUtils.formatRepoUri(repoUrl))) {
+                            Toast.makeText(this, getString(R.string.store_already_added), Toast.LENGTH_LONG).show();
+                        } else if (getIntent().getBooleanExtra("nodialog", false)) {
+                            Store store = new Store();
+                            store.setBaseUrl(AptoideUtils.RepoUtils.formatRepoUri(repoUrl));
+                            store.setName(AptoideUtils.RepoUtils.split(repoUrl));
+                            AptoideUtils.RepoUtils.startParse(store.getName(), this, spiceManager);
+                            mViewPager.setCurrentItem(2);
+//                        FlurryAgent.logEvent("Added_Store_From_My_App_Installation");
+                        } else {
+                            AptoideDialog.addMyAppStore(repoUrl, appsAddStoreInterface).show(getSupportFragmentManager(), "addStoreMyApp");
+                            mViewPager.setCurrentItem(2);
+                        }
+
+                    }
+                    getIntent().removeExtra(Constants.NEW_REPO_EXTRA);
+                }
+            } else if (getIntent().hasExtra("fromDownloadNotification")) {
+                Analytics.ApplicationLaunch.downloadingUpdates();
+                mViewPager.setCurrentItem(5);
+            } else if (getIntent().hasExtra("fromTimeline")) {
+                Analytics.ApplicationLaunch.timelineNotification();
+                mViewPager.setCurrentItem(4);
+            } else if (getIntent().hasExtra("new_updates")) {
+                Analytics.ApplicationLaunch.newUpdatesNotification();
+                mViewPager.setCurrentItem(3);
+            } else if (getIntent().hasExtra("openAppView")) {
+                openAppView(getIntent().getStringExtra("openAppView"));
+            } else {
+                Analytics.ApplicationLaunch.launcher();
+
+            }
 
             syncInstalledApps();
             SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -158,15 +275,6 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
         }
 
-        hasBootOptions();
-        navigationDrawerIntentBuild();
-
-        AccountManager.get(this).addOnAccountsUpdatedListener(onAccountsUpdateListener, new Handler(Looper.getMainLooper()), false);
-
-
-    }
-
-    protected void navigationDrawerIntentBuild() {
         if (!hasBootOptions()) {
             SharedPreferences.Editor edit = AptoideUtils.getSharedPreferences().edit();
             edit.remove(AptoideConfiguration.PREF_PATH_CACHE_APK).apply();
@@ -227,6 +335,27 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
                 }
             }
         });
+
+        AccountManager.get(this).addOnAccountsUpdatedListener(onAccountsUpdateListener, new Handler(Looper.getMainLooper()), false);
+
+        startService(new Intent(this, UpdatesService.class));
+        bindService(new Intent(this, DownloadService.class), downloadServiceConnection, BIND_AUTO_CREATE);
+
+        if (AptoideUtils.getSharedPreferences().getBoolean("checkautoupdate", true)) {
+            new AutoUpdate(this).execute();
+        }
+
+        Analytics.Dimenstions.setPartnerDimension(getPartnerName());
+        Analytics.Dimenstions.setVerticalDimension(getVertical());
+        Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
+    }
+
+    private void openAppView(String appId) {
+        try {
+            startActivity(new Intent(this, AppViewActivity.class).putExtra(Constants.FROM_NOTIFICATION, true).putExtra(Constants.APP_ID_KEY, Long.valueOf(appId)));
+        } catch (NumberFormatException e) {
+            Logger.e("MainActivity", "Could not open openAppView notification. It must be a long value.");
+        }
     }
 
     protected int getContentView() {
@@ -234,22 +363,25 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
     }
 
     protected void bindViews() {
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-        tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        mViewPager = (ViewPager )findViewById(R.id.pager);
+        mDrawerLayout = (DrawerLayout )findViewById(R.id.drawer_layout);
+        mToolbar = (Toolbar )findViewById(R.id.toolbar);
+        mNavigationView = (NavigationView )findViewById(R.id.nav_view);
+        tabs = (PagerSlidingTabStrip )findViewById(R.id.tabs);
     }
 
     private boolean hasBootOptions() {
         String appId = null;
         try {
-            InputStream is = getAssets().open("actionsOnBoot.properties");
+            final String sourceDir = getPackageManager().getPackageInfo("cm.aptoide.pt", 0).applicationInfo.sourceDir;
+            final ZipFile myZipFile = new ZipFile(sourceDir);
+            final InputStream is = myZipFile.getInputStream(myZipFile.getEntry("META-INF/aob"));
+
             Properties properties = new Properties();
             properties.load(is);
             Intent intent = null;
             if (properties.containsKey("downloadId")) {
-                intent = new Intent(this, Aptoide.getConfiguration().getAppViewActivity());
+                intent = new Intent(this, AppViewActivity.class);
 
                 appId = properties.getProperty("downloadId");
                 long savedId = sharedPreferences.getLong("downloadId", 0);
@@ -296,7 +428,7 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
 
                     ApkSuggestionJson.Ads ad = mapper.readValue(json, ApkSuggestionJson.Ads.class);
 
-                    intent = new Intent(this, Aptoide.getConfiguration().getAppViewActivity());
+                    intent = new Intent(this, AppViewActivity.class);
                     long id = ad.getData().getId().longValue();
                     long adId = ad.getInfo().getAd_id();
                     intent.putExtra(Constants.APP_ID_KEY, id);
@@ -356,12 +488,11 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
                 Toast.makeText(MainActivity.this, getString(R.string.error_occured), Toast.LENGTH_SHORT).show();
             }
         } else {
-            intent = new Intent(MainActivity.this, Aptoide.getConfiguration().getAppViewActivity());
+            intent = new Intent(MainActivity.this, AppViewActivity.class);
             intent.putExtra(Constants.GET_BACKUP_APPS_KEY, true);
             startActivity(intent);
         }
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -465,7 +596,7 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
 
     }
 
-    protected void setupPager() {
+    private void setupPager() {
         MainPagerAdapter pagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(pagerAdapter);
         tabs.setViewPager(mViewPager);
@@ -475,7 +606,24 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
     /**
      * Needs Pager to be setup first
      */
+    public void setupBadge() {
+        badgeUpdates = new BadgeView(this, ((LinearLayout) tabs.getChildAt(0)).getChildAt(3));
+        Cursor data = new AptoideDatabase(Aptoide.getDb()).getUpdates();
+        int size = data.getCount();
+        data.close();
+        updateBadge(size);
+    }
 
+    public void updateBadge(int num) {
+        badgeUpdates.setTextSize(11);
+
+        if (num > 0) {
+            badgeUpdates.setText(String.valueOf(num));
+            if (!badgeUpdates.isShown()) badgeUpdates.show(true);
+        } else {
+            if (badgeUpdates.isShown()) badgeUpdates.hide(true);
+        }
+    }
 
     private void setUpToolbar() {
         if (mToolbar != null) {
@@ -529,22 +677,112 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Set the alarms for the PushNotifications
+     */
+    public void startPushNotifications() {
+        Intent i = new Intent(this, PushNotificationReceiver.class);
+        i.setAction(Aptoide.getConfiguration().getAction());
 
+        PushNotificationReceiver.setPendingIntents(this);
+    }
 
+    /**
+     * Callback to be provided to a Dialog in order to add a store
+     */
+    MyAppStoreDialog.MyAppsAddStoreInterface appsAddStoreInterface = new MyAppStoreDialog.MyAppsAddStoreInterface() {
+        @Override
+        public DialogInterface.OnClickListener getOnMyAppAddStoreListener(final String repo) {
+            return new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Store store = new Store();
+                    store.setBaseUrl(AptoideUtils.RepoUtils.formatRepoUri(repo));
+                    store.setName(AptoideUtils.RepoUtils.split(repo));
+                    AptoideUtils.RepoUtils.startParse(store.getName(), MainActivity.this, spiceManager);
+                }
+            };
+        }
+    };
 
+    public DownloadService getDownloadService() {
+        return downloadService;
+    }
+
+    @Subscribe
+    public void newEvent(OttoEvents.GetUpdatesFinishedEvent event) {
+        Logger.d("AptoideUpdates", "GetUpdatesFinishedEvent event");
+        updateBadge(event.numUpdates);
+    }
+
+    @Subscribe
+    public void installFromManager(OttoEvents.InstallAppFromManager event) {
+        downloadService.startExistingDownload(event.getId());
+    }
+
+    @Subscribe
+    public void installAppFromUpdateRow(OttoEvents.StartDownload event) {
+        if (event != null && event.getRow() != null) {
+            downloadService.installAppFromUpdateRow(event.getRow());
+        } else {
+            Logger.i(this, "OttoEvents.StartDownload event was null");
+        }
+    }
+
+    @Subscribe
+    public void matureLock(OttoEvents.MatureEvent event) {
+        if (event == null) {
+            Logger.i(this, "OttoEvents.StartDownload event was null");
+        } else {
+            matureLock(event.isMature());
+            Analytics.ClickOnAdultSwitch.sendSwitchPressedEvent(event.isMature());
+        }
+    }
+
+    @Subscribe
+    public void newEvent(OttoEvents.RedrawNavigationDrawer event) {
+        setupUserInfoNavigationDrawer();
+    }
+
+    public void matureLock(boolean mature) {
+        setMatureSwitchSetting(mature);
+        PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).edit().putBoolean(Constants.MATURE_CHECK_BOX, mature).apply();
+//        FlurryAgent.logEvent("Unlocked_Mature_Content");
+//        Analytics.AdultContent.unlock();
+        BusProvider.getInstance().post(new OttoEvents.RepoCompleteEvent(-1));
+    }
+
+    public void setMatureSwitchSetting(boolean value) {
+        if (isLoggedin) {
+            ChangeUserSettingsRequest request = new ChangeUserSettingsRequest();
+            request.changeMatureSwitchSetting(value);
+            spiceManager.execute(request, new RequestListener<GenericResponseV2>() {
+                @Override
+                public void onRequestFailure(SpiceException spiceException) {
+                }
+
+                @Override
+                public void onRequestSuccess(GenericResponseV2 genericResponseV2) {
+                }
+            });
+        }
+    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-    }
+        // Temporary workaround from memory issues
+        AptoideUtils.UI.unbindDrawables(findViewById(R.id.drawer_layout));
 
-    @Override
-    protected void setupBadge(int position) {
-        badgeUpdates = new BadgeView(this, ((LinearLayout) tabs.getChildAt(0)).getChildAt(position));
-        Cursor data = new AptoideDatabase(Aptoide.getDb()).getUpdates();
-        int size = data.getCount();
-        data.close();
-        updateBadge(badgeUpdates, size);
+        BusProvider.getInstance().unregister(this);
+        spiceManager.shouldStop();
+
+        if (downloadService != null) {
+            unbindService(downloadServiceConnection);
+        }
+
+        AccountManager.get(this).removeOnAccountsUpdatedListener(onAccountsUpdateListener);
+//        if(isFinishing()) stopService(new Intent(this, RabbitMqService.class));
     }
 
     OnAccountsUpdateListener onAccountsUpdateListener = new OnAccountsUpdateListener() {
@@ -615,8 +853,6 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
             }
         };
     }
-/*
-    Both methods passed to AptoideConfiguration Class
 
     public String getPartnerName() {
         return "vanilla";
@@ -625,7 +861,7 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
     public String getVertical() {
         return Analytics.Dimenstions.Vertical.SMARTPHONE;
     }
-*/
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -642,54 +878,21 @@ public class MainActivity extends BaseMainActivity implements AddCommentVoteCall
 
     }
 
-
-
-
-    protected boolean checkIfInstalled() {
-        return sharedPreferences.getBoolean("isinstalled", false);
-    }
-
-
-    private void setupUserInfoNavigationDrawer() {
-        // https://code.google.com/p/android/issues/detail?id=190226
-        View header = mNavigationView.getHeaderView(0);
-
-        ((TextView) header.findViewById(R.id.profile_email_text)).setText(AptoideUtils.getSharedPreferences().getString(Configs.LOGIN_USER_LOGIN, ""));
-        ((TextView) header.findViewById(R.id.profile_name_text)).setText(AptoideUtils.getSharedPreferences().getString(Constants.USER_NAME, ""));
-
-        ImageView profileImage = (ImageView) header.findViewById(R.id.profile_image);
-        String userProfilePicPath = AptoideUtils.getSharedPreferences().getString(Constants.USER_AVATAR, "");
-        if (AptoideUtils.AccountUtils.isLoggedIn(MainActivity.this)) {
-            Glide.with(this).load(userProfilePicPath).transform(new CircleTransform(this)).into(profileImage);
-        } else {
-            profileImage.setImageResource(R.drawable.user_account_white);
-        }
-
-        MenuItem item = mNavigationView.getMenu().getItem(0);
-        if (AptoideUtils.AccountUtils.isLoggedIn(MainActivity.this)) {
-            item.setTitle(R.string.my_account);
-            item.setIcon(R.drawable.ic_action_accounts);
-        } else {
-            item.setIcon(R.drawable.user_account_grey);
-            item.setTitle(R.string.navigation_drawer_signup_login);
-        }
-    }
-
-    @Subscribe
-    public void newEvent(OttoEvents.RedrawNavigationDrawer event) {
-        setupUserInfoNavigationDrawer();
-    }
-
-    protected void createShortCut(int icon) {
+    public void createShortCut() {
         Intent shortcutIntent = new Intent(this, MainActivity.class);
         shortcutIntent.setAction(Intent.ACTION_MAIN);
         Intent intent = new Intent();
         intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
         intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "Aptoide");
-        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), icon));
+        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.mipmap.ic_launcher));
         intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
         getApplicationContext().sendBroadcast(intent);
         sharedPreferences.edit().putBoolean("isinstalled", true).apply();
+    }
+
+
+    private boolean checkIfInstalled() {
+        return sharedPreferences.getBoolean("isinstalled", false);
     }
 
 }

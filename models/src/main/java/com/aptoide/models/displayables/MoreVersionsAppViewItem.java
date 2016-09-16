@@ -1,6 +1,7 @@
 package com.aptoide.models.displayables;
 
-import com.aptoide.models.displayables.Displayable;
+import android.os.Parcel;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -25,6 +26,52 @@ public class MoreVersionsAppViewItem extends Displayable {
         FULL_ROW = numColumns;
         setSpanSize(1);
     }
+
+    protected MoreVersionsAppViewItem(Parcel in) {
+        super(in);
+        id = in.readLong();
+        appName = in.readString();
+        packageName = in.readString();
+        versionName = in.readString();
+        icon = in.readString();
+        storeName = in.readString();
+        storeAvatar = in.readString();
+        storeTheme = in.readString();
+        storeId = in.readLong();
+        versionCode = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeLong(id);
+        dest.writeString(appName);
+        dest.writeString(packageName);
+        dest.writeString(versionName);
+        dest.writeString(icon);
+        dest.writeString(storeName);
+        dest.writeString(storeAvatar);
+        dest.writeString(storeTheme);
+        dest.writeLong(storeId);
+        dest.writeInt(versionCode);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<MoreVersionsAppViewItem> CREATOR = new Creator<MoreVersionsAppViewItem>() {
+        @Override
+        public MoreVersionsAppViewItem createFromParcel(Parcel in) {
+            return new MoreVersionsAppViewItem(in);
+        }
+
+        @Override
+        public MoreVersionsAppViewItem[] newArray(int size) {
+            return new MoreVersionsAppViewItem[size];
+        }
+    };
 
     @Override
     public int getSpanSize() {
