@@ -117,6 +117,14 @@ public class MoreListViewItemsActivity extends MoreActivity {
             return new MoreListViewItemsFragment();
         }
 
+        public static Fragment newInstance(Bundle args, String eventActionUrl) {
+            Bundle bundle = (Bundle) args.clone();
+            bundle.putString("eventActionUrl", eventActionUrl);
+            MoreListViewItemsFragment fragment = new MoreListViewItemsFragment();
+            fragment.setArguments(bundle);
+            return fragment;
+        }
+
         @Override
         protected void executeSpiceRequest(boolean useCache) {
 
