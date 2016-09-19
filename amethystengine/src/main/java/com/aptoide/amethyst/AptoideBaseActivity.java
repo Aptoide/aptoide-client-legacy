@@ -35,7 +35,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(Aptoide.getConfiguration().getDefaultStore().equals("aban-app-store")){setLocale("fa");}
+        //if(Aptoide.getConfiguration().getDefaultStore().equals("aban-app-store")){setLocale("fa");}
         Aptoide.getThemePicker().setAptoideTheme(this);
         super.onCreate(savedInstanceState);
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.CREATE);

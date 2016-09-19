@@ -70,6 +70,7 @@ public class CreateUserRequest extends RetrofitSpiceRequest<OAuth, CreateUserReq
         parameters.put("mode", "json");
         parameters.put("email", email);
         parameters.put("passhash", passhash);
+        parameters.put("name",name);
 
         if(Aptoide.getConfiguration().getExtraId().length()>0){
             parameters.put("oem_id", Aptoide.getConfiguration().getExtraId());

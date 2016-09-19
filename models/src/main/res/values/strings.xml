@@ -738,6 +738,10 @@
     <string name="aban_register_success">Register completed</string>
     <string name="aban_register_failed_passcode">Wrong passcode</string>
     <string name="aban_register_failed">Register failed</string>
+
+    <string name="aban_textview_description_username">Please insert your username</string>
+    <string name="aban_edittext_hint_username">Your username</string>
+    <string name="aban_toast_warning_invalid_username">Please insert valid username</string>
     <!--aban Strings end-->
 
     <!--zain Strings start-->
