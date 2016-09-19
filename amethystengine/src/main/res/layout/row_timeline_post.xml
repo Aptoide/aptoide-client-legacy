@@ -35,8 +35,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="10dp"
                 android:contentDescription="fb_photo"
-                android:scaleType="fitXY"
-                android:src="@drawable/facebook_profile_pic" />
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/timeline_post_user_name"
