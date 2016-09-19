@@ -5,5 +5,4 @@
     <dimen name="appview_header_app_text_margin_start">162dp</dimen>
     <dimen name="appview_title_left_margin">174dp</dimen>
     <dimen name="appview_header_height">370dp</dimen>
-    <dimen name="appview_top_rating_top_margin">135dp</dimen>
 </resources>

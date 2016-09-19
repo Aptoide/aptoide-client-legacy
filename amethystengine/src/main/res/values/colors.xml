@@ -4,14 +4,9 @@
     <color name="default_color">#e17117</color>
     <color name="default_color_700">#bf6113</color>
     <color name="aptoide_orange">@color/default_color</color>
-    <color name="aptoide_orange_700">@color/default_color_700</color>
-    <color name="navdrawer_body_text_1_inverse">#deffffff</color>
-    <color name="navdrawer_body_text_2_inverse">#d2ffffff</color>
 
     <color name="aptoide_color_focused">#e55c1b</color>
     <color name="aptoide_color_pressed">#000000</color>
-    <color name="aptoide_lite">#00b0c5</color>
-    <color name="aptoide_tv">#00cc33</color>
 
     <!-- EnumStoreTheme -->
 
@@ -34,21 +29,8 @@
     <color name="lightblue">#03A9F4</color>
 
     <!-- Old palette - still being used for drawables -->
-    <color name="midnight">#547c90</color>
-    <color name="happyblue">#00aeef</color>
-    <color name="maroon">#8b0100</color>
-    <color name="gold">#ac8506</color>
-    <color name="springgreen">#73be73</color>
-    <color name="lightsky">#00a3b8</color>
     <color name="blue">#0000ff</color>
-    <color name="magenta">#ef82ef</color>
-    <color name="slategray">#008081</color>
-    <color name="seagreen">#2e8b57</color>
-    <color name="silver">#a9a9a9</color>
-    <color name="dimgray">#808080</color>
     <color name="yellow">#e9be40</color>
-    <color name="crimson">#EF3E42</color>
-    <color name="greenapple">#86bd4a</color>
 
 
     <!-- 700 tint for Lolipop status bar -->
@@ -69,18 +51,18 @@
     <color name="lime_700">#938F00</color>
     <color name="lightblue_700">#0288D1</color>
 
-    <!-- Old palette - still being used for drawables -->
-    <color name="midnight_700">#436373</color>
-    <color name="maroon_700">#660000</color>
-    <color name="gold_700">#997605</color>
-    <color name="springgreen_700">#65A665</color>
-    <color name="magenta_700">#CC6ECC</color>
-    <color name="lightsky_700">#008799</color>
-    <color name="blue_700">#0000BF</color>
-    <color name="slategray_700">#006666</color>
-    <color name="seagreen_700">#267347</color>-->
+    <!-- Old palette - still being used for drawables --><![CDATA[
 
-     <!-- Transparent -->
+
+
+
+
+
+
+
+    -->
+
+     ]]><!-- Transparent -->
     <color name="transparent_green">#992E8B57</color>
     <color name="transparent_teal">#99009688</color>
     <color name="transparent_red">#99F44336</color>
@@ -99,7 +81,6 @@
 
     <!-- Old palette - still being used for drawables -->
     <color name="transparent_midnight">#99547c90</color>
-    <color name="transparent_magalhaes">#9900aeef</color>
     <color name="transparent_maroon">#998b0100</color>
     <color name="transparent_gold">#99ac8506</color>
     <color name="transparent_springgreen">#9973be73</color>
@@ -107,19 +88,12 @@
     <color name="transparent_blue">#990000ff</color>
     <color name="transparent_magenta">#99ef82ef</color>
     <color name="transparent_slategray">#99008081</color>
-    <color name="transparent_seagreen">#992e8b57</color>
     <color name="transparent_silver">#99a9a9a9</color>
-    <color name="transparent_dimgray">#99808080</color>
-    <color name="transparent_timwe">#99f89b1d</color>
-    <color name="transparent_eocean">#99ff6a00</color>
-    <color name="transparent_digitallydifferent">#9952742d</color>
 
-    <color name="transparent_white">#CCFFFFFF</color>
     <color name="semi_transparent_black">#55000000</color>
     <color name="light_custom_gray">#ececec</color>
     <color name="lighter_custom_gray">#cccccc</color>
     <color name="dark_custom_gray">#4c4c4c</color>
-    <color name="medium_custom_gray">#c6c7c6</color>
     <color name="screenshots_background_color">#6b6b6b</color>
     <color name="dark_gray">#262626</color>
     <color name="background_window">#FFE8E8E8</color>
