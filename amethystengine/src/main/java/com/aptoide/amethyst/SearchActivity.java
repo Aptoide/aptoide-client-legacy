@@ -54,9 +54,6 @@ public class SearchActivity extends AptoideBaseActivity {
             storeName = Aptoide.getConfiguration().getDefaultStore();
         }
 		String query = getIntent().getExtras().getString(SearchActivity.SEARCH_QUERY);
-        String storeName = getIntent().getStringExtra(SEARCH_STORE_NAME);
-		String query = getIntent().getExtras().getString(SearchActivity.SEARCH_QUERY);
-        boolean trustedAppsOnly = getIntent().getExtras().getBoolean(SEARCH_ONLY_TRUSTED_APPS, false);
         boolean trustedAppsOnly = getIntent().getExtras().getBoolean(SEARCH_ONLY_TRUSTED_APPS, false);
 
         Analytics.Search.searchTerm(query, storeName);

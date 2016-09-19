@@ -2933,19 +2933,4 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
         appviewIntent.putExtra(Constants.SHOW_AUTO_INSTALL_POPUP, showPopup);
         return appviewIntent;
     }
-	/**
-	 * Get appview's intent to start the activity
-	 *
-	 * @param packageName package name of the app to open
-	 * @param repo        store that contains the app
-	 * @param showPopup   show auto install popup if true
-	 * @param context
-	 * @return An intent to open the appview with the wanted app
-	 */
-	public static Intent getAppviewIntent(String packageName, String repo, boolean showPopup,
-										  Context context) {
-		Intent appviewIntent = getAppviewIntent(packageName, repo, context);
-		appviewIntent.putExtra(Constants.SHOW_AUTO_INSTALL_POPUP, showPopup);
-		return appviewIntent;
-	}
 }

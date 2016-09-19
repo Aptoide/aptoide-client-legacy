@@ -24,8 +24,6 @@ import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.DummyDisplayable;
-import com.aptoide.models.displayables.SearchApk;
-import com.aptoide.amethyst.models.search.SearchResults;
 import com.aptoide.amethyst.models.search.SearchAppConverter;
 import com.aptoide.amethyst.ui.MoreActivity;
 import com.aptoide.amethyst.ui.listeners.EndlessRecyclerOnScrollListener;
