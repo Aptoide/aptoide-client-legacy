@@ -34,6 +34,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import retrofit.http.HEAD;
+
 /**
  * Created by rmateus on 02/06/15.
  */
@@ -151,10 +153,12 @@ public class SearchAppViewHolder extends BaseViewHolder {
             ((GradientDrawable) background).setColor(itemView.getContext().getResources().getColor(themeColor));
         }
 
-        store.setText(appItem.getRepo());
-        Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.getIcon())).into(icon);
-
+        if(appItem.getRepo().equals("qmobile-store")) {
+            store.setText(Aptoide.getConfiguration().getMarketName());
+        } else {
             store.setText(appItem.getRepo());
+        }
+
         } else {
             store.setVisibility(View.INVISIBLE);
         }
