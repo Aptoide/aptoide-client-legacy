@@ -128,7 +128,6 @@ public class FragmentSignIn extends Fragment {
         spiceManager.execute(oAuth2AuthenticationRequest, new RequestListener<OAuth>() {
             @Override
             public void onRequestFailure(SpiceException spiceException) {
-                Log.d("abanpartner","-0ok");
                 String error;
 
                 if(spiceException.getCause() instanceof InvalidGrantSpiceException && spiceException.getCause().getMessage().equals("Invalid username and password combination")){
@@ -154,7 +153,6 @@ public class FragmentSignIn extends Fragment {
 
             @Override
             public void onRequestSuccess(final OAuth oAuth) {
-                Log.d("abanpartner","-1ok");
                 if(oAuth.getStatus() != null && oAuth.getStatus().equals("FAIL")){
 
                     AptoideUtils.UI.toastError(oAuth.getError());
@@ -198,7 +196,6 @@ public class FragmentSignIn extends Fragment {
 
             @Override
             public void onRequestFailure(SpiceException e) {
-                Log.d("abanpartner","0ok");
                 Session session = Session.getActiveSession();
 
                 if (session != null && session.isOpened()) {
@@ -216,7 +213,6 @@ public class FragmentSignIn extends Fragment {
 
             @Override
             public void onRequestSuccess(CheckUserCredentialsJson checkUserCredentialsJson) {
-                Log.d("abanpartner","1ok");
                 /*android.support.v4.app.DialogFragment pd = (android.support.v4.app.DialogFragment) getFragmentManager().findFragmentByTag("pleaseWaitDialog");
 
                 if (pd != null) {
