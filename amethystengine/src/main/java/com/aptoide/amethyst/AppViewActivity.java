@@ -22,6 +22,7 @@ import com.aptoide.amethyst.dialogs.FlagApkDialog;
 import com.aptoide.amethyst.dialogs.InstallWarningDialog;
 import com.aptoide.amethyst.dialogs.InstallWarningDialogListener;
 import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
+import com.aptoide.amethyst.dialogs.RemoteInstallDialog;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
@@ -1088,6 +1089,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			} else if (i == R.id.menu_schedule) {
 				new AptoideDatabase(Aptoide.getDb()).scheduledDownloadIfMd5(packageName, md5sum,
 						versionName, storeName, appName, iconUrl);
+			}  else if (i == R.id.menu_remote_install){
+				android.support.v4.app.DialogFragment newFragment = RemoteInstallDialog.newInstance(appId);
+				newFragment.show(getActivity().getSupportFragmentManager(), RemoteInstallDialog.class.getSimpleName());
 			}
 
 			return super.onOptionsItemSelected(item);
