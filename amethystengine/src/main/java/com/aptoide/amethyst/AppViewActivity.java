@@ -411,7 +411,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		Button mButtonGetLatest;
 		Button mButtonUninstall;
 		Button mButtonSubscribe;
-		TextView rankText;
+		//TextView rankText;
 		RelativeLayout badgeLayout;
 		ImageView mBadgeMarket;
 		ImageView mBadgeSignature;
@@ -647,20 +647,24 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 				if (!unrecoverableErrorsFound) {
 					handleSuccessCondition();
-					updateUI();
-					showRank();
-					updateFlags(model.getApp);
+                    if(!Aptoide.getConfiguration().getDefaultStore().contains("indus")) {
+                        updateUI();
+                        updateFlags(model.getApp);
+                        populatePermissionsTable(model.getApp);
+					    updateStoreInfo();
+					    populateMoreVersions(model);
+					    populateRatings(model.getApp);
+					    showRank();
+                    } else {
+                        updateHeader(model.getApp);
+                    }
 					populateScreenShotsView();
 					populateSeeMore();
-					populatePermissionsTable(model.getApp);
-					updateStoreInfo();
 					checkInstallation();
 					handleLatestVersionLogic();
-					populateMoreVersions(model);
 					//requestComments(false);
 					showDialogIfComingFromBrowser();
 					showDialogIfComingFromAPKFY();
-					populateRatings(model.getApp);
 					setTrustedVersion(model.getApp.nodes.meta.data, model.getApp.nodes.versions.list);
 
 					boolean displayedSecurityBalloon = false;
@@ -679,7 +683,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					} else {
 						showBadges();
 					}*/
-					showBadges();
+					//showBadges();
 					if (!isRotated) {
 						/*Analytics.ViewedApplication.view(packageName, developer, download_from, malware.rank, securityABTest
 								.alternative()
@@ -706,7 +710,10 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 		};
 
-		private void showDialogIfComingFromAPKFY() {
+        protected void updateHeader(GetApp app) {
+        }
+
+        private void showDialogIfComingFromAPKFY() {
 			if (obb != null) {
 				AptoideUtils.AppUtils.checkPermissions(getActivity());
 			}
@@ -894,7 +901,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					getResources()
 					.getDisplayMetrics());
 			bucketSize = AptoideUtils.UI.getBucketSize();
-			mRatingBar.setOnRatingBarChangeListener(new RatingBarClickListener());
+			//mRatingBar.setOnRatingBarChangeListener(new RatingBarClickListener());
 			return view;
 		}
 
@@ -921,7 +928,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
 			mAppBarLayout = (AppBarLayout) view.findViewById(R.id.appbar);
 			layoutNoNetwork = (ScrollView) view.findViewById(R.id.no_network_connection);
-			layoutError = (ScrollView) view.findViewById(R.id.error);
 			layoutError410 = (ScrollView) view.findViewById(R.id.error410);
 			retryError = (TextView) view.findViewById(R.id.retry_error);
 			retryNoNetwork = (TextView) view.findViewById(R.id.retry_no_network);
@@ -931,7 +937,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			mButtonGetLatest = (Button) view.findViewById(R.id.btn_get_latest);
 			mButtonUninstall = (Button) view.findViewById(R.id.btn_uninstall);
 			mButtonSubscribe = (Button) view.findViewById(R.id.btn_subscribe);
-			rankText = (TextView) view.findViewById(R.id.fragment_app_view_malware_rank_text);
+			//rankText = (TextView) view.findViewById(R.id.fragment_app_view_malware_rank_text);
 			badgeLayout = (RelativeLayout) view.findViewById(R.id.badge_layout);
 			mBadgeMarket = (ImageView) view.findViewById(R.id.iv_market_badge);
 			mBadgeSignature = (ImageView) view.findViewById(R.id.iv_signature_badge);
@@ -981,6 +987,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			mScreenshotsList = (RecyclerView) view.findViewById(R.id.screenshots_list);
 			mMoreVersionsList = (RecyclerView) view.findViewById(R.id.more_versions_recycler);
 			securitydBalloonLayout = view.findViewById(R.id.fragment_app_view_security_balloon);
+			layoutError = (ScrollView) view.findViewById(R.id.error);
 
 			descriptionLines = view.getContext()
 					.getResources()
@@ -1018,7 +1025,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 			if (reloadButtons) {
 				checkInstallation();
-				updateStoreInfo();
+				//updateStoreInfo();
 				handleLatestVersionLogic();
 				reloadButtons = false;
 			}
@@ -1428,7 +1435,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			public void onClick(View v) {
 				if (securityABTest.alternative().showSecurityOverlay()
 						&& mSecurityBalloon.shouldDisplay()) {
-					toggleSecurityBalloon();
+					//toggleSecurityBalloon();
 				} else {
 					AptoideDialog.badgeDialogV7(malware, appName, malware.rank)
 							.show(getFragmentManager(), BADGE_DIALOG_TAG);
@@ -1504,27 +1511,27 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			securityBalloonFadeInAnimation.setAnimationListener(null);
 		}
 
-		private void setSecurityBalloon(AppSecurityBalloon securityBalloon) {
-			if (securityBalloon.hasGooglePlayLogo()) {
-				getActivity().findViewById(R.id.balloon_security_google_play)
-						.setVisibility(View.VISIBLE);
-			} else {
-				getActivity().findViewById(R.id.balloon_security_google_play)
-						.setVisibility(View.GONE);
-			}
-
-			final String applicationName = securityBalloon.getApplicationName();
-			/*final String balloonTitle = getActivity().getString(R.string.balloon_security_subtitle_start_part, applicationName);
-			final Spannable boldApplicationNameTitle = new SpannableString(balloonTitle);
-			boldApplicationNameTitle.setSpan(new StyleSpan(Typeface.BOLD),
-					(balloonTitle.length() - applicationName.length() - 1), // 0-based index start
-					(balloonTitle.length() - 1), // 1-base index plus the space after application name
-					Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-			((TextView)getActivity().findViewById(R.id.balloon_security_subtitle_start_part))
-					.setText(boldApplicationNameTitle);
-			this.mSecurityBalloon = securityBalloon;*/
-		}
+//		private void setSecurityBalloon(AppSecurityBalloon securityBalloon) {
+//			if (securityBalloon.hasGooglePlayLogo()) {
+//				getActivity().findViewById(R.id.balloon_security_google_play)
+//						.setVisibility(View.VISIBLE);
+//			} else {
+//				getActivity().findViewById(R.id.balloon_security_google_play)
+//						.setVisibility(View.GONE);
+//			}
+//
+//			final String applicationName = securityBalloon.getApplicationName();
+//			/*final String balloonTitle = getActivity().getString(R.string.balloon_security_subtitle_start_part, applicationName);
+//			final Spannable boldApplicationNameTitle = new SpannableString(balloonTitle);
+//			boldApplicationNameTitle.setSpan(new StyleSpan(Typeface.BOLD),
+//					(balloonTitle.length() - applicationName.length() - 1), // 0-based index start
+//					(balloonTitle.length() - 1), // 1-base index plus the space after application name
+//					Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//
+//			((TextView)getActivity().findViewById(R.id.balloon_security_subtitle_start_part))
+//					.setText(boldApplicationNameTitle);
+//			this.mSecurityBalloon = securityBalloon;*/
+//		}
 
 		private View.OnClickListener extendListener = new View.OnClickListener() {
 			@Override
@@ -1626,7 +1633,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				return;
 			}
 
-			rankText.setVisibility(View.VISIBLE);
+			/*rankText.setVisibility(View.VISIBLE);
 			rankText.setOnClickListener(badgeClickListener);
 			@DrawableRes final int icon;
 			@StringRes final int text;
@@ -1664,7 +1671,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			}
 			if(iconDrawable!=null){
 				rankText.setCompoundDrawablesWithIntrinsicBounds(null, iconDrawable, null, null);
-			}
+			}*/
 		}
 
 		private void showBadges() {
@@ -2117,7 +2124,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					(), com.aptoide.amethyst.R.string.store_subscribed, storeName), Toast
 					.LENGTH_SHORT)
 					.show();
-			updateStoreInfo();
+			//updateStoreInfo();
 		}
 
 		@Subscribe
@@ -2666,7 +2673,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
                 executeSpiceRequestWithPackageName(packageName, appName);
             }
 
-			mCollapsingToolbarLayout.setTitle(appName);
+			//mCollapsingToolbarLayout.setTitle(appName);
 		}
 
 		private void executeSpiceRequest() {

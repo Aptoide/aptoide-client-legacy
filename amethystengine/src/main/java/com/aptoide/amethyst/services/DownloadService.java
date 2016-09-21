@@ -284,18 +284,9 @@ public class DownloadService extends Service {
      * @param icon
      * @param downloadOld
      */
-    public void downloadFromV7WithObb(String url,
-                                      String url_alt,
-                                      String md5sum,
-                                      long fileSize,
-                                      String name,
-                                      String packageName,
-                                      String versionName,
-                                      String icon,
-                                      long appId,
-                                      boolean paid,
-                                      GetAppMeta.Obb obb,
-                                      Download downloadOld, List<String> permissions) {
+    public void downloadFromV7WithObb(String url, String url_alt, String md5sum, long fileSize, String name,
+                                      String packageName, String versionName, String icon, long appId, boolean paid,
+                                      GetAppMeta.Obb obb, Download downloadOld, List<String> permissions) {
 
         UpdatesResponse.UpdateApk apk = createUpdateApkFromV7Params(url, url_alt, md5sum, fileSize, name, packageName, versionName, icon, appId);
 
