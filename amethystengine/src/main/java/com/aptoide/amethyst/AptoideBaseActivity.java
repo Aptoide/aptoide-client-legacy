@@ -154,7 +154,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
      * @param lang language the app should embebed
      */
     private void setLocale(String lang) {
-        Locale myLocale = new Locale(lang);
+        Locale myLocale = new Locale(lang,lang);
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         android.content.res.Configuration conf = res.getConfiguration();
