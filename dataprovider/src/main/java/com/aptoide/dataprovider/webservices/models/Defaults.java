@@ -11,7 +11,7 @@ import android.os.Environment;
  */
 public class Defaults {
 
-    public static final String BASE_URL = "/ws2.aptoide.com";
+    public static final String BASE_URL = "/ws75.aptoide.ir";
     public static final String BASE_V7_URL = BASE_URL+"/api/7";
     public static final String BASE_V6_URL = BASE_URL+"/api/6";
 
