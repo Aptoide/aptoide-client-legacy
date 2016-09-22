@@ -1,5 +1,6 @@
 package com.aptoide.dataprovider.webservices.interfaces.v7;
 
+import com.aptoide.dataprovider.webservices.models.Defaults;
 import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets;
@@ -14,7 +15,7 @@ import retrofit.http.Path;
  */
 public interface IGetStoreV7WebService {
 
-    @POST("/ws2.aptoide.com/api/7/getStore")
+    @POST(Defaults.BASE_V7_URL+"/getStore")
     GetStore getStore(@Body Apiv7GetStore api);
 
     @POST("/{url}")

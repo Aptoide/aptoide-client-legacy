@@ -11,7 +11,9 @@ import android.os.Environment;
  */
 public class Defaults {
 
-    public static final String BASE_V7_URL = "/ws2.aptoide.com/api/7";
+    public static final String BASE_URL = "/ws2.aptoide.com";
+    public static final String BASE_V7_URL = BASE_URL+"/api/7";
+    public static final String BASE_V6_URL = BASE_URL+"/api/6";
 
     public static final String PATH_SDCARD       = Environment.getExternalStorageDirectory().getAbsolutePath();
     public static final String PATH_CACHE        = PATH_SDCARD + "/.aptoide/";

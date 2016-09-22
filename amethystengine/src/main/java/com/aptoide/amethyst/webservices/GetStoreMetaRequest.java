@@ -1,6 +1,8 @@
 package com.aptoide.amethyst.webservices;
 
+import com.aptoide.amethyst.Aptoide;
 import com.aptoide.dataprovider.webservices.models.BulkResponse;
+import com.aptoide.dataprovider.webservices.models.Defaults;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
 
 import retrofit.http.GET;
@@ -29,7 +31,7 @@ public class GetStoreMetaRequest extends RetrofitSpiceRequest<BulkResponse.GetSt
     }
 
     public interface StoreMetaWebservice{
-        @GET("/ws2.aptoide.com/api/7/getStoreMeta/store_id/{storeId}")
+        @GET(Defaults.BASE_V7_URL+"/getStoreMeta/store_id/{storeId}")
         BulkResponse.GetStore.StoreMeta getStore(@Path("storeId") long storeId);
     }
 }

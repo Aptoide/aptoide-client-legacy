@@ -3,6 +3,7 @@ package com.aptoide.dataprovider.webservices;
 import com.aptoide.dataprovider.exceptions.TicketException;
 import com.aptoide.dataprovider.webservices.models.Api;
 import com.aptoide.dataprovider.webservices.models.BulkResponse;
+import com.aptoide.dataprovider.webservices.models.Defaults;
 import com.aptoide.dataprovider.webservices.models.UpdatesApi;
 import com.aptoide.dataprovider.webservices.models.UpdatesResponse;
 
@@ -19,19 +20,18 @@ import retrofit.http.POST;
 public interface Webservices {
 
 
-    String ws2 = "/ws2.aptoide.com/api/6";
     String ws = "/webservices.aptoide.com/webservices";
 
 
-    @POST(ws2 + "/bulkRequest/api_list/getStore,listApps/")
+    @POST(Defaults.BASE_V6_URL + "/bulkRequest/api_list/getStore,listApps/")
     BulkResponse bulkGetStoreListAppsRequest(@Body Api user) throws TicketException;
 
-    @POST(ws2 + "/bulkRequest/api_list/getStore,listApps,listStores/")
+    @POST(Defaults.BASE_V6_URL + "/bulkRequest/api_list/getStore,listApps,listStores/")
     BulkResponse bulkTopRequest(@Body Api user) throws TicketException;
 
 
 
-    @POST("/ws2.aptoide.com/api/6/listAppsUpdates")
+    @POST(Defaults.BASE_V6_URL + "/listAppsUpdates")
     UpdatesResponse getUpdates(@Body UpdatesApi api );
 
 
