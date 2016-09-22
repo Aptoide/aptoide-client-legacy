@@ -741,6 +741,7 @@
     <string name="aban_textview_description_username">Please insert your username</string>
     <string name="aban_edittext_hint_username">Your username</string>
     <string name="aban_toast_warning_invalid_username">Please insert valid username</string>
+    <string name="aban_button_finalizing_registration">Finalizing Registration</string>
     <!--aban Strings end-->
 
     <!--zain Strings start-->

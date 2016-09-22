@@ -684,6 +684,7 @@
     <string name="aban_textview_description_username">لطفا شناسه کاربری خود را وارد کنید</string>
     <string name="aban_edittext_hint_username">شناسه کاربری</string>
     <string name="aban_toast_warning_invalid_username">لطفا  شناسه کاربری معتبر وارد کنید</string>
+    <string name="aban_button_finalizing_registration">نهایی کردن ثبت نام</string>
     <!--aban Strings end-->
 
 
