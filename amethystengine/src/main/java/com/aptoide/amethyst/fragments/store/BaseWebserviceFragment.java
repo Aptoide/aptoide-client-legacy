@@ -179,8 +179,16 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
             }
 
             if(displayableList.isEmpty()) {
-                retry();
-
+                layoutError.setVisibility(View.VISIBLE);
+                retryError.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        retry();
+                    }
+                });
+            }
+            else{
+                layoutError.setVisibility(View.GONE);
             }
         }
     };
