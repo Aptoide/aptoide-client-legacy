@@ -761,7 +761,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				}
 
 				if (getApkInfoJson.getPayment().status.equals("OK")) {
-					mButtonInstall.setText(R.string.install);
+					if(!Aptoide.getConfiguration().getDefaultStore().contains("indus")) {
+						mButtonInstall.setText(R.string.install);
+					} else {
+						mButtonInstall.setText(R.string.app_bazaar_download_button);
+					}
 					InstallListener installListener = new InstallListener(iconUrl, appName,
 							versionName, packageName, md5sum, true, malware.rank);
 					mButtonInstall.setOnClickListener(installListener);
@@ -1883,7 +1887,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					mButtonInstall.setText(R.string.update);
 					break;
 				case INSTALL:
-					mButtonInstall.setText(R.string.install);
+					if(!Aptoide.getConfiguration().getDefaultStore().contains("indus")) {
+						mButtonInstall.setText(R.string.install);
+					} else {
+						mButtonInstall.setText(R.string.app_bazaar_download_button);
+					}
 					break;
 				case OPEN:
 					mButtonInstall.setText(R.string.open);
@@ -1933,7 +1941,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			} else {
 				PackageInfo info = getPackageInfo(getActivity(), packageName);
 				if (info == null) {
-					mButtonInstall.setText(getString(R.string.install));
+					if(!Aptoide.getConfiguration().getDefaultStore().contains("indus")) {
+						mButtonInstall.setText(R.string.install);
+					} else {
+						mButtonInstall.setText(R.string.app_bazaar_download_button);
+					}
 					mButtonInstall.setOnClickListener(new InstallListener(iconUrl, appName,
 							versionName, packageName, md5sum, isPaidApp(), malware.rank));
 					isInstalled = false;
@@ -2404,7 +2416,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private void handleLatestVersionLogic() {
 			if (latestAvailable) {
 
-				mLatestVersionLayout.setVisibility(View.GONE);
+				//mLatestVersionLayout.setVisibility(View.GONE);
 				mButtonUninstall.setVisibility(View.GONE);
 				mButtonGetLatest.setVisibility(View.VISIBLE);
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -2424,7 +2436,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				});
 			} else if (isInstalled) {
 				mButtonGetLatest.setVisibility(View.GONE);
-				mLatestVersionLayout.setVisibility(View.GONE);
+				//mLatestVersionLayout.setVisibility(View.GONE);
 				mButtonUninstall.setVisibility(View.VISIBLE);
 				mButtonUninstall.setOnClickListener(new View.OnClickListener() {
 					@Override
@@ -2445,7 +2457,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			} else {
 				mButtonUninstall.setVisibility(View.GONE);
 				mButtonGetLatest.setVisibility(View.GONE);
-				mLatestVersionLayout.setVisibility(View.VISIBLE);
+				//mLatestVersionLayout.setVisibility(View.VISIBLE);
 			}
 		}
 

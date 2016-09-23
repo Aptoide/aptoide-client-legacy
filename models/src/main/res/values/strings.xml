@@ -748,5 +748,6 @@ If you were using Dual SIM device, please put Zain SIM as primary SIM so you can
 
 
     <string name="first_install">App Essencials</string>
+    <string name="app_bazaar_download_button">Download</string>
 </resources>
 
