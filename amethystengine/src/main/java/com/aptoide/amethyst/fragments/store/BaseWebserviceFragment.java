@@ -1,5 +1,7 @@
 package com.aptoide.amethyst.fragments.store;
 
+import android.widget.Button;
+import android.widget.Toast;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.Configuration;
 import com.aptoide.amethyst.GridRecyclerFragment;
@@ -174,6 +176,11 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
             // check for hidden items
             if (tab.hidden > 0 && !AptoideUtils.getSharedPreferences().getBoolean(Constants.SHOW_ADULT_HIDDEN, true) && getFragmentManager().findFragmentByTag(Constants.HIDDEN_ADULT_DIALOG) == null) {
                 new AdultHiddenDialog().show(getFragmentManager(), Constants.HIDDEN_ADULT_DIALOG);
+            }
+
+            if(displayableList.isEmpty()) {
+                retry();
+
             }
         }
     };
