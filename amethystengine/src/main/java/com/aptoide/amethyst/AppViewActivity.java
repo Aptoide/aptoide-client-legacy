@@ -7,6 +7,7 @@
  ******************************************************************************/
 package com.aptoide.amethyst;
 
+import android.net.Uri;
 import com.aptoide.amethyst.adapter.DividerItemDecoration;
 import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
 import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
@@ -2817,6 +2818,20 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				this.paid = paid;
 				this.rank = rank;
 				this.downloadId = md5.hashCode();
+
+				if (Aptoide.getConfiguration().getDefaultStore().contains("indus")) {
+					Intent indusIntent = new Intent();
+					indusIntent = new Intent(Intent.ACTION_VIEW);
+					indusIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					indusIntent.putExtra("download_size",fileSize);
+					indusIntent.putExtra("install_type","fresh");
+					indusIntent.putExtra("price",0);
+					indusIntent.putExtra("item_id",appId);
+					indusIntent.putExtra("package_name",packageName);
+					// TODO: 26/09/16
+					indusIntent.setData(Uri.parse(""));
+					getContext().sendBroadcast(indusIntent);
+				}
 			}
 
 			protected Download makeDownLoad() {
