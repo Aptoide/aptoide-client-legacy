@@ -60,7 +60,7 @@ public class IndusAnalytics {
    * @param install_type type of instalation (download, update, downgrade)
    * @param context called context
    */
-  public static void downloadStartIntent(boolean success, int version_code, Long item_id,
+  public static void downloadStartIntent(boolean success, String version_code, Long item_id,
       String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);

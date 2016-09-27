@@ -2210,10 +2210,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				downloadServiceLatch.await();
 			} catch (InterruptedException e) {
 				Logger.printException(e);
-				IndusAnalytics.downloadStartIntent(false, versionCode, appId, packageName, mButtonInstall.getText().toString(), getContext());
 			}
 			if (downloadService == null) {
-				IndusAnalytics.downloadStartIntent(false, versionCode, appId, packageName, mButtonInstall.getText().toString(), getContext());
 				return;
 			}
 					downloadService.downloadFromV7WithObb(path, altPath, md5sum, fileSize, appName,
@@ -2222,7 +2220,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 					isFromActivityResult = false;
 					autoDownload = false;
-					IndusAnalytics.downloadStartIntent(true, versionCode, appId, packageName, mButtonInstall.getText().toString(), getContext());
 					populateDownloadUI();
 				}
 

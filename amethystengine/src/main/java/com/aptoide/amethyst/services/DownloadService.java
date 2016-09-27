@@ -35,6 +35,7 @@ import com.aptoide.amethyst.downloadmanager.model.FinishedApk;
 import com.aptoide.amethyst.downloadmanager.state.ActiveState;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
+import com.aptoide.amethyst.utils.IndusAnalytics;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.webservices.json.GetApkInfoJson;
 import com.aptoide.dataprovider.AptoideSpiceHttpService;
@@ -462,6 +463,7 @@ public class DownloadService extends Service {
             else {
                 Toast.makeText(context, context.getString(R.string.data_usage_constraint), Toast.LENGTH_LONG).show();
             }
+            IndusAnalytics.downloadStartIntent(false, apk.getVersion(), apk.getId(), download.getPackageName(), "TODO", context);
             return;
         }
 
@@ -501,6 +503,7 @@ public class DownloadService extends Service {
         startService(new Intent(context, DownloadService.class));
 
         startIfStopped();
+        IndusAnalytics.downloadStartIntent(true, apk.getVersion(), apk.getId(), download.getPackageName(), download.getInstallationSource(), getBaseContext());
         Toast.makeText(context, context.getString(R.string.starting_download), Toast.LENGTH_LONG).show();
     }
 
