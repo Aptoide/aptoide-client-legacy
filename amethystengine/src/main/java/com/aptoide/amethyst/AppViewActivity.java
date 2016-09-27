@@ -8,6 +8,7 @@
 package com.aptoide.amethyst;
 
 import android.net.Uri;
+import android.util.Log;
 import com.aptoide.amethyst.adapter.DividerItemDecoration;
 import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
 import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
@@ -456,6 +457,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		RecyclerView mMoreVersionsList;
 		View securitydBalloonLayout;
 
+		private String appPrice;
+
 		int descriptionLines;
 
 		private String cpd;
@@ -834,6 +837,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 								i.putExtra("icon", iconUrl);
 								i.putExtra("label", appName);
 								i.putExtra("price", payment.amount.floatValue());
+								appPrice = Float.toString(payment.amount.floatValue());
 								i.putExtra("currency_symbol", payment.symbol);
 								i.putParcelableArrayListExtra("PaymentServices", new
 										ArrayList<Parcelable>(payment.payment_services));
@@ -1897,6 +1901,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				case OPEN:
 					mButtonInstall.setText(R.string.open);
 					changebtInstalltoOpen();
+					changebtInstalltoOpen();
 					break;
 			}
 		}
@@ -1975,6 +1980,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					} else {
 						changebtInstalltoOpen();
 					}
+
 					getActivity().supportInvalidateOptionsMenu();
 				}
 			}
@@ -2182,6 +2188,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
          */
         protected void download() {
             this.showRootDialog();
+
+					// TODO: 26/09/16 download_start
 
             Download download = new Download();
             download.setId(downloadId);
@@ -2792,7 +2800,23 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				args.putString("icon", icon);
 				downgrade.setArguments(args);
 
+				installClickedIntent();
 				getFragmentManager().beginTransaction().add(downgrade, "downgrade").commit();
+			}
+		}
+
+		private void installClickedIntent(){
+			if (Aptoide.getConfiguration().getDefaultStore().contains("indus")) {
+				Intent indusIntent = new Intent("com.mofirst.playstore.action.REPORT_EVENT");
+				indusIntent.putExtra("download_size",Long.toString(fileSize));
+				indusIntent.putExtra("install_type",mButtonInstall.getText().toString());
+				if(appPrice!=null)
+					indusIntent.putExtra("price", appPrice);
+				else
+					indusIntent.putExtra("price","0");
+				indusIntent.putExtra("item_id", appId);
+				indusIntent.putExtra("package_name",packageName);
+				getContext().sendBroadcast(indusIntent);
 			}
 		}
 
@@ -2818,20 +2842,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				this.paid = paid;
 				this.rank = rank;
 				this.downloadId = md5.hashCode();
-
-				if (Aptoide.getConfiguration().getDefaultStore().contains("indus")) {
-					Intent indusIntent = new Intent();
-					indusIntent = new Intent(Intent.ACTION_VIEW);
-					indusIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					indusIntent.putExtra("download_size",fileSize);
-					indusIntent.putExtra("install_type","fresh");
-					indusIntent.putExtra("price",0);
-					indusIntent.putExtra("item_id",appId);
-					indusIntent.putExtra("package_name",packageName);
-					// TODO: 26/09/16
-					indusIntent.setData(Uri.parse(""));
-					getContext().sendBroadcast(indusIntent);
-				}
 			}
 
 			protected Download makeDownLoad() {
@@ -2864,12 +2874,13 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 
 				boolean alternative = /*securityABTest.alternative().showWarningPopUp()
 						&&*/ !GetAppMeta.File.Malware.TRUSTED.equals(rank);
-				if (alternative) {
+				/*if (alternative) {
 					InstallWarningDialog.newInstance(rank, hasTrustedVersion())
 							.show(getFragmentManager(), "InstallWarningDialog");
-				} else {
+				} else {*/
+				installClickedIntent();
 					installApp();
-				}
+				//}
 				//Analytics.ClickedOnInstallButton.clicked(package_name, developer, alternative);
 			}
 
