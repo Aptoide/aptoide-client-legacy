@@ -480,6 +480,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		private int bucketSize;
 		private int recyclerOffset;
 
+		private String installType;
+
 		/**
 		 * See More/Less description logic
 		 */
@@ -2797,7 +2799,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				args.putString("icon", icon);
 				downgrade.setArguments(args);
 
-				IndusAnalytics.installClickedIntent(fileSize,mButtonInstall.getText().toString(), appPrice, appId, packageName, getContext());
+				IndusAnalytics.installClickedIntent(fileSize, "downgrade", appPrice, appId, packageName, getContext());
 				getFragmentManager().beginTransaction().add(downgrade, "downgrade").commit();
 			}
 		}
@@ -2860,7 +2862,15 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					InstallWarningDialog.newInstance(rank, hasTrustedVersion())
 							.show(getFragmentManager(), "InstallWarningDialog");
 				} else {*/
-				IndusAnalytics.installClickedIntent(fileSize,mButtonInstall.getText().toString(), appPrice, appId, packageName, getContext());
+
+				String install_type;
+				try {
+					Aptoide.getContext().getPackageManager().getPackageInfo(packageName, 0);
+					install_type = "update";
+				} catch (PackageManager.NameNotFoundException e) {
+					install_type = "fresh";
+				}
+				IndusAnalytics.installClickedIntent(fileSize,install_type, appPrice, appId, packageName, getContext());
 					installApp();
 				//}
 				//Analytics.ClickedOnInstallButton.clicked(package_name, developer, alternative);

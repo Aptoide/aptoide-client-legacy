@@ -484,11 +484,14 @@ public class DownloadService extends Service {
         info.setFilesToDownload(filesToDownload);
 
         boolean update;
+        String install_type;
         try {
             Aptoide.getContext().getPackageManager().getPackageInfo(download.getPackageName(), 0);
             update = true;
+            install_type = "update";
         } catch (PackageManager.NameNotFoundException e) {
             update = false;
+            install_type = "fresh";
         }
 
         info.setUpdate(update);
@@ -503,8 +506,8 @@ public class DownloadService extends Service {
         startService(new Intent(context, DownloadService.class));
 
         startIfStopped();
-        IndusAnalytics.downloadStartIntent(true, apk.getVersion(), apk.getId(), download.getPackageName(), download.getInstallationSource(), getBaseContext());
         Toast.makeText(context, context.getString(R.string.starting_download), Toast.LENGTH_LONG).show();
+        IndusAnalytics.downloadStartIntent(true, apk.getVersion(), apk.getId(), download.getPackageName(), install_type, getBaseContext());
     }
 
     private TimerTask getTask() {
