@@ -49,6 +49,7 @@ import com.aptoide.amethyst.ui.WrappingLinearLayoutManager;
 import com.aptoide.amethyst.ui.callbacks.AddCommentCallback;
 import com.aptoide.amethyst.ui.widget.CircleTransform;
 import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.IndusAnalytics;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.amethyst.utils.ReferrerUtils;
 import com.aptoide.amethyst.webservices.AddApkFlagRequest;
@@ -2188,9 +2189,6 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
          */
         protected void download() {
             this.showRootDialog();
-
-					// TODO: 26/09/16 download_start
-
             Download download = new Download();
             download.setId(downloadId);
             download.setName(appName);
@@ -2212,19 +2210,21 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				downloadServiceLatch.await();
 			} catch (InterruptedException e) {
 				Logger.printException(e);
+				IndusAnalytics.downloadStartIntent(false, versionCode, appId, packageName, mButtonInstall.getText().toString(), getContext());
 			}
 			if (downloadService == null) {
+				IndusAnalytics.downloadStartIntent(false, versionCode, appId, packageName, mButtonInstall.getText().toString(), getContext());
 				return;
 			}
-			downloadService.downloadFromV7WithObb(path, altPath, md5sum, fileSize, appName,
-					packageName, versionName, iconUrl, appId, pay != null, obb, download,
-					permissions);
+					downloadService.downloadFromV7WithObb(path, altPath, md5sum, fileSize, appName,
+							packageName, versionName, iconUrl, appId, pay != null, obb, download,
+							permissions);
 
-			isFromActivityResult = false;
-			autoDownload = false;
-
-			populateDownloadUI();
-		}
+					isFromActivityResult = false;
+					autoDownload = false;
+					IndusAnalytics.downloadStartIntent(true, versionCode, appId, packageName, mButtonInstall.getText().toString(), getContext());
+					populateDownloadUI();
+				}
 
         protected void onDownloadUpdate(Download download) {
             if (download != null && download.getId() == downloadId) {
@@ -2800,23 +2800,8 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				args.putString("icon", icon);
 				downgrade.setArguments(args);
 
-				installClickedIntent();
+				IndusAnalytics.installClickedIntent(fileSize,mButtonInstall.getText().toString(), appPrice, appId, packageName, getContext());
 				getFragmentManager().beginTransaction().add(downgrade, "downgrade").commit();
-			}
-		}
-
-		private void installClickedIntent(){
-			if (Aptoide.getConfiguration().getDefaultStore().contains("indus")) {
-				Intent indusIntent = new Intent("com.mofirst.playstore.action.REPORT_EVENT");
-				indusIntent.putExtra("download_size",Long.toString(fileSize));
-				indusIntent.putExtra("install_type",mButtonInstall.getText().toString());
-				if(appPrice!=null)
-					indusIntent.putExtra("price", appPrice);
-				else
-					indusIntent.putExtra("price","0");
-				indusIntent.putExtra("item_id", appId);
-				indusIntent.putExtra("package_name",packageName);
-				getContext().sendBroadcast(indusIntent);
 			}
 		}
 
@@ -2878,7 +2863,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					InstallWarningDialog.newInstance(rank, hasTrustedVersion())
 							.show(getFragmentManager(), "InstallWarningDialog");
 				} else {*/
-				installClickedIntent();
+				IndusAnalytics.installClickedIntent(fileSize,mButtonInstall.getText().toString(), appPrice, appId, packageName, getContext());
 					installApp();
 				//}
 				//Analytics.ClickedOnInstallButton.clicked(package_name, developer, alternative);
