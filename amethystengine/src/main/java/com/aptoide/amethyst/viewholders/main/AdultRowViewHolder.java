@@ -8,6 +8,7 @@ import android.widget.CompoundButton;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.dialogs.AdultDialog;
 import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;

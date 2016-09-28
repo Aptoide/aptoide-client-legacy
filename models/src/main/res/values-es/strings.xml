@@ -583,8 +583,8 @@
     <string name="privacy_copied">Enlace de privacidad copiado en el portapapeles</string>
     <string name="subscribing_store_message">Dándote de baja de %s</string>
 
-<string name="latest_reviews">Últimas reseñas</string>
-    <string name="latest_comments">Últimos comentarios</string>
+<string name="latest_reviews">Reseñas</string>
+    <string name="latest_comments">Comentarios</string>
     <string name="action">Acción</string>
     <string name="adventure">Aventura</string>
     <string name="all">Todos</string>

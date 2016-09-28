@@ -30,6 +30,7 @@
     <string name="error_MARG_200">Authentication error</string>
     <string name="error_MARG_201">Invalid username/password combination</string>
     <string name="error_MARG_202">Invalid token or user/pass</string>
+    <string name="error_MARG_203">Missing client id</string>
 
     <string name="error_IARG_1">Invalid store</string>
     <string name="error_IARG_2">Invalid login</string>
@@ -62,6 +63,7 @@
     <string name="error_AUTH_101">Could not login with Google. Please try again.</string>
     <string name="error_AUTH_102">Could not login with Facebook. Please check your Facebook account (you may need to validate your email address).</string>
     <string name="error_AUTH_103">Could not login with Facebook. Please try again.</string>
+    <string name="error_AUTH_104">Could not login with Aban. Please try again.</string>
 
     <string name="error_WOP_6">To add a comment you need to insert your name (it will be visible)</string>
     <string name="error_WOP_7">Comment error</string>
@@ -719,5 +721,32 @@
 
     <string name="allow_auto_installation">Allow Auto Installation</string>
     <string name="auto_installation">Auto Installation</string>
+
+
+    <!--aban Strings start-->
+    <string name="aban_textview_description_phonenumber">Please insert your Phone Number</string>
+    <string name="aban_edittext_hint_phonenumber">Your Cell Phone Number</string>
+    <string name="aban_button_register">Register</string>
+    <string name="aban_textview_description_aptoide">Aptoide Store</string>
+    <string name="aban_textview_description_passcode">Wait "+"<b>"+"60"+"</b>"+" seconds for recieving the verification Code Enter that Below</string>
+    <string name="aban_edittext_hint_passcode">Verification Code</string>
+    <string name="aban_button_verification">Verification</string>
+    <string name="aban_repeat_sms">Resend SMS</string>
+    <string name="aban_failure_internet_Connection">Failure, please check you connection or try again later</string>
+    <string name="aban_invalid_phone_number">Invalid Phone Number</string>
+    <string name="aban_to_many_requests">To many requests, please try again later</string>
+    <string name="aban_register_success">Register completed</string>
+    <string name="aban_register_failed_passcode">Wrong passcode</string>
+    <string name="aban_register_failed">Register failed</string>
+    <!--aban Strings end-->
+
+    <!--zain Strings start-->
+    <string name="zain_not_zain_carrier_name_message">Sorry, this application is exclusive for Zain IQ customers.
+If you were using Dual SIM device, please put Zain SIM as primary SIM so you can enjoy the service</string>
+    <string name="zain_not_zain_carrier_name_message_api22">Sorry, this application is exclusive for Zain IQ customers.</string>
+    <!--zain Strings end-->
+
+
+    <string name="first_install">App Essencials</string>
 </resources>
 

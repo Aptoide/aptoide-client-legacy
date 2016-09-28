@@ -65,6 +65,7 @@ public class Errors {
         errors.put("MARG-200", R.string.error_MARG_200);
         errors.put("MARG-201", R.string.error_MARG_201);
         errors.put("MARG-202", R.string.error_MARG_202);
+        errors.put("MARG-203",R.string.error_MARG_203);
 
         errors.put("AUTH-1", R.string.error_AUTH_1);
         errors.put("AUTH-2", R.string.error_AUTH_2);
@@ -74,6 +75,7 @@ public class Errors {
         errors.put("AUTH-101", R.string.error_AUTH_101);
         errors.put("AUTH-102", R.string.error_AUTH_102);
         errors.put("AUTH-103", R.string.error_AUTH_103);
+        errors.put("AUTH-104", R.string.error_AUTH_104);
 
 
         errors.put("WOP-6", R.string.error_WOP_6);

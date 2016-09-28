@@ -1,5 +1,14 @@
 package com.aptoide.amethyst.viewholders.main;
 
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
+import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.amethyst.utils.Translator;
+import com.aptoide.amethyst.viewholders.BaseViewHolder;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.HeaderRow;
+
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -11,18 +20,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.Translator;
-import com.aptoide.models.displayables.Displayable;
-import com.aptoide.models.displayables.HeaderRow;
-
-
-import com.aptoide.amethyst.adapter.BaseAdapter;
-import com.aptoide.amethyst.viewholders.BaseViewHolder;
-
 /**
  * Created by rmateus on 02/06/15.
  */
@@ -31,53 +28,79 @@ public class HeaderViewHolder extends BaseViewHolder {
     private final EnumStoreTheme theme;
     private final String storeName;
     private final long storeId;
+    private String localyticsTag;
+    private boolean isCommunity;
 
     public TextView title;
     public Button more;
     public RelativeLayout moreLayout;
+    private boolean isFromHomeBundle = false;
 
     public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme) {
         super(itemView, viewType);
         this.theme = theme;
         storeName = null;
         storeId = 0;
+        isCommunity = false;
     }
+
+    public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme, boolean isCommunity) {
+        this(itemView, viewType, theme);
+        this.isCommunity = isCommunity;
+    }
+
+    public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme, String storeName, long storeId, String localyticsTag, boolean isFromHomeBundle) {
+        super(itemView, viewType);
+        this.theme = theme;
+        this.storeName = storeName;
+        this.storeId = storeId;
+        isCommunity = false;
+        this.localyticsTag = localyticsTag;
+        this.isFromHomeBundle = isFromHomeBundle;
+    }
+
 
     public HeaderViewHolder(View itemView, int viewType, EnumStoreTheme theme, String storeName, long storeId) {
         super(itemView, viewType);
         this.theme = theme;
         this.storeName = storeName;
         this.storeId = storeId;
+        isCommunity = false;
     }
+
+
 
     @Override
     public void populateView(Displayable displayable) {
         HeaderRow row = (HeaderRow) displayable;
-        String translated = Translator.translate(row.getLabel());
-        if(translated == null) {
-            translated = row.getLabel();
-        }
-        title.setText(translated);
+        title.setText(Translator.translate(row.getLabel()));
         if (row.isHasMore()) {
             more.setVisibility(View.VISIBLE);
             more.setText(Aptoide.getContext().getString(R.string.button_header_more));
+            BaseAdapter.IHasMoreOnClickListener listener;
             if (storeName == null || TextUtils.isEmpty(storeName)) {
                 if (storeId == 0) {
-                    more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme));
-                    moreLayout.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme));
+                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, isFromHomeBundle);
+                    more.setOnClickListener(listener);
+                    moreLayout.setOnClickListener(listener);
+                    listener.isCommunity = isCommunity;
                 } else {
-                    more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme,storeId));
-                    moreLayout.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme,storeId));
+                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, storeId);
+                    more.setOnClickListener(listener);
+                    moreLayout.setOnClickListener(listener);
                 }
             } else {
                 if (storeId == 0) {
-                    more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName));
-                    moreLayout.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName));
+                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName);
+                    more.setOnClickListener(listener);
+                    moreLayout.setOnClickListener(listener);
                 } else {
-                    more.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName,storeId));
-                    moreLayout.setOnClickListener(new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName,storeId));
+                    listener = new BaseAdapter.IHasMoreOnClickListener(row, theme, storeName, storeId);
+                    more.setOnClickListener(listener);
+                    moreLayout.setOnClickListener(listener);
                 }
             }
+            listener.bundleCategory = localyticsTag;
         } else {
             more.setVisibility(View.GONE);
             moreLayout.setClickable(false);

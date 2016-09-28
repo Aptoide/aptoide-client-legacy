@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.utils;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.aptoide.amethyst.Aptoide;
@@ -30,25 +31,25 @@ public class Logger {
     }
 
     public static void i(String TAG, String msg) {
-        if (DBG) {
+        if (DBG && !TextUtils.isEmpty(msg) && !TextUtils.isEmpty(TAG)) {
             Log.i(TAG, msg);
         }
     }
 
     public static void w(String TAG, String msg) {
-        if (DBG) {
+        if (DBG && !TextUtils.isEmpty(msg) && !TextUtils.isEmpty(TAG)) {
             Log.w(TAG, msg);
         }
     }
 
     public static void d(String TAG, String msg) {
-        if (DBG) {
+        if (DBG && !TextUtils.isEmpty(msg) && !TextUtils.isEmpty(TAG)) {
             Log.d(TAG, msg);
         }
     }
 
     public static void e(String TAG, String msg) {
-        if (DBG) {
+        if (DBG && !TextUtils.isEmpty(msg) && !TextUtils.isEmpty(TAG)) {
             Log.e(TAG, msg);
         }
     }

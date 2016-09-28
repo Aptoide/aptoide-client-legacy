@@ -1,7 +1,5 @@
 package com.aptoide.models.displayables;
 
-import com.aptoide.models.displayables.Displayable;
-
 import java.util.ArrayList;
 
 /**

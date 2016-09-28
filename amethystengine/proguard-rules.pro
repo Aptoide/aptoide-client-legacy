@@ -22,3 +22,7 @@
 -keep class mp.** { *; }
 -keep class android.support.design.widget.AppBarLayout$Behavior$SavedState { *; }
 -keep class android.support.design.widget.CoordinatorLayout$SavedState { *; }
+
+#localytics
+-keep class com.localytics.android.** { *; }
+-keepattributes JavascriptInterface

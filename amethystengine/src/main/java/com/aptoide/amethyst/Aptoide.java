@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.aptoide.amethyst.analytics.ABTestManager;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.configuration.AptoideConfiguration;
 import com.aptoide.amethyst.database.SQLiteDatabaseHelper;
@@ -21,8 +22,6 @@ import com.aptoide.amethyst.utils.Logger;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -95,6 +94,7 @@ public class Aptoide extends Application {
                 }
 
                 AptoideUtils.getSharedPreferences().edit().putString("advertisingIdClient", aaid).apply();
+                ABTestManager.getInstance().initialize(aaid);
             }
         }).start();
     }
@@ -103,14 +103,7 @@ public class Aptoide extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Analytics.Lifecycle.Application.onCreate(this);
-
-        setAdvertisingIdClient();
-
         context = this;
-        db = SQLiteDatabaseHelper.getInstance(this).getReadableDatabase();
-        filters = AptoideUtils.HWSpecifications.filters(this);
-
         ManagerPreferences.getInstance(this) //inits the ManagerPreferences
                 .preferences
                 .registerOnSharedPreferenceChangeListener(
@@ -125,6 +118,14 @@ public class Aptoide extends Application {
                         });
 
 
+
+
+        setAdvertisingIdClient();
+
+        db = SQLiteDatabaseHelper.getInstance(this).getReadableDatabase();
+        filters = AptoideUtils.HWSpecifications.filters(this);
+
+
         Crashlytics crashlyticsKit = new Crashlytics.Builder()
                 .core(new CrashlyticsCore.Builder().disabled(!BuildConfig.FABRIC_CONFIGURED).build())
                 .build();
@@ -137,6 +138,10 @@ public class Aptoide extends Application {
         setThemePicker(getNewThemePicker());
         Crashlytics.setString("Language", getResources().getConfiguration().locale.getLanguage());
         AptoideUtils.CrashlyticsUtils.subsctibeActivityLiveCycleEvent();
+        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this);
+        Analytics.LocalyticsSessionControl.firstSession(sPref);
+
+        Analytics.Lifecycle.Application.onCreate(this);
     }
 
     /**

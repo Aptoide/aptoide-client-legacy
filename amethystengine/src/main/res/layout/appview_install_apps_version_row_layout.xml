@@ -11,7 +11,6 @@
         android:padding="7dp"
         android:weightSum="2">
 
-
         <ProgressBar
             android:id="@+id/downloading_progress"
             style="?android:attr/progressBarStyleHorizontal"

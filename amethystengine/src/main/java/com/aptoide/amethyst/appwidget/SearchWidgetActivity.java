@@ -148,7 +148,7 @@ public class SearchWidgetActivity extends AppCompatActivity {
 //        startActivity(i);
 
         Intent i = new Intent(this, SearchActivity.class);
-        i.putExtra(android.app.SearchManager.QUERY, query);
+        i.putExtra(SearchActivity.SEARCH_QUERY, query);
         startActivity(i);
     }
 

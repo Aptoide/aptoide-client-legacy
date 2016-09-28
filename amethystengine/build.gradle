@@ -15,7 +15,7 @@ android {
     useLibrary 'org.apache.http.legacy'
 
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.3"
 
     def TRUE = "true"
     def FALSE = "false"
@@ -33,6 +33,11 @@ android {
     def AMAZON_CONFIGURED = "AMAZON_CONFIGURED"
     def AMAZON_PUBLIC_KEY = "AMAZON_PUBLIC_KEY"
     def AMAZON_PRIVATE_KEY = "AMAZON_PRIVATE_KEY"
+
+    def SIXPACK_USER = "SIXPACK_USER"
+    def SIXPACK_PASSWORD = "SIXPACK_PASSWORD"
+    def SIXPACK_URL = "SIXPACK_URL"
+    def GOOGLE_SENDER_ID = "GOOGLE_SENDER_ID"
 
     defaultConfig {
         minSdkVersion 9
@@ -66,8 +71,7 @@ android {
         facebookAppId = facebookAppIdExists ? facebookAppId.toString() : "0"
         resValue "string", "facebook_app_id", "\"" + facebookAppId + "\""
 
-        //suggestion provider authority key, this method is used to allow both, dev and prod version, be installed at the same time
-        resValue "string", "search_suggest_authority", "\"" + applicationId + ".SuggestionProvider" + "\""
+
     }
 
     buildTypes {
@@ -81,6 +85,17 @@ android {
             def localyticsKeyExists = localyticsKey != null
             buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
             manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
+
+            def sixpackUrl = localProperties.SIXPACK_URL
+            def sixpackUser = localProperties.SIXPACK_USER
+            def sixpackPassword = localProperties.SIXPACK_PASSWORD
+
+            buildConfigField STRING, SIXPACK_USER, "\"" + sixpackUser.toString() + "\""
+            buildConfigField STRING, SIXPACK_PASSWORD, "\"" + sixpackPassword.toString() + "\""
+            buildConfigField STRING, SIXPACK_URL, "\"" + sixpackUrl.toString() + "\""
+
+            def googleSenderId = localProperties.GOOGLE_SENDER_ID
+            buildConfigField STRING, GOOGLE_SENDER_ID, "\"" + googleSenderId.toString() + "\""
         }
 
         debug {
@@ -93,6 +108,13 @@ android {
             def localyticsKeyExists = localyticsKey != null
             buildConfigField BOOLEAN, LOCALYTICS_CONFIGURED, localyticsKeyExists.toString()
             manifestPlaceholders = [ LOCALYTICS_APP_KEY:localyticsKeyExists ? localyticsKey : ""]
+
+            buildConfigField STRING, SIXPACK_USER, "\"\""
+            buildConfigField STRING, SIXPACK_PASSWORD, "\"\""
+            buildConfigField STRING, SIXPACK_URL, "\"http://10.0.2.2:5000/sixpack/\"" // Emulator localhost
+
+            def googleSenderId = localProperties.GOOGLE_SENDER_ID
+            buildConfigField STRING, GOOGLE_SENDER_ID, "\"" + googleSenderId.toString() + "\""
         }
     }
     compileOptions {
@@ -105,8 +127,8 @@ android {
 }
 
 repositories{
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     maven { url 'https://maven.fabric.io/public' }
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     maven { url "http://repo.commonsware.com.s3.amazonaws.com" }
 }
 
@@ -143,11 +165,18 @@ dependencies {
     compile 'com.github.lecho:hellocharts-library:1.5.0@aar'
     compile project(':dataprovider')
     compile files('lib/AmazonInsights-android-sdk-2.1.26.jar')
-    compile files('lib/localytics.jar')
+//    compile files('lib/localytics.jar')
     compile files('lib/FlurryAnalytics-4.2.0.jar')
+    compile files('lib/fortumo-in-app-android-sdk.jar')
 
     compile files('lib/AudienceNetwork.jar')
     compile files('lib/PayPalAndroidSDK-2.8.4.jar')
     compile files('lib/go2reach.lite_5.1.0.jar')
     compile 'com.commonsware.cwac:endless:1.2.3'
+
+    compile 'com.seatgeek:sixpack-java:0.4-SNAPSHOT'
+    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
+    compile 'com.google.android.gms:play-services-ads:8.4.0'
+    compile 'com.localytics.android:library:4.0.0'
 }

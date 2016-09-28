@@ -1,10 +1,8 @@
 package com.aptoide.amethyst.ui;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.widget.Toast;
-
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
+import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
 import com.aptoide.amethyst.preferences.SecurePreferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
@@ -13,11 +11,20 @@ import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
 import com.aptoide.dataprovider.webservices.models.Defaults;
 import com.octo.android.robospice.request.listener.RequestListener;
 
-
-import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
-import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
 public class MoreCommentsActivity extends MoreActivity implements AddCommentVoteCallback {
+
+    public static final String FROM_COMMUNITY = "From_community";
+    private boolean isFromCommunity;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        isFromCommunity = getIntent().getBooleanExtra(FROM_COMMUNITY, false);
+    }
 
     @Override
     protected Fragment getFragment(Bundle args) {
@@ -47,5 +54,9 @@ public class MoreCommentsActivity extends MoreActivity implements AddCommentVote
                 SecurePreferences.getInstance().getString("token", "empty"),
                 commentRequestListener,
                 vote);
+    }
+
+    public boolean isFromCommunity() {
+        return isFromCommunity;
     }
 }

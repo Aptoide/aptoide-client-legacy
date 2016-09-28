@@ -1,43 +1,42 @@
 package com.aptoide.dataprovider.webservices.v7;
 
-import android.support.annotation.NonNull;
-
 import com.aptoide.dataprovider.exceptions.MalformedActionUrlException;
 import com.aptoide.dataprovider.exceptions.TicketException;
 import com.aptoide.dataprovider.webservices.interfaces.v7.IGetStoreV7WebService;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.Defaults;
 import com.aptoide.dataprovider.webservices.models.StoreHomeTab;
-import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets;
-import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action;
+import com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action;
 import com.aptoide.dataprovider.webservices.models.v7.ListViewItems;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
+import com.aptoide.models.displayables.AdPlaceHolderRow;
 import com.aptoide.models.displayables.AppItem;
 import com.aptoide.models.displayables.BrickAppItem;
+import com.aptoide.models.displayables.CategoryRow;
+import com.aptoide.models.displayables.CommentPlaceHolderRow;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.EditorsChoiceRow;
 import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.displayables.HomeStoreItem;
-import com.aptoide.models.displayables.CategoryRow;
-import com.aptoide.models.displayables.AdPlaceHolderRow;
-import com.aptoide.models.displayables.CommentPlaceHolderRow;
 import com.aptoide.models.displayables.ReviewPlaceHolderRow;
 import com.aptoide.models.displayables.TimeLinePlaceHolderRow;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
 
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.APPS_GROUP_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.isKnownName;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.isKnownType;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.CATEGORIES_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.COMMENTS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.STORE_GROUP;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.TIMELINE_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.ADS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.APPS_GROUP_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.CATEGORIES_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.COMMENTS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.REVIEWS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.STORE_GROUP;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.TIMELINE_TYPE;
 
 /**
  * Created by hsousa on 17/09/15.
@@ -46,11 +45,13 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
     public static final String WS2 = "http://";
     public static final String SWS2 = "https://";
 
+    public String aptoideId;
     public String nview;
     public String context;
+    public String bundleTitle;
     public String filters;
     public boolean mature;
-    //public String country; // country is being validated server-side
+    public String country; // country is being validated server-side
     public String lang;
     public int totalSpanSize;
     public int aptoideVercode;
@@ -78,10 +79,11 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
     public abstract StoreHomeTab bind(T response);
 
 
-    protected abstract T getResponse(Apiv7 api) throws TicketException;
+    protected abstract T getResponse(Apiv7GetStore api) throws TicketException;
 
-    public Apiv7 getApi() {
-        Apiv7 api = new Apiv7();
+    public Apiv7GetStore getApi() {
+        Apiv7GetStore api = new Apiv7GetStore();
+        api.aptoideId = aptoideId;
         api.nview = nview;
         api.context = context;
         api.q = filters;
@@ -89,10 +91,10 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         api.lang = lang;
         api.aptoide_vercode = aptoideVercode;
 
-        Apiv7.WidgetParams paramsApps = new Apiv7.WidgetParams("APPS_GROUP");
+        Apiv7GetStore.WidgetParams paramsApps = new Apiv7GetStore.WidgetParams("APPS_GROUP");
         paramsApps.grid_row_size = numColumns;
 
-        Apiv7.WidgetParams paramsStores = new Apiv7.WidgetParams("STORES_GROUP");
+        Apiv7GetStore.WidgetParams paramsStores = new Apiv7GetStore.WidgetParams("STORES_GROUP");
         paramsStores.grid_row_size = 2;
 
         api.setApiParams(paramsStores);
@@ -102,7 +104,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
     }
 
 
-    protected void parseWidgetList(StoreHomeTab tab, List<GetStoreWidgets.Datalist.WidgetList> list) {
+    protected void parseWidgetList(StoreHomeTab tab, List<GetStoreWidgets.WidgetDatalist.WidgetList> list) {
         long storeId = -1;
         try {
             storeId = tab.store.nodes.meta.data.id.longValue();
@@ -110,18 +112,19 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
             // on getStoreWidgets there's no storeId concept
         }
 
-        for (GetStoreWidgets.Datalist.WidgetList widget : list) {
+        for (GetStoreWidgets.WidgetDatalist.WidgetList widget : list) {
 
             switch (widget.type) {
                 case APPS_GROUP_TYPE:
 
                     // Only create widget if it has apps
-                    if (widget.listApps.datalist.itemView != null && !widget.listApps.datalist.itemView.isEmpty()) {
+                    if (widget.listApps.datalist.list != null && !widget.listApps.datalist.list
+                            .isEmpty()) {
 
                         // if layout type == BRICK, (for now) it can only be an EditorsChoice.
                         if (widget.data != null && widget.data.layout != null && widget.data.layout.equals(Constants.LAYOUT_BRICK)) {
 
-                            tab.list.add(createFeaturedEditorsChoice(widget.listApps.datalist.itemView, widget.actions, storeId, widget.data.layout));
+                            tab.list.add(createFeaturedEditorsChoice(widget.listApps.datalist.list, widget.actions, storeId, widget.data.layout));
                         } else {
 
                             Displayable headerRow = createHeaderRow(widget.title, widget.tag, true, widget.actions, storeId, widget.data.layout);
@@ -129,8 +132,21 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                                 tab.list.add(headerRow);
                             }
 
-                            for (ViewItem itemList : widget.listApps.datalist.itemView) {
-                                tab.list.add(createAppItem(itemList));
+                            for (ViewItem itemList : widget.listApps.datalist.list) {
+                                AppItem appItem;
+                                if (context != null && (context.equals("home") || context.equals("community"))) {
+                                    appItem = createAppItem(widget.tag, itemList);
+                                } else if (isHome("store")) {
+                                    appItem = createAppItem("store", itemList);
+                                } else {
+                                    appItem = createAppItem(itemList);
+                                }
+
+                                if (bundleTitle!=null && !TextUtils.isEmpty(bundleTitle)) {
+                                    appItem.bundleCateg = bundleTitle;
+                                    appItem.bundleSubCateg = widget.tag;
+                                }
+                                tab.list.add(appItem);
                             }
                         }
                     }
@@ -138,14 +154,15 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
                 case STORE_GROUP:
 
                     // Only create widget if it has apps
-                    if (widget.listApps.datalist.itemView != null && !widget.listApps.datalist.itemView.isEmpty()) {
+                    if (widget.listApps.datalist.list != null && !widget.listApps.datalist.list
+                            .isEmpty()) {
 
                         Displayable headerRow = createHeaderRow(widget.title, widget.tag, true, widget.actions, storeId, widget.data.layout);
                         if (headerRow != null) {
                             tab.list.add(headerRow);
                         }
 
-                        for (ViewItem itemList : widget.listApps.datalist.itemView) {
+                        for (ViewItem itemList : widget.listApps.datalist.list) {
                             tab.list.add(createStoreItem(itemList));
                         }
                     }
@@ -200,7 +217,13 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         return createAppItem(item, null);
     }
 
-    protected AppItem createAppItem(ViewItem item, AppItem appItem){
+    protected AppItem createAppItem(String origin, ViewItem item) {
+        AppItem appItem = createAppItem(item, null);
+        appItem.category = origin;
+        return appItem;
+    }
+
+    protected AppItem createAppItem(ViewItem item, AppItem appItem) {
 
         if (appItem == null) {
             appItem = new AppItem(numColumns);
@@ -225,7 +248,7 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         return appItem;
     }
 
-    protected BrickAppItem createBrickItem(ViewItem item){
+    protected BrickAppItem createBrickItem(ViewItem item) {
 
         BrickAppItem appItem = new BrickAppItem(numColumns);
         createAppItem(item, appItem);
@@ -236,31 +259,37 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
 
     /**
      * The Action with button is turned into an headerRow
-     * @param name
-     * @param hasMore
-     * @param actions
-     * @return
      */
     protected HeaderRow createHeaderRow(String name, String tag, boolean hasMore, List<Action> actions, long storeId, String layout) {
 
+        HeaderRow headerRow = null;
         if (actions != null && !actions.isEmpty()) {
             for (Action action : actions) {
-                if (action != null && action.event != null && action.event.action != null && action.type.equals("button")) {
-                    return createHeaderRow(name, tag, hasMore, action, storeId, layout);
+                if (action != null && action.event != null && action.event.action != null && action.type
+                        .equals("button")) {
+                    headerRow = createHeaderRow(name, tag, hasMore, action, storeId, layout);
                 }
             }
         } else {
-            return new HeaderRow(name, false, numColumns);
+            headerRow = new HeaderRow(name, false, numColumns);
         }
-        return null;
+
+        if (headerRow != null) {
+            headerRow.bundleCategory = bundleTitle;
+        }
+        return headerRow;
     }
 
     private HeaderRow createHeaderRow(String name, String tag, boolean hasMore, Action action, long storeId, String layout) {
-
-        HeaderRow header = new HeaderRow(name, tag, hasMore, action.event.action, action.event.type, action.event.name, layout, numColumns, storeId == Defaults.DEFAULT_STORE_ID, storeId);
+        boolean isHome = isHome("home");
+        HeaderRow header = new HeaderRow(name, tag, hasMore, action.event.action, action.event.type, action.event.name, layout, numColumns, isHome, storeId);
         header.setSpanSize(totalSpanSize);
 
         return header;
+    }
+
+    private boolean isHome(String home) {
+        return context != null && context.equals(home);
     }
 
     public Displayable createFeaturedEditorsChoice(List<ViewItem> itemList, List<Action> actions, long storeId, String layout) {
@@ -286,21 +315,21 @@ public abstract class BaseStoreRequest<T> extends RetrofitSpiceRequest<StoreHome
         List<Displayable> displayables = new ArrayList<>();
 
         for (ListViewItems.DisplayList display : list) {
-            if (isKnownType(display.event.type) && isKnownName(display.event.name)) {
-                CategoryRow categ = new CategoryRow(numColumns);
-                if (display.event.type.equals(Action.Event.API_EXTERNAL_TYPE) && (display.event.name.equals(Action.Event.EVENT_FACEBOOK_TYPE)||display.event.name.equals(Action.Event
-                        .EVENT_YOUTUBE_TYPE))) {
-                    categ.setSpanSize(totalSpanSize);
-                } else {
-                    categ.setSpanSize(totalSpanSize / 2);
-                }
-                categ.setLabel(display.label);
-                categ.setGraphic(display.graphic);
-                categ.setEventType(display.event.type);
-                categ.setEventName(display.event.name);
-                categ.setEventActionUrl(display.event.action);
-                displayables.add(categ);
+            CategoryRow categ = new CategoryRow(numColumns);
+            if (display.event.type.equals(Action.Event.API_V7_TYPE) || display.event.type.equals(Action.Event.API_V3_TYPE)) {
+                categ.setSpanSize(totalSpanSize / 2);
+            } else {
+                categ.setSpanSize(totalSpanSize);
             }
+            categ.setHomepage(isHome(context));
+            categ.setLabel(display.label);
+            categ.setGraphic(display.graphic);
+            categ.setEventType(display.event.type);
+            categ.setEventName(display.event.name);
+            categ.setEventActionUrl(display.event.action);
+            categ.setEventAltActionUrl(display.event.altAction);
+            categ.setTag(display.tag);
+            displayables.add(categ);
         }
 
         return displayables;

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout android:id="@+id/main_content"
+                                                 xmlns:android="http://schemas.android.com/apk/res/android"
                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 android:id="@+id/main_content"
+                                                 xmlns:tools="http://schemas.android.com/tools"
                                                  android:layout_width="match_parent"
                                                  android:layout_height="match_parent"
                                                  android:fitsSystemWindows="true">
@@ -32,270 +33,164 @@
                 android:fitsSystemWindows="true"
                 app:layout_collapseMode="parallax">
 
-                <FrameLayout
+                <ImageView
+                    android:id="@+id/featured_graphic"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:foreground="#80000000">
+                    android:foreground="#80000000"
+                    android:scaleType="centerCrop"
+                    tools:ignore="ContentDescription"/>
 
-                    <ImageView
-                        android:id="@+id/featured_graphic"
+                <LinearLayout
+                    android:id="@+id/black_header_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/black_header_background_height"
+                    android:layout_alignParentBottom="true"
+                    android:padding="12dp"
+                    android:background="#80000000"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="@dimen/appview_header_app_text_margin_start"
+                        android:layout_marginLeft="@dimen/appview_header_app_text_margin_start"
+                        android:layout_marginEnd="49dp"
+                        android:layout_marginRight="49dp"
+                        android:id="@+id/app_info"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop" />
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
+                        <TextView
+                            android:layout_weight="0.33"
+                            android:id="@+id/file_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableLeft="@drawable/ic_dimension"
+                            android:drawablePadding="2dp"
+                            android:drawableStart="@drawable/ic_dimension"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            tools:text="11.6 Mb"/>
+
+                        <TextView
+                            android:layout_weight="0.33"
+                            android:id="@+id/versionName"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:drawableLeft="@drawable/ic_appview_version"
+                            android:drawablePadding="2dp"
+                            android:drawableStart="@drawable/ic_appview_version"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            tools:text="16.0.1"/>
+
+                        <TextView
+                            android:layout_weight="0.33"
+                            android:id="@+id/downloads_number"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableLeft="@drawable/ic_appview_download_icon"
+                            android:drawablePadding="2dp"
+                            android:drawableStart="@drawable/ic_appview_download_icon"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            tools:text="216k"/>
+                    </LinearLayout>
+
+                    <RatingBar
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="@dimen/appview_header_app_text_margin_start"
+                        android:layout_marginLeft="@dimen/appview_header_app_text_margin_start"
+                        android:id="@+id/rating_bar_top"
+                        style="@style/RatingBarGridItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_margin="12dp"
+                    android:id="@+id/fragment_app_view_malware_rank_text"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    tools:drawableTop="@drawable/ic_badge_trusted"
+                    android:drawablePadding="-2dp"
+                    android:layout_below="@+id/fragment_app_view_security_balloon"
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:gravity="center"
+                    android:ellipsize="end"
+                    android:textAllCaps="true"
+                    tools:visibility="visible"
+                    tools:text="TRUSTED"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_small"
+                    android:visibility="invisible"/>
+
+                <ImageView
+                    android:id="@+id/app_icon"
+                    android:layout_width="@dimen/appview_header_app_image_size"
+                    android:layout_height="@dimen/appview_header_app_image_size"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="12dp"
+                    app:layout_anchor="@id/appbar"
+                    app:layout_anchorGravity="bottom|left|start"
+                    tools:ignore="contentDescription"
+                    tools:src="@drawable/icon_brand_aptoide"/>
+
+                <FrameLayout
+                    android:id="@+id/fragment_app_view_security_balloon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/fragment_app_view_malware_rank_text"
+                    android:layout_alignRight="@id/fragment_app_view_malware_rank_text"
+                    android:layout_above="@id/black_header_background"
+                    android:layout_marginBottom="-6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginLeft="@dimen/fragment_app_view_trusted_balloon_margin_start"
+                    android:layout_marginStart="@dimen/fragment_app_view_trusted_balloon_margin_start"
+                    android:background="@drawable/security_balloon_background"
+                    android:visibility="invisible"
+                    tools:visibility="visible">
+                    <include
+                        layout="@layout/balloon_security"/>
                 </FrameLayout>
 
 
-                <RelativeLayout
-                    android:id="@+id/trusted_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/black_header_background_height"
-                    android:layout_alignParentBottom="true"
-                    android:background="#80000000"
-                    android:gravity="end"
-                    android:visibility="invisible">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="13dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/ic_badge_trusted" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="@string/appview_header_trusted_text"
-                            android:textAllCaps="true"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/text_size_small" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/warning_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/black_header_background_height"
-                    android:layout_alignParentBottom="true"
-                    android:background="#80000000"
-                    android:gravity="end"
-                    android:visibility="invisible">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="13dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/ic_badge_warning" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="@string/warning"
-                            android:textAllCaps="true"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/text_size_small" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/unknown_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/black_header_background_height"
-                    android:layout_alignParentBottom="true"
-                    android:background="#80000000"
-                    android:gravity="end"
-                    android:visibility="invisible">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="13dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/ic_badge_unknown" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="@string/unknown"
-                            android:textAllCaps="true"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/text_size_small" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-
-                    <ImageView
-                        android:id="@+id/app_icon"
-                        android:layout_width="@dimen/appview_header_app_image_size"
-                        android:layout_height="@dimen/appview_header_app_image_size"
-                        app:layout_anchor="@id/appbar"
-                        app:layout_anchorGravity="bottom|left|start" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginRight="45dp">
-
-
-                        <RatingBar
-                            android:id="@+id/rating_bar_top"
-                            style="@style/RatingBarGridItem"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/appview_top_rating_top_margin"
-                            android:numStars="5" />
-
-                        <LinearLayout
-                            android:layout_width="186dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="19dp"
-                            android:gravity="bottom"
-                            android:orientation="horizontal"
-                            android:weightSum="3">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/ic_dimension" />
-
-                                <TextView
-                                    android:id="@+id/file_size"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginLeft="2dp"
-                                    android:maxLines="1"
-                                    android:maxWidth="50dp"
-                                    android:singleLine="true"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/text_size_small" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_weight="1">
-
-                                <ImageView
-                                    android:layout_width="7dp"
-                                    android:layout_gravity="center"
-                                    android:layout_height="9dp"
-                                    android:layout_marginLeft="5dp"
-                                    android:src="@drawable/ic_appview_version" />
-
-                                <TextView
-                                    android:id="@+id/versionName"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="2dp"
-                                    android:maxLines="1"
-                                    android:maxWidth="50dp"
-                                    android:singleLine="true"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/text_size_small" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginLeft="5dp"
-                                    android:src="@drawable/ic_appview_download_icon" />
-
-                                <TextView
-                                    android:id="@+id/downloads_number"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginLeft="2dp"
-                                    android:maxLines="1"
-                                    android:maxWidth="50dp"
-                                    android:singleLine="true"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/text_size_small" />
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
             </RelativeLayout>
-
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="?attr/toolbarTheme"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                app:layout_collapseMode="pin"/>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/incl_no_network_layout" />
+    <include layout="@layout/incl_no_network_layout"/>
 
-    <include layout="@layout/incl_network_error_layout" />
+    <include layout="@layout/incl_network_error_layout"/>
 
-    <include layout="@layout/incl_app_inexistant_error" />
+    <include layout="@layout/incl_app_inexistant_error"/>
 
-    <include layout="@layout/incl_custom_msg_layout" />
+    <include layout="@layout/incl_custom_msg_layout"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -306,7 +201,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:indeterminate="true" />
+            android:indeterminate="true"/>
     </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
@@ -315,7 +210,8 @@
         android:layout_height="match_parent"
         android:background="?attr/backgroundSecondary"
         android:visibility="gone"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -325,16 +221,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="?attr/backgroundMain">
+                android:background="?attr/backgroundMain"
+                android:orientation="vertical">
 
 
+                <include layout="@layout/appview_install_apps_version_row_layout"/>
 
-
-
-                <include layout="@layout/appview_install_apps_version_row_layout" />
-
-                <include layout="@layout/separator_vertical" />
+                <include layout="@layout/separator_vertical"/>
 
 
                 <LinearLayout
@@ -348,16 +241,16 @@
                         android:layout_height="wrap_content"
                         android:text="@string/description"
                         android:textAppearance="?android:textAppearanceMedium"
-                        android:textColor="@color/aptoide_orange" />
+                        android:textColor="@color/aptoide_orange"/>
 
                     <TextView
                         android:id="@+id/description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        android:textColor="?android:attr/textColorSecondary"
                         android:maxLines="@integer/minimum_description_lines"
-                        android:paddingTop="8dp" />
+                        android:paddingTop="8dp"
+                        android:textColor="?android:attr/textColorSecondary"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -377,7 +270,7 @@
                                 android:layout_height="@dimen/appview_badge_size"
                                 android:layout_marginRight="5dp"
                                 android:src="@drawable/ic_badge_market"
-                                android:visibility="gone" />
+                                android:visibility="gone"/>
 
                             <ImageView
                                 android:id="@+id/iv_signature_badge"
@@ -386,7 +279,7 @@
                                 android:layout_marginRight="5dp"
                                 android:layout_toRightOf="@id/iv_market_badge"
                                 android:src="@drawable/ic_badge_signature"
-                                android:visibility="gone" />
+                                android:visibility="gone"/>
 
                             <ImageView
                                 android:id="@+id/iv_flag_badge"
@@ -395,7 +288,7 @@
                                 android:layout_marginRight="5dp"
                                 android:layout_toRightOf="@id/iv_signature_badge"
                                 android:src="@drawable/ic_badge_flag"
-                                android:visibility="gone" />
+                                android:visibility="gone"/>
 
                             <ImageView
                                 android:id="@+id/iv_antivirus_badge"
@@ -403,7 +296,7 @@
                                 android:layout_height="@dimen/appview_badge_size"
                                 android:layout_toRightOf="@id/iv_flag_badge"
                                 android:src="@drawable/ic_badge_antivirus"
-                                android:visibility="gone" />
+                                android:visibility="gone"/>
                         </RelativeLayout>
 
 
@@ -426,14 +319,14 @@
                                 android:textAllCaps="true"
                                 android:textColor="?android:attr/textColorSecondary"
                                 android:textSize="12sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"/>
 
                             <ImageView
                                 android:id="@+id/iv_arrow"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="3dp"
-                                android:src="@drawable/ic_down_arrow" />
+                                android:src="@drawable/ic_down_arrow"/>
 
                         </LinearLayout>
 
@@ -446,26 +339,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="240dp"/>
 
-                <include layout="@layout/separator_vertical" />
+                <include layout="@layout/separator_vertical"/>
 
-                <include layout="@layout/rate_this_app_layout" />
+                <include layout="@layout/rate_this_app_layout"/>
 
-                <include layout="@layout/separator_vertical" />
+                <include layout="@layout/separator_vertical"/>
             </LinearLayout>
 
 
-            <include layout="@layout/appview_rate_and_flag_app_layout" />
+            <include layout="@layout/appview_rate_and_flag_app_layout"/>
 
             <include
                 layout="@layout/separator_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
             <include
                 android:id="@+id/middleAppViewContainer"
-                layout="@layout/middle_app_view" />
+                layout="@layout/middle_app_view"/>
 
-            <include layout="@layout/separator_vertical" />
+            <include layout="@layout/separator_vertical"/>
 
 
             <android.support.v7.widget.RecyclerView
@@ -473,7 +366,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/backgroundMain"
-                android:clipToPadding="false" />
+                android:clipToPadding="false"/>
 
             <TextView
                 android:id="@+id/see_more_comments"
@@ -490,17 +383,18 @@
                 android:textAllCaps="true"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
-            <include layout="@layout/layout_header"
-                android:layout_height="wrap_content"
+            <include
+                layout="@layout/layout_header"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/more_versions_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="180dp" />
+                android:layout_height="180dp"/>
 
 
             <TextView
@@ -512,37 +406,37 @@
                 android:layout_marginTop="5dp"
                 android:padding="@dimen/appview_developer_padding"
                 android:text="@string/developer"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"/>
 
             <TextView
                 android:id="@+id/website_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?android:attr/textColorSecondary"
                 android:drawableLeft="@drawable/ic_map_appview"
                 android:drawablePadding="8dp"
-                android:padding="@dimen/appview_developer_padding" />
+                android:padding="@dimen/appview_developer_padding"
+                android:textColor="?android:attr/textColorSecondary"/>
 
 
             <TextView
                 android:id="@+id/email_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?android:attr/textColorSecondary"
                 android:drawableLeft="@drawable/ic_mail_appview"
                 android:drawablePadding="8dp"
-                android:padding="@dimen/appview_developer_padding" />
+                android:padding="@dimen/appview_developer_padding"
+                android:textColor="?android:attr/textColorSecondary"/>
 
             <TextView
                 android:id="@+id/privacy_policy_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?android:attr/textColorSecondary"
                 android:drawableLeft="@drawable/ic_locked_appview"
                 android:drawablePadding="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:padding="@dimen/appview_developer_padding" />
+                android:padding="@dimen/appview_developer_padding"
+                android:textColor="?android:attr/textColorSecondary"/>
 
 
             <TextView
@@ -551,11 +445,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textColor="?android:attr/textColorSecondary"
                 android:drawableLeft="@drawable/ic_permissions_appview"
                 android:drawablePadding="8dp"
                 android:padding="@dimen/appview_developer_padding"
-                android:text="@string/permissions" />
+                android:text="@string/permissions"
+                android:textColor="?android:attr/textColorSecondary"/>
 
 
         </LinearLayout>

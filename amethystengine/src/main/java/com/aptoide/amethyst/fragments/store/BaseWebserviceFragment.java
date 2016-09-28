@@ -1,23 +1,12 @@
 package com.aptoide.amethyst.fragments.store;
 
-import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.ScrollView;
-import android.widget.TextView;
-
 import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.Configuration;
 import com.aptoide.amethyst.GridRecyclerFragment;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.adapter.BaseAdapter;
 import com.aptoide.amethyst.dialogs.AdultHiddenDialog;
 import com.aptoide.amethyst.models.EnumStoreTheme;
-import com.aptoide.models.displayables.StoreHeaderRow;
 import com.aptoide.amethyst.preferences.Preferences;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
@@ -30,20 +19,36 @@ import com.aptoide.dataprovider.webservices.json.review.Review;
 import com.aptoide.dataprovider.webservices.json.review.ReviewListJson;
 import com.aptoide.dataprovider.webservices.models.Constants;
 import com.aptoide.dataprovider.webservices.models.StoreHomeTab;
-import com.aptoide.models.displayables.AdItem;
-import com.aptoide.models.displayables.AdultItem;
 import com.aptoide.models.ApkSuggestionJson;
-import com.aptoide.models.displayables.Displayable;
-import com.aptoide.models.displayables.HeaderRow;
-import com.aptoide.models.displayables.ReviewRowItem;
-import com.aptoide.models.displayables.TimelineRow;
+import com.aptoide.models.displayables.AdItem;
 import com.aptoide.models.displayables.AdPlaceHolderRow;
+import com.aptoide.models.displayables.AdultItem;
+import com.aptoide.models.displayables.Displayable;
+import com.aptoide.models.displayables.DisplayableList;
+import com.aptoide.models.displayables.HeaderRow;
 import com.aptoide.models.displayables.ReviewPlaceHolderRow;
+import com.aptoide.models.displayables.ReviewRowItem;
+import com.aptoide.models.displayables.StoreHeaderRow;
 import com.aptoide.models.displayables.TimeLinePlaceHolderRow;
+import com.aptoide.models.displayables.TimelineRow;
 import com.octo.android.robospice.exception.NoNetworkException;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
+
+import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.graphics.PorterDuff;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +57,9 @@ import java.util.UUID;
 
 import com.aptoide.amethyst.adapter.BaseAdapter;
 
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.ADS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.REVIEWS_TYPE;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.TIMELINE_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.ADS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.REVIEWS_TYPE;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.TIMELINE_TYPE;
 
 /**
  * Json example for this kind of tab:
@@ -90,7 +95,6 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
     protected String sponsoredCache;  //used only on HomeFragment
     protected int offset, total;
 
-
     protected RequestListener<StoreHomeTab> listener = new RequestListener<StoreHomeTab>() {
         @Override
         public void onRequestFailure(SpiceException spiceException) {
@@ -113,6 +117,33 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                 displayableList.add(getStoreHeaderRow(tab));
             }
 
+//red-aula-store change category location
+            if(isHomePage() && storeName.equals("red-aula-store")) {
+
+                DisplayableList t = new DisplayableList();
+                DisplayableList categories = new DisplayableList();
+                t.addAll(tab.list);
+                tab.list.clear();
+
+                for (Displayable row : t) {
+                    if (row.toString().contains("Category")) {
+                        categories.add(row);
+                    }
+                }
+
+                tab.list.add(t.get(0));
+
+                for (Displayable row : categories) {
+                    tab.list.add(row);
+                }
+
+                for (Displayable row : t) {
+                    if (!categories.contains(row) && row != t.get(0)) {
+                        tab.list.add(row);
+                    }
+                }
+            }
+
             displayableList.addAll(tab.list);
 
             if (isHomePage() && Aptoide.getConfiguration().isMature()) {
@@ -125,15 +156,15 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
-            for (Displayable row : tab.list) {
 
+            for (Displayable row : tab.list) {
                 if (row instanceof ReviewPlaceHolderRow) {
-                    executeReviewsSpiceRequest();
-                } else if (row instanceof AdPlaceHolderRow) {
-                    executeAdsSpiceRequest();
-                } else if (row instanceof TimeLinePlaceHolderRow && Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
-                    executeTimelineRequest();
-                }
+                        executeReviewsSpiceRequest();
+                    } else if (row instanceof AdPlaceHolderRow) {
+                        executeAdsSpiceRequest();
+                    } else if (row instanceof TimeLinePlaceHolderRow && Aptoide.getConfiguration().getDefaultStore().equals("apps")) {
+                        executeTimelineRequest();
+                    }
             }
 
             // total and new offset is red here
@@ -261,7 +292,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                         }
 
 
-                        HeaderRow header = new HeaderRow(getString(R.string.friends_installs), true, TIMELINE_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
+                        HeaderRow header = new HeaderRow(getString(R.string.friends_installs), "friends_installs", true, TIMELINE_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
                         displayableList.set(index++, header);
 
                         for (int i = 0; i < timelineListAPKsJson.usersapks.size(); i++) {
@@ -326,13 +357,13 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                         return;
 
 
-                    HeaderRow header = new HeaderRow(getString(R.string.highlighted_apps), true, ADS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
+                    HeaderRow header = new HeaderRow(getString(R.string.highlighted_apps), "Highlighted", true, ADS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
                     displayableList.set(index++, header);
 
                     for (int i = 0; i < apkSuggestionJson.ads.size(); i++) {
                         ApkSuggestionJson.Ads ad = apkSuggestionJson.ads.get(i);
 
-                        AdItem adItem = getAdItem(ad);
+                        AdItem adItem = getAdItem(ad, "Highlighted");
 
                         displayableList.add(index++, adItem);
                     }
@@ -386,7 +417,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
                         return;
 
 
-                    HeaderRow header = new HeaderRow(getString(R.string.more_reviews), true, REVIEWS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
+                    HeaderRow header = new HeaderRow(getString(R.string.more_reviews), "Reviews", true, REVIEWS_TYPE, BUCKET_SIZE, isHomePage(), getStoreId());
                     displayableList.set(index++, header);
 
                     for (Review review : reviewListJson.reviews) {
@@ -490,7 +521,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
     }
 
     @NonNull
-    protected AdItem getAdItem(ApkSuggestionJson.Ads ad) {
+    protected AdItem getAdItem(ApkSuggestionJson.Ads ad, String category) {
         AdItem adItem = new AdItem(BUCKET_SIZE);
         adItem.setSpanSize(2);
         adItem.appName = ad.data.name;
@@ -504,6 +535,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         adItem.cpdUrl = ad.info.cpd_url;
         adItem.partnerName = ad.partner != null ? ad.partner.partnerInfo.name : null;
         adItem.partnerClickUrl = ad.partner != null ? ad.partner.partnerData.click_url : null;
+        adItem.category = category;
         return adItem;
     }
 
@@ -531,7 +563,7 @@ public abstract class BaseWebserviceFragment extends GridRecyclerFragment {
         }
         if (icon.contains("_icon")) {
             String[] splittedUrl = icon.split("\\.(?=[^\\.]+$)");
-            icon = splittedUrl[0] + "_" + IconSizeUtils.generateSizeString(getContext()) + "." + splittedUrl[1];
+            icon = splittedUrl[0] + "_" + IconSizeUtils.generateSizeString() + "." + splittedUrl[1];
         }
         return icon;
     }

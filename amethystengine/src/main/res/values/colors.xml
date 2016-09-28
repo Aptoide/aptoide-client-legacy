@@ -134,4 +134,6 @@
 
     <color name="separators_grey">#DDD</color>
 
+    <color name="dialog_body_text">#9b9b9b</color>
+    <color name="dialog_title_text">#666666</color>
 </resources>

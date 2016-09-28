@@ -1,7 +1,9 @@
 package com.aptoide.models.displayables;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.aptoide.models.IHasMore;
-import com.aptoide.models.displayables.Displayable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -18,8 +20,9 @@ public class HeaderRow extends Displayable implements IHasMore {
     private final String layout;
 
     @JsonIgnore    public String theme;
-    @JsonIgnore    public boolean homepage;
+    public boolean homepage;
     @JsonIgnore    public long storeId;
+    public String bundleCategory;
 
     public HeaderRow(String label, String tag, boolean hasMore, String eventActionUrl, String eventType, String eventName, String layout, int bucketSize, boolean homepage, long storeId) {
         super(bucketSize);
@@ -32,6 +35,10 @@ public class HeaderRow extends Displayable implements IHasMore {
         this.layout = layout;
         this.homepage = homepage;
         this.storeId = storeId;
+    }
+
+    public HeaderRow(String label, String tag, boolean hasMore, String eventName, int bucketSize, boolean homepage, long storeId) {
+        this(label, tag, hasMore, "", "", eventName, "", bucketSize, homepage, storeId);
     }
 
     public HeaderRow(String label, boolean hasMore, String eventName, int bucketSize, boolean homepage, long storeId) {
@@ -62,6 +69,54 @@ public class HeaderRow extends Displayable implements IHasMore {
     }
 
 
+    protected HeaderRow(Parcel in) {
+        super(in);
+        label = in.readString();
+        tag = in.readString();
+        hasMore = in.readByte() != 0;
+        eventActionUrl = in.readString();
+        eventType = in.readString();
+        eventName = in.readString();
+        layout = in.readString();
+        theme = in.readString();
+        homepage = in.readByte() != 0;
+        storeId = in.readLong();
+        bundleCategory = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeString(label);
+        dest.writeString(tag);
+        dest.writeByte((byte) (hasMore ? 1 : 0));
+        dest.writeString(eventActionUrl);
+        dest.writeString(eventType);
+        dest.writeString(eventName);
+        dest.writeString(layout);
+        dest.writeString(theme);
+        dest.writeByte((byte) (homepage ? 1 : 0));
+        dest.writeLong(storeId);
+        dest.writeString(bundleCategory);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<HeaderRow> CREATOR = new Creator<HeaderRow>() {
+        @Override
+        public HeaderRow createFromParcel(Parcel in) {
+            return new HeaderRow(in);
+        }
+
+        @Override
+        public HeaderRow[] newArray(int size) {
+            return new HeaderRow[size];
+        }
+    };
+
     @Override
     public int getSpanSize() {
         return FULL_ROW;
@@ -82,6 +137,11 @@ public class HeaderRow extends Displayable implements IHasMore {
 
     public String getEventActionUrl() {
         return eventActionUrl;
+    }
+
+    @Override
+    public String getAltEventActionUrl() {
+        return null;
     }
 
     public String getEventType() {

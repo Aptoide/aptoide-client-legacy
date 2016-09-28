@@ -1,5 +1,25 @@
 package com.aptoide.amethyst.ui.dialogs;
 
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.dialogs.ProgressDialogFragment;
+import com.aptoide.amethyst.events.BusProvider;
+import com.aptoide.amethyst.events.OttoEvents;
+import com.aptoide.amethyst.requests.CheckServerRequest;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.IconSizeUtils;
+import com.aptoide.amethyst.webservices.ChangeUserRepoSubscription;
+import com.aptoide.dataprovider.AptoideSpiceHttpService;
+import com.aptoide.dataprovider.webservices.GetSimpleStoreRequest;
+import com.aptoide.dataprovider.webservices.models.BulkResponse;
+import com.aptoide.models.stores.Login;
+import com.aptoide.models.stores.Store;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
+
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,29 +33,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.analytics.Analytics;
-import com.aptoide.amethyst.database.AptoideDatabase;
-import com.aptoide.amethyst.dialogs.ProgressDialogFragment;
-import com.aptoide.amethyst.events.BusProvider;
-import com.aptoide.amethyst.events.OttoEvents;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.IconSizeUtils;
-import com.aptoide.amethyst.webservices.ChangeUserRepoSubscription;
-import com.aptoide.dataprovider.AptoideSpiceHttpService;
-import com.aptoide.dataprovider.webservices.GetSimpleStoreRequest;
-import com.aptoide.dataprovider.webservices.models.BulkResponse;
-import com.aptoide.models.stores.Login;
-import com.aptoide.models.stores.Store;
-import com.octo.android.robospice.SpiceManager;
-import com.octo.android.robospice.persistence.exception.SpiceException;
-import com.octo.android.robospice.request.listener.RequestListener;
-
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-
-import com.aptoide.amethyst.requests.CheckServerRequest;
 
 //TODO BusProvider, onStart
 /**
@@ -131,7 +130,10 @@ public class AddStoreDialog extends DialogFragment {
                         fragment.setTargetFragment(AddStoreDialog.this, 20);
                         fragment.show(getFragmentManager(), PasswordDialog.FRAGMENT_TAG);
 
-                    }else{
+                    }else if (response.errors.get(0).code.equals("STORE-1")) {
+                        Toast.makeText(Aptoide.getContext(), R.string.error_REPO_1, Toast.LENGTH_LONG)
+                                .show();
+                    } else {
                         Toast.makeText(Aptoide.getContext(), R.string.error_occured, Toast.LENGTH_LONG).show();
 
                     }
@@ -145,7 +147,7 @@ public class AddStoreDialog extends DialogFragment {
                     store.setDownloads(response.datasets.meta.data.downloads.intValue() + "");
 
 
-                    String sizeString = IconSizeUtils.generateSizeStringAvatar(getActivity());
+                    String sizeString = IconSizeUtils.generateSizeStringAvatar();
 
 
                     String avatar = data.avatar;

@@ -44,13 +44,14 @@ import java.util.HashMap;
 
 
 import com.aptoide.amethyst.openiab.webservices.BasePurchaseStatusRequest;
+import com.aptoide.amethyst.openiab.webservices.IabPurchaseStatusRequest;
+import com.aptoide.amethyst.openiab.webservices.PaidAppPurchaseStatusRequest;
 import com.aptoide.amethyst.openiab.webservices.PayProductRequestBase;
 import com.aptoide.amethyst.openiab.webservices.PayProductRequestPayPal;
 import com.aptoide.amethyst.openiab.webservices.PayProductRequestUnitel;
 import com.aptoide.amethyst.openiab.webservices.PaypalPurchaseAuthorizationRequest;
 import com.aptoide.amethyst.openiab.webservices.json.IabPurchaseStatusJson;
 import com.aptoide.amethyst.openiab.webservices.json.IabSimpleResponseJson;
-
 
 public abstract class BasePurchaseActivity extends ActionBarActivity implements Callback {
 
@@ -85,7 +86,7 @@ public abstract class BasePurchaseActivity extends ActionBarActivity implements 
         config = new PayPalConfiguration()
                 .environment(CONFIG_ENVIRONMENT)
                 .clientId(CONFIG_CLIENT_ID)
-                        // The following are only used in PayPalFuturePaymentActivity.
+                // The following are only used in PayPalFuturePaymentActivity.
                 .merchantName("Aptoide");
     }
 
@@ -403,57 +404,7 @@ public abstract class BasePurchaseActivity extends ActionBarActivity implements 
                 } else {
                     Toast.makeText(BasePurchaseActivity.this, R.string.error_occured, Toast.LENGTH_LONG).show();
                 }
-                break;/*
-            case FORTUMO_CODE:
-                Log.d("pois","Request Code FORTUMO_CODE");
-                if (resultCode == RESULT_OK) {
-
-                    boolean isconsumable = data.getBooleanExtra(FortumoPaymentActivity.RESULT_EXTRA_ISCONSUMABLE_BOOL,false);
-                    String payCode = data.getStringExtra(FortumoPaymentActivity.RESULT_EXTRA_PAYCODE_STRING);
-                    int prodID = data.getIntExtra(FortumoPaymentActivity.RESULT_EXTRA_PRODID_INT,0);
-
-                    Log.d("pois","prodID: "+prodID);
-                    Log.d("pois","payCode: "+payCode);
-                    Log.d("pois","isconsumable: "+isconsumable);
-                    BasePurchaseStatusRequest request = isconsumable ? new IabPurchaseStatusRequest() : new PaidAppPurchaseStatusRequest();
-                    request.setPayKey(payCode);
-                    request.setProductId(prodID);
-                    request.setPayreqtype("notification");
-
-                    Log.d("pois", "request built");
-
-                    spiceManager.execute(request, 1, DurationInMillis.ALWAYS_EXPIRED, new PurchaseRequestListener());
-
-//                    spiceManager.execute(request,1, DurationInMillis.ALWAYS_EXPIRED,new RequestListener<IabPurchaseStatusJson>(){
-//
-//                        @Override
-//                        public void onRequestFailure(SpiceException spiceException) {
-//                            Log.d("pois", "RequestListener onRequestFailure");
-//                            setResult(RESULT_CANCELED);
-//                            finish();
-//                        }
-//
-//                        @Override
-//                        public void onRequestSuccess(IabPurchaseStatusJson iabPurchaseStatusJson) {
-//                            Log.d("pois", "RequestListener onRequestSuccess");
-//
-//                            if("OK".equals(iabPurchaseStatusJson.getStatus())){
-//                                Log.d("pois", "RequestListener onOK");
-//                                Intent i = new Intent();
-//                                i.putExtra("Package",packageName);
-//                                Log.d("pois", "Fortumo Result ok.");
-//                                setResult(RESULT_OK,i);
-//                            }else {
-//                                setResult(RESULT_CANCELED);
-//                            }
-//                            finish();
-//                        }
-//                    });
-
-                }*/
-                //else{
-                  //  Toast.makeText(BasePurchaseActivity.this, R.string.error_occured, Toast.LENGTH_LONG).show();
-                //}
+                break;
 
         }
     }
@@ -641,26 +592,13 @@ public abstract class BasePurchaseActivity extends ActionBarActivity implements 
         final TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         final DecimalFormat df = new DecimalFormat("######.#");
         telephonyPayment(service,paymentMethodsLayout, R.layout.button_unitel,new UnitelPurchaseListener(getSupportFragmentManager(),
-                            String.valueOf(service.getPrice()),
-                            telephonyManager.getSimOperatorName(),
-                            service.getName(),
-                            service.getId(), telephonyManager.getSubscriberId(),
-                            service.getCurrency(),
-                            df.format(service.getPrice())));
-    }/*
-    protected void caseFortumo(final int id,final PaymentServices service,LinearLayout paymentMethodsLayout){
-        telephonyPayment(service,paymentMethodsLayout,R.layout.button_fortumo,new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Intent i = new Intent(getBaseContext(), FortumoPaymentActivity.class);
-                i.putExtra(FortumoPaymentActivity.EXTRA_ID,id);
-                i.putExtra(FortumoPaymentActivity.EXTRA_PAYMENTSERVICE,service);
-                i.putExtra(FortumoPaymentActivity.EXTRA_ISCONSUMABLE,true);
-                Log.d("pois", "clicked on fortumo!");
-                startActivityForResult(i,FORTUMO_CODE);
-            }
-        });
-    }*/
+                String.valueOf(service.getPrice()),
+                telephonyManager.getSimOperatorName(),
+                service.getName(),
+                service.getId(), telephonyManager.getSubscriberId(),
+                service.getCurrency(),
+                df.format(service.getPrice())));
+    }
 
     private double parsePaypalPayment(String str) {
         int start = str.indexOf('$') + 1;

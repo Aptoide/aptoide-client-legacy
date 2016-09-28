@@ -16,12 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"/>
 
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:id="@+id/manual_reviewed_message_layout"
-            layout="@layout/app_manual_reviewed_message_layout" />
+
     </RelativeLayout>
 
     <include layout="@layout/appview_rating_indicator"

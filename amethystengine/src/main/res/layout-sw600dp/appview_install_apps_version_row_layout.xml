@@ -107,6 +107,7 @@
             android:layout_gravity="center_vertical"
             android:weightSum="2">
 
+
             <ProgressBar
                 android:id="@+id/downloading_progress"
                 style="?android:attr/progressBarStyleHorizontal"
@@ -114,7 +115,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btinstallshare"
                 android:layout_toLeftOf="@+id/actionContainer"
-                android:layout_marginTop="30dp"
                 android:indeterminate="true" />
 
             <TextView

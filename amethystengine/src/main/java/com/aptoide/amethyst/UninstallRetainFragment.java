@@ -13,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.database.schema.Schema;
 import com.aptoide.amethyst.dialogs.AptoideDialog;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Logger;
@@ -33,6 +34,7 @@ public class UninstallRetainFragment extends Fragment {
     private String packageName;
     private String versionName;
     private String iconPath;
+    private String isTrusted;
 
     private String versionToDowngrade;
     private RollBackItem.Action rollBackAction;
@@ -109,6 +111,7 @@ public class UninstallRetainFragment extends Fragment {
                     versionName = c.getString(c.getColumnIndex("version_name"));
                     String icon = c.getString(c.getColumnIndex("icon"));
                     String repoIconPath = c.getString(c.getColumnIndex("iconpath"));
+                    isTrusted = c.getString(c.getColumnIndex(Schema.RollbackTbl.COLUMN_IS_TRUSTED));
                     iconPath = repoIconPath + icon;
                 }
 
@@ -118,7 +121,7 @@ public class UninstallRetainFragment extends Fragment {
 
                         apkMd5 = calcApkMd5(packageName);
 
-                        rollBackItem = new RollBackItem(appName, packageName, versionToDowngrade, versionName, iconPath, null, apkMd5, null, "");
+                        rollBackItem = new RollBackItem(appName, packageName, versionToDowngrade, versionName, iconPath, null, apkMd5, null, "",isTrusted);
 
                         break;
 
@@ -128,7 +131,7 @@ public class UninstallRetainFragment extends Fragment {
                         if (db.getUnistallingActionMd5(packageName) == null) {
                             apkMd5 = calcApkMd5(packageName);
                         }
-                        rollBackItem = new RollBackItem(appName, packageName, versionName, null, iconPath, null, apkMd5, RollBackItem.Action.UNINSTALLING, "");
+                        rollBackItem = new RollBackItem(appName, packageName, versionName, null, iconPath, null, apkMd5, RollBackItem.Action.UNINSTALLING, "",isTrusted);
                         break;
                 }
 
