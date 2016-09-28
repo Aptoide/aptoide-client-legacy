@@ -247,6 +247,9 @@ public class UpdatesService extends Service {
         int updates = 0;
         Cursor data = null;
         int icon = R.mipmap.ic_launcher;
+        if(Aptoide.getConfiguration().getDefaultStore().contains("qmobile")){
+            icon = R.drawable.ic_launcher;
+        }
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         try {
             data = new AptoideDatabase(Aptoide.getDb()).getUpdates();
