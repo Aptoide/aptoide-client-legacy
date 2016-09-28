@@ -50,6 +50,9 @@ public class DownloadInfoRunnable implements Runnable, Serializable {
     private long mProgress = 0;
     private boolean isPaused = false;
     private boolean update;
+    private String installType;
+    private long appId;
+    private long currentTime;
 
     private transient NotificationCompat.Builder mBuilder;
     private String mDestination;
@@ -115,6 +118,7 @@ public class DownloadInfoRunnable implements Runnable, Serializable {
                         // ETA (milliseconds) = remaining byte size / bytes per millisecond (bytes per second * 1000)
                         mETA = (mReaminingSize - mDownloadedSize) * 1000 / mAvgSpeed;
                     }
+                    currentTime = System.currentTimeMillis() - iMFirstTime;
                     Log.d("DownloadManager", "ETA: " + mETA + " Speed: " + mSpeed / 1000 + " Size: " + DownloadUtils.formatBytes(mSize) + " Downloaded: " + DownloadUtils.formatBytes(mDownloadedSize) + " Status: " + mStatusState + " TotalDownloaded: " + DownloadUtils.formatBytes(mProgress) + " " + System.identityHashCode(DownloadInfoRunnable.this));
 
                     download.setSpeed(getSpeed());
@@ -399,4 +403,27 @@ public class DownloadInfoRunnable implements Runnable, Serializable {
         this.mStatusState = statusState;
     }
 
+    public String getInstallType() {
+        return installType;
+    }
+
+    public void setInstallType(String installType) {
+        this.installType = installType;
+    }
+
+    public Long getAppId() {
+        return appId;
+    }
+
+    public void setAppId(Long appId) {
+        this.appId = appId;
+    }
+
+    public long getCurrentTime() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(long currentTime) {
+        this.currentTime = currentTime;
+    }
 }

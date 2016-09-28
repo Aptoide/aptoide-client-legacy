@@ -494,6 +494,8 @@ public class DownloadService extends Service {
             install_type = "fresh";
         }
 
+        info.setAppId(apk.getId());
+        info.setInstallType(install_type);
         info.setUpdate(update);
         downloads.put(info.getId(), info);
         NotificationCompat.Builder builder = setNotification(info.getId());
@@ -799,6 +801,7 @@ public class DownloadService extends Service {
                     ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).notify(-3, mBuilder.build());
                 } catch (Exception e) {
                     Logger.printException(e);
+                    IndusAnalytics.downloadReportIntent(info.getFailReason().name(),true,info.getCurrentTime(),info.getAppId(),info.getDownload().getPackageName(),info.getInstallType(), getBaseContext());
                 }
                 return;
             }
