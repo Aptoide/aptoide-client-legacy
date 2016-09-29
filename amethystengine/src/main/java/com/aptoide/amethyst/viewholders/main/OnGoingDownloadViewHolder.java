@@ -44,7 +44,9 @@ public class OnGoingDownloadViewHolder extends DownloadViewHolder {
                 if(download.getDownloadState().equals(EnumState.PENDING)){
                     beforeDownloadAsStarted = true;
                 }
-                //IndusAnalytics.cancelClickedIntent(download.getProgress(),beforeDownloadAsStarted,"download_time",download.getVersion(),download.getId(),download.getPackageName(),"install_type",IndusAnalytics.getContext());
+                IndusAnalytics.cancelClickedIntent(download.getProgress(),beforeDownloadAsStarted,
+                    download.getParent().getCurrentTime(),download.getVersion(),download.getParent().getAppId(),
+                    download.getPackageName(),download.getParent().getInstallType(),IndusAnalytics.getContext());
             }
         });
 

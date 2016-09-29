@@ -27,6 +27,7 @@ public class IndusAnalytics {
   private static final String DOWNLOAD_TIME = INIT_EXTRA+"download_time";                       //Long
   private static final String DOWNLOAD_PERCENT = INIT_EXTRA+"download_percent";                 //Double
   private static final String BEFORE_DOWNLOAD_START = INIT_EXTRA+"before_download_start";       //boolean
+  private static final String APK_PATH = INIT_EXTRA+"apk_path";                                 //they haven't described it yet
   private static Context context;
 
   /**
@@ -42,7 +43,7 @@ public class IndusAnalytics {
       Long item_id, String package_name, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(INDUS_DEFAULT_STORE);
-      indusIntent.putExtra(TITLE,"Test");
+      indusIntent.putExtra(TITLE,"install_clicked");
       indusIntent.putExtra(DOWNLOAD_SIZE,download_size);
       indusIntent.putExtra(INSTALL_TYPE,install_type);
       if(price!=null)
@@ -68,7 +69,7 @@ public class IndusAnalytics {
       String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
-      indusIntent.putExtra(TITLE,"Test");
+      indusIntent.putExtra(TITLE,"download_start");
       indusIntent.putExtra(SUCCESS,success);
       indusIntent.putExtra(VERSION_CODE,version_code);
       indusIntent.putExtra(ITEM_ID, item_id);
@@ -92,7 +93,7 @@ public class IndusAnalytics {
       Long item_id, String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
-      indusIntent.putExtra(TITLE,"Test");
+      indusIntent.putExtra(TITLE,"download_report");
       indusIntent.putExtra(REASON,reason);
       indusIntent.putExtra(SUCCESS,success);
       indusIntent.putExtra(DOWNLOAD_TIME,download_time);
@@ -122,7 +123,7 @@ public class IndusAnalytics {
       Long download_time, String version_code, Long item_id, String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
-      indusIntent.putExtra(TITLE,"Test");
+      indusIntent.putExtra(TITLE,"cancel_clicked");
       indusIntent.putExtra(DOWNLOAD_PERCENT,download_percent);
       indusIntent.putExtra(BEFORE_DOWNLOAD_START,before_download_start);
       indusIntent.putExtra(DOWNLOAD_TIME,download_time);
@@ -130,6 +131,21 @@ public class IndusAnalytics {
       indusIntent.putExtra(ITEM_ID,item_id);
       indusIntent.putExtra(PACKAGE_NAME,package_name);
       indusIntent.putExtra(INSTALL_TYPE,install_type);
+      context.sendBroadcast(indusIntent);
+      // TODO: 29/09/16 item id on updates is 0
+    }
+  }
+
+  /**
+   *
+   * @param apk_path
+   * @param context
+   */
+  public static void apkPathIntent(String apk_path, Context context){
+    if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
+      Intent indusIntent = new Intent(ACTION);
+      indusIntent.putExtra(TITLE,"apk_path");
+      indusIntent.putExtra(APK_PATH,apk_path);
       context.sendBroadcast(indusIntent);
     }
   }
