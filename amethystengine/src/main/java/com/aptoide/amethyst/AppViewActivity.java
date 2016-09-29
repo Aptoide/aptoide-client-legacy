@@ -1104,7 +1104,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
 			super.onCreateOptionsMenu(menu, inflater);
 			inflater.inflate(R.menu.menu_appview_activity, menu);
-			SearchManager.setupSearch(menu, getActivity());
+			//SearchManager.setupSearch(menu, getActivity());
 		}
 
 		@Override
@@ -1113,7 +1113,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			if (i == android.R.id.home) {
 				getActivity().onBackPressed();
 				return true;
-			} else if (i == R.id.menu_share) {
+			} /*else if (i == R.id.menu_share) {
 				//FlurryAgent.logEvent("App_View_Clicked_On_Share_Button");
 
 				Intent sharingIntent = new Intent(Intent.ACTION_SEND);
@@ -1128,7 +1128,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			} else if (i == R.id.menu_schedule) {
 				new AptoideDatabase(Aptoide.getDb()).scheduledDownloadIfMd5(packageName, md5sum,
 						versionName, storeName, appName, iconUrl);
-			}
+			}*/
 
 			return super.onOptionsItemSelected(item);
 		}
