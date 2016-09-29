@@ -321,7 +321,14 @@ public class MoreSearchActivity extends MoreActivity {
                 int notifyItemCount = 0;
                 if (appsOffset == 0) {
                     if (isStoreSearch()) {
-                        displayables.add(0, new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, storeName), false, BUCKET_SIZE));
+                        /*if(Aptoide.getConfiguration().getDefaultStore().contains("qmobile")){
+                            displayables.add(0, new HeaderRow(
+                                AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName()), false, BUCKET_SIZE));
+                        }
+                        else*/
+                            displayables.add(0, new HeaderRow(
+                                AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, storeName), false, BUCKET_SIZE));
+
                     } else {
                         displayables.add(0, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                     }
