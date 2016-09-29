@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.services;
 
+import android.graphics.BitmapFactory;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -301,6 +302,8 @@ public class UpdatesService extends Service {
                 PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                 Notification notification = new NotificationCompat.Builder(this)
                         .setSmallIcon(icon)
+                        .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),
+                            R.mipmap.ic_larger_icon))
                         .setContentTitle(contentTitle)
                         .setContentText(contentText)
                         .setContentIntent(contentIntent)
