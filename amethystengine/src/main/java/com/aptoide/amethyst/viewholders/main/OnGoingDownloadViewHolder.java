@@ -6,7 +6,9 @@ import android.view.View;
 import com.aptoide.amethyst.R;
 import com.aptoide.amethyst.downloadmanager.adapter.OngoingDownloadRow;
 import com.aptoide.amethyst.downloadmanager.model.Download;
+import com.aptoide.amethyst.downloadmanager.state.EnumState;
 import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.IndusAnalytics;
 import com.aptoide.models.displayables.Displayable;
 import com.bumptech.glide.Glide;
 
@@ -38,6 +40,11 @@ public class OnGoingDownloadViewHolder extends DownloadViewHolder {
             @Override
             public void onClick(View v) {
                 download.getParent().remove(false);
+                boolean beforeDownloadAsStarted = false;
+                if(download.getDownloadState().equals(EnumState.PENDING)){
+                    beforeDownloadAsStarted = true;
+                }
+                //IndusAnalytics.cancelClickedIntent(download.getProgress(),beforeDownloadAsStarted,"download_time",download.getVersion(),download.getId(),download.getPackageName(),"install_type",IndusAnalytics.getContext());
             }
         });
 
