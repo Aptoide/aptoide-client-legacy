@@ -241,6 +241,7 @@ public class DownloadInfoRunnable implements Runnable, Serializable {
         if (downloadExecutor != null) {
             for (DownloadModel file : mFilesToDownload) {
                 if (file.isAutoExecute()) {
+                    IndusAnalytics.apkPathIntent(file.getDestination(),IndusAnalytics.getContext());
                     downloadExecutor.execute();
                 }
             }

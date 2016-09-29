@@ -26,6 +26,7 @@ import com.aptoide.amethyst.events.BusProvider;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.services.UpdatesService;
 import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.IndusAnalytics;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.HeaderRow;
@@ -71,6 +72,7 @@ public class UpdatesFragment extends GridRecyclerFragment {
             });
         }
         BUCKET_SIZE = AptoideUtils.UI.getEditorChoiceBucketSize();
+        IndusAnalytics.setContext(getContext());
     }
 
     @Override
