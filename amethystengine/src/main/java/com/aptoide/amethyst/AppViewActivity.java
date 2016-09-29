@@ -2799,6 +2799,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				args.putString("icon", icon);
 				downgrade.setArguments(args);
 
+				IndusAnalytics.setContext(getContext());
 				IndusAnalytics.installClickedIntent(fileSize, "downgrade", appPrice, appId, packageName, getContext());
 				getFragmentManager().beginTransaction().add(downgrade, "downgrade").commit();
 			}
@@ -2870,6 +2871,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				} catch (PackageManager.NameNotFoundException e) {
 					install_type = "fresh";
 				}
+				IndusAnalytics.setContext(getContext());
 				IndusAnalytics.installClickedIntent(fileSize,install_type, appPrice, appId, packageName, getContext());
 					installApp();
 				//}

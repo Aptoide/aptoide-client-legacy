@@ -33,6 +33,7 @@ import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.downloadmanager.model.DownloadModel;
 import com.aptoide.amethyst.downloadmanager.model.FinishedApk;
 import com.aptoide.amethyst.downloadmanager.state.ActiveState;
+import com.aptoide.amethyst.downloadmanager.state.EnumState;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.IconSizeUtils;
 import com.aptoide.amethyst.utils.IndusAnalytics;
@@ -463,7 +464,7 @@ public class DownloadService extends Service {
             else {
                 Toast.makeText(context, context.getString(R.string.data_usage_constraint), Toast.LENGTH_LONG).show();
             }
-            IndusAnalytics.downloadStartIntent(false, apk.getVersion(), apk.getId(), download.getPackageName(), "TODO", context);
+            IndusAnalytics.downloadStartIntent(false, download.getVersion(), apk.getId(), download.getPackageName(), "TODO", context);
             return;
         }
 
@@ -509,7 +510,7 @@ public class DownloadService extends Service {
 
         startIfStopped();
         Toast.makeText(context, context.getString(R.string.starting_download), Toast.LENGTH_LONG).show();
-        IndusAnalytics.downloadStartIntent(true, apk.getVersion(), apk.getId(), download.getPackageName(), install_type, getBaseContext());
+        IndusAnalytics.downloadStartIntent(true, info.getDownload().getVersion(), apk.getId(), download.getPackageName(), install_type, getBaseContext());
     }
 
     private TimerTask getTask() {
@@ -577,7 +578,11 @@ public class DownloadService extends Service {
 
         DownloadInfoRunnable info = getDownload(id);
         info.remove(true);
-
+        boolean beforeDownloadAsStarted = false;
+        if(info.getStatusState().equals(EnumState.PENDING)){
+            beforeDownloadAsStarted = true;
+        }
+        IndusAnalytics.cancelClickedIntent(info.getDownload().getProgress(),beforeDownloadAsStarted,info.getCurrentTime(),info.getDownload().getVersion(),info.getAppId(),info.getDownload().getPackageName(),info.getInstallType(),getBaseContext());
     }
 
 

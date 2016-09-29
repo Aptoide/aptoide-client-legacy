@@ -2,6 +2,7 @@ package com.aptoide.amethyst.downloadmanager.state;
 
 import com.aptoide.amethyst.downloadmanager.DownloadInfoRunnable;
 import com.aptoide.amethyst.downloadmanager.EnumDownloadFailReason;
+import com.aptoide.amethyst.utils.IndusAnalytics;
 
 /**
  * The error state represents the status of a download object when it has failed to download.
@@ -26,6 +27,7 @@ public class ErrorState extends StatusState {
 	 */
 	public ErrorState(DownloadInfoRunnable downloadInfoRunnable, EnumDownloadFailReason errorMessage) {
 		super(downloadInfoRunnable);
+		IndusAnalytics.downloadReportIntent(errorMessage.toString(IndusAnalytics.getContext()),false,downloadInfoRunnable.getCurrentTime(),downloadInfoRunnable.getAppId(),downloadInfoRunnable.getDownload().getPackageName(),downloadInfoRunnable.getInstallType(),IndusAnalytics.getContext());
 		mErrorMessage = errorMessage;
 	}
 

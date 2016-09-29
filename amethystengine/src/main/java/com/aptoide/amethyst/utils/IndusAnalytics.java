@@ -14,17 +14,20 @@ public class IndusAnalytics {
   private static final String INDUS_DEFAULT_STORE = "indus";
 
   //EXTRAS
-  private static final String DOWNLOAD_SIZE = "download_size";
-  private static final String INSTALL_TYPE = "install_type";
-  private static final String PRICE = "price";
-  private static final String ITEM_ID = "item_id";
-  private static final String PACKAGE_NAME = "package_name";
-  private static final String SUCCESS = "success";
-  private static final String VERSION_CODE = "version_code";
-  private static final String REASON = "reason";
-  private static final String DOWNLOAD_TIME = "download_time";
-  private static final String DOWNLOAD_PERCENT = "download_percent";
-  private static final String BEFORE_DOWNLOAD_START = "before_download_start";
+  private static final String INIT_EXTRA = "com.mofirst.playstore.extra.";
+  private static final String TITLE = INIT_EXTRA+"EVENT_TITLE";                                 //String
+  private static final String DOWNLOAD_SIZE = INIT_EXTRA+"download_size";                       //
+  private static final String INSTALL_TYPE = INIT_EXTRA+"install_type";                         //String
+  private static final String PRICE = INIT_EXTRA+"price";                                       //String
+  private static final String ITEM_ID = INIT_EXTRA+"item_id";                                   //String
+  private static final String PACKAGE_NAME = INIT_EXTRA+"package_name";                         //String
+  private static final String SUCCESS = INIT_EXTRA+"success";                                   //boolean
+  private static final String VERSION_CODE = INIT_EXTRA+"version_code";                         //Long
+  private static final String REASON = INIT_EXTRA+"reason";                                     //String
+  private static final String DOWNLOAD_TIME = INIT_EXTRA+"download_time";                       //Long
+  private static final String DOWNLOAD_PERCENT = INIT_EXTRA+"download_percent";                 //Double
+  private static final String BEFORE_DOWNLOAD_START = INIT_EXTRA+"before_download_start";       //boolean
+  private static Context context;
 
   /**
    *Intent called when user clicks the Download/Update/Downgrade button
@@ -39,6 +42,7 @@ public class IndusAnalytics {
       Long item_id, String package_name, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(INDUS_DEFAULT_STORE);
+      indusIntent.putExtra(TITLE,"Test");
       indusIntent.putExtra(DOWNLOAD_SIZE,download_size);
       indusIntent.putExtra(INSTALL_TYPE,install_type);
       if(price!=null)
@@ -64,6 +68,7 @@ public class IndusAnalytics {
       String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
+      indusIntent.putExtra(TITLE,"Test");
       indusIntent.putExtra(SUCCESS,success);
       indusIntent.putExtra(VERSION_CODE,version_code);
       indusIntent.putExtra(ITEM_ID, item_id);
@@ -87,6 +92,7 @@ public class IndusAnalytics {
       Long item_id, String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
+      indusIntent.putExtra(TITLE,"Test");
       indusIntent.putExtra(REASON,reason);
       indusIntent.putExtra(SUCCESS,success);
       indusIntent.putExtra(DOWNLOAD_TIME,download_time);
@@ -112,10 +118,11 @@ public class IndusAnalytics {
    * @param install_type type of installation (download, update, downgrade)
    * @param context called context
    */
-  public static void cancelClickedIntent(String download_percent, boolean before_download_start,
-      Long download_time, Long version_code, Long item_id, String package_name, String install_type, Context context){
+  public static void cancelClickedIntent(double download_percent, boolean before_download_start,
+      Long download_time, String version_code, Long item_id, String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
+      indusIntent.putExtra(TITLE,"Test");
       indusIntent.putExtra(DOWNLOAD_PERCENT,download_percent);
       indusIntent.putExtra(BEFORE_DOWNLOAD_START,before_download_start);
       indusIntent.putExtra(DOWNLOAD_TIME,download_time);
@@ -125,5 +132,13 @@ public class IndusAnalytics {
       indusIntent.putExtra(INSTALL_TYPE,install_type);
       context.sendBroadcast(indusIntent);
     }
+  }
+
+  public static Context getContext() {
+    return context;
+  }
+
+  public static void setContext(Context context) {
+    IndusAnalytics.context = context;
   }
 }

@@ -1,5 +1,6 @@
 package com.aptoide.amethyst.downloadmanager;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
@@ -10,6 +11,7 @@ import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.downloadmanager.model.Download;
 import com.aptoide.amethyst.downloadmanager.state.CompletedState;
 
+import com.aptoide.amethyst.utils.IndusAnalytics;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -147,6 +149,7 @@ public class DownloadInfoRunnable implements Runnable, Serializable {
             if (mStatusState instanceof ActiveState) {
                 changeStatusState(new CompletedState(this));
                 autoExecute();
+                IndusAnalytics.downloadReportIntent("downloadCompleted",true,currentTime,appId,getDownload().getPackageName(),installType,IndusAnalytics.getContext());
                 //Analytics.DownloadComplete.downloadComplete(download);
                 //Analytics.SourceDownloadCompleted.downloadCompleteWithSource(download);
             }
