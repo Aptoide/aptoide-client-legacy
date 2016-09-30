@@ -89,7 +89,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
      * @return true if can't enter the store, false if can enter the store
      */
     public boolean zainSimCardRuleApplies(){
-        if(Aptoide.getConfiguration().getDefaultStore().equals("zain-market")) {
+        if(Aptoide.getConfiguration().getDefaultStore().equals("zainsouk")) {
             String zainDialogTag = "ZainAlertDialog";
             String zainCarrierName = "ZAIN IQ";
             String[] zaincarrierID = {"41820","41830"};

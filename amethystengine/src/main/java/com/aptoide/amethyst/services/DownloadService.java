@@ -297,6 +297,14 @@ public class DownloadService extends Service {
                                       GetAppMeta.Obb obb,
                                       Download downloadOld, List<String> permissions) {
 
+        if(Aptoide.getConfiguration().getDefaultStore().contains("zainsouk")) {
+            url = url.replaceFirst("pool", "zerorating");
+            url_alt = url_alt.replaceFirst("pool", "zerorating");
+            if(obb != null) {
+                obb.main.path = obb.main.path.replaceFirst("pool", "zerorating");
+            }
+        }
+
         UpdatesResponse.UpdateApk apk = createUpdateApkFromV7Params(url, url_alt, md5sum, fileSize, name, packageName, versionName, icon, appId);
 
         Download download = new Download();
@@ -336,6 +344,11 @@ public class DownloadService extends Service {
             apk.apk.filesize = row.fileSize;
             apk.size = row.fileSize;
             apk.id = row.id;
+
+            if(Aptoide.getConfiguration().getDefaultStore().contains("zainsouk")) {
+                apk.apk.path = apk.apk.path.replaceFirst("pool", "zerorating");
+                apk.apk.path_alt = apk.apk.path_alt.replaceFirst("pool", "zerorating");
+            }
 
             downloadFromV7(apk, false);
         }
@@ -635,6 +648,16 @@ public class DownloadService extends Service {
                 download.setVersion(apk.getVername());
                 download.setIcon(apk.getIcon());
                 download.setPackageName(apk.getPackageName());
+                if(Aptoide.getConfiguration().getDefaultStore().contains("zainsouk")) {
+                    getApkInfoJson.apk.path =
+                        getApkInfoJson.apk.path.replaceFirst("pool", "zerorating");
+                    getApkInfoJson.apk.altpath =
+                        getApkInfoJson.apk.altpath.replaceFirst("pool", "zerorating");
+                    if(getApkInfoJson.obb != null) {
+                        getApkInfoJson.obb.main.path =
+                            getApkInfoJson.obb.main.path.replaceFirst("pool", "zerorating");
+                    }
+                }
                 startDownloadFromJson(getApkInfoJson, apk.getId().longValue(), download);
             }
         });
