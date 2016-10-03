@@ -9,6 +9,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Binder;
 import android.os.Environment;
 import android.os.Handler;
@@ -720,6 +721,7 @@ public class DownloadService extends Service {
         mBuilder.setContentTitle(AptoideUtils.StringUtils.getFormattedString(this, R.string.aptoide_downloading, Aptoide.getConfiguration().getMarketName()))
                 .setSmallIcon(R.drawable.stat_sys_download)
                 .setProgress(0, 0, true)
+                .setColor(Color.rgb(96,125,139))
                 .setContentIntent(onClickAction);
         mBuilder.setProgress(100, 0, true);
         ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).notify(-3, mBuilder.build());
@@ -766,6 +768,7 @@ public class DownloadService extends Service {
         if (icon != null) mBuilder.setLargeIcon(icon);
         mBuilder.setSmallIcon(android.R.drawable.stat_sys_download);
         mBuilder.setProgress(0, 0, true);
+        mBuilder.setColor(Color.rgb(96,125,139));
         mBuilder.setContentIntent(onClickAction);
         //Logger.d("download-trace", "ETA: " + info.getEta());
         if (info.getEta() > 0) {
