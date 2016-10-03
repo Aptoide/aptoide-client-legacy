@@ -71,7 +71,12 @@ public class GetAdsRequest extends RetrofitSpiceRequest<ApkSuggestionJson, GetAd
         final AptoideDatabase database = new AptoideDatabase(Aptoide.getDb());
 
         parameters.put("q", AptoideUtils.HWSpecifications.filters(Aptoide.getContext()));
-        parameters.put("lang", AptoideUtils.StringUtils.getMyCountryCode(Aptoide.getContext()));
+
+        if(Aptoide.getConfiguration().getDefaultStore().contains("aban")) {
+            parameters.put("lang", "fa_ir");
+        } else {
+            parameters.put("lang", AptoideUtils.StringUtils.getMyCountryCode(Aptoide.getContext()));
+        }
 
         String myid = AptoideUtils.getSharedPreferences().getString(EnumPreferences.APTOIDE_CLIENT_UUID.name(), "NoInfo");
         parameters.put("cpuid", myid);

@@ -645,7 +645,9 @@
     <string name="essential_apps">اپ‌های ضروری</string>
     <string name="summer_apps">اپ‌های تابستانی</string>
     <string name="play_it">بازی کن!</string>
-<string name="updates_filter_setting_title">فقط برنامه هایی را نشان بده که به بالاترین نسخه به روز رسانی شده است</string>
+
+
+    <string name="updates_filter_setting_title">فقط برنامه هایی را نشان بده که به بالاترین نسخه به روز رسانی شده است</string>
     <string name="balloon_security_information_google_play">برنامه های یافت شده</string>
     <string name="balloon_security_information_subtitle">ما در حال بررسی کلیه برنامه ها برای یافتن ویروس هستیم.</string>
     <string name="balloon_security_information_title">Aptiode تغییر یافته است.\nما در حال بررسی برنامه های برای یافتن ویروس هستیم.</string>
@@ -685,6 +687,19 @@
     <string name="aban_edittext_hint_username">شناسه کاربری</string>
     <string name="aban_toast_warning_invalid_username">لطفا  شناسه کاربری معتبر وارد کنید</string>
     <!--aban Strings end-->
+
+    <!--Added category strings 01/10/2016 -->
+    <string name="beauty">زیبایی و مد</string>
+    <string name="art_design">دیزاین و هنر</string>
+    <string name="house_home">خانه و خانه‌داری</string>
+    <string name="food_drink">خوردنی‌ها و نوشیدنی‌ها</string>
+    <string name="auto_vehicle">ماشین</string>
+    <string name="maps_navigation">نقشه و مسیریابی</string>
+    <string name="video_players_editors">‍پخش‌کننده‌های ویدئو</string>
+
+
+
+
 
 
 </resources>

@@ -696,6 +696,16 @@
     <string name="shopping">Shopping</string>
     <string name="weather">Weather</string>
 
+    <!--Added category strings 01/10/2016 -->
+    <string name="beauty">Beauty</string>
+    <string name="art_design">Art &#38; Design</string>
+    <string name="house_home">House &#38; Home</string>
+    <string name="food_drink">Food &#38; Drink</string>
+    <string name="auto_vehicle">Auto &#38; Vehicle</string>
+    <string name="maps_navigation">Maps &#38; Navigation</string>
+    <string name="video_players_editors">Video Players &#38; Editors</string>
+
+
     <string name="latest_applications">Latest Applications</string>
     <string name="top_apps_in_store">Top Apps In This Store</string>
     <string name="apps_for_kids">Apps for Kids</string>
@@ -721,6 +731,7 @@
 
     <string name="allow_auto_installation">Allow Auto Installation</string>
     <string name="auto_installation">Auto Installation</string>
+    <string name="first_install">App Essencials</string>
 
 
     <!--aban Strings start-->
@@ -743,13 +754,12 @@
     <string name="aban_toast_warning_invalid_username">Please insert valid username</string>
     <!--aban Strings end-->
 
+
+
+
     <!--zain Strings start-->
     <string name="zain_not_zain_carrier_name_message">Sorry, this application is exclusive for Zain IQ customers.
 If you were using Dual SIM device, please put Zain SIM as primary SIM so you can enjoy the service</string>
     <string name="zain_not_zain_carrier_name_message_api22">Sorry, this application is exclusive for Zain IQ customers.</string>
     <!--zain Strings end-->
-
-
-    <string name="first_install">App Essencials</string>
 </resources>
-

@@ -1614,6 +1614,14 @@ public class AptoideUtils {
 
             return s;
         }
+
+        public static boolean isRightToLeftLanguage(Locale locale) {
+            final int directionality = Character.getDirectionality(locale.getDisplayName().charAt(0));
+            return directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT ||
+                    directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC;
+        }
+
+
     }
 
 
