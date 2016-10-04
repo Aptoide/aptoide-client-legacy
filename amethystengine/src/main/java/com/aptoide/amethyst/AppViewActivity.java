@@ -2217,7 +2217,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				return;
 			}
 					downloadService.downloadFromV7WithObb(path, altPath, md5sum, fileSize, appName,
-							packageName, versionName, iconUrl, appId, pay != null, obb, download,
+							packageName, versionName, versionCode, iconUrl, appId, pay != null, obb, download,
 							permissions);
 
 					isFromActivityResult = false;
@@ -2800,7 +2800,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				downgrade.setArguments(args);
 
 				IndusAnalytics.setContext(getContext());
-				IndusAnalytics.installClickedIntent(fileSize, "downgrade", appPrice, appId, packageName, getContext());
+				IndusAnalytics.installClickedIntent("downgrade", appPrice, appId, packageName, getContext());
 				getFragmentManager().beginTransaction().add(downgrade, "downgrade").commit();
 			}
 		}
@@ -2872,7 +2872,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					install_type = "fresh";
 				}
 				IndusAnalytics.setContext(getContext());
-				IndusAnalytics.installClickedIntent(fileSize,install_type, appPrice, appId, packageName, getContext());
+				IndusAnalytics.installClickedIntent(install_type, appPrice, appId, packageName, getContext());
 					installApp();
 				//}
 				//Analytics.ClickedOnInstallButton.clicked(package_name, developer, alternative);

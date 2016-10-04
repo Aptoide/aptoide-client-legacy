@@ -12,6 +12,7 @@ public class Download implements Serializable {
 
     private String name;
     private String version;
+    private Long vercode;
     /** hashCode of the {@link #md5} */
     private long id;
     private int progress;
@@ -170,5 +171,13 @@ public class Download implements Serializable {
 
     public void setPaid(boolean paid) {
         this.paid = paid;
+    }
+
+    public Long getVercode() {
+        return vercode;
+    }
+
+    public void setVercode(Long vercode) {
+        this.vercode = vercode;
     }
 }

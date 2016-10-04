@@ -17,10 +17,8 @@ public class IndusAnalytics {
   //EXTRAS
   //private static final String INIT_EXTRA = "com.mofirst.playstore.extra.";
   private static final String EVENT_TITLE = "event_title";                            //String
-  private static final String DOWNLOAD_SIZE = "download_size";                        //
   private static final String INSTALL_TYPE = "install_type";                          //String
   private static final String PRICE = "price";                                        //String
-  // TODO: 29/09/16 o appid na tab updates é sempre 0
   private static final String ITEM_ID = "item_id";                                    //String
   private static final String PACKAGE_NAME = "package_name";                          //String
   private static final String SUCCESS = "success";                                    //boolean
@@ -33,19 +31,17 @@ public class IndusAnalytics {
 
   /**
    *Intent called when user clicks the Download/Update/Downgrade button
-   * @param download_size size of the downloaded file
    * @param install_type type of instalation (download, update, downgrade)
    * @param price price of the app
    * @param item_id app id
    * @param package_name name of the app package
    * @param context called context
    */
-  public static void installClickedIntent(Long download_size, String install_type, String price,
+  public static void installClickedIntent(String install_type, String price,
       Long item_id, String package_name, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
-      Intent indusIntent = new Intent(INDUS_DEFAULT_STORE);
+      Intent indusIntent = new Intent(ACTION);
       indusIntent.putExtra(EVENT_TITLE,"install_clicked");
-      indusIntent.putExtra(DOWNLOAD_SIZE,download_size);
       indusIntent.putExtra(INSTALL_TYPE,install_type);
       if(price!=null)
         indusIntent.putExtra(PRICE, price);
@@ -66,7 +62,7 @@ public class IndusAnalytics {
    * @param install_type type of instalation (download, update, downgrade)
    * @param context called context
    */
-  public static void downloadStartIntent(boolean success, String version_code, Long item_id,
+  public static void downloadStartIntent(boolean success, Long version_code, Long item_id,
       String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
@@ -121,7 +117,7 @@ public class IndusAnalytics {
    * @param context called context
    */
   public static void cancelClickedIntent(double download_percent, boolean before_download_start,
-      Long download_time, String version_code, Long item_id, String package_name, String install_type, Context context){
+      Long download_time, Long version_code, Long item_id, String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
       indusIntent.putExtra(EVENT_TITLE,"cancel_clicked");

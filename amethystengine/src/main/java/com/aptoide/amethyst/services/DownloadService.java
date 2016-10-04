@@ -288,16 +288,17 @@ public class DownloadService extends Service {
      * @param downloadOld
      */
     public void downloadFromV7WithObb(String url, String url_alt, String md5sum, long fileSize, String name,
-                                      String packageName, String versionName, String icon, long appId, boolean paid,
+                                      String packageName, String versionName, int vercode, String icon, long appId, boolean paid,
                                       GetAppMeta.Obb obb, Download downloadOld, List<String> permissions) {
 
-        UpdatesResponse.UpdateApk apk = createUpdateApkFromV7Params(url, url_alt, md5sum, fileSize, name, packageName, versionName, icon, appId);
+        UpdatesResponse.UpdateApk apk = createUpdateApkFromV7Params(url, url_alt, md5sum, fileSize, name, packageName, versionName, vercode, icon, appId);
 
         Download download = new Download();
         download.setId(apk.md5sum.hashCode());
         download.setName(apk.name);
         download.setPackageName(apk.packageName);
         download.setVersion(apk.versionName);
+        download.setVercode((long) apk.vercode);
         download.setMd5(apk.md5sum);
         download.setPaid(paid);
         download.setIcon(apk.icon);
@@ -342,6 +343,7 @@ public class DownloadService extends Service {
         download.setName(apk.name);
         download.setPackageName(apk.packageName);
         download.setVersion(apk.versionName);
+        download.setVercode((long) apk.vercode);
         download.setMd5(apk.md5sum);
         download.setPaid(paid);
         download.setIcon(apk.icon);
@@ -367,6 +369,7 @@ public class DownloadService extends Service {
 
         if (json.apk.md5sum != null) {
             download.setId(json.apk.md5sum.hashCode());
+            download.setVercode((Long) json.apk.vercode);
         }
 
         DownloadModel downloadModel = new DownloadModel(json.apk.path, path + json.apk.md5sum + ".apk", json.apk.md5sum, json.apk.size.longValue());
@@ -465,7 +468,7 @@ public class DownloadService extends Service {
             else {
                 Toast.makeText(context, context.getString(R.string.data_usage_constraint), Toast.LENGTH_LONG).show();
             }
-            IndusAnalytics.downloadStartIntent(false, download.getVersion(), apk.getId(), download.getPackageName(), "TODO", context);
+            IndusAnalytics.downloadStartIntent(false, download.getVercode(), apk.getId(), download.getPackageName(), "TODO", context);
             return;
         }
 
@@ -511,7 +514,7 @@ public class DownloadService extends Service {
 
         startIfStopped();
         Toast.makeText(context, context.getString(R.string.starting_download), Toast.LENGTH_LONG).show();
-        IndusAnalytics.downloadStartIntent(true, info.getDownload().getVersion(), apk.getId(), download.getPackageName(), install_type, getBaseContext());
+        IndusAnalytics.downloadStartIntent(true, info.getDownload().getVercode(), apk.getId(), download.getPackageName(), install_type, getBaseContext());
     }
 
     private TimerTask getTask() {
@@ -583,7 +586,7 @@ public class DownloadService extends Service {
         if(info.getStatusState().equals(EnumState.PENDING)){
             beforeDownloadAsStarted = true;
         }
-        IndusAnalytics.cancelClickedIntent(info.getDownload().getProgress(),beforeDownloadAsStarted,info.getCurrentTime(),info.getDownload().getVersion(),info.getAppId(),info.getDownload().getPackageName(),info.getInstallType(),getBaseContext());
+        IndusAnalytics.cancelClickedIntent(info.getDownload().getProgress(),beforeDownloadAsStarted,info.getCurrentTime(),info.getDownload().getVercode(),info.getAppId(),info.getDownload().getPackageName(),info.getInstallType(),getBaseContext());
     }
 
 
@@ -865,11 +868,12 @@ public class DownloadService extends Service {
     }
 
 
-    private UpdatesResponse.UpdateApk createUpdateApkFromV7Params(String url, String url_alt, String md5sum, long fileSize, String name, String packageName, String versionName, String icon, long appId) {
+    private UpdatesResponse.UpdateApk createUpdateApkFromV7Params(String url, String url_alt, String md5sum, long fileSize, String name, String packageName, String versionName, int vercode, String icon, long appId) {
         UpdatesResponse.UpdateApk apk = new UpdatesResponse.UpdateApk();
         apk.name = name;
         apk.packageName = packageName;
         apk.versionName = versionName;
+        apk.vercode = vercode;
         apk.md5sum = md5sum;
         apk.icon = icon;
         apk.apk = new UpdatesResponse.UpdateApk.Apk();
