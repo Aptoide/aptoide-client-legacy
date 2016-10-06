@@ -302,6 +302,9 @@ public class DownloadService extends Service {
             url_alt = url_alt.replaceFirst("pool", "zerorating");
             if(obb != null) {
                 obb.main.path = obb.main.path.replaceFirst("pool", "zerorating");
+                if(obb.patch != null) {
+                    obb.patch.path = obb.patch.path.replaceFirst("pool", "zerorating");
+                }
             }
         }
 
@@ -649,13 +652,13 @@ public class DownloadService extends Service {
                 download.setIcon(apk.getIcon());
                 download.setPackageName(apk.getPackageName());
                 if(Aptoide.getConfiguration().getDefaultStore().contains("zainsouk")) {
-                    getApkInfoJson.apk.path =
-                        getApkInfoJson.apk.path.replaceFirst("pool", "zerorating");
-                    getApkInfoJson.apk.altpath =
-                        getApkInfoJson.apk.altpath.replaceFirst("pool", "zerorating");
+                    getApkInfoJson.apk.path = getApkInfoJson.apk.path.replaceFirst("pool", "zerorating");
+                    getApkInfoJson.apk.altpath = getApkInfoJson.apk.altpath.replaceFirst("pool", "zerorating");
                     if(getApkInfoJson.obb != null) {
-                        getApkInfoJson.obb.main.path =
-                            getApkInfoJson.obb.main.path.replaceFirst("pool", "zerorating");
+                        getApkInfoJson.obb.main.path = getApkInfoJson.obb.main.path.replaceFirst("pool", "zerorating");
+                        if(getApkInfoJson.obb.patch != null) {
+                            getApkInfoJson.obb.patch.path = getApkInfoJson.obb.patch.path.replaceFirst("pool", "zerorating");
+                        }
                     }
                 }
                 startDownloadFromJson(getApkInfoJson, apk.getId().longValue(), download);
