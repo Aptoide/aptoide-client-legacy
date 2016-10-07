@@ -15,19 +15,19 @@ public class IndusAnalytics {
   private static Context context;
 
   //EXTRAS
-  //private static final String INIT_EXTRA = "com.mofirst.playstore.extra.";
-  private static final String EVENT_TITLE = "event_title";                            //String
-  private static final String INSTALL_TYPE = "install_type";                          //String
-  private static final String PRICE = "price";                                        //String
-  private static final String ITEM_ID = "item_id";                                    //String
-  private static final String PACKAGE_NAME = "package_name";                          //String
-  private static final String SUCCESS = "success";                                    //boolean
-  private static final String VERSION_CODE = "version_code";                          //Long
-  private static final String REASON = "reason";                                      //String
-  private static final String DOWNLOAD_TIME = "download_time";                        //Long
-  private static final String DOWNLOAD_PERCENT = "download_percent";                  //Double
-  private static final String BEFORE_DOWNLOAD_START = "before_download_start";        //boolean
-  private static final String APK_PATH = "apk_path";                                  //they haven't described it yet
+  private static final String INIT_EXTRA = "com.mofirst.playstore.extra.";
+  private static final String EVENT_TITLE = INIT_EXTRA+"EVENT_TITLE";                            //String
+  private static final String INSTALL_TYPE = INIT_EXTRA+"INSTALL_TYPE";                          //String
+  private static final String PRICE = INIT_EXTRA+"PRICE";                                        //String
+  private static final String ITEM_ID = INIT_EXTRA+"ITEM_ID";                                    //String
+  private static final String PACKAGE_NAME = INIT_EXTRA+"PACKAGE_NAME";                          //String
+  private static final String SUCCESS = INIT_EXTRA+"SUCCESS";                                    //boolean
+  private static final String VERSION_CODE = INIT_EXTRA+"VERSION_CODE";                          //Long
+  private static final String REASON = INIT_EXTRA+"REASON";                                      //String
+  private static final String DOWNLOAD_TIME = INIT_EXTRA+"DOWNLOAD_TIME";                        //Long
+  private static final String DOWNLOAD_PERCENT = INIT_EXTRA+"DOWNLOAD_PERCENT";                  //Double
+  private static final String BEFORE_DOWNLOAD_START = INIT_EXTRA+"BEFORE_DOWNLOAD_START";        //boolean
+  private static final String APK_PATH = INIT_EXTRA+"APK_PATH";                                  //they haven't described it yet
 
   /**
    *Intent called when user clicks the Download/Update/Downgrade button
