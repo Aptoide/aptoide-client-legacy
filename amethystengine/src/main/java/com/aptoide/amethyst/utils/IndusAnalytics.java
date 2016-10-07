@@ -41,6 +41,7 @@ public class IndusAnalytics {
       Long item_id, String package_name, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
+      indusIntent.setPackage("com.mofirst.playstore");
       indusIntent.putExtra(EVENT_TITLE,"install_clicked");
       indusIntent.putExtra(INSTALL_TYPE,install_type);
       if(price!=null)
@@ -49,7 +50,7 @@ public class IndusAnalytics {
         indusIntent.putExtra(PRICE,"0");
       indusIntent.putExtra(ITEM_ID, item_id);
       indusIntent.putExtra(PACKAGE_NAME,package_name);
-      context.sendBroadcast(indusIntent);
+      context.startService(indusIntent);
     }
   }
 
@@ -66,13 +67,14 @@ public class IndusAnalytics {
       String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
+      indusIntent.setPackage("com.mofirst.playstore");
       indusIntent.putExtra(EVENT_TITLE,"download_start");
       indusIntent.putExtra(SUCCESS,success);
       indusIntent.putExtra(VERSION_CODE,version_code);
-      indusIntent.putExtra(ITEM_ID, item_id);
+      indusIntent.putExtra(ITEM_ID, item_id.toString());
       indusIntent.putExtra(PACKAGE_NAME,package_name);
       indusIntent.putExtra(INSTALL_TYPE,install_type);
-      context.sendBroadcast(indusIntent);
+      context.startService(indusIntent);
     }
   }
 
@@ -90,6 +92,7 @@ public class IndusAnalytics {
       Long item_id, String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
+      indusIntent.setPackage("com.mofirst.playstore");
       indusIntent.putExtra(EVENT_TITLE,"download_report");
       indusIntent.putExtra(REASON,reason);
       indusIntent.putExtra(SUCCESS,success);
@@ -97,7 +100,7 @@ public class IndusAnalytics {
       indusIntent.putExtra(ITEM_ID, item_id);
       indusIntent.putExtra(PACKAGE_NAME,package_name);
       indusIntent.putExtra(INSTALL_TYPE,install_type);
-      context.sendBroadcast(indusIntent);
+      context.startService(indusIntent);
     }
   }
 
@@ -120,6 +123,7 @@ public class IndusAnalytics {
       Long download_time, Long version_code, Long item_id, String package_name, String install_type, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
+      indusIntent.setPackage("com.mofirst.playstore");
       indusIntent.putExtra(EVENT_TITLE,"cancel_clicked");
       indusIntent.putExtra(DOWNLOAD_PERCENT,download_percent);
       indusIntent.putExtra(BEFORE_DOWNLOAD_START,before_download_start);
@@ -128,7 +132,7 @@ public class IndusAnalytics {
       indusIntent.putExtra(ITEM_ID,item_id);
       indusIntent.putExtra(PACKAGE_NAME,package_name);
       indusIntent.putExtra(INSTALL_TYPE,install_type);
-      context.sendBroadcast(indusIntent);
+      context.startService(indusIntent);
     }
   }
 
@@ -140,9 +144,10 @@ public class IndusAnalytics {
   public static void apkPathIntent(String apk_path, Context context){
     if (Aptoide.getConfiguration().getDefaultStore().contains(INDUS_DEFAULT_STORE)) {
       Intent indusIntent = new Intent(ACTION);
+      indusIntent.setPackage("com.mofirst.playstore");
       indusIntent.putExtra(EVENT_TITLE,"apk_path");
       indusIntent.putExtra(APK_PATH,apk_path);
-      context.sendBroadcast(indusIntent);
+      context.startService(indusIntent);
     }
   }
 
