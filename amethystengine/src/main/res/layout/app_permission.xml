@@ -25,9 +25,7 @@
                 android:id="@+id/textView"
                 android:paddingTop="10dp"
                 android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
-                android:textStyle="bold"
-                android:layout_gravity="left"/>
+                android:textStyle="bold"/>
     </LinearLayout>
 
 
