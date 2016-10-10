@@ -29,7 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/cb_exclude"
+            android:layout_toStartOf="@+id/cb_exclude"
             android:layout_toRightOf="@+id/app_icon"
+            android:layout_toEndOf="@+id/app_icon"
             android:orientation="vertical">
 
             <TextView
@@ -48,7 +50,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_name"
                 android:layout_toLeftOf="@+id/cb_exclude"
+                android:layout_toStartOf="@+id/cb_exclude"
                 android:layout_toRightOf="@+id/app_icon"
+                android:layout_toEndOf="@+id/app_icon"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -60,7 +64,9 @@
                 android:layout_below="@+id/tv_vercode"
                 android:layout_gravity="center_horizontal"
                 android:layout_toLeftOf="@+id/cb_exclude"
+                android:layout_toStartOf="@+id/cb_exclude"
                 android:layout_toRightOf="@+id/app_icon"
+                android:layout_toEndOf="@+id/app_icon"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -72,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/app_icon"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginBottom="5dp"
             android:focusable="false" />
 

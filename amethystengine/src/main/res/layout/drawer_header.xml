@@ -17,7 +17,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/keyline_1"
+        android:paddingStart="@dimen/keyline_1"
         android:paddingRight="@dimen/keyline_1"
+        android:paddingEnd="@dimen/keyline_1"
         android:paddingTop="@dimen/keyline_1">
 
 
@@ -36,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/profile_image"
+            android:layout_alignStart="@id/profile_image"
             android:layout_alignParentBottom="true"
             android:ellipsize="end"
             android:maxLines="1"
@@ -51,6 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/profile_email_text"
             android:layout_alignLeft="@id/profile_image"
+            android:layout_alignStart="@id/profile_image"
             android:ellipsize="end"
             android:maxLines="1"
             android:singleLine="true"

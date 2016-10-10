@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:orientation="horizontal"
-        android:gravity="right"
+        android:gravity="right|end"
         android:layout_above="@+id/designation">
 
         <lecho.lib.hellocharts.view.PieChartView

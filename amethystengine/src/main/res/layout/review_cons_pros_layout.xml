@@ -17,6 +17,7 @@
             android:gravity="center_vertical"
             android:padding="10dp"
             android:drawableRight="@drawable/good"
+            android:drawableEnd="@drawable/good"
             android:textColor="#00c81b"
             android:layout_height="wrap_content"
             android:background="?attr/backgroundMain" />
@@ -46,6 +47,7 @@
             android:gravity="center_vertical"
             android:textSize="18dp"
             android:drawableRight="@drawable/bad"
+            android:drawableEnd="@drawable/bad"
             android:layout_height="wrap_content"
             android:background="?attr/backgroundMain" />
 

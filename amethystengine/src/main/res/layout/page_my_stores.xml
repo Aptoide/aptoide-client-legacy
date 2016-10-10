@@ -32,6 +32,7 @@
 
         android:layout_marginBottom="?attr/actionBarSize"
         android:drawableLeft="@drawable/ic_add"
+        android:drawableStart="@drawable/ic_add"
         android:text="@string/subscribe_store" />
 <!-- android:layout_margin="10dp" -->
 </RelativeLayout>

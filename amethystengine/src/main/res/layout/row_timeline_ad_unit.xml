@@ -30,6 +30,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
                     android:paddingBottom="5dp">
 
                     <TextView
@@ -59,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:paddingLeft="5dp"
+                android:paddingStart="5dp"
                 android:textColor="?attr/tertiaryTextColor"/>
 
             <ImageView

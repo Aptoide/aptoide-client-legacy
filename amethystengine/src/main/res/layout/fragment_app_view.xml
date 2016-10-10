@@ -68,8 +68,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:drawableLeft="@drawable/ic_dimension"
-                            android:drawablePadding="2dp"
                             android:drawableStart="@drawable/ic_dimension"
+                            android:drawablePadding="2dp"
                             android:maxLines="1"
                             android:singleLine="true"
                             android:textColor="@color/white"
@@ -161,6 +161,7 @@
                     android:layout_above="@id/black_header_background"
                     android:layout_marginBottom="-6dp"
                     android:layout_marginRight="6dp"
+                    android:layout_marginEnd="6dp"
                     android:layout_marginLeft="@dimen/fragment_app_view_trusted_balloon_margin_start"
                     android:layout_marginStart="@dimen/fragment_app_view_trusted_balloon_margin_start"
                     android:background="@drawable/security_balloon_background"
@@ -262,6 +263,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
                             android:layout_centerInParent="true">
 
                             <ImageView
@@ -269,6 +271,7 @@
                                 android:layout_width="@dimen/appview_badge_size"
                                 android:layout_height="@dimen/appview_badge_size"
                                 android:layout_marginRight="5dp"
+                                android:layout_marginEnd="5dp"
                                 android:src="@drawable/ic_badge_market"
                                 android:visibility="gone"/>
 
@@ -277,7 +280,9 @@
                                 android:layout_width="@dimen/appview_badge_size"
                                 android:layout_height="@dimen/appview_badge_size"
                                 android:layout_marginRight="5dp"
+                                android:layout_marginEnd="5dp"
                                 android:layout_toRightOf="@id/iv_market_badge"
+                                android:layout_toEndOf="@id/iv_market_badge"
                                 android:src="@drawable/ic_badge_signature"
                                 android:visibility="gone"/>
 
@@ -286,7 +291,9 @@
                                 android:layout_width="@dimen/appview_badge_size"
                                 android:layout_height="@dimen/appview_badge_size"
                                 android:layout_marginRight="5dp"
+                                android:layout_marginEnd="5dp"
                                 android:layout_toRightOf="@id/iv_signature_badge"
+                                android:layout_toEndOf="@id/iv_signature_badge"
                                 android:src="@drawable/ic_badge_flag"
                                 android:visibility="gone"/>
 
@@ -295,6 +302,7 @@
                                 android:layout_width="@dimen/appview_badge_size"
                                 android:layout_height="@dimen/appview_badge_size"
                                 android:layout_toRightOf="@id/iv_flag_badge"
+                                android:layout_toEndOf="@id/iv_flag_badge"
                                 android:src="@drawable/ic_badge_antivirus"
                                 android:visibility="gone"/>
                         </RelativeLayout>
@@ -306,8 +314,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_centerInParent="true"
-                            android:layout_gravity="right"
+                            android:layout_gravity="right|end"
                             android:padding="10dp">
 
                             <TextView
@@ -315,6 +324,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="5dp"
+                                android:layout_marginEnd="5dp"
                                 android:text="@string/see_more"
                                 android:textAllCaps="true"
                                 android:textColor="?android:attr/textColorSecondary"
@@ -375,9 +385,11 @@
                 android:background="?attr/backgroundMain"
                 android:drawablePadding="15dp"
                 android:drawableRight="@drawable/ic_see_more_comments"
-                android:gravity="right"
+                android:drawableEnd="@drawable/ic_see_more_comments"
+                android:gravity="right|end"
                 android:paddingBottom="10dp"
                 android:paddingRight="13dp"
+                android:paddingEnd="13dp"
                 android:paddingTop="15dp"
                 android:text="@string/see_more"
                 android:textAllCaps="true"
@@ -389,7 +401,8 @@
                 layout="@layout/layout_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"/>
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/more_versions_recycler"
@@ -413,6 +426,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_map_appview"
+                android:drawableStart="@drawable/ic_map_appview"
                 android:drawablePadding="8dp"
                 android:padding="@dimen/appview_developer_padding"
                 android:textColor="?android:attr/textColorSecondary"/>
@@ -423,6 +437,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_mail_appview"
+                android:drawableStart="@drawable/ic_mail_appview"
                 android:drawablePadding="8dp"
                 android:padding="@dimen/appview_developer_padding"
                 android:textColor="?android:attr/textColorSecondary"/>
@@ -432,6 +447,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_locked_appview"
+                android:drawableStart="@drawable/ic_locked_appview"
                 android:drawablePadding="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
@@ -446,6 +462,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:drawableLeft="@drawable/ic_permissions_appview"
+                android:drawableStart="@drawable/ic_permissions_appview"
                 android:drawablePadding="8dp"
                 android:padding="@dimen/appview_developer_padding"
                 android:text="@string/permissions"

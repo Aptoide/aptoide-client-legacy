@@ -19,7 +19,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginTop="2dp"
         android:padding="5dp">
 
@@ -39,9 +41,12 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginRight="5dp"
             android:layout_toLeftOf="@+id/view"
+            android:layout_toStartOf="@+id/view"
             android:layout_toRightOf="@+id/app_icon"
+            android:layout_toEndOf="@+id/app_icon"
             android:orientation="vertical">
 
             <TextView
@@ -80,8 +85,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
                     android:layout_toLeftOf="@+id/progress"
+                    android:layout_toStartOf="@+id/progress"
                     android:layout_toRightOf="@+id/speed"
+                    android:layout_toEndOf="@+id/speed"
                     android:ellipsize="end"
                     android:maxLines="1"/>
 
@@ -90,7 +98,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_gravity="left"/>
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="left|start"/>
             </RelativeLayout>
 
             <TextView
@@ -98,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:gravity="left|center"
+                android:gravity="left|start|center"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:visibility="gone"/>
@@ -113,6 +122,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_toLeftOf="@+id/manage_icon"
+            android:layout_toStartOf="@+id/manage_icon"
             android:background="?attr/separatorColor"/>
 
         <ImageView
@@ -120,6 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:background="?attr/icCancelDrawable"

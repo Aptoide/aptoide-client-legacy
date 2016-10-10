@@ -18,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="?attr/icLikeDrawable"
+        android:drawableStart="?attr/icLikeDrawable"
         android:gravity="center"
         android:padding="3dp"
         android:textAppearance="?android:attr/textAppearanceMedium"/>

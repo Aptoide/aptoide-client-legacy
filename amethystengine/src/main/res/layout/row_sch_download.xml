@@ -26,6 +26,7 @@
                 android:layout_height="72dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
                 android:layout_centerVertical="true"/>
 
         <TextView
@@ -39,8 +40,10 @@
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_toRightOf="@+id/appicon"
+                android:layout_toEndOf="@+id/appicon"
                 android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@+id/schDwnChkBox"/>
+                android:layout_toLeftOf="@+id/schDwnChkBox"
+                android:layout_toStartOf="@+id/schDwnChkBox"/>
         <TextView
                 android:id="@+id/appversion"
                 android:layout_width="fill_parent"
@@ -49,14 +52,20 @@
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_toRightOf="@+id/appicon" android:layout_below="@+id/name"
-                android:layout_alignRight="@+id/name"/>
+                android:layout_toRightOf="@+id/appicon"
+            android:layout_below="@+id/name"
+                android:layout_toEndOf="@+id/appicon"
+                android:layout_alignRight="@+id/name"
+                android:layout_alignEnd="@+id/name"/>
 
         <CheckBox
                 android:id="@+id/schDwnChkBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:focusable="false" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+                android:focusable="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
     </RelativeLayout>
 </FrameLayout>
