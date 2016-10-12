@@ -19,7 +19,8 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/reviewButtonLayout">
+            android:layout_toLeftOf="@+id/reviewButtonLayout"
+            android:layout_toStartOf="@+id/reviewButtonLayout">
 
             <ImageView
                 android:id="@+id/icon"
@@ -32,6 +33,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/icon"
+                android:layout_toEndOf="@+id/icon"
                 android:orientation="vertical">
 
                 <TextView
@@ -39,7 +41,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -55,6 +59,7 @@
                         android:layout_gravity="bottom"
                         android:layout_marginBottom="3.5dp"
                         android:layout_marginLeft="7dp"
+                        android:layout_marginStart="7dp"
                         android:src="@drawable/ic_appview_version" />
 
                     <TextView
@@ -62,7 +67,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -78,6 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerInParent="true">
 
             <View

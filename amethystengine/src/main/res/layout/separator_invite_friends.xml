@@ -17,19 +17,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:gravity="center|left"
+        android:gravity="center|left|start"
         android:padding="5dp"
-        android:layout_toLeftOf="@+id/timeline_invite" />
+        android:layout_toLeftOf="@+id/timeline_invite"
+        android:layout_toStartOf="@+id/timeline_invite"/>
 
 
     <TextView
         style="@style/com_facebook_loginview_default_style"
         android:text="@string/invite_friends"
         android:id="@+id/timeline_invite"
-        android:layout_gravity="right"
+        android:layout_gravity="right|end"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"

@@ -18,8 +18,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="?attr/icLikeDrawable"
+        android:drawableStart="?attr/icLikeDrawable"
         android:drawableRight="@drawable/ic_more_arrow_right"
-        android:gravity="center|left"
+        android:drawableEnd="@drawable/ic_more_arrow_right"
+        android:gravity="center|left|start"
         android:padding="3dp"
         android:background="?attr/selectableItemBackground"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -44,23 +46,25 @@
             android:id="@+id/TimeLineCommentEditText"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:gravity="top|left"
+            android:gravity="top|left|start"
             android:hint="@string/write_your_comment"
             android:inputType="textMultiLine"
             android:lines="3"
             android:minLines="3"
-            android:layout_toLeftOf="@+id/send_button" />
+            android:layout_toLeftOf="@+id/send_button"
+            android:layout_toStartOf="@+id/send_button"/>
 
         <ImageButton
             android:id="@+id/send_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="right|end"
             android:padding="5dp"
             android:background="?attr/selectableItemBackground"
             android:src="?attr/timelineSendDrawable"
             android:layout_alignBottom="@+id/TimeLineCommentEditText"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
 
     </RelativeLayout>
 

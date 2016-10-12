@@ -18,8 +18,11 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/timeline_post_options" />
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/timeline_post_options"
+            android:layout_toStartOf="@+id/timeline_post_options"/>
 
         <Button
             android:id="@+id/timeline_post_options"
@@ -27,6 +30,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:text="@string/unhide_post"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/link" />

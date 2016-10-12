@@ -37,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_toLeftOf="@+id/search_button"
+            android:layout_toStartOf="@+id/search_button"
             android:focusable="true"
             android:hint="@string/search_for_apps"
             android:selectAllOnFocus="true"
@@ -49,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/search_text"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:text="@string/search" />
 

@@ -25,6 +25,7 @@
             android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/ic_drawable_left_facebook"
+            android:drawableStart="@drawable/ic_drawable_left_facebook"
             android:text="@string/invite_friends"/>
 
         <TextView

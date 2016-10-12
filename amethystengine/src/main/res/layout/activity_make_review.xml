@@ -59,6 +59,7 @@
                     android:gravity="center_vertical"
                     android:padding="10dp"
                     android:drawableRight="@drawable/good"
+                    android:drawableEnd="@drawable/good"
                     android:textColor="#00c81b"
                     android:layout_height="wrap_content" />
 
@@ -75,6 +76,7 @@
                     android:gravity="center_vertical"
                     android:textSize="18dp"
                     android:drawableRight="@drawable/bad"
+                    android:drawableEnd="@drawable/bad"
                     android:layout_height="wrap_content" />
 
                 <include android:id="@+id/Con1" layout="@layout/review_form" />
@@ -138,7 +140,8 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/review_final_verdict"
-                        android:layout_alignParentLeft="true" />
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"/>
 
 
                 </RelativeLayout>

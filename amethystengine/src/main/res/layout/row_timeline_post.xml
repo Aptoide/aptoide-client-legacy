@@ -21,6 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/timeline_post_open"
+                android:layout_alignStart="@+id/timeline_post_open"
                 android:layout_below="@+id/timeline_post_open"
                 android:background="?attr/selectableItemBackground"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -34,6 +35,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:contentDescription="fb_photo"
                 android:scaleType="fitXY"
                 android:src="@drawable/facebook_profile_pic" />
@@ -45,6 +47,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/timeline_post_user_photo"
                 android:layout_toLeftOf="@+id/timeline_post_options"
+                android:layout_toStartOf="@+id/timeline_post_options"
                 android:layout_toRightOf="@id/timeline_post_user_photo"
                 android:ellipsize="end"
                 android:maxLines="1"
@@ -58,8 +61,10 @@
                 android:layout_below="@id/timeline_post_user_name"
                 android:layout_toEndOf="@id/timeline_post_user_photo"
                 android:layout_toLeftOf="@+id/timeline_post_options"
+                android:layout_toStartOf="@+id/timeline_post_options"
                 android:layout_toRightOf="@id/timeline_post_user_photo"
                 android:drawableLeft="@drawable/ic_timestamp"
+                android:drawableStart="@drawable/ic_timestamp"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
 
@@ -69,12 +74,15 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:drawableLeft="?attr/icCancelDrawable"
+                android:drawableStart="?attr/icCancelDrawable"
                 android:text="@string/hide_post"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@android:color/darker_gray"
                 android:paddingRight="6dp"
+                android:paddingEnd="6dp"
                 android:layout_alignTop="@+id/timeline_post_user_name"
-                android:layout_alignRight="@+id/timeline_post_open" />
+                android:layout_alignRight="@+id/timeline_post_open"
+                android:layout_alignEnd="@+id/timeline_post_open"/>
 
             <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/timeline_post_open"
@@ -104,8 +112,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_toRightOf="@+id/timeline_post_app_icon"
+                        android:layout_toEndOf="@+id/timeline_post_app_icon"
                         android:ellipsize="end"
                         android:gravity="bottom"
                         android:maxLines="1"
@@ -118,6 +128,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/timeline_post_app_name"
+                        android:layout_alignStart="@+id/timeline_post_app_name"
                         android:layout_below="@+id/timeline_post_app_name"
                         android:ellipsize="end"
                         android:gravity="center_vertical"
@@ -130,6 +141,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/timeline_post_app_version"
+                        android:layout_alignStart="@+id/timeline_post_app_version"
                         android:layout_below="@+id/timeline_post_app_version"
                         android:ellipsize="end"
                         android:gravity="center_vertical"
@@ -161,6 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:drawableLeft="?attr/icLikeDrawable"
+                    android:drawableStart="?attr/icLikeDrawable"
                     android:gravity="center"
                     android:text="@string/like" />
 
@@ -186,6 +199,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:drawableLeft="?attr/icViewMoreComments"
+                    android:drawableStart="?attr/icViewMoreComments"
                     android:gravity="center"
                     android:text="@string/comment" />
 

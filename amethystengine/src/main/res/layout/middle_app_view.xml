@@ -24,6 +24,7 @@
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="?android:attr/textColorSecondary"
             android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginBottom="5dp"/>
 
         <LinearLayout
@@ -32,6 +33,7 @@
             android:layout_centerVertical="true"
             android:orientation="vertical"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_below="@id/middleAppViewHeader"
             android:id="@+id/icon_layout"
             >
@@ -42,7 +44,7 @@
                 android:layout_height="88dp"
 
                 android:layout_margin="5dp"
-                android:layout_gravity="right"
+                android:layout_gravity="right|end"
 
                 android:src="@drawable/icon_brand_aptoide" />
 
@@ -54,11 +56,14 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/icon_layout"
             android:layout_toRightOf="@+id/icon_layout"
+            android:layout_toEndOf="@+id/icon_layout"
             android:layout_toLeftOf="@+id/btinstall"
+            android:layout_toStartOf="@+id/btinstall"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="1"
             android:paddingRight="6dp"
+            android:paddingEnd="6dp"
             android:singleLine="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="?android:attr/textColorSecondary"
@@ -71,10 +76,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/icon_layout"
+            android:layout_toEndOf="@+id/icon_layout"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
             android:layout_below="@id/app_name"
             android:rating="3.4"
             android:numStars="5" />
@@ -86,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/rating_label"
             android:layout_toRightOf="@+id/icon_layout"
+            android:layout_toEndOf="@+id/icon_layout"
             android:ellipsize="end"
             android:gravity="top"
             android:maxLines="1"
@@ -101,6 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/rating_label"
             android:layout_toRightOf="@+id/size_label"
+            android:layout_toEndOf="@+id/size_label"
             android:ellipsize="end"
             android:gravity="top"
             android:maxLines="1"
@@ -116,7 +125,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/rating_label"
             android:layout_toRightOf="@+id/size_value"
+            android:layout_toEndOf="@+id/size_value"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:ellipsize="end"
             android:layout_gravity="center_horizontal"
             android:maxLines="1"
@@ -133,6 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/size_label"
             android:layout_toRightOf="@+id/icon_layout"
+            android:layout_toEndOf="@+id/icon_layout"
             android:ellipsize="end"
             android:gravity="top"
             android:maxLines="2"
@@ -149,6 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/app_name"
             android:text="@string/install"
             android:visibility="gone"
