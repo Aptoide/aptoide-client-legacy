@@ -40,7 +40,9 @@ http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
                     android:inputType="textUri|textNoSuggestions"
                     android:singleLine="true"
                     android:layout_toLeftOf="@+id/button_dialog_add_store"
+                    android:layout_toStartOf="@+id/button_dialog_add_store"
                     android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"/>
 
 
@@ -54,8 +56,10 @@ http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
                     android:layout_margin="2dp"
                     android:padding="10dp"
                     android:drawableLeft="?attr/icAddStoreDrawable"
+                    android:drawableStart="?attr/icAddStoreDrawable"
                     android:drawablePadding="4dp"
                     android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
@@ -69,7 +73,8 @@ http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/search_other_stores"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"/>
 
         <Button android:id="@+id/button_top_stores"
                 android:layout_height="wrap_content"

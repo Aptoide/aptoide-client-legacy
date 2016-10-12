@@ -762,5 +762,6 @@
     <string name="zain_not_zain_carrier_name_message">Sorry, this application is exclusive for Zain IQ customers.
 If you were using Dual SIM device, please put Zain SIM as primary SIM so you can enjoy the service</string>
     <string name="zain_not_zain_carrier_name_message_api22">Sorry, this application is exclusive for Zain IQ customers.</string>
+    <string name="zain_permission_dialog">allow زين سوق to access the network name?</string>
     <!--zain Strings end-->
 </resources>

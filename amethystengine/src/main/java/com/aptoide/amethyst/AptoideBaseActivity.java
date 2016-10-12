@@ -1,5 +1,8 @@
 package com.aptoide.amethyst;
 
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.widget.Toast;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.events.OttoEvents;
 import com.aptoide.amethyst.utils.AptoideUtils;
@@ -70,59 +73,6 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         _resumed = true;
         Analytics.Lifecycle.Activity.onResume(this, getScreenName());
         AptoideUtils.CrashlyticsUtils.addScreenToHistory(getClass().getSimpleName());
-        zainSimCardRuleApplies();
-    }
-
-    /**
-     * ZAIN SIM card access Rules:
-     *  has no SIM card slot:               can enter store
-     *  has 1 SIM card slot:                if carrier Name = ZAIN IQ
-     *                                          can enter store
-     *                                      else
-     *                                          can't enter store
-     *  has >=2 SIM card slot(API >= 22):     if one of them is ZAIN IQ
-     *                                          can enter store
-     *                                      else
-     *                                          can't enter store
-     *
-     *  has >=2 SIM card slot (API < 22):     = has 1 SIM card slot
-     * @return true if can't enter the store, false if can enter the store
-     */
-    public boolean zainSimCardRuleApplies(){
-        if(Aptoide.getConfiguration().getDefaultStore().equals("zainsouk")) {
-            String zainDialogTag = "ZainAlertDialog";
-            String[] zainCarrierName = {"ZAIN IQ"};
-            String[] zaincarrierID = {"41820","41830"};
-            TelephonyManager manager = (TelephonyManager) this.getSystemService(this.TELEPHONY_SERVICE);
-            if (manager.getSimState() != TelephonyManager.SIM_STATE_ABSENT) {
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {
-                    List<SubscriptionInfo> activeSubscriptionInfoList = SubscriptionManager.from(this).getActiveSubscriptionInfoList();
-                    if(activeSubscriptionInfoList!=null && !activeSubscriptionInfoList.isEmpty())
-                        for (SubscriptionInfo s : activeSubscriptionInfoList)
-                            if (s.getCarrierName().toString().equalsIgnoreCase(zainCarrierName[0])) {
-                                DialogFragment pd = (DialogFragment) getSupportFragmentManager().findFragmentByTag(zainDialogTag);
-                                if (pd != null) pd.dismiss();
-                                return false;
-                            }
-                    getSupportFragmentManager().beginTransaction().add(new ZainSimDialogFragment(true), zainDialogTag).commit();
-                    getSupportFragmentManager().executePendingTransactions();
-                    return true;
-                }
-                else {
-                    String carrierID = manager.getNetworkOperator();
-                    String carrierName = manager.getNetworkOperatorName();
-                    if (!carrierID.equals(zaincarrierID[0]) && !carrierID.equals(zaincarrierID[1]) && !carrierName.equalsIgnoreCase(zainCarrierName[0])) {
-                        getSupportFragmentManager().beginTransaction().add(new ZainSimDialogFragment(false), zainDialogTag).commit();
-                        getSupportFragmentManager().executePendingTransactions();
-                        return true;
-                    } else {
-                        DialogFragment pd = (DialogFragment) getSupportFragmentManager().findFragmentByTag(zainDialogTag);
-                        if (pd != null) pd.dismiss();
-                    }
-                }
-            }
-        }
-        return false;
     }
 
     @Override
@@ -137,10 +87,6 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         Analytics.Lifecycle.Activity.onPause(this);
         LifeCycleMonitor.sendLiveCycleEvent(this, OttoEvents.ActivityLifeCycleEvent.LifeCycle.PAUSE);
         _resumed = false;
-
-        //dismiss dialog form Zain
-        DialogFragment pd = (DialogFragment) getSupportFragmentManager().findFragmentByTag("ZainAlertDialog");
-        if (pd != null) pd.dismiss();
     }
 
 
@@ -160,42 +106,5 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
         android.content.res.Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-    }
-
-    /**
-     * Zain Dialog
-     * @author diogoloureiro
-     */
-    private class ZainSimDialogFragment extends DialogFragment {
-
-        private boolean isApi22;
-
-        ZainSimDialogFragment(boolean isApi22){
-                this.isApi22=isApi22;
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final Dialog dialog = new Dialog(getActivity());
-            dialog.setCanceledOnTouchOutside(false);
-            dialog.setCancelable(false);
-            dialog.setTitle(Aptoide.getConfiguration().getMarketName());
-            if(!isApi22)
-                dialog.setContentView(R.layout.zain_sim_card_dialog);
-            else
-                dialog.setContentView(R.layout.zain_sim_card_dialog_api22);
-
-            dialog.setOnKeyListener(new Dialog.OnKeyListener() {
-                @Override
-                public boolean onKey(DialogInterface arg0, int keyCode,
-                                     KeyEvent event) {
-                    if (keyCode == KeyEvent.KEYCODE_BACK) {
-                    }
-                    return true;
-                }
-            });
-            return dialog;
-        }
-
     }
 }

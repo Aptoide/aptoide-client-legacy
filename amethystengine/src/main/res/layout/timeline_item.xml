@@ -28,6 +28,7 @@
             android:lines="2"
             android:maxLines="2"
             android:layout_marginLeft="3dp"
+            android:layout_marginStart="3dp"
             android:maxWidth="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"/>
 
@@ -44,6 +45,7 @@
             android:ellipsize="end"
             android:maxWidth="120dp"
             android:paddingLeft="2dp"
+            android:paddingStart="2dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textSize="10sp"/>
 

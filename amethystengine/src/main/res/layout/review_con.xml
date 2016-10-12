@@ -3,5 +3,8 @@
 
     android:gravity="center_vertical"
     android:drawablePadding="5dp"
-    android:layout_width="match_parent" android:layout_height="wrap_content" android:drawableLeft="@drawable/con_red">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableLeft="@drawable/con_red"
+    android:drawableStart="@drawable/con_red">
 </TextView>

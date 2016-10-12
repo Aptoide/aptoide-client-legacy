@@ -21,6 +21,7 @@
         android:textColor="?android:attr/textColorSecondary"
         android:paddingBottom="1dp"
         android:paddingLeft="2dp"
+        android:paddingStart="2dp"
         android:paddingTop="4dp"
         android:textStyle="bold" />
 

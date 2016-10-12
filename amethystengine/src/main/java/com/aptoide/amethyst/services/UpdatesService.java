@@ -1,5 +1,7 @@
 package com.aptoide.amethyst.services;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -267,7 +269,9 @@ public class UpdatesService extends Service {
     private void showUpdatesNotification() {
         int updates = 0;
         Cursor data = null;
-        int icon = R.mipmap.ic_launcher;
+        int icon = R.drawable.ic_stat_aptoide_notification;
+        Bitmap largeIcon = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_launcher);
+
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         try {
             data = new AptoideDatabase(Aptoide.getDb()).getUpdates();
@@ -279,8 +283,8 @@ public class UpdatesService extends Service {
         if (updates > 0 && updates != defaultSharedPreferences.getInt("updates", 0)) {
             NotificationManager managerNotification = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-            if(Aptoide.getConfiguration().getMarketName().equals("Aptoide")) {
-                icon = R.drawable.ic_stat_aptoide_notification;
+            if(!Aptoide.getConfiguration().getMarketName().equals("Aptoide") && !Aptoide.getConfiguration().getDefaultStore().contains("aban") && !Aptoide.getConfiguration().getDefaultStore().contains("pedro-ribeiro")) {
+                icon = R.mipmap.ic_launcher;
             }
                 //}
                 Context context = getApplicationContext();
@@ -298,6 +302,7 @@ public class UpdatesService extends Service {
                 PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                 Notification notification = new NotificationCompat.Builder(this)
                         .setSmallIcon(icon)
+                        .setLargeIcon(largeIcon)
                         .setContentTitle(contentTitle)
                         .setContentText(contentText)
                         .setContentIntent(contentIntent)

@@ -16,11 +16,11 @@
     <permission android:label="Make internal payments" android:name="${applicationId}.org.onepf.openiab.permission.BILLING" android:protectionLevel="normal"/>
 
     <!-- Define your own permission to protect payment broadcast -->
-    <permission android:name="cm.aptoide.ptdev.PAYMENT_BROADCAST_PERMISSION"
+    <!--<permission android:name="cm.aptoide.ptdev.PAYMENT_BROADCAST_PERMISSION"
         android:label="Read payment status"
-        android:protectionLevel="signature" />
+        android:protectionLevel="signature" />-->
     <!-- "signature" permission granted automatically by system, without notifying user. -->
-    <uses-permission android:name="cm.aptoide.ptdev.PAYMENT_BROADCAST_PERMISSION" />
+    <!--<uses-permission android:name="cm.aptoide.ptdev.PAYMENT_BROADCAST_PERMISSION" />-->
 
     <uses-sdk
     tools:overrideLibrary="com.astuetz.pagerslidingtabstrip, com.bumptech.glide.integration.okhttp"/>

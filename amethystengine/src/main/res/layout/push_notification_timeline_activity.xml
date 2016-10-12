@@ -12,9 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_toRightOf="@+id/icon"
+        android:layout_toEndOf="@+id/icon"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
         android:autoLink="all"
         android:scrollbars="vertical"
         android:text="@string/notification_timeline_activity"
@@ -31,10 +34,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/description"
+        android:layout_alignStart="@+id/description"
         android:layout_below="@+id/description"
         android:orientation="horizontal"
         android:id="@+id/linearLayout2"
-        android:layout_toLeftOf="@+id/imageView">
+        android:layout_toLeftOf="@+id/imageView"
+        android:layout_toStartOf="@+id/imageView">
 
     </LinearLayout>
 
@@ -44,6 +49,7 @@
         android:id="@+id/imageView"
         android:src="@drawable/ic_stat_facebook_notification"
         android:layout_below="@+id/description"
-        android:layout_alignRight="@+id/description" />
+        android:layout_alignRight="@+id/description"
+        android:layout_alignEnd="@+id/description"/>
 </RelativeLayout>
 

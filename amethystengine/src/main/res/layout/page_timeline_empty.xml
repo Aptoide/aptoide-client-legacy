@@ -44,7 +44,9 @@
             android:layout_height="wrap_content"
             style="?attr/customButton"
             android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_width="match_parent"
             android:text="@string/timeline_empty_send_email_to_friends"
             android:layout_below="@+id/timeline_empty2"/>
