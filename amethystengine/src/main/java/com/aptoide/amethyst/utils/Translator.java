@@ -245,8 +245,26 @@ public class Translator {
             case "More Editors Choice":
                 translated = Aptoide.getContext().getString(R.string.more_editors_choice);
                 break;
-            case "More Editor's Choice":
-                translated = Aptoide.getContext().getString(R.string.more_editors_choice);
+            case "Beauty":
+                translated = Aptoide.getContext().getString(R.string.beauty);
+                break;
+            case "Art & Design":
+                translated = Aptoide.getContext().getString(R.string.art_design);
+                break;
+            case "House & Home":
+                translated = Aptoide.getContext().getString(R.string.house_home);
+                break;
+            case "Food & Drink":
+                translated = Aptoide.getContext().getString(R.string.food_drink);
+                break;
+            case "Auto & Vehicles":
+                translated = Aptoide.getContext().getString(R.string.auto_vehicle);
+                break;
+            case "Maps & Navigation":
+                translated = Aptoide.getContext().getString(R.string.maps_navigation);
+                break;
+            case "Video Players & Editors":
+                translated = Aptoide.getContext().getString(R.string.video_players_editors);
                 break;
             default:
                 translated = string;

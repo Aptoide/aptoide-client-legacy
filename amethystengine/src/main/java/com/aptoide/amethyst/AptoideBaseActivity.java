@@ -89,9 +89,9 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
      * @return true if can't enter the store, false if can enter the store
      */
     public boolean zainSimCardRuleApplies(){
-        if(Aptoide.getConfiguration().getDefaultStore().equals("zain-market")) {
+        if(Aptoide.getConfiguration().getDefaultStore().equals("zainsouk")) {
             String zainDialogTag = "ZainAlertDialog";
-            String zainCarrierName = "ZAIN IQ";
+            String[] zainCarrierName = {"ZAIN IQ"};
             String[] zaincarrierID = {"41820","41830"};
             TelephonyManager manager = (TelephonyManager) this.getSystemService(this.TELEPHONY_SERVICE);
             if (manager.getSimState() != TelephonyManager.SIM_STATE_ABSENT) {
@@ -99,7 +99,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
                     List<SubscriptionInfo> activeSubscriptionInfoList = SubscriptionManager.from(this).getActiveSubscriptionInfoList();
                     if(activeSubscriptionInfoList!=null && !activeSubscriptionInfoList.isEmpty())
                         for (SubscriptionInfo s : activeSubscriptionInfoList)
-                            if (s.getCarrierName().toString().equalsIgnoreCase(zainCarrierName)) {
+                            if (s.getCarrierName().toString().equalsIgnoreCase(zainCarrierName[0])) {
                                 DialogFragment pd = (DialogFragment) getSupportFragmentManager().findFragmentByTag(zainDialogTag);
                                 if (pd != null) pd.dismiss();
                                 return false;
@@ -111,7 +111,7 @@ public abstract class AptoideBaseActivity extends AppCompatActivity {
                 else {
                     String carrierID = manager.getNetworkOperator();
                     String carrierName = manager.getNetworkOperatorName();
-                    if (!carrierID.equals(zaincarrierID[0]) && !carrierID.equals(zaincarrierID[1]) && !carrierName.equalsIgnoreCase(zainCarrierName)) {
+                    if (!carrierID.equals(zaincarrierID[0]) && !carrierID.equals(zaincarrierID[1]) && !carrierName.equalsIgnoreCase(zainCarrierName[0])) {
                         getSupportFragmentManager().beginTransaction().add(new ZainSimDialogFragment(false), zainDialogTag).commit();
                         getSupportFragmentManager().executePendingTransactions();
                         return true;

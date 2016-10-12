@@ -20,6 +20,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TabWidget;
 import android.widget.TextView;
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.utils.AptoideUtils;
 
 /**
  * A simple text label view that can be applied as a "badge" to any given {@link View}.
@@ -111,7 +113,12 @@ public class BadgeView extends TextView {
 		this.targetTabIndex = tabIndex;
 		
 		// apply defaults
-		badgePosition = DEFAULT_POSITION;
+		if(AptoideUtils.StringUtils.isRTL(Aptoide.getContext().getResources().getConfiguration().locale)){
+			badgePosition = POSITION_TOP_LEFT;
+		}
+		else {
+			badgePosition = DEFAULT_POSITION;
+		}
 		badgeMarginH = dipToPixels(DEFAULT_MARGIN_DIP);
 		badgeMarginV = badgeMarginH / 2; //vertical margin was overwritting tab text
 		badgeColor = DEFAULT_BADGE_COLOR;
