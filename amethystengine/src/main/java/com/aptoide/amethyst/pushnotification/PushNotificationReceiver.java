@@ -321,7 +321,8 @@ public class PushNotificationReceiver extends BroadcastReceiver{
         PendingIntent resultPendingIntent = PendingIntent.getBroadcast(context, new Random().nextInt(), resultIntent, 0);
 
         Notification notification = new NotificationCompat.Builder(context)
-                .setSmallIcon(getDrawableResource())
+                .setSmallIcon(R.drawable.ic_stat_aptoide_notification)
+                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), getDrawableResource()))
                 .setContentIntent(resultPendingIntent)
                 .setOngoing(false)
                 .setContentTitle(extra.getCharSequence(PUSH_NOTIFICATION_TITLE))
