@@ -66,6 +66,7 @@ import java.util.List;
 
                     public static final String GET_STORE_TAB = "getStore";
                     public static final String GET_STORE_WIDGETS_TAB = "getStoreWidgets";
+                    public static final String GET_STORE_LIST_APPS_TAB = "listApps";
                     public static final String GET_APK_COMMENTS_TAB = "getApkComments";
                     public static final String GET_REVIEWS_TAB = "getReviews";
 

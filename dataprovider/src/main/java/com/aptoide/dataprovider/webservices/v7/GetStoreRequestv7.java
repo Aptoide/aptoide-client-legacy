@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_APK_COMMENTS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_STORE_LIST_APPS_TAB;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_STORE_TAB;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_STORE_WIDGETS_TAB;
 import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_REVIEWS_TAB;
@@ -50,6 +51,7 @@ public class GetStoreRequestv7 extends BaseStoreRequest<GetStore> {
                 switch (i.next().event.name) {
                     case GET_STORE_TAB:
                     case GET_STORE_WIDGETS_TAB:
+                    case GET_STORE_LIST_APPS_TAB:
                     case GET_APK_COMMENTS_TAB:
                     case GET_REVIEWS_TAB:
                         break;
