@@ -48,7 +48,7 @@ public class IndusAnalytics {
         indusIntent.putExtra(PRICE, price);
       else
         indusIntent.putExtra(PRICE,"0");
-      indusIntent.putExtra(ITEM_ID, item_id);
+      indusIntent.putExtra(ITEM_ID, item_id.toString());
       indusIntent.putExtra(PACKAGE_NAME,package_name);
       context.startService(indusIntent);
     }
@@ -97,7 +97,7 @@ public class IndusAnalytics {
       indusIntent.putExtra(REASON,reason);
       indusIntent.putExtra(SUCCESS,success);
       indusIntent.putExtra(DOWNLOAD_TIME,download_time);
-      indusIntent.putExtra(ITEM_ID, item_id);
+      indusIntent.putExtra(ITEM_ID, item_id.toString());
       indusIntent.putExtra(PACKAGE_NAME,package_name);
       indusIntent.putExtra(INSTALL_TYPE,install_type);
       context.startService(indusIntent);
@@ -129,7 +129,7 @@ public class IndusAnalytics {
       indusIntent.putExtra(BEFORE_DOWNLOAD_START,before_download_start);
       indusIntent.putExtra(DOWNLOAD_TIME,download_time);
       indusIntent.putExtra(VERSION_CODE,version_code);
-      indusIntent.putExtra(ITEM_ID,item_id);
+      indusIntent.putExtra(ITEM_ID,item_id.toString());
       indusIntent.putExtra(PACKAGE_NAME,package_name);
       indusIntent.putExtra(INSTALL_TYPE,install_type);
       context.startService(indusIntent);
@@ -147,7 +147,7 @@ public class IndusAnalytics {
       indusIntent.setPackage("com.mofirst.playstore");
       indusIntent.putExtra(EVENT_TITLE,"apk_path");
       indusIntent.putExtra(APK_PATH,apk_path);
-      context.startService(indusIntent);
+      //context.startService(indusIntent);
     }
   }
 
