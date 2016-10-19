@@ -333,10 +333,12 @@ public class PushNotificationReceiver extends BroadcastReceiver{
                 .setContentTitle(extra.getCharSequence(PUSH_NOTIFICATION_TITLE))
                 .setContentText(extra.getCharSequence(PUSH_NOTIFICATION_MSG)).build();
 
-        if (Build.VERSION.SDK_INT >= 16) {
-//            Log.d("PushNotificationReceiver", "is 16 or more, BIG!!!");
-            RemoteViews expandedView = new RemoteViews(context.getPackageName(),
-                    R.layout.pushnotificationlayout);
+        if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 24) {
+          /**
+           * https://code.google.com/p/android/issues/detail?id=30495 bug from android on api 24
+           */
+            //Log.d("PushNotificationReceiver", "is 16 or more, BIG!!!");
+            RemoteViews expandedView = new RemoteViews(context.getPackageName(), R.layout.pushnotificationlayout);
             expandedView.setBitmap(R.id.PushNotificationImageView, "setImageBitmap", o);
             expandedView.setImageViewBitmap(R.id.icon, BitmapFactory.decodeResource(context.getResources(), getDrawableResource()));
             expandedView.setTextViewText(R.id.text1, extra.getCharSequence(PUSH_NOTIFICATION_TITLE));
