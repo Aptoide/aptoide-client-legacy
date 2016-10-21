@@ -268,9 +268,9 @@ public class UpdatesService extends Service {
     private void showUpdatesNotification() {
         int updates = 0;
         Cursor data = null;
-        int icon = R.mipmap.ic_launcher;
+        int icon = R.mipmap.ic_larger_icon;
         if(Aptoide.getConfiguration().getDefaultStore().contains("qmobile")){
-            icon = R.drawable.ic_launcher;
+            //icon = R.drawable.ic_launcher;
         }
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         try {
