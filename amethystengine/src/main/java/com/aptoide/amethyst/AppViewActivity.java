@@ -724,12 +724,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 			if (obb != null) {
 				AptoideUtils.AppUtils.checkPermissions(getActivity());
 			}
+					boolean isApkFy = getActivity().getIntent().getBooleanExtra(Constants.FROM_APKFY_KEY, false);
+					boolean isShowAutoInstallPopup = false;//getActivity().getIntent().getBooleanExtra(Constants.SHOW_AUTO_INSTALL_POPUP, false);
+					getActivity().getIntent().removeExtra(Constants.SHOW_AUTO_INSTALL_POPUP);
 
-			boolean isApkFy = getActivity().getIntent()
-					.getBooleanExtra(Constants.FROM_APKFY_KEY, false);
-			boolean isShowAutoInstallPopup = getActivity().getIntent()
-					.getBooleanExtra(Constants.SHOW_AUTO_INSTALL_POPUP, false);
-			if ((isApkFy || isShowAutoInstallPopup) && !isPaidApp()) {
+					if ((isApkFy || isShowAutoInstallPopup) && !isPaidApp()) {
 				getActivity().getIntent().removeExtra(Constants.FROM_APKFY_KEY);
 				getActivity().getIntent().removeExtra(Constants.SHOW_AUTO_INSTALL_POPUP);
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -742,9 +741,9 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 				}
 				final InstallListener installListener = new InstallListener(iconUrl, appName,
 						versionName, packageName, md5sum, isPaidApp(), malware.rank);
-				DialogFragment dialog = AptoideDialog.myAppInstall(appName, installListener, null);
-				AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(),
-						Constants.FROM_APKFY_KEY);
+				//DialogFragment dialog = AptoideDialog.myAppInstall(appName, installListener, null);
+				//AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(),
+				//		Constants.FROM_APKFY_KEY);
 			}
 		}
 
@@ -1555,7 +1554,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		/**
 		 * Callback when dismissing MyAppInstallDialog
 		 */
-		DialogInterface.OnDismissListener onDismissListener = new DialogInterface
+		/*DialogInterface.OnDismissListener onDismissListener = new DialogInterface
 				.OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface dialog) {
@@ -1566,12 +1565,12 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 							.show(getChildFragmentManager(), "myAppStore");
 				}
 			}
-		};
+		};*/
 
 		/**
 		 * Callback to be provided to a Dialog in order to add a store
 		 */
-		MyAppStoreDialog.MyAppsAddStoreInterface appsAddStoreInterface = new MyAppStoreDialog
+		/*MyAppStoreDialog.MyAppsAddStoreInterface appsAddStoreInterface = new MyAppStoreDialog
 				.MyAppsAddStoreInterface() {
 			@Override
 			public DialogInterface.OnClickListener getOnMyAppAddStoreListener(final String repo) {
@@ -1586,7 +1585,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 					}
 				};
 			}
-		};
+		};*/
 
 		private void updateFlags(GetApp getApp) {
 
@@ -2553,7 +2552,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 		}
 
 		private void showDialogIfComingFromBrowser() {
-			if (getActivity().getIntent()
+			/*if (getActivity().getIntent()
 					.getBooleanExtra(Constants.FROM_MY_APP_KEY, false) && !isPaidApp()) {
 				final InstallListener installListener = new InstallListener(iconUrl, appName,
 						versionName, packageName, md5sum, isPaidApp(), malware.rank);
@@ -2561,7 +2560,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 						onDismissListener);
 				AptoideDialog.showDialogAllowingStateLoss(dialog, getChildFragmentManager(),
 						"myApp");
-			}
+			}*/
 		}
 
         protected void requestComments(boolean useCache) {
@@ -2957,7 +2956,7 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 	public static Intent getAppviewIntent(String packageName, String repo, boolean showPopup,
 										  Context context) {
 		Intent appviewIntent = getAppviewIntent(packageName, repo, context);
-		appviewIntent.putExtra(Constants.SHOW_AUTO_INSTALL_POPUP, showPopup);
+		//appviewIntent.putExtra(Constants.SHOW_AUTO_INSTALL_POPUP, showPopup);
 		return appviewIntent;
 	}
 }

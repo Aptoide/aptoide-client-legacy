@@ -39,7 +39,7 @@ public class MyAppStoreDialog extends DialogFragment {
                 .setNegativeButton(android.R.string.cancel, null)
                 .create();
 
-        return builder;
+        return null;//builder;
     }
 
     public void setMyAppsAddStoreInterface(MyAppsAddStoreInterface myAppsAddStoreInterface) {
