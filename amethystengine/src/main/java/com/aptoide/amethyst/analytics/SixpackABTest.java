@@ -38,7 +38,7 @@ public class SixpackABTest<T> implements ABTest<T> {
 			executorService.submit(new Runnable() {
 				@Override
 				public void run() {
-					participatingExperiment = experiment.participate();
+//					participatingExperiment = experiment.participate();
 				}
 			});
 		}
