@@ -1,6 +1,7 @@
 package com.aptoide.amethyst.services;
 
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -269,7 +270,7 @@ public class UpdatesService extends Service {
         int updates = 0;
         Cursor data = null;
         int icon = R.mipmap.ic_larger_icon;
-        if(Aptoide.getConfiguration().getDefaultStore().contains("qmobile")){
+        if(Aptoide.getConfiguration().getDefaultStore().contains("qmobile") && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             icon = R.drawable.ic_stat_partner_notification;
         }
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
