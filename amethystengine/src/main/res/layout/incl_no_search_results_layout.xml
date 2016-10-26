@@ -34,7 +34,8 @@
                 android:layout_marginEnd="5dp"
                 android:background="@null"
                 android:imeOptions="actionSearch"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="@color/black"/>
 
             <ImageButton
                 android:id="@+id/ic_search_button"
