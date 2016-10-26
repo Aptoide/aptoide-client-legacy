@@ -289,7 +289,8 @@ public class UpdatesService extends Service {
                     icon = R.drawable.ic_stat_aptoide_notification;
                 }
                 else{
-                    icon = R.drawable.ic_stat_partner;
+                    //icon = R.drawable.ic_stat_partner;
+                    icon = R.mipmap.ic_launcher;
                 }
             } else {
                 icon = R.mipmap.ic_launcher;
