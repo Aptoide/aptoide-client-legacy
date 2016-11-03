@@ -377,11 +377,35 @@ public class DownloadService extends Service {
         ArrayList<DownloadModel> filesToDownload = new ArrayList<>();
 
         if (json.obb != null) {
-            DownloadModel mainObbDownload = new DownloadModel(json.obb.main.path, OBB_DESTINATION + download.getPackageName() + "/" + json.obb.main.filename, json.obb.main.md5sum, json.obb.main.filesize.longValue());
-            filesToDownload.add(mainObbDownload);
+            DownloadModel mainObbDownload;
+            if(Aptoide.getConfiguration().getDefaultStore().contains("zainsouk")) {
+
+                mainObbDownload = new DownloadModel(json.obb.main.path.replaceFirst("pool", "zerorating"),
+                        OBB_DESTINATION + download.getPackageName() + "/" + json.obb.main.filename,
+                        json.obb.main.md5sum, json.obb.main.filesize.longValue());
+            }
+            else {
+                mainObbDownload =
+                    new DownloadModel(json.obb.main.path,
+                        OBB_DESTINATION + download.getPackageName() + "/" + json.obb.main.filename,
+                        json.obb.main.md5sum, json.obb.main.filesize.longValue());
+            }
+                filesToDownload.add(mainObbDownload);
             if (json.obb.patch != null) {
-                DownloadModel patchObbDownload = new DownloadModel(json.obb.patch.path, OBB_DESTINATION + download.getPackageName() + "/" + json.obb.patch.filename, json.obb.patch.md5sum, json.obb.patch.filesize.longValue());
-                filesToDownload.add(patchObbDownload);
+                DownloadModel patchObbDownload;
+                if(Aptoide.getConfiguration().getDefaultStore().contains("zainsouk")) {
+                    patchObbDownload =
+                        new DownloadModel(json.obb.patch.path.replaceFirst("pool", "zerorating"),
+                            OBB_DESTINATION + download.getPackageName() + "/" + json.obb.patch.filename, json.obb.patch.md5sum,
+                            json.obb.patch.filesize.longValue());
+                }
+                else{
+                    patchObbDownload =
+                        new DownloadModel(json.obb.patch.path,
+                            OBB_DESTINATION + download.getPackageName() + "/" + json.obb.patch.filename, json.obb.patch.md5sum,
+                            json.obb.patch.filesize.longValue());
+                }
+                    filesToDownload.add(patchObbDownload);
             }
         }
 
@@ -391,9 +415,23 @@ public class DownloadService extends Service {
             download.setId(json.apk.md5sum.hashCode());
         }
 
-        DownloadModel downloadModel = new DownloadModel(json.apk.path, path + json.apk.md5sum + ".apk", json.apk.md5sum, json.apk.size.longValue());
+        DownloadModel downloadModel;
+        if(Aptoide.getConfiguration().getDefaultStore().contains("zainsouk")) {
+            downloadModel = new DownloadModel(json.apk.path.replaceFirst("pool", "zerorating"),
+                    path + json.apk.md5sum + ".apk", json.apk.md5sum, json.apk.size.longValue());
+        }
+        else{
+            downloadModel = new DownloadModel(json.apk.path,
+                    path + json.apk.md5sum + ".apk", json.apk.md5sum, json.apk.size.longValue());
+        }
         downloadModel.setAutoExecute(true);
-        downloadModel.setFallbackUrl(json.apk.altpath);
+
+        if(Aptoide.getConfiguration().getDefaultStore().contains("zainsouk")) {
+            downloadModel.setFallbackUrl(json.apk.altpath.replaceFirst("pool", "zerorating"));
+        }
+        else{
+            downloadModel.setFallbackUrl(json.apk.altpath);
+        }
         filesToDownload.add(downloadModel);
 
         FinishedApk apk = new FinishedApk(download.getName(),

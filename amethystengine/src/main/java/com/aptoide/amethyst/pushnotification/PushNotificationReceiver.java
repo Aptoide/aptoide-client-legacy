@@ -326,7 +326,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
         PendingIntent resultPendingIntent = PendingIntent.getActivity(context, new Random().nextInt(), resultIntent, 0);
 
         Notification notification = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.ic_stat_aptoide_notification)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), getDrawableResource()))
                 .setContentIntent(resultPendingIntent)
                 .setOngoing(false)
@@ -356,7 +356,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
     }
 
     public int getDrawableResource(){
-        return R.drawable.icon_brand_aptoide;
+        return R.mipmap.ic_launcher;
     }
 
 }
