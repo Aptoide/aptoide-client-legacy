@@ -347,7 +347,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
     }
 
     public int getDrawableResource(){
-        return R.drawable.icon_brand_aptoide;
+        return R.mipmap.ic_larger_icon;
     }
 
 }
