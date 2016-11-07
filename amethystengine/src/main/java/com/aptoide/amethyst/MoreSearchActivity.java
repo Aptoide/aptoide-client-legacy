@@ -322,7 +322,7 @@ public class MoreSearchActivity extends MoreActivity {
                 if (appsOffset == 0) {
                     if (isStoreSearch()) {
                             displayables.add(0, new HeaderRow(
-                                AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName().replace(" Store","")), false, BUCKET_SIZE));
+                                AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName().replace(" Store","").replace(" store","")), false, BUCKET_SIZE));
 
                     } else {
                         displayables.add(0, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
