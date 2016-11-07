@@ -4,6 +4,7 @@ import com.aptoide.amethyst.fragments.store.CategoryFragment;
 import com.aptoide.amethyst.fragments.store.HomeStoreFragment;
 import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
 import com.aptoide.amethyst.fragments.store.LatestReviewsFragment;
+import com.aptoide.amethyst.ui.MoreListViewItemsActivity;
 import com.aptoide.amethyst.utils.Translator;
 import com.aptoide.dataprovider.webservices.models.v7.GetStoreTabs.Tab;
 
@@ -44,12 +45,11 @@ public class StorePagerAdapter extends FragmentStatePagerAdapter {
             case GET_STORE_WIDGETS_TAB:
                 return CategoryFragment.newInstance(args, tab.event.action);
             case GET_STORE_LIST_APPS_TAB:
-                return CategoryFragment.newInstance(args, tab.event.action);
+                return MoreListViewItemsActivity.MoreListViewItemsFragment.newInstance(args, tabs.get(position).event.action);
             case GET_APK_COMMENTS_TAB:
                 return LatestCommentsFragment.newInstance(args);
             case GET_REVIEWS_TAB:
-                return LatestReviewsFragment.newInstance(args);
-        }
+                return LatestReviewsFragment.newInstance(args);}
 
         return null;
     }
