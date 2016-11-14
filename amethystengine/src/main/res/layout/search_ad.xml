@@ -3,6 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:clickable="true"
+    android:id="@+id/nativeAd"
     style="?attr/backgroundCard" >
 
 
@@ -25,5 +26,13 @@
         android:maxLines="1"
         android:singleLine="true"
         android:textStyle="bold" />
+
+    <Button android:layout_width="wrap_content"
+        android:id="@+id/ad_button"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ad_icon"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>

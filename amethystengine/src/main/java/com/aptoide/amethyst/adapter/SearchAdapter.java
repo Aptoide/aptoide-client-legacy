@@ -19,6 +19,7 @@ import com.aptoide.amethyst.viewholders.ProgressBarRowViewHolder;
 import com.aptoide.amethyst.viewholders.SearchAppViewHolder;
 import com.aptoide.amethyst.viewholders.SponsoredAppViewHolder;
 import com.aptoide.amethyst.viewholders.main.HeaderViewHolder;
+import com.aptoide.models.displayables.AdPlaceHolderRow;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.DummyDisplayable;
 import com.aptoide.models.displayables.HeaderRow;
@@ -90,6 +91,8 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         } else if (viewHolder.viewType == R.layout.suggested_app_search) {
             viewHolder.populateView(list.get(position));
         } else if (viewHolder.viewType == R.layout.row_progress_bar) {
+            viewHolder.populateView(list.get(position));
+        } else if (viewHolder.viewType == R.layout.search_ad) {
             viewHolder.populateView(list.get(position));
         }
     }

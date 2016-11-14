@@ -22,6 +22,8 @@ import com.aptoide.amethyst.adapter.SearchAdapter;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
 import com.aptoide.amethyst.models.EnumStoreTheme;
+import com.aptoide.models.displayables.AdPlaceHolderRow;
+import com.aptoide.models.displayables.AddStoreRow;
 import com.aptoide.models.displayables.Displayable;
 import com.aptoide.models.displayables.DummyDisplayable;
 import com.aptoide.amethyst.models.search.SearchAppConverter;
@@ -320,16 +322,15 @@ public class MoreSearchActivity extends MoreActivity {
                 int notifyPositionStart;
                 int notifyItemCount = 0;
                 if (appsOffset == 0) {
+                    displayables.add(0, new DummyDisplayable(AptoideUtils.UI.getBucketSize()));
                     if (isStoreSearch()) {
-                            displayables.add(0, new HeaderRow(
-                                AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName().replace(" Store","").replace(" store","")), false, BUCKET_SIZE));
-
+                        displayables.add(1, new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName().replace(" Store","").replace(" store","")), false, BUCKET_SIZE));
                     } else {
-                        displayables.add(0, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
+                        displayables.add(1, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                     }
-                    displayables.addAll(1, apps);
-                    notifyPositionStart = 1;
-                    notifyItemCount = 1;
+                    displayables.addAll(2, apps);
+                    notifyPositionStart = 2;
+                    notifyItemCount = 2;
                 } else {
                     // Sum apps header
                     displayables.addAll(1 + appsOffset, apps);
