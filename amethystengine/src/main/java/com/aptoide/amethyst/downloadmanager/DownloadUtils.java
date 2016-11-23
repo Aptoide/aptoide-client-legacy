@@ -211,8 +211,10 @@ public class DownloadUtils {
                             mBuilder.setContentIntent(onClickAction);
                             mBuilder.setAutoCancel(true);
                             managerNotification.notify((int) apk.getAppHashId(), mBuilder.build());
+                            /*Log.d("lou","signed4: "+context.getPackageManager().getInstallerPackageName(apk.getApkid()));
                             if (Build.VERSION.SDK_INT >= 11)
                                 context.getPackageManager().setInstallerPackageName(apk.getApkid(), context.getPackageName());
+                            Log.d("lou","signed5: "+context.getPackageManager().getInstallerPackageName(apk.getApkid()));*/
 
 
                         } else {

@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 
+import android.util.Log;
 import com.amazon.insights.AmazonInsights;
 import com.amazon.insights.Event;
 import com.amazon.insights.EventClient;
@@ -177,9 +178,15 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
             BusProvider.getInstance().post(new OttoEvents.InstalledApkEvent());
 
+            /*Log.d("lou","signed1: "+context.getPackageManager().getInstallerPackageName(installEvent));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                context.getPackageManager().setInstallerPackageName(installEvent, null);
+            }
+            Log.d("lou","signed2: "+context.getPackageManager().getInstallerPackageName(installEvent));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && context.getPackageManager().getInstallerPackageName(installEvent) == null) {
                 context.getPackageManager().setInstallerPackageName(installEvent, context.getPackageName());
-            }
+                Log.d("lou","signed3: "+context.getPackageManager().getInstallerPackageName(installEvent));
+            }*/
         } catch (Exception e) {
             Logger.printException(e);
         }
