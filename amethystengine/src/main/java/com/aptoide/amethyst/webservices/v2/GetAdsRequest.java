@@ -57,12 +57,12 @@ public class GetAdsRequest extends RetrofitSpiceRequest<ApkSuggestionJson, GetAd
     }
 
     public interface Webservice{
-        @POST("/webservices.aptwords.net/api/2/getAds")
+        @POST("/highlight.aptoide.ir/api/2/getAds")
         @FormUrlEncoded
         ApkSuggestionJson getAds(@FieldMap HashMap<String, String> arg);
     }
 
-    String url = "http://webservices.aptwords.net/api/2/getAds";
+    String url = "http://164.215.128.197/api/2/getAds";
 
     @Override
     public ApkSuggestionJson loadDataFromNetwork() throws Exception {

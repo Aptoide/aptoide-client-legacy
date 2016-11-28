@@ -51,7 +51,7 @@ public class RegisterAdRefererRequest extends RetrofitSpiceRequest<RegisterAdRef
         DefaultResponse load(@FieldMap HashMap<String, String> arg);
     }
 
-    final static String url = "/webservices.aptwords.net/api/2/registerAdReferer";
+    final static String url = "/highlight.aptoide.ir/api/2/registerAdReferer";
 
     @Override
     public DefaultResponse loadDataFromNetwork() throws Exception {
