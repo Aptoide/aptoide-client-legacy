@@ -71,7 +71,7 @@ public class SearchActivity extends AptoideBaseActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             if (Aptoide.getConfiguration().getDefaultStore().contains("apps")) {
-                getSupportActionBar().setLogo(R.drawable.ic_aptoide_toolbar);
+                //getSupportActionBar().setLogo(R.drawable.ic_aptoide_toolbar);
             }
         }
 
