@@ -1,6 +1,6 @@
 package com.aptoide.models.displayables;
 
-import com.aptoide.models.displayables.Displayable;
+import android.os.Parcel;
 
 /**
  * Created by hsousa on 26-06-2015.
@@ -27,6 +27,44 @@ public class ExcludedUpdate extends Displayable {
         this.icon = icon;
         this.versionName = versionName;
     }
+
+    protected ExcludedUpdate(Parcel in) {
+        super(in);
+        name = in.readString();
+        vercode = in.readInt();
+        versionName = in.readString();
+        apkid = in.readString();
+        checked = in.readByte() != 0;
+        icon = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeString(name);
+        dest.writeInt(vercode);
+        dest.writeString(versionName);
+        dest.writeString(apkid);
+        dest.writeByte((byte) (checked ? 1 : 0));
+        dest.writeString(icon);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<ExcludedUpdate> CREATOR = new Creator<ExcludedUpdate>() {
+        @Override
+        public ExcludedUpdate createFromParcel(Parcel in) {
+            return new ExcludedUpdate(in);
+        }
+
+        @Override
+        public ExcludedUpdate[] newArray(int size) {
+            return new ExcludedUpdate[size];
+        }
+    };
 
     public boolean isChecked() {
         return checked;

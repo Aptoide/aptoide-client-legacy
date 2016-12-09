@@ -1,5 +1,29 @@
 package com.aptoide.amethyst.services;
 
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+
+import com.aptoide.amethyst.Aptoide;
+import com.aptoide.amethyst.MainActivity;
+import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.events.BusProvider;
+import com.aptoide.amethyst.events.OttoEvents;
+import com.aptoide.amethyst.preferences.ManagerPreferences;
+import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.IconSizeUtils;
+import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.webservices.OauthErrorHandler;
+import com.aptoide.dataprovider.webservices.Webservices;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.dataprovider.webservices.models.UpdatesApi;
+import com.aptoide.dataprovider.webservices.models.UpdatesResponse;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -17,25 +41,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.NotificationCompat;
 import android.text.TextUtils;
 
-import com.aptoide.amethyst.Aptoide;
-import com.aptoide.amethyst.R;
-import com.aptoide.amethyst.database.AptoideDatabase;
-import com.aptoide.amethyst.events.BusProvider;
-import com.aptoide.amethyst.events.OttoEvents;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.IconSizeUtils;
-import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.dataprovider.webservices.Webservices;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.dataprovider.webservices.models.UpdatesApi;
-import com.aptoide.dataprovider.webservices.models.UpdatesResponse;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +48,6 @@ import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import com.aptoide.amethyst.MainActivity;
 
 import retrofit.RestAdapter;
 import retrofit.converter.JacksonConverter;
@@ -157,7 +160,12 @@ public class UpdatesService extends Service {
 
                 UpdatesApi api = new UpdatesApi();
                 initUpdatesApi(api);
-
+                if (AptoideUtils.getSharedPreferences().getBoolean(Constants.UPDATES_FILTER_KEY, false)) {
+                    ArrayList<String> params = new ArrayList<>();
+                    params.add("alpha");
+                    params.add("beta");
+                    api.not_apk_tags = AptoideUtils.StringUtils.commaSeparatedValues(params);
+                }
                 Cursor servers = database.getStoresCursor();
                 for (servers.moveToFirst(); !servers.isAfterLast(); servers.moveToNext()) {
 
@@ -192,7 +200,19 @@ public class UpdatesService extends Service {
                     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
                     RestAdapter adapter = new RestAdapter.Builder().setLogLevel(RestAdapter.LogLevel.FULL).setConverter(new JacksonConverter(mapper)).setEndpoint("http://").build();
                     Logger.d("AptoideUpdates", "Getting updates");
-                    UpdatesResponse webUpdates = adapter.create(Webservices.class).getUpdates(api);
+                    int i = 0;
+                    UpdatesResponse webUpdates;
+                    do {
+                        if (i == 2) {
+                            api.access_token = null;
+                        } else if (i > 0) {
+                            OauthErrorHandler.refreshAcessToken();
+                            initUpdatesApi(api);
+                        }
+                        webUpdates = adapter.create(Webservices.class).getUpdates(api);
+                        i++;
+                    } while (i < 3 && webUpdates != null && webUpdates.info != null && TextUtils.equals(webUpdates.info.status, "FAIL"));
+
 
                     if (webUpdates != null && webUpdates.data != null && webUpdates.data.list != null) {
                         Logger.d("AptoideUpdates", "Got updates: " + webUpdates.data.list.size());
@@ -227,7 +247,8 @@ public class UpdatesService extends Service {
 
         private void initUpdatesApi(UpdatesApi api) {
             api.q = AptoideUtils.HWSpecifications.filters(Aptoide.getContext());
-            api.cpuid = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getString("APTOIDE_CLIENT_UUID", UpdatesApi.DEFAULT_CPUID);
+            api.cpuid = ManagerPreferences.getInstance(Aptoide.getContext()).getAptoideId();
+            api.access_token = SecurePreferences.getInstance().getString(Constants.ACCESS_TOKEN, null);
             api.mature = PreferenceManager.getDefaultSharedPreferences(Aptoide.getContext()).getBoolean(Constants.MATURE_CHECK_BOX, false);
             api.aaid = getAdvertisementId();
         }
@@ -311,7 +332,7 @@ public class UpdatesService extends Service {
                 for (final UpdatesResponse.UpdateApk updateApk : updates) {
                     if (updateApk.icon != null && updateApk.icon.contains("_icon")) {
                         String[] splittedUrl = updateApk.icon.split("\\.(?=[^\\.]+$)");
-                        String iconSize = IconSizeUtils.generateSizeString(context);
+                        String iconSize = IconSizeUtils.generateSizeString();
                         updateApk.icon = splittedUrl[0] + "_" + iconSize + "." + splittedUrl[1];
                     }
                     downloadService.downloadFromV7(updateApk, false);

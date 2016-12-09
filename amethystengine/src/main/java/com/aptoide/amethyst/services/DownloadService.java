@@ -262,7 +262,7 @@ public class DownloadService extends Service {
                 download.getVersion(), id,
                 download.getIcon(),
                 path + md5 + ".apk",
-                new ArrayList<String>());
+                new ArrayList<String>(),download.getTrusted());
         apk.setRepoName(repoName);
 
         download(id, download, apk, filesToDownload);
@@ -306,6 +306,8 @@ public class DownloadService extends Service {
         download.setIcon(apk.icon);
         download.setSize(fileSize);
         download.setCpiUrl(downloadOld.getCpiUrl());
+        download.setTrusted(downloadOld.getTrusted());
+        download.setInstallationSource(downloadOld.getInstallationSource());
 
         startDownload(download, apk, obb, permissions);
     }
@@ -379,7 +381,7 @@ public class DownloadService extends Service {
                 download.getVersion(), id,
                 download.getIcon(),
                 path + json.apk.md5sum + ".apk",
-                new ArrayList<>(json.apk.permissions));
+                new ArrayList<>(json.apk.permissions),download.getTrusted());
         apk.setId(json.apk.id.longValue());
 
         download(download.getId(), download, apk, filesToDownload);
@@ -423,7 +425,8 @@ public class DownloadService extends Service {
                 download.getMd5().hashCode(),
                 download.getIcon(),
                 path + download.getMd5() + ".apk",
-                permissions);
+                permissions,download.getTrusted());
+
 
         apk.setId(updateApk.id.longValue());
 
@@ -623,7 +626,7 @@ public class DownloadService extends Service {
 
         final SpiceManager manager = new SpiceManager(AptoideSpiceHttpService.class);
         if (!manager.isStarted()) manager.start(getApplicationContext());
-        final String sizeString = IconSizeUtils.generateSizeString(getApplicationContext());
+        final String sizeString = IconSizeUtils.generateSizeString();
 
         new Thread(new Runnable() {
             @Override

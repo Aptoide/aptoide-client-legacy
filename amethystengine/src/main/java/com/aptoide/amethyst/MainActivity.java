@@ -1,5 +1,55 @@
 package com.aptoide.amethyst;
 
+import com.aptoide.amethyst.adapter.MainPagerAdapter;
+import com.aptoide.amethyst.analytics.Analytics;
+import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
+import com.aptoide.amethyst.configuration.AptoideConfiguration;
+import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.dialogs.AptoideDialog;
+import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
+import com.aptoide.amethyst.events.BusProvider;
+import com.aptoide.amethyst.events.OttoEvents;
+import com.aptoide.amethyst.model.json.OAuth;
+import com.aptoide.amethyst.preferences.SecurePreferences;
+import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
+import com.aptoide.amethyst.services.DownloadService;
+import com.aptoide.amethyst.services.UpdatesService;
+import com.aptoide.amethyst.tutorial.TutorialActivity;
+import com.aptoide.amethyst.ui.BadgeView;
+import com.aptoide.amethyst.ui.ExcludedUpdatesActivity;
+import com.aptoide.amethyst.ui.MyAccountActivity;
+import com.aptoide.amethyst.ui.RollbackActivity;
+import com.aptoide.amethyst.ui.ScheduledDownloadsActivity;
+import com.aptoide.amethyst.ui.SearchManager;
+import com.aptoide.amethyst.ui.SettingsActivity;
+import com.aptoide.amethyst.ui.dialogs.AddStoreDialog;
+import com.aptoide.amethyst.ui.widget.CircleTransform;
+import com.aptoide.amethyst.utils.AptoideUtils;
+import com.aptoide.amethyst.utils.Base64;
+import com.aptoide.amethyst.utils.Configs;
+import com.aptoide.amethyst.utils.InstalledAppsHelper;
+import com.aptoide.amethyst.utils.Logger;
+import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
+import com.aptoide.amethyst.webservices.OAuth2AuthenticationRequest;
+import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
+import com.aptoide.amethyst.webservices.v2.AlmostGenericResponseV2RequestListener;
+import com.aptoide.dataprovider.AptoideSpiceHttpService;
+import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
+import com.aptoide.dataprovider.webservices.models.Constants;
+import com.aptoide.dataprovider.webservices.models.Defaults;
+import com.aptoide.models.ApkSuggestionJson;
+import com.aptoide.models.stores.Store;
+import com.astuetz.PagerSlidingTabStrip;
+import com.bumptech.glide.Glide;
+import com.crashlytics.android.Crashlytics;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.flurry.android.FlurryAgent;
+import com.localytics.android.Localytics;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
+import com.squareup.otto.Subscribe;
+
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.OnAccountsUpdateListener;
@@ -32,42 +82,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aptoide.amethyst.analytics.Analytics;
-import com.aptoide.amethyst.configuration.AptoideConfiguration;
-import com.aptoide.amethyst.database.AptoideDatabase;
-import com.aptoide.amethyst.dialogs.AptoideDialog;
-import com.aptoide.amethyst.dialogs.MyAppStoreDialog;
-import com.aptoide.amethyst.events.BusProvider;
-import com.aptoide.amethyst.events.OttoEvents;
-import com.aptoide.amethyst.model.json.OAuth;
-import com.aptoide.amethyst.preferences.SecurePreferences;
-import com.aptoide.amethyst.tutorial.TutorialActivity;
-import com.aptoide.amethyst.ui.MyAccountActivity;
-import com.aptoide.amethyst.utils.AptoideUtils;
-import com.aptoide.amethyst.utils.Base64;
-import com.aptoide.amethyst.utils.Configs;
-import com.aptoide.amethyst.utils.Logger;
-import com.aptoide.amethyst.webservices.ChangeUserSettingsRequest;
-import com.aptoide.amethyst.webservices.OAuth2AuthenticationRequest;
-import com.aptoide.amethyst.webservices.v2.AddApkCommentVoteRequest;
-import com.aptoide.amethyst.webservices.v2.AlmostGenericResponseV2RequestListener;
-import com.aptoide.dataprovider.AptoideSpiceHttpService;
-import com.aptoide.dataprovider.webservices.json.GenericResponseV2;
-import com.aptoide.dataprovider.webservices.models.Constants;
-import com.aptoide.dataprovider.webservices.models.Defaults;
-import com.aptoide.models.ApkSuggestionJson;
-import com.aptoide.models.stores.Store;
-import com.astuetz.PagerSlidingTabStrip;
-import com.bumptech.glide.Glide;
-import com.crashlytics.android.Crashlytics;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.flurry.android.FlurryAgent;
-import com.octo.android.robospice.SpiceManager;
-import com.octo.android.robospice.persistence.exception.SpiceException;
-import com.octo.android.robospice.request.listener.RequestListener;
-import com.squareup.otto.Subscribe;
-
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -76,21 +90,6 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.ZipFile;
-
-import com.aptoide.amethyst.adapter.MainPagerAdapter;
-import com.aptoide.amethyst.callbacks.AddCommentVoteCallback;
-import com.aptoide.amethyst.pushnotification.PushNotificationReceiver;
-import com.aptoide.amethyst.services.DownloadService;
-import com.aptoide.amethyst.services.UpdatesService;
-import com.aptoide.amethyst.ui.BadgeView;
-import com.aptoide.amethyst.ui.ExcludedUpdatesActivity;
-import com.aptoide.amethyst.ui.RollbackActivity;
-import com.aptoide.amethyst.ui.ScheduledDownloadsActivity;
-import com.aptoide.amethyst.ui.SearchManager;
-import com.aptoide.amethyst.ui.SettingsActivity;
-import com.aptoide.amethyst.ui.dialogs.AddStoreDialog;
-import com.aptoide.amethyst.ui.widget.CircleTransform;
-import com.aptoide.amethyst.utils.InstalledAppsHelper;
 
 public class MainActivity extends AptoideBaseActivity implements AddCommentVoteCallback {
 
@@ -139,7 +138,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
     protected void onResume() {
         super.onResume();
         setupUserInfoNavigationDrawer();
-
+        AptoideUtils.FlurryAppviewOrigin.resetAppviewOrigins();
         if (wizardWasExecuted) {
             wizardWasExecuted = false;
             final int OPEN_DELAY = 200;
@@ -211,6 +210,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         setContentView(getContentView());
         bindViews();
 
+        Analytics.MainActivityOncreate();
         if(!checkIfInstalled()) {
             createShortCut();
         }
@@ -257,6 +257,8 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             } else if (getIntent().hasExtra("new_updates")) {
                 Analytics.ApplicationLaunch.newUpdatesNotification();
                 mViewPager.setCurrentItem(3);
+            } else if (getIntent().hasExtra("openAppView")) {
+                openAppView(getIntent().getStringExtra("openAppView"));
             } else {
                 Analytics.ApplicationLaunch.launcher();
 
@@ -346,6 +348,14 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
         Analytics.Dimenstions.setPartnerDimension(getPartnerName());
         Analytics.Dimenstions.setVerticalDimension(getVertical());
         Analytics.Dimenstions.setGmsPresent(AptoideUtils.GoogleServices.checkGooglePlayServices(this));
+    }
+
+    private void openAppView(String appId) {
+        try {
+            startActivity(new Intent(this, AppViewActivity.class).putExtra(Constants.FROM_NOTIFICATION, true).putExtra(Constants.APP_ID_KEY, Long.valueOf(appId)));
+        } catch (NumberFormatException e) {
+            Logger.e("MainActivity", "Could not open openAppView notification. It must be a long value.");
+        }
     }
 
     protected int getContentView() {
@@ -725,6 +735,7 @@ public class MainActivity extends AptoideBaseActivity implements AddCommentVoteC
             Logger.i(this, "OttoEvents.StartDownload event was null");
         } else {
             matureLock(event.isMature());
+            Analytics.ClickOnAdultSwitch.sendSwitchPressedEvent(event.isMature());
         }
     }
 

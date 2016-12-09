@@ -1,19 +1,14 @@
 package com.aptoide.amethyst.receivers;
 
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
-
+import com.aptoide.amethyst.AppViewActivity;
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.AptoideBaseActivity;
+import com.aptoide.amethyst.MainActivity;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.SearchActivity;
 import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.AptoideDatabase;
+import com.aptoide.amethyst.ui.SearchManager;
 import com.aptoide.amethyst.utils.AptoideUtils;
 import com.aptoide.amethyst.utils.Base64;
 import com.aptoide.amethyst.utils.Logger;
@@ -25,6 +20,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
+
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -45,12 +49,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import com.aptoide.amethyst.AppViewActivity;
-import com.aptoide.amethyst.MainActivity;
-
-import com.aptoide.amethyst.SearchActivity;
-import com.aptoide.amethyst.ui.SearchManager;
-
 /**
  * Created with IntelliJ IDEA.
  * User: rmateus
@@ -60,6 +58,7 @@ import com.aptoide.amethyst.ui.SearchManager;
  */
 public class IntentReceiver extends AptoideBaseActivity implements DialogInterface.OnDismissListener {
 
+    public static final String TAG = IntentReceiver.class.getSimpleName();
     private ArrayList<String> server;
     private String TMP_MYAPP_FILE;
     private HashMap<String, String> app;
@@ -71,7 +70,6 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 //    private Class appViewClass = Aptoide.getConfiguration().getAppViewActivityClass();
     private Class startClass = MainActivity.class;
     private Class appViewClass = AppViewActivity.class;
-    private Class searchManagerClass = SearchManager.class;
 
 //    private ServiceConnection downloadConnection = new ServiceConnection() {
 //        @Override
@@ -272,13 +270,8 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
             downloadMyApp();
 
         } else if (uri.startsWith("aptoideinstall://")) {
-
-            try {
-                long id = Long.parseLong(uri.substring("aptoideinstall://".length()));
-                startFromMyApp(id);
-            } catch (NumberFormatException e) {
-                Logger.printException(e);
-            }
+            String substring = uri.substring("aptoideinstall://".length());
+            parseAptoideInstallUri(substring);
 
             finish();
 
@@ -310,6 +303,37 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 
         } else {
             finish();
+        }
+    }
+
+    private void parseAptoideInstallUri(String substring) {
+        substring = substring.replace("\"", "");
+        String[] split = substring.split("&");
+        String repo = null;
+        String packageName = null;
+        boolean showPopup = false;
+        for (String property : split) {
+            if (property.toLowerCase().contains("package")) {
+                packageName = property.split("=")[1];
+            } else if (property.toLowerCase().contains("store")) {
+                repo = property.split("=")[1];
+            } else if (property.toLowerCase().contains("show_install_popup")) {
+                showPopup = property.split("=")[1].equals("true");
+            } else {
+                //old version only with app id
+                try {
+                    long id = Long.parseLong(substring);
+                    startFromMyApp(id);
+                    return;
+                } catch (NumberFormatException e) {
+                    Logger.printException(e);
+                }
+            }
+        }
+        if (packageName != null && !packageName.isEmpty()) {
+            startActivity(AppViewActivity.getAppviewIntent(packageName, repo, showPopup, this));
+        } else {
+            Log.e(TAG, "Package name is mandatory, it should be in uri. Ex: aptoideinstall://package=cm.aptoide.pt&store=apps&show_install_popup=true");
         }
     }
 
@@ -455,7 +479,7 @@ public class IntentReceiver extends AptoideBaseActivity implements DialogInterfa
 
         } else {
             i = new Intent(this, SearchActivity.class);
-            i.putExtra(android.app.SearchManager.QUERY, packageName);
+            i.putExtra(SearchActivity.SEARCH_QUERY, packageName);
 //            i.putExtra("search", packageName);
         }
 

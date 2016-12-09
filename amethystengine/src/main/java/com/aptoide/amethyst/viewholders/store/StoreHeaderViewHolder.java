@@ -62,7 +62,7 @@ public class StoreHeaderViewHolder extends BaseViewHolder {
             Glide.with(context).fromResource().load(R.drawable.ic_avatar_apps)
                     .transform(new CircleTransform(context)).into(avatar);
         } else {
-            Glide.with(context).load(row.avatar).transform(new CircleTransform(context)).into(avatar);
+            Glide.with(context).load(AptoideUtils.UI.parseStoreIcon(row.avatar)).transform(new CircleTransform(context)).into(avatar);
         }
 
         @ColorInt int color = context.getResources().getColor(theme.getStoreHeader());

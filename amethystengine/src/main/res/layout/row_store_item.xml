@@ -123,7 +123,7 @@
             android:gravity="center_vertical"
             android:padding="6dp"
             android:layout_marginTop="4dp"
-            android:text="Unsubscribe"
+            android:text="@string/unsubscribe"
             android:textColor="?attr/storesTextColor"
             android:textSize="12sp"/>
 

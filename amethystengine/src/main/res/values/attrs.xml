@@ -8,6 +8,7 @@
 
     <attr name="customButton" format="reference"/>
     <attr name="customButtonWhite" format="reference"/>
+    <attr name="customButtonTwoLines" format="reference"/>
 
     <attr name="toolbarTheme" format="reference"/>
 

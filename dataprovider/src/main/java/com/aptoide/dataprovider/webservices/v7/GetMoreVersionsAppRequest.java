@@ -1,14 +1,14 @@
 package com.aptoide.dataprovider.webservices.v7;
 
-import android.support.annotation.NonNull;
-
 import com.aptoide.dataprovider.webservices.interfaces.v7.IGetAppV7WebService;
-import com.aptoide.dataprovider.webservices.models.v7.Apiv7;
+import com.aptoide.dataprovider.webservices.models.v7.Apiv7GetStore;
 import com.aptoide.dataprovider.webservices.models.v7.GetApp;
 import com.aptoide.dataprovider.webservices.models.v7.ViewItem;
 import com.aptoide.models.displayables.DisplayableList;
 import com.aptoide.models.displayables.MoreVersionsItem;
 import com.octo.android.robospice.request.retrofit.RetrofitSpiceRequest;
+
+import android.support.annotation.NonNull;
 
 /**
  * Created by fabio on 28-10-2015.
@@ -28,6 +28,7 @@ public class GetMoreVersionsAppRequest extends RetrofitSpiceRequest<DisplayableL
     public String packageName;
     public int limit;
     public int offset;
+    public String aptoideId;
 
     public GetMoreVersionsAppRequest(int numColumns) {
         super(DisplayableList.class, IGetAppV7WebService.class);
@@ -54,10 +55,11 @@ public class GetMoreVersionsAppRequest extends RetrofitSpiceRequest<DisplayableL
      *
      * @return
      */
-    public Apiv7 getApi() {
+    public Apiv7GetStore getApi() {
 
-        Apiv7 api = new Apiv7();
+        Apiv7GetStore api = new Apiv7GetStore();
 
+        api.aptoideId = aptoideId;
         api.mature = mature;
         api.q = filters;
         api.lang = lang;

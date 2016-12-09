@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">Toon geen applicaties die niet compatible zijn met dit apparaat</string>
 <string name="setting_appfiltertitle">Filter Applicaties</string>
 <string name="setting_schdwntitle">Geplande Downloads</string>
-<string name="setting_schdwninstallsum">Installeer geplande downloads automatisch wanneer er een Wi-Fi-verbinding aanwezig is</string>
+<string name="setting_schdwninstallsum">Installeer geplande downloads automatisch wanneer verbonden met Wi-Fi</string>
 <string name="setting_sdk_version">SDK Versie</string>
 <string name="setting_screen_size">Scherm Grootte</string>
 <string name="setting_esgl_version">ESGL Versie</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Markeer deze app</string>
 <string name="search">Zoeken</string>
 <string name="my_account">Mijn account</string>
-<string name="no_sch_downloads">Wil je door apps bladeren wanneer je verbonden bent met een mobiel netwerk, maar pas downloaden als je weer verbonden bent met Wi-Fi? Gebruik dan geplande downloads en schakel alleen \'Wi-Fi\' in onder Instellingen &gt; Algemene downloadregels.</string>
+<string name="no_sch_downloads">Wil je door apps bladeren via mobiele gegevens, maar deze pas downloaden wanneer je verbonden bent met Wi-Fi? Gebruik dan geplande downloads. Verander je voorkeur naar Wi-Fi onder Instellingen &gt; Algemene downloadregels.</string>
 <string name="schDown_installselected">Geselecteerde installeren</string>
 <string name="stores">Winkels</string>
 <string name="insert_store_name">Vul winkel naam in:</string>
@@ -356,7 +356,7 @@
     <string name="reviewed_by">Beoordeeld door - %s</string>
     <string name="installed_this">%s installeerde dit.</string>
 
-    <string name="hidden_adult">Er zijn apps niet weergegeven omdat Adult-content-filters actief zijn. Wilt u inhoud voor volwassenen weergeven?</string>
+    <string name="hidden_adult">Sommige apps zijn verborgen omdat 18+-inhoud niet wordt weergeven. Wil je deze apps toch weergeven?</string>
     <string name="dont_show_again">Dit dialoogvenster niet opnieuw weergeven</string>
 
     <string name="action_settings">Instellingen</string>
@@ -370,7 +370,7 @@
     <string name="install_update">Update Installeren</string>
 
     <string name="order_popup_title3">Volwassen inhoud</string>
-    <string name="more_reviews">Meer recensies</string>
+    <string name="more_reviews">Recensies</string>
     <string name="more_editors_choice">Meer Editors Choice</string>
     <string name="more_versions">Meer versies</string>
     <string name="recommended_for_you">Aanbevolen voor jou</string>
@@ -421,18 +421,18 @@
     <string name="upload_app_backup_apps_installed">Je moet deze app eerst uploaden naar je winkel. Je kan Aptoide\'s app \'Back-up apps\' gebruiken.</string>
     <string name="upload_app_backup_apps_not_installed">Je moet deze app eerst uploaden naar je winkel. Installeer en gebruik Aptoide\'s app \'Back-up apps\'.</string>
     <string name="upload_app">App uploaden</string>
-    <string name="create_review">Review schrijven</string>
+    <string name="create_review">Recensie schrijven</string>
 
     <string name="drawer_social_media_title">Blijf verbonden</string>
     <string name="flag_this_app_need_licence">Licentie nodig</string>
     <string name="appview_additional_information_title">Extra informatie</string>
-    <string name="appview_subscribe_store_button_text">"+   Abonneren?"</string>
+    <string name="appview_subscribe_store_button_text">Abonneren?</string>
     <string name="appview_subscribed_store_button_text">Geabonneerd</string>
     <string name="appview_other_versions_in_others_stores">Andere versies in andere winkels</string>
     <string name="appview_rate_Success">App beoordeeld</string>
     <string name="noIgnoreUpdateText">Werkt de nieuwste versie van een app niet op jouw apparaat of mis je een functie? Schakel updates van zulke apps dan uit. Ga naar het tabje met updates en druk lang op een app. Selecteer daarna de optie \'Verberg update\' om de update te verbergen.</string>
-    <string name="createReviewButtonText">Review schrijven</string>
-    <string name="navigation_drawer_signup_login">Aanmelden of inloggen</string>
+    <string name="createReviewButtonText">Recensie\nschrijven</string>
+    <string name="navigation_drawer_signup_login">Registreren of inloggen</string>
     <string name="_downloads"> downloads</string>
     <string name="no_description">Geen beschrijving</string>
     <string name="description">Beschrijving</string>
@@ -446,4 +446,172 @@
     <string name="title_caps">TITEL</string>
 
     <string name="unsubscribe_yes_no">Weet je zeker dat je je abonnement wilt opzeggen?</string>
-    </resources>
+    <string name="unsubscribed_">"Je bent niet langer hierop geabonneerd "</string>
+    <string name="error_occured_uploading">Je moet deze app eerst uploaden.</string>
+
+    <string name="menu_search_item_go_to_store">Ga naar winkel</string>
+    <string name="srch_hint">Zoek naar apps…</string>
+
+    <string name="app_trusted">%s is vertrouwd</string>
+    <string name="app_warning">Waarschuwing: %s</string>
+    <string name="scanned_with_av">Gescand met antivirus:</string>
+    <string name="compared_with_another_marketplace">Vergeleken met een andere Android-appstore:</string>
+    <string name="application_signature_analysis">Applicatie handtekening vergeleken met developer handtekening:</string>
+    <string name="application_signature_matched">Applicatie handtekening match met handtekening gerelateerd aan de applicatie developer.</string>
+    <string name="application_signature_not_matched">Applicatie handtekening komt niet overeen met handtekening gerelateerd aan de applicatie developer. Applicatie kan vervalst zijn.</string>
+    <string name="application_signature_blacklisted">Applicatie handtekening is geen Vertrouwde handtekening bij het Aptoide Anti-Malware platform doordat hij is gebruikt om een andere applicatie te signeren die niet overeen komt met de handtekening gerelateerd aan de echte developer.</string>
+    <string name="scanned_manually_by_aptoide_team">Handmatig gescand door Aptoide Team:</string>
+    <string name="scanned_verified_by_tester">De applicatie is handmatig bekeken door een tester van het Aptoide Team welke de veiligheid van de applicatie vaststelt.</string>
+    <string name="warning">Waarschuwing</string>
+    <string name="trusted_app">Vertrouwde App</string>
+    <string name="unknown">Onbekend</string>
+
+    <string name="reason_third_party">We hebben de handtekening van de app bekeken en deze komt overeen met de Google Play Store, dus maak u geen zorgen en geniet van de app.</string>
+    <string name="reason_scanned">Gescand met AptoideGuard plus 2 verschillende anti-virus (Zoner 1.8 en Sophos 3.0).</string>
+    <string name="reason_signature">De cryptografische handtekening garandeert dat het bestand veilig is om te installeren en dat hier op geen enkele manier mee geknoeid is.</string>
+    <string name="reason_manual">Deze app was handmatig bekeken door Aptoide\'s expert team en beoordeeld als Goed.</string>
+
+    <string name="reason_failed">Applicatie handtekening komt niet overeen met de handtekening van de developer. Het kan zijn dat er is geknoeid met de app.</string>
+    <string name="reason_unknown">Er is niet genoeg informatie over deze app in Aptoide Anti-Malware platform.</string>
+
+
+
+    <string name="reply_to">Reageer op %s</string>
+    <string name="comment_submitted">Uw opmerking is succesvol toegevoegd</string>
+    <string name="write_a_comment">Schrijf een opmerking</string>
+    <string name="no_comment_be_the_first">Nog geen opmerkingen. Wees de eerste!</string>
+
+    <string name="installapp_alrt">Wilt u installeren:
+\n\n %s?</string>
+
+    <string name="suggested_app">Voorgestelde App</string>
+
+    <string name="abTest1_label_1">Neem app</string>
+    <string name="abTest1_label_2">Installeer</string>
+    <string name="abTest1_label_3">Installeer</string>
+
+
+    <string name="notification_timeline_new_likes">U heeft %s nieuwe likes. Bekijk de Sociale Tijdlijn!</string>
+    <string name="notification_timeline_new_comments">U heeft %s nieuwe opmerkingen. Bekijk de Sociale Tijdlijn!</string>
+    <string name="notification_timeline_activity">U heeft %1$s nieuwe opmerkingen en %2$s likes. Bekijk de Sociale Tijdlijn!</string>
+    <string name="notification_social_timeline">Aptoide Sociale Tijdlijn. Bekijk het nu!</string>
+    <string name="notification_timeline_posts">Uw vrienden hebben nieuwe apps geïnstalleerd!</string>
+
+    <string name="has_updates">%s heeft nieuwe updates beschikbaar!</string>
+    <string name="new_updates">Er zijn %s nieuwe updates beschikbaar!</string>
+    <string name="one_new_update">Er is %s nieuwe update beschikbaar!</string>
+    <string name="updates_tab_adapter_uninstalled">Verwijderd</string>
+    <string name="updatesTabAdapterUninstall">Verwijderen</string>
+    <string name="flag_good">Goed</string>
+    <string name="flag_license">Behoeft Licentie</string>
+    <string name="flag_fake">Nep</string>
+    <string name="flag_freeze">Bevries</string>
+    <string name="flag_virus">Virus</string>
+    <string name="flag_this_app">Beoordeel deze app</string>
+    <string name="flag_added">Beoordeling toegevoegd</string>
+    <string name="skip">Overslaan</string>
+    <string name="wizard_title_01">Welkom bij Aptoide</string>
+    <string name="wizard_description_01">Maak een gratis account aan en registreer om je eigen persoonlijke App Store te bouwen.\n\n Kies een winkel thema en ontdek nieuwe en interessante applicaties.</string>
+    <string name="wizard_title_02">Verbeterde Beveiliging</string>
+    <string name="wizard_description_02">Zoek naar vertrouwde badges en download veilig apps.\n\n Incompatibiliteitsproblemen? Zoek naar eerdere versies van applicaties.</string>
+    <string name="wizard_title_03">Nieuwe leden van onze familie</string>
+    <string name="wizard_subtitle_03_1">Aptoide Lite</string>
+    <string name="wizard_description_03_1">voor oude apparaten en trage internetverbinding</string>
+    <string name="wizard_subtitle_03_2">Aptoide TV</string>
+    <string name="wizard_description_03_2">geoptimaliseerde App Store voor Set top boxes en smart TV\'s</string>
+    <string name="wizard_reviews_title">Recensies</string>
+    <string name="wizard_reviews">U kunt nu uw app\'s recensies schrijven met Aptoide!</string>
+    <string name="wizard_new_and_improved">Verbeterde prestatie!</string>
+    <string name="wizard_new_and_improved_bullet_1">Verleng batterijduur</string>
+    <string name="wizard_new_and_improved_bullet_2">Verminder CPU en bandbreedte verbruik</string>
+    <string name="wizard_new_and_improved_bullet_3">Laad minder hulpmiddelen</string>
+    <string name="wizard_new_and_improved_bullet_4">Schone Gebruikersinterface</string>
+    <string name="wizard_new_homepage">Nieuwe homepage indeling</string>
+    <string name="wizard_new_top">Nieuw Top tabblad</string>
+    <string name="subscribe_apps_official_store">Abonneer \'apps\' Aptoide Officiële App Store</string>
+    <string name="wizard_next">Volgende</string>
+    <string name="wizard_prev">Vorige</string>
+    <string name="search_activity_title">\'%s\'</string>
+
+    <string name="share">Deel</string>
+    <string name="share_on_timeline">Deel op tijdlijn</string>
+
+    <string name="search_for_apps">Zoek naar apps…</string>
+    <string name="empty_search">Lege zoekopdracht, schrijf de naam van een applicatie</string>
+    <string name="manually_reviewed">Goede App Gegarandeerd: deze applicatie doorstond de veiligheidstests voor virus, malware en andere kwaadaardigheden en bevat geen enkele dreiging</string>
+
+    <string name="no_apps_found">Geen apps gevonden met huidige filter</string>
+    <string name="no_search_results_message">Er zijn geen resultaten voor uw zoekopdracht.
+\nProbeert u het met andere keywords.</string>
+
+    <string name="developer">Developer</string>
+    <string name="website">Website: %s</string>
+    <string name="email">E-mail: %s</string>
+    <string name="privacy_policy">Privacybeleid: %s</string>
+    <string name="dialog_version_size">Versie: %1$s | Grootte: %2$s</string>
+    <string name="na">N/B</string>
+    <string name="no_email_and_pass_error_message">Vul uw e-mailadres en wachtwoord in om te registreren.</string>
+    <string name="no_pass_error_message">Vul uw wachtwoord in om te registreren.</string>
+    <string name="no_email_error_message">Vul uw e-mailadres in om te registreren.</string>
+    <string name="website_copied">Website gekopieerd naar klembord</string>
+    <string name="email_copied">E-mail gekopieerd naar klembord</string>
+    <string name="privacy_copied">Privacy link gekopieerd naar klembord</string>
+    <string name="subscribing_store_message">Uitschrijven %s</string>
+
+    <string name="latest_reviews">Laatste Recensies</string>
+    <string name="latest_comments">Laatste Opmerkingen</string>
+    <string name="action">Actie</string>
+    <string name="adventure">Avontuur</string>
+    <string name="all">Alle</string>
+    <string name="applications">Applicaties</string>
+    <string name="arcade">Arcade</string>
+    <string name="arcade_action">Arcade &amp; Actie</string>
+    <string name="auto_update">Automatische Update</string>
+    <string name="board">Bord</string>
+    <string name="books_reference">Boeken &amp; Referentie</string>
+    <string name="brain_puzzle">Denk &amp; Puzzel</string>
+    <string name="business">Bedrijf</string>
+    <string name="card">Kaart</string>
+    <string name="cards_casino">Kaarten &amp; Casino</string>
+    <string name="casino">Casino</string>
+    <string name="casual">Casual</string>
+    <string name="comics">Stripboeken</string>
+    <string name="communication">Communicatie</string>
+    <string name="demo">Demo</string>
+    <string name="education">Educatie</string>
+    <string name="educational">Educatief</string>
+    <string name="enable">Toestaan</string>
+    <string name="entertainment">Vermaak</string>
+    <string name="family">Familie</string>
+    <string name="finance">Financiën</string>
+    <string name="games">Spellen</string>
+    <string name="health_fitness">Gezondheid &amp; Fitness</string>
+    <string name="lifestyle">Lifestyle</string>
+    <string name="media_video">Media &amp; Video</string>
+    <string name="news_magazines">Nieuws &amp; Magazines</string>
+    <string name="news_weather">Nieuws &amp; Weer</string>
+    <string name="personalization">Personalisatie</string>
+    <string name="photography">Fotografie</string>
+    <string name="productivity">Productiviteit</string>
+    <string name="puzzle">Puzzel</string>
+    <string name="quick_start">Snelle Start</string>
+    <string name="racing">Racen</string>
+    <string name="Reference">Referentie</string>
+    <string name="role_playing">Rollenspel</string>
+    <string name="simulation">Simulatie</string>
+    <string name="social">Sociaal</string>
+    <string name="software_libraries">Software Bibliotheken</string>
+    <string name="sports">Sport</string>
+    <string name="sports_games">Sport Spellen</string>
+    <string name="strategy">Strategie</string>
+    <string name="themes">Thema\'s</string>
+    <string name="tools">Tools</string>
+    <string name="top_apps">Top Apps</string>
+    <string name="top_games">Top Spellen</string>
+    <string name="transport">Transport</string>
+    <string name="transportation">Transportatie</string>
+    <string name="travel_local">Reis &amp; Lokaal</string>
+    <string name="trending">Trending</string>
+    <string name="trivia">Trivia</string>
+    <string name="word">Woord</string>
+</resources>

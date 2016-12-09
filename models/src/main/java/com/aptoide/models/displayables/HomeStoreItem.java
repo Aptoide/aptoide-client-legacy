@@ -1,6 +1,7 @@
 package com.aptoide.models.displayables;
 
-import com.aptoide.models.displayables.Displayable;
+import android.os.Parcel;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -25,6 +26,54 @@ public class HomeStoreItem extends Displayable {
     public HomeStoreItem(@JsonProperty("BUCKETSIZE") int bucketSize) {
         super(bucketSize);
     }
+
+    protected HomeStoreItem(Parcel in) {
+        super(in);
+        id = in.readLong();
+        repoName = in.readString();
+        avatar = in.readString();
+        added = in.readString();
+        modified = in.readString();
+        description = in.readString();
+        theme = in.readString();
+        view = in.readString();
+        storeApps = in.readLong();
+        storeDwnNumber = in.readLong();
+        storeSubscribers = in.readLong();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeLong(id);
+        dest.writeString(repoName);
+        dest.writeString(avatar);
+        dest.writeString(added);
+        dest.writeString(modified);
+        dest.writeString(description);
+        dest.writeString(theme);
+        dest.writeString(view);
+        dest.writeLong(storeApps);
+        dest.writeLong(storeDwnNumber);
+        dest.writeLong(storeSubscribers);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<HomeStoreItem> CREATOR = new Creator<HomeStoreItem>() {
+        @Override
+        public HomeStoreItem createFromParcel(Parcel in) {
+            return new HomeStoreItem(in);
+        }
+
+        @Override
+        public HomeStoreItem[] newArray(int size) {
+            return new HomeStoreItem[size];
+        }
+    };
 
     @Override
     public int getSpanSize() {

@@ -1,23 +1,23 @@
 package com.aptoide.amethyst.adapter;
 
+import com.aptoide.amethyst.fragments.store.CategoryFragment;
+import com.aptoide.amethyst.fragments.store.HomeStoreFragment;
+import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
+import com.aptoide.amethyst.fragments.store.LatestReviewsFragment;
+import com.aptoide.amethyst.utils.Translator;
+import com.aptoide.dataprovider.webservices.models.v7.GetStoreTabs.Tab;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.aptoide.dataprovider.webservices.models.v7.GetStoreTabs.Tab;
-
 import java.util.List;
 
-import com.aptoide.amethyst.fragments.store.CategoryFragment;
-import com.aptoide.amethyst.fragments.store.HomeStoreFragment;
-import com.aptoide.amethyst.fragments.store.LatestCommentsFragment;
-import com.aptoide.amethyst.fragments.store.LatestReviewsFragment;
-
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_APK_COMMENTS_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_REVIEWS_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_STORE_TAB;
-import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.Datalist.WidgetList.Action.Event.GET_STORE_WIDGETS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_APK_COMMENTS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_REVIEWS_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_STORE_TAB;
+import static com.aptoide.dataprovider.webservices.models.v7.GetStoreWidgets.WidgetDatalist.WidgetList.Action.Event.GET_STORE_WIDGETS_TAB;
 
 /**
  * Created by rmateus on 23/06/15.
@@ -60,6 +60,6 @@ public class StorePagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
 
         Tab tab = tabs.get(position);
-        return tab.label;
+        return Translator.translate(tab.label);
     }
 }

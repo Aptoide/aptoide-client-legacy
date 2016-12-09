@@ -29,6 +29,7 @@ package com.aptoide.amethyst.preferences;
  */
 public enum EnumPreferences {
 	APTOIDE_CLIENT_UUID,
+	APTOIDE_ID,
 	SCREEN_WIDTH,
 	SCREEN_HEIGHT,
 	SCREEN_DENSITY,

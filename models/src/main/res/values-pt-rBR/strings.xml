@@ -21,7 +21,7 @@
 <string name="setting_icon_download_rules">Regras de Download de Ícones</string>
 <string name="setting_sum_icon_download_rules">Permite que ícones sejam baixados através de conexões de dados móveis</string>
 <string name="setting_general_download_rules">Regras Gerais de Download</string>
-<string name="setting_sum_general_download_rules">Baixa Apps, Escolha dos Editores, Top Apps e Lojas através de conexões de dados móveis permitidas</string>
+<string name="setting_sum_general_download_rules">Baixe Apps, Escolha dos Editores, Top Apps e Lojas através de conexões de dados móveis permitidas</string>
 <string name="setting_wifi">WiFi</string>
 <string name="setting_3g">3G</string>
 <string name="setting_4g">4G</string>
@@ -90,7 +90,7 @@
 <string name="subscribe_pvt_store">Assinar loja privada</string>
 <string name="accept_terms">Ao registrar-se, você estará concordando com os Termos de Serviço do Aptoide e Política de Conteúdo para Desenvolvedores</string>
 <string name="register">Registrar-se</string>
-<string name="or">Ou</string>
+<string name="or">- Ou -</string>
 <string name="dont_have_an_account">Não tem uma conta? Registre-se</string>
 <string name="logged_as">Você está logado como:</string>
 <string name="sign_out">Sair</string>
@@ -209,7 +209,7 @@
 <string name="error_SYS_2">Dados não encontrados, por favor, tente novamente mais tarde</string>
 <string name="error_SYS_3">O sistema está em manutenção agora, por favor, tente novamente mais tarde</string>
 <string name="error_SYS_4">Esta chamada não é suportada pela versão atual da API</string>
-<string name="X_download_number">%s down.</string>
+<string name="X_download_number">%s inativo.</string>
 <string name="not_found">Não encontrado</string>
 <string name="active">Ativos</string>
 <string name="completed">Concluídos</string>
@@ -224,7 +224,7 @@
 <string name="are_you_adult">Você tem pelo menos 18 anos de idade?</string>
 <string name="buy">Comprar</string>
 <string name="payment_methods">Pagar com:</string>
-<string name="root">Root</string>
+<string name="root">Raíz</string>
 <string name="allow_root">Permitir instalação root</string>
 <string name="fields_cannot_empty">Por favor, verifique seu e-mail e senha.</string>
 <string name="flag_this_app_good">Bom</string>
@@ -380,7 +380,7 @@
 
     <string name="order_popup_title3">Conteúdo Adulto</string>
     <string name="timeline_is_empty_send_email">Nós vamos enviar um e-mail para aqueles que você escolher</string>
-    <string name="more_reviews">Mais Análises</string>
+    <string name="more_reviews">Avaliações</string>
     <string name="recommended_for_you">Recomendado para você</string>
     <string name="like">Curtir</string>
     <string name="review_by">Análise por:\n%s</string>
@@ -407,7 +407,7 @@
     <string name="upload_app_backup_apps_installed">Você precisa enviar este app para a sua loja primeiro. Você pode usar o Aptoide Backup Apps.</string>
     <string name="upload_app_backup_apps_not_installed">Você precisa enviar este app para a sua loja primeiro. Por favor, instale e use o Aptoide Backup Apps.</string>
     <string name="upload_app">Enviar app</string>
-    <string name="create_review">Criar análise</string>
+    <string name="create_review">Criar avaliação</string>
 
     <string name="setting_dont_show_mature_content">Mostra conteúdo adulto</string>
     <string name="drawer_social_media_title">Vamos nos manter conectados</string>
@@ -416,9 +416,9 @@
     <string name="flag_this_app_need_licence">Precisa de Licença</string>
     <string name="appview_additional_information_title">Informações Adicionais</string>
     <string name="appview_latest_version_text">Esta é a última versão!</string>
-    <string name="appview_subscribe_store_button_text">+   Assinar?</string>
+    <string name="appview_subscribe_store_button_text">Inscrever-se?</string>
     <string name="noIgnoreUpdateText">A nova versão de um aplicativo não funciona no seu dispositivo ou alguma coisa está faltando? Bloqueie a atualização dos aplicativos. Vá para a aba Atualizações e pressione sobre o aplicativo que você deseja parar de atualizar.</string>
-    <string name="createReviewButtonText">Criar Análise</string>
+    <string name="createReviewButtonText">Criar\nAvaliação</string>
     <string name="navigation_drawer_signup_login">Registrar ou Entrar</string>
     <string name="_downloads"> downloads</string>
     <string name="no_description">Sem descrição</string>
@@ -457,7 +457,7 @@
     <string name="data_usage_constraint">O download não é permitido em Configurações &gt; Regras Gerais de Download</string>
 
     <string name="added_to_scheduled">Adicionado ao Menu &gt; Downloads Agendados</string>
-    <string name="hidden_adult">Há apps não mostrados porque filtros de conteúdo Adulto estão ativos. Você deseja listar apps de conteúdo Adulto?</string>
+    <string name="hidden_adult">Alguns aplicativos não são exibidos, pois os filtros de conteúdo Adulto estão ativos. Você deseja listar este aplicativo?</string>
     <string name="dont_show_again">Não exibir este diálogo novamente</string>
 
     <string name="get_latest">Obter última versão</string>
@@ -500,7 +500,7 @@
     <string name="flag_good">Bom</string>
     <string name="flag_license">Precisa de Licença</string>
     <string name="flag_fake">Falso</string>
-    <string name="flag_freeze">Congelado</string>
+    <string name="flag_freeze">Pausar</string>
     <string name="flag_virus">Vírus</string>
     <string name="flag_this_app">Sinalizar este app</string>
     <string name="flag_added">Sinalização adicionada</string>
@@ -575,5 +575,104 @@
     <string name="na">N/A</string>
 
 <string name="error_410">Desculpe, o App solicitado não foi encontrado neste servidor.</string>
+
+    <string name="no_email_and_pass_error_message">Por favor, insira seu e-mail e senha para se registrar.</string>
+    <string name="no_pass_error_message">Por favor, insira a senha para registrar.</string>
+    <string name="no_email_error_message">Por favor, insira o e-mail para se registrar.</string>
+    <string name="website_copied">Página copiada para a área de transferência</string>
+    <string name="email_copied">E-mail copiado para a área de transferência</string>
+    <string name="privacy_copied">Link de privacidade copiado para a área de transferência</string>
+    <string name="subscribing_store_message">Cancelar inscrição %s</string>
+    <string name="balloon_security_google_play">Applicativo encontrado na</string>
+    <string name="balloon_security_subtitle">Agora nós analisamos todos os aplicativos para Vírus.</string>
+    <string name="balloon_security_title">A Aptoide mudou.</string>
+    <string name="balloon_security_subtitle_start_part">Nós analisamos %1$s\u0020</string>
+    <string name="balloon_security_subtitle_final_part"> para Vírus:</string>
+
+
+<string name="auto_update">Auto Atualização</string>
+    <string name="board">Painél</string>
+    <string name="transportation">Transportes</string>
+    <string name="word">Palavra</string>
+    <string name="play_it">Jogue!</string>
+<string name="latest_reviews">Últimas Avaliações</string>
+    <string name="latest_comments">Últimos Comentários</string>
+    <string name="action">Ação</string>
+    <string name="adventure">Aventura</string>
+    <string name="all">Tudo</string>
+    <string name="applications">Aplicativos</string>
+    <string name="arcade">Fliperama</string>
+    <string name="arcade_action">Fliperama &amp; Ação</string>
+    <string name="books_reference">Livros &amp; Referências</string>
+    <string name="brain_puzzle">Inteligência &amp; Quebra-Cabeças</string>
+    <string name="business">Negócios</string>
+    <string name="card">Cartas</string>
+    <string name="cards_casino">Cartas &amp; Cassino</string>
+    <string name="casino">Cassino</string>
+    <string name="casual">Casual</string>
+    <string name="comics">Quadrinhos</string>
+    <string name="communication">Comunicação</string>
+    <string name="demo">Demonstração</string>
+    <string name="education">Educação</string>
+    <string name="educational">Educacional</string>
+    <string name="enable">Ativar</string>
+    <string name="entertainment">Entretenimento</string>
+    <string name="family">Família</string>
+    <string name="finance">Finanças</string>
+    <string name="games">Jogos</string>
+    <string name="health">Saúde</string>
+    <string name="health_fitness">Saúde &amp; Bem Estar</string>
+    <string name="highlighted">Destacado</string>
+    <string name="local_top_apps">Aplicativos Top Locais</string>
+    <string name="lifestyle">Estilo de Vida</string>
+    <string name="media_video">Mídia &amp; Vídeo</string>
+    <string name="medical">Médico</string>
+    <string name="multimedia">Multimídia</string>
+    <string name="music">Música</string>
+    <string name="music_audio">Música &amp; Áudio</string>
+    <string name="news_magazines">Jornais &amp; Revistas</string>
+    <string name="news_weather">Novidades &amp; Clima</string>
+    <string name="personalization">Personalização</string>
+    <string name="photography">Fotografia</string>
+    <string name="productivity">Produtividade</string>
+    <string name="puzzle">Quebra-cabeças</string>
+    <string name="quick_start">Início Rápido</string>
+    <string name="racing">Corrida</string>
+    <string name="reference">Referência</string>
+    <string name="role_playing">RPG</string>
+    <string name="simulation">SImulação</string>
+    <string name="social">Social</string>
+    <string name="software_libraries">Biblioteca de Softwares</string>
+    <string name="sports">Esportes</string>
+    <string name="sports_games">Jogos de Esportes</string>
+    <string name="strategy">Estratégia</string>
+    <string name="themes">Temas</string>
+    <string name="tools">Ferramentas</string>
+    <string name="top_apps">Aplicativos Top</string>
+    <string name="top_games">Jogos Top</string>
+    <string name="transport">Transporte</string>
+    <string name="travel">Viagem</string>
+    <string name="travel_local">Viagem &amp; Local</string>
+    <string name="trending">Tendência</string>
+    <string name="trivia">Trivialidades</string>
+    <string name="libraries_demo">Bibliotecas &amp; Demonstrações</string>
+    <string name="shopping">Shopping</string>
+    <string name="weather">Clima</string>
+
+    <string name="latest_applications">Últimos Aplicativos</string>
+    <string name="top_apps_in_store">Aplicativos Top Nesta Loja</string>
+    <string name="apps_for_kids">Apps para Crianças</string>
+    <string name="aptoide_publishers">Editores Aptoide</string>
+    <string name="music_video">Música &amp; Vídeo</string>
+    <string name="essential_apps">Apps Essênciais</string>
+    <string name="summer_apps">Apps de Verão</string>
+
+    <string name="dialog_install_warning_proceed_button">Continuar</string>
+    <string name="dialog_install_warning_search_for_trusted_app_button">Procurar por</string>
+    <string name="dialog_install_warning_trusted_app_button">App Confiável</string>
+    <string name="dialog_install_warning_careful_text">Tenha cuidado antes se decidir instalar esse app. Ele pode ter sido adulterado, ter vírus ou malware.</string>
+    <string name="dialog_install_warning_credibility_text">Antes de continuar, verifique a credibilidade da loja e os comentários do usuários. A Aptoide recomenda que você instale apenas apps %1$s Confiáveis.</string>
+    <string name="dialog_install_warning_trusted_version_button">Versão Confiável</string>
+    <string name="dialog_install_warning_get_trusted_version_button">Ir para</string>
 
     </resources>

@@ -11,16 +11,10 @@ import java.util.List;
     public class GetStoreWidgets {
 
     public Info info;
-    public Datalist datalist;
+    public WidgetDatalist datalist;
 
-    public static class Datalist {
+    public static class WidgetDatalist extends DataList {
 
-        public Number total;
-        public Number count;
-        public Number next;
-        public Number offset;
-        public Number limit;
-        public Number hidden;
         @JsonProperty("list")
         public List<WidgetList> widgetList = new ArrayList<>();
 
@@ -84,11 +78,13 @@ import java.util.List;
                     public static final String EVENT_GETSTOREWIDGETS = "getStoreWidgets";
                     public static final String EVENT_FACEBOOK_TYPE = "facebook";
                     public static final String EVENT_YOUTUBE_TYPE = "youtube";
+                    public static final String EVENT_TWITCH_TYPE = "twitch";
                     public static final String EVENT_GETAPKCOMMENTS = "getApkComments";
 
                     public String type; // API, v3, EXTERNAL
                     public String name; // listApps, getStore, getStoreWidgets, getApkComments
                     public String action;
+                    public String altAction;
 
                     public static boolean isKnownType(String type) {
                         switch (type) {

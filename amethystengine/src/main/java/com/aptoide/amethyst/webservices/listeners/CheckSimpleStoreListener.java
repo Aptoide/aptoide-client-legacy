@@ -42,7 +42,7 @@ public class CheckSimpleStoreListener implements RequestListener<BulkResponse.Ge
             store.setName(response.datasets.meta.data.name);
             store.setDownloads(response.datasets.meta.data.downloads.intValue() + "");
 
-            String sizeString = IconSizeUtils.generateSizeStringAvatar(Aptoide.getContext());
+            String sizeString = IconSizeUtils.generateSizeStringAvatar();
 
             String avatar = data.avatar;
 

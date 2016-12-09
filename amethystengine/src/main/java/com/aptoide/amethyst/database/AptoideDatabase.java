@@ -17,11 +17,13 @@ import android.widget.Toast;
 
 import com.aptoide.amethyst.Aptoide;
 import com.aptoide.amethyst.R;
+import com.aptoide.amethyst.analytics.Analytics;
 import com.aptoide.amethyst.database.provider.DatabaseProvider;
 import com.aptoide.amethyst.database.schema.Schema;
 import com.aptoide.amethyst.utils.Logger;
 import com.aptoide.dataprovider.webservices.models.UpdatesApi;
 import com.aptoide.dataprovider.webservices.models.UpdatesResponse;
+import com.aptoide.dataprovider.webservices.models.v7.GetAppMeta;
 import com.aptoide.models.InstalledPackage;
 import com.aptoide.models.RollBackItem;
 import com.aptoide.models.ScheduledDownloadItem;
@@ -224,6 +226,31 @@ public class AptoideDatabase {
         return values;
     }
 
+    private Store buildStoreFromCursor(Cursor cursor) {
+        final Store store = new Store();
+
+        store.setName(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_NAME)));
+        store.setAvatar(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_AVATAR)));
+        store.setId(cursor.getLong(cursor.getColumnIndex(Schema.Repo.COLUMN_ID)));
+        store.setDownloads(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_DOWNLOADS)));
+        store.setTheme(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_THEME)));
+        store.setDescription(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_DESCRIPTION)));
+        store.setItems(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_ITEMS)));
+        store.setView(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_VIEW)));
+        store.setBaseUrl(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_URL)));
+        store.setLatestTimestamp(cursor.getLong(cursor.getColumnIndex(Schema.Repo.COLUMN_LATEST_TIMESTAMP)));
+        store.setTopTimestamp(cursor.getLong(cursor.getColumnIndex(Schema.Repo.COLUMN_TOP_TIMESTAMP)));
+
+        if (!cursor.isNull(cursor.getColumnIndex(Schema.Repo.COLUMN_USERNAME))
+                && !cursor.isNull(cursor.getColumnIndex(Schema.Repo.COLUMN_PASSWORD))) {
+            final Login login = new Login();
+            login.setUsername(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_USERNAME)));
+            login.setPassword(cursor.getString(cursor.getColumnIndex(Schema.Repo.COLUMN_PASSWORD)));
+            store.setLogin(login);
+        }
+        return store;
+    }
+
     public boolean hasInstalled(){
 
         Cursor cursor = database.rawQuery("select 1 from updates", null);
@@ -237,6 +264,37 @@ public class AptoideDatabase {
 
     }
 
+    public List<Store> getSubscribedStores() {
+        final List<Store> stores = new ArrayList<>();
+        Cursor cursor = null;
+        try {
+            cursor = getStoresCursor();
+            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                stores.add(buildStoreFromCursor(cursor));
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return stores;
+    }
+
+    public Store getSubscribedStore(String storeName) {
+        Cursor cursor = null;
+        try {
+            cursor = database.rawQuery("select * from repo where name = ?", new String[]{storeName});
+            if (cursor.moveToFirst()) {
+                return buildStoreFromCursor(cursor);
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return null;
+    }
+
     public Cursor getStoresCursor() {
         Cursor c = database.rawQuery("select * from repo where is_user = 1", null);
         c.getCount();
@@ -244,7 +302,7 @@ public class AptoideDatabase {
     }
 
     public long updateStore(Store store, long l) {
-        ContentValues values = BuildContentValuesFromStore(store);
+        ContentValues values = buildContentValuesFromStore(store);
         return database.update(Schema.Repo.getName(), values, "id_repo = ?", new String[]{l + ""});
     }
 
@@ -426,28 +484,6 @@ public class AptoideDatabase {
         database.update(Schema.Updates.getName(), values, "package_name = ?", new String[]{packageName});
     }
 
-    private ContentValues BuildContentValuesFromStore(Store store){
-        ContentValues values = new ContentValues();
-
-        values.put(Schema.Repo.COLUMN_AVATAR, store.getAvatar());
-
-        if(store.getId() > 0) {
-            values.put(Schema.Repo.COLUMN_ID, store.getId());
-        }
-        values.put(Schema.Repo.COLUMN_DOWNLOADS, store.getDownloads());
-        values.put(Schema.Repo.COLUMN_THEME, store.getTheme());
-        values.put(Schema.Repo.COLUMN_DESCRIPTION, store.getDescription());
-        values.put(Schema.Repo.COLUMN_ITEMS, store.getItems());
-        values.put(Schema.Repo.COLUMN_VIEW, store.getView());
-
-        if (store.getLogin() != null) {
-            values.put(Schema.Repo.COLUMN_USERNAME, store.getLogin().getUsername());
-            values.put(Schema.Repo.COLUMN_PASSWORD, store.getLogin().getPassword());
-        }
-        values.put(Schema.Repo.COLUMN_IS_USER, true);
-        return values;
-    }
-
     public long insertRollbackAction(RollBackItem rollBackItem) {
         ContentValues values = new ContentValues();
 
@@ -457,6 +493,7 @@ public class AptoideDatabase {
         values.put(Schema.RollbackTbl.COLUMN_PREVIOUS_VERSION, rollBackItem.getPreviousVersion());
         values.put(Schema.RollbackTbl.COLUMN_ICONPATH, rollBackItem.getIconPath());
         values.put(Schema.RollbackTbl.COLUMN_MD5, rollBackItem.getMd5());
+        values.put(Schema.RollbackTbl.COLUMN_IS_TRUSTED, rollBackItem.getTrusted());
 
         String action = "";
 
@@ -537,6 +574,19 @@ public class AptoideDatabase {
         int resultsCount = cursor.getCount();
 
         String action = null;
+        if(resultsCount != 0) {
+            cursor.moveToFirst();
+            action = cursor.getString(0);
+        }
+        cursor.close();
+        return action;
+    }
+
+    public String getIsTrustedAppRollbackAction(String packageName) {
+        Cursor cursor = database.rawQuery("select isTrusted from rollbacktbl where package_name = ? and confirmed = ?", new String[]{packageName, Integer.toString(0)});
+        int resultsCount = cursor.getCount();
+
+        String action = GetAppMeta.File.Malware.UNKNOWN;
         if(resultsCount != 0) {
             cursor.moveToFirst();
             action = cursor.getString(0);

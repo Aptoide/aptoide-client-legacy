@@ -43,6 +43,14 @@ public class ViewItem {
         public String vername;
         public Number vercode;
         public String md5sum;
+        public Malware malware;
+
+        public static class Malware {
+            public static final String TRUSTED = "TRUSTED";
+            public static final String WARNING = "WARNING";
+            public static final String UNKNOWN = "UNKNOWN";
+            public String rank;
+        }
     }
 
 
@@ -110,5 +118,20 @@ public class ViewItem {
                 public Number count;
             }
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ViewItem viewItem = (ViewItem) o;
+
+        return id.equals(viewItem.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }

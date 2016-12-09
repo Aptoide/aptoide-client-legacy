@@ -22,7 +22,7 @@
 <string name="setting_sum_icon_download_rules">Sallii kuvakkeiden latauksen mobiilidatayhteyksillä</string>
 <string name="setting_general_download_rules">Yleiset lataussäännöt</string>
 <string name="setting_sum_general_download_rules">Lataa sovellukset, toimittajan valinnat, huippusovellukset ja kaupat sallituilla mobiilidatayhteyksillä</string>
-<string name="setting_wifi">Wi-Fi</string>
+<string name="setting_wifi">WiFi</string>
 <string name="setting_3g">3G</string>
 <string name="setting_4g">4G</string>
 <string name="setting_ethernet">Ethernet</string>
@@ -31,7 +31,7 @@
 <string name="setting_appfiltersum">Älä näytä sovelluksia, jotka eivät ole yhteensopivia tämän laitteen kanssa</string>
 <string name="setting_appfiltertitle">Suodata sovelluksia</string>
 <string name="setting_schdwntitle">Ajastetut lataukset</string>
-<string name="setting_schdwninstallsum">Asenna ajastetut lataukset automaattisesti, kun Wi-Fi -yhteys on muodostettu</string>
+<string name="setting_schdwninstallsum">Asenna ajastetut lataukset automaattisesti, kun WiFi-yhteys on muodostettu</string>
 <string name="setting_sdk_version">SDK-versio</string>
 <string name="setting_screen_size">Näytön koko</string>
 <string name="setting_esgl_version">ESGL-versio</string>
@@ -66,7 +66,7 @@
 <string name="flag_this_app_button_text">Merkitse tämä sovellus lipulla</string>
 <string name="search">Haku</string>
 <string name="my_account">Oma tilini</string>
-<string name="no_sch_downloads">Selailetko sovelluksia mobiilidatalla ja haluaisit ladata ne vasta Wi-Fi-yhteydellä? Käytä ajastettuja latauksia ja valitse pelkkä Wi-Fi kohdasta Asetukset -&gt; Yleiset lataussäännöt.</string>
+<string name="no_sch_downloads">Selailetko sovelluksia mobiilidatalla ja haluaisit ladata ne vasta Wi-Fi-yhteydellä? Käytä ajastettuja latauksia ja valitse pelkkä WiFi kohdasta Asetukset -&gt; Yleiset lataussäännöt.</string>
 <string name="schDown_installselected">Asenna valitut</string>
 <string name="stores">Kaupat</string>
 <string name="insert_store_name">Syötä kaupan nimi:</string>
@@ -90,7 +90,7 @@
 <string name="subscribe_pvt_store">Tilaa yksityinen kauppa</string>
 <string name="accept_terms">Rekisteröitymällä hyväksyt Aptoiden käyttöehdot ja kehittäjien sisältösäännöt</string>
 <string name="register">Rekisteröidy</string>
-<string name="or">Tai</string>
+<string name="or">- Tai -</string>
 <string name="dont_have_an_account">Eikö sinulla ole tiliä? Rekisteröidy</string>
 <string name="logged_as">Olet kirjautunut käyttäjänä:</string>
 <string name="sign_out">Kirjaudu ulos</string>
@@ -385,7 +385,7 @@
 
     <string name="order_popup_title3">Aikuissisältö</string>
     <string name="timeline_is_empty_send_email">Lähetämme sähköpostin valitsemillesi vastaanottajille</string>
-    <string name="more_reviews">Lisää arvosteluja</string>
+    <string name="more_reviews">Arvostelut</string>
     <string name="recommended_for_you">Suositellaan sinulle</string>
     <string name="like">Tykkää</string>
     <string name="review_by">Arvostelija:\n%s</string>
@@ -394,7 +394,7 @@
     <string name="upload_app_backup_apps_installed">Sinun pitää ladata tämä sovellus ensin kauppaasi. Voit käyttää Aptoide Backup Apps -sovellusta.</string>
     <string name="upload_app_backup_apps_not_installed">Sinun pitää ladata tämä sovellus ensin kauppaasi. Asenna ja käytä Aptoide Backup Apps -sovellusta.</string>
     <string name="upload_app">Lataa sovellus</string>
-    <string name="create_review">Kirjoita arvostelu</string>
+    <string name="create_review">Luo arvostelu</string>
 
     <string name="setting_dont_show_mature_content">Näytä aikuissisältö</string>
     <string name="drawer_social_media_title">Pysytään yhdeydessä</string>
@@ -403,9 +403,10 @@
     <string name="flag_this_app_need_licence">Tarvitsee lisenssin</string>
     <string name="appview_additional_information_title">Lisätietoa</string>
     <string name="appview_latest_version_text">Tämä on viimeisin versio!</string>
-    <string name="appview_subscribe_store_button_text">+  Tilaa?</string>
+    <string name="appview_subscribe_store_button_text">Tilaa?</string>
     <string name="noIgnoreUpdateText">Sovelluksen uusi versio ei toimi laitteellasi tai jokin ominaisuus puuttuu? Estä sovellusten päivittyminen. Mene Päivitykset-välilehdelle ja paina pitkään sovellusta, jota et halua päivittää.</string>
-    <string name="createReviewButtonText">Kirjoita arvostelu</string>
+    <string name="createReviewButtonText">Luo
+\narvostelu</string>
     <string name="navigation_drawer_signup_login">Rekisteröidy tai kirjaudu</string>
     <string name="_downloads"> latausta</string>
     <string name="no_description">Ei kuvausta</string>
@@ -575,4 +576,95 @@
 
 <string name="error_410">Pyydettyä sovellusta ei löydy tältä palvelimelta.</string>
 
-    </resources>
+    <string name="comics">Sarjakuvat</string>
+    <string name="communication">Viestintä</string>
+    <string name="entertainment">Viihde</string>
+    <string name="finance">Talous</string>
+    <string name="health">Terveys</string>
+    <string name="lifestyle">Elämäntapa</string>
+    <string name="multimedia">Multimedia</string>
+    <string name="news_weather">Uutiset &amp; sää</string>
+    <string name="productivity">Tuottavuus</string>
+    <string name="reference">Viiteteokset</string>
+    <string name="shopping">Ostokset</string>
+    <string name="social">Sosiaaliset</string>
+    <string name="sports">Urheilu</string>
+    <string name="themes">Teemat</string>
+    <string name="tools">Työkalut</string>
+    <string name="travel">Matkailu</string>
+    <string name="demo">Demot</string>
+    <string name="software_libraries">Sovelluskirjastot</string>
+    <string name="all">Kaikki</string>
+    <string name="no_email_and_pass_error_message">Syötä sähköposti ja salasana rekisteröityäksesi.</string>
+    <string name="no_pass_error_message">Syötä salasana rekisteröityäksesi.</string>
+    <string name="no_email_error_message">Syötä sähköposti rekisteröityäksesi.</string>
+    <string name="website_copied">Verkkosivu kopioitu leikepöydälle</string>
+    <string name="email_copied">Sähköposti kopioitu leikepöydälle</string>
+    <string name="privacy_copied">Yksityisyyslinkki kopioitu leikepöydälle</string>
+    <string name="subscribing_store_message">Lopetetaan kohteen %s tilaus</string>
+    <string name="updates_filter_setting_title">Näytä vain vakaat sovellusversiopäivitykset</string>
+    <string name="balloon_security_information_google_play">Sovellus täsmää</string>
+    <string name="balloon_security_information_subtitle">Tarkistamme nyt kaikki sovellukset virusten varalta.</string>
+    <string name="balloon_security_information_title">Aptoide on muuttunut.\nTarkistamme nyt kaikki sovellukset virusten varalta.</string>
+    <string name="updates_filter_summary">Kun tämä on valittu, beta-versioista ei ilmoiteta.</string>
+
+    <string name="latest_reviews">Viimeisimmät arvostelut</string>
+    <string name="latest_comments">Viimeisimmät kommentit</string>
+    <string name="action">Toiminta</string>
+    <string name="adventure">Seikkailu</string>
+    <string name="applications">Sovellukset</string>
+    <string name="arcade">Pelihalli</string>
+    <string name="arcade_action">Pelihalli &amp; Toiminta</string>
+    <string name="auto_update">Automaattinen päivitys</string>
+    <string name="board">Lautapelit</string>
+    <string name="books_reference">Kirjasovellukset</string>
+    <string name="brain_puzzle">Älypelit</string>
+    <string name="business">Yritys</string>
+    <string name="card">Korttipelit</string>
+    <string name="cards_casino">Korttipelit &amp; kasino</string>
+    <string name="casino">Kasino</string>
+    <string name="casual">Rennot</string>
+    <string name="education">Koulutus</string>
+    <string name="educational">Koulutuksellinen</string>
+    <string name="enable">Ota käyttöön</string>
+    <string name="family">Perhe</string>
+    <string name="games">Pelit</string>
+    <string name="health_fitness">Terveys &amp; kuntoilu</string>
+    <string name="highlighted">Korostetut</string>
+    <string name="local_top_apps">Paikalliset huippusovellukset</string>
+    <string name="media_video">Media &amp; video</string>
+    <string name="medical">Lääketiede</string>
+    <string name="music">Musiikki</string>
+    <string name="music_audio">Musiikki &amp; audio</string>
+    <string name="news_magazines">Uutiset &amp; lehdet</string>
+    <string name="personalization">Personointi</string>
+    <string name="photography">Valokuvaus</string>
+    <string name="puzzle">Älypelit</string>
+    <string name="quick_start">Pika-aloitus</string>
+    <string name="racing">Kilpa-ajo</string>
+    <string name="role_playing">Roolipelit</string>
+    <string name="simulation">Simulaatio</string>
+    <string name="sports_games">Urheilupelit</string>
+    <string name="strategy">Strategia</string>
+    <string name="top_apps">Huippusovellukset</string>
+    <string name="top_games">Huippupelit</string>
+    <string name="transport">Kuljetus</string>
+    <string name="transportation">Kuljetukset</string>
+    <string name="travel_local">Matkailu &amp; paikallissisältö</string>
+    <string name="trending">Nousussa</string>
+    <string name="trivia">Trivia</string>
+    <string name="word">Sanapelit</string>
+    <string name="libraries_demo">Kirjastot &amp; demot</string>
+    <string name="weather">Sää</string>
+
+    <string name="latest_applications">Viimeisimmät sovellukset</string>
+    <string name="top_apps_in_store">Tämän kaupan huippusovellukset</string>
+    <string name="apps_for_kids">Sovellukset lapsille</string>
+    <string name="aptoide_publishers">Aptoide-julkaisijat</string>
+    <string name="music_video">Musiikki &amp; video</string>
+    <string name="essential_apps">Perussovellukset</string>
+    <string name="summer_apps">Kesäsovellukset</string>
+    <string name="play_it">Pelaa!</string>
+    <string name="add_more_stores">Lisää muita kauppoja</string>
+    <string name="unsubscribe">Peruuta tilaus</string>
+</resources>

@@ -102,6 +102,12 @@
         <item name="android:background">@drawable/aptoide_btn_default_holo_light</item>
     </style>
 
+    <style name="WidgetButtonCustomAptoideTwoLines" parent="WidgetButtonCustomAptoide">
+        <item name="android:textSize">12sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
     <style name="WidgetButtonCustomAptoideWhite" parent="WidgetButtonCustom">
         <item name="android:background">@drawable/aptoide_white_btn_default_holo_light</item>
         <item name="android:textColor" >@color/orange_700</item>
@@ -358,6 +364,22 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="windowActionBar">false</item>
+    </style>
+
+
+    <style name="TextAppearance.Aptoide" parent="TextAppearance.AppCompat"/>
+
+    <style name="TextAppearance.Aptoide.Dialog.Title" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/dialog_title_text</item>
+    </style>
+
+    <style name="TextAppearance.Aptoide.Dialog.Body" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/dialog_body_text</item>
+    </style>
+
+    <style name="TextAppearance.Aptoide.Balloon" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10.5sp</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
 </resources>

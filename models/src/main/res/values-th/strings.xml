@@ -82,7 +82,7 @@
 <string name="username_tip">พิมพ์อีเมลของคุณ</string>
 <string name="accept_terms">ในการลงทะเบียน คุณเห็นด้วยกับเงื่อนไขบริการและนโยบายเนื้อหาของ Aptoide สำหรับนักพัฒนา</string>
 <string name="register">ลงทะเบียน</string>
-<string name="or">หรือ</string>
+<string name="or">-หรือ-</string>
 <string name="dont_have_an_account">ยังไม่มีบัญชี? ลงทะเบียน</string>
 <string name="logged_as">คุณลงชื่อเข้าใช้ในนาม:</string>
 <string name="sign_out">ลงชื่อออกจากระบบ</string>
@@ -317,7 +317,7 @@
     <string name="added_to_scheduled">เพิ่มเมนู &gt; ตารางการดาวน์โหลด</string>
     <string name="button_header_more">เพิ่มเติม</string>
     <string name="close">ปิด</string>
-    <string name="hidden_adult">มีแอปที่ไม่ปรากฏ เพราะตัวกรองแอปผู้ใหญ่กำลังถูกใช้งาน คุณต้องการค้นหาแอปสำหรับผู้ใหญ่หรือไม่?</string>
+    <string name="hidden_adult">บางแอปถูกซ่อน เพราะแอปมีเนื้อหาผู้ใหญ่ คุณต้องการรายการแอปนี้หรือไม่?</string>
     <string name="dont_show_again">อย่าแสดงข้อความอีก</string>
 
     <string name="app_name">แอปทอย</string>
@@ -344,7 +344,7 @@
     <string name="facebook_friends_list_using_timeline">คุณใช้โซเชียลไทม์ไลน์ Apoide แล้วหรือยัง</string>
     <string name="and">และ</string>
     <string name="more_friends">เพิ่มเติม</string>
-    <string name="more_reviews">รีวิวเพิ่มเติม</string>
+    <string name="more_reviews">รีวิว</string>
     <string name="more_editors_choice">ทางเลือกเพิ่มเติมในการแก้ไข</string>
     <string name="more_versions">เวอร์ชั่นเพิ่มเติม</string>
     <string name="facebook_friends_list_using_timeline_empty">"โซเชียลไทม์ไลน์อนุญาตให้คุณแชร์แอปพลิเคชั่นของคุณบนเฟสบุ๊ค  คุณต้องการเข้าร่วมเครือข่ายหรือไม่?"</string>
@@ -413,12 +413,12 @@
     <string name="flag_this_app_need_licence">ต้องได้รับสิทธิ์</string>
     <string name="appview_additional_information_title">ข้อมูลเพิ่มเติม</string>
     <string name="appview_latest_version_text">นี้คือเวอร์ชั่นล่าสุด!</string>
-    <string name="appview_subscribe_store_button_text">"+  ตอบรับ?"</string>
+    <string name="appview_subscribe_store_button_text">สมัครตอบรับ?</string>
     <string name="appview_subscribed_store_button_text">ตอบรับ</string>
     <string name="appview_other_versions_in_others_stores">เวอร์ชั่นอื่นๆในร้านค้าอื่น</string>
     <string name="appview_rate_Success">คะแนนแอปนี้</string>
     <string name="noIgnoreUpdateText">"แอปเวอร์ชั่นล่าสุดไม่สามารถทำงานได้บนเครื่องของคุณ หรือการคุณสมบัติการทำงานบางอย่างหายไป?  ปิดกั้นการอัพเดต  ไปที่แท็ปอัพเดต และกดค้างที่แอปที่คุณต้องการให้หยุดอัพเดต"</string>
-    <string name="createReviewButtonText">เขียนรีวิว</string>
+    <string name="createReviewButtonText">เขียน\nรีวิว</string>
     <string name="navigation_drawer_signup_login">สมัครหรือลงชื่อเข้าใช้</string>
     <string name="_downloads"> ดาวน์โหลด</string>
     <string name="no_description">ไม่มีคำบรรยาย</string>
@@ -554,4 +554,12 @@
 
     <string name="error_410">ขออภัย ไม่พบการร้องขอแอปนี้</string>
 
-    </resources>
+    <string name="no_email_and_pass_error_message">โปรดใส่อีเมมล์และรหัสผ่านเพื่อลงทะเบียน</string>
+    <string name="no_pass_error_message">โปรดใส่รหัสผ่านเพื่อลงทะเบียน</string>
+    <string name="no_email_error_message">โปรดใส่อีเมลล์เพื่อลงทะเบียน</string>
+    <string name="website_copied">คัดลอกเว็ปไซต์ไปยังคลิปบอร์ด</string>
+    <string name="email_copied">คัดลอกอีเมลล์ไปยังคลิปบอร์ด</string>
+    <string name="privacy_copied">คัดลอกลิงค์ส่วนตัวไปยังคลิปบอร์ด</string>
+    <string name="subscribing_store_message">ยกเลิกการตอบรับ</string>
+
+</resources>
