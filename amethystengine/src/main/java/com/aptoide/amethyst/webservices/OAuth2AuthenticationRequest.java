@@ -63,6 +63,7 @@ public class OAuth2AuthenticationRequest extends RetrofitSpiceRequest<OAuth, OAu
                 parameters.put("oauthUserName",username);
                 parameters.put("oauthToken",password);
                 parameters.put("authMode","aban");
+                parameters.put("oauthUser",nameForGoogle);
                 break;
         }
 
