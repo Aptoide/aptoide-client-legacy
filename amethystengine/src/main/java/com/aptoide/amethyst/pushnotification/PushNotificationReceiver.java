@@ -312,30 +312,38 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 //        Log.i("PushNotificationReceiver", "Msg: " + extra.getCharSequence(PUSH_NOTIFICATION_MSG));
 //        Log.i("PushNotificationReceiver", "URL: " + extra.getCharSequence(PUSH_NOTIFICATION_EXTERNAL_URL));
 
-        Intent resultIntent = new Intent(PUSH_NOTIFICATION_Action_TRACK_URL);
+        //Intent resultIntent = new Intent(PUSH_NOTIFICATION_Action_TRACK_URL);
+
+        String url = extra.getString(PUSH_NOTIFICATION_EXTERNAL_URL);
+        Intent resultIntent = new Intent(Intent.ACTION_VIEW);
+        resultIntent.setData(Uri.parse(url));
 
 
-        resultIntent.putExtra(PUSH_NOTIFICATION_TRACK_URL, extra.getString(PUSH_NOTIFICATION_TRACK_URL));
-        resultIntent.putExtra(PUSH_NOTIFICATION_EXTERNAL_URL, extra.getString(PUSH_NOTIFICATION_EXTERNAL_URL));
 
-        PendingIntent resultPendingIntent = PendingIntent.getBroadcast(context, new Random().nextInt(), resultIntent, 0);
+        //resultIntent.putExtra(PUSH_NOTIFICATION_TRACK_URL, extra.getString(PUSH_NOTIFICATION_TRACK_URL));
+        //resultIntent.putExtra(PUSH_NOTIFICATION_EXTERNAL_URL, extra.getString(PUSH_NOTIFICATION_EXTERNAL_URL));
+
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(context, new Random().nextInt(), resultIntent, 0);
 
         Notification notification = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.ic_stat_aptoide_notification)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), getDrawableResource()))
                 .setContentIntent(resultPendingIntent)
                 .setOngoing(false)
                 .setContentTitle(extra.getCharSequence(PUSH_NOTIFICATION_TITLE))
                 .setContentText(extra.getCharSequence(PUSH_NOTIFICATION_MSG)).build();
 
-        if (Build.VERSION.SDK_INT >= 16) {
-//            Log.d("PushNotificationReceiver", "is 16 or more, BIG!!!");
-            RemoteViews expandedView = new RemoteViews(context.getPackageName(),
-                    R.layout.pushnotificationlayout);
+        if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 24) {
+          /**
+           * https://code.google.com/p/android/issues/detail?id=30495 bug from android on api 24
+           */
+            //Log.d("PushNotificationReceiver", "is 16 or more, BIG!!!");
+            RemoteViews expandedView = new RemoteViews(context.getPackageName(), R.layout.pushnotificationlayout);
             expandedView.setBitmap(R.id.PushNotificationImageView, "setImageBitmap", o);
             expandedView.setImageViewBitmap(R.id.icon, BitmapFactory.decodeResource(context.getResources(), getDrawableResource()));
             expandedView.setTextViewText(R.id.text1, extra.getCharSequence(PUSH_NOTIFICATION_TITLE));
             expandedView.setTextViewText(R.id.description, extra.getCharSequence(PUSH_NOTIFICATION_MSG));
+            expandedView.setOnClickPendingIntent(R.id.pushNotificationLayout,resultPendingIntent);
             notification.bigContentView = expandedView;
         }
 
@@ -348,7 +356,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
     }
 
     public int getDrawableResource(){
-        return R.drawable.icon_brand_aptoide;
+        return R.mipmap.ic_launcher;
     }
 
 }

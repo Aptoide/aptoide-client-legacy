@@ -552,7 +552,11 @@ public class SearchFragment extends LinearRecyclerFragment {
 
     private void addSubsribedApps(List<Displayable> displayables, List<SearchApp> subscribedApps) {
         if (!subscribedApps.isEmpty()) {
-            displayables.add(suggestetedAppsOffset, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
+            if(Aptoide.getConfiguration().isMultipleStores()) {
+                displayables.add(suggestetedAppsOffset, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
+            }else{
+                displayables.add(suggestetedAppsOffset, new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName().replaceFirst(" Store","")), false, BUCKET_SIZE));
+            }
             displayables.addAll(suggestetedAppsOffset + 1, subscribedApps);
             int notifyItemCount = subscribedApps.size();
             subscribedAppsOffset += notifyItemCount;

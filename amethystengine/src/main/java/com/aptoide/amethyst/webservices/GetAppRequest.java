@@ -149,6 +149,7 @@ public class GetAppRequest extends RetrofitSpiceRequest<GetAppModel, IGetAppV7We
 
         api.store_user = user;
         api.store_pass_sha1 = password;
+        api.store_name = storeName;
 
         return api;
     }

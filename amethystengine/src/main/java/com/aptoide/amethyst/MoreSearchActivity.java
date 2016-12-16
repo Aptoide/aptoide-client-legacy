@@ -318,8 +318,8 @@ public class MoreSearchActivity extends MoreActivity {
                 int notifyPositionStart;
                 int notifyItemCount = 0;
                 if (appsOffset == 0) {
-                    if (isStoreSearch()) {
-                        displayables.add(0, new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName().replace(" Store","")), false, BUCKET_SIZE));
+                    if (isStoreSearch() || !Aptoide.getConfiguration().isMultipleStores()) {
+                        displayables.add(0, new HeaderRow(AptoideUtils.StringUtils.getFormattedString(getContext(), R.string.results_in_store, Aptoide.getConfiguration().getMarketName().replaceFirst(" Store","")), false, BUCKET_SIZE));
                     } else {
                         displayables.add(0, new HeaderRow(getString(R.string.results_subscribed), false, BUCKET_SIZE));
                     }

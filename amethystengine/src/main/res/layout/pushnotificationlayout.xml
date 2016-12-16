@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/pushNotificationLayout">
 
     <ImageView
         android:id="@+id/PushNotificationImageView"
@@ -16,7 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@color/transparent_black"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:id="@+id/pushNotificationRelativeLayout">
 
         <TextView
             android:id="@+id/text1"

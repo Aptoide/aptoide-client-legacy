@@ -132,7 +132,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
         final EnumStoreTheme theme = EnumStoreTheme.get(appItem.getRepoTheme());
         int themeColor = theme.getColor700tint();
 
-        if(Aptoide.getConfiguration().getDefaultStore().contains("zain-market")){
+        if(Aptoide.getConfiguration().getDefaultStore().contains("zainsouk")){
             themeColor = R.color.deeppurple;
         }
 
