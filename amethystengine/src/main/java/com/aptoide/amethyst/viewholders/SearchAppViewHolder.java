@@ -136,7 +136,6 @@ public class SearchAppViewHolder extends BaseViewHolder {
             themeColor = R.color.deeppurple;
         }
 
-        if(!Aptoide.getConfiguration().getDefaultStore().contains("leagoo")) {
             Drawable background = bottomView.getBackground();
             if (background instanceof ShapeDrawable) {
                 ((ShapeDrawable) background).getPaint().setColor(itemView.getContext().getResources().getColor(themeColor));
@@ -153,7 +152,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
 
         store.setText(appItem.getRepo());
         Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.getIcon())).into(icon);
-        } else {
+        if(Aptoide.getConfiguration().getDefaultStore().contains("leagoo")) {
             store.setVisibility(View.INVISIBLE);
         }
 
