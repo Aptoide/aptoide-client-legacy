@@ -16,6 +16,7 @@ public enum EnumStoreTheme {
     APTOIDE_STORE_THEME_PINK(R.color.transparent_pink, R.color.pink, R.drawable.custom_categ_pink, R.drawable.gradient_pink, R.color.pink_700, R.drawable.button_border_pink, R.drawable.ic_check_pink, R.drawable.ic_plus_pink),
     APTOIDE_STORE_THEME_ORANGE(R.color.transparent_orange, R.color.orange, R.drawable.custom_categ_orange, R.drawable.gradient_orange, R.color.orange_700, R.drawable.button_border_orange, R.drawable.ic_check_orange, R.drawable.ic_plus_orange),
     APTOIDE_STORE_THEME_BROWN(R.color.transparent_brown, R.color.brown, R.drawable.custom_categ_maroon, R.drawable.gradient_maroon, R.color.brown_700, R.drawable.button_border_brown, R.drawable.ic_check_brown, R.drawable.ic_plus_brown),
+    APTOIDE_STORE_THEME_BLUEGRAY(R.color.transparent_bluegrey, R.color.bluegrey, R.drawable.custom_categ_midnight, R.drawable.gradient_midnight, R.color.bluegrey_700, R.drawable.button_border_bluegrey, R.drawable.ic_check_blue_grey, R.drawable.ic_plus_blue_grey),
     APTOIDE_STORE_THEME_BLUEGREY(R.color.transparent_bluegrey, R.color.bluegrey, R.drawable.custom_categ_midnight, R.drawable.gradient_midnight, R.color.bluegrey_700, R.drawable.button_border_bluegrey, R.drawable.ic_check_blue_grey, R.drawable.ic_plus_blue_grey),
     APTOIDE_STORE_THEME_GREY(R.color.transparent_grey, R.color.grey, R.drawable.custom_categ_silver, R.drawable.gradient_silver, R.color.grey_700, R.drawable.button_border_grey, R.drawable.ic_check_grey, R.drawable.ic_check_grey),
     APTOIDE_STORE_THEME_BLACK(R.color.transparent_black, R.color.black, R.drawable.custom_categ_black, R.drawable.gradient_black, R.color.grey, R.drawable.button_border_black, R.drawable.ic_check_black, R.drawable.ic_plus_black),
@@ -173,7 +174,8 @@ public enum EnumStoreTheme {
 
         EnumStoreTheme theme;
         try {
-            theme = valueOf("APTOIDE_STORE_THEME_" + s.toUpperCase());
+          s.replaceAll("-","");
+          theme = valueOf("APTOIDE_STORE_THEME_" + s.toUpperCase());
         } catch (Exception e) {
             theme = APTOIDE_STORE_THEME_DEFAULT;
         }
