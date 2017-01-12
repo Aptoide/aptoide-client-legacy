@@ -285,7 +285,8 @@ public class UpdatesService extends Service {
             NotificationManager managerNotification = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                if(Aptoide.getConfiguration().getMarketName().equals("Aptoide") || Aptoide.getConfiguration().getDefaultStore().contains("pedro-ribeiro")) {
+                if(Aptoide.getConfiguration().getMarketName().equals("Aptoide") || Aptoide.getConfiguration().getDefaultStore().contains("pedro-ribeiro")
+                    || Aptoide.getConfiguration().getDefaultStore().contains("qmobile")) {
                     icon = R.drawable.ic_stat_aptoide_notification;
                 }
                 else{
