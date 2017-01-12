@@ -150,7 +150,12 @@ public class SearchAppViewHolder extends BaseViewHolder {
             ((GradientDrawable) background).setColor(itemView.getContext().getResources().getColor(themeColor));
         }
 
-        store.setText(appItem.getRepo());
+        if(appItem.getRepo().equals("qmobile-store")) {
+            store.setText(Aptoide.getConfiguration().getMarketName());
+        } else {
+            store.setText(appItem.getRepo());
+        }
+
         Glide.with(itemView.getContext()).load(AptoideUtils.UI.parseIcon(appItem.getIcon())).into(icon);
         if(Aptoide.getConfiguration().getDefaultStore().contains("leagoo")) {
             store.setVisibility(View.INVISIBLE);
