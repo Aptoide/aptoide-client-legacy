@@ -48,7 +48,7 @@
     <string name="error_IARG_109">မဲေပးမႈ မွားေနသည္</string>
     <string name="error_IARG_110">တံု႕ျပန္မွတ္ခ်က္ပံုစံ မွားေနသည္</string>
     <string name="appview_rate_this_app_text">ဒီ app ကုိအဆင့္သတ္မွတ္ေပးမည္</string>
-    <string name="appview_other_versions_in_others_stores">အျခားစတုိးတို႔မွ တျခားဗားရွင္မ်ား</string>
+    <string name="appview_other_versions_in_others_stores">အျခားစတုိးတို႔မွ တျခားဗားရွင္းမ်ား</string>
     <string name="error_IARG_200">အေကာင့္၀င္တုိကင္ မွားေနသည္</string>
     <string name="appview_rate_Success">App ကုိအဆင့္သတ္မွတ္ထားသည္</string>
     <string name="error_IARG_201">အေကာင့္၀င္ျခင္း ပံုစံ မွားေနသည္</string>
@@ -97,7 +97,7 @@
     <string name="error_REPO_1">စတိုး မရွိပါ.</string>
     <string name="error_REPO_2">စတိုးအား ပယ္ဖ်က္ၿပီးပါၿပီ.</string>
     <string name="error_REPO_3">ဤစတိုးသည္ ယခုအသံုးျပဳသူႏွင့္ မသက္ဆိုင္ပါ.</string>
-    <string name="error_REPO_4_no_store">ယခုအေကာင့္ျဖင့္ စတိုးပဳလုပ္ထားျခင္းမရွိပါ. ျပန္လည္စစ္ေဆးႏိုင္ရန္ စတိုးအသစ္တစ္ခုဖန္တီးရမည္ျဖစ္သည္.</string>
+    <string name="error_REPO_4_no_store">ယခုအေကာင့္ျဖင့္ စတိုးျပဳလုပ္ထားျခင္းမရွိပါ. ျပန္လည္စစ္ေဆးႏိုင္ရန္ စတိုးအသစ္တစ္ခုဖန္တီးရမည္ျဖစ္သည္.</string>
     <string name="error_occured_uploading">ယခု app ကုိ အရင္တင္ရမည္.</string>
 
     <string name="error_REPO_7">ယခုအသံုးျပဳသူတြင္ မွန္ကန္သည့္ repo ရွိႏွင့္ၿပီးၿပီ.</string>
@@ -133,7 +133,7 @@
     <string name="community">လူမှုအဖြဲ႕အစည္း</string>
     <string name="application_signature_analysis">Application လက္မွတ္ကုိ ေရးသားသူလက္မွတ္ျဖင့္ႏႈိင္းယွဥ္ျခင္း :</string>
     <string name="stores">စတိုးစာရင္း</string>
-    <string name="updates">အဆင့္ျမွင့္တင္ႏိုင္ရန္</string>
+    <string name="updates">အဆင့်မြှင့်တင်ခြင်းများ</string>
     <string name="social_timeline">လူမႈအသိုင္းအဝိုင္းအေျခအေန</string>
     <string name="application_signature_matched">Application လက္မွတ္သည္ application ေရးသားသူလက္မွတ္ႏွင့္ ကုိက္ညီသည္.</string>
     <string name="downloads">ေဒါင္းလုတ္စာရင္း</string>
@@ -272,7 +272,7 @@
     <string name="website">Website: %s</string>
     <string name="email">Email: %s</string>
     <string name="privacy_policy">အခ်က္အလက္လုံၿခဳံမႈ စည္းမ်ဥ္းစည္းကမ္း : %s</string>
-    <string name="dialog_version_size">ဗာရွင္း : %1$s | Size: %2$s</string>
+    <string name="dialog_version_size">ဗားရွင္း : %1$s | Size: %2$s|</string>
     <string name="username_tip">Email လိပ္စာထည့္ပါ</string>
     <string name="accept_terms">စာရင္းသြင္းျခင္းသည္ %s စည္းမ်ဥ္းစည္းကမ္းမ်ားကို သေဘာတူလက္ခံရာေရာက္သည္</string>
 
@@ -293,12 +293,12 @@
     <string name="permissions">ခြင့္ျပဳခ်က္မ်ား ၾကည့္သည္</string>
     <string name="permissions_na">ခြင့္ျပဳခ်က္: မရွိပါ</string>
     <string name="additional_permissions">ထပ္မံ ခြင့္ျပဳခ်က္မ်ား</string>
-    <string name="no_permissions_required">ယခု apps အတြက္ မည္သည့္ခြင့္ျပဳခ်က္မွ် မလိုပါ.</string>
+    <string name="no_permissions_required">ယခု apps အတြက္ မည္သည့္ခြင့္ျပဳခ်က္မွ မလိုပါ</string>
     <string name="restore">Install</string>
 
-    <string name="timeout">ကွန်ရက်ဆက်သွယ်မှုအတြက္ သတ္မွတ္ခ်ိန္ေက်ာ္လြန္သြားပါၿပီ</string>
+    <string name="timeout">ကြန္ရက္ဆက္သြယ္မႈအတြက္ သတ္မွတ္ခ်ိန္ေက်ာ္လြန္သြားပါျပီ</string>
     <string name="ip_blacklisted">ကန္႔သတ္စာရင္းဝင္ IP</string>
-    <string name="connection_error">ကွန်ရက်ဆက်သွယ်မှု မရှိပါ</string>
+    <string name="connection_error">ကြန္ယက္ဆက္သြယ္မႈ မရွိပါ</string>
     <string name="apk_not_found">Apk မေတြ႕ပါ</string>
     <string name="invalid_apk">apk မွားေနပါသည္</string>
     <string name="remote_in_nospace">သင့္ဖုန္းတြင္ ေနရာမလံုေလာက္ပါ.</string>
@@ -428,7 +428,7 @@
     <string name="set_mature_pin_title">အရြယ္ေရာက္ၿပီးသူမ်ား ဝင္ေရာက္ၾကည့္႐ႈႏိုင္ရန္ ပင္နံပါတ္သတ္မွတ္မည္</string>
     <string name="search_other_stores">(သုိ႔မဟုတ္) အျခားအရာမ်ားထပ္ရွာမည္…</string>
     <string name="set_mature_pin_summary">အရြယ္ေရာက္ၿပီးသူမ်ား ဝင္ၾကည့္ႏိုင္မည့္ပင္နံပါတ္ကို သတ္မွတ္မည္</string>
-    <string name="settings_title_bar">ချိန်ညှိမှု</string>
+    <string name="settings_title_bar">ခ်ိန္ညွိမႈ</string>
     <string name="settings_dwn_network_rules">Mobile Network ေရြးခ်ယ္ျခင္း</string>
     <string name="see_top_stores">နာမည္ႀကီးစတိုးမ်ားကို ၾကည့္မည္</string>
     <string name="setting_sum_icon_download_rules">ဖုန္းအင္တာနက္ကြန္နက္ရွင္ျဖင့္ icon မ်ားကုိေဒါင္းလုဒ္ဆြဲခြင့္ျပဳသည္</string>
@@ -495,8 +495,8 @@
     <string name="review_by">သုံးသပ္သူ :\n%s</string>
     <string name="review_title">ျပန္လည္ဆန္းစစ္ခ်က္</string>
     <string name="rollback_uninstalled">Uninstall လုပ္ၿပီးၿပီ</string>
-    <string name="setting_category_autoupdate">%s အလုိအေလ်ာက္အဆင့္ျမွင့္တင္ျခင္း</string>
-    <string name="setting_category_autoupdate_title">%s ကို အလုိအေလ်ာက္ အဆင့္ျမွင့္တင္ပါေစ</string>
+    <string name="setting_category_autoupdate">%s အလိုအေလ်ာက္ အဆင့္ျမွင့္တင္ျခင္း</string>
+    <string name="setting_category_autoupdate_title">%s အလိုအေလ်ာက္ အဆင့္ျမွင့္တင္ျခင္းအား ဖြင့္ပါ</string>
     <string name="setting_dont_show_mature_content">"အရြယ္ေရာက္ၿပီးသူမ်ား  ဖတ္သည့္အရာတို႔ကို ျပပါ"</string>
     <string name="setting_mature_filtering">အရြယ္ေရာက္ၿပီးသူမ်ားအတြက္</string>
     <string name="setting_updates">အဆင့္ျမွင့္ျခင္း</string>
@@ -506,7 +506,7 @@
     <string name="setting_updates_notification_sum">အဆင့္ျမွင့္တင္စရာအသစ္႐ွိပါက သတိေပးပါ</string>
     <string name="setting_updates_notification_title">အဆင့္ျမွင့္တင္စရာအသစ္</string>
     <string name="rollback_downgraded">အဆင့္ေလွ်ာ့ခ်ၿပီးသား</string>
-    <string name="install">ထည့္သြင္းမည္</string>
+    <string name="install">ထည့်သွင်းသည်။</string>
     <string name="cannot_uninstall_self">Installer အား uninstall လုပ္လုိ႔မရပါ.</string>
     <string name="at_time">%s တြင္</string>
     <string name="setting_auto_update_sum">Application မ်ားကုိအလုိအေလ်ာက္ အဆင့္ျမွင့္တင္ပါေစ</string>
@@ -519,7 +519,7 @@
     <string name="invite_friends">သူငယ္ခ်င္းမ်ားကို ဖိတ္ေခၚမည္</string>
     <string name="timeline_is_empty_send_email">သင္ေရြးထားသူမ်ားထံ email ပို႔ပါမည္</string>
     <string name="show_all_updates">လက္မွတ္မတူသည့္ အျခား application အဆင့္ျမွင့္တင္မႈမ်ားကုိ မျပပါႏွင့္။</string>
-    <string name="setting_allUpdates_filtering">အဆင့္ျမွင့္တင္ျခင္းမႈကို ေရြးထုတ္ႏိုင္ရန္</string>
+    <string name="setting_allUpdates_filtering">အဆင့္ျမွင့္တင္ျခင္းကို ေရြးထုတ္ႏိုင္ရန္</string>
     <string name="facebook_timeline_friends_invited">ဖိတ္ၾကားျပီးပါျပီ!</string>
     <string name="setting_schdwninstallsum">WiFi connection ရွိေနေသာအခါ ေဒါင္းလုဒ္ဆြဲရန္အစီအစဥ္ခ်ထားသည္မ်ားကုိ အလုိအေလ်ာက္ install လုပ္ပါ</string>
     <string name="select_friends_to_invite">ဖိတ္မည့္သူငယ္ခ်င္းမ်ားကို ေရြးပါ!</string>
@@ -597,14 +597,14 @@
     <string name="privacy_copied">"Privacy link ကို  clipboard သို့ ကူးယူသည္"</string>
     <string name="subscribing_store_message">စာရင္းသြင္းထားသည္ကို ပယ္ဖ်က္ျခင္း %s</string>
 
-    <string name="latest_reviews">ေနာက္ဆုံး ပြန်လည်စစ်ဆေးမှု</string>
-    <string name="latest_comments">နောက်ဆုံးမှတ္ခ်က္</string>
+    <string name="latest_reviews">ေနာက္ဆံုးျပန္လည္စစ္ေဆးမႈ</string>
+    <string name="latest_comments">ေနာက္ဆံုးမွတ္ခ်က္</string>
     <string name="action">အက္႐ွင္</string>
     <string name="adventure">စြန္႔စားခန္း</string>
     <string name="all">အားလုံး</string>
     <string name="applications">Application မ်ား</string>
     <string name="arcade">အေႂကြေစ့ထည့္ကစားရေသာ ဂိမ္းခုံ</string>
-    <string name="arcade_action">အကြွေစေ့ကစားရသောဂိမ်းခုံနှင့္ အက္႐ွင္</string>
+    <string name="arcade_action">အေၾကြေစ့ကစားရေသာဂိမ္းခံုႏွင့္ အက္ရွင္</string>
     <string name="auto_update">အလိုအေလ်ာက္ အဆင့္ျမွင့္တင္ျခင္း</string>
     <string name="board">ဘုတ္</string>
     <string name="books_reference">စာအုပ္ႏွင့္ ရည္ညႊန္းခ်က္</string>
@@ -613,7 +613,7 @@
     <string name="card">ဖဲခ်ပ္</string>
     <string name="cards_casino">ဖဲခ်ပ္ႏွင့္ ကာစီႏို</string>
     <string name="casino">ကာစီနို</string>
-    <string name="casual">ပုံမှန္</string>
+    <string name="casual">ပံုမွန္</string>
     <string name="comics">႐ုပ္ျပ</string>
     <string name="communication">ဆက္သြယ္ေရး</string>
     <string name="demo">အစမ္း</string>
@@ -625,17 +625,16 @@
     <string name="finance">ေငြေရးေၾကးေရး</string>
     <string name="games">ဂိမ္း</string>
     <string name="health_fitness">က်န္းမာႀကံ့ခိုင္ေရး</string>
-    <string name="lifestyle">လူနေမှုပုံစံ</string>
+    <string name="lifestyle">လူေနမႈပံုစံ</string>
     <string name="media_video">မီဒီယာနှင့္ ဗီဒီယို</string>
     <string name="news_magazines">သတင္းႏွင့္ မဂၢဇင္း</string>
     <string name="news_weather">သတင္းႏွင့္ ရာသီဥတု</string>
     <string name="personalization">စိတ္ႀကိဳက္ျပဳျပင္ေျပာင္းလဲျခင္း</string>
     <string name="photography">ဓာတ္ပုံပိုင္းဆိုင္ရာ</string>
-    <string name="productivity">ထုတ်လုပ်မှု</string>
+    <string name="productivity">ထုတ္လုပ္မႈ</string>
     <string name="puzzle">ပေဟဠိ</string>
     <string name="quick_start">ျမန္ျမန္စရန္</string>
     <string name="racing">ၿပိဳင္ပြဲ</string>
-    <string name="Reference">ရည်ညွှန်းချက်</string>
     <string name="role_playing">တူေအာင္သ႐ုပ္ေဆာင္ျခင္း</string>
     <string name="simulation">သြင္တူျပဳျခင္း</string>
     <string name="social">လူမႈေရး</string>
@@ -668,18 +667,18 @@
     <string name="multimedia">မီဒီယာေပါင္းစုံ</string>
     <string name="music">ဂီတ</string>
     <string name="music_audio">ဂီတ &amp; အသံ</string>
-    <string name="reference">ရည်ညွှန္းခ်က္</string>
+    <string name="reference">ရည္ညႊန္းခ်က္</string>
     <string name="travel">ခရီးသြားျခင္း</string>
     <string name="libraries_demo">စာၾကည့္တိုက္ႏွင့္ အစမ္း</string>
     <string name="shopping">ေစ်းဝယ္ထြက္ရန္</string>
     <string name="weather">ရာသီဥတု</string>
 
     <string name="latest_applications">ေနာက္ဆုံး Application မ်ား</string>
-    <string name="top_apps_in_store">ယခုစတိုးရှိ ထိပ္တန္း App မ်ား</string>
+    <string name="top_apps_in_store">ယခုစတိုးရွိ ထိပ္တန္း App မ်ား</string>
     <string name="apps_for_kids">ကေလးမ်ားအတြက္ Apps</string>
     <string name="aptoide_publishers">Aptoide စီစဥ္သူမ်ား</string>
-    <string name="music_video">ဂီတ &amp; ဗွီဒီယို</string>
-    <string name="essential_apps">မရှိမဖြစ် Apps များ</string>
+    <string name="music_video">ဂီတ &amp; ဗီဒီယို</string>
+    <string name="essential_apps">မရွိမျဖစ္ Appsမ်ား</string>
     <string name="summer_apps">ေႏြရာသီ Apps</string>
     <string name="play_it">Play-It!</string>
     <string name="add_more_stores">စတိုးေတြထပ္ထည့္ပါ</string>
