@@ -133,7 +133,7 @@
     <string name="community">လူမှုအဖြဲ႕အစည္း</string>
     <string name="application_signature_analysis">Application လက္မွတ္ကုိ ေရးသားသူလက္မွတ္ျဖင့္ႏႈိင္းယွဥ္ျခင္း :</string>
     <string name="stores">စတိုးစာရင္း</string>
-    <string name="updates">အဆင့်မြှင့်တင်ခြင်းများ</string>
+    <string name="updates">အဆင့္ျမွင့္တင္ျခင္းမ်ား</string>
     <string name="social_timeline">လူမႈအသိုင္းအဝိုင္းအေျခအေန</string>
     <string name="application_signature_matched">Application လက္မွတ္သည္ application ေရးသားသူလက္မွတ္ႏွင့္ ကုိက္ညီသည္.</string>
     <string name="downloads">ေဒါင္းလုတ္စာရင္း</string>
@@ -294,7 +294,7 @@
     <string name="permissions_na">ခြင့္ျပဳခ်က္: မရွိပါ</string>
     <string name="additional_permissions">ထပ္မံ ခြင့္ျပဳခ်က္မ်ား</string>
     <string name="no_permissions_required">ယခု apps အတြက္ မည္သည့္ခြင့္ျပဳခ်က္မွ မလိုပါ</string>
-    <string name="restore">Install</string>
+    <string name="restore">တပ္ဆင္မည္</string>
 
     <string name="timeout">ကြန္ရက္ဆက္သြယ္မႈအတြက္ သတ္မွတ္ခ်ိန္ေက်ာ္လြန္သြားပါျပီ</string>
     <string name="ip_blacklisted">ကန္႔သတ္စာရင္းဝင္ IP</string>
