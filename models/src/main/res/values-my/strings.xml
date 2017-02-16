@@ -506,7 +506,7 @@
     <string name="setting_updates_notification_sum">အဆင့္ျမွင့္တင္စရာအသစ္႐ွိပါက သတိေပးပါ</string>
     <string name="setting_updates_notification_title">အဆင့္ျမွင့္တင္စရာအသစ္</string>
     <string name="rollback_downgraded">အဆင့္ေလွ်ာ့ခ်ၿပီးသား</string>
-    <string name="install">ထည့်သွင်းသည်။</string>
+    <string name="install">တပ္ဆင္မည္</string>
     <string name="cannot_uninstall_self">Installer အား uninstall လုပ္လုိ႔မရပါ.</string>
     <string name="at_time">%s တြင္</string>
     <string name="setting_auto_update_sum">Application မ်ားကုိအလုိအေလ်ာက္ အဆင့္ျမွင့္တင္ပါေစ</string>
