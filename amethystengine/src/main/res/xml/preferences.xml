@@ -185,6 +185,7 @@
         android:title="@string/auto_installation">
         <CheckBoxPreference
             android:key="allowRoot"
+            android:defaultValue="true"
             android:title="@string/allow_root" />
     </PreferenceCategory>
 

@@ -150,7 +150,7 @@ public class SearchAppViewHolder extends BaseViewHolder {
             ((GradientDrawable) background).setColor(itemView.getContext().getResources().getColor(themeColor));
         }
 
-        if(appItem.getRepo().equals("qmobile-store")) {
+        if(appItem.getRepo().contains("qmobile")) {
             store.setText(Aptoide.getConfiguration().getMarketName());
         } else {
             store.setText(appItem.getRepo());
