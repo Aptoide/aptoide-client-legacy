@@ -325,8 +325,17 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 
         PendingIntent resultPendingIntent = PendingIntent.getActivity(context, new Random().nextInt(), resultIntent, 0);
 
+        int notificationSmallIcon;
+        if(Aptoide.getConfiguration().getDefaultStore().contains("qmobile")){
+          notificationSmallIcon = R.drawable.ic_stat_aptoide_notification;
+        }
+        else{
+          notificationSmallIcon = R.mipmap.ic_launcher;
+        }
+
+
         Notification notification = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(notificationSmallIcon)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), getDrawableResource()))
                 .setContentIntent(resultPendingIntent)
                 .setOngoing(false)
