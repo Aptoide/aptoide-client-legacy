@@ -7,6 +7,7 @@
  ******************************************************************************/
 package com.aptoide.amethyst;
 
+import android.app.NotificationManager;
 import com.aptoide.amethyst.adapter.DividerItemDecoration;
 import com.aptoide.amethyst.adapter.ScreenshotsAdapter;
 import com.aptoide.amethyst.adapter.SpannableRecyclerAdapter;
@@ -2917,6 +2918,11 @@ public class AppViewActivity extends AptoideBaseActivity implements AddCommentVo
 										  Context context) {
 		Intent appviewIntent = getAppviewIntent(packageName, repo, context);
 		appviewIntent.putExtra(Constants.SHOW_AUTO_INSTALL_POPUP, showPopup);
+		final NotificationManager managerNotification =
+				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		if(managerNotification!=null){
+			managerNotification.cancel(86456);
+		}
 		return appviewIntent;
 	}
 }
