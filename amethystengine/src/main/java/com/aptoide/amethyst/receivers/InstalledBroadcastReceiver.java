@@ -177,9 +177,9 @@ public class InstalledBroadcastReceiver extends BroadcastReceiver {
 
             BusProvider.getInstance().post(new OttoEvents.InstalledApkEvent());
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && context.getPackageManager().getInstallerPackageName(installEvent) == null) {
+            /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && context.getPackageManager().getInstallerPackageName(installEvent) == null) {
                 context.getPackageManager().setInstallerPackageName(installEvent, context.getPackageName());
-            }
+            }*/
         } catch (Exception e) {
             Logger.printException(e);
         }
