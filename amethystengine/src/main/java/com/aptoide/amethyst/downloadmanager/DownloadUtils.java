@@ -252,6 +252,15 @@ public class DownloadUtils {
 
         } catch (Exception e) {
             Logger.printException(e);
+            try {
+                installWithSystem(apk.getPath());
+            } catch (NoSuchMethodException e1) {
+                e1.printStackTrace();
+            } catch (InvocationTargetException e1) {
+                e1.printStackTrace();
+            } catch (IllegalAccessException e1) {
+                e1.printStackTrace();
+            }
         }
     }
 
