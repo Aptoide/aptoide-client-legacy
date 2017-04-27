@@ -18,7 +18,6 @@ import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 import com.aptoide.amethyst.Aptoide;
@@ -123,7 +122,6 @@ public class PushNotificationReceiver extends BroadcastReceiver {
   @Override public void onReceive(final Context context, final Intent intent) {
     String action = intent.getAction();
     if (action != null) {
-      Log.d("lou",action);
       if (action.equals(Intent.ACTION_BOOT_COMPLETED)) {
         setPendingIntents(context);
 
@@ -183,6 +181,8 @@ public class PushNotificationReceiver extends BroadcastReceiver {
                   .getInt(SPREF_PNOTIFICATION_ID, 0);
 
               parameters.put("id", String.valueOf(lastId));
+              parameters.put("aptoide_vercode",
+                  Integer.toString(AptoideUtils.UI.getVerCode(context)));
 
               //HttpContent content = new UrlEncodedContent(parameters);
               //HttpRequest httpRequest = AndroidHttp.newCompatibleTransport().createRequestFactory().buildPostRequest(url, content);
@@ -230,7 +230,7 @@ public class PushNotificationReceiver extends BroadcastReceiver {
               PreferenceManager.getDefaultSharedPreferences(context)
                   .edit()
                   .putInt(SPREF_PNOTIFICATION_ID, lastId)
-                  .commit();
+                  .apply();
             } catch (Exception e) {
               e.printStackTrace();
             }
@@ -292,17 +292,13 @@ public class PushNotificationReceiver extends BroadcastReceiver {
   }
 
   private void loadNotification(Bundle extra, Context context, Bitmap o) {
-    //        Log.i("PushNotificationReceiver", o == null ? "Image was null" : "Image was good");
-    //        Log.i("PushNotificationReceiver", "Title: " + extra.getCharSequence(PUSH_NOTIFICATION_TITLE));
-    //        Log.i("PushNotificationReceiver", "Msg: " + extra.getCharSequence(PUSH_NOTIFICATION_MSG));
-    //        Log.i("PushNotificationReceiver", "URL: " + extra.getCharSequence(PUSH_NOTIFICATION_EXTERNAL_URL));
-
-    //Intent resultIntent = new Intent(PUSH_NOTIFICATION_Action_TRACK_URL);
-
     String url = extra.getString(PUSH_NOTIFICATION_EXTERNAL_URL);
-    Intent resultIntent = new Intent(Intent.ACTION_VIEW);
-    resultIntent.putExtra("CLOSE_PUSH_NOTIFICATION",true);
-    resultIntent.setData(Uri.parse(url));
+    Intent resultIntent = new Intent();
+    if (url != null) {
+      resultIntent = new Intent(Intent.ACTION_VIEW);
+      resultIntent.setData(Uri.parse(url));
+    }
+    resultIntent.addFlags(Notification.FLAG_AUTO_CANCEL);
 
     //resultIntent.putExtra(PUSH_NOTIFICATION_TRACK_URL, extra.getString(PUSH_NOTIFICATION_TRACK_URL));
     //resultIntent.putExtra(PUSH_NOTIFICATION_EXTERNAL_URL, extra.getString(PUSH_NOTIFICATION_EXTERNAL_URL));
@@ -333,7 +329,6 @@ public class PushNotificationReceiver extends BroadcastReceiver {
       /**
        * https://code.google.com/p/android/issues/detail?id=30495 bug from android on api 24
        */
-      //Log.d("PushNotificationReceiver", "is 16 or more, BIG!!!");
       RemoteViews expandedView =
           new RemoteViews(context.getPackageName(), R.layout.pushnotificationlayout);
       expandedView.setBitmap(R.id.PushNotificationImageView, "setImageBitmap", o);

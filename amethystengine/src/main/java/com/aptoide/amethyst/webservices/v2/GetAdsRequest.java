@@ -87,7 +87,7 @@ public class GetAdsRequest extends RetrofitSpiceRequest<ApkSuggestionJson, GetAd
             mature = "1";
         }
 
-        parameters.put("aptvercode", String.valueOf(AptoideUtils.getSharedPreferences().getInt("version", 0)));
+        parameters.put("aptvercode", String.valueOf(Integer.valueOf(AptoideUtils.UI.getVerCode(Aptoide.getContext()))));
         parameters.put("location","native-aptoide:" + location);
         parameters.put("type", "1-3");
 
