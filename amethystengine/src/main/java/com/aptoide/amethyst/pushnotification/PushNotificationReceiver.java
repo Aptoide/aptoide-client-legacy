@@ -195,6 +195,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
                             int lastId = PreferenceManager.getDefaultSharedPreferences(context).getInt(SPREF_PNOTIFICATION_ID,0);
 
                             parameters.put("id", String.valueOf(lastId));
+                            parameters.put("aptoide_vercode", Integer.toString(AptoideUtils.UI.getVerCode(context)));
 
 
 
@@ -244,7 +245,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 
 
 
-                            PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(SPREF_PNOTIFICATION_ID, lastId).commit();
+                            PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(SPREF_PNOTIFICATION_ID, lastId).apply();
 
 
                         } catch (Exception e){
@@ -312,7 +313,13 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 //        Log.i("PushNotificationReceiver", "Msg: " + extra.getCharSequence(PUSH_NOTIFICATION_MSG));
 //        Log.i("PushNotificationReceiver", "URL: " + extra.getCharSequence(PUSH_NOTIFICATION_EXTERNAL_URL));
 
-        Intent resultIntent = new Intent(PUSH_NOTIFICATION_Action_TRACK_URL);
+      String url = extra.getString(PUSH_NOTIFICATION_EXTERNAL_URL);
+      Intent resultIntent = new Intent();
+      if (url != null) {
+        resultIntent = new Intent(Intent.ACTION_VIEW);
+        resultIntent.setData(Uri.parse(url));
+      }
+      resultIntent.addFlags(Notification.FLAG_AUTO_CANCEL);
 
 
         resultIntent.putExtra(PUSH_NOTIFICATION_TRACK_URL, extra.getString(PUSH_NOTIFICATION_TRACK_URL));
