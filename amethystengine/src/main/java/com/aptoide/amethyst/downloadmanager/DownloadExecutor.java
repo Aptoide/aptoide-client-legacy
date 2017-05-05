@@ -177,14 +177,11 @@ public class DownloadExecutor implements Serializable {
 
         }
         if (Aptoide.IS_SYSTEM) {
-            try {
-                DownloadUtils.installWithSystem(apk.getPath().toString());
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+            if (sPref.getBoolean("allowRoot", true)) {
+                DownloadUtils.installWithRoot(apk);
+            }
+            else{
+              installNoRootAllowed(context);
             }
         }
         else if ((sPref.getBoolean("allowRoot", true) && DownloadUtils.canRunRootCommands() && !apk.getApkid().equals(context.getPackageName()))) {
@@ -195,19 +192,23 @@ public class DownloadExecutor implements Serializable {
                 context.startActivity(i);
         }
         else {
-            File file = new File(path);
-            if (path.contains(Aptoide.getContext().getFilesDir().getPath())) {
-                file.setReadable(true, false);
-                Aptoide.getConfiguration().resetPathCacheApks();
-            }
-            Intent install = new Intent(Intent.ACTION_VIEW);
-            install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            if (Build.VERSION.SDK_INT >= 14)
-                install.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, context.getPackageName());
-            install.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-            Logger.d("Aptoide", "Installing app: " + path);
-            context.startActivity(install);
+          installNoRootAllowed(context);
         }
+    }
+
+    private void installNoRootAllowed(Context context){
+        File file = new File(path);
+        if (path.contains(Aptoide.getContext().getFilesDir().getPath())) {
+            file.setReadable(true, false);
+            Aptoide.getConfiguration().resetPathCacheApks();
+        }
+        Intent install = new Intent(Intent.ACTION_VIEW);
+        install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (Build.VERSION.SDK_INT >= 14)
+            install.putExtra(Intent.EXTRA_INSTALLER_PACKAGE_NAME, context.getPackageName());
+        install.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+        Logger.d("Aptoide", "Installing app: " + path);
+        context.startActivity(install);
     }
 
 }
