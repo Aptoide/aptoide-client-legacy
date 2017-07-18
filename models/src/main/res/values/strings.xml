@@ -222,7 +222,7 @@
     <string name="facebook_logout_and_login">Logout and Login with Facebook</string>
 
     <string name="schDown_nodownloadselect">No Downloads Selected</string>
-    <string name="no_sch_downloads">Browsing apps using mobile data and want to download later when you’re on a wifi connection? Use Schedule downloads and change your preferences on Settings -&gt; General Download Rules - to WiFi.</string>
+    <string name="no_sch_downloads">Browsing apps using mobile data and want to download later when you’re on a Wi-Fi connection? Use Schedule downloads and change your preferences on Settings -&gt; General Download Rules - to Wi-Fi.</string>
     <string name="schDown_installselected">Install Selected</string>
     <string name="schDown_removeselected">Remove Selected</string>
     <string name="schDown_invertselection">Invert Selection</string>
@@ -397,7 +397,7 @@
     <string name="settings_dwn_network_rules">Mobile Network Options</string>
     <string name="setting_sum_icon_download_rules">Allow icons being downloaded over mobile data connections</string>
     <string name="setting_icon_download_rules">Icon Download Rules</string>
-    <string name="setting_wifi">WiFi</string>
+    <string name="setting_wifi">Wi-Fi</string>
     <string name="setting_mobile">Mobile 3G/4G</string>
     <string name="setting_3g">3G</string>
     <string name="setting_4g">4G</string>
@@ -421,7 +421,7 @@
     <string name="setting_auto_update_title">Enable auto update</string>
     <string name="show_all_updates">Don\'t show updates for applications with different signatures</string>
     <string name="setting_allUpdates_filtering">Filter Updates</string>
-    <string name="setting_schdwninstallsum">Install scheduled downloads automatically when a WiFi connection is present</string>
+    <string name="setting_schdwninstallsum">Install scheduled downloads automatically when a Wi-Fi connection is present</string>
     <string name="setting_schdwninstalltitle">Automatic Install</string>
     <string name="setting_clear_memory">Clear Memory</string>
     <string name="clearcontent_title">Remove data and configurations</string>
